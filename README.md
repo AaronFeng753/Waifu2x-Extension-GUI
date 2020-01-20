@@ -1,9 +1,9 @@
 # Under development, will soon open source and release Beta.😆
 # Waifu2x-Extension-GUI
-## [Download](https://github.com/AaronFeng753/Waifu2x-Extension/releases/latest)
-https://github.com/AaronFeng753/Waifu2x-Extension/releases/latest
-## [User Guide](https://github.com/AaronFeng753/Waifu2x-Extension/blob/master/User_Guide.md)
-https://github.com/AaronFeng753/Waifu2x-Extension/blob/master/User_Guide.md
+## [Download](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+## [User Guide](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/User_Guide.md)
+https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/User_Guide.md
 # What is Waifu2x-Extension?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
