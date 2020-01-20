@@ -9,9 +9,9 @@ https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/User_Guide.md
 
 Based on `Waifu2x-ncnn-vulkan` and `Waifu2x-converter` . 
 
-Thanks to waifu2x-ncnn-vulkan, Waifu2x-Extension could use any kind of gpu that support `Vulkan`, even Intel GPU. 
+Thanks to waifu2x-ncnn-vulkan, Waifu2x-Extension-GUI could use any kind of gpu that support `Vulkan`, even Intel GPU. 
 
-If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into the Waifu2x-Extension.
+If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into the Waifu2x-Extension-GUI.
 
 #### Already been tested on `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
