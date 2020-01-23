@@ -1,4 +1,3 @@
-# Under development, will soon open source and release Beta.😆
 # Waifu2x-Extension-GUI
 ## [Download](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
