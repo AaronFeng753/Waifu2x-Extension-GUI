@@ -101,5 +101,3 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 ## If this extension helps you, please donate to support developers.
 
 ![donate](/donate.jpg)
-
-### Note: The user agreement of the software is modified based on the MIT protocol, allowing others to make secondary modifications to the software or to use the software-processed images, gifs, and videos for commercial purposes (via the consent of the original author of the image, gif, and video content) However, it is forbidden to use the software for commercial use after the second modification, including but not limited to secondary packaging and sales(for example: sale this software on Taobao or Ebay), integrated in other charging software. After the second modification, the source code must be disclosed. For details, please refer to the built-in user agreement. When you open the software, or modify the software, you agree to the software built-in agreement.
