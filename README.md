@@ -12,7 +12,7 @@ Thanks to waifu2x-ncnn-vulkan, Waifu2x-Extension-GUI could use any kind of gpu t
 
 If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into the Waifu2x-Extension-GUI.
 
-![mainwindow](/Screenshot/mainwindow.png)
+![mainwindow](/Screenshot/mainwindow.jpg)
 
 #### Already been tested on `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
