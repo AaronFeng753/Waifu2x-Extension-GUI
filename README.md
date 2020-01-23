@@ -2,6 +2,7 @@
 #### Download: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 #### Change log: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md
 #### Donation list: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+#### 如果您看不到README内的图片,请[打开此链接查看码云内存储的README.md](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README.md)
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
