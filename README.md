@@ -15,10 +15,10 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 #### Already been tested on `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
 # Features
-- Much more friendly GUI.
+- Easy to use GUI interface.
 - Achieved with `waifu2x-ncnn-vulkan`, `waifu2x-converter` and `Anime4K`.
 - Support both `2D Anime-style` image and `3D Real-life` image
-- Support 1x/2x/4x/8x/.... magnification
+- Support 1x/2x/3x/4x/..../999999999x magnification
 - Batch enlarge still `images` and `GIF` dynamic images (Waifu2x-ncnn-vulkan & Waifu2x-converter)
 - Batch enlarge `video` files (Waifu2x-ncnn-vulkan & Waifu2x-converter & Anime 4k)
 - Save the enlarged image target as .jpg
@@ -26,8 +26,10 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - Optimize enlarged GIF dynamic images to reduce space usage
 - Display processing progress and remaining time
 - Smart selection of models
-- Multi-thread
-- Notification sound
+- Batch process pictures, GIF and video files.
+- Flexible multi-thread management
+- Continually updated
+- Compatibility test
 - And more
 
 # How to fix compatibility issue :
