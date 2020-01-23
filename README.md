@@ -100,7 +100,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 # `Donate`
 
-### Donation list: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+### [Donation list](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
 
 #### If this extension helps you, please donate to support developers.
 #### 如果您看不到donate(捐赠)二维码图片,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI#donate)
