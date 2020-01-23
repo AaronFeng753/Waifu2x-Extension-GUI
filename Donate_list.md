@@ -1,3 +1,7 @@
+# Donation List
+
+Sort by donation time.
+
 Name(or ID) | Donation amount | Time
 | - | :-: | -: |
 | 凯腾2333 | 10rmd | 2020/1/23 |
