@@ -25,6 +25,7 @@
 #include <QMovie>
 #include <QTimer>
 #include <QTextCursor>
+#include <QMessageBox>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -44,27 +45,30 @@ public:
     //=================================  File =================================
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
+    bool AddNew_gif=false;
+    bool AddNew_image=false;
+    bool AddNew_video=false;
     void Add_File_Folder(QString Full_Path);
     QStringList getFileNames(QString path);
-    int FileList_Add(QString fileName, QString fullPath);
+    int FileList_Add(QString fileName, QString SourceFile_fullPath);
 
-    QList<QMap<QString, QString>> FileList_image;//map["fullPath"],map["rowNum"]
+    QList<QMap<QString, QString>> FileList_image;//map["SourceFile_fullPath"],map["rowNum"]
     QList<QMap<QString, QString>> FileList_gif;
     QList<QMap<QString, QString>> FileList_video;
 
-    QList<QMap<QString, QString>> FileList_image_finished;//map["fullPath"],map["rowNum"]
+    QList<QMap<QString, QString>> FileList_image_finished;//map["SourceFile_fullPath"],map["rowNum"]
     QList<QMap<QString, QString>> FileList_gif_finished;
     QList<QMap<QString, QString>> FileList_video_finished;
 
-    bool Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString fullPath);
+    bool Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString SourceFile_fullPath);
     int FileList_remove(QMap<QString, QString> File_map);
     QMap<QString, QString> FileList_find_rowNum(QList<QMap<QString, QString>> FileList, int rowNum);
 
     void RecFinedFiles();
     void MovToFinedList();
 
-    bool file_isDirExist(QString fullPath);
-    void file_mkDir(QString fullPath);
+    bool file_isDirExist(QString SourceFile_fullPath);
+    void file_mkDir(QString SourceFile_fullPath);
     bool file_isFileExist(QString fullFilePath);
     void file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist);
     QStringList file_getFileNames_in_Folder_nofilter(QString path);
@@ -76,9 +80,17 @@ public:
     QStandardItemModel *Table_model_video = new QStandardItemModel();
     QStandardItemModel *Table_model_gif = new QStandardItemModel();
 
-    void Table_image_insert_fileName_fullPath(QString fileName, QString fullPath);
-    void Table_gif_insert_fileName_fullPath(QString fileName, QString fullPath);
-    void Table_video_insert_fileName_fullPath(QString fileName, QString fullPath);
+    void Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+    void Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+    void Table_video_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+
+    void Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+    void Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+    void Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+
+    void Table_image_CustRes_Cancel_rowNumInt(int rowNum);
+    void Table_gif_CustRes_Cancel_rowNumInt(int rowNum);
+    void Table_video_CustRes_Cancel_rowNumInt(int rowNum);
 
     void Table_ChangeAllStatusToWaiting();
     void Table_Clear();
@@ -91,15 +103,19 @@ public:
 
     QMap<QString, QString> Table_Read_status_fullpath(QStandardItemModel *Table_model);
 
+    int curRow_image = -1;
+    int curRow_gif = -1;
+    int curRow_video = -1;
+
     //================================= Waifu2x ====================================
     int Waifu2xMainThread();
     int Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map);
 
     int Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map);
-    int Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_gif_ThreadNumRunning);
+    int Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning);
 
     int Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map);
-    int Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_video_ThreadNumRunning);
+    int Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
 
     int Anime4k_Video(QMap<QString, QString> File_map);
     int Anime4k_Video_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_video_ThreadNumRunning);
@@ -149,7 +165,17 @@ public:
     int video_get_fps(QString videoPath);
     int video_get_frameNumDigits(QString videoPath);
     void video_video2images(QString VideoPath,QString FrameFolderPath);
-    int video_images2video(QString VideoPath,QString ScaledFrameFolderPath);
+    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath);
+
+    //============================   custom res  ====================================
+    QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
+    void CustRes_remove(QString fullpath);
+    bool CustRes_isContained(QString fullpath);
+    QMap<QString, QString> CustRes_getResMap(QString fullpath);
+    int CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int width_new);
+    int CustRes_SetCustRes();
+    int CustRes_CancelCustRes();
+
 
     //================================ Other =======================================
     bool SystemShutDown();
@@ -220,6 +246,18 @@ private slots:
 
     void on_pushButton_compatibilityTest_clicked();
     int Waifu2x_Compatibility_Test_finished();
+
+    void on_tableView_image_clicked(const QModelIndex &index);
+
+    void on_tableView_gif_clicked(const QModelIndex &index);
+
+    void on_tableView_video_clicked(const QModelIndex &index);
+
+    void on_pushButton_CustRes_apply_clicked();
+
+    void on_pushButton_CustRes_cancel_clicked();
+
+    void on_pushButton_HideSettings_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

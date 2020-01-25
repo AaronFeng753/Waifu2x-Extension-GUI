@@ -1,4 +1,23 @@
-﻿#include "mainwindow.h"
+﻿/*
+    Copyright (C) 2020  Aaron Feng
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    My Github homepage: https://github.com/AaronFeng753
+*/
+
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -88,6 +107,9 @@ QString MainWindow::Seconds2hms(int seconds)
 
 void MainWindow::on_pushButton_ClearList_clicked()
 {
+    curRow_image = -1;
+    curRow_gif = -1;
+    curRow_video = -1;
     Table_Clear();
     FileList_image.clear();
     FileList_gif.clear();
@@ -136,6 +158,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_CompressJPG->setEnabled(0);
         ui->checkBox_DelOriginal->setEnabled(0);
         ui->checkBox_ReProcFinFiles->setEnabled(0);
+        ui->pushButton_compatibilityTest->setEnabled(0);
         progressbar_clear();
         TimeCostTimer->start(1000);
         TimeCost=0;
@@ -171,7 +194,7 @@ void MainWindow::Wait_waifu2x_stop()
 
 void MainWindow::on_pushButton_RemoveItem_clicked()
 {
-    int curRow_image = ui->tableView_image->currentIndex().row();
+    RecFinedFiles();
     if(curRow_image >= 0)
     {
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, curRow_image);
@@ -183,7 +206,6 @@ void MainWindow::on_pushButton_RemoveItem_clicked()
     }
     ui->tableView_image->clearSelection();
     //============================================================
-    int curRow_video = ui->tableView_video->currentIndex().row();
     if(curRow_video >= 0)
     {
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_video, curRow_video);
@@ -195,7 +217,6 @@ void MainWindow::on_pushButton_RemoveItem_clicked()
     }
     ui->tableView_video->clearSelection();
     //============================================================
-    int curRow_gif = ui->tableView_gif->currentIndex().row();
     if(curRow_gif >= 0)
     {
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_gif, curRow_gif);
@@ -206,6 +227,13 @@ void MainWindow::on_pushButton_RemoveItem_clicked()
         }
     }
     ui->tableView_gif->clearSelection();
+    if(!ui->checkBox_ReProcFinFiles->checkState())
+    {
+        MovToFinedList();
+    }
+    curRow_image = -1;
+    curRow_gif = -1;
+    curRow_video = -1;
 }
 
 void MainWindow::on_checkBox_ReProcFinFiles_stateChanged(int arg1)
@@ -416,10 +444,65 @@ void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
 {
     int size = ui->spinBox_textbrowser_fontsize->value();
     ui->textBrowser->setStyleSheet("font: "+QString::number(size,10)+"pt \"Arial\";");
+    ui->textBrowser->moveCursor(QTextCursor::End);
 }
 
 void MainWindow::on_pushButton_compatibilityTest_clicked()
 {
     ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
     QtConcurrent::run(this, &MainWindow::Waifu2x_Compatibility_Test);
+}
+
+void MainWindow::on_tableView_image_clicked(const QModelIndex &index)
+{
+    curRow_image = ui->tableView_image->currentIndex().row();
+    curRow_gif = -1;
+    curRow_video = -1;
+    ui->tableView_gif->clearSelection();
+    ui->tableView_video->clearSelection();
+}
+
+void MainWindow::on_tableView_gif_clicked(const QModelIndex &index)
+{
+    curRow_image = -1;
+    curRow_gif = ui->tableView_gif->currentIndex().row();
+    curRow_video = -1;
+    ui->tableView_image->clearSelection();
+    ui->tableView_video->clearSelection();
+}
+
+void MainWindow::on_tableView_video_clicked(const QModelIndex &index)
+{
+    curRow_image = -1;
+    curRow_gif = -1;
+    curRow_video = ui->tableView_video->currentIndex().row();
+    ui->tableView_image->clearSelection();
+    ui->tableView_gif->clearSelection();
+}
+
+void MainWindow::on_pushButton_CustRes_apply_clicked()
+{
+    CustRes_SetCustRes();
+}
+
+void MainWindow::on_pushButton_CustRes_cancel_clicked()
+{
+    CustRes_CancelCustRes();
+}
+
+void MainWindow::on_pushButton_HideSettings_clicked()
+{
+    if(ui->groupBox_Setting->isVisible())
+    {
+        ui->groupBox_Setting->setVisible(0);
+        ui->pushButton_HideSettings->setText("Show settings");
+        ui->pushButton_HideSettings->setToolTip("Show all setting options.");
+    }
+    else
+    {
+        ui->groupBox_Setting->setVisible(1);
+        ui->pushButton_HideSettings->setText("Hide settings");
+        ui->pushButton_HideSettings->setToolTip("Hide all setting options.");
+    }
 }

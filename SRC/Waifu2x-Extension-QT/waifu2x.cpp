@@ -1,4 +1,23 @@
-﻿#include "mainwindow.h"
+﻿/*
+    Copyright (C) 2020  Aaron Feng
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    My Github homepage: https://github.com/AaronFeng753
+*/
+
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 int MainWindow::Waifu2xMainThread()
@@ -197,6 +216,7 @@ void MainWindow::Waifu2x_Finished_manual()
     }
     ui->checkBox_DelOriginal->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(0);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;
@@ -232,7 +252,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-ncnn-vulkan: No.");
+        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]");
     }
     QFile::remove(OutputPath);
     //================
@@ -250,7 +270,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-converter: No.");
+        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]");
     }
     QFile::remove(OutputPath);
     //===============
@@ -267,7 +287,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Compatible with Anime4k: No.");
+        emit Send_TextBrowser_NewMessage("Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]");
     }
     QFile::remove(OutputPath);
     //===============
@@ -279,6 +299,8 @@ int MainWindow::Waifu2x_Compatibility_Test()
 int MainWindow::Waifu2x_Compatibility_Test_finished()
 {
     ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    return 0;
 }
 
 

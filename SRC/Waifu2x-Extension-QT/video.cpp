@@ -1,4 +1,23 @@
-﻿#include "mainwindow.h"
+﻿/*
+    Copyright (C) 2020  Aaron Feng
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    My Github homepage: https://github.com/AaronFeng753
+*/
+
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 
@@ -72,7 +91,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath)
     video_splitSound.waitForFinished();
 }
 
-int MainWindow::video_images2video(QString VideoPath,QString ScaledFrameFolderPath)
+int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath)
 {
     QString Current_Path = qApp->applicationDirPath();
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
@@ -83,10 +102,10 @@ int MainWindow::video_images2video(QString VideoPath,QString ScaledFrameFolderPa
         video_dir = video_dir.left(video_dir.length() - 1);
     }
     QString video_filename = vfinfo.baseName();
-    QString video_mp4_scaled_fullpath = video_dir+"/"+video_filename+"_waifu2x.mp4";
     int fps = video_get_fps(VideoPath);
     if(fps<=0)
     {
+        emit Send_TextBrowser_NewMessage("Error occured when processing ["+VideoPath+"]. Error: [Unable to get video frame rate.]");
         return 0;
     }
     QString AudioPath = video_dir+"/audio_waifu2x.wav";

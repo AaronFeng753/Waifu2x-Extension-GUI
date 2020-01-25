@@ -1,4 +1,23 @@
-﻿#include "mainwindow.h"
+﻿/*
+    Copyright (C) 2020  Aaron Feng
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+    My Github homepage: https://github.com/AaronFeng753
+*/
+
+#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
 void MainWindow::dragEnterEvent(QDragEnterEvent *event)
@@ -15,14 +34,42 @@ void MainWindow::dropEvent(QDropEvent *event)
         return;
     foreach(QUrl url, urls)
     {
-        ui->label_DropFile->setVisible(0);//隐藏文件投放label
-        ui->tableView_gif->setVisible(1);
-        ui->tableView_image->setVisible(1);
-        ui->tableView_video->setVisible(1);
-        ui->pushButton_ClearList->setVisible(1);
-        ui->pushButton_RemoveItem->setVisible(1);
+        AddNew_gif=false;
+        AddNew_image=false;
+        AddNew_video=false;
         Add_File_Folder(url.toLocalFile());
     }
+    if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
+    {
+        QMessageBox::information(this,"Error","The file format is not supported, please enter supported file format, or add more file extensions yourself.");
+    }
+    else
+    {
+        if(AddNew_image)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_image->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+        if(AddNew_gif)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_gif->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+        if(AddNew_video)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_video->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+    }
+    AddNew_image=false;
+    AddNew_image=false;
+    AddNew_video=false;
 }
 
 void MainWindow::Add_File_Folder(QString Full_Path)
@@ -49,11 +96,14 @@ void MainWindow::Add_File_Folder(QString Full_Path)
     {
         QStringList FileNameList = getFileNames(Full_Path);
         QString Full_Path_File = "";
-        for(int i = 0; i < FileNameList.size(); i++)
+        if(!FileNameList.isEmpty())
         {
-            QString tmp = FileNameList.at(i);
-            Full_Path_File = Full_Path + "/" + tmp;
-            FileList_Add(tmp, Full_Path_File);
+            for(int i = 0; i < FileNameList.size(); i++)
+            {
+                QString tmp = FileNameList.at(i);
+                Full_Path_File = Full_Path + "/" + tmp;
+                FileList_Add(tmp, Full_Path_File);
+            }
         }
     }
 }
@@ -83,24 +133,25 @@ QStringList MainWindow::getFileNames(QString path)
     return files;
 }
 
-int MainWindow::FileList_Add(QString fileName, QString fullPath)
+int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
 {
     QString fileType;
-    QFileInfo fileinfo(fullPath);
+    QFileInfo fileinfo(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     //============================  判断是否为图片 ===============================
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
     if (nameFilters_image.contains(file_ext))
     {
+        AddNew_image=true;
         int rowNum = Table_image_get_rowNum();
         QMap<QString, QString> map;
-        map["fullPath"] = fullPath;
+        map["SourceFile_fullPath"] = SourceFile_fullPath;
         map["rowNum"] = QString::number(rowNum, 10);
-        if(!Deduplicate_filelist(FileList_image, fullPath))
+        if(!Deduplicate_filelist(FileList_image, SourceFile_fullPath))
         {
             FileList_image.append(map);
-            Table_image_insert_fileName_fullPath(fileName, fullPath);
+            Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
@@ -109,37 +160,39 @@ int MainWindow::FileList_Add(QString fileName, QString fullPath)
     QStringList nameFilters_video = Ext_video_str.split(":");
     if (nameFilters_video.contains(file_ext))
     {
+        AddNew_video=true;
         int rowNum = Table_video_get_rowNum();
         QMap<QString, QString> map;
-        map["fullPath"] = fullPath;
+        map["SourceFile_fullPath"] = SourceFile_fullPath;
         map["rowNum"] = QString::number(rowNum, 10);
-        if(!Deduplicate_filelist(FileList_video, fullPath))
+        if(!Deduplicate_filelist(FileList_video, SourceFile_fullPath))
         {
             FileList_video.append(map);
-            Table_video_insert_fileName_fullPath(fileName, fullPath);
+            Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
     //============================  最后只能是gif ===============================
     int rowNum = Table_gif_get_rowNum();
     QMap<QString, QString> map;
-    map["fullPath"] = fullPath;
+    map["SourceFile_fullPath"] = SourceFile_fullPath;
     map["rowNum"] = QString::number(rowNum, 10);
-    if(!Deduplicate_filelist(FileList_gif, fullPath))
+    if(!Deduplicate_filelist(FileList_gif, SourceFile_fullPath))
     {
+        AddNew_gif=true;
         FileList_gif.append(map);
-        Table_gif_insert_fileName_fullPath(fileName, fullPath);
+        Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
     }
     return 0;
 }
 
-bool MainWindow::Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString fullPath)
+bool MainWindow::Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString SourceFile_fullPath)
 {
     if(FileList.isEmpty())return false;
     for ( int i = 0; i != FileList.size(); ++i )
     {
         QMap<QString, QString> File_map = FileList.at(i);
-        if(File_map["fullPath"] == fullPath)
+        if(File_map["SourceFile_fullPath"] == SourceFile_fullPath)
         {
             return true;
         }
@@ -172,12 +225,15 @@ QMap<QString, QString> MainWindow::FileList_find_rowNum(QList<QMap<QString, QStr
     QString rowNum_QS = QString::number(rowNum, 10);
     for ( int i = 0; i != FileList.size(); ++i )
     {
-        QMap<QString, QString> File_map = FileList_image.at(i);
+        QMap<QString, QString> File_map = FileList.at(i);
         if(File_map["rowNum"] == rowNum_QS)
         {
             return File_map;
         }
     }
+    QMap<QString, QString> emptymap;
+    emptymap.clear();
+    return emptymap;
 }
 
 void MainWindow::RecFinedFiles()
@@ -263,9 +319,9 @@ void MainWindow::MovToFinedList()
     }
 }
 
-bool MainWindow::file_isDirExist(QString fullPath)
+bool MainWindow::file_isDirExist(QString SourceFile_fullPath)
 {
-    QDir dir(fullPath);
+    QDir dir(SourceFile_fullPath);
     if(dir.exists())
     {
         return true;
@@ -273,12 +329,12 @@ bool MainWindow::file_isDirExist(QString fullPath)
     return false;
 }
 
-void MainWindow::file_mkDir(QString fullPath)
+void MainWindow::file_mkDir(QString SourceFile_fullPath)
 {
-    QDir dir(fullPath);
+    QDir dir(SourceFile_fullPath);
     if(dir.exists() == false)
     {
-        dir.mkdir(fullPath);
+        dir.mkdir(SourceFile_fullPath);
     }
 }
 
