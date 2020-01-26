@@ -16,23 +16,21 @@
 
 #### 已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
 
-# Features
-- Easy to use GUI interface.
-- Achieved with `waifu2x-ncnn-vulkan`, `waifu2x-converter` and `Anime4K`.
-- Support both `2D Anime-style` image and `3D Real-life` image
-- Support 1x/2x/3x/4x/..../999999999x magnification
-- Batch enlarge still `images` and `GIF` dynamic images (Waifu2x-ncnn-vulkan & Waifu2x-converter)
-- Batch enlarge `video` files (Waifu2x-ncnn-vulkan & Waifu2x-converter & Anime 4k)
-- Save the enlarged image target as .jpg
-- Lossless compression of .jpg images after the target is saved
-- Optimize enlarged GIF dynamic images to reduce space usage
-- Display processing progress and remaining time
-- Smart selection of models
-- Batch process pictures, GIF and video files.
-- Flexible multi-thread management
-- Continually updated
-- Compatibility test
-- And more
+# 主要特性
+- 简单易用的图形用户界面
+- 支持批量处理静态图片，gif和视频
+- 支持动漫风格和3D写实风格的图像（即支持所有图像风格）
+- 集成多个引擎，强大的硬件兼容性，支持借助NVIDIA、Intel、AMD进行运算
+- 无限放大倍数
+- 自定义输出分辨率（支持图片&GIF&视频）
+- 灵活的多线程管理
+- 支持将放大&降噪后的图片另存为.jpg并自动进行无损压缩
+- 支持对放大&降噪后的gif自动进行体积优化
+- 兼容性测试
+- 多语言（支持简体中文）
+- 支持存储个性化设置并在启动时自动应用
+- 持续更新
+- 以及更多
 
 # Samples
 ### **`Image`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
