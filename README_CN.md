@@ -1,7 +1,7 @@
 # Waifu2x-Extension-GUI
 #### 下载: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 #### 更新日志: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md
-#### 捐赠名单: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+#### 捐赠列表: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
 #### 如果README内的图片无法正常加载,请[打开此链接查看码云内存储的README.md](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README.md)或者合法的连接国际网络后刷新页面, 当然您也可以[按照这个教程来尝试修复github图片加载的问题](https://github.com/AaronFeng753/Github_dns_hosts#github_dns_hosts).
 # Waifu2x-Extension-GUI是什么?
  借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
@@ -32,43 +32,43 @@
 - 持续更新
 - 以及更多
 
-# Samples
-### **`Image`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
+# 示例
+### **`图片`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
-### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
+### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 ### **`GIF`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/gif
 
-#### Original 2D Anime Imgae 480x300 (.jpg 93.2 KB):
+#### 原图 2D动漫图片 480x300 (.jpg 93.2 KB):
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
-#### After 8x magnification, level 3 denoise and compress 3840x2400 (.jpg 525 KB):
+#### 经过8x放大, 3级降噪和压缩后 3840x2400 (.jpg 525 KB):
 ![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
 
-#### Comparison
+#### 对比
 ![Comparison](/Samples/image/Comparison.png)
 
-#### Original 3D Real-life Imgae 800x535 (.jpg 81.4 KB):
+#### 原图 3D写实图片 800x535 (.jpg 81.4 KB):
 ![Original Imgae](/Samples/image/deer.jpg)
 
-#### After 4x magnification, level 2 denoise and compress 3200x2140 (.jpg 881 KB):
+#### 经过4x放大,2级降噪和压缩后 3200x2140 (.jpg 881 KB):
 ![Scaled Imgae](/Samples/image/deer_Waifu2x.jpg)
 
-#### Original GIF 500 x 372 (493 KB):
+#### 原图 GIF 500 x 372 (493 KB):
 ![Original GIF](/Samples/gif/2_original.gif)
 
-#### After 2x magnification, level 2 denoise and gif optimize 1000 x 744 (3.77 MB):
+#### 经过2x放大,2级降噪和gif优化后 1000 x 744 (3.77 MB):
 ![Original GIF](/Samples/gif/2_waifu2x_compressed.gif)
 
-### `Github doesn't support play video online, pls check link below:`
-### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
+### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
+### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# How to fix compatibility issue :
-#### waifu2x-ncnn-vulkan: Re-install gpu driver or update it to the latest.
-#### waifu2x-converter: Buy a new computer.
-#### Anime4k: Install the latest JDK and JRE
+# 如何修复兼容性问题 :
+#### waifu2x-ncnn-vulkan: 重装与更新显卡驱动.
+#### waifu2x-converter: 换个新电脑.
+#### Anime4k: 安装最新版的 JDK and JRE
 
-# Integrated component(In releases):
+# 集成组件(releases内):
 - waifu2x-ncnn-vulkan version Nov 4, 2019
 
 - Anime4K Java v0.9 Beta
@@ -81,7 +81,7 @@
 
 - ImageMagick 7.0.9-12-portable-Q16-x64
 
-# Credits:
+# 鸣谢:
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 
 - FFmpeg: https://ffmpeg.org/
@@ -96,7 +96,7 @@
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
-# `Donate`
-### [Donation list](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
+# `捐赠`
+### [捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
 #### 如果donate(捐赠)二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate.jpg)或者合法的连接国际网络后刷新页面, 当然您也可以[按照这个教程来尝试修复github图片加载的问题](https://github.com/AaronFeng753/Github_dns_hosts#github_dns_hosts).
 ![donate](/donate.jpg)
