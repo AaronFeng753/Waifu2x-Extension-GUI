@@ -1,4 +1,5 @@
 # Waifu2x-Extension-GUI
+### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
 #### Download: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 #### Change log: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md
 #### Donation list: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
