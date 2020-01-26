@@ -45,6 +45,27 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
         return 0;
     }
     */
+    //=======================================================
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        if(ScaleRatio==0)
+        {
+            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            status = "Failed";
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;
+        }
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+    }
+    //=======================================================
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = fileinfo.baseName();
     QString file_ext = fileinfo.suffix();
@@ -91,6 +112,45 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
         ThreadNumRunning--;
         return 0;
     }
+    //============================ 调整大小 ====================================================
+    if(CustRes_isEnabled)
+    {
+        QImage qimage_original;
+        qimage_original.load(SourceFile_fullPath);
+        int New_height=0;
+        int New_width=0;
+        if(CustRes_isEnabled)
+        {
+            New_height= CustRes_height;
+            New_width= CustRes_width;
+        }
+        else
+        {
+            New_height = qimage_original.height()*ScaleRatio;
+            New_width = qimage_original.width()*ScaleRatio;
+        }
+        QImage qimage_adj(OutPut_Path);
+        //读取放大后的图片并调整大小
+        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        QImageWriter qimageW_adj;
+        qimageW_adj.setFormat("png");
+        qimageW_adj.setFileName(OutPut_Path);
+        if(qimageW_adj.canWrite())
+        {
+            qimageW_adj.write(qimage_adj_scaled);
+        }
+        if(!file_isFileExist(OutPut_Path))
+        {
+            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to resize the scaled picture to the target size]");
+            status = "Failed";
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;
+        }
+        QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n.png";
+        QFile::rename(OutPut_Path,OutPut_Path_CustRes);
+        OutPut_Path = OutPut_Path_CustRes;
+    }
     //=========================== 另存为JPG&压缩JPG ===========================================
     if(SaveAsJPG)
     {
@@ -101,13 +161,27 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
         qimageW.setFormat("jpg");
         if(CompressJPG)//压缩JPG
         {
-            OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_compressed.jpg";
+            if(CustRes_isEnabled)
+            {
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_compressed.jpg";
+            }
+            else
+            {
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_compressed.jpg";
+            }
             qimageW.setQuality(90);
             qimageW.setFileName(OutPut_Path_jpg);
         }
         else
         {
-            OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.jpg";
+            if(CustRes_isEnabled)
+            {
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n.jpg";
+            }
+            else
+            {
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.jpg";
+            }
             qimageW.setQuality(100);
             qimageW.setFileName(OutPut_Path_jpg);
         }
@@ -181,6 +255,18 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;
     }*/
+    //==========================
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+    }
+    //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = fileinfo.baseName();
     QString file_ext = fileinfo.suffix();
@@ -238,6 +324,12 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     //==========开始放大==========================
     int InterPro_total = Frame_fileName_list.size();
     int InterPro_now = 0;
+    //===============
+    QMap<QString,QString> Sub_Thread_info;
+    Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
+    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+    Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
+    //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
         InterPro_now++;
@@ -260,7 +352,7 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
         }
         Sub_gif_ThreadNumRunning++;
         QString Frame_fileName = Frame_fileName_list.at(i);
-        QtConcurrent::run(this,&MainWindow::Waifu2x_Converter_GIF_scale,Frame_fileName,SplitFramesFolderPath,ScaledFramesFolderPath,&Sub_gif_ThreadNumRunning);
+        QtConcurrent::run(this,&MainWindow::Waifu2x_Converter_GIF_scale,Frame_fileName,Sub_Thread_info,&Sub_gif_ThreadNumRunning);
         while (Sub_gif_ThreadNumRunning >= Sub_gif_ThreadNumMax)
         {
             Delay_msec_sleep(500);
@@ -282,6 +374,10 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
+    if(CustRes_isEnabled)
+    {
+        ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n.gif";
+    }
     Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration);
     if(!file_isFileExist(ResGIFPath))
     {
@@ -296,6 +392,14 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     if(OptGIF)
     {
         QString ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
+        if(CustRes_isEnabled)
+        {
+            ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
+        }
+        else
+        {
+            ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
+        }
         Gif_compressGif(ResGIFPath,ResGIFPath_compressed);
         if(file_isFileExist(ResGIFPath_compressed))
         {
@@ -333,8 +437,12 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     return 0;
 }
 
-int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_gif_ThreadNumRunning)
+int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning)
 {
+    QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
+    QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
+    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
+    //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     //========================================================================
@@ -354,6 +462,25 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QString Split
     {
         Denoise_cmd = " --noise_level " + QString::number(DenoiseLevel, 10);
     }
+    //======
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        if(ScaleRatio==0)
+        {
+            emit Send_TextBrowser_NewMessage("Error occured when processing ["+InputPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;
+        }
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+    }
+    //=======
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
     Waifu2x->start(cmd);
     Waifu2x->waitForStarted();
@@ -364,6 +491,34 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QString Split
             Waifu2x->close();
             *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
             return 0;
+        }
+    }
+    //============================ 调整大小 ====================================================
+    if(CustRes_isEnabled)
+    {
+        QImage qimage_original;
+        qimage_original.load(InputPath);
+        int New_height=0;
+        int New_width=0;
+        if(CustRes_isEnabled)
+        {
+            New_height= CustRes_height;
+            New_width= CustRes_width;
+        }
+        else
+        {
+            New_height = qimage_original.height()*ScaleRatio;
+            New_width = qimage_original.width()*ScaleRatio;
+        }
+        QImage qimage_adj(OutputPath);
+        //读取放大后的图片并调整大小
+        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        QImageWriter qimageW_adj;
+        qimageW_adj.setFormat("png");
+        qimageW_adj.setFileName(OutputPath);
+        if(qimageW_adj.canWrite())
+        {
+            qimageW_adj.write(qimage_adj_scaled);
         }
     }
     QFile::remove(InputPath);
@@ -377,6 +532,8 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QString Split
 int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
 {
     //============================= 读取设置 ================================
+    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     int Sub_video_ThreadNumRunning = 0;
@@ -395,6 +552,18 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;
     }*/
+    //==========================
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+    }
+    //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = fileinfo.baseName();
     QString file_ext = fileinfo.suffix();
@@ -459,6 +628,12 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
     //==========开始放大==========================
     int InterPro_total = Frame_fileName_list.size();
     int InterPro_now = 0;
+    //===============
+    QMap<QString,QString> Sub_Thread_info;
+    Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
+    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+    Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
+    //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
         InterPro_now++;
@@ -482,7 +657,7 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
         }
         Sub_video_ThreadNumRunning++;
         QString Frame_fileName = Frame_fileName_list.at(i);
-        QtConcurrent::run(this,&MainWindow::Waifu2x_Converter_Video_scale,Frame_fileName,SplitFramesFolderPath,ScaledFramesFolderPath,&Sub_video_ThreadNumRunning);
+        QtConcurrent::run(this,&MainWindow::Waifu2x_Converter_Video_scale,Frame_fileName,Sub_Thread_info,&Sub_video_ThreadNumRunning);
         while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
         {
             Delay_msec_sleep(500);
@@ -505,7 +680,15 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
-    QString video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x.mp4";
+    QString video_mp4_scaled_fullpath = "";
+    if(CustRes_isEnabled)
+    {
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel,10)+"n.mp4";
+    }
+    else
+    {
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+QString::number(DenoiseLevel,10)+"n.mp4";
+    }
     QFile::remove(video_mp4_scaled_fullpath);
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath);
     if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
@@ -552,8 +735,12 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
 
 
 
-int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_video_ThreadNumRunning)
+int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning)
 {
+    QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
+    QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
+    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
+    //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
@@ -574,6 +761,25 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QString Spl
     {
         Denoise_cmd = " --noise_level " + QString::number(DenoiseLevel, 10);
     }
+    //======
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        if(ScaleRatio==0)
+        {
+            emit Send_TextBrowser_NewMessage("Error occured when processing ["+InputPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;
+        }
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+    }
+    //=======
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
     Waifu2x->start(cmd);
     Waifu2x->waitForStarted();
@@ -584,6 +790,34 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QString Spl
             Waifu2x->close();
             *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
             return 0;
+        }
+    }
+    //============================ 调整大小 ====================================================
+    if(CustRes_isEnabled)
+    {
+        QImage qimage_original;
+        qimage_original.load(InputPath);
+        int New_height=0;
+        int New_width=0;
+        if(CustRes_isEnabled)
+        {
+            New_height= CustRes_height;
+            New_width= CustRes_width;
+        }
+        else
+        {
+            New_height = qimage_original.height()*ScaleRatio;
+            New_width = qimage_original.width()*ScaleRatio;
+        }
+        QImage qimage_adj(OutputPath);
+        //读取放大后的图片并调整大小
+        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        QImageWriter qimageW_adj;
+        qimageW_adj.setFormat("png");
+        qimageW_adj.setFileName(OutputPath);
+        if(qimageW_adj.canWrite())
+        {
+            qimageW_adj.write(qimage_adj_scaled);
         }
     }
     QFile::remove(Frame_fileFullPath);

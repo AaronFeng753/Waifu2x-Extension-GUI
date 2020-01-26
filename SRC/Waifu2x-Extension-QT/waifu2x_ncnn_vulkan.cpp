@@ -112,7 +112,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     for(int i=2; i<=ScaleRatio_tmp; i+=2)
     {
         OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
         Waifu2x->start(cmd);
         Waifu2x->waitForStarted();
         while(!Waifu2x->waitForFinished(500))
@@ -204,7 +204,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         {
             if(CustRes_isEnabled)
             {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_compressed.png";
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_compressed.jpg";
             }
             else
             {
@@ -217,7 +217,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         {
             if(CustRes_isEnabled)
             {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n.png";
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n.jpg";
             }
             else
             {
@@ -554,7 +554,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     for(int i=2; i<=ScaleRatio_tmp; i+=2)
     {
         OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
         Waifu2x->start(cmd);
         Waifu2x->waitForStarted();
         while(!Waifu2x->waitForFinished(500))
@@ -824,7 +824,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
 
 
 
-int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning)
+int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning)
 {
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
@@ -891,7 +891,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     for(int i=2; i<=ScaleRatio_tmp; i+=2)
     {
         OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
         Waifu2x->start(cmd);
         Waifu2x->waitForStarted();
         while(!Waifu2x->waitForFinished(500))

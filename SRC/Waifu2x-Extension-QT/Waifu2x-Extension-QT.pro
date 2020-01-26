@@ -42,6 +42,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     progressBar.cpp \
+    settings.cpp \
     table.cpp \
     textBrowser.cpp \
     video.cpp \
@@ -54,6 +55,9 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui
+
+TRANSLATIONS += language_English.ts \
+               language_Chinese.ts
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

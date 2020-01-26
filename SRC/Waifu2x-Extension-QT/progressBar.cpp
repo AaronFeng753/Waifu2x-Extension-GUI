@@ -26,6 +26,11 @@ void MainWindow::progressbar_setRange_min_max(int min, int max)
     TaskNumTotal=max;
 }
 
+void MainWindow::progressbar_SetToMax(int maxval)
+{
+    ui->progressBar->setValue(maxval);
+}
+
 void MainWindow::progressbar_Add()
 {
     Progressbar_CurrentVal++;

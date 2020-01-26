@@ -26,6 +26,8 @@
 #include <QTimer>
 #include <QTextCursor>
 #include <QMessageBox>
+#include <QSettings>
+#include <QTranslator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -41,6 +43,8 @@ class MainWindow : public QMainWindow
 public:
 
     MainWindow(QWidget *parent = nullptr);
+
+    QTranslator * translator;
 
     //=================================  File =================================
     void dragEnterEvent(QDragEnterEvent *event);
@@ -118,15 +122,15 @@ public:
     int Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
 
     int Anime4k_Video(QMap<QString, QString> File_map);
-    int Anime4k_Video_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_video_ThreadNumRunning);
+    int Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
 
     int Waifu2x_Converter_Image(QMap<QString, QString> File_map);
 
     int Waifu2x_Converter_GIF(QMap<QString, QString> File_map);
-    int Waifu2x_Converter_GIF_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_gif_ThreadNumRunning);
+    int Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning);
 
     int Waifu2x_Converter_Video(QMap<QString, QString> File_map);
-    int Waifu2x_Converter_Video_scale(QString Frame_fileName,QString SplitFramesFolderPath,QString ScaledFramesFolderPath,int *Sub_video_ThreadNumRunning);
+    int Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
 
 
     void Wait_waifu2x_stop();
@@ -144,12 +148,17 @@ public:
 
     int Waifu2x_Compatibility_Test();
 
+    int Waifu2x_DetectGPU();
+    QStringList Available_GPUID;
+    QString GPU_ID_STR="";
+
 
 
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;
     int Progressbar_CurrentVal = 0;
     void progressbar_clear();
+    void progressbar_SetToMax(int maxval);
 
     //=============================== textbrowser===============================
     void TextBrowser_StartMes();
@@ -175,6 +184,12 @@ public:
     int CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int width_new);
     int CustRes_SetCustRes();
     int CustRes_CancelCustRes();
+
+    //======================== 设置 ===========================================
+    int Settings_Save();
+
+
+    int Settings_Read_Apply();
 
 
     //================================ Other =======================================
@@ -208,6 +223,9 @@ public slots:
 
     void TimeSlot();
 
+    int Waifu2x_Compatibility_Test_finished();
+    int Waifu2x_DetectGPU_finished();
+
 
 
 private slots:
@@ -218,7 +236,7 @@ private slots:
 
     void on_pushButton_Stop_clicked();
 
-    void on_pushButton_RemoveItem_clicked();
+    int on_pushButton_RemoveItem_clicked();
 
     void on_checkBox_ReProcFinFiles_stateChanged(int arg1);
 
@@ -245,7 +263,7 @@ private slots:
     void on_spinBox_textbrowser_fontsize_valueChanged(int arg1);
 
     void on_pushButton_compatibilityTest_clicked();
-    int Waifu2x_Compatibility_Test_finished();
+
 
     void on_tableView_image_clicked(const QModelIndex &index);
 
@@ -258,6 +276,19 @@ private slots:
     void on_pushButton_CustRes_cancel_clicked();
 
     void on_pushButton_HideSettings_clicked();
+
+    void on_pushButton_HideInput_clicked();
+
+
+    void on_pushButton_DetectGPU_clicked();
+
+    void on_comboBox_GPUID_currentIndexChanged(int index);
+
+    void on_pushButton_SaveSettings_clicked();
+
+    void on_pushButton_ResetSettings_clicked();
+
+    void on_comboBox_language_currentIndexChanged(int index);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
@@ -273,6 +304,8 @@ signals:
     void Send_TextBrowser_NewMessage(QString);
 
     void Send_Waifu2x_Compatibility_Test_finished();
+
+    void Send_Waifu2x_DetectGPU_finished();
 
 
 private:

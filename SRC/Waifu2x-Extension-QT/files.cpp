@@ -29,14 +29,14 @@ void MainWindow::dragEnterEvent(QDragEnterEvent *event)
 
 void MainWindow::dropEvent(QDropEvent *event)
 {
+    AddNew_gif=false;
+    AddNew_image=false;
+    AddNew_video=false;
     QList<QUrl> urls = event->mimeData()->urls();
     if(urls.isEmpty())
         return;
     foreach(QUrl url, urls)
     {
-        AddNew_gif=false;
-        AddNew_image=false;
-        AddNew_video=false;
         Add_File_Folder(url.toLocalFile());
     }
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
@@ -67,6 +67,9 @@ void MainWindow::dropEvent(QDropEvent *event)
             ui->pushButton_RemoveItem->setVisible(1);
         }
     }
+    ui->tableView_gif->scrollToBottom();
+    ui->tableView_image->scrollToBottom();
+    ui->tableView_video->scrollToBottom();
     AddNew_image=false;
     AddNew_image=false;
     AddNew_video=false;
@@ -173,15 +176,18 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         return 0;
     }
     //============================  最后只能是gif ===============================
-    int rowNum = Table_gif_get_rowNum();
-    QMap<QString, QString> map;
-    map["SourceFile_fullPath"] = SourceFile_fullPath;
-    map["rowNum"] = QString::number(rowNum, 10);
-    if(!Deduplicate_filelist(FileList_gif, SourceFile_fullPath))
+    if(file_ext=="gif")
     {
+        int rowNum = Table_gif_get_rowNum();
+        QMap<QString, QString> map;
+        map["SourceFile_fullPath"] = SourceFile_fullPath;
+        map["rowNum"] = QString::number(rowNum, 10);
         AddNew_gif=true;
-        FileList_gif.append(map);
-        Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+        if(!Deduplicate_filelist(FileList_gif, SourceFile_fullPath))
+        {
+            FileList_gif.append(map);
+            Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+        }
     }
     return 0;
 }

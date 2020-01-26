@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    translator = new QTranslator(this);
     TextBrowser_StartMes();
     this->setAcceptDrops(true);
     Init_Table();
@@ -46,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Waifu2x_Finished_manual()), this, SLOT(Waifu2x_Finished_manual()));
     connect(this, SIGNAL(Send_TextBrowser_NewMessage(QString)), this, SLOT(TextBrowser_NewMessage(QString)));
     connect(this, SIGNAL(Send_Waifu2x_Compatibility_Test_finished()), this, SLOT(Waifu2x_Compatibility_Test_finished()));
+    connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
     //==================================================
@@ -53,6 +55,8 @@ MainWindow::MainWindow(QWidget *parent)
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_spinBox_textbrowser_fontsize_valueChanged(0);
+    //=====================================
+    Settings_Read_Apply();
 }
 
 MainWindow::~MainWindow()
@@ -117,6 +121,7 @@ void MainWindow::on_pushButton_ClearList_clicked()
     FileList_image_finished.clear();
     FileList_gif_finished.clear();
     FileList_video_finished.clear();
+    Custom_resolution_list.clear();
     ui->label_DropFile->setVisible(1);
     ui->tableView_gif->setVisible(0);
     ui->tableView_image->setVisible(0);
@@ -162,6 +167,7 @@ void MainWindow::on_pushButton_Start_clicked()
         progressbar_clear();
         TimeCostTimer->start(1000);
         TimeCost=0;
+        emit Send_TextBrowser_NewMessage("Start processing files.");
         QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
     }
 }
@@ -192,15 +198,25 @@ void MainWindow::Wait_waifu2x_stop()
     emit Send_Waifu2x_Finished_manual();
 }
 
-void MainWindow::on_pushButton_RemoveItem_clicked()
+int MainWindow::on_pushButton_RemoveItem_clicked()
 {
+    if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
+    {
+        QMessageBox::information(this,"Error","No items are currently selected.");
+        return 0;
+    }
     RecFinedFiles();
     if(curRow_image >= 0)
     {
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, curRow_image);
         if(!fileMap.isEmpty())
         {
+            CustRes_remove(fileMap["SourceFile_fullPath"]);
             FileList_remove(fileMap);
+            Table_FileList_reload();
+        }
+        else
+        {
             Table_FileList_reload();
         }
     }
@@ -211,7 +227,12 @@ void MainWindow::on_pushButton_RemoveItem_clicked()
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_video, curRow_video);
         if(!fileMap.isEmpty())
         {
+            CustRes_remove(fileMap["SourceFile_fullPath"]);
             FileList_remove(fileMap);
+            Table_FileList_reload();
+        }
+        else
+        {
             Table_FileList_reload();
         }
     }
@@ -222,7 +243,12 @@ void MainWindow::on_pushButton_RemoveItem_clicked()
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_gif, curRow_gif);
         if(!fileMap.isEmpty())
         {
+            CustRes_remove(fileMap["SourceFile_fullPath"]);
             FileList_remove(fileMap);
+            Table_FileList_reload();
+        }
+        else
+        {
             Table_FileList_reload();
         }
     }
@@ -234,6 +260,24 @@ void MainWindow::on_pushButton_RemoveItem_clicked()
     curRow_image = -1;
     curRow_gif = -1;
     curRow_video = -1;
+    if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
+    {
+        Table_Clear();
+        FileList_image.clear();
+        FileList_gif.clear();
+        FileList_video.clear();
+        FileList_image_finished.clear();
+        FileList_gif_finished.clear();
+        FileList_video_finished.clear();
+        Custom_resolution_list.clear();
+        ui->label_DropFile->setVisible(1);
+        ui->tableView_gif->setVisible(0);
+        ui->tableView_image->setVisible(0);
+        ui->tableView_video->setVisible(0);
+        ui->pushButton_ClearList->setVisible(0);
+        ui->pushButton_RemoveItem->setVisible(0);
+    }
+    return 0;
 }
 
 void MainWindow::on_checkBox_ReProcFinFiles_stateChanged(int arg1)
@@ -336,19 +380,50 @@ void MainWindow::on_pushButton_ReadMe_clicked()
 
 void MainWindow::on_pushButton_AddPath_clicked()
 {
-    ui->label_DropFile->setVisible(0);//隐藏文件投放label
-    ui->tableView_gif->setVisible(1);
-    ui->tableView_image->setVisible(1);
-    ui->tableView_video->setVisible(1);
-    ui->pushButton_ClearList->setVisible(1);
-    ui->pushButton_RemoveItem->setVisible(1);
     QString Input_path = ui->lineEdit_inputPath->text();
     Input_path = Input_path.replace("\\","/");
     Input_path = Input_path.trimmed();
     if(QFile::exists(Input_path))
     {
+        AddNew_gif=false;
+        AddNew_image=false;
+        AddNew_video=false;
         Add_File_Folder(Input_path);
     }
+    if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
+    {
+        QMessageBox::information(this,"Error","The file format is not supported, please enter supported file format, or add more file extensions yourself.");
+    }
+    else
+    {
+        if(AddNew_image)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_image->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+        if(AddNew_gif)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_gif->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+        if(AddNew_video)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_video->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+    }
+    ui->tableView_gif->scrollToBottom();
+    ui->tableView_image->scrollToBottom();
+    ui->tableView_video->scrollToBottom();
+    AddNew_image=false;
+    AddNew_image=false;
+    AddNew_video=false;
 }
 
 void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
@@ -505,4 +580,62 @@ void MainWindow::on_pushButton_HideSettings_clicked()
         ui->pushButton_HideSettings->setText("Hide settings");
         ui->pushButton_HideSettings->setToolTip("Hide all setting options.");
     }
+}
+
+void MainWindow::on_pushButton_HideInput_clicked()
+{
+    if(ui->groupBox_Input->isVisible())
+    {
+        ui->groupBox_Input->setVisible(0);
+        ui->pushButton_HideInput->setText("Show input path");
+    }
+    else
+    {
+        ui->groupBox_Input->setVisible(1);
+        ui->pushButton_HideInput->setText("Hide input path");
+    }
+}
+
+
+void MainWindow::on_pushButton_DetectGPU_clicked()
+{
+    ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
+    Available_GPUID.clear();
+    QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
+}
+
+void MainWindow::on_comboBox_GPUID_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUID->currentText()!="auto")
+    {
+        GPU_ID_STR = " -g "+ui->comboBox_GPUID->currentText()+" ";
+    }
+    else
+    {
+        GPU_ID_STR="";
+    }
+}
+void MainWindow::on_comboBox_language_currentIndexChanged(int index)
+{
+    QString qmFilename;
+    QString runPath = qApp->applicationDirPath();     //获取文件运行路径
+    switch(ui->comboBox_language->currentIndex())
+    {
+        case 0:
+            {
+                qmFilename = runPath + "/language_English.qm";
+                break;
+            }
+        case 1:
+            {
+                qmFilename = runPath + "/language_Chinese.qm";
+                break;
+            }
+    }
+    if (translator->load(qmFilename))
+    {
+        qApp->installTranslator(translator);
+    }
+    ui->retranslateUi(this);             // 重新设置界面显示
 }

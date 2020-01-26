@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1783</width>
-    <height>757</height>
+    <width>1717</width>
+    <height>845</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -17,14 +17,14 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Waifu2x-Extension-GUI v0.01-beta by Aaron Feng</string>
+   <string>Waifu2x-Extension-GUI v0.11-beta by Aaron Feng</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="icon.qrc">
+   <iconset>
     <normaloff>:/new/prefix1/icon/icon_main.png</normaloff>:/new/prefix1/icon/icon_main.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_10">
+   <layout class="QGridLayout" name="gridLayout_9">
     <item row="0" column="0">
      <widget class="QGroupBox" name="groupBox_Input">
       <property name="enabled">
@@ -43,13 +43,49 @@
        </size>
       </property>
       <property name="title">
-       <string>Input</string>
+       <string>Input path</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="2">
         <widget class="QPushButton" name="pushButton_AddPath">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>35</height>
+          </size>
+         </property>
          <property name="toolTip">
           <string>Do not include special characters in the input path, it may cause errors.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
          </property>
          <property name="text">
           <string>Add path</string>
@@ -89,7 +125,7 @@
        <string>Files List (You can drag and drop files or folders into here)</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0" colspan="4">
+       <item row="0" column="0" colspan="5">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QTableView" name="tableView_image">
@@ -163,6 +199,9 @@
            <property name="cornerButtonEnabled">
             <bool>false</bool>
            </property>
+           <attribute name="horizontalHeaderCascadingSectionResizes">
+            <bool>true</bool>
+           </attribute>
            <attribute name="horizontalHeaderMinimumSectionSize">
             <number>0</number>
            </attribute>
@@ -171,6 +210,9 @@
            </attribute>
            <attribute name="verticalHeaderVisible">
             <bool>false</bool>
+           </attribute>
+           <attribute name="verticalHeaderCascadingSectionResizes">
+            <bool>true</bool>
            </attribute>
           </widget>
          </item>
@@ -236,10 +278,53 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="3">
+       <item row="1" column="2">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="4">
         <widget class="QPushButton" name="pushButton_HideSettings">
          <property name="toolTip">
           <string>Hide all setting options.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
          </property>
          <property name="text">
           <string>Hide settings</string>
@@ -254,6 +339,36 @@
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
          <property name="text">
           <string>Clear list</string>
          </property>
@@ -267,23 +382,77 @@
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(255, 181, 6);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 200, 50);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(255, 170, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
          <property name="text">
           <string>Remove item</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="pushButton_HideInput">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
          </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
+         <property name="text">
+          <string>Hide input path</string>
          </property>
-        </spacer>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -306,323 +475,244 @@
        <string>Settings</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="1" column="0">
-        <widget class="QGroupBox" name="groupBox_other">
+       <item row="0" column="0" colspan="3">
+        <widget class="QGroupBox" name="groupBox_ScaleRaton_DenoiseLevel">
          <property name="title">
-          <string/>
+          <string>Scale ratio and Denoise level</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout_12">
+         <layout class="QGridLayout" name="gridLayout">
           <item row="0" column="0">
-           <widget class="QPushButton" name="pushButton_SaveSettings">
-            <property name="enabled">
-             <bool>false</bool>
+           <widget class="QLabel" name="label">
+            <property name="toolTip">
+             <string>Range: 1 ~ 999999999</string>
             </property>
             <property name="text">
-             <string>Save settings</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="pushButton_CheckUpdate">
-            <property name="text">
-             <string>Check update</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QPushButton" name="pushButton_Report">
-            <property name="text">
-             <string>Report issue</string>
+             <string>Image Scale ratio:</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QPushButton" name="pushButton_ReadMe">
-            <property name="text">
-             <string>Readme</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0" colspan="2">
-           <widget class="QPushButton" name="pushButton_donate">
-            <property name="toolTip">
-             <string>Please donate to developers to support continuous updates of this software.</string>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-            </property>
-            <property name="text">
-             <string>Donate</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" colspan="2">
-           <widget class="QPushButton" name="pushButton_compatibilityTest">
-            <property name="toolTip">
-             <string>Run a compatibility test to see which engines your computer is compatible with.</string>
-            </property>
-            <property name="text">
-             <string>Compatibility test</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="5" rowspan="2">
-        <widget class="QGroupBox" name="groupBox_Engine">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="title">
-          <string>Engine</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_6">
-          <item row="4" column="0" colspan="4">
-           <widget class="QGroupBox" name="groupBox_6">
-            <property name="title">
-             <string>waifu2x-ncnn-vulkan</string>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_5">
-             <item row="2" column="1">
-              <widget class="QSpinBox" name="spinBox_TileSize">
-               <property name="toolTip">
-                <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.
-(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
-               </property>
-               <property name="minimum">
-                <number>10</number>
-               </property>
-               <property name="maximum">
-                <number>10000</number>
-               </property>
-               <property name="singleStep">
-                <number>10</number>
-               </property>
-               <property name="value">
-                <number>200</number>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="3">
-              <widget class="QComboBox" name="comboBox_GPUID">
-               <property name="enabled">
-                <bool>false</bool>
-               </property>
-               <property name="toolTip">
-                <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>Auto</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="QLabel" name="label_10">
-               <property name="toolTip">
-                <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-               </property>
-               <property name="text">
-                <string>GPU ID:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_9">
-               <property name="toolTip">
-                <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.
-(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
-               </property>
-               <property name="text">
-                <string>Tile size:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_3">
-               <property name="maximumSize">
-                <size>
-                 <width>100</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
-               </property>
-               <property name="text">
-                <string>Image Style:</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1" colspan="3">
-              <widget class="QComboBox" name="comboBox_ImageStyle">
-               <property name="toolTip">
-                <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
-               </property>
-               <item>
-                <property name="text">
-                 <string>2D Anime</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>3D Real-life</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="label_7">
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>GIF:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1" colspan="3">
-           <widget class="QComboBox" name="comboBox_Engine_GIF">
+           <widget class="QSpinBox" name="spinBox_DenoiseLevel_image">
             <property name="enabled">
              <bool>true</bool>
             </property>
-            <property name="toolTip">
-             <string>Select the engine for processing GIF. 
-(Recommended &quot;waifu2x-ncnn-vulkan&quot;)
-You can run compatibility test to see which engines your PC is compatible with.</string>
+            <property name="focusPolicy">
+             <enum>Qt::WheelFocus</enum>
             </property>
-            <item>
-             <property name="text">
-              <string>waifu2x-ncnn-vulkan</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>waifu2x-converter</string>
-             </property>
-            </item>
+            <property name="minimum">
+             <number>-1</number>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>10</number>
+            </property>
            </widget>
           </item>
-          <item row="1" column="1" colspan="3">
-           <widget class="QComboBox" name="comboBox_Engine_Image">
-            <property name="enabled">
-             <bool>true</bool>
+          <item row="1" column="2">
+           <widget class="QLabel" name="label_GIFDenoiseLevel">
+            <property name="text">
+             <string>GIF Denoise level:</string>
             </property>
-            <property name="minimumSize">
-             <size>
-              <width>200</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="toolTip">
-             <string>Select the engine for processing Image. 
-(Recommended &quot;waifu2x-ncnn-vulkan&quot;)
-You can run compatibility test to see which engines your PC is compatible with.</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>waifu2x-ncnn-vulkan</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>waifu2x-converter</string>
-             </property>
-            </item>
            </widget>
           </item>
-          <item row="3" column="1" colspan="3">
-           <widget class="QComboBox" name="comboBox_Engine_Video">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
+          <item row="0" column="4">
+           <widget class="QLabel" name="label_17">
             <property name="toolTip">
-             <string>Select the engine for processing Video. 
-(Recommended &quot;waifu2x-ncnn-vulkan&quot;)
-You can run compatibility test to see which engines your PC is compatible with.</string>
+             <string>Range: 1 ~ 999999999</string>
             </property>
-            <item>
-             <property name="text">
-              <string>waifu2x-ncnn-vulkan</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>waifu2x-converter</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Anime4k</string>
-             </property>
-            </item>
+            <property name="text">
+             <string>Video Scale ratio:</string>
+            </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>16777215</height>
-             </size>
-            </property>
+           <widget class="QLabel" name="label_ImageDenoiseLevel">
             <property name="text">
-             <string>Image:</string>
+             <string>Image Denoise level:</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_8">
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>16777215</height>
-             </size>
+          <item row="1" column="3">
+           <widget class="QSpinBox" name="spinBox_DenoiseLevel_gif">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::WheelFocus</enum>
+            </property>
+            <property name="minimum">
+             <number>-1</number>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spinBox_ScaleRatio_image">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::WheelFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Range: 1 ~ 999999999</string>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="5">
+           <widget class="QSpinBox" name="spinBox_ScaleRatio_video">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::WheelFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Range: 1 ~ 999999999</string>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QSpinBox" name="spinBox_ScaleRatio_gif">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::WheelFocus</enum>
+            </property>
+            <property name="toolTip">
+             <string>Range: 1 ~ 999999999</string>
+            </property>
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>999999999</number>
+            </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="5">
+           <widget class="QSpinBox" name="spinBox_DenoiseLevel_video">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::WheelFocus</enum>
+            </property>
+            <property name="minimum">
+             <number>-1</number>
+            </property>
+            <property name="maximum">
+             <number>3</number>
+            </property>
+            <property name="singleStep">
+             <number>1</number>
+            </property>
+            <property name="stepType">
+             <enum>QAbstractSpinBox::DefaultStepType</enum>
+            </property>
+            <property name="value">
+             <number>2</number>
+            </property>
+            <property name="displayIntegerBase">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLabel" name="label_16">
+            <property name="toolTip">
+             <string>Range: 1 ~ 999999999</string>
             </property>
             <property name="text">
-             <string>Video:</string>
+             <string>GIF Scale ratio:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <widget class="QLabel" name="label_VideoDenoiseLevel">
+            <property name="text">
+             <string>Video Denoise level:</string>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="0" column="4">
+       <item row="0" column="3">
         <widget class="QGroupBox" name="groupBox_other_1">
          <property name="title">
           <string/>
@@ -712,17 +802,274 @@ It is recommended to enable this option.</string>
          </layout>
         </widget>
        </item>
-       <item row="1" column="4">
-        <widget class="QGroupBox" name="groupBox_InputExt">
-         <property name="title">
-          <string>Input file extensions</string>
+       <item row="0" column="4" rowspan="3">
+        <widget class="QGroupBox" name="groupBox_Engine">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
          </property>
-         <layout class="QGridLayout" name="gridLayout_9">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_4">
+         <property name="title">
+          <string>Engine</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="4" column="0" colspan="4">
+           <widget class="QGroupBox" name="groupBox_6">
+            <property name="title">
+             <string>waifu2x-ncnn-vulkan</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="1" column="0" colspan="2">
+              <widget class="QLabel" name="label_9">
+               <property name="toolTip">
+                <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.
+(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
+               </property>
+               <property name="text">
+                <string>Tile size:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QComboBox" name="comboBox_ImageStyle">
+               <property name="toolTip">
+                <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
+               </property>
+               <property name="currentText">
+                <string>2D Anime</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string>2D Anime</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3D Real-life</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="toolTip">
+                <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+               </property>
+               <property name="text">
+                <string>GPU ID:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" colspan="2">
+              <widget class="QComboBox" name="comboBox_GPUID">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="toolTip">
+                <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+               </property>
+               <property name="currentText">
+                <string notr="true">auto</string>
+               </property>
+               <item>
+                <property name="text">
+                 <string notr="true">auto</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QSpinBox" name="spinBox_TileSize">
+               <property name="toolTip">
+                <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.
+(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
+               </property>
+               <property name="minimum">
+                <number>10</number>
+               </property>
+               <property name="maximum">
+                <number>10000</number>
+               </property>
+               <property name="singleStep">
+                <number>10</number>
+               </property>
+               <property name="value">
+                <number>200</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QLabel" name="label_3">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
+               </property>
+               <property name="text">
+                <string>Image Style:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0" colspan="3">
+              <widget class="QPushButton" name="pushButton_DetectGPU">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+               </property>
+               <property name="text">
+                <string>Detect available GPU ID</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_7">
             <property name="maximumSize">
              <size>
-              <width>50</width>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>GIF:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="3">
+           <widget class="QComboBox" name="comboBox_Engine_GIF">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string>Select the engine for processing GIF. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+You can run compatibility test to see which engines your PC is compatible with.</string>
+            </property>
+            <property name="currentText">
+             <string notr="true">waifu2x-ncnn-vulkan</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>waifu2x-ncnn-vulkan</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>waifu2x-converter</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="3">
+           <widget class="QComboBox" name="comboBox_Engine_Image">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="toolTip">
+             <string>Select the engine for processing Image. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+You can run compatibility test to see which engines your PC is compatible with.</string>
+            </property>
+            <property name="currentText">
+             <string notr="true">waifu2x-ncnn-vulkan</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>waifu2x-ncnn-vulkan</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>waifu2x-converter</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="1" colspan="3">
+           <widget class="QComboBox" name="comboBox_Engine_Video">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="toolTip">
+             <string>Select the engine for processing Video. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:☆ ]
+You can run compatibility test to see which engines your PC is compatible with.</string>
+            </property>
+            <property name="currentText">
+             <string notr="true">waifu2x-ncnn-vulkan</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>waifu2x-ncnn-vulkan</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>waifu2x-converter</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Anime4k</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_6">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -731,24 +1078,11 @@ It is recommended to enable this option.</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="1">
-           <widget class="QLineEdit" name="Ext_image">
-            <property name="minimumSize">
-             <size>
-              <width>300</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>png:jpg:jpeg:tif:tiff:bmp:tga</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_5">
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_8">
             <property name="maximumSize">
              <size>
-              <width>50</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -757,23 +1091,313 @@ It is recommended to enable this option.</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
-           <widget class="QLineEdit" name="Ext_video">
-            <property name="minimumSize">
-             <size>
-              <width>300</width>
-              <height>0</height>
-             </size>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0" rowspan="2">
+        <widget class="QGroupBox" name="groupBox_other">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <item row="2" column="0">
+           <widget class="QPushButton" name="pushButton_Report">
+            <property name="font">
+             <font>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
             </property>
             <property name="text">
-             <string>mp4:mkv:avi:rmvb</string>
+             <string>Report issue</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QPushButton" name="pushButton_CheckUpdate">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Check update</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QPushButton" name="pushButton_ReadMe">
+            <property name="font">
+             <font>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(255, 181, 6);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 200, 50);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(255, 170, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Readme</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QPushButton" name="pushButton_SaveSettings">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Save settings</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QPushButton" name="pushButton_donate">
+            <property name="font">
+             <font>
+              <pointsize>9</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
+             </font>
+            </property>
+            <property name="toolTip">
+             <string>Please donate to developers to support continuous updates of this software.</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Donate</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
+           <widget class="QPushButton" name="pushButton_compatibilityTest">
+            <property name="toolTip">
+             <string>Run a compatibility test to see which engines your computer is compatible with.</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: rgb(92, 172, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(99, 184, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(79, 148,205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Compatibility test</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QPushButton" name="pushButton_ResetSettings">
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(238, 99, 99);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 106, 106);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(205, 85, 85);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Reset settings</string>
             </property>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="1" colspan="2">
+       <item row="1" column="1" rowspan="2">
         <widget class="QGroupBox" name="groupBox_NumOfThreads">
          <property name="enabled">
           <bool>true</bool>
@@ -966,7 +1590,7 @@ It is recommended to enable this option.</string>
          </layout>
         </widget>
        </item>
-       <item row="1" column="3">
+       <item row="1" column="2" rowspan="2">
         <widget class="QGroupBox" name="groupBox">
          <property name="maximumSize">
           <size>
@@ -981,44 +1605,14 @@ It is recommended to enable this option.</string>
           <string>Custom resolution</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_13">
-          <item row="4" column="0">
-           <widget class="QPushButton" name="pushButton_CustRes_apply">
-            <property name="toolTip">
-             <string>1.Set the height and width of the resolution.
-2.Select a file in the file list.
-3.Click the Apply button to set the resolution.</string>
-            </property>
-            <property name="text">
-             <string>Apply</string>
-            </property>
-           </widget>
-          </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_15">
-            <property name="text">
-             <string>Height:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
            <widget class="QLabel" name="label_18">
             <property name="text">
              <string>Width:</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QPushButton" name="pushButton_CustRes_cancel">
-            <property name="toolTip">
-             <string>1.Select a file in the file list.
-2.Click the Cancel button to cancel the custom resolution.</string>
-            </property>
-            <property name="text">
-             <string>Cancel</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0" colspan="2">
+          <item row="1" column="0" colspan="2">
            <widget class="QSpinBox" name="spinBox_CustRes_width">
             <property name="minimum">
              <number>1</number>
@@ -1031,7 +1625,14 @@ It is recommended to enable this option.</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="2">
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_15">
+            <property name="text">
+             <string>Height:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" colspan="2">
            <widget class="QSpinBox" name="spinBox_CustRes_height">
             <property name="minimum">
              <number>1</number>
@@ -1044,242 +1645,221 @@ It is recommended to enable this option.</string>
             </property>
            </widget>
           </item>
+          <item row="4" column="0">
+           <widget class="QPushButton" name="pushButton_CustRes_apply">
+            <property name="toolTip">
+             <string>1.Set the height and width of the resolution.
+2.Select a file in the file list.
+3.Click the Apply button to set the resolution.</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Apply</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QPushButton" name="pushButton_CustRes_cancel">
+            <property name="toolTip">
+             <string>1.Select a file in the file list.
+2.Click the Cancel button to cancel the custom resolution.</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+	background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Cancel</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
-       <item row="0" column="0" colspan="4">
-        <widget class="QGroupBox" name="groupBox_ScaleRaton_DenoiseLevel">
+       <item row="1" column="3">
+        <widget class="QGroupBox" name="groupBox_InputExt">
          <property name="title">
-          <string>Scale ratio and Denoise level</string>
+          <string>Input file extensions</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout">
+         <layout class="QGridLayout" name="gridLayout_10">
           <item row="0" column="0">
-           <widget class="QLabel" name="label">
-            <property name="toolTip">
-             <string>Range: 1 ~ Infinite</string>
+           <widget class="QLabel" name="label_4">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
             </property>
             <property name="text">
-             <string>Image Scale ratio:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSpinBox" name="spinBox_DenoiseLevel_image">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::WheelFocus</enum>
-            </property>
-            <property name="minimum">
-             <number>-1</number>
-            </property>
-            <property name="maximum">
-             <number>3</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-            <property name="value">
-             <number>2</number>
-            </property>
-            <property name="displayIntegerBase">
-             <number>10</number>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QLabel" name="label_GIFDenoiseLevel">
-            <property name="text">
-             <string>GIF Denoise level:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="4">
-           <widget class="QLabel" name="label_17">
-            <property name="toolTip">
-             <string>Range: 1 ~ Infinite</string>
-            </property>
-            <property name="text">
-             <string>Video Scale ratio:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_ImageDenoiseLevel">
-            <property name="text">
-             <string>Image Denoise level:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <widget class="QSpinBox" name="spinBox_DenoiseLevel_gif">
-            <property name="enabled">
-             <bool>true</bool>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::WheelFocus</enum>
-            </property>
-            <property name="minimum">
-             <number>-1</number>
-            </property>
-            <property name="maximum">
-             <number>3</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-            <property name="value">
-             <number>2</number>
-            </property>
-            <property name="displayIntegerBase">
-             <number>10</number>
+             <string>Image:</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QSpinBox" name="spinBox_ScaleRatio_image">
-            <property name="cursor">
-             <cursorShape>ArrowCursor</cursorShape>
+           <widget class="QLineEdit" name="Ext_image">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>0</height>
+             </size>
             </property>
-            <property name="focusPolicy">
-             <enum>Qt::WheelFocus</enum>
+            <property name="acceptDrops">
+             <bool>false</bool>
             </property>
-            <property name="toolTip">
-             <string>Range: 1 ~ 999999999</string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>999999999</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-            <property name="value">
-             <number>2</number>
-            </property>
-            <property name="displayIntegerBase">
-             <number>10</number>
+            <property name="text">
+             <string notr="true">png:jpg:jpeg:tif:tiff:bmp:tga</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="5">
-           <widget class="QSpinBox" name="spinBox_ScaleRatio_video">
-            <property name="cursor">
-             <cursorShape>ArrowCursor</cursorShape>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>16777215</height>
+             </size>
             </property>
-            <property name="focusPolicy">
-             <enum>Qt::WheelFocus</enum>
-            </property>
-            <property name="toolTip">
-             <string>Range: 1 ~ 999999999</string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>999999999</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-            <property name="value">
-             <number>2</number>
-            </property>
-            <property name="displayIntegerBase">
-             <number>10</number>
+            <property name="text">
+             <string>Video:</string>
             </property>
            </widget>
           </item>
-          <item row="0" column="3">
-           <widget class="QSpinBox" name="spinBox_ScaleRatio_gif">
-            <property name="cursor">
-             <cursorShape>ArrowCursor</cursorShape>
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="Ext_video">
+            <property name="minimumSize">
+             <size>
+              <width>300</width>
+              <height>0</height>
+             </size>
             </property>
-            <property name="focusPolicy">
-             <enum>Qt::WheelFocus</enum>
+            <property name="acceptDrops">
+             <bool>false</bool>
             </property>
-            <property name="toolTip">
-             <string>Range: 1 ~ 999999999</string>
-            </property>
-            <property name="minimum">
-             <number>1</number>
-            </property>
-            <property name="maximum">
-             <number>999999999</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-            <property name="value">
-             <number>2</number>
-            </property>
-            <property name="displayIntegerBase">
-             <number>10</number>
+            <property name="text">
+             <string notr="true">mp4:mkv:avi:rmvb</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="5">
-           <widget class="QSpinBox" name="spinBox_DenoiseLevel_video">
-            <property name="enabled">
-             <bool>true</bool>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Language</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_14">
+          <item row="0" column="1">
+           <widget class="QComboBox" name="comboBox_language">
+            <property name="currentText">
+             <string notr="true">English</string>
             </property>
-            <property name="focusPolicy">
-             <enum>Qt::WheelFocus</enum>
+            <item>
+             <property name="text">
+              <string notr="true">English</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string notr="true">简体中文</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_21">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
             </property>
-            <property name="minimum">
-             <number>-1</number>
-            </property>
-            <property name="maximum">
-             <number>3</number>
-            </property>
-            <property name="singleStep">
-             <number>1</number>
-            </property>
-            <property name="stepType">
-             <enum>QAbstractSpinBox::DefaultStepType</enum>
-            </property>
-            <property name="value">
-             <number>2</number>
-            </property>
-            <property name="displayIntegerBase">
-             <number>10</number>
+            <property name="text">
+             <string>Current Language:</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QLabel" name="label_16">
-            <property name="toolTip">
-             <string>Range: 1 ~ Infinite</string>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="text">
-             <string>GIF Scale ratio:</string>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-           </widget>
-          </item>
-          <item row="1" column="4">
-           <widget class="QLabel" name="label_VideoDenoiseLevel">
-            <property name="text">
-             <string>Video Denoise level:</string>
-            </property>
-           </widget>
+           </spacer>
           </item>
          </layout>
         </widget>
@@ -1312,6 +1892,50 @@ It is recommended to enable this option.</string>
            <width>70</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+	background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
          </property>
          <property name="text">
           <string>Stop</string>
@@ -1346,6 +1970,36 @@ It is recommended to enable this option.</string>
        </item>
        <item row="0" column="6">
         <widget class="QPushButton" name="pushButton_clear_textbrowser">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
          <property name="text">
           <string>Clear TextBrowser</string>
          </property>
@@ -1363,6 +2017,9 @@ It is recommended to enable this option.</string>
           <font>
            <family>Arial</family>
           </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -1400,6 +2057,36 @@ It is recommended to enable this option.</string>
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
          <property name="text">
           <string>Start</string>
          </property>
@@ -1428,8 +2115,6 @@ It is recommended to enable this option.</string>
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="icon.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
