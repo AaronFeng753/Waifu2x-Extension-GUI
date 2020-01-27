@@ -35,6 +35,10 @@ void MainWindow::on_pushButton_CheckUpdate_clicked()
 
 int MainWindow::CheckUpadte_Auto()
 {
+    if(ui->checkBox_autoCheckUpdate->checkState()==false)
+    {
+        return 0;
+    }
     Delay_sec_sleep(5);
     QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/python_ext.exe";

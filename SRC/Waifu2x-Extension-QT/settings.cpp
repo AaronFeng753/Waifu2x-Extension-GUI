@@ -62,6 +62,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/NFSound", ui->checkBox_NfSound->checkState());
     configIniWrite->setValue("/settings/ReProFinFiles", ui->checkBox_ReProcFinFiles->checkState());
     configIniWrite->setValue("/settings/ShowInterPro", ui->checkBox_ShowInterPro->checkState());
+    configIniWrite->setValue("/settings/AutoCheckUpdate", ui->checkBox_autoCheckUpdate->checkState());
+    configIniWrite->setValue("/settings/FileListAutoScroll", ui->checkBox_FileListAutoSlide->checkState());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -118,6 +120,8 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_NfSound->setChecked(configIniRead->value("/settings/NFSound").toBool());
     ui->checkBox_ReProcFinFiles->setChecked(configIniRead->value("/settings/ReProFinFiles").toBool());
     ui->checkBox_ShowInterPro->setChecked(configIniRead->value("/settings/ShowInterPro").toBool());
+    ui->checkBox_autoCheckUpdate->setChecked(configIniRead->value("/settings/AutoCheckUpdate").toBool());
+    ui->checkBox_FileListAutoSlide->setChecked(configIniRead->value("/settings/FileListAutoScroll").toBool());
     on_checkBox_SaveAsJPG_stateChanged(0);
     on_checkBox_ReProcFinFiles_stateChanged(0);
     //=================== 加载 textbrowser 设置 ==========================
@@ -140,5 +144,5 @@ void MainWindow::on_pushButton_ResetSettings_clicked()
     QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     QFile::remove(settings_ini);
-    QMessageBox::information(this,"Notification","The settings file has been reset, please restart the software manually for the default settings to take effect.");
+    QMessageBox::information(this,tr("Notification"),tr("The settings file has been reset, please restart the software manually for the default settings to take effect."));
 }

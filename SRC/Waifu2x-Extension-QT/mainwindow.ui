@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1717</width>
-    <height>845</height>
+    <width>1725</width>
+    <height>815</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -100,6 +100,9 @@ padding:10px;
          <property name="toolTip">
           <string>Do not include special characters in the input path, it may cause errors.</string>
          </property>
+         <property name="text">
+          <string notr="true"/>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
@@ -125,7 +128,183 @@ padding:10px;
        <string>Files List (You can drag and drop files or folders into here)</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="0" column="0" colspan="5">
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_RemoveItem">
+         <property name="maximumSize">
+          <size>
+           <width>110</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(255, 181, 6);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 200, 50);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(255, 170, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Remove item</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="pushButton_ClearList">
+         <property name="maximumSize">
+          <size>
+           <width>110</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Clear list</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QPushButton" name="pushButton_HideSettings">
+         <property name="toolTip">
+          <string>Hide all setting options.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Hide settings</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QPushButton" name="pushButton_HideInput">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Hide input path</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0" colspan="6">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QTableView" name="tableView_image">
@@ -279,178 +458,12 @@ padding:10px;
         </layout>
        </item>
        <item row="1" column="2">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="4">
-        <widget class="QPushButton" name="pushButton_HideSettings">
-         <property name="toolTip">
-          <string>Hide all setting options.</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
+        <widget class="QLabel" name="label_FileCount">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
          </property>
          <property name="text">
-          <string>Hide settings</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="pushButton_ClearList">
-         <property name="maximumSize">
-          <size>
-           <width>110</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Clear list</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_RemoveItem">
-         <property name="maximumSize">
-          <size>
-           <width>110</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(255, 181, 6);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 200, 50);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(255, 170, 0);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Remove item</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QPushButton" name="pushButton_HideInput">
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Hide input path</string>
+          <string>File count: null</string>
          </property>
         </widget>
        </item>
@@ -718,24 +731,16 @@ padding:10px;
           <string/>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="checkBox_OptGIF">
+          <item row="4" column="1">
+           <widget class="QCheckBox" name="checkBox_ShowInterPro">
             <property name="toolTip">
-             <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</string>
+             <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
             </property>
             <property name="text">
-             <string>Optimize &quot;.gif&quot;</string>
+             <string>Show internal progress</string>
             </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QCheckBox" name="checkBox_NfSound">
-            <property name="toolTip">
-             <string>Play Notification sound when all files in the list have been processed.</string>
-            </property>
-            <property name="text">
-             <string>Notification sound</string>
+            <property name="checked">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -749,26 +754,6 @@ It is recommended to enable this option.</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="checkBox_DelOriginal">
-            <property name="toolTip">
-             <string>Delete the original file after processing is complete.</string>
-            </property>
-            <property name="text">
-             <string>Delete original files</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QCheckBox" name="checkBox_AutoTurnOFF">
-            <property name="toolTip">
-             <string>Automatically shut down the computer after processing all files in the list.</string>
-            </property>
-            <property name="text">
-             <string>Turn off computer when finished</string>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0">
            <widget class="QCheckBox" name="checkBox_SaveAsJPG">
             <property name="toolTip">
@@ -776,6 +761,17 @@ It is recommended to enable this option.</string>
             </property>
             <property name="text">
              <string>Save as &quot;.jpg&quot;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="checkBox_OptGIF">
+            <property name="toolTip">
+             <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</string>
+            </property>
+            <property name="text">
+             <string>Optimize &quot;.gif&quot;</string>
             </property>
            </widget>
           </item>
@@ -789,13 +785,59 @@ It is recommended to enable this option.</string>
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
-           <widget class="QCheckBox" name="checkBox_ShowInterPro">
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="checkBox_NfSound">
             <property name="toolTip">
-             <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
+             <string>Play Notification sound when all files in the list have been processed.</string>
             </property>
             <property name="text">
-             <string>Show internal progress</string>
+             <string>Notification sound</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QCheckBox" name="checkBox_AutoTurnOFF">
+            <property name="toolTip">
+             <string>Automatically shut down the computer after processing all files in the list.</string>
+            </property>
+            <property name="text">
+             <string>Turn off computer when finished</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="checkBox_DelOriginal">
+            <property name="toolTip">
+             <string>Delete the original file after processing is complete.</string>
+            </property>
+            <property name="text">
+             <string>Delete original files</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
+            <property name="toolTip">
+             <string>Automatically check for updates on startup.</string>
+            </property>
+            <property name="text">
+             <string>Automatically check update</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+            <property name="toolTip">
+             <string>When the file processing status changes, the file list scrolls automatically.</string>
+            </property>
+            <property name="text">
+             <string>File list scrolls automatically</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -822,6 +864,12 @@ It is recommended to enable this option.</string>
             <layout class="QGridLayout" name="gridLayout_5">
              <item row="1" column="0" colspan="2">
               <widget class="QLabel" name="label_9">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
                <property name="toolTip">
                 <string>Tile size: This value will affacts GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
@@ -835,11 +883,17 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
              </item>
              <item row="0" column="2">
               <widget class="QComboBox" name="comboBox_ImageStyle">
+               <property name="minimumSize">
+                <size>
+                 <width>120</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="toolTip">
                 <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
                </property>
                <property name="currentText">
-                <string>2D Anime</string>
+                <string notr="true">2D Anime</string>
                </property>
                <item>
                 <property name="text">
@@ -907,7 +961,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
               <widget class="QLabel" name="label_3">
                <property name="maximumSize">
                 <size>
-                 <width>100</width>
+                 <width>16777215</width>
                  <height>16777215</height>
                 </size>
                </property>
@@ -991,12 +1045,12 @@ You can run compatibility test to see which engines your PC is compatible with.<
             </property>
             <item>
              <property name="text">
-              <string>waifu2x-ncnn-vulkan</string>
+              <string notr="true">waifu2x-ncnn-vulkan</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>waifu2x-converter</string>
+              <string notr="true">waifu2x-converter</string>
              </property>
             </item>
            </widget>
@@ -1023,12 +1077,12 @@ You can run compatibility test to see which engines your PC is compatible with.<
             </property>
             <item>
              <property name="text">
-              <string>waifu2x-ncnn-vulkan</string>
+              <string notr="true">waifu2x-ncnn-vulkan</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>waifu2x-converter</string>
+              <string notr="true">waifu2x-converter</string>
              </property>
             </item>
            </widget>
@@ -1050,17 +1104,17 @@ You can run compatibility test to see which engines your PC is compatible with.<
             </property>
             <item>
              <property name="text">
-              <string>waifu2x-ncnn-vulkan</string>
+              <string notr="true">waifu2x-ncnn-vulkan</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>waifu2x-converter</string>
+              <string notr="true">waifu2x-converter</string>
              </property>
             </item>
             <item>
              <property name="text">
-              <string>Anime4k</string>
+              <string notr="true">Anime4k</string>
              </property>
             </item>
            </widget>
@@ -1890,6 +1944,9 @@ padding:10px;
          <property name="value">
           <number>0</number>
          </property>
+         <property name="format">
+          <string notr="true">%p%</string>
+         </property>
         </widget>
        </item>
        <item row="0" column="8">
@@ -1972,7 +2029,7 @@ padding:10px;
           <enum>QFrame::Box</enum>
          </property>
          <property name="lineWidth">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="text">
           <string>Time cost:NULL</string>
@@ -1985,7 +2042,7 @@ padding:10px;
           <enum>QFrame::Box</enum>
          </property>
          <property name="lineWidth">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="text">
           <string>ETA:NULL</string>
@@ -2035,7 +2092,7 @@ padding:10px;
           <enum>QFrame::Box</enum>
          </property>
          <property name="lineWidth">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="text">
           <string>Time remaining:NULL</string>
@@ -2100,10 +2157,10 @@ padding:10px;
           <enum>QFrame::Plain</enum>
          </property>
          <property name="lineWidth">
-          <number>2</number>
+          <number>1</number>
          </property>
          <property name="text">
-          <string>0/0</string>
+          <string notr="true">0/0</string>
          </property>
         </widget>
        </item>

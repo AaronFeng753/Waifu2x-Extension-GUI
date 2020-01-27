@@ -83,6 +83,12 @@ void MainWindow::Table_image_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
 {
     ui->tableView_image->setUpdatesEnabled(false);
     Table_model_image->setItem(rowNum, 1, new QStandardItem(status));
+    if(ui->checkBox_FileListAutoSlide->checkState())
+    {
+        QAbstractItemModel *modessl = Table_model_image;
+        QModelIndex indextemp = modessl->index(rowNum, 1);
+        ui->tableView_image->scrollTo(indextemp);
+    }
     ui->tableView_image->setUpdatesEnabled(true);
 }
 
@@ -90,6 +96,12 @@ void MainWindow::Table_gif_ChangeStatus_rowNumInt_statusQString(int rowNum, QStr
 {
     ui->tableView_gif->setUpdatesEnabled(false);
     Table_model_gif->setItem(rowNum, 1, new QStandardItem(status));
+    if(ui->checkBox_FileListAutoSlide->checkState())
+    {
+        QAbstractItemModel *modessl = Table_model_gif;
+        QModelIndex indextemp = modessl->index(rowNum, 1);
+        ui->tableView_gif->scrollTo(indextemp);
+    }
     ui->tableView_gif->setUpdatesEnabled(true);
 }
 
@@ -97,6 +109,12 @@ void MainWindow::Table_video_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
 {
     ui->tableView_video->setUpdatesEnabled(false);
     Table_model_video->setItem(rowNum, 1, new QStandardItem(status));
+    if(ui->checkBox_FileListAutoSlide->checkState())
+    {
+        QAbstractItemModel *modessl = Table_model_video;
+        QModelIndex indextemp = modessl->index(rowNum, 1);
+        ui->tableView_video->scrollTo(indextemp);
+    }
     ui->tableView_video->setUpdatesEnabled(true);
 }
 
@@ -350,5 +368,22 @@ void MainWindow::Table_FileList_reload()
     {
         MovToFinedList();
     }
+}
+
+int MainWindow::Table_FileCount_reload()
+{
+    long int filecount=0;
+    filecount = Table_model_image->rowCount()+Table_model_gif->rowCount()+Table_model_video->rowCount();
+    if(filecount>0)
+    {
+        ui->label_FileCount->setVisible(1);
+        ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount));
+    }
+    else
+    {
+        ui->label_FileCount->setVisible(0);
+        ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount));
+    }
+    return 0;
 }
 

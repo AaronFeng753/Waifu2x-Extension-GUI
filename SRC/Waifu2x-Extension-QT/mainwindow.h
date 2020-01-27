@@ -117,6 +117,8 @@ public:
     int curRow_gif = -1;
     int curRow_video = -1;
 
+    int Table_FileCount_reload();
+
     //================================= Waifu2x ====================================
     int Waifu2xMainThread();
     int Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map);

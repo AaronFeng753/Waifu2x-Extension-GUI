@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView_video->setVisible(0);
     ui->pushButton_ClearList->setVisible(0);
     ui->pushButton_RemoveItem->setVisible(0);
+    Table_FileCount_reload();
     //===============================================================
     ui->pushButton_Stop->setEnabled(0);
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
@@ -58,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //=====================================
     Settings_Read_Apply();
+    //=====================================
     QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
 }
 
@@ -130,6 +132,7 @@ void MainWindow::on_pushButton_ClearList_clicked()
     ui->tableView_video->setVisible(0);
     ui->pushButton_ClearList->setVisible(0);
     ui->pushButton_RemoveItem->setVisible(0);
+    Table_FileCount_reload();
 }
 
 void MainWindow::on_pushButton_Start_clicked()
@@ -204,7 +207,7 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
-        QMessageBox::information(this,"Error","No items are currently selected.");
+        QMessageBox::information(this,tr("Error"),tr("No items are currently selected."));
         return 0;
     }
     RecFinedFiles();
@@ -255,13 +258,34 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
         }
     }
     ui->tableView_gif->clearSelection();
+    //==================================================
     if(!ui->checkBox_ReProcFinFiles->checkState())
     {
         MovToFinedList();
     }
+    //=====================
     curRow_image = -1;
     curRow_gif = -1;
     curRow_video = -1;
+    //======================
+    if(Table_model_gif->rowCount()==0)
+    {
+        FileList_gif.clear();
+        FileList_gif_finished.clear();
+        ui->tableView_gif->setVisible(0);
+    }
+    if(Table_model_image->rowCount()==0)
+    {
+        FileList_image.clear();
+        FileList_image_finished.clear();
+        ui->tableView_image->setVisible(0);
+    }
+    if(Table_model_video->rowCount()==0)
+    {
+        FileList_video.clear();
+        FileList_video_finished.clear();
+        ui->tableView_video->setVisible(0);
+    }
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         Table_Clear();
@@ -278,7 +302,9 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
         ui->tableView_video->setVisible(0);
         ui->pushButton_ClearList->setVisible(0);
         ui->pushButton_RemoveItem->setVisible(0);
+        ui->label_FileCount->setVisible(0);
     }
+    Table_FileCount_reload();
     return 0;
 }
 
@@ -362,7 +388,7 @@ void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
 void MainWindow::on_pushButton_donate_clicked()
 {
     emit Send_TextBrowser_NewMessage("Thank you! :)");
-    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI#donate"));
+    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
 }
 
 void MainWindow::on_pushButton_Report_clicked()
@@ -372,7 +398,19 @@ void MainWindow::on_pushButton_Report_clicked()
 
 void MainWindow::on_pushButton_ReadMe_clicked()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md"));
+    switch(ui->comboBox_language->currentIndex())
+    {
+        case 0:
+            {
+                QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md"));
+                break;
+            }
+        case 1:
+            {
+                QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
+                break;
+            }
+    }
 }
 
 void MainWindow::on_pushButton_AddPath_clicked()
@@ -389,7 +427,7 @@ void MainWindow::on_pushButton_AddPath_clicked()
     }
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
     {
-        QMessageBox::information(this,"Error","The file format is not supported, please enter supported file format, or add more file extensions yourself.");
+        QMessageBox::information(this,tr("Error"),tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
     }
     else
     {
@@ -421,6 +459,7 @@ void MainWindow::on_pushButton_AddPath_clicked()
     AddNew_image=false;
     AddNew_image=false;
     AddNew_video=false;
+    Table_FileCount_reload();
 }
 
 void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
@@ -616,7 +655,7 @@ void MainWindow::on_comboBox_GPUID_currentIndexChanged(int index)
 void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 {
     QString qmFilename;
-    QString runPath = qApp->applicationDirPath();     //获取文件运行路径
+    QString runPath = qApp->applicationDirPath();
     switch(ui->comboBox_language->currentIndex())
     {
         case 0:
@@ -633,6 +672,10 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
     if (translator->load(qmFilename))
     {
         qApp->installTranslator(translator);
+        ui->retranslateUi(this);
     }
-    ui->retranslateUi(this);             // 重新设置界面显示
+    else
+    {
+        emit Send_TextBrowser_NewMessage("Error: Language files cannot be loaded properly.");
+    }
 }

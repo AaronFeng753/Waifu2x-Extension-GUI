@@ -24,7 +24,7 @@ int MainWindow::CustRes_SetCustRes()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
-        QMessageBox::information(this,"Error","No items are currently selected.");
+        QMessageBox::information(this,tr("Error"),tr("No items are currently selected."));
         return 0;
     }
     RecFinedFiles();
@@ -70,7 +70,7 @@ int MainWindow::CustRes_SetCustRes()
     {
         if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
         {
-            QMessageBox::information(this, "Error", "When setting a custom resolution for a video, neither the height value nor the width value can be odd.");
+            QMessageBox::information(this, tr("Error"), tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd."));
             if(!ui->checkBox_ReProcFinFiles->checkState())
             {
                 MovToFinedList();
@@ -101,7 +101,7 @@ int MainWindow::CustRes_CancelCustRes()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
-        QMessageBox::information(this,"Error","No items are currently selected.");
+        QMessageBox::information(this,tr("Error"),tr("No items are currently selected."));
         return 0;
     }
     RecFinedFiles();

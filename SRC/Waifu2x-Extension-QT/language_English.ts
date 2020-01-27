@@ -1,526 +1,532 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en" sourcelanguage="en">
+<TS version="2.1" language="en">
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="20"/>
-        <source>Waifu2x-Extension-GUI v0.11-beta by Aaron Feng</source>
-        <translation>Waifu2x-Extension-GUI v0.11-beta by Aaron Feng</translation>
+        <source>Waifu2x-Extension-GUI by Aaron Feng</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="46"/>
         <source>Input path</source>
-        <translation>Input path</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="58"/>
         <location filename="mainwindow.ui" line="101"/>
         <source>Do not include special characters in the input path, it may cause errors.</source>
-        <translation>Do not include special characters in the input path, it may cause errors.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="91"/>
         <source>Add path</source>
-        <translation>Add path</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="108"/>
+        <location filename="mainwindow.ui" line="111"/>
         <source>Input path:
 (File or Folder)</source>
-        <translation>Input path:
-(File or Folder)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="125"/>
+        <location filename="mainwindow.ui" line="128"/>
         <source>Files List (You can drag and drop files or folders into here)</source>
-        <translation>Files List (You can drag and drop files or folders into here)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="271"/>
+        <location filename="mainwindow.ui" line="170"/>
+        <source>Remove item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="213"/>
+        <source>Clear list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="220"/>
+        <source>Hide all setting options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="253"/>
+        <source>Hide settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="290"/>
+        <source>Hide input path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="450"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
-        <translation>Drag and drop files or folders here
-(Image, GIF and Video)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="297"/>
-        <source>Hide all setting options.</source>
-        <translation>Hide all setting options.</translation>
+        <location filename="mainwindow.ui" line="466"/>
+        <source>File count: null</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="330"/>
-        <source>Hide settings</source>
-        <translation>Hide settings</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="373"/>
-        <source>Clear list</source>
-        <translation>Clear list</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="416"/>
-        <source>Remove item</source>
-        <translation>Remove item</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="453"/>
-        <source>Hide input path</source>
-        <translation>Hide input path</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="475"/>
+        <location filename="mainwindow.ui" line="488"/>
         <source>Settings</source>
-        <translation>Settings</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1135"/>
-        <source>Report issue</source>
-        <translation>Report issue</translation>
+        <location filename="mainwindow.ui" line="494"/>
+        <source>Scale ratio and Denoise level</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1178"/>
-        <source>Check update</source>
-        <translation>Check update</translation>
+        <location filename="mainwindow.ui" line="500"/>
+        <location filename="mainwindow.ui" line="545"/>
+        <location filename="mainwindow.ui" line="596"/>
+        <location filename="mainwindow.ui" line="627"/>
+        <location filename="mainwindow.ui" line="658"/>
+        <location filename="mainwindow.ui" line="711"/>
+        <source>Range: 1 ~ 999999999</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1220"/>
-        <source>Readme</source>
-        <translation>Readme</translation>
+        <location filename="mainwindow.ui" line="503"/>
+        <source>Image Scale ratio:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1260"/>
-        <source>Save settings</source>
-        <translation>Save settings</translation>
+        <location filename="mainwindow.ui" line="538"/>
+        <source>GIF Denoise level:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1277"/>
-        <source>Please donate to developers to support continuous updates of this software.</source>
-        <translation>Please donate to developers to support continuous updates of this software.</translation>
+        <location filename="mainwindow.ui" line="548"/>
+        <source>Video Scale ratio:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1310"/>
-        <source>Donate</source>
-        <translation>Donate</translation>
+        <location filename="mainwindow.ui" line="555"/>
+        <source>Image Denoise level:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1317"/>
-        <source>Run a compatibility test to see which engines your computer is compatible with.</source>
-        <translation>Run a compatibility test to see which engines your computer is compatible with.</translation>
+        <location filename="mainwindow.ui" line="714"/>
+        <source>GIF Scale ratio:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1350"/>
-        <source>Compatibility test</source>
-        <translation>Compatibility test</translation>
+        <location filename="mainwindow.ui" line="721"/>
+        <source>Video Denoise level:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1387"/>
-        <source>Reset settings</source>
-        <translation>Reset settings</translation>
+        <location filename="mainwindow.ui" line="737"/>
+        <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="740"/>
+        <source>Show internal progress</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="750"/>
+        <source>Compress JPG files, almost lossless.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="753"/>
+        <source>Compress &quot;.jpg&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="760"/>
+        <source>Save the scaled image as &quot;.jpg&quot;.(Images are stored in &quot;.png&quot; format by default.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="763"/>
+        <source>Save as &quot;.jpg&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="770"/>
+        <source>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="774"/>
+        <source>Optimize &quot;.gif&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="781"/>
+        <source>When there are finished files in the list, the finished files will be processed again when the processing process is started again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="784"/>
+        <source>Re-process finished files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="791"/>
+        <source>Play Notification sound when all files in the list have been processed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="794"/>
+        <source>Notification sound</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="801"/>
+        <source>Automatically shut down the computer after processing all files in the list.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="804"/>
+        <source>Turn off computer when finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="811"/>
+        <source>Delete the original file after processing is complete.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="814"/>
+        <source>Delete original files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="821"/>
+        <source>Automatically check for updates on startup.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="824"/>
+        <source>Automatically check update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="834"/>
+        <source>When the file processing status changes, the file list scrolls automatically.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="837"/>
+        <source>File list scrolls automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="856"/>
         <source>Engine</source>
-        <translation>Engine</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="820"/>
-        <location filename="mainwindow.ui" line="991"/>
-        <location filename="mainwindow.ui" line="1020"/>
-        <location filename="mainwindow.ui" line="1043"/>
-        <location filename="mainwindow.ui" line="1047"/>
+        <location filename="mainwindow.ui" line="862"/>
         <source>waifu2x-ncnn-vulkan</source>
-        <translation>waifu2x-ncnn-vulkan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="826"/>
-        <location filename="mainwindow.ui" line="887"/>
+        <location filename="mainwindow.ui" line="874"/>
+        <location filename="mainwindow.ui" line="941"/>
         <source>Tile size: This value will affacts GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.
 (Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</source>
-        <translation>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.
-(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="832"/>
+        <location filename="mainwindow.ui" line="880"/>
         <source>Tile size:</source>
-        <translation>Tile size:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="839"/>
-        <location filename="mainwindow.ui" line="915"/>
+        <location filename="mainwindow.ui" line="893"/>
+        <location filename="mainwindow.ui" line="969"/>
         <source>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</source>
-        <translation>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="842"/>
-        <location filename="mainwindow.ui" line="846"/>
+        <location filename="mainwindow.ui" line="900"/>
         <source>2D Anime</source>
-        <translation>2D Anime</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="851"/>
+        <location filename="mainwindow.ui" line="905"/>
         <source>3D Real-life</source>
-        <translation>3D Real-life</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="859"/>
-        <location filename="mainwindow.ui" line="872"/>
+        <location filename="mainwindow.ui" line="913"/>
+        <location filename="mainwindow.ui" line="926"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</source>
-        <translation>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="862"/>
+        <location filename="mainwindow.ui" line="916"/>
         <source>GPU ID:</source>
-        <translation>GPU ID:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="875"/>
-        <location filename="mainwindow.ui" line="879"/>
-        <source>auto</source>
-        <translation>auto</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="918"/>
+        <location filename="mainwindow.ui" line="972"/>
         <source>Image Style:</source>
-        <translation>Image Style:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="958"/>
+        <location filename="mainwindow.ui" line="1012"/>
         <source>Detect available GPU ID</source>
-        <translation>Detect available GPU ID</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="974"/>
-        <location filename="mainwindow.ui" line="1453"/>
+        <location filename="mainwindow.ui" line="1028"/>
+        <location filename="mainwindow.ui" line="1513"/>
         <source>GIF:</source>
-        <translation>GIF:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="984"/>
+        <location filename="mainwindow.ui" line="1038"/>
         <source>Select the engine for processing GIF. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
-        <translation>Select the engine for processing GIF. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-You can run compatibility test to see which engines your PC is compatible with.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="996"/>
-        <location filename="mainwindow.ui" line="1025"/>
-        <location filename="mainwindow.ui" line="1052"/>
-        <source>waifu2x-converter</source>
-        <translation>waifu2x-converter</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1013"/>
+        <location filename="mainwindow.ui" line="1070"/>
         <source>Select the engine for processing Image. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
-        <translation>Select the engine for processing Image. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-You can run compatibility test to see which engines your PC is compatible with.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1036"/>
+        <location filename="mainwindow.ui" line="1096"/>
         <source>Select the engine for processing Video. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
-        <translation>Select the engine for processing Video. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:☆ ]
-You can run compatibility test to see which engines your PC is compatible with.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1057"/>
-        <source>Anime4k</source>
-        <translation>Anime4k</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1071"/>
-        <location filename="mainwindow.ui" line="1424"/>
-        <location filename="mainwindow.ui" line="1757"/>
+        <location filename="mainwindow.ui" line="1131"/>
+        <location filename="mainwindow.ui" line="1484"/>
+        <location filename="mainwindow.ui" line="1817"/>
         <source>Image:</source>
-        <translation>Image:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1084"/>
-        <location filename="mainwindow.ui" line="1523"/>
-        <location filename="mainwindow.ui" line="1786"/>
+        <location filename="mainwindow.ui" line="1144"/>
+        <location filename="mainwindow.ui" line="1583"/>
+        <location filename="mainwindow.ui" line="1846"/>
         <source>Video:</source>
-        <translation>Video:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="724"/>
-        <source>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</source>
-        <translation>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</translation>
+        <location filename="mainwindow.ui" line="1195"/>
+        <source>Report issue</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="728"/>
-        <source>Optimize &quot;.gif&quot;</source>
-        <translation>Optimize &quot;.gif&quot;</translation>
+        <location filename="mainwindow.ui" line="1238"/>
+        <source>Check update</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="735"/>
-        <source>Play Notification sound when all files in the list have been processed.</source>
-        <translation>Play Notification sound when all files in the list have been processed.</translation>
+        <location filename="mainwindow.ui" line="1280"/>
+        <source>Readme</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="738"/>
-        <source>Notification sound</source>
-        <translation>Notification sound</translation>
+        <location filename="mainwindow.ui" line="1320"/>
+        <source>Save settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="745"/>
-        <source>Compress JPG files, almost lossless.</source>
-        <translation>Compress JPG files, almost lossless.</translation>
+        <location filename="mainwindow.ui" line="1337"/>
+        <source>Please donate to developers to support continuous updates of this software.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="748"/>
-        <source>Compress &quot;.jpg&quot;</source>
-        <translation>Compress &quot;.jpg&quot;</translation>
+        <location filename="mainwindow.ui" line="1370"/>
+        <source>Donate</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="755"/>
-        <source>Delete the original file after processing is complete.</source>
-        <translation>Delete the original file after processing is complete.</translation>
+        <location filename="mainwindow.ui" line="1377"/>
+        <source>Run a compatibility test to see which engines your computer is compatible with.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="758"/>
-        <source>Delete original files</source>
-        <translation>Delete original files</translation>
+        <location filename="mainwindow.ui" line="1410"/>
+        <source>Compatibility test</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="765"/>
-        <source>Automatically shut down the computer after processing all files in the list.</source>
-        <translation>Automatically shut down the computer after processing all files in the list.</translation>
+        <location filename="mainwindow.ui" line="1447"/>
+        <source>Reset settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="768"/>
-        <source>Turn off computer when finished</source>
-        <translation>Turn off computer when finished</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="775"/>
-        <source>Save the scaled image as &quot;.jpg&quot;.(Images are stored in &quot;.png&quot; format by default.)</source>
-        <translation>Save the scaled image as &quot;.jpg&quot;.(Images are stored in &quot;.png&quot; format by default.)</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="778"/>
-        <source>Save as &quot;.jpg&quot;</source>
-        <translation>Save as &quot;.jpg&quot;</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="785"/>
-        <source>When there are finished files in the list, the finished files will be processed again when the processing process is started again.</source>
-        <translation>When there are finished files in the list, the finished files will be processed again when the processing process is started again.</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="788"/>
-        <source>Re-process finished files</source>
-        <translation>Re-process finished files</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="795"/>
-        <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
-        <translation>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="798"/>
-        <source>Show internal progress</source>
-        <translation>Show internal progress</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1745"/>
-        <source>Input file extensions</source>
-        <translation>Input file extensions</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1773"/>
-        <source>png:jpg:jpeg:tif:tiff:bmp:tga</source>
-        <translation>png:jpg:jpeg:tif:tiff:bmp:tga</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1802"/>
-        <source>mp4:mkv:avi:rmvb</source>
-        <translation>mp4:mkv:avi:rmvb</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1403"/>
+        <location filename="mainwindow.ui" line="1463"/>
         <source>Number of threads</source>
-        <translation>Number of threads</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1488"/>
-        <location filename="mainwindow.ui" line="1498"/>
-        <source>Internal threads number of GIF.</source>
-        <translation>Internal threads number of GIF.</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1491"/>
-        <location filename="mainwindow.ui" line="1561"/>
-        <source>Internal:</source>
-        <translation>Internal:</translation>
-    </message>
-    <message>
+        <location filename="mainwindow.ui" line="1548"/>
         <location filename="mainwindow.ui" line="1558"/>
-        <location filename="mainwindow.ui" line="1568"/>
+        <source>Internal threads number of GIF.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1551"/>
+        <location filename="mainwindow.ui" line="1621"/>
+        <source>Internal:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="1618"/>
+        <location filename="mainwindow.ui" line="1628"/>
         <source>Internal threads number of Video.</source>
-        <translation>Internal threads number of Video.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1599"/>
+        <location filename="mainwindow.ui" line="1659"/>
         <source>Custom resolution</source>
-        <translation>Custom resolution</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1605"/>
+        <location filename="mainwindow.ui" line="1665"/>
         <source>Width:</source>
-        <translation>Width:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1625"/>
+        <location filename="mainwindow.ui" line="1685"/>
         <source>Height:</source>
-        <translation>Height:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1645"/>
+        <location filename="mainwindow.ui" line="1705"/>
         <source>1.Set the height and width of the resolution.
 2.Select a file in the file list.
 3.Click the Apply button to set the resolution.</source>
-        <translation>1.Set the height and width of the resolution.
-2.Select a file in the file list.
-3.Click the Apply button to set the resolution.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1680"/>
+        <location filename="mainwindow.ui" line="1740"/>
         <source>Apply</source>
-        <translation>Apply</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1687"/>
+        <location filename="mainwindow.ui" line="1747"/>
         <source>1.Select a file in the file list.
 2.Click the Cancel button to cancel the custom resolution.</source>
-        <translation>1.Select a file in the file list.
-2.Click the Cancel button to cancel the custom resolution.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1735"/>
+        <location filename="mainwindow.ui" line="1795"/>
         <source>Cancel</source>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="481"/>
-        <source>Scale ratio and Denoise level</source>
-        <translation>Scale ratio and Denoise level</translation>
+        <location filename="mainwindow.ui" line="1805"/>
+        <source>Input file extensions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="487"/>
-        <location filename="mainwindow.ui" line="532"/>
-        <location filename="mainwindow.ui" line="583"/>
-        <location filename="mainwindow.ui" line="614"/>
-        <location filename="mainwindow.ui" line="645"/>
-        <location filename="mainwindow.ui" line="698"/>
-        <source>Range: 1 ~ 999999999</source>
-        <oldsource>Range: 1 ~ Infinite</oldsource>
-        <translation>Range: 1 ~ 999999999</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="490"/>
-        <source>Image Scale ratio:</source>
-        <translation>Image Scale ratio:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="525"/>
-        <source>GIF Denoise level:</source>
-        <translation>GIF Denoise level:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="535"/>
-        <source>Video Scale ratio:</source>
-        <translation>Video Scale ratio:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="542"/>
-        <source>Image Denoise level:</source>
-        <translation>Image Denoise level:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="701"/>
-        <source>GIF Scale ratio:</source>
-        <translation>GIF Scale ratio:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="708"/>
-        <source>Video Denoise level:</source>
-        <translation>Video Denoise level:</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1812"/>
+        <location filename="mainwindow.ui" line="1872"/>
         <source>Language</source>
-        <translation>Language</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1822"/>
-        <source>English</source>
-        <translation>English</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1827"/>
-        <source>简体中文</source>
-        <translation>简体中文</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1841"/>
+        <location filename="mainwindow.ui" line="1901"/>
         <source>Current Language:</source>
-        <translation>Current Language:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1935"/>
+        <location filename="mainwindow.ui" line="1955"/>
+        <source>Font size:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2012"/>
         <source>Stop</source>
-        <translation>Stop</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1948"/>
-        <source>Time remaining:NULL</source>
-        <translation>Time remaining:NULL</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1961"/>
+        <location filename="mainwindow.ui" line="2035"/>
         <source>Time cost:NULL</source>
-        <translation>Time cost:NULL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1998"/>
-        <source>Clear TextBrowser</source>
-        <translation>Clear TextBrowser</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="2029"/>
+        <location filename="mainwindow.ui" line="2048"/>
         <source>ETA:NULL</source>
-        <translation>ETA:NULL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2085"/>
-        <source>Start</source>
-        <translation>Start</translation>
+        <source>Clear TextBrowser</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2102"/>
-        <source>Font size:</source>
-        <translation>Font size:</translation>
+        <location filename="mainwindow.ui" line="2098"/>
+        <source>Time remaining:NULL</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2147"/>
+        <source>Start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="table.cpp" line="380"/>
+        <location filename="table.cpp" line="385"/>
+        <source>File count: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="CustomResolution.cpp" line="27"/>
+        <location filename="CustomResolution.cpp" line="73"/>
+        <location filename="CustomResolution.cpp" line="104"/>
+        <location filename="files.cpp" line="44"/>
+        <location filename="mainwindow.cpp" line="210"/>
+        <location filename="mainwindow.cpp" line="418"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="CustomResolution.cpp" line="27"/>
+        <location filename="CustomResolution.cpp" line="104"/>
+        <location filename="mainwindow.cpp" line="210"/>
+        <source>No items are currently selected.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="CustomResolution.cpp" line="73"/>
+        <source>When setting a custom resolution for a video, neither the height value nor the width value can be odd.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="files.cpp" line="44"/>
+        <location filename="mainwindow.cpp" line="418"/>
+        <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="settings.cpp" line="147"/>
+        <source>Notification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="settings.cpp" line="147"/>
+        <source>The settings file has been reset, please restart the software manually for the default settings to take effect.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
