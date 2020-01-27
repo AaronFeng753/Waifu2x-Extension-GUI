@@ -1,4 +1,10 @@
 # Change log
+## [v0.12-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.12-beta)
+#### Change log:
+- NEW Feature: Check for updates automatically.
+- Fix bug: GIF and video cannot read the scale ratio setting normally.
+- Fix bug: When processing videos and gif files, if an error occurs, it will cause thread management problems.
+---
 ## [v0.11-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.11-beta)
 #### Change log:
 - NEW Feature: Customize the resolution of image, GIF and video output. (At the request of an anonymous donor.🧐)
