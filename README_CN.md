@@ -65,7 +65,7 @@
 
 # Q&A
 ```
-Q：在技术上和同样有gui的老牌waifu2x-caffe有什么区别？
+Q：在技术上和同样有gui的老牌软件waifu2x-caffe有什么区别？
 
 A：waifu2x-extension-GUI集成了腾讯的一位大佬制作的waifu2x-ncnn-vulkan（原程序并没有自带图形界面，只有命令行），
 vulkan是通用的全平台API，所以所有主流显卡（NVIDIA，Intel，AMD）均支持vulkan.
