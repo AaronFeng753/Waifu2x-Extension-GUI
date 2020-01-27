@@ -73,6 +73,16 @@ vulkan是通用的全平台API，所以所有主流显卡（NVIDIA，Intel，AMD
 并且caffe不支持处理gif和视频，而extension通过集成外部开源组件实现了对gif和视频的自动拆分，放大，组装。
 这也是我开发extension的初衷，让所有人（包括我自己），无论用什么显卡，都能快速的借助waifu2x技术处理图像。
 ```
+```
+Q：我的电脑连显卡都没有(或者显卡太老不支持vulkan)怎么办呢？
+
+A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和老旧显卡进行快速进行运算.
+速度参考:
+配置:Windows10专业版1909,i7-8550U,Intel UHD 620
+原图片:https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Samples/image/2_Original.jpg
+软件设置:v0.12-beta,使用waifu2x-converter引擎,图片两倍放大,二级降噪
+处理结果:耗时11秒,放大到1920x1080
+```
 
 # 如何修复兼容性问题 :
 #### waifu2x-ncnn-vulkan: 重装与更新显卡驱动.
