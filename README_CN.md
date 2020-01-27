@@ -63,6 +63,17 @@
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
+# Q&A
+```
+Q：在技术上和同样有gui的老牌waifu2x-caffe有什么区别？
+
+A：waifu2x-extension-GUI集成了腾讯的一位大佬制作的waifu2x-ncnn-vulkan（原程序并没有自带图形界面，只有命令行），
+vulkan是通用的全平台API，所以所有主流显卡（NVIDIA，Intel，AMD）均支持vulkan.
+而caffe仅支持NVIDIA的CUDA，在没有n卡的平台只能用CPU进行运算，速度很慢很慢。
+并且caffe不支持处理gif和视频，而extension通过集成外部开源组件实现了对gif和视频的自动拆分，放大，组装。
+这也是我开发extension的初衷，让所有人（包括我自己），无论用什么显卡，都能快速的借助waifu2x技术处理图像。
+```
+
 # 如何修复兼容性问题 :
 #### waifu2x-ncnn-vulkan: 重装与更新显卡驱动.
 #### waifu2x-converter: 换个新电脑.
