@@ -251,7 +251,7 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
         if(ScaleRatio==0)
         {
             emit Send_TextBrowser_NewMessage("Error occured when processing ["+InputPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
-            ThreadNumRunning--;//线程数量统计-1s
+            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
             return 0;
         }
         CustRes_height=Res_map["height"].toInt();

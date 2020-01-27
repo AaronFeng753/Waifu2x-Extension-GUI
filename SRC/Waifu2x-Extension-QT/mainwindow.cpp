@@ -48,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_TextBrowser_NewMessage(QString)), this, SLOT(TextBrowser_NewMessage(QString)));
     connect(this, SIGNAL(Send_Waifu2x_Compatibility_Test_finished()), this, SLOT(Waifu2x_Compatibility_Test_finished()));
     connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
+    connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
     //==================================================
@@ -57,6 +58,7 @@ MainWindow::MainWindow(QWidget *parent)
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //=====================================
     Settings_Read_Apply();
+    QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
 }
 
 MainWindow::~MainWindow()
@@ -361,11 +363,6 @@ void MainWindow::on_pushButton_donate_clicked()
 {
     emit Send_TextBrowser_NewMessage("Thank you! :)");
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI#donate"));
-}
-
-void MainWindow::on_pushButton_CheckUpdate_clicked()
-{
-    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
 }
 
 void MainWindow::on_pushButton_Report_clicked()

@@ -29,6 +29,7 @@ void MainWindow::progressbar_setRange_min_max(int min, int max)
 void MainWindow::progressbar_SetToMax(int maxval)
 {
     ui->progressBar->setValue(maxval);
+    ui->label_progressBar_filenum->setText(QString::number(maxval,10)+"/"+QString::number(maxval,10));
 }
 
 void MainWindow::progressbar_Add()
@@ -37,11 +38,13 @@ void MainWindow::progressbar_Add()
     TaskNumFinished++;
     NewTaskFinished=true;
     ui->progressBar->setValue(Progressbar_CurrentVal);
+    ui->label_progressBar_filenum->setText(QString::number(Progressbar_CurrentVal,10)+"/"+QString::number(Progressbar_MaxVal,10));
 }
 
 void MainWindow::progressbar_clear()
 {
     ui->progressBar->setRange(0, 1);
     ui->progressBar->setValue(0);
+    ui->label_progressBar_filenum->setText("0/0");
 }
 

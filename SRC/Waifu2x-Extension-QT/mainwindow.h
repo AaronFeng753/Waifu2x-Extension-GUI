@@ -44,6 +44,12 @@ public:
 
     MainWindow(QWidget *parent = nullptr);
 
+    //=======================
+
+    QString VERSION="v0.12-beta";
+
+    //=======================
+
     QTranslator * translator;
 
     //=================================  File =================================
@@ -206,6 +212,8 @@ public:
     int TimeCost = 0;
     QString Seconds2hms(int seconds);
 
+    int CheckUpadte_Auto();
+
     ~MainWindow();
 
 public slots:
@@ -225,6 +233,8 @@ public slots:
 
     int Waifu2x_Compatibility_Test_finished();
     int Waifu2x_DetectGPU_finished();
+
+    int CheckUpadte_NewUpdate(QString update_str);
 
 
 
@@ -306,6 +316,8 @@ signals:
     void Send_Waifu2x_Compatibility_Test_finished();
 
     void Send_Waifu2x_DetectGPU_finished();
+
+    void Send_CheckUpadte_NewUpdate(QString update_str);
 
 
 private:

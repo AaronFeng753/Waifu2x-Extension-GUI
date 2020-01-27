@@ -22,16 +22,17 @@
 
 
 /*
-video_gif_info.exe:
-get video fps : [video_gif_info.exe videoFilePath fps]
-get video frame number : [video_gif_info.exe videoFilePath countframe]
-get gif duration : [video_gif_info.exe videoFilePath countframedigits]
+python_ext.exe:
+get video fps : [python_ext.exe videoFilePath fps]
+get video frame number : [python_ext.exe videoFilePath countframe]
+get gif duration : [python_ext.exe videoFilePath countframedigits]
+check update :[python_ext.exe null checkupdate]
 */
 
 int MainWindow::video_get_fps(QString videoPath)
 {
     QString Current_Path = qApp->applicationDirPath();
-    QString program = Current_Path+"/video_gif_info.exe";
+    QString program = Current_Path+"/python_ext.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" fps");
     vid.waitForStarted();
@@ -43,7 +44,7 @@ int MainWindow::video_get_fps(QString videoPath)
 int MainWindow::video_get_frameNumDigits(QString videoPath)
 {
     QString Current_Path = qApp->applicationDirPath();
-    QString program = Current_Path+"/video_gif_info.exe";
+    QString program = Current_Path+"/python_ext.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" countframe");
     vid.waitForStarted();
