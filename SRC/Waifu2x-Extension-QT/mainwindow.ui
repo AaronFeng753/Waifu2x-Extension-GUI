@@ -1936,7 +1936,7 @@ padding:10px;
              <bool>false</bool>
             </property>
             <property name="text">
-             <string>mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</string>
+             <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</string>
             </property>
            </widget>
           </item>

@@ -7,7 +7,7 @@
         <location filename="mainwindow.ui" line="20"/>
         <source>Waifu2x-Extension-GUI by Aaron Feng</source>
         <oldsource>Waifu2x-Extension-GUI v0.11-beta by Aaron Feng</oldsource>
-        <translation type="unfinished"></translation>
+        <translation>Waifu2x-Extension-GUI by Aaron Feng</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="46"/>
@@ -75,12 +75,12 @@
     <message>
         <location filename="mainwindow.ui" line="493"/>
         <source>Save Files List</source>
-        <translation type="unfinished"></translation>
+        <translation>保存文件列表</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="530"/>
         <source>Read Saved Files List</source>
-        <translation type="unfinished"></translation>
+        <translation>读取已保存的文件列表</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="540"/>
@@ -476,7 +476,7 @@ It is recommended to enable this option.</source>
     <message>
         <location filename="mainwindow.ui" line="1939"/>
         <source>mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</source>
-        <translation type="unfinished"></translation>
+        <translation>mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1949"/>
@@ -532,12 +532,12 @@ It is recommended to enable this option.</source>
     <message>
         <location filename="table.cpp" line="550"/>
         <source>File list saved successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>成功保存文件列表!</translation>
     </message>
     <message>
         <location filename="table.cpp" line="719"/>
         <source>File list update is complete!</source>
-        <translation type="unfinished"></translation>
+        <translation>成功更新文件列表!</translation>
     </message>
     <message>
         <location filename="CustomResolution.cpp" line="27"/>
@@ -578,17 +578,18 @@ It is recommended to enable this option.</source>
         <location filename="checkupdate.cpp" line="61"/>
         <source>New version: %1 
 Do you wanna update now???</source>
-        <translation type="unfinished"></translation>
+        <translation>新版本: %1 
+您想要现在更新吗???</translation>
     </message>
     <message>
         <location filename="checkupdate.cpp" line="62"/>
         <source>YES</source>
-        <translation type="unfinished"></translation>
+        <translation>是</translation>
     </message>
     <message>
         <location filename="checkupdate.cpp" line="63"/>
         <source>NO</source>
-        <translation type="unfinished"></translation>
+        <translation>否</translation>
     </message>
     <message>
         <location filename="settings.cpp" line="147"/>
@@ -640,7 +641,7 @@ Do you wanna update now???</source>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="782"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="852"/>
         <source>Error occured when processing [</source>
-        <translation type="unfinished"></translation>
+        <translation>当处理该文件时发生错误 [</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="37"/>
@@ -651,21 +652,21 @@ Do you wanna update now???</source>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="297"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="627"/>
         <source>]. Error: [File does not exist.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: 文件不存在.]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="92"/>
         <location filename="waifu2x_converter.cpp" line="600"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="682"/>
         <source>]. Error: [Cannot convert video format to mp4.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法将视频转换为mp4格式.]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="104"/>
         <location filename="waifu2x_converter.cpp" line="612"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="694"/>
         <source>]. Error: [Unable to split video into pictures.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法将视频拆分为图片.]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="138"/>
@@ -674,26 +675,26 @@ Do you wanna update now???</source>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="383"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="728"/>
         <source>File name:[</source>
-        <translation type="unfinished"></translation>
+        <translation>文件名称:[</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="138"/>
         <source>]  Scale progress:[</source>
-        <translation type="unfinished"></translation>
+        <translation>]  放大进度:[</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="170"/>
         <location filename="waifu2x_converter.cpp" line="678"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="760"/>
         <source>]. Error: [Unable to scale all frames.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法放大所有帧.]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="192"/>
         <location filename="waifu2x_converter.cpp" line="700"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="782"/>
         <source>]. Error: [Unable to assemble pictures into videos.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法将帧图片组装为视频.]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="264"/>
@@ -704,37 +705,37 @@ Do you wanna update now???</source>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="507"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="852"/>
         <source>]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法读取源文件的分辨率, 故无法将图片调整至自定义的分辨率.]</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="163"/>
         <source>Unable to start processing files: The file list is empty or there are no available files to process.</source>
-        <translation type="unfinished"></translation>
+        <translation>无法开始处理文件: 文件列表为空或者列表内无可供处理的文件.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="200"/>
         <source>Start processing files.</source>
-        <translation type="unfinished"></translation>
+        <translation>开始处理文件.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="211"/>
         <source>Trying to stop, please wait...</source>
-        <translation type="unfinished"></translation>
+        <translation>尝试停止, 请稍等...</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="223"/>
         <source>Processing of files has stopped.</source>
-        <translation type="unfinished"></translation>
+        <translation>已停止处理文件.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="388"/>
         <source>It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status.</source>
-        <translation type="unfinished"></translation>
+        <translation>检测到软件上次运行时执行了自动关机. 上次的文件列表已在关机前自动保存. 您可以手动加载列表已查看文件处理状况.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="439"/>
         <source>Thank you! :)</source>
-        <translation type="unfinished"></translation>
+        <translation>谢谢您! :)</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="523"/>
@@ -744,7 +745,7 @@ Do you wanna update now???</source>
         <location filename="mainwindow.cpp" line="573"/>
         <location filename="mainwindow.cpp" line="574"/>
         <source>Range:-1(No noise reduction)~3</source>
-        <translation type="unfinished"></translation>
+        <translation>范围:-1(不降噪)~3</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="532"/>
@@ -754,155 +755,155 @@ Do you wanna update now???</source>
         <location filename="mainwindow.cpp" line="582"/>
         <location filename="mainwindow.cpp" line="583"/>
         <source>Range:0(No noise reduction)~2</source>
-        <translation type="unfinished"></translation>
+        <translation>范围:0(不降噪)~2</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="591"/>
         <location filename="mainwindow.cpp" line="592"/>
         <source>Anime4K engine does not support noise reduction.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anime4K引擎不支持降噪.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="659"/>
         <source>Show settings</source>
-        <translation type="unfinished"></translation>
+        <translation>显示设置</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="660"/>
         <source>Show all setting options.</source>
-        <translation type="unfinished"></translation>
+        <translation>显示所有设置选项.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="675"/>
         <source>Show input path</source>
-        <translation type="unfinished"></translation>
+        <translation>显示输入路径</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="728"/>
         <source>Error: Language files cannot be loaded properly.</source>
-        <translation type="unfinished"></translation>
+        <translation>错误: 找不到语言文件.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="743"/>
         <source>Write to the file, please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>写入文件中,请稍等.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="782"/>
         <source>Please wait while reading the file.</source>
-        <translation type="unfinished"></translation>
+        <translation>请稍等,读取文件中.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="787"/>
         <location filename="table.cpp" line="560"/>
         <source>Cannot find the saved Files List!</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到已保存的文件列表!</translation>
     </message>
     <message>
         <location filename="video.cpp" line="118"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法获取视频帧率.]</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="192"/>
         <source>Warning!</source>
-        <translation type="unfinished"></translation>
+        <translation>警告!</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="192"/>
         <location filename="waifu2x.cpp" line="193"/>
         <source>The computer will automatically shut down in 60 seconds!</source>
-        <translation type="unfinished"></translation>
+        <translation>计算机将于60秒后自动关机!</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="199"/>
         <source>Process finished.</source>
-        <translation type="unfinished"></translation>
+        <translation>处理完成.</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="243"/>
         <source>Compatibility test is ongoing, please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>进行兼容性测试中,请稍等.</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="260"/>
         <source>Compatible with waifu2x-ncnn-vulkan: Yes</source>
-        <translation type="unfinished"></translation>
+        <translation>是否与waifu2x-ncnn-vulkan兼容: 是</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="264"/>
         <source>Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
-        <translation type="unfinished"></translation>
+        <translation>是否与waifu2x-ncnn-vulkan兼容: 否. [建议: 重装或者更新显卡驱动.]</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="278"/>
         <source>Compatible with waifu2x-converter: Yes.</source>
-        <translation type="unfinished"></translation>
+        <translation>是否与waifu2x-converter兼容: 是.</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="282"/>
         <source>Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]</source>
-        <translation type="unfinished"></translation>
+        <translation>是否与waifu2x-converter兼容: 否. [建议: 买台新电脑.]</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="295"/>
         <source>Compatible with Anime4k: Yes.</source>
-        <translation type="unfinished"></translation>
+        <translation>是否与Anime4k兼容: 是.</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="299"/>
         <source>Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]</source>
-        <translation type="unfinished"></translation>
+        <translation>是否与Anime4k兼容: 否. [建议: 安装最新版的 JDK 和 JRE.]</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="303"/>
         <source>Compatibility test is complete!</source>
-        <translation type="unfinished"></translation>
+        <translation>兼容性测试已完成!</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="317"/>
         <source>Detecting available GPU, please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>检测可用显卡中,请稍等.</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="352"/>
         <source>Detection is complete!</source>
-        <translation type="unfinished"></translation>
+        <translation>检测完成!</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="355"/>
         <source>No available GPU ID detected!</source>
-        <translation type="unfinished"></translation>
+        <translation>未检测到可用的GPU!</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="106"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="135"/>
         <source>]. Error: [Unable to scale the picture.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法放大图片.]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="141"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="178"/>
         <source>]. Error: [Unable to resize the scaled picture to the target size]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法将放大后的图片调整至自定义的分辨率]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="205"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="242"/>
         <source>]. Error: [Cannot save scaled picture as .jpg.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法将图片保存为 .jpg.]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="281"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="328"/>
         <source>]. Error: [Can&apos;t get Duration value of GIF file.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法获取gif的帧延时.]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="304"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="351"/>
         <source>]. Error: [Can&apos;t split GIF into frames.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法拆分gif.]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="336"/>
@@ -910,25 +911,25 @@ Do you wanna update now???</source>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="383"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="728"/>
         <source>]  Scale and Denoise progress:[</source>
-        <translation type="unfinished"></translation>
+        <translation>]  放大与降噪进度:[</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="367"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="414"/>
         <source>]. Error: [Failed to scale frames.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法放大当前帧.]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="382"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="429"/>
         <source>]. Error: [Unable to assemble gif.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法组装gif.]</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="408"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="455"/>
         <source>]. Error: [Can&apos;t optimize gif.]</source>
-        <translation type="unfinished"></translation>
+        <translation>]. 错误: [无法优化gif.]</translation>
     </message>
 </context>
 </TS>
