@@ -1,4 +1,20 @@
 # Change log
+## [v0.21-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.21-beta)
+#### Change log:
+- New feature: [Completed number of files/Total number of files] is displayed on the left side of the progress bar.
+- New feature: Added setting options to control whether to automatically check for updates at startup (It is `not recommended` to turn off automatic updates)
+- New feature: The total number of files is displayed below the file list.
+- New feature: Save/Read file list
+- New feature: Automatically save the file list before automatically shutting down the computer,  you can manually load the file list to check the file processing status after the next software startup
+- New feature: pop-up window prompt before auto shutdown
+- Improve Simplified Chinese language support
+- Select the readme to open based on the current language
+- Before processing a file, check if it exists
+- Fix bug: After saving the settings, the [Image Style] settings that were saved cannot be read normally
+- Fix bug: After removing a single row, the custom resolution settings of all remaining rows will be cleared
+- Fix bug: When there are files with the same file name and different extensions in the file list, if multi-threading is enabled, it will cause read and write conflicts.
+- Fix bug: The problem that the new version download page cannot be opened normally after detecting the new version automatically.
+---
 ## [v0.12-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.12-beta)
 #### Change log:
 - NEW Feature: Check for updates automatically.
