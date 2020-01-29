@@ -54,7 +54,7 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
     return frameNumDigits;
 }
 
-void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath)
+void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath)
 {
     QString Current_Path = qApp->applicationDirPath();
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
@@ -67,6 +67,14 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath)
     QString video_filename = vfinfo.baseName();
     QString video_ext = vfinfo.suffix();
     QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
+    if(video_ext!="mp4")
+    {
+        video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
+    }
+    else
+    {
+        video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
+    }
     if(video_ext!="mp4")
     {
         QProcess video_tomp4;
@@ -85,14 +93,14 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath)
         video_splitFrame.waitForStarted();
         video_splitFrame.waitForFinished();
     }
-    QFile::remove(video_dir+"/audio_waifu2x.wav");
+    QFile::remove(AudioPath);
     QProcess video_splitSound;
-    video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+video_dir+"/audio_waifu2x.wav\"");
+    video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+AudioPath+"\"");
     video_splitSound.waitForStarted();
     video_splitSound.waitForFinished();
 }
 
-int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath)
+int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath)
 {
     QString Current_Path = qApp->applicationDirPath();
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
@@ -103,13 +111,13 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         video_dir = video_dir.left(video_dir.length() - 1);
     }
     QString video_filename = vfinfo.baseName();
+    QString video_ext = vfinfo.suffix();
     int fps = video_get_fps(VideoPath);
     if(fps<=0)
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+VideoPath+"]. Error: [Unable to get video frame rate.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+VideoPath+tr("]. Error: [Unable to get video frame rate.]"));
         return 0;
     }
-    QString AudioPath = video_dir+"/audio_waifu2x.wav";
     QString CMD = "";
     if(file_isFileExist(AudioPath))
     {

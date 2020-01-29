@@ -75,7 +75,6 @@ public:
     QMap<QString, QString> FileList_find_rowNum(QList<QMap<QString, QString>> FileList, int rowNum);
 
     void RecFinedFiles();
-    void MovToFinedList();
 
     bool file_isDirExist(QString SourceFile_fullPath);
     void file_mkDir(QString SourceFile_fullPath);
@@ -89,14 +88,6 @@ public:
     QStandardItemModel *Table_model_image = new QStandardItemModel();
     QStandardItemModel *Table_model_video = new QStandardItemModel();
     QStandardItemModel *Table_model_gif = new QStandardItemModel();
-
-    void Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
-    void Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
-    void Table_video_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
-
-    void Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
-    void Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
-    void Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
 
     void Table_image_CustRes_Cancel_rowNumInt(int rowNum);
     void Table_gif_CustRes_Cancel_rowNumInt(int rowNum);
@@ -117,7 +108,13 @@ public:
     int curRow_gif = -1;
     int curRow_video = -1;
 
-    int Table_FileCount_reload();
+    int Table_Save_Current_Table_Filelist();
+
+    int Table_Read_Current_Table_Filelist();
+
+    int Table_Save_Current_Table_Filelist_Watchdog();
+
+
 
     //================================= Waifu2x ====================================
     int Waifu2xMainThread();
@@ -181,8 +178,8 @@ public:
     //================================= video ===============================
     int video_get_fps(QString videoPath);
     int video_get_frameNumDigits(QString videoPath);
-    void video_video2images(QString VideoPath,QString FrameFolderPath);
-    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath);
+    void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);
+    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath);
 
     //============================   custom res  ====================================
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
@@ -195,13 +192,12 @@ public:
 
     //======================== 设置 ===========================================
     int Settings_Save();
-
-
     int Settings_Read_Apply();
 
 
     //================================ Other =======================================
-    bool SystemShutDown();
+    int SystemShutDown_Countdown();
+
     void Delay_sec(int time);
     void Delay_msec(int time);
 
@@ -215,6 +211,7 @@ public:
     QString Seconds2hms(int seconds);
 
     int CheckUpadte_Auto();
+    int SystemShutDown_isAutoShutDown();
 
     ~MainWindow();
 
@@ -238,13 +235,32 @@ public slots:
 
     int CheckUpadte_NewUpdate(QString update_str);
 
+    int Table_FileCount_reload();
+
+    void MovToFinedList();
+
+    void Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+    void Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+    void Table_video_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+
+    void Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+    void Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+    void Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+
+    int Table_Read_Current_Table_Filelist_Finished();
+    int Table_Save_Current_Table_Filelist_Finished();
+
+    void on_pushButton_ClearList_clicked();
+
+    bool SystemShutDown();
+
+
 
 
 private slots:
 
     void on_pushButton_Start_clicked();
 
-    void on_pushButton_ClearList_clicked();
 
     void on_pushButton_Stop_clicked();
 
@@ -302,6 +318,14 @@ private slots:
 
     void on_comboBox_language_currentIndexChanged(int index);
 
+    void on_pushButton_SaveFileList_clicked();
+
+    void on_pushButton_ReadFileList_clicked();
+
+    void on_Ext_image_editingFinished();
+
+    void on_Ext_video_editingFinished();
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -320,6 +344,23 @@ signals:
     void Send_Waifu2x_DetectGPU_finished();
 
     void Send_CheckUpadte_NewUpdate(QString update_str);
+
+    void Send_Table_FileCount_reload();
+
+    void Send_MovToFinedList();
+
+    void Send_Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+    void Send_Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+    void Send_Table_video_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
+
+    void Send_Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+    void Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+    void Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
+
+    void Send_Table_Read_Current_Table_Filelist_Finished();
+    void Send_Table_Save_Current_Table_Filelist_Finished();
+
+    void Send_SystemShutDown();
 
 
 private:

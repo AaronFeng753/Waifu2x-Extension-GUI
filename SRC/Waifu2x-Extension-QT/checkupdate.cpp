@@ -58,9 +58,9 @@ int MainWindow::CheckUpadte_Auto()
 int MainWindow::CheckUpadte_NewUpdate(QString update_str)
 {
     bool MsgBox = false;
-    QMessageBox Msg(QMessageBox::Question, QString("Notification"), QString("New version: %1 \nDo you wanna update now???").arg(update_str));
-    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString("YES"), QMessageBox::YesRole);
-    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString("NO"), QMessageBox::NoRole);
+    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("New version: %1 \nDo you wanna update now???")).arg(update_str));
+    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
     Msg.exec();
     if (Msg.clickedButton() == pNoBtn)MsgBox = false;
     if(MsgBox)

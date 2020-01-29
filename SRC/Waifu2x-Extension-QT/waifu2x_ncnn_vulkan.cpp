@@ -35,17 +35,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     QString status = "Processing";
     emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
-    /*
-    QFile qfile_fullPath(SourceFile_fullPath);
-    if(!qfile_fullPath.isWritable())
+    if(!file_isFileExist(SourceFile_fullPath))
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Insufficient permissions, doesn't has write permission. Please give this software administrator permission.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;
     }
-    */
     //===============
     int ScaleRatio=1;
     bool CustRes_isEnabled = false;
@@ -58,7 +55,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;//线程数量统计-1s
@@ -80,7 +77,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     {
         file_path = file_path.left(file_path.length() - 1);
     }
-    QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
+    QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
     //============================== 放大 =======================================
     QProcess *Waifu2x = new QProcess();
     QString Current_Path = qApp->applicationDirPath();
@@ -110,7 +107,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     int DenoiseLevel_tmp = DenoiseLevel;
     for(int i=2; i<=ScaleRatio_tmp; i+=2)
     {
-        OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
+        OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
         Waifu2x->start(cmd);
         Waifu2x->waitForStarted();
@@ -135,7 +132,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
             {
                 QFile::remove(InputPath_tmp);
             }
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to scale the picture.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;
@@ -178,7 +175,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         QFile::remove(OutputPath_tmp);
         if(!file_isFileExist(OutPut_Path))
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to resize the scaled picture to the target size]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;//线程数量统计-1s
@@ -187,7 +184,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     }
     if(CustRes_isEnabled)
     {
-        QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n.png";
+        QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
         OutPut_Path = OutPut_Path_CustRes;
     }
@@ -203,11 +200,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         {
             if(CustRes_isEnabled)
             {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_compressed.jpg";
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_compressed_"+file_ext+".jpg";
             }
             else
             {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_compressed.jpg";
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_compressed_"+file_ext+".jpg";
             }
             qimageW.setQuality(90);
             qimageW.setFileName(OutPut_Path_jpg);
@@ -216,11 +213,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         {
             if(CustRes_isEnabled)
             {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n.jpg";
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".jpg";
             }
             else
             {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.jpg";
+                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".jpg";
             }
             qimageW.setQuality(100);
             qimageW.setFileName(OutPut_Path_jpg);
@@ -242,7 +239,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         }
         else
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Cannot save scaled picture as .jpg.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
         }
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
@@ -295,16 +292,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     QString status = "Processing";
     emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
-    /*
-    QFile qfile_SourceFile_fullPath(SourceFile_fullPath);
-    if(!qfile_SourceFile_fullPath.isWritable())
+    if(!file_isFileExist(SourceFile_fullPath))
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Insufficient permissions, doesn't has write permission. Please give this software administrator permission.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;
-    }*/
+    }
     //==========================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
@@ -330,7 +325,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     int GIF_Duration = Gif_getDuration(SourceFile_fullPath);
     if(GIF_Duration==0)//检查是否成功获取duration
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Can't get Duration value of GIF file.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't get Duration value of GIF file.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         //file_DelDir(SplitFramesFolderPath);
@@ -353,7 +348,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     if(Frame_fileName_list.isEmpty())//检查是否成功拆分gif
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Can't split GIF into frames.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't split GIF into frames.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -385,7 +380,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
         InterPro_now++;
         if(ui->checkBox_ShowInterPro->checkState())
         {
-            emit Send_TextBrowser_NewMessage("File name:["+SourceFile_fullPath+"]  Scale and Denoise progress:["+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
+            emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
         }
         int Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
         if(waifu2x_STOP)
@@ -416,7 +411,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
     if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Failed to scale frames.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -431,7 +426,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration);
     if(!file_isFileExist(ResGIFPath))
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to assemble gif.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -457,7 +452,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
         }
         else
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Can't optimize gif.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't optimize gif.]"));
         }
     }
     //============================== 删除缓存文件 ====================================================
@@ -509,7 +504,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
         ScaleRatio = CustRes_CalNewScaleRatio(Frame_fileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+Frame_fileFullPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+Frame_fileFullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
             return 0;
         }
@@ -627,16 +622,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
-    /*
-    QFile qfile_fullPath(SourceFile_fullPath);
-    if(!qfile_fullPath.isWritable())
+    if(!file_isFileExist(SourceFile_fullPath))
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Insufficient permissions, doesn't has write permission. Please give this software administrator permission.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;
-    }*/
+    }
     //==========================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
@@ -657,14 +650,22 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     {
         file_path = file_path.left(file_path.length() - 1);
     }
-    QString video_mp4_fullpath = file_path+"/"+file_name+".mp4";
+    QString video_mp4_fullpath;
+    if(file_ext!="mp4")
+    {
+        video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
+    }
+    else
+    {
+        video_mp4_fullpath = file_path+"/"+file_name+".mp4";
+    }
     if(file_ext!="mp4")
     {
         QFile::remove(video_mp4_fullpath);
     }
-    QString AudioPath = file_path+"/audio_waifu2x.wav";
+    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";
     //============================== 拆分 ==========================================
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
     if(file_isDirExist(SplitFramesFolderPath))
     {
         file_DelDir(SplitFramesFolderPath);
@@ -675,10 +676,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         file_mkDir(SplitFramesFolderPath);
     }
     QFile::remove(AudioPath);
-    video_video2images(SourceFile_fullPath,SplitFramesFolderPath);
+    video_video2images(SourceFile_fullPath,SplitFramesFolderPath,AudioPath);
     if(!file_isFileExist(video_mp4_fullpath))//检查是否成功生成mp4
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Cannot convert video format to mp4.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -690,7 +691,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to split video into pictures.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -724,7 +725,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         InterPro_now++;
         if(ui->checkBox_ShowInterPro->checkState())
         {
-            emit Send_TextBrowser_NewMessage("File name:["+SourceFile_fullPath+"]  Scale and Denoise progress:["+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
+            emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
         }
         int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
         if(waifu2x_STOP)
@@ -756,7 +757,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
     if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to scale all frames.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -768,17 +769,17 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     QString video_mp4_scaled_fullpath = "";
     if(CustRes_isEnabled)
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel,10)+"n.mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel,10)+"n"+"_"+file_ext+".mp4";
     }
     else
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+QString::number(DenoiseLevel,10)+"n.mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+QString::number(DenoiseLevel,10)+"n"+"_"+file_ext+".mp4";
     }
     QFile::remove(video_mp4_scaled_fullpath);
-    video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath);
+    video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath);
     if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to assemble pictures into videos.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -814,6 +815,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     emit Send_progressbar_Add();
     //=========================== 更新filelist ==============================
     ThreadNumRunning--;//线程数量统计-1s
+    //=========================== 删除转换格式生成的mp4 ==========================
+    if(file_ext!="mp4")
+    {
+        QFile::remove(video_mp4_fullpath);
+    }
     return 0;
 }
 
@@ -843,7 +849,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
         ScaleRatio = CustRes_CalNewScaleRatio(Frame_fileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+Frame_fileFullPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+Frame_fileFullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
             return 0;
         }

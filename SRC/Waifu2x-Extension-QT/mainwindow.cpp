@@ -25,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //===========================================
     translator = new QTranslator(this);
     TextBrowser_StartMes();
     this->setAcceptDrops(true);
@@ -41,15 +42,34 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_Stop->setEnabled(0);
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
     connect(this, SIGNAL(Send_progressbar_Add()), this, SLOT(progressbar_Add()));
+    //===
     connect(this, SIGNAL(Send_Table_image_ChangeStatus_rowNumInt_statusQString(int, QString)), this, SLOT(Table_image_ChangeStatus_rowNumInt_statusQString(int, QString)));
     connect(this, SIGNAL(Send_Table_gif_ChangeStatus_rowNumInt_statusQString(int, QString)), this, SLOT(Table_gif_ChangeStatus_rowNumInt_statusQString(int, QString)));
     connect(this, SIGNAL(Send_Table_video_ChangeStatus_rowNumInt_statusQString(int, QString)), this, SLOT(Table_video_ChangeStatus_rowNumInt_statusQString(int, QString)));
+    //===
+    connect(this, SIGNAL(Send_Table_FileCount_reload()), this, SLOT(Table_FileCount_reload()));
+    connect(this, SIGNAL(Send_MovToFinedList()), this, SLOT(MovToFinedList()));
+    //===
+    connect(this, SIGNAL(Send_Table_image_insert_fileName_fullPath(QString,QString)), this, SLOT(Table_image_insert_fileName_fullPath(QString,QString)));
+    connect(this, SIGNAL(Send_Table_gif_insert_fileName_fullPath(QString,QString)), this, SLOT(Table_gif_insert_fileName_fullPath(QString,QString)));
+    connect(this, SIGNAL(Send_Table_video_insert_fileName_fullPath(QString,QString)), this, SLOT(Table_video_insert_fileName_fullPath(QString,QString)));
+    //===
+    connect(this, SIGNAL(Send_Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
+    connect(this, SIGNAL(Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
+    connect(this, SIGNAL(Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
+    //===
+    connect(this, SIGNAL(Send_Table_Read_Current_Table_Filelist_Finished()), this, SLOT(Table_Read_Current_Table_Filelist_Finished()));
+    connect(this, SIGNAL(Send_Table_Save_Current_Table_Filelist_Finished()), this, SLOT(Table_Save_Current_Table_Filelist_Finished()));
+    //===
     connect(this, SIGNAL(Send_Waifu2x_Finished()), this, SLOT(Waifu2x_Finished()));
     connect(this, SIGNAL(Send_Waifu2x_Finished_manual()), this, SLOT(Waifu2x_Finished_manual()));
+    //===
     connect(this, SIGNAL(Send_TextBrowser_NewMessage(QString)), this, SLOT(TextBrowser_NewMessage(QString)));
     connect(this, SIGNAL(Send_Waifu2x_Compatibility_Test_finished()), this, SLOT(Waifu2x_Compatibility_Test_finished()));
     connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
+    connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
+    //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
     //==================================================
@@ -61,6 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
     Settings_Read_Apply();
     //=====================================
     QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
+    SystemShutDown_isAutoShutDown();
 }
 
 MainWindow::~MainWindow()
@@ -139,7 +160,7 @@ void MainWindow::on_pushButton_Start_clicked()
 {
     if(FileList_image.isEmpty()&&FileList_gif.isEmpty()&&FileList_video.isEmpty())
     {
-        emit Send_TextBrowser_NewMessage("Unable to start processing files: The file list is empty or there are no available files to process.");
+        emit Send_TextBrowser_NewMessage(tr("Unable to start processing files: The file list is empty or there are no available files to process."));
     }
     else
     {
@@ -169,10 +190,14 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_DelOriginal->setEnabled(0);
         ui->checkBox_ReProcFinFiles->setEnabled(0);
         ui->pushButton_compatibilityTest->setEnabled(0);
+        ui->pushButton_CustRes_cancel->setEnabled(0);
+        ui->pushButton_CustRes_apply->setEnabled(0);
+        ui->pushButton_ReadFileList->setEnabled(0);
+        ui->pushButton_SaveFileList->setEnabled(0);
         progressbar_clear();
         TimeCostTimer->start(1000);
         TimeCost=0;
-        emit Send_TextBrowser_NewMessage("Start processing files.");
+        emit Send_TextBrowser_NewMessage(tr("Start processing files."));
         QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
     }
 }
@@ -183,7 +208,7 @@ void MainWindow::on_pushButton_Stop_clicked()
     ui->pushButton_Stop->setEnabled(0);//禁用stop button
     ui->pushButton_Start->setEnabled(1);//启用start button
     waifu2x_STOP = true;
-    emit TextBrowser_NewMessage("Trying to stop, please wait...");
+    emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
     QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);//启动waifu2x 主线程
 }
 
@@ -195,7 +220,7 @@ void MainWindow::Wait_waifu2x_stop()
         {
             waifu2x_STOP_confirm = false;
             waifu2x_STOP = false;
-            emit TextBrowser_NewMessage("The process has stopped.");
+            emit TextBrowser_NewMessage(tr("Processing of files has stopped."));
             break;
         }
         Delay_msec_sleep(500);
@@ -320,9 +345,21 @@ void MainWindow::on_checkBox_ReProcFinFiles_stateChanged(int arg1)
         MovToFinedList();
     }
 }
+int MainWindow::SystemShutDown_Countdown()
+{
+    Delay_sec_sleep(60);
+    emit Send_SystemShutDown();
+}
 
 bool MainWindow::SystemShutDown()
 {
+    on_pushButton_SaveFileList_clicked();
+    QString Current_Path = qApp->applicationDirPath();
+    QString AutoShutDown = Current_Path+"/AutoShutDown";
+    QFile file(AutoShutDown);
+    file.open(QIODevice::WriteOnly);
+    file.close();
+    Delay_msec_sleep(50);
     HANDLE hToken;
     TOKEN_PRIVILEGES tkp;
     //获取进程标志
@@ -339,6 +376,18 @@ bool MainWindow::SystemShutDown()
     if ( !ExitWindowsEx(EWX_SHUTDOWN | EWX_FORCE, 0))
         return false;
     return true;
+}
+
+int MainWindow::SystemShutDown_isAutoShutDown()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString AutoShutDown = Current_Path+"/AutoShutDown";
+    if(file_isFileExist(AutoShutDown))
+    {
+        QFile::remove(AutoShutDown);
+        QMessageBox::information(this,tr("Notification"),tr("It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status."));
+    }
+    return 0;
 }
 
 void MainWindow::Delay_sec(int time)
@@ -387,7 +436,7 @@ void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
 
 void MainWindow::on_pushButton_donate_clicked()
 {
-    emit Send_TextBrowser_NewMessage("Thank you! :)");
+    emit Send_TextBrowser_NewMessage(tr("Thank you! :)"));
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
 }
 
@@ -471,8 +520,8 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setRange(-1,3);
                 ui->spinBox_DenoiseLevel_image->setValue(2);
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
-                ui->spinBox_DenoiseLevel_image->setToolTip("Range:-1(No noise reduction)~3");
-                ui->label_ImageDenoiseLevel->setToolTip("Range:-1(No noise reduction)~3");
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 break;
             }
         case 1:
@@ -480,8 +529,8 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setRange(0,2);
                 ui->spinBox_DenoiseLevel_image->setValue(2);
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
-                ui->spinBox_DenoiseLevel_image->setToolTip("Range:0(No noise reduction)~2");
-                ui->label_ImageDenoiseLevel->setToolTip("Range:0(No noise reduction)~2");
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:0(No noise reduction)~2"));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
                 break;
             }
     }
@@ -496,8 +545,8 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setRange(-1,3);
                 ui->spinBox_DenoiseLevel_gif->setValue(2);
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
-                ui->spinBox_DenoiseLevel_gif->setToolTip("Range:-1(No noise reduction)~3");
-                ui->label_GIFDenoiseLevel->setToolTip("Range:-1(No noise reduction)~3");
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 break;
             }
         case 1:
@@ -505,8 +554,8 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setRange(0,2);
                 ui->spinBox_DenoiseLevel_gif->setValue(2);
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
-                ui->spinBox_DenoiseLevel_gif->setToolTip("Range:0(No noise reduction)~2");
-                ui->label_GIFDenoiseLevel->setToolTip("Range:0(No noise reduction)~2");
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:0(No noise reduction)~2"));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
                 break;
             }
     }
@@ -521,8 +570,8 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setRange(-1,3);
                 ui->spinBox_DenoiseLevel_video->setValue(2);
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
-                ui->spinBox_DenoiseLevel_video->setToolTip("Range:-1(No noise reduction)~3");
-                ui->label_VideoDenoiseLevel->setToolTip("Range:-1(No noise reduction)~3");
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 break;
             }
         case 1:
@@ -530,8 +579,8 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setRange(0,2);
                 ui->spinBox_DenoiseLevel_video->setValue(2);
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
-                ui->spinBox_DenoiseLevel_video->setToolTip("Range:0(No noise reduction)~2");
-                ui->label_VideoDenoiseLevel->setToolTip("Range:0(No noise reduction)~2");
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:0(No noise reduction)~2"));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
                 break;
             }
         case 2:
@@ -539,8 +588,8 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setRange(-1,0);
                 ui->spinBox_DenoiseLevel_video->setValue(-1);
                 ui->spinBox_DenoiseLevel_video->setEnabled(0);
-                ui->spinBox_DenoiseLevel_video->setToolTip("Anime4K engine does not support noise reduction.");
-                ui->label_VideoDenoiseLevel->setToolTip("Anime4K engine does not support noise reduction.");
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 break;
             }
     }
@@ -607,14 +656,14 @@ void MainWindow::on_pushButton_HideSettings_clicked()
     if(ui->groupBox_Setting->isVisible())
     {
         ui->groupBox_Setting->setVisible(0);
-        ui->pushButton_HideSettings->setText("Show settings");
-        ui->pushButton_HideSettings->setToolTip("Show all setting options.");
+        ui->pushButton_HideSettings->setText(tr("Show settings"));
+        ui->pushButton_HideSettings->setToolTip(tr("Show all setting options."));
     }
     else
     {
         ui->groupBox_Setting->setVisible(1);
-        ui->pushButton_HideSettings->setText("Hide settings");
-        ui->pushButton_HideSettings->setToolTip("Hide all setting options.");
+        ui->pushButton_HideSettings->setText(tr("Hide settings"));
+        ui->pushButton_HideSettings->setToolTip(tr("Hide all setting options."));
     }
 }
 
@@ -623,12 +672,12 @@ void MainWindow::on_pushButton_HideInput_clicked()
     if(ui->groupBox_Input->isVisible())
     {
         ui->groupBox_Input->setVisible(0);
-        ui->pushButton_HideInput->setText("Show input path");
+        ui->pushButton_HideInput->setText(tr("Show input path"));
     }
     else
     {
         ui->groupBox_Input->setVisible(1);
-        ui->pushButton_HideInput->setText("Hide input path");
+        ui->pushButton_HideInput->setText(tr("Hide input path"));
     }
 }
 
@@ -676,6 +725,80 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Error: Language files cannot be loaded properly.");
+        emit Send_TextBrowser_NewMessage(tr("Error: Language files cannot be loaded properly."));
     }
+}
+void MainWindow::on_pushButton_SaveFileList_clicked()
+{
+    this->setAcceptDrops(0);//禁止drop file
+    ui->pushButton_Start->setEnabled(0);//禁用start button
+    ui->groupBox_Input->setEnabled(0);
+    ui->pushButton_ClearList->setEnabled(0);
+    ui->pushButton_RemoveItem->setEnabled(0);
+    ui->checkBox_ReProcFinFiles->setEnabled(0);
+    ui->pushButton_CustRes_cancel->setEnabled(0);
+    ui->pushButton_CustRes_apply->setEnabled(0);
+    ui->pushButton_ReadFileList->setEnabled(0);
+    ui->pushButton_SaveFileList->setEnabled(0);
+    emit Send_TextBrowser_NewMessage(tr("Write to the file, please wait."));
+    Table_Save_Current_Table_Filelist();
+    QtConcurrent::run(this, &MainWindow::Table_Save_Current_Table_Filelist_Watchdog);
+}
+
+void MainWindow::on_pushButton_ReadFileList_clicked()
+{
+    this->setAcceptDrops(0);//禁止drop file
+    ui->pushButton_Start->setEnabled(0);//禁用start button
+    ui->groupBox_Input->setEnabled(0);
+    ui->pushButton_ClearList->setEnabled(0);
+    ui->pushButton_RemoveItem->setEnabled(0);
+    ui->checkBox_ReProcFinFiles->setEnabled(0);
+    ui->pushButton_CustRes_cancel->setEnabled(0);
+    ui->pushButton_CustRes_apply->setEnabled(0);
+    ui->pushButton_ReadFileList->setEnabled(0);
+    ui->pushButton_SaveFileList->setEnabled(0);
+    QString Current_Path = qApp->applicationDirPath();
+    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    if(file_isFileExist(Table_FileList_ini))
+    {
+        curRow_image = -1;
+        curRow_gif = -1;
+        curRow_video = -1;
+        Table_Clear();
+        FileList_image.clear();
+        FileList_gif.clear();
+        FileList_video.clear();
+        FileList_image_finished.clear();
+        FileList_gif_finished.clear();
+        FileList_video_finished.clear();
+        Custom_resolution_list.clear();
+        ui->label_DropFile->setVisible(1);
+        ui->tableView_gif->setVisible(0);
+        ui->tableView_image->setVisible(0);
+        ui->tableView_video->setVisible(0);
+        ui->pushButton_ClearList->setVisible(0);
+        ui->pushButton_RemoveItem->setVisible(0);
+        Table_FileCount_reload();
+        Send_TextBrowser_NewMessage(tr("Please wait while reading the file."));
+        QtConcurrent::run(this, &MainWindow::Table_Read_Current_Table_Filelist);
+    }
+    else
+    {
+        Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
+        Send_Table_Read_Current_Table_Filelist_Finished();
+    }
+}
+
+void MainWindow::on_Ext_image_editingFinished()
+{
+    QString ext_image_str = ui->Ext_image->text();
+    ext_image_str = ext_image_str.trimmed();
+    ui->Ext_image->setText(ext_image_str);
+}
+
+void MainWindow::on_Ext_video_editingFinished()
+{
+    QString ext_video_str = ui->Ext_video->text();
+    ext_video_str = ext_video_str.trimmed();
+    ui->Ext_video->setText(ext_video_str);
 }

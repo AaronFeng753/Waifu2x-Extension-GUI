@@ -214,7 +214,7 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="1" column="5">
+       <item row="1" column="12">
         <widget class="QPushButton" name="pushButton_HideSettings">
          <property name="toolTip">
           <string>Hide all setting options.</string>
@@ -254,57 +254,7 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="1" column="4">
-        <widget class="QPushButton" name="pushButton_HideInput">
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Hide input path</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="0" column="0" colspan="6">
+       <item row="0" column="0" colspan="13">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QTableView" name="tableView_image">
@@ -457,7 +407,131 @@ padding:10px;
          </item>
         </layout>
        </item>
+       <item row="1" column="8">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="11">
+        <widget class="QPushButton" name="pushButton_HideInput">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Hide input path</string>
+         </property>
+        </widget>
+       </item>
        <item row="1" column="2">
+        <widget class="QPushButton" name="pushButton_SaveFileList">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Save Files List</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QPushButton" name="pushButton_ReadFileList">
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Read Saved Files List</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4" colspan="2">
         <widget class="QLabel" name="label_FileCount">
          <property name="frameShape">
           <enum>QFrame::Box</enum>
@@ -740,7 +814,7 @@ padding:10px;
              <string>Show internal progress</string>
             </property>
             <property name="checked">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -793,6 +867,9 @@ It is recommended to enable this option.</string>
             <property name="text">
              <string>Notification sound</string>
             </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
            </widget>
           </item>
           <item row="2" column="1">
@@ -837,7 +914,7 @@ It is recommended to enable this option.</string>
              <string>File list scrolls automatically</string>
             </property>
             <property name="checked">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -1830,7 +1907,7 @@ padding:10px;
              <bool>false</bool>
             </property>
             <property name="text">
-             <string notr="true">png:jpg:jpeg:tif:tiff:bmp:tga</string>
+             <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
             </property>
            </widget>
           </item>
@@ -1859,7 +1936,7 @@ padding:10px;
              <bool>false</bool>
             </property>
             <property name="text">
-             <string notr="true">mp4:mkv:avi:rmvb</string>
+             <string>mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</string>
             </property>
            </widget>
           </item>

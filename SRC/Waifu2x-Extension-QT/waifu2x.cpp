@@ -181,20 +181,23 @@ int MainWindow::Waifu2xMainThread()
 
 void MainWindow::Waifu2x_Finished()
 {
-    //===================== 关机 ==============================
-    if(ui->checkBox_AutoTurnOFF->checkState())
-    {
-        emit Send_TextBrowser_NewMessage("The computer will automatically shut down in 60 seconds!");
-        Delay_sec(60);
-        SystemShutDown();
-    }
     //=================== 提示音 =================================
     if(ui->checkBox_NfSound->checkState())
     {
         QtConcurrent::run(this, &MainWindow::Play_NFSound);
     }
+    //===================== 关机 ==============================
+    if(ui->checkBox_AutoTurnOFF->checkState())
+    {
+        QMessageBox::information(this,tr("Warning!"),tr("The computer will automatically shut down in 60 seconds!"));
+        emit Send_TextBrowser_NewMessage(tr("The computer will automatically shut down in 60 seconds!"));
+        QtConcurrent::run(this, &MainWindow::SystemShutDown_Countdown);
+    }
     //==================== 进度条 =================================
     progressbar_SetToMax(Progressbar_MaxVal);
+    //=============================================================
+    emit Send_TextBrowser_NewMessage(tr("Process finished."));
+    //============================================================
     Waifu2x_Finished_manual();
 }
 
@@ -219,6 +222,10 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->checkBox_DelOriginal->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_CustRes_cancel->setEnabled(1);
+    ui->pushButton_CustRes_apply->setEnabled(1);
+    ui->pushButton_ReadFileList->setEnabled(1);
+    ui->pushButton_SaveFileList->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;
@@ -233,7 +240,7 @@ void MainWindow::Waifu2x_Finished_manual()
 
 int MainWindow::Waifu2x_Compatibility_Test()
 {
-    emit Send_TextBrowser_NewMessage("Compatibility test is ongoing, please wait.");
+    emit Send_TextBrowser_NewMessage(tr("Compatibility test is ongoing, please wait."));
     //===============
     QString Current_Path = qApp->applicationDirPath();
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
@@ -250,11 +257,11 @@ int MainWindow::Waifu2x_Compatibility_Test()
     Waifu2x->waitForFinished();
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-ncnn-vulkan: Yes");
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan: Yes"));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]");
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]"));
     }
     QFile::remove(OutputPath);
     //================
@@ -268,11 +275,11 @@ int MainWindow::Waifu2x_Compatibility_Test()
     Waifu2x->waitForFinished();
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-converter: Yes.");
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: Yes."));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]");
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]"));
     }
     QFile::remove(OutputPath);
     //===============
@@ -285,15 +292,15 @@ int MainWindow::Waifu2x_Compatibility_Test()
     Waifu2x->waitForFinished();
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage("Compatible with Anime4k: Yes.");
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: Yes."));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]");
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]"));
     }
     QFile::remove(OutputPath);
     //===============
-    emit Send_TextBrowser_NewMessage("Compatibility test is complete!");
+    emit Send_TextBrowser_NewMessage(tr("Compatibility test is complete!"));
     emit Send_Waifu2x_Compatibility_Test_finished();
     return 0;
 }
@@ -307,7 +314,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
 
 int MainWindow::Waifu2x_DetectGPU()
 {
-    emit Send_TextBrowser_NewMessage("Detecting available GPU, please wait.");
+    emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
     //===============
     QString Current_Path = qApp->applicationDirPath();
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
@@ -342,10 +349,10 @@ int MainWindow::Waifu2x_DetectGPU()
     }
     QFile::remove(OutputPath);
     //===============
-    emit Send_TextBrowser_NewMessage("Detection is complete!");
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
     if(Available_GPUID.isEmpty())
     {
-        Send_TextBrowser_NewMessage("No available GPU ID detected!");
+        Send_TextBrowser_NewMessage(tr("No available GPU ID detected!"));
     }
     emit Send_Waifu2x_DetectGPU_finished();
     return 0;

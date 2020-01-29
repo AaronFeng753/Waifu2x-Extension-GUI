@@ -318,9 +318,16 @@ void MainWindow::Table_FileList_reload()
             map["SourceFile_fullPath"] = Full_Path;
             map["rowNum"] = QString::number(rowNum, 10);
             FileList_image_temp.append(map);
+            //======
             Table_image_insert_fileName_fullPath(file_name, Full_Path);
             QString status = Map_fullPath_status_image[Full_Path];
             Table_model_image->setItem(rowNum, 1, new QStandardItem(status));
+            //======
+            QMap<QString, QString> ResMap = CustRes_getResMap(Full_Path);
+            if(!ResMap.isEmpty())
+            {
+                Table_image_CustRes_rowNumInt_HeightQString_WidthQString(rowNum,ResMap["height"],ResMap["width"]);
+            }
         }
         FileList_image = FileList_image_temp;
     }
@@ -341,6 +348,12 @@ void MainWindow::Table_FileList_reload()
             Table_gif_insert_fileName_fullPath(file_name, Full_Path);
             QString status = Map_fullPath_status_gif[Full_Path];
             Table_model_gif->setItem(rowNum, 1, new QStandardItem(status));
+            //======
+            QMap<QString, QString> ResMap = CustRes_getResMap(Full_Path);
+            if(!ResMap.isEmpty())
+            {
+                Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(rowNum,ResMap["height"],ResMap["width"]);
+            }
         }
         FileList_gif = FileList_gif_temp;
     }
@@ -361,6 +374,12 @@ void MainWindow::Table_FileList_reload()
             Table_video_insert_fileName_fullPath(file_name, Full_Path);
             QString status = Map_fullPath_status_video[Full_Path];
             Table_model_video->setItem(rowNum, 1, new QStandardItem(status));
+            //======
+            QMap<QString, QString> ResMap = CustRes_getResMap(Full_Path);
+            if(!ResMap.isEmpty())
+            {
+                Table_video_CustRes_rowNumInt_HeightQString_WidthQString(rowNum,ResMap["height"],ResMap["width"]);
+            }
         }
         FileList_video = FileList_video_temp;
     }
@@ -384,6 +403,320 @@ int MainWindow::Table_FileCount_reload()
         ui->label_FileCount->setVisible(0);
         ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount));
     }
+    return 0;
+}
+
+int MainWindow::Table_Save_Current_Table_Filelist()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QFile::remove(Table_FileList_ini);
+    //=================
+    QSettings *configIniWrite = new QSettings(Table_FileList_ini, QSettings::IniFormat);
+    //================= 添加警告 =========================
+    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    //================= 存储table_image =========================
+    configIniWrite->setValue("/table_image/rowCount", Table_model_image->rowCount());
+    for(int i=0; i<Table_model_image->rowCount(); i++)
+    {
+        QAbstractItemModel *modessl = Table_model_image;
+        //===
+        QModelIndex indextemp = modessl->index(i, 0);
+        QVariant datatemp = modessl->data(indextemp);
+        QString FileName = datatemp.toString();
+        configIniWrite->setValue("/table_image/"+QString::number(i,10)+"_FileName", FileName);
+        //===
+        indextemp = modessl->index(i, 1);
+        datatemp = modessl->data(indextemp);
+        QString status = datatemp.toString();
+        configIniWrite->setValue("/table_image/"+QString::number(i,10)+"_status", status);
+        //===
+        indextemp = modessl->index(i, 2);
+        datatemp = modessl->data(indextemp);
+        QString fullPath = datatemp.toString();
+        configIniWrite->setValue("/table_image/"+QString::number(i,10)+"_fullPath", fullPath);
+        //===
+        indextemp = modessl->index(i, 3);
+        datatemp = modessl->data(indextemp);
+        QString CustRes_str = datatemp.toString();
+        configIniWrite->setValue("/table_image/"+QString::number(i,10)+"_CustRes_str", CustRes_str);
+        if(CustRes_str!="")
+        {
+            QMap<QString, QString> ResMap = CustRes_getResMap(fullPath);
+            if(!ResMap.isEmpty())
+            {
+                configIniWrite->setValue("/table_image/"+QString::number(i,10)+"_CustRes_height", ResMap["height"]);
+                configIniWrite->setValue("/table_image/"+QString::number(i,10)+"_CustRes_width", ResMap["width"]);
+            }
+        }
+    }
+    //================= 存储table_gif =========================
+    configIniWrite->setValue("/table_gif/rowCount", Table_model_gif->rowCount());
+    for(int i=0; i<Table_model_gif->rowCount(); i++)
+    {
+        QAbstractItemModel *modessl = Table_model_gif;
+        //===
+        QModelIndex indextemp = modessl->index(i, 0);
+        QVariant datatemp = modessl->data(indextemp);
+        QString FileName = datatemp.toString();
+        configIniWrite->setValue("/table_gif/"+QString::number(i,10)+"_FileName", FileName);
+        //===
+        indextemp = modessl->index(i, 1);
+        datatemp = modessl->data(indextemp);
+        QString status = datatemp.toString();
+        configIniWrite->setValue("/table_gif/"+QString::number(i,10)+"_status", status);
+        //===
+        indextemp = modessl->index(i, 2);
+        datatemp = modessl->data(indextemp);
+        QString fullPath = datatemp.toString();
+        configIniWrite->setValue("/table_gif/"+QString::number(i,10)+"_fullPath", fullPath);
+        //===
+        indextemp = modessl->index(i, 3);
+        datatemp = modessl->data(indextemp);
+        QString CustRes_str = datatemp.toString();
+        configIniWrite->setValue("/table_gif/"+QString::number(i,10)+"_CustRes_str", CustRes_str);
+        if(CustRes_str!="")
+        {
+            QMap<QString, QString> ResMap = CustRes_getResMap(fullPath);
+            if(!ResMap.isEmpty())
+            {
+                configIniWrite->setValue("/table_gif/"+QString::number(i,10)+"_CustRes_height", ResMap["height"]);
+                configIniWrite->setValue("/table_gif/"+QString::number(i,10)+"_CustRes_width", ResMap["width"]);
+            }
+        }
+    }
+    //================= 存储table_video =========================
+    configIniWrite->setValue("/table_video/rowCount", Table_model_video->rowCount());
+    for(int i=0; i<Table_model_video->rowCount(); i++)
+    {
+        QAbstractItemModel *modessl = Table_model_video;
+        //===
+        QModelIndex indextemp = modessl->index(i, 0);
+        QVariant datatemp = modessl->data(indextemp);
+        QString FileName = datatemp.toString();
+        configIniWrite->setValue("/table_video/"+QString::number(i,10)+"_FileName", FileName);
+        //===
+        indextemp = modessl->index(i, 1);
+        datatemp = modessl->data(indextemp);
+        QString status = datatemp.toString();
+        configIniWrite->setValue("/table_video/"+QString::number(i,10)+"_status", status);
+        //===
+        indextemp = modessl->index(i, 2);
+        datatemp = modessl->data(indextemp);
+        QString fullPath = datatemp.toString();
+        configIniWrite->setValue("/table_video/"+QString::number(i,10)+"_fullPath", fullPath);
+        //===
+        indextemp = modessl->index(i, 3);
+        datatemp = modessl->data(indextemp);
+        QString CustRes_str = datatemp.toString();
+        configIniWrite->setValue("/table_video/"+QString::number(i,10)+"_CustRes_str", CustRes_str);
+        if(CustRes_str!="")
+        {
+            QMap<QString, QString> ResMap = CustRes_getResMap(fullPath);
+            if(!ResMap.isEmpty())
+            {
+                configIniWrite->setValue("/table_video/"+QString::number(i,10)+"_CustRes_height", ResMap["height"]);
+                configIniWrite->setValue("/table_video/"+QString::number(i,10)+"_CustRes_width", ResMap["width"]);
+            }
+        }
+    }
+    return 0;
+}
+
+int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    while(!file_isFileExist(Table_FileList_ini))
+    {
+        Delay_msec_sleep(100);
+    }
+    emit Send_Table_Save_Current_Table_Filelist_Finished();
+    return 0;
+}
+
+int MainWindow::Table_Save_Current_Table_Filelist_Finished()
+{
+    this->setAcceptDrops(1);//禁止drop file
+    ui->pushButton_Start->setEnabled(1);//禁用start button
+    ui->groupBox_Input->setEnabled(1);
+    ui->pushButton_ClearList->setEnabled(1);
+    ui->pushButton_RemoveItem->setEnabled(1);
+    ui->checkBox_ReProcFinFiles->setEnabled(1);
+    ui->pushButton_CustRes_cancel->setEnabled(1);
+    ui->pushButton_CustRes_apply->setEnabled(1);
+    ui->pushButton_ReadFileList->setEnabled(1);
+    ui->pushButton_SaveFileList->setEnabled(1);
+    emit Send_TextBrowser_NewMessage(tr("File list saved successfully!"));
+    return 0;
+}
+
+int MainWindow::Table_Read_Current_Table_Filelist()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    if(!file_isFileExist(Table_FileList_ini))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
+        emit Send_Table_Read_Current_Table_Filelist_Finished();
+        return 0;
+    }
+    //=================
+    QSettings *configIniRead = new QSettings(Table_FileList_ini, QSettings::IniFormat);
+    //====================
+    //emit on_pushButton_ClearList_clicked();
+    //========= 加载image ========
+    int rowCount_image = configIniRead->value("/table_image/rowCount").toInt();
+    for(int i=0; i<rowCount_image; i++)
+    {
+        Delay_msec_sleep(50);
+        //===========
+        QString FileName =configIniRead->value("/table_image/"+QString::number(i,10)+"_FileName").toString();
+        QString status =configIniRead->value("/table_image/"+QString::number(i,10)+"_status").toString();
+        QString fullPath =configIniRead->value("/table_image/"+QString::number(i,10)+"_fullPath").toString();
+        QString CustRes_str =configIniRead->value("/table_image/"+QString::number(i,10)+"_CustRes_str").toString();
+        //================
+        QMap<QString, QString> file_map;
+        file_map["SourceFile_fullPath"] = fullPath;
+        file_map["rowNum"] = QString::number(i, 10);
+        FileList_image.append(file_map);
+        emit Send_Table_image_insert_fileName_fullPath(FileName,fullPath);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(i,status);
+        //===============
+        if(CustRes_str!="")
+        {
+            QString CustRes_height =configIniRead->value("/table_image/"+QString::number(i,10)+"_CustRes_height").toString();
+            QString CustRes_width =configIniRead->value("/table_image/"+QString::number(i,10)+"_CustRes_width").toString();
+            emit Send_Table_image_CustRes_rowNumInt_HeightQString_WidthQString(i,CustRes_height,CustRes_width);
+            QMap<QString, QString> res_map;
+            res_map["fullpath"] = fullPath;
+            res_map["height"] = CustRes_height;
+            res_map["width"] = CustRes_width;
+            Custom_resolution_list.append(res_map);
+        }
+    }
+    //========= 加载gif ========
+    int rowCount_gif = configIniRead->value("/table_gif/rowCount").toInt();
+    for(int i=0; i<rowCount_gif; i++)
+    {
+        Delay_msec_sleep(50);
+        //===========
+        QString FileName =configIniRead->value("/table_gif/"+QString::number(i,10)+"_FileName").toString();
+        QString status =configIniRead->value("/table_gif/"+QString::number(i,10)+"_status").toString();
+        QString fullPath =configIniRead->value("/table_gif/"+QString::number(i,10)+"_fullPath").toString();
+        QString CustRes_str =configIniRead->value("/table_gif/"+QString::number(i,10)+"_CustRes_str").toString();
+        //================
+        QMap<QString, QString> file_map;
+        file_map["SourceFile_fullPath"] = fullPath;
+        file_map["rowNum"] = QString::number(i, 10);
+        FileList_gif.append(file_map);
+        emit Send_Table_gif_insert_fileName_fullPath(FileName,fullPath);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(i,status);
+        //===============
+        if(CustRes_str!="")
+        {
+            QString CustRes_height =configIniRead->value("/table_gif/"+QString::number(i,10)+"_CustRes_height").toString();
+            QString CustRes_width =configIniRead->value("/table_gif/"+QString::number(i,10)+"_CustRes_width").toString();
+            emit Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(i,CustRes_height,CustRes_width);
+            QMap<QString, QString> res_map;
+            res_map["fullpath"] = fullPath;
+            res_map["height"] = CustRes_height;
+            res_map["width"] = CustRes_width;
+            Custom_resolution_list.append(res_map);
+        }
+    }
+    //========= 加载video ========
+    int rowCount_video = configIniRead->value("/table_video/rowCount").toInt();
+    for(int i=0; i<rowCount_video; i++)
+    {
+        Delay_msec_sleep(50);
+        //===========
+        QString FileName =configIniRead->value("/table_video/"+QString::number(i,10)+"_FileName").toString();
+        QString status =configIniRead->value("/table_video/"+QString::number(i,10)+"_status").toString();
+        QString fullPath =configIniRead->value("/table_video/"+QString::number(i,10)+"_fullPath").toString();
+        QString CustRes_str =configIniRead->value("/table_video/"+QString::number(i,10)+"_CustRes_str").toString();
+        //================
+        QMap<QString, QString> file_map;
+        file_map["SourceFile_fullPath"] = fullPath;
+        file_map["rowNum"] = QString::number(i, 10);
+        FileList_video.append(file_map);
+        emit Send_Table_video_insert_fileName_fullPath(FileName,fullPath);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(i,status);
+        //===============
+        if(CustRes_str!="")
+        {
+            QString CustRes_height =configIniRead->value("/table_video/"+QString::number(i,10)+"_CustRes_height").toString();
+            QString CustRes_width =configIniRead->value("/table_video/"+QString::number(i,10)+"_CustRes_width").toString();
+            emit Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(i,CustRes_height,CustRes_width);
+            QMap<QString, QString> res_map;
+            res_map["fullpath"] = fullPath;
+            res_map["height"] = CustRes_height;
+            res_map["width"] = CustRes_width;
+            Custom_resolution_list.append(res_map);
+        }
+    }
+    //====================
+    if(!ui->checkBox_ReProcFinFiles->checkState())
+    {
+        emit Send_MovToFinedList();
+    }
+    emit Send_Table_FileCount_reload();
+    emit Send_Table_Read_Current_Table_Filelist_Finished();
+    return 0;
+}
+
+int MainWindow::Table_Read_Current_Table_Filelist_Finished()
+{
+    this->setAcceptDrops(1);//禁止drop file
+    ui->pushButton_Start->setEnabled(1);//禁用start button
+    ui->groupBox_Input->setEnabled(1);
+    ui->pushButton_ClearList->setEnabled(1);
+    ui->pushButton_RemoveItem->setEnabled(1);
+    ui->checkBox_ReProcFinFiles->setEnabled(1);
+    ui->pushButton_CustRes_cancel->setEnabled(1);
+    ui->pushButton_CustRes_apply->setEnabled(1);
+    ui->pushButton_ReadFileList->setEnabled(1);
+    ui->pushButton_SaveFileList->setEnabled(1);
+    QString Current_Path = qApp->applicationDirPath();
+    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    if(!file_isFileExist(Table_FileList_ini))
+    {
+        return 0;
+    }
+    //=================
+    QSettings *configIniRead = new QSettings(Table_FileList_ini, QSettings::IniFormat);
+    //====================
+    //========= 加载image ========
+    int rowCount_image = configIniRead->value("/table_image/rowCount").toInt();
+    if(rowCount_image>0)
+    {
+        ui->label_DropFile->setVisible(0);//隐藏文件投放label
+        ui->tableView_image->setVisible(1);
+        ui->pushButton_ClearList->setVisible(1);
+        ui->pushButton_RemoveItem->setVisible(1);
+    }
+    //========= 加载gif ========
+    int rowCount_gif = configIniRead->value("/table_gif/rowCount").toInt();
+    if(rowCount_gif>0)
+    {
+        ui->label_DropFile->setVisible(0);//隐藏文件投放label
+        ui->tableView_gif->setVisible(1);
+        ui->pushButton_ClearList->setVisible(1);
+        ui->pushButton_RemoveItem->setVisible(1);
+    }
+    //========= 加载video ========
+    int rowCount_video = configIniRead->value("/table_video/rowCount").toInt();
+    if(rowCount_video>0)
+    {
+        ui->label_DropFile->setVisible(0);//隐藏文件投放label
+        ui->tableView_video->setVisible(1);
+        ui->pushButton_ClearList->setVisible(1);
+        ui->pushButton_RemoveItem->setVisible(1);
+    }
+    ui->tableView_gif->scrollToBottom();
+    ui->tableView_image->scrollToBottom();
+    ui->tableView_video->scrollToBottom();
+    Send_TextBrowser_NewMessage(tr("File list update is complete!"));
     return 0;
 }
 

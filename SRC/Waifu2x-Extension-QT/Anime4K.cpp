@@ -32,17 +32,14 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
-    /*
-    QFile qfile_SourceFile_fullPath(SourceFile_fullPath);
-    if(!qfile_SourceFile_fullPath.isWritable())
+    if(!file_isFileExist(SourceFile_fullPath))
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Insufficient permissions, doesn't has write permission. Please give this software administrator permission.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;
     }
-    */
     //==========================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
@@ -63,14 +60,22 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     {
         file_path = file_path.left(file_path.length() - 1);
     }
-    QString video_mp4_fullpath = file_path+"/"+file_name+".mp4";
+    QString video_mp4_fullpath;
+    if(file_ext!="mp4")
+    {
+        video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
+    }
+    else
+    {
+        video_mp4_fullpath = file_path+"/"+file_name+".mp4";
+    }
     if(file_ext!="mp4")
     {
         QFile::remove(video_mp4_fullpath);
     }
-    QString AudioPath = file_path+"/audio_waifu2x.wav";
+    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";
     //============================== 拆分 ==========================================
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
     if(file_isDirExist(SplitFramesFolderPath))
     {
         file_DelDir(SplitFramesFolderPath);
@@ -81,10 +86,10 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
         file_mkDir(SplitFramesFolderPath);
     }
     QFile::remove(AudioPath);
-    video_video2images(SourceFile_fullPath,SplitFramesFolderPath);
+    video_video2images(SourceFile_fullPath,SplitFramesFolderPath,AudioPath);
     if(!file_isFileExist(video_mp4_fullpath))//检查是否成功生成mp4
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Cannot convert video format to mp4.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -96,7 +101,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to split video into pictures.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -130,7 +135,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
         InterPro_now++;
         if(ui->checkBox_ShowInterPro->checkState())
         {
-            emit Send_TextBrowser_NewMessage("File name:["+SourceFile_fullPath+"]  Scale progress:["+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
+            emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
         }
         int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
         if(waifu2x_STOP)
@@ -162,7 +167,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
     if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to scale all frames.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -174,17 +179,17 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     QString video_mp4_scaled_fullpath = "";
     if(CustRes_isEnabled)
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+".mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+file_ext+".mp4";
     }
     else
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x.mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x"+"_"+file_ext+".mp4";
     }
     QFile::remove(video_mp4_scaled_fullpath);
-    video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath);
+    video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath);
     if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
-        emit Send_TextBrowser_NewMessage("Error occured when processing ["+SourceFile_fullPath+"]. Error: [Unable to assemble pictures into videos.]");
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
@@ -220,6 +225,12 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     emit Send_progressbar_Add();
     //=========================== 更新filelist ==============================
     ThreadNumRunning--;//线程数量统计-1s
+    //=========================== 删除转换格式生成的mp4 ==========================
+    if(file_ext!="mp4")
+    {
+        QFile::remove(video_mp4_fullpath);
+    }
+    //========
     return 0;
 }
 
@@ -250,7 +261,7 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
         ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage("Error occured when processing ["+InputPath+"]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]");
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
             return 0;
         }
