@@ -15,6 +15,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
+![processing](/Screenshot/processing.jpg)
+
 #### Already been tested on `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
 # Features
