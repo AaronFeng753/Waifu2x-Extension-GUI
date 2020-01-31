@@ -14,6 +14,8 @@
 
 ![mainwindow](/Screenshot/mainwindow_cn.jpg)
 
+![processing_cn](/Screenshot/processing_cn.jpg)
+
 #### 已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
 
 # 主要特性
