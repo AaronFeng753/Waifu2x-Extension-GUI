@@ -74,7 +74,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - Anime4K Java v0.9 Beta
 
-- ffmpeg version 4.2.1
+- ffmpeg version 4.2.2
 
 - gifsicle version 1.92
 
