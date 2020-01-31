@@ -48,7 +48,7 @@ int MainWindow::CheckUpadte_Auto()
     checkupdate.waitForFinished();
     QString update_str=checkupdate.readAllStandardOutput().data();
     update_str = update_str.trimmed();
-    if(update_str!=VERSION&&update_str!="failed")
+    if(update_str!=VERSION&&update_str!="failed"&&update_str!="")
     {
         emit Send_CheckUpadte_NewUpdate(update_str);
     }
@@ -57,15 +57,11 @@ int MainWindow::CheckUpadte_Auto()
 
 int MainWindow::CheckUpadte_NewUpdate(QString update_str)
 {
-    bool MsgBox = false;
     QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("New version: %1 \nDo you wanna update now???")).arg(update_str));
+    Msg.setModal(false);
     QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
     QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
     Msg.exec();
-    if (Msg.clickedButton() == pNoBtn)MsgBox = false;
-    if(MsgBox)
-    {
-        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
-    }
+    if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
 }
 

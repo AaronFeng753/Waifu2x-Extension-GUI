@@ -28,6 +28,7 @@
 #include <QMessageBox>
 #include <QSettings>
 #include <QTranslator>
+#include <QScreen>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -46,7 +47,7 @@ public:
 
     //=======================
 
-    QString VERSION="v0.12-beta";
+    QString VERSION="v0.25-beta";
 
     //=======================
 
@@ -189,6 +190,7 @@ public:
     int CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int width_new);
     int CustRes_SetCustRes();
     int CustRes_CancelCustRes();
+    int CustRes_SetToScreenRes();
 
     //======================== 设置 ===========================================
     int Settings_Save();
@@ -212,6 +214,9 @@ public:
 
     int CheckUpadte_Auto();
     int SystemShutDown_isAutoShutDown();
+
+    int Donate_Count();
+    int Donate_watchdog();
 
     ~MainWindow();
 
@@ -253,6 +258,8 @@ public slots:
     void on_pushButton_ClearList_clicked();
 
     bool SystemShutDown();
+
+    int Donate_Notification();
 
 
 
@@ -326,6 +333,8 @@ private slots:
 
     void on_Ext_video_editingFinished();
 
+    void on_checkBox_autoCheckUpdate_clicked();
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -361,6 +370,8 @@ signals:
     void Send_Table_Save_Current_Table_Filelist_Finished();
 
     void Send_SystemShutDown();
+
+    void Send_Donate_Notification();
 
 
 private:

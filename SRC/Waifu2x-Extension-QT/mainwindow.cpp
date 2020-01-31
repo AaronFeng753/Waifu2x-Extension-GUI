@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     //===========================================
+    CustRes_SetToScreenRes();
+    //===========================================
     translator = new QTranslator(this);
     TextBrowser_StartMes();
     this->setAcceptDrops(true);
@@ -69,19 +71,21 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
+    connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
     //==================================================
+    Settings_Read_Apply();
+    //=====================================
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //=====================================
-    Settings_Read_Apply();
-    //=====================================
     QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
     SystemShutDown_isAutoShutDown();
+    Donate_Count();
 }
 
 MainWindow::~MainWindow()
@@ -92,7 +96,7 @@ MainWindow::~MainWindow()
 void MainWindow::TimeSlot()
 {
     TimeCost++;
-    QString TimeCostStr = "Time cost:["+Seconds2hms(TimeCost)+"]";
+    QString TimeCostStr = tr("Time cost:[")+Seconds2hms(TimeCost)+"]";
     ui->label_TimeCost->setText(TimeCostStr);
     int TaskNumFinished_tmp = TaskNumFinished;
     int TimeCost_tmp = TimeCost;
@@ -112,7 +116,7 @@ void MainWindow::TimeSlot()
                 ETA--;
             }
         }
-        QString TimeRemainingStr = "Time remaining:["+Seconds2hms(ETA)+"]";
+        QString TimeRemainingStr = tr("Time remaining:[")+Seconds2hms(ETA)+"]";
         ui->label_TimeRemain->setText(TimeRemainingStr);
         QDateTime time = QDateTime::currentDateTime();
         long unsigned int Time_t = time.toTime_t();
@@ -232,7 +236,12 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
-        QMessageBox::information(this,tr("Error"),tr("No items are currently selected."));
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("No items are currently selected."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
         return 0;
     }
     RecFinedFiles();
@@ -385,7 +394,12 @@ int MainWindow::SystemShutDown_isAutoShutDown()
     if(file_isFileExist(AutoShutDown))
     {
         QFile::remove(AutoShutDown);
-        QMessageBox::information(this,tr("Notification"),tr("It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status."));
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Notification"));
+        MSG->setText(tr("It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status."));
+        MSG->setIcon(QMessageBox::Information);
+        MSG->setModal(true);
+        MSG->show();
     }
     return 0;
 }
@@ -476,7 +490,12 @@ void MainWindow::on_pushButton_AddPath_clicked()
     }
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
     {
-        QMessageBox::information(this,tr("Error"),tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
     }
     else
     {
@@ -722,6 +741,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
     {
         qApp->installTranslator(translator);
         ui->retranslateUi(this);
+        Table_FileCount_reload();
     }
     else
     {
@@ -801,4 +821,69 @@ void MainWindow::on_Ext_video_editingFinished()
     QString ext_video_str = ui->Ext_video->text();
     ext_video_str = ext_video_str.trimmed();
     ui->Ext_video->setText(ext_video_str);
+}
+
+int MainWindow::Donate_Count()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString donate_ini = Current_Path+"/donate.ini";
+    if(!file_isFileExist(donate_ini))
+    {
+        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+        configIniWrite->setValue("/Donate/OpenCount", 1);
+        configIniWrite->setValue("/Donate/PopUp", 0);
+        return 0;
+    }
+    QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
+    //=======  读取打开次数  ======
+    int Open_count = configIniRead->value("/Donate/OpenCount").toInt();
+    Open_count++;
+    if(Open_count<5)
+    {
+        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+        configIniWrite->setValue("/Donate/OpenCount", Open_count);
+        return 0;
+    }
+    else
+    {
+        if(configIniRead->value("/Donate/PopUp").toInt()==1)return 0;
+        QtConcurrent::run(this, &MainWindow::Donate_watchdog);
+        return 0;
+    }
+}
+
+int MainWindow::Donate_watchdog()
+{
+    Delay_sec_sleep(8);
+    emit Send_Donate_Notification();
+}
+
+int MainWindow::Donate_Notification()
+{
+    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you like using this software?\nIf you like the software, please donate to support the developers to ensure the software is continuously updated.\n(This popup will only pop up once after the software is installed.)")));
+    Msg.setModal(false);
+    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+    Msg.exec();
+    if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+    //=========
+    QString Current_Path = qApp->applicationDirPath();
+    QString donate_ini = Current_Path+"/donate.ini";
+    QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+    configIniWrite->setValue("/Donate/PopUp", 1);
+    //=========
+    return 0;
+}
+
+void MainWindow::on_checkBox_autoCheckUpdate_clicked()
+{
+    if(ui->checkBox_autoCheckUpdate->checkState()==false)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("We do not recommend that you cancel the automatic check for updates as this may prevent you from receiving timely bug fixes."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+    }
 }

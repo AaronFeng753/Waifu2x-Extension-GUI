@@ -189,7 +189,12 @@ void MainWindow::Waifu2x_Finished()
     //===================== 关机 ==============================
     if(ui->checkBox_AutoTurnOFF->checkState())
     {
-        QMessageBox::information(this,tr("Warning!"),tr("The computer will automatically shut down in 60 seconds!"));
+        QMessageBox *AutoShutDown = new QMessageBox();
+        AutoShutDown->setWindowTitle(tr("Warning!"));
+        AutoShutDown->setText(tr("The computer will automatically shut down in 60 seconds!"));
+        AutoShutDown->setIcon(QMessageBox::Warning);
+        AutoShutDown->setModal(false);
+        AutoShutDown->show();
         emit Send_TextBrowser_NewMessage(tr("The computer will automatically shut down in 60 seconds!"));
         QtConcurrent::run(this, &MainWindow::SystemShutDown_Countdown);
     }

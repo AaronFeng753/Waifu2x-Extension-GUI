@@ -582,6 +582,10 @@ int MainWindow::Table_Read_Current_Table_Filelist()
         FileList_image.append(file_map);
         emit Send_Table_image_insert_fileName_fullPath(FileName,fullPath);
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(i,status);
+        if(status=="Failed")
+        {
+            emit Send_TextBrowser_NewMessage(tr("[Failed]--[")+fullPath+"]");
+        }
         //===============
         if(CustRes_str!="")
         {
@@ -612,6 +616,10 @@ int MainWindow::Table_Read_Current_Table_Filelist()
         FileList_gif.append(file_map);
         emit Send_Table_gif_insert_fileName_fullPath(FileName,fullPath);
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(i,status);
+        if(status=="Failed")
+        {
+            emit Send_TextBrowser_NewMessage(tr("[Failed]--[")+fullPath+"]");
+        }
         //===============
         if(CustRes_str!="")
         {
@@ -642,6 +650,10 @@ int MainWindow::Table_Read_Current_Table_Filelist()
         FileList_video.append(file_map);
         emit Send_Table_video_insert_fileName_fullPath(FileName,fullPath);
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(i,status);
+        if(status=="Failed")
+        {
+            emit Send_TextBrowser_NewMessage(tr("[Failed]--[")+fullPath+"]");
+        }
         //===============
         if(CustRes_str!="")
         {

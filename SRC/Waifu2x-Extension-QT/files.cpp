@@ -41,7 +41,12 @@ void MainWindow::dropEvent(QDropEvent *event)
     }
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
     {
-        QMessageBox::information(this,tr("Error"),tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
     }
     else
     {

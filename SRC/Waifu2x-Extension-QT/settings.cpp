@@ -69,6 +69,7 @@ int MainWindow::Settings_Save()
     //===================== 存储语言设置 ================================
     configIniWrite->setValue("/settings/Language", ui->comboBox_language->currentIndex());
     //==========
+    Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
 }
 
@@ -130,6 +131,10 @@ int MainWindow::Settings_Read_Apply()
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
+    on_comboBox_Engine_GIF_currentIndexChanged(0);
+    on_comboBox_Engine_Image_currentIndexChanged(0);
+    on_comboBox_Engine_Video_currentIndexChanged(0);
+    on_spinBox_textbrowser_fontsize_valueChanged(0);
     //==================================
     return 0;
 }
@@ -144,5 +149,10 @@ void MainWindow::on_pushButton_ResetSettings_clicked()
     QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     QFile::remove(settings_ini);
-    QMessageBox::information(this,tr("Notification"),tr("The settings file has been reset, please restart the software manually for the default settings to take effect."));
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("The settings file has been reset, please restart the software manually for the default settings to take effect."));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(false);
+    MSG->show();
 }

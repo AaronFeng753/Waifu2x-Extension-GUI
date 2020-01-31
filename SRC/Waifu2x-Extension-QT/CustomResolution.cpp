@@ -24,7 +24,12 @@ int MainWindow::CustRes_SetCustRes()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
-        QMessageBox::information(this,tr("Error"),tr("No items are currently selected."));
+        QMessageBox *CustRes_NoItem = new QMessageBox();
+        CustRes_NoItem->setWindowTitle(tr("Error"));
+        CustRes_NoItem->setText(tr("No items are currently selected."));
+        CustRes_NoItem->setIcon(QMessageBox::Information);
+        CustRes_NoItem->setModal(false);
+        CustRes_NoItem->show();
         return 0;
     }
     RecFinedFiles();
@@ -70,7 +75,12 @@ int MainWindow::CustRes_SetCustRes()
     {
         if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
         {
-            QMessageBox::information(this, tr("Error"), tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd."));
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Warning"));
+            MSG->setText(tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(false);
+            MSG->show();
             if(!ui->checkBox_ReProcFinFiles->checkState())
             {
                 MovToFinedList();
@@ -101,7 +111,12 @@ int MainWindow::CustRes_CancelCustRes()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
-        QMessageBox::information(this,tr("Error"),tr("No items are currently selected."));
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("No items are currently selected."));
+        MSG->setIcon(QMessageBox::Information);
+        MSG->setModal(false);
+        MSG->show();
         return 0;
     }
     RecFinedFiles();
@@ -239,4 +254,15 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     {
         return ScaleRatio_width;
     }
+}
+
+int MainWindow::CustRes_SetToScreenRes()
+{
+    QScreen *screen=QGuiApplication::primaryScreen ();
+    QRect mm=screen->availableGeometry() ;
+    int screen_width = mm.width();
+    int screen_height = mm.height();
+    ui->spinBox_CustRes_width->setValue(screen_width);
+    ui->spinBox_CustRes_height->setValue(screen_height);
+    return 0;
 }

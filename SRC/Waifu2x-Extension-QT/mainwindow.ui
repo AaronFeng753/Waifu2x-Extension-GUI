@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1725</width>
+    <width>1724</width>
     <height>815</height>
    </rect>
   </property>
@@ -2016,23 +2016,6 @@ padding:10px;
        <string/>
       </property>
       <layout class="QGridLayout" name="gridLayout_11">
-       <item row="0" column="1">
-        <widget class="QProgressBar" name="progressBar">
-         <property name="value">
-          <number>0</number>
-         </property>
-         <property name="format">
-          <string notr="true">%p%</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="8">
-        <widget class="QLabel" name="label_14">
-         <property name="text">
-          <string>Font size:</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="6">
         <widget class="QPushButton" name="pushButton_Stop">
          <property name="maximumSize">
@@ -2100,66 +2083,26 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label_TimeCost">
+       <item row="0" column="8">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Font size:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_progressBar_filenum">
          <property name="frameShape">
           <enum>QFrame::Box</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
          </property>
          <property name="lineWidth">
           <number>1</number>
          </property>
          <property name="text">
-          <string>Time cost:NULL</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QLabel" name="label_ETA">
-         <property name="frameShape">
-          <enum>QFrame::Box</enum>
-         </property>
-         <property name="lineWidth">
-          <number>1</number>
-         </property>
-         <property name="text">
-          <string>ETA:NULL</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="7">
-        <widget class="QPushButton" name="pushButton_clear_textbrowser">
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Clear TextBrowser</string>
+          <string notr="true">0/0</string>
          </property>
         </widget>
        </item>
@@ -2225,23 +2168,83 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_progressBar_filenum">
+       <item row="0" column="1">
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
+         </property>
+         <property name="format">
+          <string notr="true">%p%</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="label_ETA">
          <property name="frameShape">
           <enum>QFrame::Box</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Plain</enum>
          </property>
          <property name="lineWidth">
           <number>1</number>
          </property>
          <property name="text">
-          <string notr="true">0/0</string>
+          <string>ETA:NULL</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="10">
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_TimeCost">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <property name="text">
+          <string>Time cost:NULL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="10">
+        <widget class="QPushButton" name="pushButton_clear_textbrowser">
+         <property name="toolTip">
+          <string>Clear text browser.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Clear</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="11">
         <widget class="QTextBrowser" name="textBrowser">
          <property name="maximumSize">
           <size>

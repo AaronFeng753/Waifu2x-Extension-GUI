@@ -46,13 +46,13 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="220"/>
-        <location filename="mainwindow.cpp" line="666"/>
+        <location filename="mainwindow.cpp" line="685"/>
         <source>Hide all setting options.</source>
         <translation>隐藏所有设置选项.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="253"/>
-        <location filename="mainwindow.cpp" line="665"/>
+        <location filename="mainwindow.cpp" line="684"/>
         <source>Hide settings</source>
         <translation>隐藏设置</translation>
     </message>
@@ -68,7 +68,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="456"/>
-        <location filename="mainwindow.cpp" line="680"/>
+        <location filename="mainwindow.cpp" line="699"/>
         <source>Hide input path</source>
         <translation>隐藏输入路径</translation>
     </message>
@@ -474,9 +474,8 @@ It is recommended to enable this option.</source>
         <translation>视频降噪等级:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1939"/>
         <source>mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</source>
-        <translation>mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</translation>
+        <translation type="vanished">mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1949"/>
@@ -489,37 +488,46 @@ It is recommended to enable this option.</source>
         <translation>当前语言:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2089"/>
+        <location filename="mainwindow.ui" line="2072"/>
         <source>Stop</source>
         <translation>停止</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2175"/>
+        <location filename="mainwindow.ui" line="2210"/>
+        <source>Clear text browser.</source>
+        <translation>清空Text browser.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2243"/>
+        <source>Clear</source>
+        <translation>清空</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2118"/>
         <source>Time remaining:NULL</source>
         <translation>剩余时间:未知</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2112"/>
+        <location filename="mainwindow.ui" line="2203"/>
         <source>Time cost:NULL</source>
         <translation>耗时:未知</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2162"/>
         <source>Clear TextBrowser</source>
-        <translation>清空TextBrowser</translation>
+        <translation type="vanished">清空TextBrowser</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2125"/>
+        <location filename="mainwindow.ui" line="2190"/>
         <source>ETA:NULL</source>
         <translation>预计完成时间:未知</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2224"/>
+        <location filename="mainwindow.ui" line="2167"/>
         <source>Start</source>
         <translation>开始</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2032"/>
+        <location filename="mainwindow.ui" line="2089"/>
         <source>Font size:</source>
         <translation>字体大小:</translation>
     </message>
@@ -535,47 +543,60 @@ It is recommended to enable this option.</source>
         <translation>成功保存文件列表!</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="719"/>
+        <location filename="table.cpp" line="587"/>
+        <location filename="table.cpp" line="621"/>
+        <location filename="table.cpp" line="655"/>
+        <source>[Failed]--[</source>
+        <translation>[失败]--[</translation>
+    </message>
+    <message>
+        <location filename="table.cpp" line="731"/>
         <source>File list update is complete!</source>
         <translation>成功更新文件列表!</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="27"/>
-        <location filename="CustomResolution.cpp" line="73"/>
-        <location filename="CustomResolution.cpp" line="104"/>
-        <location filename="files.cpp" line="44"/>
-        <location filename="mainwindow.cpp" line="235"/>
-        <location filename="mainwindow.cpp" line="479"/>
+        <location filename="CustomResolution.cpp" line="28"/>
+        <location filename="CustomResolution.cpp" line="115"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="27"/>
-        <location filename="CustomResolution.cpp" line="104"/>
-        <location filename="mainwindow.cpp" line="235"/>
+        <location filename="CustomResolution.cpp" line="29"/>
+        <location filename="CustomResolution.cpp" line="116"/>
+        <location filename="mainwindow.cpp" line="241"/>
         <source>No items are currently selected.</source>
         <translation>当前未选中任何项目.</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="73"/>
+        <location filename="CustomResolution.cpp" line="79"/>
+        <location filename="files.cpp" line="45"/>
+        <location filename="mainwindow.cpp" line="240"/>
+        <location filename="mainwindow.cpp" line="494"/>
+        <location filename="mainwindow.cpp" line="883"/>
+        <source>Warning</source>
+        <translation>警告</translation>
+    </message>
+    <message>
+        <location filename="CustomResolution.cpp" line="80"/>
         <source>When setting a custom resolution for a video, neither the height value nor the width value can be odd.</source>
         <translation>当自定义视频的输出分辨率时,宽度和高度均不能为奇数.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="44"/>
-        <location filename="mainwindow.cpp" line="479"/>
+        <location filename="files.cpp" line="46"/>
+        <location filename="mainwindow.cpp" line="495"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation>不支持当前文件格式,请输入可以支持的文件格式,或者自行添加文件扩展名.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="61"/>
-        <location filename="mainwindow.cpp" line="388"/>
-        <location filename="settings.cpp" line="147"/>
+        <location filename="checkupdate.cpp" line="60"/>
+        <location filename="mainwindow.cpp" line="398"/>
+        <location filename="mainwindow.cpp" line="863"/>
+        <location filename="settings.cpp" line="153"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="61"/>
+        <location filename="checkupdate.cpp" line="60"/>
         <source>New version: %1 
 Do you wanna update now???</source>
         <translation>新版本: %1 
@@ -583,16 +604,23 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="checkupdate.cpp" line="62"/>
+        <location filename="mainwindow.cpp" line="865"/>
         <source>YES</source>
         <translation>是</translation>
     </message>
     <message>
         <location filename="checkupdate.cpp" line="63"/>
+        <location filename="mainwindow.cpp" line="866"/>
         <source>NO</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="147"/>
+        <location filename="settings.cpp" line="72"/>
+        <source>Settings saved successfully!</source>
+        <translation>成功保存设置参数!</translation>
+    </message>
+    <message>
+        <location filename="settings.cpp" line="154"/>
         <source>The settings file has been reset, please restart the software manually for the default settings to take effect.</source>
         <translation>设置配置文件已重置,请手动重启软件以应用默认设置.</translation>
     </message>
@@ -708,96 +736,120 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法读取源文件的分辨率, 故无法将图片调整至自定义的分辨率.]</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="163"/>
+        <location filename="mainwindow.cpp" line="99"/>
+        <source>Time cost:[</source>
+        <translation>耗时:[</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="119"/>
+        <source>Time remaining:[</source>
+        <translation>剩余时间:[</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="167"/>
         <source>Unable to start processing files: The file list is empty or there are no available files to process.</source>
         <translation>无法开始处理文件: 文件列表为空或者列表内无可供处理的文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="200"/>
+        <location filename="mainwindow.cpp" line="204"/>
         <source>Start processing files.</source>
         <translation>开始处理文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="211"/>
+        <location filename="mainwindow.cpp" line="215"/>
         <source>Trying to stop, please wait...</source>
         <translation>尝试停止, 请稍等...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="223"/>
+        <location filename="mainwindow.cpp" line="227"/>
         <source>Processing of files has stopped.</source>
         <translation>已停止处理文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="388"/>
+        <location filename="mainwindow.cpp" line="399"/>
         <source>It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status.</source>
         <translation>检测到软件上次运行时执行了自动关机. 上次的文件列表已在关机前自动保存. 您可以手动加载列表已查看文件处理状况.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="439"/>
+        <location filename="mainwindow.cpp" line="453"/>
         <source>Thank you! :)</source>
         <translation>谢谢您! :)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="523"/>
-        <location filename="mainwindow.cpp" line="524"/>
-        <location filename="mainwindow.cpp" line="548"/>
-        <location filename="mainwindow.cpp" line="549"/>
-        <location filename="mainwindow.cpp" line="573"/>
-        <location filename="mainwindow.cpp" line="574"/>
+        <location filename="mainwindow.cpp" line="542"/>
+        <location filename="mainwindow.cpp" line="543"/>
+        <location filename="mainwindow.cpp" line="567"/>
+        <location filename="mainwindow.cpp" line="568"/>
+        <location filename="mainwindow.cpp" line="592"/>
+        <location filename="mainwindow.cpp" line="593"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation>范围:-1(不降噪)~3</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="532"/>
-        <location filename="mainwindow.cpp" line="533"/>
-        <location filename="mainwindow.cpp" line="557"/>
-        <location filename="mainwindow.cpp" line="558"/>
-        <location filename="mainwindow.cpp" line="582"/>
-        <location filename="mainwindow.cpp" line="583"/>
+        <location filename="mainwindow.cpp" line="551"/>
+        <location filename="mainwindow.cpp" line="552"/>
+        <location filename="mainwindow.cpp" line="576"/>
+        <location filename="mainwindow.cpp" line="577"/>
+        <location filename="mainwindow.cpp" line="601"/>
+        <location filename="mainwindow.cpp" line="602"/>
         <source>Range:0(No noise reduction)~2</source>
         <translation>范围:0(不降噪)~2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="591"/>
-        <location filename="mainwindow.cpp" line="592"/>
+        <location filename="mainwindow.cpp" line="610"/>
+        <location filename="mainwindow.cpp" line="611"/>
         <source>Anime4K engine does not support noise reduction.</source>
         <translation>Anime4K引擎不支持降噪.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="659"/>
+        <location filename="mainwindow.cpp" line="678"/>
         <source>Show settings</source>
         <translation>显示设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="660"/>
+        <location filename="mainwindow.cpp" line="679"/>
         <source>Show all setting options.</source>
         <translation>显示所有设置选项.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="675"/>
+        <location filename="mainwindow.cpp" line="694"/>
         <source>Show input path</source>
         <translation>显示输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="728"/>
+        <location filename="mainwindow.cpp" line="748"/>
         <source>Error: Language files cannot be loaded properly.</source>
         <translation>错误: 找不到语言文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="743"/>
+        <location filename="mainwindow.cpp" line="763"/>
         <source>Write to the file, please wait.</source>
         <translation>写入文件中,请稍等.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="782"/>
+        <location filename="mainwindow.cpp" line="802"/>
         <source>Please wait while reading the file.</source>
         <translation>请稍等,读取文件中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="787"/>
+        <location filename="mainwindow.cpp" line="807"/>
         <location filename="table.cpp" line="560"/>
         <source>Cannot find the saved Files List!</source>
         <translation>找不到已保存的文件列表!</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="863"/>
+        <source>Do you like using this software?
+If you like the software, please donate to support the developers to ensure the software is continuously updated.
+(This popup will only pop up once after the software is installed.)</source>
+        <translation>您喜欢使用本软件吗?
+如果您喜欢本软件, 请向开发者捐赠以保证本软件的持续更新与维护.
+(本弹窗仅会在软件安装后弹出一次.)</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="884"/>
+        <source>We do not recommend that you cancel the automatic check for updates as this may prevent you from receiving timely bug fixes.</source>
+        <translation>我们不建议您关闭[自动检查更新],因为这可能导致您无法及时接收bug修复.</translation>
     </message>
     <message>
         <location filename="video.cpp" line="118"/>
@@ -805,73 +857,73 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法获取视频帧率.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="192"/>
+        <location filename="waifu2x.cpp" line="193"/>
         <source>Warning!</source>
         <translation>警告!</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="192"/>
-        <location filename="waifu2x.cpp" line="193"/>
+        <location filename="waifu2x.cpp" line="194"/>
+        <location filename="waifu2x.cpp" line="198"/>
         <source>The computer will automatically shut down in 60 seconds!</source>
         <translation>计算机将于60秒后自动关机!</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="199"/>
+        <location filename="waifu2x.cpp" line="204"/>
         <source>Process finished.</source>
         <translation>处理完成.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="243"/>
+        <location filename="waifu2x.cpp" line="248"/>
         <source>Compatibility test is ongoing, please wait.</source>
         <translation>进行兼容性测试中,请稍等.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="260"/>
+        <location filename="waifu2x.cpp" line="265"/>
         <source>Compatible with waifu2x-ncnn-vulkan: Yes</source>
         <translation>是否与waifu2x-ncnn-vulkan兼容: 是</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="264"/>
+        <location filename="waifu2x.cpp" line="269"/>
         <source>Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否与waifu2x-ncnn-vulkan兼容: 否. [建议: 重装或者更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="278"/>
+        <location filename="waifu2x.cpp" line="283"/>
         <source>Compatible with waifu2x-converter: Yes.</source>
         <translation>是否与waifu2x-converter兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="282"/>
+        <location filename="waifu2x.cpp" line="287"/>
         <source>Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]</source>
         <translation>是否与waifu2x-converter兼容: 否. [建议: 买台新电脑.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="295"/>
+        <location filename="waifu2x.cpp" line="300"/>
         <source>Compatible with Anime4k: Yes.</source>
         <translation>是否与Anime4k兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="299"/>
+        <location filename="waifu2x.cpp" line="304"/>
         <source>Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]</source>
         <translation>是否与Anime4k兼容: 否. [建议: 安装最新版的 JDK 和 JRE.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="303"/>
+        <location filename="waifu2x.cpp" line="308"/>
         <source>Compatibility test is complete!</source>
         <translation>兼容性测试已完成!</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="317"/>
+        <location filename="waifu2x.cpp" line="322"/>
         <source>Detecting available GPU, please wait.</source>
         <translation>检测可用显卡中,请稍等.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="352"/>
+        <location filename="waifu2x.cpp" line="357"/>
         <source>Detection is complete!</source>
         <translation>检测完成!</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="355"/>
+        <location filename="waifu2x.cpp" line="360"/>
         <source>No available GPU ID detected!</source>
         <translation>未检测到可用的GPU!</translation>
     </message>
