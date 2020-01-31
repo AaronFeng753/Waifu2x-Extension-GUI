@@ -94,7 +94,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - Anime4K Java v0.9 Beta
 
-- ffmpeg version 4.2.1
+- ffmpeg version 4.2.2
 
 - gifsicle version 1.92
 
