@@ -10,3 +10,4 @@ Name(or ID) | Donation amount | Time
 | 凯腾2333 | 5 RMB | 2020/1/23 |
 | Anonymous(\*文) | 50 RMB | 2020/1/23 |
 | Yitao Deng | 6 RMB | 2020/1/31 |
+| Anonymous(\*勒尧) | 10 RMB | 2020/2/1 |
