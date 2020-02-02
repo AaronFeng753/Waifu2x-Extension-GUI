@@ -270,7 +270,7 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
     }
     //=======
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
+    while(!Waifu2x->waitForStarted(100)) {}
     while(!Waifu2x->waitForFinished(500))
     {
         if(waifu2x_STOP)

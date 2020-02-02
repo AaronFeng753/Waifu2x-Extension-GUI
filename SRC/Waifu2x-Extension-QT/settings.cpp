@@ -135,6 +135,7 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_spinBox_textbrowser_fontsize_valueChanged(0);
+    Init_Table();
     //==================================
     return 0;
 }

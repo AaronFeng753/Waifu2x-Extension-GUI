@@ -128,31 +128,38 @@ padding:10px;
        <string>Files List (You can drag and drop files or folders into here)</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
-       <item row="1" column="1">
-        <widget class="QPushButton" name="pushButton_RemoveItem">
-         <property name="maximumSize">
+       <item row="1" column="8">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>110</width>
-           <height>16777215</height>
+           <width>40</width>
+           <height>20</height>
           </size>
          </property>
+        </spacer>
+       </item>
+       <item row="1" column="10">
+        <widget class="QPushButton" name="pushButton_ReadFileList">
          <property name="styleSheet">
           <string notr="true">QPushButton{
-background-color: rgb(255, 181, 6);
+background-color: rgb(52, 152, 219);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(255, 200, 50);
+background-color: rgb(60, 177, 255);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(255, 170, 0);
+background-color: rgb(45, 134, 193);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -167,7 +174,7 @@ padding:10px;
 }</string>
          </property>
          <property name="text">
-          <string>Remove item</string>
+          <string>Read Saved Files List</string>
          </property>
         </widget>
        </item>
@@ -214,7 +221,17 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="1" column="12">
+       <item row="1" column="4" colspan="2">
+        <widget class="QLabel" name="label_FileCount">
+         <property name="frameShape">
+          <enum>QFrame::Box</enum>
+         </property>
+         <property name="text">
+          <string>File count: null</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="13">
         <widget class="QPushButton" name="pushButton_HideSettings">
          <property name="toolTip">
           <string>Hide all setting options.</string>
@@ -254,7 +271,50 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="0" column="0" colspan="13">
+       <item row="1" column="1">
+        <widget class="QPushButton" name="pushButton_RemoveItem">
+         <property name="maximumSize">
+          <size>
+           <width>110</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+background-color: rgb(255, 181, 6);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 200, 50);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(255, 170, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Remove item</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="14">
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
           <widget class="QTableView" name="tableView_image">
@@ -263,6 +323,12 @@ padding:10px;
              <width>0</width>
              <height>0</height>
             </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QTableView{
+selection-background-color: rgb(52, 152, 219);
+
+}</string>
            </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
@@ -313,6 +379,11 @@ padding:10px;
              <height>0</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QTableView{
+selection-background-color: rgb(26, 188, 156);
+}</string>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
@@ -353,6 +424,11 @@ padding:10px;
              <height>0</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QTableView{
+selection-background-color: rgb(178, 58, 238);
+}</string>
+           </property>
            <property name="editTriggers">
             <set>QAbstractItemView::NoEditTriggers</set>
            </property>
@@ -384,8 +460,17 @@ padding:10px;
          </item>
          <item>
           <widget class="QLabel" name="label_DropFile">
+           <property name="font">
+            <font>
+             <family>Arial</family>
+             <pointsize>13</pointsize>
+             <weight>9</weight>
+             <italic>false</italic>
+             <bold>false</bold>
+            </font>
+           </property>
            <property name="styleSheet">
-            <string notr="true">font: 75 14pt &quot;Arial&quot;;</string>
+            <string notr="true">font: 75 13pt &quot;Arial&quot;;</string>
            </property>
            <property name="frameShape">
             <enum>QFrame::Box</enum>
@@ -394,7 +479,7 @@ padding:10px;
             <enum>QFrame::Plain</enum>
            </property>
            <property name="lineWidth">
-            <number>2</number>
+            <number>1</number>
            </property>
            <property name="text">
             <string>Drag and drop files or folders here
@@ -407,20 +492,7 @@ padding:10px;
          </item>
         </layout>
        </item>
-       <item row="1" column="8">
-        <spacer name="horizontalSpacer">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="1" column="11">
+       <item row="1" column="12">
         <widget class="QPushButton" name="pushButton_HideInput">
          <property name="styleSheet">
           <string notr="true">QPushButton{
@@ -457,7 +529,7 @@ padding:10px;
          </property>
         </widget>
        </item>
-       <item row="1" column="2">
+       <item row="1" column="9">
         <widget class="QPushButton" name="pushButton_SaveFileList">
          <property name="styleSheet">
           <string notr="true">QPushButton{
@@ -491,53 +563,6 @@ padding:10px;
          </property>
          <property name="text">
           <string>Save Files List</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QPushButton" name="pushButton_ReadFileList">
-         <property name="styleSheet">
-          <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-         </property>
-         <property name="text">
-          <string>Read Saved Files List</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="4" colspan="2">
-        <widget class="QLabel" name="label_FileCount">
-         <property name="frameShape">
-          <enum>QFrame::Box</enum>
-         </property>
-         <property name="text">
-          <string>File count: null</string>
          </property>
         </widget>
        </item>
@@ -1444,7 +1469,7 @@ padding:10px;
 }</string>
             </property>
             <property name="text">
-             <string>Donate</string>
+             <string>★ Donate ★</string>
             </property>
            </widget>
           </item>
@@ -2009,7 +2034,7 @@ padding:10px;
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>200</height>
+        <height>210</height>
        </size>
       </property>
       <property name="title">

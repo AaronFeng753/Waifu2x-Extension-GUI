@@ -635,7 +635,16 @@ void MainWindow::on_pushButton_compatibilityTest_clicked()
 
 void MainWindow::on_tableView_image_clicked(const QModelIndex &index)
 {
-    curRow_image = ui->tableView_image->currentIndex().row();
+    int curRow_image_new = ui->tableView_image->currentIndex().row();
+    if(curRow_image_new == curRow_image)
+    {
+        curRow_image = -1;
+        ui->tableView_image->clearSelection();
+    }
+    else
+    {
+        curRow_image = curRow_image_new;
+    }
     curRow_gif = -1;
     curRow_video = -1;
     ui->tableView_gif->clearSelection();
@@ -645,7 +654,16 @@ void MainWindow::on_tableView_image_clicked(const QModelIndex &index)
 void MainWindow::on_tableView_gif_clicked(const QModelIndex &index)
 {
     curRow_image = -1;
-    curRow_gif = ui->tableView_gif->currentIndex().row();
+    int curRow_gif_new = ui->tableView_gif->currentIndex().row();
+    if(curRow_gif_new == curRow_gif)
+    {
+        curRow_gif = -1;
+        ui->tableView_gif->clearSelection();
+    }
+    else
+    {
+        curRow_gif = curRow_gif_new;
+    }
     curRow_video = -1;
     ui->tableView_image->clearSelection();
     ui->tableView_video->clearSelection();
@@ -655,7 +673,16 @@ void MainWindow::on_tableView_video_clicked(const QModelIndex &index)
 {
     curRow_image = -1;
     curRow_gif = -1;
-    curRow_video = ui->tableView_video->currentIndex().row();
+    int curRow_video_new = ui->tableView_video->currentIndex().row();
+    if(curRow_video_new == curRow_video)
+    {
+        curRow_video = -1;
+        ui->tableView_video->clearSelection();
+    }
+    else
+    {
+        curRow_video = curRow_video_new;
+    }
     ui->tableView_image->clearSelection();
     ui->tableView_gif->clearSelection();
 }
@@ -742,6 +769,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         qApp->installTranslator(translator);
         ui->retranslateUi(this);
         Table_FileCount_reload();
+        Init_Table();
     }
     else
     {
@@ -767,20 +795,20 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
 
 void MainWindow::on_pushButton_ReadFileList_clicked()
 {
-    this->setAcceptDrops(0);//禁止drop file
-    ui->pushButton_Start->setEnabled(0);//禁用start button
-    ui->groupBox_Input->setEnabled(0);
-    ui->pushButton_ClearList->setEnabled(0);
-    ui->pushButton_RemoveItem->setEnabled(0);
-    ui->checkBox_ReProcFinFiles->setEnabled(0);
-    ui->pushButton_CustRes_cancel->setEnabled(0);
-    ui->pushButton_CustRes_apply->setEnabled(0);
-    ui->pushButton_ReadFileList->setEnabled(0);
-    ui->pushButton_SaveFileList->setEnabled(0);
     QString Current_Path = qApp->applicationDirPath();
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(file_isFileExist(Table_FileList_ini))
     {
+        this->setAcceptDrops(0);//禁止drop file
+        ui->pushButton_Start->setEnabled(0);//禁用start button
+        ui->groupBox_Input->setEnabled(0);
+        ui->pushButton_ClearList->setEnabled(0);
+        ui->pushButton_RemoveItem->setEnabled(0);
+        ui->checkBox_ReProcFinFiles->setEnabled(0);
+        ui->pushButton_CustRes_cancel->setEnabled(0);
+        ui->pushButton_CustRes_apply->setEnabled(0);
+        ui->pushButton_ReadFileList->setEnabled(0);
+        ui->pushButton_SaveFileList->setEnabled(0);
         curRow_image = -1;
         curRow_gif = -1;
         curRow_video = -1;
@@ -805,7 +833,7 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
     else
     {
         Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
-        Send_Table_Read_Current_Table_Filelist_Finished();
+        //Send_Table_Read_Current_Table_Filelist_Finished();
     }
 }
 

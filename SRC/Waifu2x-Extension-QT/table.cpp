@@ -23,28 +23,28 @@
 void MainWindow::Init_Table()
 {
     Table_model_image->setColumnCount(4);
-    Table_model_image->setHeaderData(0, Qt::Horizontal, "Image File Name");
-    Table_model_image->setHeaderData(1, Qt::Horizontal, "Status");
-    Table_model_image->setHeaderData(2, Qt::Horizontal, "Full Path");
-    Table_model_image->setHeaderData(3, Qt::Horizontal, "Custom resolution(Width x Height)");
+    Table_model_image->setHeaderData(0, Qt::Horizontal, tr("Image File Name"));
+    Table_model_image->setHeaderData(1, Qt::Horizontal, tr("Status"));
+    Table_model_image->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
+    Table_model_image->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_image->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui->tableView_image->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_image->setModel(Table_model_image);
     //=================================
     Table_model_gif->setColumnCount(4);
-    Table_model_gif->setHeaderData(0, Qt::Horizontal, "GIF File Name");
-    Table_model_gif->setHeaderData(1, Qt::Horizontal, "Status");
-    Table_model_gif->setHeaderData(2, Qt::Horizontal, "Full Path");
-    Table_model_gif->setHeaderData(3, Qt::Horizontal, "Custom resolution(Width x Height)");
+    Table_model_gif->setHeaderData(0, Qt::Horizontal, tr("GIF File Name"));
+    Table_model_gif->setHeaderData(1, Qt::Horizontal, tr("Status"));
+    Table_model_gif->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
+    Table_model_gif->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_gif->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui->tableView_gif->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_gif->setModel(Table_model_gif);
     //=================================
     Table_model_video->setColumnCount(4);
-    Table_model_video->setHeaderData(0, Qt::Horizontal, "Video File Name");
-    Table_model_video->setHeaderData(1, Qt::Horizontal, "Status");
-    Table_model_video->setHeaderData(2, Qt::Horizontal, "Full Path");
-    Table_model_video->setHeaderData(3, Qt::Horizontal, "Custom resolution(Width x Height)");
+    Table_model_video->setHeaderData(0, Qt::Horizontal, tr("Video File Name"));
+    Table_model_video->setHeaderData(1, Qt::Horizontal, tr("Status"));
+    Table_model_video->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
+    Table_model_video->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_video->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui->tableView_video->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_video->setModel(Table_model_video);
@@ -569,7 +569,6 @@ int MainWindow::Table_Read_Current_Table_Filelist()
     int rowCount_image = configIniRead->value("/table_image/rowCount").toInt();
     for(int i=0; i<rowCount_image; i++)
     {
-        Delay_msec_sleep(50);
         //===========
         QString FileName =configIniRead->value("/table_image/"+QString::number(i,10)+"_FileName").toString();
         QString status =configIniRead->value("/table_image/"+QString::number(i,10)+"_status").toString();
@@ -598,12 +597,12 @@ int MainWindow::Table_Read_Current_Table_Filelist()
             res_map["width"] = CustRes_width;
             Custom_resolution_list.append(res_map);
         }
+        Delay_msec_sleep(50);
     }
     //========= 加载gif ========
     int rowCount_gif = configIniRead->value("/table_gif/rowCount").toInt();
     for(int i=0; i<rowCount_gif; i++)
     {
-        Delay_msec_sleep(50);
         //===========
         QString FileName =configIniRead->value("/table_gif/"+QString::number(i,10)+"_FileName").toString();
         QString status =configIniRead->value("/table_gif/"+QString::number(i,10)+"_status").toString();
@@ -632,12 +631,12 @@ int MainWindow::Table_Read_Current_Table_Filelist()
             res_map["width"] = CustRes_width;
             Custom_resolution_list.append(res_map);
         }
+        Delay_msec_sleep(50);
     }
     //========= 加载video ========
     int rowCount_video = configIniRead->value("/table_video/rowCount").toInt();
     for(int i=0; i<rowCount_video; i++)
     {
-        Delay_msec_sleep(50);
         //===========
         QString FileName =configIniRead->value("/table_video/"+QString::number(i,10)+"_FileName").toString();
         QString status =configIniRead->value("/table_video/"+QString::number(i,10)+"_status").toString();
@@ -666,6 +665,7 @@ int MainWindow::Table_Read_Current_Table_Filelist()
             res_map["width"] = CustRes_width;
             Custom_resolution_list.append(res_map);
         }
+        Delay_msec_sleep(50);
     }
     //====================
     if(!ui->checkBox_ReProcFinFiles->checkState())

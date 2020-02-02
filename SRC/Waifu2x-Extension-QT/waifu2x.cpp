@@ -258,8 +258,8 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QProcess *Waifu2x = new QProcess();
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
-    Waifu2x->waitForFinished();
+    while(!Waifu2x->waitForStarted(100)) {}
+    while(!Waifu2x->waitForFinished(100)) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan: Yes"));
@@ -276,8 +276,8 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QString Denoise_cmd = " --noise_level 1 ";
     cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio 2" + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
-    Waifu2x->waitForFinished();
+    while(!Waifu2x->waitForStarted(100)) {}
+    while(!Waifu2x->waitForFinished(100)) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: Yes."));
@@ -293,8 +293,8 @@ int MainWindow::Waifu2x_Compatibility_Test()
     program = Anime4k_folder_path + "/Anime4K.jar";
     cmd = "java -jar \"" + program + "\" \"" + InputPath + "\" \"" + OutputPath + "\" 2";
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
-    Waifu2x->waitForFinished();
+    while(!Waifu2x->waitForStarted(100)) {}
+    while(!Waifu2x->waitForFinished(100)) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: Yes."));
@@ -339,8 +339,8 @@ int MainWindow::Waifu2x_DetectGPU()
         QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
         Waifu2x->start(cmd);
-        Waifu2x->waitForStarted();
-        Waifu2x->waitForFinished();
+        while(!Waifu2x->waitForStarted(100)) {}
+        while(!Waifu2x->waitForFinished(100)) {}
         if(file_isFileExist(OutputPath))
         {
             Available_GPUID.append(QString::number(GPU_ID,10));

@@ -47,7 +47,7 @@ public:
 
     //=======================
 
-    QString VERSION="v0.25-beta";
+    QString VERSION="v0.28-beta";
 
     //=======================
 

@@ -89,7 +89,7 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     }
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
+    while(!Waifu2x->waitForStarted(100)) {}
     while(!Waifu2x->waitForFinished(500))
     {
         if(waifu2x_STOP)
@@ -481,7 +481,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString,
     //=======
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
+    while(!Waifu2x->waitForStarted(100)) {}
     while(!Waifu2x->waitForFinished(500))
     {
         if(waifu2x_STOP)
@@ -791,7 +791,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QStrin
     //=======
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
     Waifu2x->start(cmd);
-    Waifu2x->waitForStarted();
+    while(!Waifu2x->waitForStarted(100)) {}
     while(!Waifu2x->waitForFinished(500))
     {
         if(waifu2x_STOP)
