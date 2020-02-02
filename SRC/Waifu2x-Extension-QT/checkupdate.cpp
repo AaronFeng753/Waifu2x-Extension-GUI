@@ -44,8 +44,8 @@ int MainWindow::CheckUpadte_Auto()
     QString program = Current_Path+"/python_ext.exe";
     QProcess checkupdate;
     checkupdate.start("\""+program+"\" null checkupdate");
-    while(!checkupdate.waitForStarted(100)) {}
-    while(!checkupdate.waitForFinished(100)) {}
+    while(!checkupdate.waitForStarted(100)&&!QProcess_stop) {}
+    while(!checkupdate.waitForFinished(100)&&!QProcess_stop) {}
     QString update_str=checkupdate.readAllStandardOutput().data();
     update_str = update_str.trimmed();
     if(update_str!=VERSION&&update_str!="failed"&&update_str!="")

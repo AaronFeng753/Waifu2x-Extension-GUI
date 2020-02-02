@@ -24,8 +24,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    MainWindow *w = new MainWindow;
+    w->show();
     return a.exec();
 }
 
@@ -37,8 +37,11 @@ Change log:
 - 完善简体中文支持
 - 修复bug:某些情况下GIF的帧无法正常排列
 - 修复bug:某些情况下线程会被提前自动关闭导致任务无法完成
+- 修复bug:某些情况下程序无法完全退出会滞留在后台执行无限循环
+- 修复bug:当系统内没有Java运行环境时,调用Anime4k可能会造成软件进入无限循环
 --------------------------------------------------------------------------
 To do:
+- 潜在的:stop后有的qprocess无法退出
 - 性能优化(重写函数加入return)
 - 提高稳定性
 - 改进剩余时间算法

@@ -255,11 +255,11 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-    QProcess *Waifu2x = new QProcess();
+    QProcess *Waifu2x_vulkan = new QProcess();
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
-    Waifu2x->start(cmd);
-    while(!Waifu2x->waitForStarted(100)) {}
-    while(!Waifu2x->waitForFinished(100)) {}
+    Waifu2x_vulkan->start(cmd);
+    while(!Waifu2x_vulkan->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x_vulkan->waitForFinished(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan: Yes"));
@@ -275,9 +275,10 @@ int MainWindow::Waifu2x_Compatibility_Test()
     model_path= Waifu2x_folder_path + "/models_rgb";
     QString Denoise_cmd = " --noise_level 1 ";
     cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio 2" + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
-    Waifu2x->start(cmd);
-    while(!Waifu2x->waitForStarted(100)) {}
-    while(!Waifu2x->waitForFinished(100)) {}
+    QProcess *Waifu2x_converter = new QProcess();
+    Waifu2x_converter->start(cmd);
+    while(!Waifu2x_converter->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x_converter->waitForFinished(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: Yes."));
@@ -292,9 +293,13 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     program = Anime4k_folder_path + "/Anime4K.jar";
     cmd = "java -jar \"" + program + "\" \"" + InputPath + "\" \"" + OutputPath + "\" 2";
-    Waifu2x->start(cmd);
-    while(!Waifu2x->waitForStarted(100)) {}
-    while(!Waifu2x->waitForFinished(100)) {}
+    QProcess *Waifu2x_anime4k = new QProcess();
+    Waifu2x_anime4k->start(cmd);
+    if(Waifu2x_anime4k->waitForStarted(-1))
+    {
+        while(!Waifu2x_anime4k->waitForFinished(100)&&!QProcess_stop) {}
+    }
+    //while(!Waifu2x_anime4k->waitForStarted(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: Yes."));
@@ -339,8 +344,8 @@ int MainWindow::Waifu2x_DetectGPU()
         QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
         Waifu2x->start(cmd);
-        while(!Waifu2x->waitForStarted(100)) {}
-        while(!Waifu2x->waitForFinished(100)) {}
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
         if(file_isFileExist(OutputPath))
         {
             Available_GPUID.append(QString::number(GPU_ID,10));

@@ -35,8 +35,8 @@ int MainWindow::video_get_fps(QString videoPath)
     QString program = Current_Path+"/python_ext.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" fps");
-    while(!vid.waitForStarted(100)) {}
-    while(!vid.waitForFinished(100)) {}
+    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
+    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
     int fps=vid.readAllStandardOutput().toInt();
     return fps;
 }
@@ -47,8 +47,8 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
     QString program = Current_Path+"/python_ext.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" countframe");
-    while(!vid.waitForStarted(100)) {}
-    while(!vid.waitForFinished(100)) {}
+    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
+    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
     int FrameNum = vid.readAllStandardOutput().toInt();
     int frameNumDigits=1+(int)log10(FrameNum);
     return frameNumDigits;
@@ -81,27 +81,27 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     {
         QProcess video_tomp4;
         video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" \""+video_mp4_fullpath+"\"");
-        while(!video_tomp4.waitForStarted(100)) {}
-        while(!video_tomp4.waitForFinished(100)) {}
+        while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
+        while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
     }
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+FrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
-    while(!video_splitFrame.waitForStarted(100)) {}
-    while(!video_splitFrame.waitForFinished(100)) {}
+    while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
+    while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(FrameFolderPath);
     if(Frame_fileName_list.isEmpty())
     {
         video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+FrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\"");
-        while(!video_splitFrame.waitForStarted(100)) {}
-        while(!video_splitFrame.waitForFinished(100)) {}
+        while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
+        while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     }
     QFile::remove(AudioPath);
     QProcess video_splitSound;
     video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+AudioPath+"\"");
-    while(!video_splitSound.waitForStarted(100)) {}
-    while(!video_splitSound.waitForFinished(100)) {}
+    while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
+    while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
 }
 
 int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath)
@@ -134,7 +134,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     QProcess images2video;
     images2video.start(CMD);
-    while(!images2video.waitForFinished(100)) {}
+    while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
     if(!file_isFileExist(video_mp4_scaled_fullpath))
     {
         if(file_isFileExist(AudioPath))
@@ -147,8 +147,8 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         }
         QProcess images2video;
         images2video.start(CMD);
-        while(!images2video.waitForStarted(100)) {}
-        while(!images2video.waitForFinished(100)) {}
+        while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
+        while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
     }
     QFile::remove(AudioPath);
     return 0;

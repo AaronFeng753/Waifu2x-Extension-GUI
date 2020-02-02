@@ -270,16 +270,19 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
     }
     //=======
     Waifu2x->start(cmd);
-    while(!Waifu2x->waitForStarted(100)) {}
-    while(!Waifu2x->waitForFinished(500))
+    if(Waifu2x->waitForStarted(-1))
     {
-        if(waifu2x_STOP)
+        while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
         {
-            Waifu2x->close();
-            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-            return 0;
+            if(waifu2x_STOP)
+            {
+                Waifu2x->close();
+                *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+                return 0;
+            }
         }
     }
+    //while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     //============================ 调整大小 ====================================================
     if(CustRes_isEnabled)
     {

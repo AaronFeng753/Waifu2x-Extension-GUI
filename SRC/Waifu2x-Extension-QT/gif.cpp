@@ -34,8 +34,8 @@ int MainWindow::Gif_getDuration(QString gifPath)
     QString program = Current_Path+"/python_ext.exe";
     QProcess GifDuration;
     GifDuration.start("\""+program+"\" \""+gifPath+"\" duration");
-    while(!GifDuration.waitForStarted(100)) {}
-    while(!GifDuration.waitForFinished(100)) {}
+    while(!GifDuration.waitForStarted(100)&&!QProcess_stop) {}
+    while(!GifDuration.waitForFinished(100)&&!QProcess_stop) {}
     int Duration=GifDuration.readAllStandardOutput().toInt();
     if(Duration<=0)
     {
@@ -66,16 +66,16 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%0"+QString::number(FrameDigits,10)+"d.png\"";
     QProcess *SplitGIF=new QProcess();
     SplitGIF->start(cmd);
-    while(!SplitGIF->waitForStarted(100)) {}
-    while(!SplitGIF->waitForFinished(100)) {}
+    while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
+    while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
     QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     if(Frame_fileName_list.isEmpty())
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%%0"+QString::number(FrameDigits,10)+"d.png\"";
         QProcess *SplitGIF=new QProcess();
         SplitGIF->start(cmd);
-        while(!SplitGIF->waitForStarted(100)) {}
-        while(!SplitGIF->waitForFinished(100)) {}
+        while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
+        while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
     }
 }
 
@@ -87,8 +87,8 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
     QString cmd = "\"" + program + "\"" + " -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
     QProcess *AssembleGIF=new QProcess();
     AssembleGIF->start(cmd);
-    while(!AssembleGIF->waitForStarted(100)) {}
-    while(!AssembleGIF->waitForFinished(100)) {}
+    while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}
+    while(!AssembleGIF->waitForFinished(100)&&!QProcess_stop) {}
 }
 
 
@@ -99,6 +99,6 @@ void MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
     QString cmd = "\"" + program + "\"" + " -O3 -i \""+gifPath+"\" -o \""+gifPath_compressd+"\"";
     QProcess *CompressGIF=new QProcess();
     CompressGIF->start(cmd);
-    while(!CompressGIF->waitForStarted(100)) {}
-    while(!CompressGIF->waitForFinished(100)) {}
+    while(!CompressGIF->waitForStarted(100)&&!QProcess_stop) {}
+    while(!CompressGIF->waitForFinished(100)&&!QProcess_stop) {}
 }

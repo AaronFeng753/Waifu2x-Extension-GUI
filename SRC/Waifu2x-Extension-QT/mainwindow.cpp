@@ -93,6 +93,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    QProcess_stop=true;
+}
+
 void MainWindow::TimeSlot()
 {
     TimeCost++;

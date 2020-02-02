@@ -29,6 +29,7 @@
 #include <QSettings>
 #include <QTranslator>
 #include <QScreen>
+#include <QCloseEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -47,7 +48,7 @@ public:
 
     //=======================
 
-    QString VERSION="v0.28-beta";
+    QString VERSION="v0.281-beta";
 
     //=======================
 
@@ -219,6 +220,11 @@ public:
     int Donate_watchdog();
 
     ~MainWindow();
+
+    //=========== 关闭窗口时执行的代码 ===============
+    void closeEvent(QCloseEvent* event);
+    bool QProcess_stop=false;
+    //=============================================
 
 public slots:
     void progressbar_setRange_min_max(int min, int max);
