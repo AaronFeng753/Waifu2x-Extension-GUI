@@ -1,4 +1,25 @@
 # Change log
+## [v0.281-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.281-beta)
+#### Change log:
+- New feature: [Files List] supports deselect
+- Interface Beautification
+- Adjust interface layout
+- Improve Simplified Chinese support
+- Fix bug: GIF frames could not be arranged properly in some cases
+- Fix bug: In some cases, the thread will be automatically closed in advance and the task cannot be completed
+- Fix bug: In some cases, the program cannot exit completely and will stay in the background to execute an infinite loop
+- Fix bug: When there is no Java runtime environment in the system, calling Anime4k may cause the software to enter an infinite loop
+---
+## [v0.25-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.25-beta)
+#### Change log:
+- New feature: Read screen resolution and set as default custom resolution value when first started
+- New feature: When loading File List, automatically output items with status [Failed] in Textbrowser
+- Update FFmpeg (4.2.2)
+- Fix bug: In some special cases, automatic check for updates will falsely report the existence of a new version
+- Fix bug: Automatic shutdown of computer could not be performed normally
+- Fixed bug: [File Count] cannot be displayed normally after language switching
+- Improve Simplified Chinese language support
+---
 ## [v0.21-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.21-beta)
 #### Change log:
 - New feature: [Completed number of files/Total number of files] is displayed on the left side of the progress bar.
