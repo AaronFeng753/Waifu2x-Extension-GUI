@@ -1,4 +1,25 @@
 # 更新日志
+## [v0.281-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.281-beta)
+#### 更新日志:
+- 新特性:[文件列表]支持选中后再次点击取消选中
+- 界面美化
+- 调整界面布局
+- 完善简体中文支持
+- 修复bug:某些情况下GIF的帧无法正常排列
+- 修复bug:某些情况下线程会被提前自动关闭导致任务无法完成
+- 修复bug:某些情况下程序无法完全退出会滞留在后台执行无限循环
+- 修复bug:当系统内没有Java运行环境时,调用Anime4k可能会造成软件进入无限循环
+---
+## [v0.25-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.25-beta)
+#### 更新日志:
+- 新特性:首次启动时读取屏幕分辨率并设定为默认的自定义分辨率值
+- 新特性:加载文件列表时,在Textbrowser内自动输出状态为[失败]的条目
+- 更新FFmpeg(4.2.2)
+- 修复bug:某些特殊的情况下,自动检查更新会误报存在新版本
+- 修复bug:无法正常执行自动关闭计算机
+- 修复bug:切换语言后无法正常显示[文件数量]
+- 完善简体中文语言支持
+---
 ## [v0.21-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.21-beta)
 #### 更新日志:
 - 新特性:进度条左侧显示[完成数量/总数量].
