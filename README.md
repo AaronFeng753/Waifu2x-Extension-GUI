@@ -85,6 +85,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - ImageMagick 7.0.9-12-portable-Q16-x64
 
 # Credits:
+- Donors: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 
 - FFmpeg: https://ffmpeg.org/
