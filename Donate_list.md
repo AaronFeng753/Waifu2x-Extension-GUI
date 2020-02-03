@@ -1,5 +1,7 @@
 # Donation List
 
+[中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md)
+
 Thank you very much for your donation. If you have any suggestions for the software, please submit an issue. I will definitely review and try to achieve your needs.
 
 Sort by donation time.
