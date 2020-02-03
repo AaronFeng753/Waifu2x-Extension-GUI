@@ -105,6 +105,8 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 - ImageMagick 7.0.9-12-portable-Q16-x64
 
 # 鸣谢:
+- 捐赠者们: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 
 - FFmpeg: https://ffmpeg.org/
