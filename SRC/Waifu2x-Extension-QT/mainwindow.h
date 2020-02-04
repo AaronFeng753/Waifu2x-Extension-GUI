@@ -48,7 +48,7 @@ public:
 
     //=======================
 
-    QString VERSION="v0.281-beta";
+    QString VERSION="v0.29-beta";
 
     //=======================
 
@@ -196,6 +196,7 @@ public:
     //======================== 设置 ===========================================
     int Settings_Save();
     int Settings_Read_Apply();
+    bool Settings_isReseted = false;
 
 
     //================================ Other =======================================
@@ -224,6 +225,10 @@ public:
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);
     bool QProcess_stop=false;
+    int Auto_Save_Settings_Watchdog();
+    QFuture<int> AutoUpdate;
+    QFuture<int> Waifu2xMain;
+    int Force_close();
     //=============================================
 
 public slots:
@@ -266,6 +271,8 @@ public slots:
     bool SystemShutDown();
 
     int Donate_Notification();
+
+    int Auto_Save_Settings_Finished();
 
 
 
@@ -341,6 +348,12 @@ private slots:
 
     void on_checkBox_autoCheckUpdate_clicked();
 
+    void on_checkBox_AutoSaveSettings_clicked();
+
+    void on_pushButton_about_clicked();
+
+    void on_checkBox_AlwaysHideInput_stateChanged(int arg1);
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -378,6 +391,8 @@ signals:
     void Send_SystemShutDown();
 
     void Send_Donate_Notification();
+
+    void Send_Auto_Save_Settings_Finished();
 
 
 private:

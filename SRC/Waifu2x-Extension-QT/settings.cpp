@@ -29,6 +29,8 @@ int MainWindow::Settings_Save()
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     //================= 添加警告 =========================
     configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    //==================== 存储版本识别 ==================================
+    configIniWrite->setValue("/settings/VERSION", VERSION);
     //=======  存储放大值和降噪值  =================================
     configIniWrite->setValue("/settings/ImageScaleRatio", ui->spinBox_ScaleRatio_image->value());
     configIniWrite->setValue("/settings/GIFScaleRatio", ui->spinBox_ScaleRatio_gif->value());
@@ -64,6 +66,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ShowInterPro", ui->checkBox_ShowInterPro->checkState());
     configIniWrite->setValue("/settings/AutoCheckUpdate", ui->checkBox_autoCheckUpdate->checkState());
     configIniWrite->setValue("/settings/FileListAutoScroll", ui->checkBox_FileListAutoSlide->checkState());
+    configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
+    configIniWrite->setValue("/settings/AlwaysHideInput", ui->checkBox_AlwaysHideInput->checkState());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -81,6 +85,16 @@ int MainWindow::Settings_Read_Apply()
     {
         Settings_Save();
         return 0;
+    }
+    else
+    {
+        QSettings *configIniRead_ver = new QSettings(settings_ini, QSettings::IniFormat);
+        QString Settings_VERSION = configIniRead_ver->value("/settings/VERSION").toString();
+        if(Settings_VERSION!=VERSION)
+        {
+            Settings_Save();
+            return 0;
+        }
     }
     //=================
     QSettings *configIniRead = new QSettings(settings_ini, QSettings::IniFormat);
@@ -106,10 +120,6 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_Engine_Video->setCurrentIndex(configIniRead->value("/settings/VideoEngine").toInt());
     ui->comboBox_ImageStyle->setCurrentIndex(configIniRead->value("/settings/ImageStyle").toInt());
     ui->spinBox_TileSize->setValue(configIniRead->value("/settings/TileSize").toInt());
-    on_comboBox_GPUID_currentIndexChanged(0);
-    on_comboBox_Engine_Image_currentIndexChanged(0);
-    on_comboBox_Engine_GIF_currentIndexChanged(0);
-    on_comboBox_Engine_Video_currentIndexChanged(0);
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
@@ -123,18 +133,25 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_ShowInterPro->setChecked(configIniRead->value("/settings/ShowInterPro").toBool());
     ui->checkBox_autoCheckUpdate->setChecked(configIniRead->value("/settings/AutoCheckUpdate").toBool());
     ui->checkBox_FileListAutoSlide->setChecked(configIniRead->value("/settings/FileListAutoScroll").toBool());
-    on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_ReProcFinFiles_stateChanged(0);
+    ui->checkBox_AutoSaveSettings->setChecked(configIniRead->value("/settings/AutoSaveSettings").toBool());
+    ui->checkBox_AlwaysHideInput->setChecked(configIniRead->value("/settings/AlwaysHideInput").toBool());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
-    on_spinBox_textbrowser_fontsize_valueChanged(0);
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
+    //====================================================
+    on_checkBox_SaveAsJPG_stateChanged(0);
+    on_checkBox_ReProcFinFiles_stateChanged(0);
+    on_checkBox_AlwaysHideInput_stateChanged(0);
+    //====
+    on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
+    //=====
     on_spinBox_textbrowser_fontsize_valueChanged(0);
+    //=====
     Init_Table();
     //==================================
     return 0;
@@ -150,6 +167,7 @@ void MainWindow::on_pushButton_ResetSettings_clicked()
     QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     QFile::remove(settings_ini);
+    Settings_isReseted = true;
     QMessageBox *MSG = new QMessageBox();
     MSG->setWindowTitle(tr("Notification"));
     MSG->setText(tr("The settings file has been reset, please restart the software manually for the default settings to take effect."));

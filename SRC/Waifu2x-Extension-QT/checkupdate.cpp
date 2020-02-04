@@ -39,14 +39,15 @@ int MainWindow::CheckUpadte_Auto()
     {
         return 0;
     }
-    Delay_sec_sleep(5);
+    //Delay_sec_sleep(5);
     QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/python_ext.exe";
     QProcess checkupdate;
     checkupdate.start("\""+program+"\" null checkupdate");
     while(!checkupdate.waitForStarted(100)&&!QProcess_stop) {}
     while(!checkupdate.waitForFinished(100)&&!QProcess_stop) {}
-    QString update_str=checkupdate.readAllStandardOutput().data();
+    QString update_str="";
+    if(!QProcess_stop)update_str=checkupdate.readAllStandardOutput().data();
     update_str = update_str.trimmed();
     if(update_str!=VERSION&&update_str!="failed"&&update_str!="")
     {
@@ -57,11 +58,13 @@ int MainWindow::CheckUpadte_Auto()
 
 int MainWindow::CheckUpadte_NewUpdate(QString update_str)
 {
-    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("New version: %1 \nDo you wanna update now???")).arg(update_str));
+    QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
     Msg.setModal(false);
+    Msg.setIcon(QMessageBox::Information);
     QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
     QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
     Msg.exec();
     if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+    return 0;
 }
 

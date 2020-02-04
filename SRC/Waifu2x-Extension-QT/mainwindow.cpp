@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //==============
+    ui->tabWidget->setCurrentIndex(0);
     //===========================================
     CustRes_SetToScreenRes();
     //===========================================
@@ -72,6 +74,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
+    connect(this, SIGNAL(Send_Auto_Save_Settings_Finished()), this, SLOT(Auto_Save_Settings_Finished()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -83,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //=====================================
-    QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
+    AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
     SystemShutDown_isAutoShutDown();
     Donate_Count();
 }
@@ -96,7 +99,50 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->checkState();
+    if(AutoSaveSettings&&(!Settings_isReseted))
+    {
+        Settings_Save();
+        //qApp->exit(0);
+        QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog);
+    }
+    else
+    {
+        QProcess_stop=true;
+        AutoUpdate.cancel();
+        Waifu2xMain.cancel();
+        QtConcurrent::run(this, &MainWindow::Force_close);
+    }
+}
+
+int MainWindow::Auto_Save_Settings_Watchdog()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString settings_ini = Current_Path+"/settings.ini";
+    while(!file_isFileExist(settings_ini))
+    {
+        Delay_msec_sleep(100);
+    }
+    Delay_msec_sleep(500);
+    emit Send_Auto_Save_Settings_Finished();
+    return 0;
+}
+
+int MainWindow::Auto_Save_Settings_Finished()
+{
     QProcess_stop=true;
+    AutoUpdate.cancel();
+    Waifu2xMain.cancel();
+    QtConcurrent::run(this, &MainWindow::Force_close);
+    return 0;
+}
+
+int MainWindow::Force_close()
+{
+    QProcess Close;
+    Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
+    Close.waitForStarted(5000);
+    Close.waitForFinished(5000);
 }
 
 void MainWindow::TimeSlot()
@@ -208,7 +254,7 @@ void MainWindow::on_pushButton_Start_clicked()
         TimeCostTimer->start(1000);
         TimeCost=0;
         emit Send_TextBrowser_NewMessage(tr("Start processing files."));
-        QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
+        Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
     }
 }
 
@@ -219,7 +265,7 @@ void MainWindow::on_pushButton_Stop_clicked()
     ui->pushButton_Start->setEnabled(1);//启用start button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
-    QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);//启动waifu2x 主线程
+    QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
 }
 
 void MainWindow::Wait_waifu2x_stop()
@@ -919,5 +965,44 @@ void MainWindow::on_checkBox_autoCheckUpdate_clicked()
         MSG->setIcon(QMessageBox::Warning);
         MSG->setModal(false);
         MSG->show();
+    }
+}
+
+void MainWindow::on_checkBox_AutoSaveSettings_clicked()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString settings_ini = Current_Path+"/settings.ini";
+    if(file_isFileExist(settings_ini))
+    {
+        QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
+        configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
+    }
+}
+
+void MainWindow::on_pushButton_about_clicked()
+{
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("About"));
+    QString line1 = "Waifu2x-Extension-GUI\n\n";
+    QString line2 = VERSION+"\n\n";
+    QString line3 = "Github:https://github.com/AaronFeng753/Waifu2x-Extension-GUI\n\n";
+    QString line4 = "Waifu2x-Extension-GUI is licensed under the\n";
+    QString line5 = "GNU Affero General Public License v3.0\n\n";
+    QString line6 = "Copyright (C) 2020  Aaron Feng";
+    MSG->setText(line1+line2+line3+line4+line5+line6);
+    QImage img(":/new/prefix1/icon/icon_main.png");
+    QImage img_scaled = img.scaled(50,50,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    QPixmap pix(QPixmap::fromImage(img_scaled));
+    MSG->setIconPixmap(pix);
+    MSG->setModal(false);
+    MSG->show();
+}
+
+void MainWindow::on_checkBox_AlwaysHideInput_stateChanged(int arg1)
+{
+    if(ui->checkBox_AlwaysHideInput->checkState())
+    {
+        ui->groupBox_Input->setVisible(0);
+        ui->pushButton_HideInput->setText(tr("Show input path"));
     }
 }

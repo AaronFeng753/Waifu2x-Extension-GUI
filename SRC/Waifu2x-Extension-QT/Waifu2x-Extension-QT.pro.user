@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.10.1, 2020-01-31T21:07:57. -->
+<!-- Written by QtCreator 4.10.1, 2020-02-04T13:03:34. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -60,6 +60,11 @@
    </valuelist>
    <value type="bool" key="ClangCodeModel.UseGlobalConfig">true</value>
    <value type="bool" key="ClangFormat.OverrideFile">false</value>
+   <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
+   <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
+   <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
+   <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
+   <value type="bool" key="ClangTools.UseGlobalSettings">true</value>
   </valuemap>
  </data>
  <data>

@@ -59,11 +59,14 @@ FORMS += \
 
 TRANSLATIONS += language_English.ts \
                language_Chinese.ts
-
+TARGET = Waifu2x-Extension-GUI
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    donate.qrc \
     icon.qrc
+
+RC_ICONS =icon/icon.ico
