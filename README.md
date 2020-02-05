@@ -99,6 +99,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - ImageMagick: http://www.imagemagick.org/
 
+- NSIS: https://nsis.sourceforge.io/
+
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
 # `Donate`
