@@ -14,3 +14,4 @@ Name(or ID) | Donation amount | Time
 | Yitao Deng | 6 RMB | 2020/1/31 |
 | Anonymous(\*勒尧) | 10 RMB | 2020/2/1 |
 | Anonymous(\*建华) | 18.8 RMB | 2020/2/3 |
+| Anonymous(\*靖洲) | 2 RMB | 2020/2/5 |
