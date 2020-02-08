@@ -1,4 +1,24 @@
 # Change log
+## [v0.31-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.31-beta)
+#### Change log:
+- New feature: show progress while loading file list
+- New feature: Customizable aspect ratio strategy of "Custom Resolution" (in [Additional Settings])
+- New feature: popup prompt after manually saving settings
+- New feature: "Settings" can always be hidden (optional, disabled by default, in [Additional Settings])
+- New feature: Show total number of GIF and video threads
+- Fine-tune interface layout
+- Fix bug: When processing gif, the file processing status cannot be changed normally after stopping the process
+---
+## [v0.291-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.291-beta)
+#### Change log:
+- New feature: Automatically save settings when closing the program (optional, enabled by default)
+- New feature: [input path] can be hidden all the time (optional, disabled by default)
+- New feature: Add [About]
+- New feature: Permission detection
+- Adjust the interface layout, move some setting options to [Additional settings]
+- Improve Simplified Chinese support
+- Fix bug: In some special cases, the program will be stuck in the background
+---
 ## [v0.281-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.281-beta)
 #### Change log:
 - New feature: [Files List] supports deselect
