@@ -1,7 +1,7 @@
 # Waifu2x-Extension-GUI
 #### 下载: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 #### 更新日志: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md
-#### 捐赠列表: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+#### 捐赠列表: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md
 #### 如果README内的图片无法正常加载,请[打开此链接查看码云内存储的README.md](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md)或者合法的连接国际网络后刷新页面, 当然您也可以[按照这个教程来尝试修复github图片加载的问题](https://github.com/AaronFeng753/Github_dns_hosts#github_dns_hosts).
 # Waifu2x-Extension-GUI是什么?
  借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
