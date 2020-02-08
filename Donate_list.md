@@ -16,3 +16,4 @@ Name(or ID) | Donation amount | Time
 | Anonymous(\*建华) | 18.8 RMB | 2020/2/3 |
 | Anonymous(\*靖洲) | 2 RMB | 2020/2/5 |
 | Anonymous(\*强) | 6.79 RMB | 2020/2/5 |
+| Anonymous(\*鑨) | 10 RMB | 2020/2/7 |
