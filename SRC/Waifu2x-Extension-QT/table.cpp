@@ -564,9 +564,14 @@ int MainWindow::Table_Read_Current_Table_Filelist()
     //=================
     QSettings *configIniRead = new QSettings(Table_FileList_ini, QSettings::IniFormat);
     //====================
-    //emit on_pushButton_ClearList_clicked();
-    //========= 加载image ========
     int rowCount_image = configIniRead->value("/table_image/rowCount").toInt();
+    int rowCount_gif = configIniRead->value("/table_gif/rowCount").toInt();
+    int rowCount_video = configIniRead->value("/table_video/rowCount").toInt();
+    //==========
+    Progressbar_MaxVal = rowCount_image + rowCount_gif + rowCount_video;
+    Progressbar_CurrentVal = 0;
+    emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
+    //========= 加载image ========
     for(int i=0; i<rowCount_image; i++)
     {
         //===========
@@ -597,10 +602,10 @@ int MainWindow::Table_Read_Current_Table_Filelist()
             res_map["width"] = CustRes_width;
             Custom_resolution_list.append(res_map);
         }
-        Delay_msec_sleep(50);
+        emit Send_progressbar_Add();
+        Delay_msec_sleep(60);
     }
     //========= 加载gif ========
-    int rowCount_gif = configIniRead->value("/table_gif/rowCount").toInt();
     for(int i=0; i<rowCount_gif; i++)
     {
         //===========
@@ -631,10 +636,10 @@ int MainWindow::Table_Read_Current_Table_Filelist()
             res_map["width"] = CustRes_width;
             Custom_resolution_list.append(res_map);
         }
-        Delay_msec_sleep(50);
+        emit Send_progressbar_Add();
+        Delay_msec_sleep(60);
     }
     //========= 加载video ========
-    int rowCount_video = configIniRead->value("/table_video/rowCount").toInt();
     for(int i=0; i<rowCount_video; i++)
     {
         //===========
@@ -665,7 +670,8 @@ int MainWindow::Table_Read_Current_Table_Filelist()
             res_map["width"] = CustRes_width;
             Custom_resolution_list.append(res_map);
         }
-        Delay_msec_sleep(50);
+        emit Send_progressbar_Add();
+        Delay_msec_sleep(60);
     }
     //====================
     if(!ui->checkBox_ReProcFinFiles->checkState())
@@ -729,6 +735,11 @@ int MainWindow::Table_Read_Current_Table_Filelist_Finished()
     ui->tableView_image->scrollToBottom();
     ui->tableView_video->scrollToBottom();
     Send_TextBrowser_NewMessage(tr("File list update is complete!"));
+    //====
+    progressbar_SetToMax(Progressbar_MaxVal);
+    Progressbar_MaxVal = 0;
+    Progressbar_CurrentVal = 0;
+    //====
     return 0;
 }
 

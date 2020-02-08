@@ -194,6 +194,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
             FileList_gif.append(map);
             Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
+        return 0;
     }
     return 0;
 }
@@ -214,6 +215,10 @@ bool MainWindow::Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QS
 
 int MainWindow::FileList_remove(QMap<QString, QString> File_map)
 {
+    if(FileList_image.removeAll(File_map)>0)return 0;
+    if(FileList_gif.removeAll(File_map)>0)return 0;
+    if(FileList_video.removeAll(File_map)>0)return 0;
+    /*
     if(FileList_image.contains(File_map))
     {
         FileList_image.removeAll(File_map);
@@ -229,6 +234,7 @@ int MainWindow::FileList_remove(QMap<QString, QString> File_map)
         FileList_video.removeAll(File_map);
         return 0;
     }
+    */
     return 0;
 }
 

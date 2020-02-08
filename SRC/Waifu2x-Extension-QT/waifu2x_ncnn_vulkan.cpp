@@ -164,7 +164,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         }
         QImage qimage_adj(OutputPath_tmp);
         //读取放大后的图片并调整大小
-        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
         QImageWriter qimageW_adj;
         qimageW_adj.setFormat("png");
         qimageW_adj.setFileName(OutPut_Path);
@@ -391,7 +391,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
             }
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
@@ -583,7 +583,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
         }
         QImage qimage_adj(OutputPath_tmp);
         //读取放大后的图片并调整大小
-        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
         QImageWriter qimageW_adj;
         qimageW_adj.setFormat("png");
         qimageW_adj.setFileName(Frame_fileOutPutPath);
@@ -926,6 +926,50 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
             New_width = qimage_original.width()*ScaleRatio;
         }
         QImage qimage_adj(OutputPath_tmp);
+        if(CustRes_isEnabled)
+        {
+            double Original_height = qimage_original.height();
+            double Original_width = qimage_original.width();
+            double AspectRatio = Original_height/Original_width;
+            if(CustRes_AspectRatioMode == Qt::KeepAspectRatio)
+            {
+                if(AspectRatio<1)
+                {
+                    New_height = (int)(New_width*AspectRatio);
+                    if(New_height%2!=0)
+                    {
+                        New_height+=1;
+                    }
+                }
+                else
+                {
+                    New_width = (int)(New_height/AspectRatio);
+                    if(New_width%2!=0)
+                    {
+                        New_width+=1;
+                    }
+                }
+            }
+            if(CustRes_AspectRatioMode == Qt::KeepAspectRatioByExpanding)
+            {
+                if(AspectRatio<1)
+                {
+                    New_width = (int)(New_height/AspectRatio);
+                    if(New_width%2!=0)
+                    {
+                        New_width+=1;
+                    }
+                }
+                else
+                {
+                    New_height = (int)(New_width*AspectRatio);
+                    if(New_height%2!=0)
+                    {
+                        New_height+=1;
+                    }
+                }
+            }
+        }
         QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
         QImageWriter qimageW_adj;
         qimageW_adj.setFormat("png");

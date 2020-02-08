@@ -81,11 +81,6 @@ MainWindow::MainWindow(QWidget *parent)
     //==================================================
     Settings_Read_Apply();
     //=====================================
-    on_comboBox_Engine_GIF_currentIndexChanged(0);
-    on_comboBox_Engine_Image_currentIndexChanged(0);
-    on_comboBox_Engine_Video_currentIndexChanged(0);
-    on_spinBox_textbrowser_fontsize_valueChanged(0);
-    //=====================================
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
     SystemShutDown_isAutoShutDown();
     Donate_Count();
@@ -95,7 +90,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
@@ -139,6 +133,7 @@ int MainWindow::Auto_Save_Settings_Finished()
 
 int MainWindow::Force_close()
 {
+    Delay_msec_sleep(1500);
     QProcess Close;
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
     Close.waitForStarted(5000);
@@ -210,6 +205,7 @@ void MainWindow::on_pushButton_ClearList_clicked()
     ui->pushButton_ClearList->setVisible(0);
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();
+    progressbar_clear();
 }
 
 void MainWindow::on_pushButton_Start_clicked()
@@ -250,7 +246,9 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);
         ui->pushButton_SaveFileList->setEnabled(0);
+        ui->comboBox_AspectRatio_custRes->setEnabled(0);
         progressbar_clear();
+        //==========
         TimeCostTimer->start(1000);
         TimeCost=0;
         emit Send_TextBrowser_NewMessage(tr("Start processing files."));
@@ -915,6 +913,7 @@ int MainWindow::Donate_Count()
         return 0;
     }
     QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
+    if(configIniRead->value("/Donate/PopUp").toInt()==1)return 0;
     //=======  读取打开次数  ======
     int Open_count = configIniRead->value("/Donate/OpenCount").toInt();
     Open_count++;
@@ -926,7 +925,6 @@ int MainWindow::Donate_Count()
     }
     else
     {
-        if(configIniRead->value("/Donate/PopUp").toInt()==1)return 0;
         QtConcurrent::run(this, &MainWindow::Donate_watchdog);
         return 0;
     }
@@ -934,7 +932,7 @@ int MainWindow::Donate_Count()
 
 int MainWindow::Donate_watchdog()
 {
-    Delay_sec_sleep(8);
+    Delay_sec_sleep(5);
     emit Send_Donate_Notification();
 }
 
@@ -991,7 +989,7 @@ void MainWindow::on_pushButton_about_clicked()
     QString line6 = "Copyright (C) 2020  Aaron Feng";
     MSG->setText(line1+line2+line3+line4+line5+line6);
     QImage img(":/new/prefix1/icon/icon_main.png");
-    QImage img_scaled = img.scaled(50,50,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    QImage img_scaled = img.scaled(50,50,Qt::KeepAspectRatio,Qt::SmoothTransformation);
     QPixmap pix(QPixmap::fromImage(img_scaled));
     MSG->setIconPixmap(pix);
     MSG->setModal(false);
@@ -1005,4 +1003,61 @@ void MainWindow::on_checkBox_AlwaysHideInput_stateChanged(int arg1)
         ui->groupBox_Input->setVisible(0);
         ui->pushButton_HideInput->setText(tr("Show input path"));
     }
+}
+
+void MainWindow::on_comboBox_AspectRatio_custRes_currentIndexChanged(int index)
+{
+    int CurrentIndex = ui->comboBox_AspectRatio_custRes->currentIndex();
+    switch(CurrentIndex)
+    {
+        case 0:
+            {
+                CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;
+                break;
+            }
+        case 1:
+            {
+                CustRes_AspectRatioMode = Qt::KeepAspectRatio;
+                break;
+            }
+        case 2:
+            {
+                CustRes_AspectRatioMode = Qt::KeepAspectRatioByExpanding;
+                break;
+            }
+    }
+}
+
+void MainWindow::on_checkBox_AlwaysHideSettings_stateChanged(int arg1)
+{
+    if(ui->checkBox_AlwaysHideSettings->checkState())
+    {
+        ui->groupBox_Setting->setVisible(0);
+        ui->pushButton_HideSettings->setText(tr("Show settings"));
+        ui->pushButton_HideSettings->setToolTip(tr("Show all setting options."));
+    }
+}
+
+void MainWindow::on_spinBox_ThreadNum_gif_internal_valueChanged(int arg1)
+{
+    int Total=(ui->spinBox_ThreadNum_gif->value())*(ui->spinBox_ThreadNum_gif_internal->value());
+    ui->label_TotalThreadNum_gif->setText(QString(tr("Total:%1")).arg(Total));
+}
+
+void MainWindow::on_spinBox_ThreadNum_gif_valueChanged(int arg1)
+{
+    int Total=(ui->spinBox_ThreadNum_gif->value())*(ui->spinBox_ThreadNum_gif_internal->value());
+    ui->label_TotalThreadNum_gif->setText(QString(tr("Total:%1")).arg(Total));
+}
+
+void MainWindow::on_spinBox_ThreadNum_video_valueChanged(int arg1)
+{
+    int Total=(ui->spinBox_ThreadNum_video->value())*(ui->spinBox_ThreadNum_video_internal->value());
+    ui->label_TotalThreadNum_video->setText(QString(tr("Total:%1")).arg(Total));
+}
+
+void MainWindow::on_spinBox_ThreadNum_video_internal_valueChanged(int arg1)
+{
+    int Total=(ui->spinBox_ThreadNum_video->value())*(ui->spinBox_ThreadNum_video_internal->value());
+    ui->label_TotalThreadNum_video->setText(QString(tr("Total:%1")).arg(Total));
 }

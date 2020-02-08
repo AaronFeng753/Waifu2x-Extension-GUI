@@ -38,9 +38,10 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ImageDenoiseLevel", ui->spinBox_DenoiseLevel_image->value());
     configIniWrite->setValue("/settings/GIFDenoiseLevel", ui->spinBox_DenoiseLevel_gif->value());
     configIniWrite->setValue("/settings/VideoDenoiseLevel", ui->spinBox_DenoiseLevel_video->value());
-    //============ 存储自定义宽度和高度 ============================
+    //============ 存储自定义宽度和高度及设置 ============================
     configIniWrite->setValue("/settings/CustResWidth", ui->spinBox_CustRes_width->value());
     configIniWrite->setValue("/settings/CustResHeight", ui->spinBox_CustRes_height->value());
+    configIniWrite->setValue("/settings/CustResAspectRatioMode", ui->comboBox_AspectRatio_custRes->currentIndex());
     //============ 存储线程数量 ====================================
     configIniWrite->setValue("/settings/ImageThreadNum", ui->spinBox_ThreadNum_image->value());
     configIniWrite->setValue("/settings/GIFThreadNum", ui->spinBox_ThreadNum_gif->value());
@@ -68,6 +69,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/FileListAutoScroll", ui->checkBox_FileListAutoSlide->checkState());
     configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
     configIniWrite->setValue("/settings/AlwaysHideInput", ui->checkBox_AlwaysHideInput->checkState());
+    configIniWrite->setValue("/settings/AlwaysHideSettings", ui->checkBox_AlwaysHideSettings->checkState());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -108,6 +110,7 @@ int MainWindow::Settings_Read_Apply()
     //============= 加载自定义宽度和高度 ============================
     ui->spinBox_CustRes_width->setValue(configIniRead->value("/settings/CustResWidth").toInt());
     ui->spinBox_CustRes_height->setValue(configIniRead->value("/settings/CustResHeight").toInt());
+    ui->comboBox_AspectRatio_custRes->setCurrentIndex(configIniRead->value("/settings/CustResAspectRatioMode").toInt());
     //============ 加载 线程数量 ==================================
     ui->spinBox_ThreadNum_image->setValue(configIniRead->value("/settings/ImageThreadNum").toInt());
     ui->spinBox_ThreadNum_gif->setValue(configIniRead->value("/settings/GIFThreadNum").toInt());
@@ -135,6 +138,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_FileListAutoSlide->setChecked(configIniRead->value("/settings/FileListAutoScroll").toBool());
     ui->checkBox_AutoSaveSettings->setChecked(configIniRead->value("/settings/AutoSaveSettings").toBool());
     ui->checkBox_AlwaysHideInput->setChecked(configIniRead->value("/settings/AlwaysHideInput").toBool());
+    ui->checkBox_AlwaysHideSettings->setChecked(configIniRead->value("/settings/AlwaysHideSettings").toBool());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
     //==================== 加载语言设置 =====================
@@ -144,6 +148,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_SaveAsJPG_stateChanged(0);
     on_checkBox_ReProcFinFiles_stateChanged(0);
     on_checkBox_AlwaysHideInput_stateChanged(0);
+    on_checkBox_AlwaysHideSettings_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -151,6 +156,13 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_Engine_Video_currentIndexChanged(0);
     //=====
     on_spinBox_textbrowser_fontsize_valueChanged(0);
+    //===
+    on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
+    //====
+    on_spinBox_ThreadNum_gif_valueChanged(0);
+    on_spinBox_ThreadNum_gif_internal_valueChanged(0);
+    on_spinBox_ThreadNum_video_valueChanged(0);
+    on_spinBox_ThreadNum_video_internal_valueChanged(0);
     //=====
     Init_Table();
     //==================================
@@ -160,6 +172,12 @@ int MainWindow::Settings_Read_Apply()
 void MainWindow::on_pushButton_SaveSettings_clicked()
 {
     Settings_Save();
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("Settings saved successfully!"));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(false);
+    MSG->show();
 }
 
 void MainWindow::on_pushButton_ResetSettings_clicked()

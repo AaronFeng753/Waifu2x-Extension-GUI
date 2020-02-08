@@ -47,43 +47,42 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     //=======================
-
-    QString VERSION="v0.29-beta";
-
+    QString VERSION="v0.31-beta";//软件版本号
     //=======================
-
-    QTranslator * translator;
-
-    //=================================  File =================================
-    void dragEnterEvent(QDragEnterEvent *event);
+    QTranslator * translator;//界面翻译
+    //=================================  File 文件=================================
+    void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
-    bool AddNew_gif=false;
-    bool AddNew_image=false;
-    bool AddNew_video=false;
-    void Add_File_Folder(QString Full_Path);
-    QStringList getFileNames(QString path);
-    int FileList_Add(QString fileName, QString SourceFile_fullPath);
+    bool AddNew_gif=false;//判断是否有新增文件-gif
+    bool AddNew_image=false;//判断是否有新增文件-图片
+    bool AddNew_video=false;//判断是否有新增文件-视频
+    void Add_File_Folder(QString Full_Path);//添加文件or文件夹(判断一个路径是文件还是文件夹,然后处理判断类型添加到table和file list)
+    QStringList getFileNames(QString path);//当拖入的路径是文件夹时,读取文件夹内指定扩展名的文件并返回一个qstringlist
+    int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
 
+    //待处理的filelist
     QList<QMap<QString, QString>> FileList_image;//map["SourceFile_fullPath"],map["rowNum"]
     QList<QMap<QString, QString>> FileList_gif;
     QList<QMap<QString, QString>> FileList_video;
-
+    //处理完成的filelist(当重复处理已完成没启用时,将会把处理完的条目缓存在这里)
     QList<QMap<QString, QString>> FileList_image_finished;//map["SourceFile_fullPath"],map["rowNum"]
     QList<QMap<QString, QString>> FileList_gif_finished;
     QList<QMap<QString, QString>> FileList_video_finished;
-
+    //判断一个文件是否已存在于一个文件列表中(输入list和完整路径,然后判断返回bool)
     bool Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString SourceFile_fullPath);
+    //输入一个filemap,然后查询在哪个list内,找到后移除
     int FileList_remove(QMap<QString, QString> File_map);
+    //根据行号在filelist内查找条目(map)
     QMap<QString, QString> FileList_find_rowNum(QList<QMap<QString, QString>> FileList, int rowNum);
 
-    void RecFinedFiles();
+    void RecFinedFiles();//将[已完成列表]接回对应的File list
 
-    bool file_isDirExist(QString SourceFile_fullPath);
-    void file_mkDir(QString SourceFile_fullPath);
-    bool file_isFileExist(QString fullFilePath);
-    void file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist);
-    QStringList file_getFileNames_in_Folder_nofilter(QString path);
-    bool file_DelDir(const QString &path);
+    bool file_isDirExist(QString SourceFile_fullPath);//判断文件夹是否存在
+    void file_mkDir(QString SourceFile_fullPath);//创建文件夹
+    bool file_isFileExist(QString fullFilePath);//判断文件是否存在
+    void file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist);//复制文件
+    QStringList file_getFileNames_in_Folder_nofilter(QString path);//读取文件夹内文件列表并返回(无过滤器)
+    bool file_DelDir(const QString &path);//删除文件夹(无论是否为空,强制删除)
 
     //=================================  Table =================================
     void Init_Table();
@@ -192,6 +191,8 @@ public:
     int CustRes_SetCustRes();
     int CustRes_CancelCustRes();
     int CustRes_SetToScreenRes();
+
+    Qt::AspectRatioMode CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;
 
     //======================== 设置 ===========================================
     int Settings_Save();
@@ -353,6 +354,18 @@ private slots:
     void on_pushButton_about_clicked();
 
     void on_checkBox_AlwaysHideInput_stateChanged(int arg1);
+
+    void on_comboBox_AspectRatio_custRes_currentIndexChanged(int index);
+
+    void on_checkBox_AlwaysHideSettings_stateChanged(int arg1);
+
+    void on_spinBox_ThreadNum_gif_internal_valueChanged(int arg1);
+
+    void on_spinBox_ThreadNum_gif_valueChanged(int arg1);
+
+    void on_spinBox_ThreadNum_video_valueChanged(int arg1);
+
+    void on_spinBox_ThreadNum_video_internal_valueChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

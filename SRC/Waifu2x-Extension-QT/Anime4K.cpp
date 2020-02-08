@@ -302,6 +302,50 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
         }
         QImage qimage_adj(OutputPath);
         //读取放大后的图片并调整大小
+        if(CustRes_isEnabled)
+        {
+            double Original_height = qimage_original.height();
+            double Original_width = qimage_original.width();
+            double AspectRatio = Original_height/Original_width;
+            if(CustRes_AspectRatioMode == Qt::KeepAspectRatio)
+            {
+                if(AspectRatio<1)
+                {
+                    New_height = (int)(New_width*AspectRatio);
+                    if(New_height%2!=0)
+                    {
+                        New_height+=1;
+                    }
+                }
+                else
+                {
+                    New_width = (int)(New_height/AspectRatio);
+                    if(New_width%2!=0)
+                    {
+                        New_width+=1;
+                    }
+                }
+            }
+            if(CustRes_AspectRatioMode == Qt::KeepAspectRatioByExpanding)
+            {
+                if(AspectRatio<1)
+                {
+                    New_width = (int)(New_height/AspectRatio);
+                    if(New_width%2!=0)
+                    {
+                        New_width+=1;
+                    }
+                }
+                else
+                {
+                    New_height = (int)(New_width*AspectRatio);
+                    if(New_height%2!=0)
+                    {
+                        New_height+=1;
+                    }
+                }
+            }
+        }
         QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
         QImageWriter qimageW_adj;
         qimageW_adj.setFormat("png");
