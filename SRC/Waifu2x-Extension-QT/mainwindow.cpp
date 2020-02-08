@@ -84,6 +84,8 @@ MainWindow::MainWindow(QWidget *parent)
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
     SystemShutDown_isAutoShutDown();
     Donate_Count();
+    //=====
+    Set_Font_fixed();
 }
 
 MainWindow::~MainWindow()
@@ -183,6 +185,13 @@ QString MainWindow::Seconds2hms(int seconds)
     int min = (seconds-hour*hh)/mm;
     int sec = seconds - hour*hh - min*mm;
     return QString::number(hour,10)+":"+QString::number(min,10)+":"+QString::number(sec,10);
+}
+
+void MainWindow::Set_Font_fixed()
+{
+    QFont font = qApp->font();
+    font.setPixelSize(ui->spinBox_GlobalFontSize->value());
+    qApp->setFont(font);
 }
 
 void MainWindow::on_pushButton_ClearList_clicked()
@@ -820,6 +829,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         ui->retranslateUi(this);
         Table_FileCount_reload();
         Init_Table();
+        Set_Font_fixed();
     }
     else
     {
@@ -1060,4 +1070,12 @@ void MainWindow::on_spinBox_ThreadNum_video_internal_valueChanged(int arg1)
 {
     int Total=(ui->spinBox_ThreadNum_video->value())*(ui->spinBox_ThreadNum_video_internal->value());
     ui->label_TotalThreadNum_video->setText(QString(tr("Total:%1")).arg(Total));
+}
+
+void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
+{
+    QString Current_Path = qApp->applicationDirPath();
+    QString settings_ini = Current_Path+"/settings.ini";
+    QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
+    configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
 }

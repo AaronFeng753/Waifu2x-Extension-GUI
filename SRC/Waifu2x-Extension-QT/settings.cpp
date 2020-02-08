@@ -74,6 +74,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
     configIniWrite->setValue("/settings/Language", ui->comboBox_language->currentIndex());
+    //================== 存储全局字体大小 =========================
+    configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
     //==========
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
@@ -100,6 +102,9 @@ int MainWindow::Settings_Read_Apply()
     }
     //=================
     QSettings *configIniRead = new QSettings(settings_ini, QSettings::IniFormat);
+    //=================== 加载全局字体大小设置 =========================
+    ui->spinBox_GlobalFontSize->setValue(configIniRead->value("/settings/GlobalFontSize").toInt());
+    Set_Font_fixed();
     //=======  加载放大值和降噪值  ======
     ui->spinBox_ScaleRatio_image->setValue(configIniRead->value("/settings/ImageScaleRatio").toInt());
     ui->spinBox_ScaleRatio_gif->setValue(configIniRead->value("/settings/GIFScaleRatio").toInt());

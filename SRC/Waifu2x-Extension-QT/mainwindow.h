@@ -30,6 +30,7 @@
 #include <QTranslator>
 #include <QScreen>
 #include <QCloseEvent>
+#include <windows.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -47,9 +48,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     //=======================
-    QString VERSION="v0.31-beta";//软件版本号
+    QString VERSION="v0.32-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
+    //=======
+    void Set_Font_fixed();
     //=================================  File 文件=================================
     void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
@@ -366,6 +369,8 @@ private slots:
     void on_spinBox_ThreadNum_video_valueChanged(int arg1);
 
     void on_spinBox_ThreadNum_video_internal_valueChanged(int arg1);
+
+    void on_pushButton_Save_GlobalFontSize_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

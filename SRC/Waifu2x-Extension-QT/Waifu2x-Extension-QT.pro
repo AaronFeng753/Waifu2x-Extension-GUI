@@ -70,3 +70,5 @@ RESOURCES += \
     icon.qrc
 
 RC_ICONS =icon/icon.ico
+
+

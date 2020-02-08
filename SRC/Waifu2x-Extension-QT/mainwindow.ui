@@ -40,7 +40,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2107,146 +2107,6 @@ It is recommended to enable this option.</string>
         <string>Additional settings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_33">
-        <item row="0" column="0">
-         <widget class="QGroupBox" name="groupBox_9">
-          <property name="maximumSize">
-           <size>
-            <width>1000</width>
-            <height>200</height>
-           </size>
-          </property>
-          <property name="title">
-           <string/>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_32">
-           <item row="0" column="0">
-            <widget class="QGroupBox" name="groupBox_2">
-             <property name="title">
-              <string>Language</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_14">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_21">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Current Language:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QComboBox" name="comboBox_language">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="currentText">
-                 <string notr="true">English</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">English</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">简体中文</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QGroupBox" name="groupBox_InputExt">
-             <property name="title">
-              <string>Input file extensions</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_10">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_4">
-                <property name="maximumSize">
-                 <size>
-                  <width>50</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Image:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="Ext_image">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_5">
-                <property name="maximumSize">
-                 <size>
-                  <width>50</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Video:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="Ext_video">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="0" column="2">
          <widget class="QGroupBox" name="groupBox_5">
           <property name="title">
@@ -2454,110 +2314,6 @@ padding:10px;
           </layout>
          </widget>
         </item>
-        <item row="0" column="1">
-         <widget class="QGroupBox" name="groupBox_8">
-          <property name="title">
-           <string/>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_31">
-           <item row="0" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
-             <property name="toolTip">
-              <string>Automatically check for updates on startup.</string>
-             </property>
-             <property name="text">
-              <string>Automatically check update</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="7" column="2">
-            <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-             <property name="minimumSize">
-              <size>
-               <width>280</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="currentIndex">
-              <number>0</number>
-             </property>
-             <item>
-              <property name="text">
-               <string>Ignore Aspect Ratio</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Keep Aspect Ratio</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Keep Aspect Ratio By Expanding</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item row="2" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
-             <property name="toolTip">
-              <string>Settings will be saved automatically when you close the software.</string>
-             </property>
-             <property name="text">
-              <string>Auto save settings</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="3" column="0" rowspan="2" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
-             <property name="toolTip">
-              <string>[Input Path] will be automatically hidden when the software starts.</string>
-             </property>
-             <property name="text">
-              <string>Always hide Input path</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0" rowspan="2" colspan="2">
-            <widget class="QLabel" name="label_44">
-             <property name="text">
-              <string>Aspect Ratio:
-(Custom resolution)</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
-             <property name="toolTip">
-              <string>When the file processing status changes, the file list scrolls automatically.</string>
-             </property>
-             <property name="text">
-              <string>File list scrolls automatically</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
-             <property name="toolTip">
-              <string>[Settings] will be automatically hidden when the software starts.</string>
-             </property>
-             <property name="text">
-              <string>Always hide Settings</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="label_43">
           <property name="sizePolicy">
@@ -2595,6 +2351,314 @@ padding:10px;
           <property name="alignment">
            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
           </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox_9">
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>200</height>
+           </size>
+          </property>
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_32">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="title">
+              <string>Language</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_14">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_21">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Current Language:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QComboBox" name="comboBox_language">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="currentText">
+                 <string notr="true">English</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">English</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">简体中文</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="groupBox_InputExt">
+             <property name="title">
+              <string>Input file extensions</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Image:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="Ext_image">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Video:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="Ext_video">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QGroupBox" name="groupBox_8">
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_16">
+           <item row="0" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
+             <property name="toolTip">
+              <string>Automatically check for updates on startup.</string>
+             </property>
+             <property name="text">
+              <string>Automatically check update</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
+             <property name="toolTip">
+              <string>[Input Path] will be automatically hidden when the software starts.</string>
+             </property>
+             <property name="text">
+              <string>Always hide Input path</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="2">
+            <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>999</number>
+             </property>
+             <property name="value">
+              <number>15</number>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_22">
+             <property name="text">
+              <string>Global font size:
+(Restart the software to take effect)</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+             <property name="toolTip">
+              <string>[Settings] will be automatically hidden when the software starts.</string>
+             </property>
+             <property name="text">
+              <string>Always hide Settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+             <property name="toolTip">
+              <string>When the file processing status changes, the file list scrolls automatically.</string>
+             </property>
+             <property name="text">
+              <string>File list scrolls automatically</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+             <property name="toolTip">
+              <string>Settings will be saved automatically when you close the software.</string>
+             </property>
+             <property name="text">
+              <string>Auto save settings</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>Aspect Ratio:
+(Custom resolution)</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="3">
+            <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Save</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1" colspan="3">
+            <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+             <property name="minimumSize">
+              <size>
+               <width>280</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>Ignore Aspect Ratio</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Keep Aspect Ratio</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Keep Aspect Ratio By Expanding</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>
