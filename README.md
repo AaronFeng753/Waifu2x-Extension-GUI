@@ -1,4 +1,7 @@
 # Waifu2x-Extension-GUI
+
+![LICENSE](https://camo.githubusercontent.com/3867ce531c10be1c59fae9642d8feca417d39b58/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f636f6f6b6965592f596561726e696e672e737667)
+
 ### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
 ### Download: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 ### Change log: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md
