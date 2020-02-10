@@ -40,7 +40,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -275,8 +275,14 @@ padding:10px;
            </item>
            <item row="1" column="4" colspan="2">
             <widget class="QLabel" name="label_FileCount">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Box</enum>
+             </property>
+             <property name="midLineWidth">
+              <number>0</number>
              </property>
              <property name="text">
               <string>File count: null</string>
@@ -615,6 +621,19 @@ padding:10px;
              </property>
              <property name="text">
               <string>Save Files List</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="11">
+            <widget class="Line" name="line_5">
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
@@ -1626,6 +1645,9 @@ padding:10px;
              <property name="title">
               <string>Number of threads</string>
              </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
              <layout class="QGridLayout" name="gridLayout_8">
               <item row="0" column="0">
                <widget class="QLabel" name="label_11">
@@ -1856,6 +1878,9 @@ padding:10px;
              <property name="title">
               <string>Custom resolution</string>
              </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
              <layout class="QGridLayout" name="gridLayout_13">
               <item row="0" column="0">
                <widget class="QLabel" name="label_18">
@@ -2072,6 +2097,9 @@ It is recommended to enable this option.</string>
               </item>
               <item row="2" column="0" colspan="2">
                <widget class="QCheckBox" name="checkBox_CompressJPG">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="toolTip">
                  <string>Compress JPG files, almost lossless.</string>
                 </property>
@@ -2483,7 +2511,7 @@ padding:10px;
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</string>
+                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
                 </property>
                </widget>
               </item>
@@ -2499,19 +2527,6 @@ padding:10px;
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_16">
-           <item row="0" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
-             <property name="toolTip">
-              <string>Automatically check for updates on startup.</string>
-             </property>
-             <property name="text">
-              <string>Automatically check update</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="0" colspan="3">
             <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
              <property name="toolTip">
@@ -2519,6 +2534,16 @@ padding:10px;
              </property>
              <property name="text">
               <string>Always hide Input path</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+             <property name="toolTip">
+              <string>[Settings] will be automatically hidden when the software starts.</string>
+             </property>
+             <property name="text">
+              <string>Always hide Settings</string>
              </property>
             </widget>
            </item>
@@ -2546,13 +2571,44 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="4" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+           <item row="5" column="1" colspan="3">
+            <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+             <property name="minimumSize">
+              <size>
+               <width>280</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="currentIndex">
+              <number>0</number>
+             </property>
+             <item>
+              <property name="text">
+               <string>Ignore Aspect Ratio</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Keep Aspect Ratio</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Keep Aspect Ratio By Expanding</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
              <property name="toolTip">
-              <string>[Settings] will be automatically hidden when the software starts.</string>
+              <string>Settings will be saved automatically when you close the software.</string>
              </property>
              <property name="text">
-              <string>Always hide Settings</string>
+              <string>Auto save settings</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
              </property>
             </widget>
            </item>
@@ -2569,13 +2625,13 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="2" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+           <item row="0" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
              <property name="toolTip">
-              <string>Settings will be saved automatically when you close the software.</string>
+              <string>Automatically check for updates on startup.</string>
              </property>
              <property name="text">
-              <string>Auto save settings</string>
+              <string>Automatically check update</string>
              </property>
              <property name="checked">
               <bool>true</bool>
@@ -2628,34 +2684,6 @@ padding:10px;
              <property name="text">
               <string>Save</string>
              </property>
-            </widget>
-           </item>
-           <item row="5" column="1" colspan="3">
-            <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-             <property name="minimumSize">
-              <size>
-               <width>280</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="currentIndex">
-              <number>0</number>
-             </property>
-             <item>
-              <property name="text">
-               <string>Ignore Aspect Ratio</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Keep Aspect Ratio</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Keep Aspect Ratio By Expanding</string>
-              </property>
-             </item>
             </widget>
            </item>
           </layout>

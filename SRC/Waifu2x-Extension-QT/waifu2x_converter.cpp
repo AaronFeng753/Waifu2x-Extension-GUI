@@ -74,7 +74,6 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
     //============================== 放大 =======================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     QString program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
@@ -445,7 +444,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString,
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     //========================================================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     QString program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
@@ -755,7 +753,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QStrin
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     QString program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";

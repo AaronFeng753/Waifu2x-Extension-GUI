@@ -31,11 +31,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     bool CompressJPG = ui->checkBox_CompressJPG->checkState();
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     //========================= 拆解map得到参数 =============================
-    int rowNum = File_map["rowNum"].toInt();
+    int rowNum = File_map["rowNum"].toInt();//得到所在行
+    //将状态设定到处理中
     QString status = "Processing";
     emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    //得到原文件路径
     QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
-    if(!file_isFileExist(SourceFile_fullPath))
+    if(!file_isFileExist(SourceFile_fullPath))//判断源文件是否存在
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
@@ -80,7 +82,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
     //============================== 放大 =======================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     QString model_path;
@@ -274,7 +275,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
   ============================= Waifu2x_NCNN_Vulkan_GIF =======================================
   =============================================================================================
   =============================================================================================
-
 
 */
 
@@ -511,14 +511,12 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
         CustRes_height=Res_map["height"].toInt();
         CustRes_width=Res_map["width"].toInt();
     }
-    \
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
     QString Frame_fileName_basename = fileinfo_frame.baseName();
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     QString model_path;
@@ -862,7 +860,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     QString model_path;

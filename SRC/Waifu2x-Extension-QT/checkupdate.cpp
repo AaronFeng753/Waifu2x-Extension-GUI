@@ -28,11 +28,17 @@ check update :[python_ext.exe null checkupdate]
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+/*
+手动检查更新:直接打开latest release
+*/
 void MainWindow::on_pushButton_CheckUpdate_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
 }
-
+/*
+自动检查更新:
+启动软件时以单独线程运行,调用python扩展检测更新,如有则弹窗
+*/
 int MainWindow::CheckUpadte_Auto()
 {
     if(ui->checkBox_autoCheckUpdate->checkState()==false)
@@ -40,7 +46,6 @@ int MainWindow::CheckUpadte_Auto()
         return 0;
     }
     //Delay_sec_sleep(5);
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/python_ext.exe";
     QProcess checkupdate;
     checkupdate.start("\""+program+"\" null checkupdate");
@@ -55,7 +60,9 @@ int MainWindow::CheckUpadte_Auto()
     }
     return 0;
 }
-
+/*
+自动更新弹窗
+*/
 int MainWindow::CheckUpadte_NewUpdate(QString update_str)
 {
     QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));

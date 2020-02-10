@@ -69,7 +69,7 @@ int MainWindow::Waifu2xMainThread()
             }
         }
     }
-    while (ThreadNumRunning!=0)
+    while (ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
     }
@@ -115,7 +115,7 @@ int MainWindow::Waifu2xMainThread()
             }
         }
     }
-    while (ThreadNumRunning!=0)
+    while (ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
     }
@@ -171,7 +171,7 @@ int MainWindow::Waifu2xMainThread()
             }
         }
     }
-    while (ThreadNumRunning!=0)
+    while (ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
     }
@@ -248,7 +248,6 @@ int MainWindow::Waifu2x_Compatibility_Test()
 {
     emit Send_TextBrowser_NewMessage(tr("Compatibility test is ongoing, please wait."));
     //===============
-    QString Current_Path = qApp->applicationDirPath();
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
     QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
     QFile::remove(OutputPath);
@@ -320,6 +319,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
 {
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPU->setEnabled(1);
     return 0;
 }
 
@@ -327,7 +327,6 @@ int MainWindow::Waifu2x_DetectGPU()
 {
     emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
     //===============
-    QString Current_Path = qApp->applicationDirPath();
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
     QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
     QFile::remove(OutputPath);
@@ -373,7 +372,8 @@ int MainWindow::Waifu2x_DetectGPU_finished()
 {
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_DetectGPU->setEnabled(1);
-    //Available_GPUID
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    //====
     ui->comboBox_GPUID->clear();
     ui->comboBox_GPUID->addItem("auto");
     if(!Available_GPUID.isEmpty())

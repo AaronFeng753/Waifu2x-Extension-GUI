@@ -20,19 +20,25 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+/*
+调用Anime4k处理视频
+读取设置,拆分,创建放大子线程,组装视频
+*/
 int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
-    int Sub_video_ThreadNumRunning = 0;
+    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();//放大倍数
+    bool DelOriginal = ui->checkBox_DelOriginal->checkState();//是否删除源文件
+    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();//是否重复处理已完成文件
+    int Sub_video_ThreadNumRunning = 0;//子线程总数
     //========================= 拆解map得到参数 =============================
-    int rowNum = File_map["rowNum"].toInt();
+    int rowNum = File_map["rowNum"].toInt();//得到所在row
+    //=== 将状态改为正在处理 =====
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    //========================
     QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
-    if(!file_isFileExist(SourceFile_fullPath))
+    if(!file_isFileExist(SourceFile_fullPath))//判断源文件是否存在
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
@@ -233,7 +239,10 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     //========
     return 0;
 }
-
+/*
+Anime4k视频放大子线程
+放大,修改大小
+*/
 int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning)
 {
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
@@ -244,7 +253,6 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QProcess *Waifu2x = new QProcess();
-    QString Current_Path = qApp->applicationDirPath();
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K.jar";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;

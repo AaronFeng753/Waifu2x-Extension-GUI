@@ -34,6 +34,5 @@ void MainWindow::TextBrowser_StartMes()
     ui->textBrowser->append("Waifu2x-Extension-GUI by Aaron Feng");
     ui->textBrowser->append(VERSION);
     ui->textBrowser->append("Github: https://github.com/AaronFeng753/Waifu2x-Extension-GUI");
-    ui->textBrowser->append("---------------------------------------------------------------------------------------------------");
     ui->textBrowser->moveCursor(QTextCursor::End);
 }

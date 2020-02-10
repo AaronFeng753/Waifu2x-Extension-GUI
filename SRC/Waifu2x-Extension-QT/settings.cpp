@@ -19,10 +19,12 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+/*
+保存设置
+删除原设置文件,保存设置
+*/
 int MainWindow::Settings_Save()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     QFile::remove(settings_ini);
     //=================
@@ -80,14 +82,41 @@ int MainWindow::Settings_Save()
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
 }
-
+/*
+读取&应用设置
+如果设置文件不存在则生成默认设置文件,读取设置,应用设置
+*/
 int MainWindow::Settings_Read_Apply()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     if(!file_isFileExist(settings_ini))
     {
         Settings_Save();
+        CustRes_SetToScreenRes();
+        //========================
+        on_comboBox_language_currentIndexChanged(0);
+        //====================================================
+        on_checkBox_SaveAsJPG_stateChanged(0);
+        on_checkBox_ReProcFinFiles_stateChanged(0);
+        on_checkBox_AlwaysHideInput_stateChanged(0);
+        on_checkBox_AlwaysHideSettings_stateChanged(0);
+        //====
+        on_comboBox_GPUID_currentIndexChanged(0);
+        on_comboBox_Engine_GIF_currentIndexChanged(0);
+        on_comboBox_Engine_Image_currentIndexChanged(0);
+        on_comboBox_Engine_Video_currentIndexChanged(0);
+        //=====
+        on_spinBox_textbrowser_fontsize_valueChanged(0);
+        //===
+        on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
+        //====
+        on_spinBox_ThreadNum_gif_valueChanged(0);
+        on_spinBox_ThreadNum_gif_internal_valueChanged(0);
+        on_spinBox_ThreadNum_video_valueChanged(0);
+        on_spinBox_ThreadNum_video_internal_valueChanged(0);
+        //=====
+        Init_Table();
+        //========================
         return 0;
     }
     else
@@ -109,9 +138,6 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_ScaleRatio_image->setValue(configIniRead->value("/settings/ImageScaleRatio").toInt());
     ui->spinBox_ScaleRatio_gif->setValue(configIniRead->value("/settings/GIFScaleRatio").toInt());
     ui->spinBox_ScaleRatio_video->setValue(configIniRead->value("/settings/VideoScaleRatio").toInt());
-    ui->spinBox_DenoiseLevel_image->setValue(configIniRead->value("/settings/ImageDenoiseLevel").toInt());
-    ui->spinBox_DenoiseLevel_gif->setValue(configIniRead->value("/settings/GIFDenoiseLevel").toInt());
-    ui->spinBox_DenoiseLevel_video->setValue(configIniRead->value("/settings/VideoDenoiseLevel").toInt());
     //============= 加载自定义宽度和高度 ============================
     ui->spinBox_CustRes_width->setValue(configIniRead->value("/settings/CustResWidth").toInt());
     ui->spinBox_CustRes_height->setValue(configIniRead->value("/settings/CustResHeight").toInt());
@@ -159,6 +185,9 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
+    ui->spinBox_DenoiseLevel_image->setValue(configIniRead->value("/settings/ImageDenoiseLevel").toInt());
+    ui->spinBox_DenoiseLevel_gif->setValue(configIniRead->value("/settings/GIFDenoiseLevel").toInt());
+    ui->spinBox_DenoiseLevel_video->setValue(configIniRead->value("/settings/VideoDenoiseLevel").toInt());
     //=====
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //===
@@ -173,7 +202,10 @@ int MainWindow::Settings_Read_Apply()
     //==================================
     return 0;
 }
-
+/*
+保存设置pushbutton
+保存设置,弹窗
+*/
 void MainWindow::on_pushButton_SaveSettings_clicked()
 {
     Settings_Save();
@@ -184,10 +216,12 @@ void MainWindow::on_pushButton_SaveSettings_clicked()
     MSG->setModal(false);
     MSG->show();
 }
-
+/*
+重置设置
+删除设置文件,重置标记=true,弹窗
+*/
 void MainWindow::on_pushButton_ResetSettings_clicked()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     QFile::remove(settings_ini);
     Settings_isReseted = true;

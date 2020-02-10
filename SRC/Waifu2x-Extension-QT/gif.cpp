@@ -27,10 +27,12 @@ get video frame number : [python_ext.exe videoFilePath countframe]
 get gif duration : [python_ext.exe videoFilePath countframedigits]
 check update :[python_ext.exe null checkupdate]
 */
-
+//=======================================================================
+/*
+获取gif帧间隔时间
+*/
 int MainWindow::Gif_getDuration(QString gifPath)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/python_ext.exe";
     QProcess GifDuration;
     GifDuration.start("\""+program+"\" \""+gifPath+"\" duration");
@@ -47,21 +49,22 @@ int MainWindow::Gif_getDuration(QString gifPath)
     }
     return Duration;
 }
-
+/*
+获取gif帧数量的位数
+*/
 int MainWindow::Gif_getFrameDigits(QString gifPath)
 {
     QMovie movie(gifPath);
     int FrameCount=movie.frameCount();
-    //emit Send_TextBrowser_NewMessage(QString("FrameCount:%1").arg(FrameCount));
     FrameCount = 1+(int)log10(FrameCount);//获取frame位数
-    //emit Send_TextBrowser_NewMessage(QString("FrameDigits:%1").arg(FrameCount));
     return FrameCount;
 }
-
+/*
+拆分gif
+*/
 void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
 {
     int FrameDigits = Gif_getFrameDigits(gifPath);
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/ffmpeg.exe";
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%0"+QString::number(FrameDigits,10)+"d.png\"";
     QProcess *SplitGIF=new QProcess();
@@ -78,11 +81,11 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
         while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
     }
 }
-
-
+/*
+组装gif
+*/
 void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/convert.exe";
     QString cmd = "\"" + program + "\"" + " -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
     QProcess *AssembleGIF=new QProcess();
@@ -90,11 +93,11 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
     while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleGIF->waitForFinished(100)&&!QProcess_stop) {}
 }
-
-
+/*
+压缩gif
+*/
 void MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/gifsicle.exe";
     QString cmd = "\"" + program + "\"" + " -O3 -i \""+gifPath+"\" -o \""+gifPath_compressd+"\"";
     QProcess *CompressGIF=new QProcess();

@@ -19,7 +19,9 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+/*
+初始化tableview
+*/
 void MainWindow::Init_Table()
 {
     Table_model_image->setColumnCount(4);
@@ -49,7 +51,10 @@ void MainWindow::Init_Table()
     ui->tableView_video->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_video->setModel(Table_model_video);
     //=============================================
+    //将横向表头设置为可见
     ui->tableView_video->horizontalHeader()->setVisible(1);
+    ui->tableView_gif->horizontalHeader()->setVisible(1);
+    ui->tableView_image->horizontalHeader()->setVisible(1);
 }
 
 void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
@@ -246,6 +251,7 @@ void MainWindow::Table_Clear()
     ui->tableView_image->setUpdatesEnabled(false);
     ui->tableView_gif->setUpdatesEnabled(false);
     ui->tableView_video->setUpdatesEnabled(false);
+    //=====
     Table_model_image->clear();
     Table_model_gif->clear();
     Table_model_video->clear();
@@ -253,6 +259,7 @@ void MainWindow::Table_Clear()
     curRow_image = -1;
     curRow_gif = -1;
     curRow_video = -1;
+    //=====
     ui->tableView_image->setUpdatesEnabled(true);
     ui->tableView_gif->setUpdatesEnabled(true);
     ui->tableView_video->setUpdatesEnabled(true);
@@ -275,7 +282,10 @@ int MainWindow::Table_video_get_rowNum()
     int rowNum = Table_model_video->rowCount();
     return rowNum;
 }
-
+/*
+从table读取状态和完整路径
+[fullpath]=status;
+*/
 QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel *Table_model)
 {
     int rowNum = Table_model->rowCount();
@@ -293,9 +303,12 @@ QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel
     }
     return Map_fullPath_status;
 }
-
+/*
+重载table和filelist
+*/
 void MainWindow::Table_FileList_reload()
 {
+    //[fullpath]=status;
     QMap<QString, QString> Map_fullPath_status_image = Table_Read_status_fullpath(Table_model_image);
     QMap<QString, QString> Map_fullPath_status_video = Table_Read_status_fullpath(Table_model_video);
     QMap<QString, QString> Map_fullPath_status_gif = Table_Read_status_fullpath(Table_model_gif);
@@ -388,7 +401,9 @@ void MainWindow::Table_FileList_reload()
         MovToFinedList();
     }
 }
-
+/*
+重载Tableview下的文件数量统计
+*/
 int MainWindow::Table_FileCount_reload()
 {
     long int filecount=0;
@@ -401,14 +416,12 @@ int MainWindow::Table_FileCount_reload()
     else
     {
         ui->label_FileCount->setVisible(0);
-        ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount));
     }
     return 0;
 }
 
 int MainWindow::Table_Save_Current_Table_Filelist()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     QFile::remove(Table_FileList_ini);
     //=================
@@ -525,7 +538,6 @@ int MainWindow::Table_Save_Current_Table_Filelist()
 
 int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     while(!file_isFileExist(Table_FileList_ini))
     {
@@ -551,14 +563,13 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
     return 0;
 }
 
-int MainWindow::Table_Read_Current_Table_Filelist()
+int MainWindow::Table_Read_Saved_Table_Filelist()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(!file_isFileExist(Table_FileList_ini))
     {
         emit Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
-        emit Send_Table_Read_Current_Table_Filelist_Finished();
+        emit Send_Table_Read_Saved_Table_Filelist_Finished();
         return 0;
     }
     //=================
@@ -679,11 +690,11 @@ int MainWindow::Table_Read_Current_Table_Filelist()
         emit Send_MovToFinedList();
     }
     emit Send_Table_FileCount_reload();
-    emit Send_Table_Read_Current_Table_Filelist_Finished();
+    emit Send_Table_Read_Saved_Table_Filelist_Finished();
     return 0;
 }
 
-int MainWindow::Table_Read_Current_Table_Filelist_Finished()
+int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
 {
     this->setAcceptDrops(1);//禁止drop file
     ui->pushButton_Start->setEnabled(1);//禁用start button
@@ -695,7 +706,6 @@ int MainWindow::Table_Read_Current_Table_Filelist_Finished()
     ui->pushButton_CustRes_apply->setEnabled(1);
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
-    QString Current_Path = qApp->applicationDirPath();
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(!file_isFileExist(Table_FileList_ini))
     {
@@ -704,7 +714,7 @@ int MainWindow::Table_Read_Current_Table_Filelist_Finished()
     //=================
     QSettings *configIniRead = new QSettings(Table_FileList_ini, QSettings::IniFormat);
     //====================
-    //========= 加载image ========
+    //========= image ========
     int rowCount_image = configIniRead->value("/table_image/rowCount").toInt();
     if(rowCount_image>0)
     {
@@ -713,7 +723,7 @@ int MainWindow::Table_Read_Current_Table_Filelist_Finished()
         ui->pushButton_ClearList->setVisible(1);
         ui->pushButton_RemoveItem->setVisible(1);
     }
-    //========= 加载gif ========
+    //========= gif ========
     int rowCount_gif = configIniRead->value("/table_gif/rowCount").toInt();
     if(rowCount_gif>0)
     {
@@ -722,7 +732,7 @@ int MainWindow::Table_Read_Current_Table_Filelist_Finished()
         ui->pushButton_ClearList->setVisible(1);
         ui->pushButton_RemoveItem->setVisible(1);
     }
-    //========= 加载video ========
+    //========= video ========
     int rowCount_video = configIniRead->value("/table_video/rowCount").toInt();
     if(rowCount_video>0)
     {
@@ -740,6 +750,65 @@ int MainWindow::Table_Read_Current_Table_Filelist_Finished()
     Progressbar_MaxVal = 0;
     Progressbar_CurrentVal = 0;
     //====
+    if(rowCount_image<=0&&rowCount_video<=0&&rowCount_gif<=0)
+    {
+        Send_TextBrowser_NewMessage(tr("The file list saved last time is empty."));
+        progressbar_clear();
+    }
     return 0;
+}
+
+void MainWindow::on_tableView_image_clicked(const QModelIndex &index)
+{
+    int curRow_image_new = ui->tableView_image->currentIndex().row();
+    if(curRow_image_new == curRow_image)
+    {
+        curRow_image = -1;
+        ui->tableView_image->clearSelection();
+    }
+    else
+    {
+        curRow_image = curRow_image_new;
+    }
+    curRow_gif = -1;
+    curRow_video = -1;
+    ui->tableView_gif->clearSelection();
+    ui->tableView_video->clearSelection();
+}
+
+void MainWindow::on_tableView_gif_clicked(const QModelIndex &index)
+{
+    curRow_image = -1;
+    int curRow_gif_new = ui->tableView_gif->currentIndex().row();
+    if(curRow_gif_new == curRow_gif)
+    {
+        curRow_gif = -1;
+        ui->tableView_gif->clearSelection();
+    }
+    else
+    {
+        curRow_gif = curRow_gif_new;
+    }
+    curRow_video = -1;
+    ui->tableView_image->clearSelection();
+    ui->tableView_video->clearSelection();
+}
+
+void MainWindow::on_tableView_video_clicked(const QModelIndex &index)
+{
+    curRow_image = -1;
+    curRow_gif = -1;
+    int curRow_video_new = ui->tableView_video->currentIndex().row();
+    if(curRow_video_new == curRow_video)
+    {
+        curRow_video = -1;
+        ui->tableView_video->clearSelection();
+    }
+    else
+    {
+        curRow_video = curRow_video_new;
+    }
+    ui->tableView_image->clearSelection();
+    ui->tableView_gif->clearSelection();
 }
 

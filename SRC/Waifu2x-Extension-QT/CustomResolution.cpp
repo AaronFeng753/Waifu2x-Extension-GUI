@@ -19,33 +19,38 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+/*
+Apply自定义分辨率
+*/
 int MainWindow::CustRes_SetCustRes()
 {
+    //如果没有选中任何row,则直接return
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
         QMessageBox *CustRes_NoItem = new QMessageBox();
         CustRes_NoItem->setWindowTitle(tr("Error"));
         CustRes_NoItem->setText(tr("No items are currently selected."));
-        CustRes_NoItem->setIcon(QMessageBox::Information);
-        CustRes_NoItem->setModal(false);
+        CustRes_NoItem->setIcon(QMessageBox::Warning);
+        CustRes_NoItem->setModal(true);
         CustRes_NoItem->show();
         return 0;
     }
-    RecFinedFiles();
-    if(curRow_image >= 0)
+    RecFinedFiles();//将已完成文件拖回列表
+    if(curRow_image >= 0)//如果已选中图片
     {
         QMap<QString,QString> res_map;
+        //读取文件信息
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, curRow_image);
         if(!fileMap.isEmpty())
         {
-            CustRes_remove(fileMap["SourceFile_fullPath"]);
+            CustRes_remove(fileMap["SourceFile_fullPath"]);//移除原来的设定,防止重复
             res_map["fullpath"] = fileMap["SourceFile_fullPath"];
             res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
             res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
             Custom_resolution_list.append(res_map);
             Table_image_CustRes_rowNumInt_HeightQString_WidthQString(curRow_image,res_map["height"],res_map["width"]);
         }
+        //判断是否要将已完成的移除
         if(!ui->checkBox_ReProcFinFiles->checkState())
         {
             MovToFinedList();
@@ -106,28 +111,33 @@ int MainWindow::CustRes_SetCustRes()
     }
     return 0;
 }
-
+/*
+取消 自定义分辨率设定
+*/
 int MainWindow::CustRes_CancelCustRes()
 {
+    //如果没有任何选中的,则弹窗后return
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Error"));
         MSG->setText(tr("No items are currently selected."));
-        MSG->setIcon(QMessageBox::Information);
-        MSG->setModal(false);
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
         MSG->show();
         return 0;
     }
-    RecFinedFiles();
-    if(curRow_image >= 0)
+    RecFinedFiles();//将已完成文件拖回列表
+    if(curRow_image >= 0)//如果已选中图片
     {
+        //获取文件信息
         QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, curRow_image);
         if(!fileMap.isEmpty())
         {
-            CustRes_remove(fileMap["SourceFile_fullPath"]);
-            Table_image_CustRes_Cancel_rowNumInt(curRow_image);
+            CustRes_remove(fileMap["SourceFile_fullPath"]);//从自定义分辨率列表移除
+            Table_image_CustRes_Cancel_rowNumInt(curRow_image);//清空指定row的自定义分辨率
         }
+        //根据checkstate判断是否要把已完成的移走
         if(!ui->checkBox_ReProcFinFiles->checkState())
         {
             MovToFinedList();
@@ -216,15 +226,16 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
 {
     QImage qimage_original;
     qimage_original.load(fullpath);
-    if(qimage_original.height()==0||qimage_original.width()==0)
+    if(qimage_original.height()<=0||qimage_original.width()<=0)
     {
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("]  [ Unable to get source image resolution. ]"));
         return 0;
     }
-    //=====================分别计算长和宽的放大倍数=======================
+    //=====================分别计算高和宽的放大倍数=======================
+    //==== 高 ======
     int ScaleRatio_height;
-    int ScaleRatio_width;
     double ScaleRatio_height_double = Height_new/qimage_original.height();
-    if(ScaleRatio_height_double-(int)ScaleRatio_height_double>0)
+    if((ScaleRatio_height_double-(int)ScaleRatio_height_double)>0)
     {
         ScaleRatio_height = (int)(ScaleRatio_height_double)+1;
     }
@@ -232,8 +243,10 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     {
         ScaleRatio_height = (int)(ScaleRatio_height_double);
     }
+    //==== 宽 ======
+    int ScaleRatio_width;
     double ScaleRatio_width_double = width_new/qimage_original.width();
-    if(ScaleRatio_width_double-(int)ScaleRatio_width_double>0)
+    if((ScaleRatio_width_double-(int)ScaleRatio_width_double)>0)
     {
         ScaleRatio_width = (int)(ScaleRatio_width_double)+1;
     }
@@ -242,7 +255,7 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
         ScaleRatio_width = (int)(ScaleRatio_width_double);
     }
     //========================比较决定取哪个放大倍数值返回=====================
-    if(ScaleRatio_height<=1&&ScaleRatio_width<=1)
+    if((ScaleRatio_height<=1)&&(ScaleRatio_width<=1))
     {
         return 1;
     }
@@ -255,7 +268,9 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
         return ScaleRatio_width;
     }
 }
-
+/*
+获取 屏幕分辨率值 并设定为 自定义分辨率 的默认值
+*/
 int MainWindow::CustRes_SetToScreenRes()
 {
     QScreen *screen=QGuiApplication::primaryScreen ();

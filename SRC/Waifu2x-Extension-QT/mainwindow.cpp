@@ -26,24 +26,21 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     //==============
-    ui->tabWidget->setCurrentIndex(0);
-    //===========================================
-    CustRes_SetToScreenRes();
-    //===========================================
     translator = new QTranslator(this);
-    TextBrowser_StartMes();
-    this->setAcceptDrops(true);
-    Init_Table();
-    ui->checkBox_CompressJPG->setEnabled(0);
+    //==============
+    ui->tabWidget->setCurrentIndex(0);//显示home tab
+    TextBrowser_StartMes();//显示启动msg
+    this->setAcceptDrops(true);//mainwindow接收drop
+    Init_Table();//初始化table
     //=================== 初始隐藏所有table和按钮 ======================
     ui->tableView_image->setVisible(0);
     ui->tableView_gif->setVisible(0);
     ui->tableView_video->setVisible(0);
     ui->pushButton_ClearList->setVisible(0);
     ui->pushButton_RemoveItem->setVisible(0);
-    Table_FileCount_reload();
-    //===============================================================
+    Table_FileCount_reload();//重载文件列表下的文件数量统计
     ui->pushButton_Stop->setEnabled(0);
+    //===========================================
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
     connect(this, SIGNAL(Send_progressbar_Add()), this, SLOT(progressbar_Add()));
     //===
@@ -62,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
     connect(this, SIGNAL(Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
     //===
-    connect(this, SIGNAL(Send_Table_Read_Current_Table_Filelist_Finished()), this, SLOT(Table_Read_Current_Table_Filelist_Finished()));
+    connect(this, SIGNAL(Send_Table_Read_Saved_Table_Filelist_Finished()), this, SLOT(Table_Read_Saved_Table_Filelist_Finished()));
     connect(this, SIGNAL(Send_Table_Save_Current_Table_Filelist_Finished()), this, SLOT(Table_Save_Current_Table_Filelist_Finished()));
     //===
     connect(this, SIGNAL(Send_Waifu2x_Finished()), this, SLOT(Waifu2x_Finished()));
@@ -79,13 +76,13 @@ MainWindow::MainWindow(QWidget *parent)
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
     //==================================================
-    Settings_Read_Apply();
+    Settings_Read_Apply();//读取与应用更新
     //=====================================
-    AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);
-    SystemShutDown_isAutoShutDown();
-    Donate_Count();
-    //=====
-    Set_Font_fixed();
+    Set_Font_fixed();//固定字体
+    //=====================================
+    AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
+    SystemShutDown_isAutoShutDown();//上次是否自动关机
+    Donate_Count();//捐赠统计
 }
 
 MainWindow::~MainWindow()
@@ -99,7 +96,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
     if(AutoSaveSettings&&(!Settings_isReseted))
     {
         Settings_Save();
-        //qApp->exit(0);
         QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog);
     }
     else
@@ -113,7 +109,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 int MainWindow::Auto_Save_Settings_Watchdog()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     while(!file_isFileExist(settings_ini))
     {
@@ -138,8 +133,9 @@ int MainWindow::Force_close()
     Delay_msec_sleep(1500);
     QProcess Close;
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
-    Close.waitForStarted(5000);
-    Close.waitForFinished(5000);
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    return 0;
 }
 
 void MainWindow::TimeSlot()
@@ -148,14 +144,14 @@ void MainWindow::TimeSlot()
     QString TimeCostStr = tr("Time cost:[")+Seconds2hms(TimeCost)+"]";
     ui->label_TimeCost->setText(TimeCostStr);
     int TaskNumFinished_tmp = TaskNumFinished;
-    int TimeCost_tmp = TimeCost;
+    long unsigned int TimeCost_tmp = TimeCost;
     int TaskNumTotal_tmp = TaskNumTotal;
     if(TaskNumFinished_tmp>0&&TimeCost_tmp>0&&TaskNumTotal_tmp>0)
     {
         if(NewTaskFinished)
         {
             NewTaskFinished=false;
-            int avgTimeCost = TimeCost/TaskNumFinished_tmp;
+            long unsigned int avgTimeCost = TimeCost/TaskNumFinished_tmp;
             ETA = int(avgTimeCost*(TaskNumTotal_tmp-TaskNumFinished_tmp));
         }
         else
@@ -176,14 +172,14 @@ void MainWindow::TimeSlot()
         ui->label_ETA->setText(ETA_str);
     }
 }
-QString MainWindow::Seconds2hms(int seconds)
+QString MainWindow::Seconds2hms(long unsigned int seconds)
 {
     if(seconds<=0)return "0:0:0";
-    int mm = 60;
-    int hh = mm * 60;
-    int hour = seconds / hh;
-    int min = (seconds-hour*hh)/mm;
-    int sec = seconds - hour*hh - min*mm;
+    long unsigned int mm = 60;
+    long unsigned int hh = mm * 60;
+    long unsigned int hour = seconds / hh;
+    long unsigned int min = (seconds-hour*hh)/mm;
+    long unsigned int sec = seconds - hour*hh - min*mm;
     return QString::number(hour,10)+":"+QString::number(min,10)+":"+QString::number(sec,10);
 }
 
@@ -264,17 +260,20 @@ void MainWindow::on_pushButton_Start_clicked()
         Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
     }
 }
-
+/*
+停止处理键
+*/
 void MainWindow::on_pushButton_Stop_clicked()
 {
     TimeCostTimer->stop();
     ui->pushButton_Stop->setEnabled(0);//禁用stop button
-    ui->pushButton_Start->setEnabled(1);//启用start button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
     QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
 }
-
+/*
+等待处理线程完全停止
+*/
 void MainWindow::Wait_waifu2x_stop()
 {
     while(true)
@@ -286,13 +285,16 @@ void MainWindow::Wait_waifu2x_stop()
             emit TextBrowser_NewMessage(tr("Processing of files has stopped."));
             break;
         }
-        Delay_msec_sleep(500);
+        Delay_msec_sleep(300);
     }
     emit Send_Waifu2x_Finished_manual();
 }
-
+/*
+从tableview移除item
+*/
 int MainWindow::on_pushButton_RemoveItem_clicked()
 {
+    ui->pushButton_RemoveItem->setEnabled(0);
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
         QMessageBox *MSG = new QMessageBox();
@@ -301,6 +303,7 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
         MSG->setIcon(QMessageBox::Warning);
         MSG->setModal(false);
         MSG->show();
+        ui->pushButton_RemoveItem->setEnabled(1);
         return 0;
     }
     RecFinedFiles();
@@ -382,22 +385,14 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         Table_Clear();
-        FileList_image.clear();
-        FileList_gif.clear();
-        FileList_video.clear();
-        FileList_image_finished.clear();
-        FileList_gif_finished.clear();
-        FileList_video_finished.clear();
         Custom_resolution_list.clear();
         ui->label_DropFile->setVisible(1);
-        ui->tableView_gif->setVisible(0);
-        ui->tableView_image->setVisible(0);
-        ui->tableView_video->setVisible(0);
         ui->pushButton_ClearList->setVisible(0);
         ui->pushButton_RemoveItem->setVisible(0);
         ui->label_FileCount->setVisible(0);
     }
     Table_FileCount_reload();
+    ui->pushButton_RemoveItem->setEnabled(1);
     return 0;
 }
 
@@ -413,16 +408,23 @@ void MainWindow::on_checkBox_ReProcFinFiles_stateChanged(int arg1)
         MovToFinedList();
     }
 }
+//====== 自动关机===================================================================================
+/*
+60s倒计时
+*/
 int MainWindow::SystemShutDown_Countdown()
 {
     Delay_sec_sleep(60);
     emit Send_SystemShutDown();
+    return 0;
 }
-
+/*
+关机
+保存列表,生成关机标志,关机
+*/
 bool MainWindow::SystemShutDown()
 {
     on_pushButton_SaveFileList_clicked();
-    QString Current_Path = qApp->applicationDirPath();
     QString AutoShutDown = Current_Path+"/AutoShutDown";
     QFile file(AutoShutDown);
     file.open(QIODevice::WriteOnly);
@@ -445,12 +447,14 @@ bool MainWindow::SystemShutDown()
         return false;
     return true;
 }
-
+/*
+判断上次软件启动后是否执行了自动关机
+*/
 int MainWindow::SystemShutDown_isAutoShutDown()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString AutoShutDown = Current_Path+"/AutoShutDown";
-    if(file_isFileExist(AutoShutDown))
+    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    if(file_isFileExist(AutoShutDown)&&file_isFileExist(Table_FileList_ini))
     {
         QFile::remove(AutoShutDown);
         QMessageBox *MSG = new QMessageBox();
@@ -462,7 +466,10 @@ int MainWindow::SystemShutDown_isAutoShutDown()
     }
     return 0;
 }
-
+//==========================================================
+/*
+============= 不安全的非阻塞延时 =====================
+*/
 void MainWindow::Delay_sec(int time)
 {
     QTime dieTime = QTime::currentTime().addSecs(time);
@@ -474,7 +481,10 @@ void MainWindow::Delay_msec(int time)
     QTime dieTime = QTime::currentTime().addMSecs(time);
     while( QTime::currentTime() < dieTime ) QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
-
+//==========================================================
+/*
+============= 安全的阻塞延时 =====================
+*/
 void MainWindow::Delay_sec_sleep(int time)
 {
     QThread::sleep(time);
@@ -484,10 +494,13 @@ void MainWindow::Delay_msec_sleep(int time)
 {
     QThread::msleep(time);
 }
+//==========================================================
 
+/*
+播放提示音
+*/
 void MainWindow::Play_NFSound()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString NFSound = Current_Path+"/NotificationSound_waifu2xExtension.mp3";
     QMediaPlayer *player = new QMediaPlayer;
     player->setMedia(QUrl::fromLocalFile(NFSound));
@@ -525,16 +538,18 @@ void MainWindow::on_pushButton_ReadMe_clicked()
         case 0:
             {
                 QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md"));
-                break;
+                return;
             }
         case 1:
             {
                 QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
-                break;
+                return;
             }
     }
 }
-
+/*
+添加手动输入路径
+*/
 void MainWindow::on_pushButton_AddPath_clicked()
 {
     QString Input_path = ui->lineEdit_inputPath->text();
@@ -546,6 +561,16 @@ void MainWindow::on_pushButton_AddPath_clicked()
         AddNew_image=false;
         AddNew_video=false;
         Add_File_Folder(Input_path);
+    }
+    else
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("Input path does not exist."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+        return;
     }
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
     {
@@ -600,7 +625,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
-                break;
+                return;
             }
         case 1:
             {
@@ -609,7 +634,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:0(No noise reduction)~2"));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
-                break;
+                return;
             }
     }
 }
@@ -625,7 +650,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
-                break;
+                return;
             }
         case 1:
             {
@@ -634,7 +659,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:0(No noise reduction)~2"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
-                break;
+                return;
             }
     }
 }
@@ -650,7 +675,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
-                break;
+                return;
             }
         case 1:
             {
@@ -659,7 +684,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:0(No noise reduction)~2"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
-                break;
+                return;
             }
         case 2:
             {
@@ -668,7 +693,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(0);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                break;
+                return;
             }
     }
 }
@@ -678,6 +703,7 @@ void MainWindow::on_pushButton_clear_textbrowser_clicked()
     ui->textBrowser->clear();
     TextBrowser_StartMes();
 }
+
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
 {
     int size = ui->spinBox_textbrowser_fontsize->value();
@@ -689,71 +715,22 @@ void MainWindow::on_pushButton_compatibilityTest_clicked()
 {
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
     QtConcurrent::run(this, &MainWindow::Waifu2x_Compatibility_Test);
-}
-
-void MainWindow::on_tableView_image_clicked(const QModelIndex &index)
-{
-    int curRow_image_new = ui->tableView_image->currentIndex().row();
-    if(curRow_image_new == curRow_image)
-    {
-        curRow_image = -1;
-        ui->tableView_image->clearSelection();
-    }
-    else
-    {
-        curRow_image = curRow_image_new;
-    }
-    curRow_gif = -1;
-    curRow_video = -1;
-    ui->tableView_gif->clearSelection();
-    ui->tableView_video->clearSelection();
-}
-
-void MainWindow::on_tableView_gif_clicked(const QModelIndex &index)
-{
-    curRow_image = -1;
-    int curRow_gif_new = ui->tableView_gif->currentIndex().row();
-    if(curRow_gif_new == curRow_gif)
-    {
-        curRow_gif = -1;
-        ui->tableView_gif->clearSelection();
-    }
-    else
-    {
-        curRow_gif = curRow_gif_new;
-    }
-    curRow_video = -1;
-    ui->tableView_image->clearSelection();
-    ui->tableView_video->clearSelection();
-}
-
-void MainWindow::on_tableView_video_clicked(const QModelIndex &index)
-{
-    curRow_image = -1;
-    curRow_gif = -1;
-    int curRow_video_new = ui->tableView_video->currentIndex().row();
-    if(curRow_video_new == curRow_video)
-    {
-        curRow_video = -1;
-        ui->tableView_video->clearSelection();
-    }
-    else
-    {
-        curRow_video = curRow_video_new;
-    }
-    ui->tableView_image->clearSelection();
-    ui->tableView_gif->clearSelection();
 }
 
 void MainWindow::on_pushButton_CustRes_apply_clicked()
 {
+    ui->pushButton_CustRes_apply->setEnabled(0);
     CustRes_SetCustRes();
+    ui->pushButton_CustRes_apply->setEnabled(1);
 }
 
 void MainWindow::on_pushButton_CustRes_cancel_clicked()
 {
+    ui->pushButton_CustRes_cancel->setEnabled(0);
     CustRes_CancelCustRes();
+    ui->pushButton_CustRes_cancel->setEnabled(1);
 }
 
 void MainWindow::on_pushButton_HideSettings_clicked()
@@ -791,6 +768,7 @@ void MainWindow::on_pushButton_DetectGPU_clicked()
 {
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
     Available_GPUID.clear();
     QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
 }
@@ -838,6 +816,15 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 }
 void MainWindow::on_pushButton_SaveFileList_clicked()
 {
+    if(Table_model_video->rowCount()<=0&&Table_model_image->rowCount()<=0&&Table_model_gif->rowCount()<=0)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("File list is empty!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+    }
     this->setAcceptDrops(0);//禁止drop file
     ui->pushButton_Start->setEnabled(0);//禁用start button
     ui->groupBox_Input->setEnabled(0);
@@ -855,7 +842,6 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
 
 void MainWindow::on_pushButton_ReadFileList_clicked()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(file_isFileExist(Table_FileList_ini))
     {
@@ -888,12 +874,12 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         ui->pushButton_RemoveItem->setVisible(0);
         Table_FileCount_reload();
         Send_TextBrowser_NewMessage(tr("Please wait while reading the file."));
-        QtConcurrent::run(this, &MainWindow::Table_Read_Current_Table_Filelist);
+        QtConcurrent::run(this, &MainWindow::Table_Read_Saved_Table_Filelist);
     }
     else
     {
         Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
-        //Send_Table_Read_Current_Table_Filelist_Finished();
+        //Send_Table_Read_Saved_Table_Filelist_Finished();
     }
 }
 
@@ -913,7 +899,6 @@ void MainWindow::on_Ext_video_editingFinished()
 
 int MainWindow::Donate_Count()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString donate_ini = Current_Path+"/donate.ini";
     if(!file_isFileExist(donate_ini))
     {
@@ -944,6 +929,7 @@ int MainWindow::Donate_watchdog()
 {
     Delay_sec_sleep(5);
     emit Send_Donate_Notification();
+    return 0;
 }
 
 int MainWindow::Donate_Notification()
@@ -955,7 +941,6 @@ int MainWindow::Donate_Notification()
     Msg.exec();
     if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
     //=========
-    QString Current_Path = qApp->applicationDirPath();
     QString donate_ini = Current_Path+"/donate.ini";
     QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
     configIniWrite->setValue("/Donate/PopUp", 1);
@@ -978,7 +963,6 @@ void MainWindow::on_checkBox_autoCheckUpdate_clicked()
 
 void MainWindow::on_checkBox_AutoSaveSettings_clicked()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     if(file_isFileExist(settings_ini))
     {
@@ -1074,7 +1058,6 @@ void MainWindow::on_spinBox_ThreadNum_video_internal_valueChanged(int arg1)
 
 void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString settings_ini = Current_Path+"/settings.ini";
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());

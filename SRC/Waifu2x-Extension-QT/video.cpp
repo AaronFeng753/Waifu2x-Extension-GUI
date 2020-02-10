@@ -31,7 +31,6 @@ check update :[python_ext.exe null checkupdate]
 
 int MainWindow::video_get_fps(QString videoPath)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/python_ext.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" fps");
@@ -43,7 +42,6 @@ int MainWindow::video_get_fps(QString videoPath)
 
 int MainWindow::video_get_frameNumDigits(QString videoPath)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString program = Current_Path+"/python_ext.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" countframe");
@@ -56,7 +54,6 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
 
 void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
     QFileInfo vfinfo(VideoPath);
     QString video_dir = vfinfo.path();
@@ -106,7 +103,6 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
 
 int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath)
 {
-    QString Current_Path = qApp->applicationDirPath();
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);
