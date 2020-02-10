@@ -19,3 +19,4 @@ Name(or ID) | Donation amount | Time
 | Anonymous(\*鑨) | 10 RMB | 2020/2/7 |
 | Anonymous(\*棺) | 2 RMB | 2020/2/9 |
 | Anonymous(\*痛) | 5 RMB | 2020/2/9 |
+| Anonymous(Z*g) | 5 RMB | 2020/2/10 |
