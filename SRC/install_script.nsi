@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "Waifu2x-Extension-GUI"
-!define PRODUCT_VERSION "v0.291-beta"
+!define PRODUCT_VERSION "v0.31-beta"
 !define PRODUCT_PUBLISHER "Aaron Feng"
 !define PRODUCT_WEB_SITE "https://github.com/AaronFeng753/Waifu2x-Extension-GUI"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Waifu2x-Extension-GUI-Start.exe"
