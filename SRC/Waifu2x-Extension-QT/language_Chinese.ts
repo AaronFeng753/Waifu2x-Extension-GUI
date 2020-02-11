@@ -249,8 +249,8 @@ waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
         <translation>选择处理GIF时所启用的引擎:
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+waifu2x-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
+waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
 您可以运行兼容性测试以查看您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
@@ -260,8 +260,8 @@ waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
         <translation>选择处理图片时所启用的引擎:
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+waifu2x-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
+waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
 您可以运行兼容性测试以查看您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
@@ -272,9 +272,9 @@ waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
         <translation>选择处理GIF时所启用的引擎:
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:☆ ]
+waifu2x-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
+waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
+Anime4k  [ 速度:★★★  画质:☆ ]
 您可以运行兼容性测试以查看您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
