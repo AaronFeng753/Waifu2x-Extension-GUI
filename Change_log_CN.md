@@ -1,4 +1,17 @@
 # 更新日志
+## [v0.35-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.35-beta)
+#### 更新日志:
+- 新特性:自定义全局字体大小(附加设置)
+- 新特性:浏览与添加文件
+- 性能优化
+- 提高稳定性
+- 审查代码,增加代码注释
+- 界面布局调整
+- 多处微小改进
+- 修复bug:不能兼容Windows系统的自定义缩放
+- 修复bug:某些特殊情况下无法正常识别文件是否被重复添加的问题
+- 修复bug:无法保存降噪等级设置
+---
 ## [v0.31-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.31-beta)
 #### 更新日志:
 - 新特性:加载文件列表时显示进度
