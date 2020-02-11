@@ -40,7 +40,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -165,6 +165,49 @@ padding:10px;
              </property>
             </widget>
            </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="pushButton_BrowserFile">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>35</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Browser</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
@@ -197,21 +240,21 @@ padding:10px;
             <widget class="QPushButton" name="pushButton_ReadFileList">
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
+	background-color: rgb(238, 119, 133);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(60, 177, 255);
+	background-color: rgb(255, 127, 144);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(45, 134, 193);
+	background-color: rgb(226, 112, 128);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -591,21 +634,21 @@ padding:10px;
             <widget class="QPushButton" name="pushButton_SaveFileList">
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
+background-color: rgb(178, 58, 238);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(29, 214, 177);
+background-color: rgb(191, 62, 255);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(23, 173, 143);
+background-color: rgb(154, 50, 205);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -672,21 +715,21 @@ padding:10px;
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
+	background-color: rgb(0, 140, 158);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(60, 177, 255);
+	background-color: rgb(0, 190, 211);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(45, 134, 193);
+	background-color: rgb(0, 108, 120);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -2141,28 +2184,25 @@ It is recommended to enable this option.</string>
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_30">
-           <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton_SaveSettings">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
+           <item row="4" column="0" colspan="2">
+            <widget class="QPushButton" name="pushButton_about">
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
+background-color: rgb(52, 152, 219);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(191, 62, 255);
+background-color: rgb(60, 177, 255);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(154, 50, 205);
+background-color: rgb(45, 134, 193);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -2177,86 +2217,7 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>Save settings</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QPushButton" name="pushButton_ResetSettings">
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(238, 99, 99);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 106, 106);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(205, 85, 85);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Reset settings</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="pushButton_Report">
-             <property name="font">
-              <font>
-               <underline>false</underline>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Report issue</string>
+              <string>About</string>
              </property>
             </widget>
            </item>
@@ -2302,25 +2263,28 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="3" column="0" colspan="2">
-            <widget class="QPushButton" name="pushButton_about">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton_SaveSettings">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
+background-color: rgb(178, 58, 238);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(60, 177, 255);
+background-color: rgb(191, 62, 255);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(45, 134, 193);
+background-color: rgb(154, 50, 205);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -2335,7 +2299,86 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>About</string>
+              <string>Save settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QPushButton" name="pushButton_ResetSettings">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(238, 99, 99);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 106, 106);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(205, 85, 85);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Reset settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="pushButton_Report">
+             <property name="font">
+              <font>
+               <underline>false</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Report issue</string>
              </property>
             </widget>
            </item>
@@ -2407,6 +2450,10 @@ padding:10px;
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
+                </property>
                 <property name="text">
                  <string>Current Language:</string>
                 </property>
@@ -2419,6 +2466,10 @@ padding:10px;
                   <width>150</width>
                   <height>0</height>
                  </size>
+                </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
                 </property>
                 <property name="currentText">
                  <string notr="true">English</string>

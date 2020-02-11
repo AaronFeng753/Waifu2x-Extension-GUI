@@ -49,6 +49,7 @@
 #include <QTranslator>
 #include <QScreen>
 #include <QCloseEvent>
+#include <QFileDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -401,6 +402,8 @@ private slots:
     void on_spinBox_ThreadNum_video_internal_valueChanged(int arg1);
 
     void on_pushButton_Save_GlobalFontSize_clicked();
+
+    void on_pushButton_BrowserFile_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

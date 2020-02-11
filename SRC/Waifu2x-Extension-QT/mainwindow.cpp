@@ -553,8 +553,15 @@ void MainWindow::on_pushButton_ReadMe_clicked()
 void MainWindow::on_pushButton_AddPath_clicked()
 {
     QString Input_path = ui->lineEdit_inputPath->text();
-    Input_path = Input_path.replace("\\","/");
     Input_path = Input_path.trimmed();
+    if(Input_path=="")return;
+    Input_path = Input_path.replace("\\","/");
+    Input_path = Input_path.replace("\\\\","/");
+    Input_path = Input_path.replace("//","/");
+    if(Input_path.right(1)=="/")
+    {
+        Input_path = Input_path.left(Input_path.length() - 1);
+    }
     if(QFile::exists(Input_path))
     {
         AddNew_gif=false;
@@ -824,6 +831,7 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
         MSG->setIcon(QMessageBox::Warning);
         MSG->setModal(false);
         MSG->show();
+        return;
     }
     this->setAcceptDrops(0);//禁止drop file
     ui->pushButton_Start->setEnabled(0);//禁用start button
@@ -1061,4 +1069,78 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
     QString settings_ini = Current_Path+"/settings.ini";
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
+}
+
+void MainWindow::on_pushButton_BrowserFile_clicked()
+{
+    QString Input_path = "";
+    Input_path = QFileDialog::getOpenFileName(this, tr("Select file"), " ",  tr("All file(*.*);"));
+    Input_path = Input_path.trimmed();
+    if(Input_path=="")return;
+    //=====
+    Input_path = Input_path.replace("\\","/");
+    Input_path = Input_path.replace("\\\\","/");
+    Input_path = Input_path.replace("//","/");
+    if(Input_path.right(1)=="/")
+    {
+        Input_path = Input_path.left(Input_path.length() - 1);
+    }
+    //=======
+    if(QFile::exists(Input_path))
+    {
+        AddNew_gif=false;
+        AddNew_image=false;
+        AddNew_video=false;
+        Add_File_Folder(Input_path);
+    }
+    else
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("Input path does not exist."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+        return;
+    }
+    if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+    }
+    else
+    {
+        if(AddNew_image)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_image->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+        if(AddNew_gif)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_gif->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+        if(AddNew_video)
+        {
+            ui->label_DropFile->setVisible(0);//隐藏文件投放label
+            ui->tableView_video->setVisible(1);
+            ui->pushButton_ClearList->setVisible(1);
+            ui->pushButton_RemoveItem->setVisible(1);
+        }
+    }
+    ui->tableView_gif->scrollToBottom();
+    ui->tableView_image->scrollToBottom();
+    ui->tableView_video->scrollToBottom();
+    AddNew_image=false;
+    AddNew_image=false;
+    AddNew_video=false;
+    Table_FileCount_reload();
 }

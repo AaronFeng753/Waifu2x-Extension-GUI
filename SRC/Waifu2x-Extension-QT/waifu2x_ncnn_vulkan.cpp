@@ -50,6 +50,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
     int CustRes_width=0;
+    //检查是是否有自定义分辨率
     if(CustRes_isContained(SourceFile_fullPath))
     {
         CustRes_isEnabled=true;
@@ -403,7 +404,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
             Delay_msec_sleep(500);
         }
     }
-    while (Sub_gif_ThreadNumRunning!=0)
+    //确保所有子线程结束
+    while (Sub_gif_ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
     }
@@ -652,14 +654,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     if(file_ext!="mp4")
     {
         video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
+        QFile::remove(video_mp4_fullpath);
     }
     else
     {
         video_mp4_fullpath = file_path+"/"+file_name+".mp4";
-    }
-    if(file_ext!="mp4")
-    {
-        QFile::remove(video_mp4_fullpath);
     }
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";
     //============================== 拆分 ==========================================

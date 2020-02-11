@@ -570,14 +570,11 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
     if(file_ext!="mp4")
     {
         video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
+        QFile::remove(video_mp4_fullpath);
     }
     else
     {
         video_mp4_fullpath = file_path+"/"+file_name+".mp4";
-    }
-    if(file_ext!="mp4")
-    {
-        QFile::remove(video_mp4_fullpath);
     }
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";
     //============================== 拆分 ==========================================
