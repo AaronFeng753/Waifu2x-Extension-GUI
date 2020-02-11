@@ -21,3 +21,4 @@ Name(or ID) | Donation amount | Time
 | Anonymous(\*痛) | 5 RMB | 2020/2/9 |
 | Anonymous(Z*g) | 5 RMB | 2020/2/10 |
 | 尘封万丈 | 2.05 RMB | 2020/2/11 |
+| 狗尾巴狼 | 3 RMB | 2020/2/11 |
