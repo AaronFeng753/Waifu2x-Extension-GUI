@@ -1,4 +1,17 @@
 # Change log
+## [v0.35-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.35-beta)
+#### Change log:
+- New feature: Custom global font size (additional settings)
+- New feature: Browse and add files
+- Performance optimization
+- Improve stability
+- Review code and add code comments
+- Interface layout adjustment
+- Multiple minor improvements
+- Fix bug: Cannot be compatible with custom scaling of Windows system
+- Fix bug: In some special cases, it can't judge whether the file is added repeatedly
+- Fix bug: Can't save noise reduction level setting
+---
 ## [v0.31-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.31-beta)
 #### Change log:
 - New feature: show progress while loading file list
