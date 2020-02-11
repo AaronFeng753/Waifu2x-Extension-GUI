@@ -1,6 +1,13 @@
 # Waifu2x-Extension-GUI
 
-![LICENSE](https://camo.githubusercontent.com/3867ce531c10be1c59fae9642d8feca417d39b58/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f636f6f6b6965592f596561726e696e672e737667)
+![Ver](https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI)
+![Downloads](https://img.shields.io/github/downloads/AaronFeng753/Waifu2x-Extension-GUI/total)
+![LICENSE](https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI)
+
+![LastCommit](https://img.shields.io/github/last-commit/AaronFeng753/Waifu2x-Extension-GUI)
+![OpenIssues](https://img.shields.io/github/issues-raw/AaronFeng753/Waifu2x-Extension-GUI)
+![ClosedIssues](https://img.shields.io/github/issues-closed-raw/AaronFeng753/Waifu2x-Extension-GUI)
+
 
 #### 下载: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 #### 更新日志: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md
