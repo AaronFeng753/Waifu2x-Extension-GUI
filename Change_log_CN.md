@@ -1,4 +1,7 @@
 # 更新日志
+#### 历史版本下载:
+#### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
+---
 ## [v0.35-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.35-beta)
 #### 更新日志:
 - 新特性:自定义全局字体大小(附加设置)
