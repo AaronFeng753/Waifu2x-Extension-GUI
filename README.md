@@ -1,5 +1,6 @@
 # Waifu2x-Extension-GUI
 
+![Platform](https://img.shields.io/badge/support-Windows-blue?logo=Windows)
 ![Ver](https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI)
 ![Downloads](https://img.shields.io/github/downloads/AaronFeng753/Waifu2x-Extension-GUI/total)
 ![LICENSE](https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI)
