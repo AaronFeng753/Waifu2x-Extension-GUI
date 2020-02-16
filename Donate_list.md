@@ -22,5 +22,6 @@ Name(or ID) | Donation amount | Time
 | Anonymous(Z*g) | 5 RMB | 2020/2/10 |
 | 尘封万丈 | 2.05 RMB | 2020/2/11 |
 | 狗尾巴狼 | 3 RMB | 2020/2/11 |
+| Anonymous(\*骐彤) | 5 RMB | 2020/2/16 |
 
 Small donations (less than 1 RMB) will not recorded in the donation list.
