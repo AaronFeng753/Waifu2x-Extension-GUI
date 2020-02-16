@@ -208,7 +208,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
             {
                 OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_compressed_"+file_ext+".jpg";
             }
-            qimageW.setQuality(90);
+            qimageW.setQuality(ui->spinBox_JPGCompressedQuality->value());
             qimageW.setFileName(OutPut_Path_jpg);
         }
         else

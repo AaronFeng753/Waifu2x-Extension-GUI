@@ -21,11 +21,11 @@
 #include "ui_mainwindow.h"
 
 /*
-python_ext.exe:
-get video fps : [python_ext.exe videoFilePath fps]
-get video frame number : [python_ext.exe videoFilePath countframe]
-get gif duration : [python_ext.exe videoFilePath countframedigits]
-check update :[python_ext.exe null checkupdate]
+python_ext_Waifu2xEX.exe:
+get video fps : [python_ext_Waifu2xEX.exe videoFilePath fps]
+get video frame number : [python_ext_Waifu2xEX.exe videoFilePath countframe]
+get gif duration : [python_ext_Waifu2xEX.exe videoFilePath countframedigits]
+check update :[python_ext_Waifu2xEX.exe null checkupdate]
 */
 //=======================================================================
 /*
@@ -33,7 +33,7 @@ check update :[python_ext.exe null checkupdate]
 */
 int MainWindow::Gif_getDuration(QString gifPath)
 {
-    QString program = Current_Path+"/python_ext.exe";
+    QString program = Current_Path+"/python_ext_Waifu2xEX.exe";
     QProcess GifDuration;
     GifDuration.start("\""+program+"\" \""+gifPath+"\" duration");
     while(!GifDuration.waitForStarted(100)&&!QProcess_stop) {}

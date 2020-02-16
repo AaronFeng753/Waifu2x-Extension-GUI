@@ -71,7 +71,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
-    connect(this, SIGNAL(Send_Auto_Save_Settings_Finished()), this, SLOT(Auto_Save_Settings_Finished()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -103,7 +102,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         QProcess_stop=true;
         AutoUpdate.cancel();
         Waifu2xMain.cancel();
-        QtConcurrent::run(this, &MainWindow::Force_close);
+        Force_close();
     }
 }
 
@@ -115,24 +114,20 @@ int MainWindow::Auto_Save_Settings_Watchdog()
         Delay_msec_sleep(100);
     }
     Delay_msec_sleep(500);
-    emit Send_Auto_Save_Settings_Finished();
-    return 0;
-}
-
-int MainWindow::Auto_Save_Settings_Finished()
-{
+    //=====
     QProcess_stop=true;
     AutoUpdate.cancel();
     Waifu2xMain.cancel();
-    QtConcurrent::run(this, &MainWindow::Force_close);
+    Force_close();
+    //====
     return 0;
 }
 
 int MainWindow::Force_close()
 {
-    Delay_msec_sleep(1500);
+    QString program = Current_Path+"/ForceStop_waifu2xEX.exe";
     QProcess Close;
-    Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
+    Close.start("\""+program+"\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     return 0;
@@ -252,6 +247,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_ReadFileList->setEnabled(0);
         ui->pushButton_SaveFileList->setEnabled(0);
         ui->comboBox_AspectRatio_custRes->setEnabled(0);
+        ui->spinBox_JPGCompressedQuality->setEnabled(0);
         progressbar_clear();
         //==========
         TimeCostTimer->start(1000);
@@ -791,6 +787,9 @@ void MainWindow::on_comboBox_GPUID_currentIndexChanged(int index)
         GPU_ID_STR="";
     }
 }
+/*
+改变语言设置
+*/
 void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 {
     QString qmFilename;

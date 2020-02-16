@@ -216,27 +216,27 @@ It is recommended to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2682"/>
+        <location filename="mainwindow.ui" line="2643"/>
         <source>Automatically check for updates on startup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2685"/>
+        <location filename="mainwindow.ui" line="2646"/>
         <source>Automatically check update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2587"/>
+        <location filename="mainwindow.ui" line="2548"/>
         <source>Always hide Input path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2669"/>
+        <location filename="mainwindow.ui" line="2630"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2672"/>
+        <location filename="mainwindow.ui" line="2633"/>
         <source>File list scrolls automatically</source>
         <translation type="unfinished"></translation>
     </message>
@@ -345,14 +345,14 @@ You can run compatibility test to see which engines your PC is compatible with.<
     <message>
         <location filename="mainwindow.ui" line="1506"/>
         <location filename="mainwindow.ui" line="1713"/>
-        <location filename="mainwindow.ui" line="2520"/>
+        <location filename="mainwindow.ui" line="2481"/>
         <source>Image:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1519"/>
         <location filename="mainwindow.ui" line="1813"/>
-        <location filename="mainwindow.ui" line="2549"/>
+        <location filename="mainwindow.ui" line="2510"/>
         <source>Video:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -384,64 +384,64 @@ You can run compatibility test to see which engines your PC is compatible with.<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2617"/>
+        <location filename="mainwindow.ui" line="2578"/>
         <source>Global font size:
 (Restart the software to take effect)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2656"/>
+        <location filename="mainwindow.ui" line="2617"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2659"/>
+        <location filename="mainwindow.ui" line="2620"/>
         <source>Auto save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2584"/>
+        <location filename="mainwindow.ui" line="2545"/>
         <source>[Input Path] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2695"/>
+        <location filename="mainwindow.ui" line="2656"/>
         <source>Aspect Ratio:
 (Custom resolution)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2736"/>
+        <location filename="mainwindow.ui" line="2697"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2638"/>
+        <location filename="mainwindow.ui" line="2599"/>
         <source>Ignore Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2643"/>
+        <location filename="mainwindow.ui" line="2604"/>
         <source>Keep Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2648"/>
+        <location filename="mainwindow.ui" line="2609"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2594"/>
+        <location filename="mainwindow.ui" line="2555"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2597"/>
+        <location filename="mainwindow.ui" line="2558"/>
         <source>Always hide Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2417"/>
+        <location filename="mainwindow.ui" line="2739"/>
         <source>Donate:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -542,24 +542,24 @@ You can run compatibility test to see which engines your PC is compatible with.<
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2454"/>
-        <location filename="mainwindow.ui" line="2471"/>
+        <location filename="mainwindow.ui" line="2415"/>
+        <location filename="mainwindow.ui" line="2432"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2508"/>
+        <location filename="mainwindow.ui" line="2469"/>
         <source>Input file extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2442"/>
+        <location filename="mainwindow.ui" line="2403"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2458"/>
+        <location filename="mainwindow.ui" line="2419"/>
         <source>Current Language:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1008,7 +1008,7 @@ If you like the software, please donate to support the developers to ensure the 
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1077"/>
-        <source>Allfile(*.*);</source>
+        <source>All file(*.*);</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

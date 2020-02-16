@@ -72,6 +72,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
     configIniWrite->setValue("/settings/AlwaysHideInput", ui->checkBox_AlwaysHideInput->checkState());
     configIniWrite->setValue("/settings/AlwaysHideSettings", ui->checkBox_AlwaysHideSettings->checkState());
+    configIniWrite->setValue("/settings/JPGCompressedQuality", ui->spinBox_JPGCompressedQuality->value());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -92,6 +93,7 @@ int MainWindow::Settings_Read_Apply()
     if(!file_isFileExist(settings_ini))
     {
         Settings_Save();
+        //======
         CustRes_SetToScreenRes();
         //========================
         on_comboBox_language_currentIndexChanged(0);
@@ -126,6 +128,32 @@ int MainWindow::Settings_Read_Apply()
         if(Settings_VERSION!=VERSION)
         {
             Settings_Save();
+            //======
+            CustRes_SetToScreenRes();
+            //========================
+            on_comboBox_language_currentIndexChanged(0);
+            //====================================================
+            on_checkBox_SaveAsJPG_stateChanged(0);
+            on_checkBox_ReProcFinFiles_stateChanged(0);
+            on_checkBox_AlwaysHideInput_stateChanged(0);
+            on_checkBox_AlwaysHideSettings_stateChanged(0);
+            //====
+            on_comboBox_GPUID_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //=====
+            on_spinBox_textbrowser_fontsize_valueChanged(0);
+            //===
+            on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
+            //====
+            on_spinBox_ThreadNum_gif_valueChanged(0);
+            on_spinBox_ThreadNum_gif_internal_valueChanged(0);
+            on_spinBox_ThreadNum_video_valueChanged(0);
+            on_spinBox_ThreadNum_video_internal_valueChanged(0);
+            //=====
+            Init_Table();
+            //========================
             return 0;
         }
     }
@@ -170,6 +198,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_AutoSaveSettings->setChecked(configIniRead->value("/settings/AutoSaveSettings").toBool());
     ui->checkBox_AlwaysHideInput->setChecked(configIniRead->value("/settings/AlwaysHideInput").toBool());
     ui->checkBox_AlwaysHideSettings->setChecked(configIniRead->value("/settings/AlwaysHideSettings").toBool());
+    ui->spinBox_JPGCompressedQuality->setValue(configIniRead->value("/settings/JPGCompressedQuality").toInt());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
     //==================== 加载语言设置 =====================

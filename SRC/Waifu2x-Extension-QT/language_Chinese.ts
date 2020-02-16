@@ -93,27 +93,27 @@
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2682"/>
+        <location filename="mainwindow.ui" line="2643"/>
         <source>Automatically check for updates on startup.</source>
         <translation>启动时自动检查更新.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2685"/>
+        <location filename="mainwindow.ui" line="2646"/>
         <source>Automatically check update</source>
         <translation>自动检查更新</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2587"/>
+        <location filename="mainwindow.ui" line="2548"/>
         <source>Always hide Input path</source>
         <translation>一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2669"/>
+        <location filename="mainwindow.ui" line="2630"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>当文件的处理状态改变时,文件列表自动滑动.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2672"/>
+        <location filename="mainwindow.ui" line="2633"/>
         <source>File list scrolls automatically</source>
         <translation>自动滑动文件列表</translation>
     </message>
@@ -280,14 +280,14 @@ Anime4k  [ 速度:★★★  画质:☆ ]
     <message>
         <location filename="mainwindow.ui" line="1506"/>
         <location filename="mainwindow.ui" line="1713"/>
-        <location filename="mainwindow.ui" line="2520"/>
+        <location filename="mainwindow.ui" line="2481"/>
         <source>Image:</source>
         <translation>图片:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1519"/>
         <location filename="mainwindow.ui" line="1813"/>
-        <location filename="mainwindow.ui" line="2549"/>
+        <location filename="mainwindow.ui" line="2510"/>
         <source>Video:</source>
         <translation>视频:</translation>
     </message>
@@ -321,32 +321,32 @@ It is recommended to enable this option.</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2454"/>
-        <location filename="mainwindow.ui" line="2471"/>
+        <location filename="mainwindow.ui" line="2415"/>
+        <location filename="mainwindow.ui" line="2432"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>我们建议您在更改语言设置后重启软件 
 以确保新的语言设置完全生效.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2617"/>
+        <location filename="mainwindow.ui" line="2578"/>
         <source>Global font size:
 (Restart the software to take effect)</source>
         <translation>全局字体大小:
 (重启本软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2656"/>
+        <location filename="mainwindow.ui" line="2617"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>当您关闭软件时将自动保存设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2659"/>
+        <location filename="mainwindow.ui" line="2620"/>
         <source>Auto save settings</source>
         <translation>自动保存设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2584"/>
+        <location filename="mainwindow.ui" line="2545"/>
         <source>[Input Path] will be automatically hidden when the software starts.</source>
         <translation>软件启动时将自动隐藏[输入路径].</translation>
     </message>
@@ -355,44 +355,44 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2695"/>
+        <location filename="mainwindow.ui" line="2656"/>
         <source>Aspect Ratio:
 (Custom resolution)</source>
         <translation>纵横比:
 (自定义分辨率)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2736"/>
+        <location filename="mainwindow.ui" line="2697"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2638"/>
+        <location filename="mainwindow.ui" line="2599"/>
         <source>Ignore Aspect Ratio</source>
         <translation>忽略纵横比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2643"/>
+        <location filename="mainwindow.ui" line="2604"/>
         <source>Keep Aspect Ratio</source>
         <translation>保持纵横比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2648"/>
+        <location filename="mainwindow.ui" line="2609"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation>保持纵横比(扩展)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2594"/>
+        <location filename="mainwindow.ui" line="2555"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[设置] 将会在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2597"/>
+        <location filename="mainwindow.ui" line="2558"/>
         <source>Always hide Settings</source>
         <translation>一直隐藏设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2417"/>
+        <location filename="mainwindow.ui" line="2739"/>
         <source>Donate:</source>
         <translation>捐赠:</translation>
     </message>
@@ -472,7 +472,7 @@ the language for the language settings to fully take effect.</source>
         <translation>附加设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2508"/>
+        <location filename="mainwindow.ui" line="2469"/>
         <source>Input file extensions</source>
         <translation>文件扩展名</translation>
     </message>
@@ -591,12 +591,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">mp4:3gp:avi:flv:mkv:mov:mpg:Ogg:vob:webm:wmv</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2442"/>
+        <location filename="mainwindow.ui" line="2403"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2458"/>
+        <location filename="mainwindow.ui" line="2419"/>
         <source>Current Language:</source>
         <translation>当前语言:</translation>
     </message>
@@ -1059,8 +1059,12 @@ If you like the software, please donate to support the developers to ensure the 
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1077"/>
-        <source>Allfile(*.*);</source>
+        <source>All file(*.*);</source>
         <translation>所有文件(*.*);</translation>
+    </message>
+    <message>
+        <source>Allfile(*.*);</source>
+        <translation type="vanished">所有文件(*.*);</translation>
     </message>
     <message>
         <location filename="video.cpp" line="119"/>

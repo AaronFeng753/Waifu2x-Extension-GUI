@@ -829,6 +829,9 @@ padding:10px;
                <height>16777215</height>
               </size>
              </property>
+             <property name="toolTip">
+              <string>The result images will stay in the same folder of source images.</string>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
 background-color: rgb(26, 188, 156);
@@ -2178,213 +2181,6 @@ It is recommended to enable this option.</string>
         <string>Additional settings</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_33">
-        <item row="0" column="2">
-         <widget class="QGroupBox" name="groupBox_5">
-          <property name="title">
-           <string/>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_30">
-           <item row="4" column="0" colspan="2">
-            <widget class="QPushButton" name="pushButton_about">
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>About</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="1">
-            <widget class="QPushButton" name="pushButton_ReadMe">
-             <property name="font">
-              <font>
-               <underline>false</underline>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(255, 181, 6);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 200, 50);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(255, 170, 0);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Readme</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QPushButton" name="pushButton_SaveSettings">
-             <property name="enabled">
-              <bool>true</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Save settings</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="pushButton_ResetSettings">
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(238, 99, 99);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 106, 106);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(205, 85, 85);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Reset settings</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QPushButton" name="pushButton_Report">
-             <property name="font">
-              <font>
-               <underline>false</underline>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Report issue</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
         <item row="1" column="0" colspan="2">
          <widget class="QLabel" name="label_43">
           <property name="sizePolicy">
@@ -2397,6 +2193,12 @@ padding:10px;
            <size>
             <width>0</width>
             <height>350</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>2</width>
+            <height>1</height>
            </size>
           </property>
           <property name="font">
@@ -2578,7 +2380,63 @@ the language for the language settings to fully take effect.</string>
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_16">
+           <item row="1" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="toolTip">
+              <string>Automatically check for updates on startup.</string>
+             </property>
+             <property name="text">
+              <string>Automatically check update</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>Aspect Ratio:
+(Custom resolution)</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
            <item row="3" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+             <property name="toolTip">
+              <string>Settings will be saved automatically when you close the software.</string>
+             </property>
+             <property name="text">
+              <string>Auto save settings</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="3">
+            <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+             <property name="toolTip">
+              <string>When the file processing status changes, the file list scrolls automatically.</string>
+             </property>
+             <property name="text">
+              <string>File list scrolls automatically</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="3">
             <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
              <property name="toolTip">
               <string>[Input Path] will be automatically hidden when the software starts.</string>
@@ -2588,30 +2446,7 @@ the language for the language settings to fully take effect.</string>
              </property>
             </widget>
            </item>
-           <item row="4" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
-             <property name="toolTip">
-              <string>[Settings] will be automatically hidden when the software starts.</string>
-             </property>
-             <property name="text">
-              <string>Always hide Settings</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="1" colspan="2">
-            <widget class="QSpinBox" name="spinBox_GlobalFontSize">
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="maximum">
-              <number>999</number>
-             </property>
-             <property name="value">
-              <number>15</number>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0">
+           <item row="7" column="0">
             <widget class="QLabel" name="label_22">
              <property name="text">
               <string>Global font size:
@@ -2622,7 +2457,7 @@ the language for the language settings to fully take effect.</string>
              </property>
             </widget>
            </item>
-           <item row="5" column="1" colspan="3">
+           <item row="6" column="1" colspan="4">
             <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
              <property name="minimumSize">
               <size>
@@ -2650,57 +2485,7 @@ the language for the language settings to fully take effect.</string>
              </item>
             </widget>
            </item>
-           <item row="2" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
-             <property name="toolTip">
-              <string>Settings will be saved automatically when you close the software.</string>
-             </property>
-             <property name="text">
-              <string>Auto save settings</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
-             <property name="toolTip">
-              <string>When the file processing status changes, the file list scrolls automatically.</string>
-             </property>
-             <property name="text">
-              <string>File list scrolls automatically</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0" colspan="3">
-            <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
-             <property name="toolTip">
-              <string>Automatically check for updates on startup.</string>
-             </property>
-             <property name="text">
-              <string>Automatically check update</string>
-             </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0">
-            <widget class="QLabel" name="label_44">
-             <property name="text">
-              <string>Aspect Ratio:
-(Custom resolution)</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="3">
+           <item row="7" column="4">
             <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
              <property name="styleSheet">
               <string notr="true">QPushButton{
@@ -2734,6 +2519,257 @@ padding:10px;
              </property>
              <property name="text">
               <string>Save</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="1" colspan="3">
+            <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="maximum">
+              <number>999</number>
+             </property>
+             <property name="value">
+              <number>15</number>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="3">
+            <widget class="QLabel" name="label_23">
+             <property name="text">
+              <string>Compressed &quot;.jpg&quot; image quality:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="4">
+            <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
+             <property name="toolTip">
+              <string>0(worst quality)~99
+We recommend you use the default value(90)</string>
+             </property>
+             <property name="minimum">
+              <number>0</number>
+             </property>
+             <property name="value">
+              <number>90</number>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+             <property name="toolTip">
+              <string>[Settings] will be automatically hidden when the software starts.</string>
+             </property>
+             <property name="text">
+              <string>Always hide Settings</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="title">
+           <string/>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_30">
+           <item row="0" column="0">
+            <widget class="QPushButton" name="pushButton_SaveSettings">
+             <property name="enabled">
+              <bool>true</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Save settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QPushButton" name="pushButton_Report">
+             <property name="font">
+              <font>
+               <underline>false</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Report issue</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QPushButton" name="pushButton_ResetSettings">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(238, 99, 99);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 106, 106);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(205, 85, 85);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Reset settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QPushButton" name="pushButton_ReadMe">
+             <property name="font">
+              <font>
+               <underline>false</underline>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(255, 181, 6);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 200, 50);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(255, 170, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Readme</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QPushButton" name="pushButton_about">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>About</string>
              </property>
             </widget>
            </item>

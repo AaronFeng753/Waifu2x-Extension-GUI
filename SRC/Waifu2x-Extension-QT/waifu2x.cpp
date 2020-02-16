@@ -232,6 +232,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
     ui->comboBox_AspectRatio_custRes->setEnabled(1);
+    ui->spinBox_JPGCompressedQuality->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

@@ -614,7 +614,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
             Custom_resolution_list.append(res_map);
         }
         emit Send_progressbar_Add();
-        Delay_msec_sleep(60);
+        Delay_msec_sleep(100);
     }
     //========= 加载gif ========
     for(int i=0; i<rowCount_gif; i++)
@@ -648,7 +648,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
             Custom_resolution_list.append(res_map);
         }
         emit Send_progressbar_Add();
-        Delay_msec_sleep(60);
+        Delay_msec_sleep(100);
     }
     //========= 加载video ========
     for(int i=0; i<rowCount_video; i++)
@@ -682,7 +682,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
             Custom_resolution_list.append(res_map);
         }
         emit Send_progressbar_Add();
-        Delay_msec_sleep(60);
+        Delay_msec_sleep(100);
     }
     //====================
     if(!ui->checkBox_ReProcFinFiles->checkState())

@@ -18,11 +18,11 @@
 */
 
 /*
-python_ext.exe:
-get video fps : [python_ext.exe videoFilePath fps]
-get video frame number : [python_ext.exe videoFilePath countframe]
-get gif duration : [python_ext.exe videoFilePath countframedigits]
-check update :[python_ext.exe null checkupdate]
+python_ext_Waifu2xEX.exe:
+get video fps : [python_ext_Waifu2xEX.exe videoFilePath fps]
+get video frame number : [python_ext_Waifu2xEX.exe videoFilePath countframe]
+get gif duration : [python_ext_Waifu2xEX.exe videoFilePath countframedigits]
+check update :[python_ext_Waifu2xEX.exe null checkupdate]
 */
 
 #include "mainwindow.h"
@@ -46,7 +46,7 @@ int MainWindow::CheckUpadte_Auto()
         return 0;
     }
     //Delay_sec_sleep(5);
-    QString program = Current_Path+"/python_ext.exe";
+    QString program = Current_Path+"/python_ext_Waifu2xEX.exe";
     QProcess checkupdate;
     checkupdate.start("\""+program+"\" null checkupdate");
     while(!checkupdate.waitForStarted(100)&&!QProcess_stop) {}
@@ -65,13 +65,31 @@ int MainWindow::CheckUpadte_Auto()
 */
 int MainWindow::CheckUpadte_NewUpdate(QString update_str)
 {
-    QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
-    Msg.setModal(false);
-    Msg.setIcon(QMessageBox::Information);
-    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
-    Msg.exec();
-    if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+    switch(ui->comboBox_language->currentIndex())
+    {
+        case 0:
+            {
+                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
+                Msg.setIcon(QMessageBox::Information);
+                QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+                QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+                Msg.exec();
+                if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+                return 0;
+            }
+        case 1:
+            {
+                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
+                Msg.setIcon(QMessageBox::Information);
+                QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
+                QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆境内)"), QMessageBox::YesRole);
+                QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+                Msg.exec();
+                if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+                if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases"));
+                return 0;
+            }
+    }
     return 0;
 }
 

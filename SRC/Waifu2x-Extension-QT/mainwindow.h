@@ -51,6 +51,8 @@
 #include <QCloseEvent>
 #include <QFileDialog>
 
+#include <QDebug>
+
 QT_BEGIN_NAMESPACE
 namespace Ui
 {
@@ -67,7 +69,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     //=======================
-    QString VERSION="v0.35-beta";//软件版本号
+    QString VERSION="v0.36-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -307,8 +309,6 @@ public slots:
 
     int Donate_Notification();//捐赠弹窗
 
-    int Auto_Save_Settings_Finished();//自动保存后执行的代码
-
 
 
 
@@ -442,8 +442,6 @@ signals:
     void Send_SystemShutDown();
 
     void Send_Donate_Notification();
-
-    void Send_Auto_Save_Settings_Finished();
 
 
 private:
