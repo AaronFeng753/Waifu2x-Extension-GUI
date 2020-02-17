@@ -1544,46 +1544,6 @@ You can run compatibility test to see which engines your PC is compatible with.<
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_12">
-              <item row="3" column="0" colspan="2">
-               <widget class="QPushButton" name="pushButton_compatibilityTest">
-                <property name="toolTip">
-                 <string>Run a compatibility test to see which engines your computer is compatible with.</string>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-	background-color: rgb(92, 172, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(99, 184, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(79, 148,205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>Compatibility test</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="0" colspan="2">
                <widget class="QPushButton" name="pushButton_donate">
                 <property name="font">
@@ -1634,7 +1594,47 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" colspan="2">
+              <item row="4" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_compatibilityTest">
+                <property name="toolTip">
+                 <string>Run a compatibility test to see which engines your computer is compatible with.</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+	background-color: rgb(92, 172, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(99, 184, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(79, 148,205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Compatibility test</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
                <widget class="QPushButton" name="pushButton_CheckUpdate">
                 <property name="font">
                  <font>
@@ -1674,6 +1674,43 @@ padding:10px;
                 </property>
                 <property name="text">
                  <string>Check update</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QPushButton" name="pushButton_wiki">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Wiki</string>
                 </property>
                </widget>
               </item>
@@ -2571,6 +2608,12 @@ We recommend you use the default value(90)</string>
         </item>
         <item row="0" column="2">
          <widget class="QGroupBox" name="groupBox_5">
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
           <property name="title">
            <string/>
           </property>

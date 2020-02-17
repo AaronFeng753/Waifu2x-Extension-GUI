@@ -69,7 +69,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     //=======================
-    QString VERSION="v0.36-beta";//软件版本号
+    QString VERSION="v0.37-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -404,6 +404,8 @@ private slots:
     void on_pushButton_Save_GlobalFontSize_clicked();
 
     void on_pushButton_BrowserFile_clicked();
+
+    void on_pushButton_wiki_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

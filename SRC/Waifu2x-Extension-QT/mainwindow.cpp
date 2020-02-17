@@ -125,9 +125,8 @@ int MainWindow::Auto_Save_Settings_Watchdog()
 
 int MainWindow::Force_close()
 {
-    QString program = Current_Path+"/ForceStop_waifu2xEX.exe";
     QProcess Close;
-    Close.start("\""+program+"\"");
+    Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     return 0;
@@ -1072,8 +1071,34 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
 
 void MainWindow::on_pushButton_BrowserFile_clicked()
 {
+    //========
+    QStringList nameFilters;
+    nameFilters.append("*.gif");
+    QString Ext_image_str = ui->Ext_image->text();
+    QStringList nameFilters_image = Ext_image_str.split(":");
+    for(int i = 0; i < nameFilters_image.size(); ++i)
+    {
+        QString tmp = nameFilters_image.at(i);
+        tmp = "*." + tmp;
+        nameFilters.append(tmp);
+    }
+    QString Ext_video_str = ui->Ext_video->text();
+    QStringList nameFilters_video = Ext_video_str.split(":");
+    for(int i = 0; i < nameFilters_video.size(); ++i)
+    {
+        QString tmp = nameFilters_video.at(i);
+        tmp = "*." + tmp;
+        nameFilters.append(tmp);
+    }
+    QString nameFilters_QString = "";
+    for(int i = 0; i < nameFilters.size(); ++i)
+    {
+        QString tmp = nameFilters.at(i);
+        nameFilters_QString = nameFilters_QString +" "+ tmp;
+    }
+    //========
     QString Input_path = "";
-    Input_path = QFileDialog::getOpenFileName(this, tr("Select file"), " ",  tr("All file(*.*);"));
+    Input_path = QFileDialog::getOpenFileName(this, tr("Select file"), " ",  tr("All file(")+nameFilters_QString+")");
     Input_path = Input_path.trimmed();
     if(Input_path=="")return;
     //=====
@@ -1142,4 +1167,11 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     AddNew_image=false;
     AddNew_video=false;
     Table_FileCount_reload();
+}
+/*
+打开wiki
+*/
+void MainWindow::on_pushButton_wiki_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki"));
 }
