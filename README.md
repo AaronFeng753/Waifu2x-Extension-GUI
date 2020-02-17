@@ -1,5 +1,5 @@
 <p align="center">
-<img src="/SRC/Waifu2x-Extension-QT/icon/icon_main.png" width="100" height="100">
+<img src="/SRC/Waifu2x-Extension-QT/icon/icon_main.png" height="200">
 </p>
 
 <h3 align="center"> Waifu2x-Extension-GUI </h3>
