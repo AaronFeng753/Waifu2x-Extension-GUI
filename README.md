@@ -1,14 +1,14 @@
-# Waifu2x-Extension-GUI
+<p align="center">
+<img src="/SRC/Waifu2x-Extension-QT/icon/icon_main.png" width="100" height="100">
+</p>
 
-![Platform](https://img.shields.io/badge/support-Windows-blue?logo=Windows)
+<h3 align="center"> Waifu2x-Extension-GUI </h3>
 
-![Ver](https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI)
-![Downloads](https://img.shields.io/github/downloads/AaronFeng753/Waifu2x-Extension-GUI/total)
-![LICENSE](https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI)
-
-![LastCommit](https://img.shields.io/github/last-commit/AaronFeng753/Waifu2x-Extension-GUI)
-![OpenIssues](https://img.shields.io/github/issues-raw/AaronFeng753/Waifu2x-Extension-GUI)
-![ClosedIssues](https://img.shields.io/github/issues-closed-raw/AaronFeng753/Waifu2x-Extension-GUI)
+<p align="center">
+<img src="https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI">
+<img src="https://img.shields.io/badge/support-Windows-blue?logo=Windows">
+<img src="https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI">
+</p>
 
 ### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
 ### Download: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
