@@ -2,6 +2,16 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v0.37-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.37-beta)
+#### 更新日志:
+- 新特性:自定义".jpg"文件压缩后的图像质量
+- 完善浏览文件对话框的文件扩展名过滤
+- 更新ImageMagick(7.0.9-22-Q16-x64)
+- 提高稳定性
+- 完善简体中文支持
+- 其他小改进
+- 修复bug:程序关闭后滞留后台
+---
 ## [v0.35-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.35-beta)
 #### 更新日志:
 - 新特性:自定义全局字体大小(附加设置)
