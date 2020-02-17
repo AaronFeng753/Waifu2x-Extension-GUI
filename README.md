@@ -2,7 +2,7 @@
 <img src="/SRC/Waifu2x-Extension-QT/icon/icon_main.png" height="200">
 </p>
 
-<h3 align="center"> Waifu2x-Extension-GUI </h3>
+<h2 align="center"> Waifu2x-Extension-GUI </h2>
 
 <p align="center">
 <img src="https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI">
