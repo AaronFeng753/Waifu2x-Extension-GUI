@@ -1,4 +1,14 @@
 # Change log
+## [v0.37-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.37-beta)
+#### Change log:
+- New feature: Custom ".jpg" file compressed image quality
+- Improve file extension filtering in browse file dialog
+- Update ImageMagick (7.0.9-22-Q16-x64)
+- Improve stability
+- Improve Simplified Chinese support
+- Other small improvements
+- Fix bug: stuck in the background after the program is closed
+---
 ## [v0.35-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.35-beta)
 #### Change log:
 - New feature: Custom global font size (additional settings)
