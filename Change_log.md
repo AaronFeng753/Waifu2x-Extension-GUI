@@ -1,4 +1,20 @@
 # Change log
+## [v0.41-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.41-beta)
+#### Change log:
+- New feature: waifu2x-converter supports more noise reduction levels
+- New feature: Added waifu2x-converter engine custom settings
+- New feature: custom font
+- New feature: minimize form
+- New feature: hide text browser
+- Update waifu2x-converter (v5.3.3) (thanks to NyanMisaka for feedback)
+- Interface layout adjustment
+- Improve stability
+- Many other improvements
+- Fix bug: File extensions are not recognized correctly (thanks to zhehenkaifa for feedback)
+- Fix bug: When the video extension is ".MP4" instead of ".mp4", it will cause an error
+- Fix bug: error caused by extra "." In file name (thanks to 我叫黄伟达 for feedback)
+- Fix bug: unable to stop processing in some special cases
+---
 ## [v0.37-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.37-beta)
 #### Change log:
 - New feature: Custom ".jpg" file compressed image quality
