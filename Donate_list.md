@@ -24,5 +24,7 @@ Name(or ID) | Donation amount | Time
 | 狗尾巴狼 | 3 RMB | 2020/2/11 |
 | Anonymous(\*骐彤) | 5 RMB | 2020/2/16 |
 | 寒冰幻影 | 24 RMB | 2020/2/18 |
+| Anonymous| 5 RMB | 2020/2/20 |
+| Anonymous(\*乃) | 3 RMB | 2020/2/20 |
 
 Small donations (less than 1 RMB) will not recorded in the donation list.
