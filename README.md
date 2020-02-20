@@ -109,7 +109,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - Anime4K: https://github.com/bloc97/Anime4K
 
-- Waifu2x-converter: https://github.com/WL-Amigo/waifu2x-converter-cpp
+- Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
 
 - ImageMagick: http://www.imagemagick.org/
 
