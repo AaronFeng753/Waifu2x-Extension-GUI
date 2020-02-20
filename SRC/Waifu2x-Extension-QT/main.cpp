@@ -67,7 +67,7 @@ Integrated component(In releases):
 - Anime4K Java v0.9 Beta
 - ffmpeg version 4.2.2
 - gifsicle version 1.92
-- Waifu2x-converter version: 2015-11-30T02:17:24
+- Waifu2x-converter version: v5.3.3
 - ImageMagick 7.0.9-22-Q16-x64
 */
 

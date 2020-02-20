@@ -1006,7 +1006,7 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="295"/>
+        <location filename="mainwindow.cpp" line="294"/>
         <source>Processing of files has stopped.</source>
         <translation type="unfinished"></translation>
     </message>

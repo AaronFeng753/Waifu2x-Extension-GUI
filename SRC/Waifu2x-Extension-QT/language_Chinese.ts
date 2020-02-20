@@ -278,7 +278,7 @@ waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:☆ ]
 You can run compatibility test to see which engines your PC is compatible with.</source>
-        <translation>选择处理GIF时所启用的引擎:
+        <translation>选择处理视频时所启用的引擎:
 waifu2x-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
 Anime4k  [ 速度:★★★  画质:☆ ]
@@ -1092,7 +1092,7 @@ Do you wanna update now???</source>
         <translation>尝试停止, 请稍等...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="295"/>
+        <location filename="mainwindow.cpp" line="294"/>
         <source>Processing of files has stopped.</source>
         <translation>已停止处理文件.</translation>
     </message>
