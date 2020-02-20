@@ -1,6 +1,8 @@
 # Change log
-## [v0.41-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.41-beta)
-#### Change log:
+## [v0.411-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.411-beta)
+#### v0.411 Change log:
+- Improve compatibility of waifu2x-converter
+#### v0.41 Change log:
 - New feature: waifu2x-converter supports more noise reduction levels
 - New feature: Added waifu2x-converter engine custom settings
 - New feature: custom font
