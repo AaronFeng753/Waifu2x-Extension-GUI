@@ -4,6 +4,8 @@
 
 Thank you very much for your donation. If you have any suggestions for this software, please leave a note when donating. I will definitely review and try my best to solve your problem (if feasible).
 
+Non-refundable, except in exceptional circumstances (e.g. incorrect large transfers)
+
 Sort by donation time.
 
 Name(or ID) | Donation amount | Time
