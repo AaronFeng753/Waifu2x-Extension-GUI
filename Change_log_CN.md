@@ -2,6 +2,22 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v0.41-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.41-beta)
+#### 更新日志:
+- 新特性: waifu2x-converter 支持更多降噪等级
+- 新特性:新增 waifu2x-converter 引擎自定义设置
+- 新特性:自定义字体
+- 新特性:最小化窗体
+- 新特性:隐藏文本框
+- 更新 waifu2x-converter (v5.3.3) (感谢 NyanMisaka 反馈)
+- 界面布局调整
+- 提高稳定性
+- 其他多项改进
+- 修复bug:当文件扩展名大写时无法正确识别(感谢 zhehenkaifa 反馈)
+- 修复bug:当视频扩展名为".MP4"而非".mp4"时, 会导致错误
+- 修复bug:当文件名称内有多余的"."时会导致软件错误(感谢 我叫黄伟达 反馈)
+- 修复bug:某些特殊情况下无法停止处理
+---
 ## [v0.37-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.37-beta)
 #### 更新日志:
 - 新特性:自定义".jpg"文件压缩后的图像质量
