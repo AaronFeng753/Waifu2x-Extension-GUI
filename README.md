@@ -94,7 +94,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - gifsicle version 1.92
 
-- Waifu2x-converter version: 2015-11-30T02:17:24
+- Waifu2x-converter version: v5.3.3
 
 - ImageMagick 7.0.9-22-Q16-x64
 
