@@ -2,8 +2,10 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
-## [v0.41-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.41-beta)
-#### 更新日志:
+## [v0.411-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.411-beta)
+#### v0.411 更新日志:
+- 改善waifu2x-converter的兼容性
+#### v0.41 更新日志:
 - 新特性: waifu2x-converter 支持更多降噪等级
 - 新特性:新增 waifu2x-converter 引擎自定义设置
 - 新特性:自定义字体
