@@ -91,21 +91,7 @@ void MainWindow::Add_File_Folder(QString Full_Path)
     if(fileinfo.isFile())
     {
         QString file_name = fileinfo.fileName();
-        QString file_ext = fileinfo.suffix();
-        QStringList nameFilters;//扩展名过滤列表
-        nameFilters.append("gif");//添加gif
-        //读取用户设定的图片和视频扩展名列表
-        QString Ext_image_str = ui->Ext_image->text();
-        QStringList nameFilters_image = Ext_image_str.split(":");
-        QString Ext_video_str = ui->Ext_video->text();
-        QStringList nameFilters_video = Ext_video_str.split(":");
-        nameFilters.append(nameFilters_video);
-        nameFilters.append(nameFilters_image);
-        //判断是否在扩展名支持列表内
-        if (nameFilters.contains(file_ext))
-        {
-            FileList_Add(file_name, Full_Path);
-        }
+        FileList_Add(file_name, Full_Path);
     }
     else
     {
@@ -127,26 +113,8 @@ void MainWindow::Add_File_Folder(QString Full_Path)
 */
 QStringList MainWindow::getFileNames(QString path)
 {
-    QStringList nameFilters;
-    nameFilters.append("*.gif");
-    QString Ext_image_str = ui->Ext_image->text();
-    QStringList nameFilters_image = Ext_image_str.split(":");
-    for(int i = 0; i < nameFilters_image.size(); ++i)
-    {
-        QString tmp = nameFilters_image.at(i);
-        tmp = "*." + tmp;
-        nameFilters.append(tmp);
-    }
-    QString Ext_video_str = ui->Ext_video->text();
-    QStringList nameFilters_video = Ext_video_str.split(":");
-    for(int i = 0; i < nameFilters_video.size(); ++i)
-    {
-        QString tmp = nameFilters_video.at(i);
-        tmp = "*." + tmp;
-        nameFilters.append(tmp);
-    }
     QDir dir(path);
-    QStringList files = dir.entryList(nameFilters, QDir::Files | QDir::Writable, QDir::Name);
+    QStringList files = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
     return files;
 }
 /*
@@ -159,7 +127,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     //============================  判断是否为图片 ===============================
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
-    if (nameFilters_image.contains(file_ext))
+    if (nameFilters_image.contains(file_ext.toLower()))
     {
         AddNew_image=true;
         int rowNum = Table_image_get_rowNum();
@@ -176,8 +144,20 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     //============================  判断是否为视频 ===============================
     QString Ext_video_str = ui->Ext_video->text();
     QStringList nameFilters_video = Ext_video_str.split(":");
-    if (nameFilters_video.contains(file_ext))
+    if (nameFilters_video.contains(file_ext.toLower()))
     {
+        if(file_ext!="mp4"&&file_ext.toLower()=="mp4")
+        {
+            QString file_name = file_getBaseName(fileinfo.filePath());
+            QString file_ext = fileinfo.suffix();
+            QString file_path = fileinfo.path();
+            if(file_path.right(1)=="/")
+            {
+                file_path = file_path.left(file_path.length() - 1);
+            }
+            QFile::rename(file_path+"/"+file_name+"."+file_ext,file_path+"/"+file_name+".mp4");
+            SourceFile_fullPath = file_path+"/"+file_name+".mp4";
+        }
         AddNew_video=true;
         int rowNum = Table_video_get_rowNum();
         QMap<QString, QString> map;
@@ -191,7 +171,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         return 0;
     }
     //============================  最后只能是gif ===============================
-    if(file_ext=="gif")
+    if(file_ext.toLower()=="gif")
     {
         int rowNum = Table_gif_get_rowNum();
         QMap<QString, QString> map;
@@ -407,7 +387,7 @@ QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
         if(files_new!=files_old)
         {
             files_old = files_new;
-            Delay_sec_sleep(1);
+            Delay_sec_sleep(2);
         }
         else
         {
@@ -444,4 +424,23 @@ bool MainWindow::file_DelDir(const QString &path)
         }
     }
     return dir.rmpath(dir.absolutePath()); // 删除文件夹
+}
+/*
+重写的获取basename函数
+*/
+QString MainWindow::file_getBaseName(QString path){
+    QFileInfo fileinfo(path);
+    QString file_fullname = fileinfo.fileName();
+    QStringList parts = file_fullname.split(".");
+    QString file_basename="";
+    for(int i=0; i<(parts.size()-1); i++)
+    {
+        file_basename+=parts.at(i);
+        file_basename+=".";
+    }
+    if(file_basename.right(1)==".")
+    {
+        file_basename = file_basename.left(file_basename.length() - 1);
+    }
+    return file_basename;
 }

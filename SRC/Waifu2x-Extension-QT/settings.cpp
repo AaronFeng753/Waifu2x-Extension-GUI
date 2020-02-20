@@ -29,6 +29,7 @@ int MainWindow::Settings_Save()
     QFile::remove(settings_ini);
     //=================
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
+    configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
     //================= 添加警告 =========================
     configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
     //==================== 存储版本识别 ==================================
@@ -56,6 +57,9 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/VideoEngine", ui->comboBox_Engine_Video->currentIndex());
     configIniWrite->setValue("/settings/ImageStyle", ui->comboBox_ImageStyle->currentIndex());
     configIniWrite->setValue("/settings/TileSize", ui->spinBox_TileSize->value());
+    configIniWrite->setValue("/settings/BlockSizeConverter", ui->spinBox_BlockSize_converter->value());
+    configIniWrite->setValue("/settings/DisableGPUConverter", ui->checkBox_DisableGPU_converter->checkState());
+    configIniWrite->setValue("/settings/ForceOpenCLConverter", ui->checkBox_ForceOpenCL_converter->checkState());
     //================== 存储 扩展名 =================================
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
@@ -72,13 +76,16 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
     configIniWrite->setValue("/settings/AlwaysHideInput", ui->checkBox_AlwaysHideInput->checkState());
     configIniWrite->setValue("/settings/AlwaysHideSettings", ui->checkBox_AlwaysHideSettings->checkState());
+    configIniWrite->setValue("/settings/AlwaysHideTextBrowser", ui->checkBox_AlwaysHideTextBrowser->checkState());
     configIniWrite->setValue("/settings/JPGCompressedQuality", ui->spinBox_JPGCompressedQuality->value());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
     configIniWrite->setValue("/settings/Language", ui->comboBox_language->currentIndex());
-    //================== 存储全局字体大小 =========================
+    //================== 存储全局字体 =========================
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
+    configIniWrite->setValue("/settings/CustFont", ui->fontComboBox_CustFont->currentFont());
+    configIniWrite->setValue("/settings/CustFont_isEnabled", ui->checkBox_isCustFontEnable->checkState());
     //==========
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
@@ -102,6 +109,7 @@ int MainWindow::Settings_Read_Apply()
         on_checkBox_ReProcFinFiles_stateChanged(0);
         on_checkBox_AlwaysHideInput_stateChanged(0);
         on_checkBox_AlwaysHideSettings_stateChanged(0);
+        on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
         //====
         on_comboBox_GPUID_currentIndexChanged(0);
         on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -124,6 +132,7 @@ int MainWindow::Settings_Read_Apply()
     else
     {
         QSettings *configIniRead_ver = new QSettings(settings_ini, QSettings::IniFormat);
+        configIniRead_ver->setIniCodec(QTextCodec::codecForName("UTF-8"));
         QString Settings_VERSION = configIniRead_ver->value("/settings/VERSION").toString();
         if(Settings_VERSION!=VERSION)
         {
@@ -137,6 +146,7 @@ int MainWindow::Settings_Read_Apply()
             on_checkBox_ReProcFinFiles_stateChanged(0);
             on_checkBox_AlwaysHideInput_stateChanged(0);
             on_checkBox_AlwaysHideSettings_stateChanged(0);
+            on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
             //====
             on_comboBox_GPUID_currentIndexChanged(0);
             on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -159,8 +169,11 @@ int MainWindow::Settings_Read_Apply()
     }
     //=================
     QSettings *configIniRead = new QSettings(settings_ini, QSettings::IniFormat);
-    //=================== 加载全局字体大小设置 =========================
+    configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+    //=================== 加载全局字体设置 =========================
     ui->spinBox_GlobalFontSize->setValue(configIniRead->value("/settings/GlobalFontSize").toInt());
+    ui->fontComboBox_CustFont->setCurrentFont(configIniRead->value("/settings/CustFont").value<QFont>());
+    ui->checkBox_isCustFontEnable->setChecked(configIniRead->value("/settings/CustFont_isEnabled").toBool());
     Set_Font_fixed();
     //=======  加载放大值和降噪值  ======
     ui->spinBox_ScaleRatio_image->setValue(configIniRead->value("/settings/ImageScaleRatio").toInt());
@@ -182,6 +195,9 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_Engine_Video->setCurrentIndex(configIniRead->value("/settings/VideoEngine").toInt());
     ui->comboBox_ImageStyle->setCurrentIndex(configIniRead->value("/settings/ImageStyle").toInt());
     ui->spinBox_TileSize->setValue(configIniRead->value("/settings/TileSize").toInt());
+    ui->spinBox_BlockSize_converter->setValue(configIniRead->value("/settings/BlockSizeConverter").toInt());
+    ui->checkBox_DisableGPU_converter->setChecked(configIniRead->value("/settings/DisableGPUConverter").toBool());
+    ui->checkBox_ForceOpenCL_converter->setChecked(configIniRead->value("/settings/ForceOpenCLConverter").toBool());
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
@@ -198,6 +214,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_AutoSaveSettings->setChecked(configIniRead->value("/settings/AutoSaveSettings").toBool());
     ui->checkBox_AlwaysHideInput->setChecked(configIniRead->value("/settings/AlwaysHideInput").toBool());
     ui->checkBox_AlwaysHideSettings->setChecked(configIniRead->value("/settings/AlwaysHideSettings").toBool());
+    ui->checkBox_AlwaysHideTextBrowser->setChecked(configIniRead->value("/settings/AlwaysHideTextBrowser").toBool());
     ui->spinBox_JPGCompressedQuality->setValue(configIniRead->value("/settings/JPGCompressedQuality").toInt());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
@@ -209,6 +226,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_ReProcFinFiles_stateChanged(0);
     on_checkBox_AlwaysHideInput_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
+    on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);

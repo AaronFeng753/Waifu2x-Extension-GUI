@@ -59,7 +59,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -287,7 +287,6 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
             }
         }
     }
-    //while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     //============================ 调整大小 ====================================================
     if(CustRes_isEnabled)
     {

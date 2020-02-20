@@ -25,10 +25,13 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
+    int BlockSize = ui->spinBox_BlockSize_converter->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
     bool CompressJPG = ui->checkBox_CompressJPG->checkState();
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
+    bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
+    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
@@ -64,7 +67,7 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     }
     //=======================================================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -75,18 +78,16 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     //============================== 放大 =======================================
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
-    QString Denoise_cmd = "";
-    if(DenoiseLevel==0)
-    {
-        Denoise_cmd = " ";
-    }
-    else
-    {
-        Denoise_cmd = " --noise_level " + QString::number(DenoiseLevel, 10);
-    }
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
+    QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
+    QString DisableGPU_cmd ="";
+    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
+    QString ForceOpenCL_cmd ="";
+    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
+    //====
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR;
+    //========
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -100,6 +101,7 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
             return 0;
         }
     }
+    //========
     if(!file_isFileExist(OutPut_Path))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
@@ -265,7 +267,7 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -442,22 +444,21 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString,
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
+    int BlockSize = ui->spinBox_BlockSize_converter->value();
+    bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
+    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
     //========================================================================
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    QString Denoise_cmd = "";
-    if(DenoiseLevel==0)
-    {
-        Denoise_cmd = " ";
-    }
-    else
-    {
-        Denoise_cmd = " --noise_level " + QString::number(DenoiseLevel, 10);
-    }
+    QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
+    QString DisableGPU_cmd ="";
+    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
+    QString ForceOpenCL_cmd ="";
+    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
     //======
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
@@ -477,7 +478,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString,
         CustRes_width=Res_map["width"].toInt();
     }
     //=======
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR;
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -559,7 +560,7 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -747,23 +748,22 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QStrin
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
+    int BlockSize = ui->spinBox_BlockSize_converter->value();
+    bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
+    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    QString Denoise_cmd = "";
-    if(DenoiseLevel==0)
-    {
-        Denoise_cmd = " ";
-    }
-    else
-    {
-        Denoise_cmd = " --noise_level " + QString::number(DenoiseLevel, 10);
-    }
+    QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
+    QString DisableGPU_cmd ="";
+    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
+    QString ForceOpenCL_cmd ="";
+    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
     //======
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
@@ -783,7 +783,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QStrin
         CustRes_width=Res_map["width"].toInt();
     }
     //=======
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR;
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)

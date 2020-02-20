@@ -61,7 +61,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     {
         video_dir = video_dir.left(video_dir.length() - 1);
     }
-    QString video_filename = vfinfo.baseName();
+    QString video_filename = file_getBaseName(vfinfo.filePath());
     QString video_ext = vfinfo.suffix();
     QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     //==============
@@ -111,7 +111,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     {
         video_dir = video_dir.left(video_dir.length() - 1);
     }
-    QString video_filename = vfinfo.baseName();
+    QString video_filename = file_getBaseName(vfinfo.filePath());
     QString video_ext = vfinfo.suffix();
     int fps = video_get_fps(VideoPath);
     if(fps<=0)

@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     translator = new QTranslator(this);
     //==============
     ui->tabWidget->setCurrentIndex(0);//显示home tab
+    ui->tabWidget_waifu2xSettings->setCurrentIndex(0);
     TextBrowser_StartMes();//显示启动msg
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
@@ -71,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
+    //Send_Waifu2x_DumpProcessorList_converter_finished
+    connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -82,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     SystemShutDown_isAutoShutDown();//上次是否自动关机
     Donate_Count();//捐赠统计
+    this->adjustSize();
 }
 
 MainWindow::~MainWindow()
@@ -179,7 +183,15 @@ QString MainWindow::Seconds2hms(long unsigned int seconds)
 
 void MainWindow::Set_Font_fixed()
 {
-    QFont font = qApp->font();
+    QFont font;
+    if(ui->checkBox_isCustFontEnable->checkState())
+    {
+        font = ui->fontComboBox_CustFont->currentFont();
+    }
+    else
+    {
+        font = qApp->font();
+    }
     font.setPixelSize(ui->spinBox_GlobalFontSize->value());
     qApp->setFont(font);
 }
@@ -248,6 +260,9 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->comboBox_AspectRatio_custRes->setEnabled(0);
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
         progressbar_clear();
+        ui->label_TimeCost->setText(tr("Time cost:NULL"));
+        ui->label_ETA->setText(tr("ETA:NULL"));
+        ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
         //==========
         TimeCostTimer->start(1000);
         TimeCost=0;
@@ -276,12 +291,12 @@ void MainWindow::Wait_waifu2x_stop()
         if(waifu2x_STOP_confirm||ThreadNumRunning==0)
         {
             waifu2x_STOP_confirm = false;
-            waifu2x_STOP = false;
             emit TextBrowser_NewMessage(tr("Processing of files has stopped."));
             break;
         }
         Delay_msec_sleep(300);
     }
+    Waifu2xMain.cancel();
     emit Send_Waifu2x_Finished_manual();
 }
 /*
@@ -631,11 +646,11 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
             }
         case 1:
             {
-                ui->spinBox_DenoiseLevel_image->setRange(0,2);
+                ui->spinBox_DenoiseLevel_image->setRange(0,3);
                 ui->spinBox_DenoiseLevel_image->setValue(2);
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
-                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:0(No noise reduction)~2"));
-                ui->label_ImageDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:0(No noise reduction)~3"));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
                 return;
             }
     }
@@ -656,11 +671,11 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
             }
         case 1:
             {
-                ui->spinBox_DenoiseLevel_gif->setRange(0,2);
+                ui->spinBox_DenoiseLevel_gif->setRange(0,3);
                 ui->spinBox_DenoiseLevel_gif->setValue(2);
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
-                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:0(No noise reduction)~2"));
-                ui->label_GIFDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:0(No noise reduction)~3"));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
                 return;
             }
     }
@@ -681,11 +696,11 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
             }
         case 1:
             {
-                ui->spinBox_DenoiseLevel_video->setRange(0,2);
+                ui->spinBox_DenoiseLevel_video->setRange(0,3);
                 ui->spinBox_DenoiseLevel_video->setValue(2);
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
-                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:0(No noise reduction)~2"));
-                ui->label_VideoDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~2"));
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:0(No noise reduction)~3"));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
                 return;
             }
         case 2:
@@ -718,6 +733,11 @@ void MainWindow::on_pushButton_compatibilityTest_clicked()
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    if(!ui->textBrowser->isVisible())
+    {
+        on_pushButton_HideTextBro_clicked();
+    }
     QtConcurrent::run(this, &MainWindow::Waifu2x_Compatibility_Test);
 }
 
@@ -741,13 +761,11 @@ void MainWindow::on_pushButton_HideSettings_clicked()
     {
         ui->groupBox_Setting->setVisible(0);
         ui->pushButton_HideSettings->setText(tr("Show settings"));
-        ui->pushButton_HideSettings->setToolTip(tr("Show all setting options."));
     }
     else
     {
         ui->groupBox_Setting->setVisible(1);
         ui->pushButton_HideSettings->setText(tr("Hide settings"));
-        ui->pushButton_HideSettings->setToolTip(tr("Hide all setting options."));
     }
 }
 
@@ -770,6 +788,7 @@ void MainWindow::on_pushButton_DetectGPU_clicked()
 {
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     Available_GPUID.clear();
     QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
@@ -1034,7 +1053,6 @@ void MainWindow::on_checkBox_AlwaysHideSettings_stateChanged(int arg1)
     {
         ui->groupBox_Setting->setVisible(0);
         ui->pushButton_HideSettings->setText(tr("Show settings"));
-        ui->pushButton_HideSettings->setToolTip(tr("Show all setting options."));
     }
 }
 
@@ -1174,4 +1192,144 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
 void MainWindow::on_pushButton_wiki_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki"));
+}
+/*
+最小化
+*/
+void MainWindow::on_pushButton_Minimize_clicked()
+{
+    if(ui->groupBox_Input->isVisible())on_pushButton_HideInput_clicked();
+    if(ui->groupBox_Setting->isVisible())on_pushButton_HideSettings_clicked();
+    if(ui->textBrowser->isVisible())on_pushButton_HideTextBro_clicked();
+    this->adjustSize();
+}
+
+void MainWindow::on_pushButton_HideTextBro_clicked()
+{
+    if(ui->textBrowser->isVisible())
+    {
+        ui->textBrowser->setVisible(0);
+        ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
+    }
+    else
+    {
+        ui->textBrowser->setVisible(1);
+        ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
+    }
+}
+
+void MainWindow::on_checkBox_AlwaysHideTextBrowser_stateChanged(int arg1)
+{
+    if(ui->checkBox_AlwaysHideTextBrowser->checkState())
+    {
+        ui->textBrowser->setVisible(0);
+        ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
+    }
+}
+
+void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
+{
+    ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
+    Available_ProcessorList_converter.clear();
+    QtConcurrent::run(this, &MainWindow::Waifu2x_DumpProcessorList_converter);
+}
+
+int MainWindow::Waifu2x_DumpProcessorList_converter()
+{
+    emit Send_TextBrowser_NewMessage(tr("Detecting available Processor, please wait."));
+    //===============
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QFile::remove(OutputPath);
+    //==============
+    QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
+    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
+    QString model_path= Waifu2x_folder_path + "/models_rgb";
+    //=========
+    int Processor_ID=0;
+    //=========
+    while(true)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2 --noise-level 1 --model-dir " + "\"" + model_path + "\""+Processor_str;
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(file_isFileExist(OutputPath))
+        {
+            Available_ProcessorList_converter.append(QString::number(Processor_ID,10));
+            Processor_ID++;
+            QFile::remove(OutputPath);
+        }
+        else
+        {
+            break;
+        }
+    }
+    QFile::remove(OutputPath);
+    //===============
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
+    if(Available_ProcessorList_converter.isEmpty())
+    {
+        Send_TextBrowser_NewMessage(tr("No available Processor detected!"));
+    }
+    else
+    {
+        QProcess *Waifu2x = new QProcess();
+        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -l ";
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        ui->textBrowser->append(Waifu2x->readAllStandardOutput());
+    }
+    emit Send_Waifu2x_DumpProcessorList_converter_finished();
+    return 0;
+}
+int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
+{
+    ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    //====
+    ui->comboBox_TargetProcessor_converter->clear();
+    ui->comboBox_TargetProcessor_converter->addItem("auto");
+    if(!Available_ProcessorList_converter.isEmpty())
+    {
+        for(int i=0; i<Available_ProcessorList_converter.size(); i++)
+        {
+            ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
+        }
+    }
+    return 0;
+}
+
+void MainWindow::on_comboBox_TargetProcessor_converter_currentIndexChanged(int index)
+{
+    if(ui->comboBox_TargetProcessor_converter->currentText()!="auto")
+    {
+        Processor_converter_STR = " -p "+ui->comboBox_TargetProcessor_converter->currentText()+" ";
+    }
+    else
+    {
+        Processor_converter_STR="";
+    }
+}
+
+void MainWindow::on_Ext_image_textChanged(const QString &arg1)
+{
+    QString lower = ui->Ext_image->text().toLower();
+    ui->Ext_image->setText(lower);
+}
+
+void MainWindow::on_Ext_video_textChanged(const QString &arg1)
+{
+    QString lower = ui->Ext_video->text().toLower();
+    ui->Ext_video->setText(lower);
 }

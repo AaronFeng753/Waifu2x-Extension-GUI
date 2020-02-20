@@ -272,10 +272,10 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     //================
     Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    program = Waifu2x_folder_path + "/waifu2x-converter_x64.exe";
+    program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
     model_path= Waifu2x_folder_path + "/models_rgb";
-    QString Denoise_cmd = " --noise_level 1 ";
-    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale_ratio 2" + Denoise_cmd + " --model_dir " + "\"" + model_path + "\"";
+    QString Denoise_cmd = " --noise-level 1 ";
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2" + Denoise_cmd + " --model-dir " + "\"" + model_path + "\"";
     QProcess *Waifu2x_converter = new QProcess();
     Waifu2x_converter->start(cmd);
     while(!Waifu2x_converter->waitForStarted(100)&&!QProcess_stop) {}
@@ -321,6 +321,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
     return 0;
 }
 
@@ -374,6 +375,7 @@ int MainWindow::Waifu2x_DetectGPU_finished()
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_DetectGPU->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
     //====
     ui->comboBox_GPUID->clear();
     ui->comboBox_GPUID->addItem("auto");

@@ -50,8 +50,7 @@
 #include <QScreen>
 #include <QCloseEvent>
 #include <QFileDialog>
-
-#include <QDebug>
+#include <QTextCodec>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -69,7 +68,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
 
     //=======================
-    QString VERSION="v0.37-beta";//软件版本号
+    QString VERSION="v0.41-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -109,6 +108,7 @@ public:
     //void file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist);//复制文件
     QStringList file_getFileNames_in_Folder_nofilter(QString path);//读取文件夹内文件列表并返回(无过滤器)
     bool file_DelDir(const QString &path);//删除文件夹(无论是否为空,强制删除)
+    QString file_getBaseName(QString path);//获取basename
 
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
@@ -180,7 +180,9 @@ public:
     QStringList Available_GPUID;//可用GPU ID列表
     QString GPU_ID_STR="";//向vulkan命令行cmd插入的gpuid命令,如果auto则为空
 
-
+    int Waifu2x_DumpProcessorList_converter();
+    QStringList Available_ProcessorList_converter;
+    QString Processor_converter_STR="";
 
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
@@ -309,6 +311,8 @@ public slots:
 
     int Donate_Notification();//捐赠弹窗
 
+    int Waifu2x_DumpProcessorList_converter_finished();
+
 
 
 
@@ -407,6 +411,20 @@ private slots:
 
     void on_pushButton_wiki_clicked();
 
+    void on_pushButton_Minimize_clicked();
+
+    void on_pushButton_HideTextBro_clicked();
+
+    void on_checkBox_AlwaysHideTextBrowser_stateChanged(int arg1);
+
+    void on_pushButton_DumpProcessorList_converter_clicked();
+
+    void on_comboBox_TargetProcessor_converter_currentIndexChanged(int index);
+
+    void on_Ext_image_textChanged(const QString &arg1);
+
+    void on_Ext_video_textChanged(const QString &arg1);
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -444,6 +462,8 @@ signals:
     void Send_SystemShutDown();
 
     void Send_Donate_Notification();
+
+    void Send_Waifu2x_DumpProcessorList_converter_finished();
 
 
 private:

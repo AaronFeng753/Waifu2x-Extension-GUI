@@ -73,7 +73,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     }
     //===============
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -314,7 +314,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -515,7 +515,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
-    QString Frame_fileName_basename = fileinfo_frame.baseName();
+    QString Frame_fileName_basename = file_getBaseName(fileinfo_frame.filePath());
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();
@@ -643,7 +643,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = fileinfo.baseName();
+    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = fileinfo.path();
     if(file_path.right(1)=="/")
@@ -855,7 +855,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
-    QString Frame_fileName_basename = fileinfo_frame.baseName();
+    QString Frame_fileName_basename = file_getBaseName(fileinfo_frame.filePath());
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();
