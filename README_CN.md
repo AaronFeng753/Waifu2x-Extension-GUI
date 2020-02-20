@@ -129,7 +129,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - Anime4K: https://github.com/bloc97/Anime4K
 
-- Waifu2x-converter: https://github.com/WL-Amigo/waifu2x-converter-cpp
+- Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
 
 - ImageMagick: http://www.imagemagick.org/
 
