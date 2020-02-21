@@ -1,4 +1,13 @@
 # Change log
+## [v0.45-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.45-beta)
+#### Change log:
+- New feature: waifu2x-ncnn-vulkan engine supports switching to cunet model
+- New feature: custom video encoder, bitrate and pixel format (in additional settings)
+- New feature: Custom resolution supports apply settings to all files together
+- Enhanced video quality
+- Performance optimization, reducing the time required to process GIF and video when custom resolution is enabled
+- Fix bug: target magnification cannot be calculated correctly when custom resolution is enabled
+---
 ## [v0.411-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.411-beta)
 #### v0.411 Change log:
 - Improve compatibility of waifu2x-converter
