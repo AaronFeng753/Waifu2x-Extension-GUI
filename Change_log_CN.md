@@ -2,6 +2,15 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v0.45-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.45-beta)
+#### 更新日志:
+- 新特性:waifu2x-ncnn-vulkan引擎支持切换到cunet模型
+- 新特性:自定义视频的编码器,码率和像素格式(在附加设置中)
+- 新特性:自定义分辨率支持应用设置到所有文件
+- 视频画质增强
+- 性能优化,减少启用自定义分辨率时处理GIF和视频所需的时间
+- 修复bug:启用自定义分辨率时无法正确计算目标放大倍数
+---
 ## [v0.411-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.411-beta)
 #### v0.411 更新日志:
 - 改善waifu2x-converter的兼容性
