@@ -84,10 +84,33 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
 /*
 组装gif
 */
-void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration)
+void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
 {
+    QString resize_cmd ="";
+    if(CustRes_isEnabled)
+    {
+        if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
+        {
+            resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"! ";
+        }
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatio)
+        {
+            resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+" ";
+        }
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding)
+        {
+            if(CustRes_width>CustRes_height)
+            {
+                resize_cmd =" -resize "+QString::number(CustRes_width,10)+" ";
+            }
+            else
+            {
+                resize_cmd =" -resize x"+QString::number(CustRes_height,10)+" ";
+            }
+        }
+    }
     QString program = Current_Path+"/convert.exe";
-    QString cmd = "\"" + program + "\"" + " -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
+    QString cmd = "\"" + program + "\"" + " "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
     QProcess *AssembleGIF=new QProcess();
     AssembleGIF->start(cmd);
     while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}

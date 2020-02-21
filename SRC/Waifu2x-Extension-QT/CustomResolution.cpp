@@ -24,6 +24,87 @@ Apply自定义分辨率
 */
 int MainWindow::CustRes_SetCustRes()
 {
+    if(ui->checkBox_custres_isAll->checkState())
+    {
+        int row_count_image = Table_image_get_rowNum();
+        int row_count_gif = Table_gif_get_rowNum();
+        int row_count_video = Table_video_get_rowNum();
+        if((row_count_image+row_count_gif+row_count_video)==0)
+        {
+            QMessageBox *CustRes_NoItem = new QMessageBox();
+            CustRes_NoItem->setWindowTitle(tr("Error"));
+            CustRes_NoItem->setText(tr("No items are in the list."));
+            CustRes_NoItem->setIcon(QMessageBox::Warning);
+            CustRes_NoItem->setModal(true);
+            CustRes_NoItem->show();
+            return 0;
+        }
+        RecFinedFiles();//将已完成文件拖回列表
+        //====
+        for(int i=0; i<row_count_image; i++)
+        {
+            QMap<QString,QString> res_map;
+            //读取文件信息
+            QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, i);
+            if(!fileMap.isEmpty())
+            {
+                CustRes_remove(fileMap["SourceFile_fullPath"]);//移除原来的设定,防止重复
+                res_map["fullpath"] = fileMap["SourceFile_fullPath"];
+                res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
+                res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+                Custom_resolution_list.append(res_map);
+                Table_image_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
+            }
+        }
+        for(int i=0; i<row_count_gif; i++)
+        {
+            QMap<QString,QString> res_map;
+            QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_gif, i);
+            if(!fileMap.isEmpty())
+            {
+                CustRes_remove(fileMap["SourceFile_fullPath"]);
+                res_map["fullpath"] = fileMap["SourceFile_fullPath"];
+                res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
+                res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+                Custom_resolution_list.append(res_map);
+                Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
+            }
+        }
+        for(int i=0; i<row_count_video; i++)
+        {
+            if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
+            {
+                QMessageBox *MSG = new QMessageBox();
+                MSG->setWindowTitle(tr("Warning"));
+                MSG->setText(tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd."));
+                MSG->setIcon(QMessageBox::Warning);
+                MSG->setModal(false);
+                MSG->show();
+                if(!ui->checkBox_ReProcFinFiles->checkState())
+                {
+                    MovToFinedList();
+                }
+                return 0;
+            }
+            QMap<QString,QString> res_map;
+            QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_video, i);
+            if(!fileMap.isEmpty())
+            {
+                CustRes_remove(fileMap["SourceFile_fullPath"]);
+                res_map["fullpath"] = fileMap["SourceFile_fullPath"];
+                res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
+                res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+                Custom_resolution_list.append(res_map);
+                Table_video_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
+            }
+        }
+        //====
+        if(!ui->checkBox_ReProcFinFiles->checkState())
+        {
+            MovToFinedList();
+        }
+        return 0;
+    }
     //如果没有选中任何row,则直接return
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
@@ -116,6 +197,58 @@ int MainWindow::CustRes_SetCustRes()
 */
 int MainWindow::CustRes_CancelCustRes()
 {
+    if(ui->checkBox_custres_isAll->checkState())
+    {
+        int row_count_image = Table_image_get_rowNum();
+        int row_count_gif = Table_gif_get_rowNum();
+        int row_count_video = Table_video_get_rowNum();
+        if((row_count_image+row_count_gif+row_count_video)==0)
+        {
+            QMessageBox *CustRes_NoItem = new QMessageBox();
+            CustRes_NoItem->setWindowTitle(tr("Error"));
+            CustRes_NoItem->setText(tr("No items are in the list."));
+            CustRes_NoItem->setIcon(QMessageBox::Warning);
+            CustRes_NoItem->setModal(true);
+            CustRes_NoItem->show();
+            return 0;
+        }
+        RecFinedFiles();//将已完成文件拖回列表
+        //====
+        for(int i=0; i<row_count_image; i++)
+        {
+            //获取文件信息
+            QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, i);
+            if(!fileMap.isEmpty())
+            {
+                CustRes_remove(fileMap["SourceFile_fullPath"]);//从自定义分辨率列表移除
+                Table_image_CustRes_Cancel_rowNumInt(i);//清空指定row的自定义分辨率
+            }
+        }
+        for(int i=0; i<row_count_gif; i++)
+        {
+            QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_gif, i);
+            if(!fileMap.isEmpty())
+            {
+                CustRes_remove(fileMap["SourceFile_fullPath"]);
+                Table_gif_CustRes_Cancel_rowNumInt(i);
+            }
+        }
+        for(int i=0; i<row_count_video; i++)
+        {
+            QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_video, i);
+            if(!fileMap.isEmpty())
+            {
+                CustRes_remove(fileMap["SourceFile_fullPath"]);
+                Table_video_CustRes_Cancel_rowNumInt(i);
+            }
+        }
+        //====
+        if(!ui->checkBox_ReProcFinFiles->checkState())
+        {
+            MovToFinedList();
+        }
+        return 0;
+    }
     //如果没有任何选中的,则弹窗后return
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
@@ -234,7 +367,7 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     //=====================分别计算高和宽的放大倍数=======================
     //==== 高 ======
     int ScaleRatio_height;
-    double ScaleRatio_height_double = Height_new/qimage_original.height();
+    double ScaleRatio_height_double = (double)Height_new/(double)qimage_original.height();
     if((ScaleRatio_height_double-(int)ScaleRatio_height_double)>0)
     {
         ScaleRatio_height = (int)(ScaleRatio_height_double)+1;
@@ -245,7 +378,7 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     }
     //==== 宽 ======
     int ScaleRatio_width;
-    double ScaleRatio_width_double = width_new/qimage_original.width();
+    double ScaleRatio_width_double = (double)width_new/(double)qimage_original.width();
     if((ScaleRatio_width_double-(int)ScaleRatio_width_double)>0)
     {
         ScaleRatio_width = (int)(ScaleRatio_width_double)+1;

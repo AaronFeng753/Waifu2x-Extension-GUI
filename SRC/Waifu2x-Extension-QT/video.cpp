@@ -101,8 +101,46 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
 }
 
-int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath)
+int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
 {
+    QString encoder_video_cmd=" -c:v "+ui->lineEdit_encoder_vid->text()+" ";
+    QString bitrate_video_cmd=" -b:v "+QString::number(ui->spinBox_bitrate_vid->value(),10)+"k ";
+    //====
+    QString encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
+    QString bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
+    //===
+    QString pixFormat_cmd=" -pix_fmt "+ui->lineEdit_pixformat->text()+" ";
+    //=====
+    QString resize_cmd ="";
+    if(CustRes_isEnabled)
+    {
+        if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
+        {
+            resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":"+QString::number(CustRes_height,10)+" ";
+        }
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatio)
+        {
+            if(CustRes_width>=CustRes_height)
+            {
+                resize_cmd =" -vf scale=-2:"+QString::number(CustRes_height,10)+" ";
+            }
+            else
+            {
+                resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":-2 ";
+            }
+        }
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding)
+        {
+            if(CustRes_width>=CustRes_height)
+            {
+                resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":-2 ";
+            }
+            else
+            {
+                resize_cmd =" -vf scale=-2:"+QString::number(CustRes_height,10)+" ";
+            }
+        }
+    }
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);
@@ -122,24 +160,26 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString CMD = "";
     if(file_isFileExist(AudioPath))
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+QString::number(fps,10)+" -pix_fmt yuv420p \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" \""+video_mp4_scaled_fullpath+"\"";
     }
     else
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+QString::number(fps,10)+" -pix_fmt yuv420p \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" \""+video_mp4_scaled_fullpath+"\"";
     }
     QProcess images2video;
     images2video.start(CMD);
+    while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
     while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
+    //======
     if(!file_isFileExist(video_mp4_scaled_fullpath))
     {
         if(file_isFileExist(AudioPath))
         {
-            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -i \""+AudioPath+"\" -r "+QString::number(fps,10)+" -pix_fmt yuv420p \""+video_mp4_scaled_fullpath+"\"";
+            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -i \""+AudioPath+"\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" \""+video_mp4_scaled_fullpath+"\"";
         }
         else
         {
-            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -r "+QString::number(fps,10)+" -pix_fmt yuv420p \""+video_mp4_scaled_fullpath+"\"";
+            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" \""+video_mp4_scaled_fullpath+"\"";
         }
         QProcess images2video;
         images2video.start(CMD);

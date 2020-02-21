@@ -263,6 +263,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->label_TimeCost->setText(tr("Time cost:NULL"));
         ui->label_ETA->setText(tr("ETA:NULL"));
         ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
+        ui->groupBox_video_settings->setEnabled(0);
         //==========
         TimeCostTimer->start(1000);
         TimeCost=0;
@@ -534,6 +535,7 @@ void MainWindow::on_pushButton_donate_clicked()
 {
     emit Send_TextBrowser_NewMessage(tr("Thank you! :)"));
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+    ui->tabWidget->setCurrentIndex(1);
 }
 
 void MainWindow::on_pushButton_Report_clicked()
@@ -1332,4 +1334,55 @@ void MainWindow::on_Ext_video_textChanged(const QString &arg1)
 {
     QString lower = ui->Ext_video->text().toLower();
     ui->Ext_video->setText(lower);
+}
+
+void MainWindow::on_comboBox_model_vulkan_currentIndexChanged(int index)
+{
+    if(ui->comboBox_model_vulkan->currentIndex()==0)
+    {
+        ui->comboBox_ImageStyle->setEnabled(1);
+    }
+    if(ui->comboBox_model_vulkan->currentIndex()==1)
+    {
+        ui->comboBox_ImageStyle->setEnabled(0);
+    }
+}
+
+void MainWindow::on_comboBox_ImageStyle_currentIndexChanged(int index)
+{
+    if(ui->comboBox_ImageStyle->currentIndex()==0)
+    {
+        ui->comboBox_model_vulkan->setEnabled(1);
+    }
+    if(ui->comboBox_ImageStyle->currentIndex()==1)
+    {
+        ui->comboBox_model_vulkan->setEnabled(0);
+    }
+}
+
+void MainWindow::on_pushButton_ResetVideoSettings_clicked()
+{
+    ui->lineEdit_pixformat->setText("yuv420p");
+    ui->lineEdit_encoder_vid->setText("libx264");
+    ui->lineEdit_encoder_audio->setText("aac");
+    ui->spinBox_bitrate_vid->setValue(6000);
+    ui->spinBox_bitrate_audio->setValue(320);
+}
+
+void MainWindow::on_lineEdit_encoder_vid_textChanged(const QString &arg1)
+{
+    QString tmp = ui->lineEdit_encoder_vid->text().trimmed();
+    ui->lineEdit_encoder_vid->setText(tmp);
+}
+
+void MainWindow::on_lineEdit_encoder_audio_textChanged(const QString &arg1)
+{
+    QString tmp = ui->lineEdit_encoder_audio->text().trimmed();
+    ui->lineEdit_encoder_audio->setText(tmp);
+}
+
+void MainWindow::on_lineEdit_pixformat_textChanged(const QString &arg1)
+{
+    QString tmp = ui->lineEdit_pixformat->text().trimmed();
+    ui->lineEdit_pixformat->setText(tmp);
 }

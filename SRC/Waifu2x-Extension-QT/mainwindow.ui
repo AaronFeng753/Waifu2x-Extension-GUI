@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1548</width>
-    <height>851</height>
+    <width>1669</width>
+    <height>863</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1033,624 +1033,102 @@ padding:10px;
              </layout>
             </widget>
            </item>
-           <item row="0" column="4" rowspan="3">
-            <widget class="QGroupBox" name="groupBox_Engine">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="title">
-              <string>Engine</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_6">
-              <item row="3" column="1" colspan="2">
-               <widget class="QComboBox" name="comboBox_Engine_Video">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="toolTip">
-                 <string>Select the engine for processing Video. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:☆ ]
-You can run compatibility test to see which engines your PC is compatible with.</string>
-                </property>
-                <property name="currentText">
-                 <string notr="true">waifu2x-ncnn-vulkan</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-ncnn-vulkan</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-converter</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">Anime4k</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="2" column="1" colspan="2">
-               <widget class="QComboBox" name="comboBox_Engine_GIF">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="toolTip">
-                 <string>Select the engine for processing GIF. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-You can run compatibility test to see which engines your PC is compatible with.</string>
-                </property>
-                <property name="currentText">
-                 <string notr="true">waifu2x-ncnn-vulkan</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-ncnn-vulkan</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-converter</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_8">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Video:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1" colspan="2">
-               <widget class="QComboBox" name="comboBox_Engine_Image">
-                <property name="enabled">
-                 <bool>true</bool>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>200</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>Select the engine for processing Image. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-You can run compatibility test to see which engines your PC is compatible with.</string>
-                </property>
-                <property name="currentText">
-                 <string notr="true">waifu2x-ncnn-vulkan</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-ncnn-vulkan</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-converter</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_7">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>GIF:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_6">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Image:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0" colspan="3">
-               <widget class="QTabWidget" name="tabWidget_waifu2xSettings">
-                <property name="styleSheet">
-                 <string notr="true">QTabBar::tab{
-height:28
-}</string>
-                </property>
-                <property name="currentIndex">
-                 <number>1</number>
-                </property>
-                <property name="usesScrollButtons">
-                 <bool>true</bool>
-                </property>
-                <property name="documentMode">
-                 <bool>false</bool>
-                </property>
-                <property name="movable">
-                 <bool>false</bool>
-                </property>
-                <property name="tabBarAutoHide">
-                 <bool>false</bool>
-                </property>
-                <widget class="QWidget" name="tab">
-                 <attribute name="title">
-                  <string>waifu2x-ncnn-vulkan</string>
-                 </attribute>
-                 <layout class="QGridLayout" name="gridLayout_5">
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QLabel" name="label_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
-                    </property>
-                    <property name="text">
-                     <string>Image Style:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QComboBox" name="comboBox_ImageStyle">
-                    <property name="minimumSize">
-                     <size>
-                      <width>120</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
-                    </property>
-                    <property name="currentText">
-                     <string notr="true">2D Anime</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>2D Anime</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3D Real-life</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="0" colspan="2">
-                   <widget class="QLabel" name="label_9">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.
-(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
-                    </property>
-                    <property name="text">
-                     <string>Tile size:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QSpinBox" name="spinBox_TileSize">
-                    <property name="toolTip">
-                     <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
-                    </property>
-                    <property name="minimum">
-                     <number>10</number>
-                    </property>
-                    <property name="maximum">
-                     <number>10000</number>
-                    </property>
-                    <property name="singleStep">
-                     <number>10</number>
-                    </property>
-                    <property name="value">
-                     <number>200</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QLabel" name="label_10">
-                    <property name="toolTip">
-                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-                    </property>
-                    <property name="text">
-                     <string>GPU ID:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1" colspan="2">
-                   <widget class="QComboBox" name="comboBox_GPUID">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-                    </property>
-                    <property name="currentText">
-                     <string notr="true">auto</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string notr="true">auto</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="0" colspan="3">
-                   <widget class="QPushButton" name="pushButton_DetectGPU">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Detect available GPU ID</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="tab_2">
-                 <attribute name="title">
-                  <string>waifu2x-converter</string>
-                 </attribute>
-                 <layout class="QGridLayout" name="gridLayout_16">
-                  <item row="4" column="0">
-                   <widget class="QLabel" name="label_25">
-                    <property name="text">
-                     <string>Target processor:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string notr="true">auto</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QSpinBox" name="spinBox_BlockSize_converter">
-                    <property name="toolTip">
-                     <string>Block size: This value will affacts GPU memory usage.
-Larger Block size means waifu2x will use more GPU memory and run faster.
-Smaller Block size means waifu2x will use less GPU memory and run slower.</string>
-                    </property>
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                    <property name="value">
-                     <number>300</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
-                    <property name="text">
-                     <string>Disable GPU</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_14">
-                    <property name="text">
-                     <string>Block size:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
-                    <property name="toolTip">
-                     <string>Force to use OpenCL on Intel Platform.</string>
-                    </property>
-                    <property name="text">
-                     <string>Force OpenCL</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="0" colspan="2">
-                   <widget class="QPushButton" name="pushButton_DumpProcessorList_converter">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-	background-color: rgb(238, 119, 133);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(255, 127, 144);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-	background-color: rgb(226, 112, 128);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Dump processor list</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="0" rowspan="2">
-            <widget class="QGroupBox" name="groupBox_other">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>250</width>
-               <height>16777215</height>
-              </size>
-             </property>
+           <item row="0" column="3" rowspan="3">
+            <widget class="QGroupBox" name="groupBox_other_1">
              <property name="title">
               <string/>
              </property>
-             <layout class="QGridLayout" name="gridLayout_12">
-              <item row="0" column="0" colspan="2">
-               <widget class="QPushButton" name="pushButton_donate">
-                <property name="font">
-                 <font>
-                  <pointsize>9</pointsize>
-                  <weight>50</weight>
-                  <italic>false</italic>
-                  <bold>false</bold>
-                  <underline>false</underline>
-                  <strikeout>false</strikeout>
-                 </font>
-                </property>
-                <property name="toolTip">
-                 <string>Please donate to developers to support continuous updates of this software.</string>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>★★ Donate ★★</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QPushButton" name="pushButton_wiki">
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>Wiki</string>
-                </property>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="gridLayout_7">
               <item row="4" column="0" colspan="2">
-               <widget class="QPushButton" name="pushButton_compatibilityTest">
+               <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
                 <property name="toolTip">
-                 <string>Run a compatibility test to see which engines your computer is compatible with.</string>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-	background-color: rgb(92, 172, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(99, 184, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(79, 148,205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
+                 <string>When there are finished files in the list, the finished files will be
+ processed again when the processing process is started again.</string>
                 </property>
                 <property name="text">
-                 <string>Compatibility test</string>
+                 <string>Re-process finished files</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QPushButton" name="pushButton_CheckUpdate">
-                <property name="font">
-                 <font>
-                  <pointsize>9</pointsize>
-                  <underline>false</underline>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_SaveAsJPG">
+                <property name="toolTip">
+                 <string>Save the scaled image as &quot;.jpg&quot;.
+Images are stored in &quot;.png&quot; format by default.
+When this option is enabled, alpha channel (ransparent images)support will be lost.</string>
                 </property>
                 <property name="text">
-                 <string>Check update</string>
+                 <string>Save as &quot;.jpg&quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_CompressJPG">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>Compress JPG files, almost lossless.</string>
+                </property>
+                <property name="text">
+                 <string>Compress &quot;.jpg&quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_DelOriginal">
+                <property name="toolTip">
+                 <string>Delete the original file after processing is complete.</string>
+                </property>
+                <property name="text">
+                 <string>Delete original files</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_NfSound">
+                <property name="toolTip">
+                 <string>Play Notification sound when all files in the list have been processed.</string>
+                </property>
+                <property name="text">
+                 <string>Notification sound</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_OptGIF">
+                <property name="toolTip">
+                 <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</string>
+                </property>
+                <property name="text">
+                 <string>Optimize &quot;.gif&quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_ShowInterPro">
+                <property name="toolTip">
+                 <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
+                </property>
+                <property name="text">
+                 <string>Show internal progress</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AutoTurnOFF">
+                <property name="toolTip">
+                 <string>Automatically shut down the computer after processing all files in the list.</string>
+                </property>
+                <property name="text">
+                 <string>Turn off computer when finished</string>
                 </property>
                </widget>
               </item>
@@ -1905,7 +1383,20 @@ padding:10px;
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
              </property>
              <layout class="QGridLayout" name="gridLayout_13">
-              <item row="4" column="0">
+              <item row="1" column="0" colspan="2">
+               <widget class="QSpinBox" name="spinBox_CustRes_width">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="value">
+                 <number>100</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
                <widget class="QPushButton" name="pushButton_CustRes_apply">
                 <property name="toolTip">
                  <string>1.Set the height and width of the resolution.
@@ -1947,6 +1438,13 @@ padding:10px;
                 </property>
                </widget>
               </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>Height:</string>
+                </property>
+               </widget>
+              </item>
               <item row="3" column="0" colspan="2">
                <widget class="QSpinBox" name="spinBox_CustRes_height">
                 <property name="minimum">
@@ -1960,26 +1458,6 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QSpinBox" name="spinBox_CustRes_width">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999999999</number>
-                </property>
-                <property name="value">
-                 <number>100</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_15">
-                <property name="text">
-                 <string>Height:</string>
-                </property>
-               </widget>
-              </item>
               <item row="0" column="0">
                <widget class="QLabel" name="label_18">
                 <property name="text">
@@ -1987,7 +1465,7 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="4" column="1">
+              <item row="5" column="1">
                <widget class="QPushButton" name="pushButton_CustRes_cancel">
                 <property name="toolTip">
                  <string>1.Select a file in the file list.
@@ -2042,114 +1520,664 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="5" column="0" colspan="2">
-               <widget class="QLabel" name="label_26">
-                <property name="frameShape">
-                 <enum>QFrame::NoFrame</enum>
+              <item row="4" column="0">
+               <widget class="QCheckBox" name="checkBox_custres_isAll">
+                <property name="toolTip">
+                 <string>Valid for all files.</string>
                 </property>
                 <property name="text">
-                 <string>May cause loss of 
-image quality.</string>
+                 <string>All</string>
                 </property>
                </widget>
               </item>
              </layout>
             </widget>
            </item>
-           <item row="0" column="3" rowspan="3">
-            <widget class="QGroupBox" name="groupBox_other_1">
+           <item row="0" column="4" rowspan="3">
+            <widget class="QGroupBox" name="groupBox_Engine">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Engine</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="3" column="1" colspan="2">
+               <widget class="QComboBox" name="comboBox_Engine_Video">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="toolTip">
+                 <string>Select the engine for processing Video. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:☆ ]
+You can run compatibility test to see which engines your PC is compatible with.</string>
+                </property>
+                <property name="currentText">
+                 <string notr="true">waifu2x-ncnn-vulkan</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-ncnn-vulkan</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-converter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">Anime4k</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="1" colspan="2">
+               <widget class="QComboBox" name="comboBox_Engine_GIF">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="toolTip">
+                 <string>Select the engine for processing GIF. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+You can run compatibility test to see which engines your PC is compatible with.</string>
+                </property>
+                <property name="currentText">
+                 <string notr="true">waifu2x-ncnn-vulkan</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-ncnn-vulkan</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-converter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Video:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QComboBox" name="comboBox_Engine_Image">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>200</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>Select the engine for processing Image. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Only waifu2x-converter engine supports alpha channel (transparent images).
+You can run compatibility test to see which engines your PC is compatible with.</string>
+                </property>
+                <property name="currentText">
+                 <string notr="true">waifu2x-ncnn-vulkan</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-ncnn-vulkan</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-converter</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>GIF:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Image:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0" colspan="3">
+               <widget class="QTabWidget" name="tabWidget_waifu2xSettings">
+                <property name="styleSheet">
+                 <string notr="true">QTabBar::tab{
+height:28
+}</string>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <property name="usesScrollButtons">
+                 <bool>true</bool>
+                </property>
+                <property name="documentMode">
+                 <bool>false</bool>
+                </property>
+                <property name="movable">
+                 <bool>false</bool>
+                </property>
+                <property name="tabBarAutoHide">
+                 <bool>false</bool>
+                </property>
+                <widget class="QWidget" name="tab">
+                 <attribute name="title">
+                  <string>waifu2x-ncnn-vulkan</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_5">
+                  <item row="3" column="1" colspan="2">
+                   <widget class="QComboBox" name="comboBox_GPUID">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+                    </property>
+                    <property name="currentText">
+                     <string notr="true">auto</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">auto</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="3">
+                   <widget class="QPushButton" name="pushButton_DetectGPU">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Detect available GPU ID</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QSpinBox" name="spinBox_TileSize">
+                    <property name="toolTip">
+                     <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
+                    </property>
+                    <property name="minimum">
+                     <number>10</number>
+                    </property>
+                    <property name="maximum">
+                     <number>10000</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>200</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_10">
+                    <property name="toolTip">
+                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+                    </property>
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLabel" name="label_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QComboBox" name="comboBox_ImageStyle">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
+                    </property>
+                    <property name="currentText">
+                     <string notr="true">2D Anime</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>2D Anime</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3D Real-life</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QLabel" name="label_9">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.
+(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
+                    </property>
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_26">
+                    <property name="text">
+                     <string>Model:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="2">
+                   <widget class="QComboBox" name="comboBox_model_vulkan">
+                    <property name="toolTip">
+                     <string>We recommend you use the default &quot;upconv_7&quot; model.
+Only &quot;upconv_7&quot; model supports image style switching.
+&quot;cunet&quot; model only supports 2D anime image style.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">upconv_7</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string notr="true">cunet</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="tab_2">
+                 <attribute name="title">
+                  <string>waifu2x-converter</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_25">
+                    <property name="text">
+                     <string>Target processor:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
+                   <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">auto</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QSpinBox" name="spinBox_BlockSize_converter">
+                    <property name="toolTip">
+                     <string>Block size: This value will affacts GPU memory usage.
+Larger Block size means waifu2x will use more GPU memory and run faster.
+Smaller Block size means waifu2x will use less GPU memory and run slower.</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="value">
+                     <number>300</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
+                    <property name="text">
+                     <string>Disable GPU</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_14">
+                    <property name="text">
+                     <string>Block size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
+                    <property name="toolTip">
+                     <string>Force to use OpenCL on Intel Platform.</string>
+                    </property>
+                    <property name="text">
+                     <string>Force OpenCL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0" colspan="2">
+                   <widget class="QPushButton" name="pushButton_DumpProcessorList_converter">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	background-color: rgb(238, 119, 133);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(255, 127, 144);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+	background-color: rgb(226, 112, 128);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Dump processor list</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0" rowspan="2">
+            <widget class="QGroupBox" name="groupBox_other">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="title">
               <string/>
              </property>
-             <layout class="QGridLayout" name="gridLayout_7">
-              <item row="10" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AutoTurnOFF">
+             <layout class="QGridLayout" name="gridLayout_12">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_donate">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                  <weight>50</weight>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                  <underline>false</underline>
+                  <strikeout>false</strikeout>
+                 </font>
+                </property>
                 <property name="toolTip">
-                 <string>Automatically shut down the computer after processing all files in the list.</string>
+                 <string>Please donate to developers to support continuous updates of this software.</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
                 </property>
                 <property name="text">
-                 <string>Turn off computer when finished</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_SaveAsJPG">
-                <property name="toolTip">
-                 <string>Save the scaled image as &quot;.jpg&quot;.(Images are stored in &quot;.png&quot; format by default.)</string>
-                </property>
-                <property name="text">
-                 <string>Save as &quot;.jpg&quot;</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
-                <property name="toolTip">
-                 <string>When there are finished files in the list, the finished files will be
- processed again when the processing process is started again.</string>
-                </property>
-                <property name="text">
-                 <string>Re-process finished files</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_ShowInterPro">
-                <property name="toolTip">
-                 <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
-                </property>
-                <property name="text">
-                 <string>Show internal progress</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
+                 <string>★★ Donate ★★</string>
                 </property>
                </widget>
               </item>
               <item row="6" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_DelOriginal">
+               <widget class="QPushButton" name="pushButton_compatibilityTest">
                 <property name="toolTip">
-                 <string>Delete the original file after processing is complete.</string>
+                 <string>Run a compatibility test to see which engines your computer is compatible with.</string>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+	background-color: rgb(92, 172, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(99, 184, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(79, 148,205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
                 </property>
                 <property name="text">
-                 <string>Delete original files</string>
+                 <string>Compatibility test</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_CompressJPG">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string>Compress JPG files, almost lossless.</string>
+              <item row="1" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_wiki">
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
                 </property>
                 <property name="text">
-                 <string>Compress &quot;.jpg&quot;</string>
+                 <string>Wiki</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_OptGIF">
-                <property name="toolTip">
-                 <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</string>
+              <item row="4" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_CheckUpdate">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                  <underline>false</underline>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
                 </property>
                 <property name="text">
-                 <string>Optimize &quot;.gif&quot;</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_NfSound">
-                <property name="toolTip">
-                 <string>Play Notification sound when all files in the list have been processed.</string>
-                </property>
-                <property name="text">
-                 <string>Notification sound</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
+                 <string>Check update</string>
                 </property>
                </widget>
               </item>
@@ -2509,6 +2537,194 @@ padding:10px;
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_19">
+           <item row="0" column="2" rowspan="3">
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_14">
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>Automatically check for updates on startup.</string>
+                </property>
+                <property name="text">
+                 <string>Automatically check update</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1" colspan="5">
+               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
+                <property name="toolTip">
+                 <string>0(worst quality)~99
+We recommend you use the default value(90)</string>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="value">
+                 <number>90</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1" colspan="5">
+               <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+                <property name="minimumSize">
+                 <size>
+                  <width>280</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Ignore Aspect Ratio</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Keep Aspect Ratio</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Keep Aspect Ratio By Expanding</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_23">
+                <property name="text">
+                 <string>Compressed &quot;.jpg&quot; image quality:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_44">
+                <property name="text">
+                 <string>Aspect Ratio:
+(Custom resolution)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_21">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
+                </property>
+                <property name="text">
+                 <string>Language:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1" colspan="5">
+               <widget class="QComboBox" name="comboBox_language">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
+                </property>
+                <property name="currentText">
+                 <string notr="true">English</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">English</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">简体中文</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="2" colspan="4">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
+                <property name="toolTip">
+                 <string>[Input Path] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Input path</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" colspan="4">
+               <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+                <property name="toolTip">
+                 <string>When the file processing status changes, the file list scrolls automatically.</string>
+                </property>
+                <property name="text">
+                 <string>File list scrolls automatically</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2" colspan="4">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+                <property name="toolTip">
+                 <string>[Settings] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Settings</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+                <property name="toolTip">
+                 <string>Settings will be saved automatically when you close the software.</string>
+                </property>
+                <property name="text">
+                 <string>Auto save settings</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
+                <property name="toolTip">
+                 <string>[Text browser] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Text Browser</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
            <item row="0" column="0">
             <widget class="QGroupBox" name="groupBox_InputExt">
              <property name="maximumSize">
@@ -2582,7 +2798,117 @@ padding:10px;
              </layout>
             </widget>
            </item>
-           <item row="0" column="2" rowspan="3">
+           <item row="1" column="0" rowspan="2">
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>Custom Font Settings (Restart the software to take effect)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_17">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_22">
+                <property name="text">
+                 <string>Custom font size:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
+                <property name="text">
+                 <string>Enable</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_24">
+                <property name="text">
+                 <string>Custom font:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                <property name="currentText">
+                 <string>宋体</string>
+                </property>
+                <property name="currentFont">
+                 <font>
+                  <family>宋体</family>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Save Custom Font Settings</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="3">
+               <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999</number>
+                </property>
+                <property name="value">
+                 <number>15</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="3" rowspan="3">
             <widget class="QGroupBox" name="groupBox_5">
              <property name="maximumSize">
               <size>
@@ -2795,76 +3121,133 @@ padding:10px;
              </layout>
             </widget>
            </item>
-           <item row="1" column="0" rowspan="2">
-            <widget class="QGroupBox" name="groupBox_3">
+           <item row="0" column="1" rowspan="3">
+            <widget class="QGroupBox" name="groupBox_video_settings">
              <property name="title">
-              <string>Custom Font Settings (Restart the software to take effect)</string>
+              <string>Video</string>
              </property>
-             <layout class="QGridLayout" name="gridLayout_17">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_22">
-                <property name="text">
-                 <string>Custom font size:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
-                <property name="text">
-                 <string>Enable</string>
-                </property>
-               </widget>
-              </item>
+             <layout class="QGridLayout" name="gridLayout_20">
               <item row="1" column="0">
-               <widget class="QLabel" name="label_24">
+               <widget class="QLabel" name="label_27">
                 <property name="text">
-                 <string>Custom font:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 <string>Bitrate(video):</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1" colspan="2">
-               <widget class="QFontComboBox" name="fontComboBox_CustFont">
-                <property name="currentText">
-                 <string>宋体</string>
-                </property>
-                <property name="currentFont">
-                 <font>
-                  <family>宋体</family>
-                 </font>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_33">
+                <property name="text">
+                 <string>Pixel format:</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
+              <item row="0" column="1" colspan="2">
+               <widget class="QLineEdit" name="lineEdit_encoder_vid">
+                <property name="text">
+                 <string notr="true">libx264</string>
                 </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QSpinBox" name="spinBox_bitrate_audio">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="singleStep">
+                 <number>10</number>
+                </property>
+                <property name="value">
+                 <number>320</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_32">
+                <property name="text">
+                 <string>Encoder(audio):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_29">
+                <property name="text">
+                 <string>Bitrate(audio):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1" colspan="2">
+               <widget class="QLineEdit" name="lineEdit_encoder_audio">
+                <property name="text">
+                 <string notr="true">aac</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="label_28">
+                <property name="text">
+                 <string>K</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLabel" name="label_30">
+                <property name="text">
+                 <string>K</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QSpinBox" name="spinBox_bitrate_vid">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="singleStep">
+                 <number>100</number>
+                </property>
+                <property name="value">
+                 <number>6000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_31">
+                <property name="text">
+                 <string>Encoder(video):</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1" colspan="2">
+               <widget class="QLineEdit" name="lineEdit_pixformat">
+                <property name="text">
+                 <string notr="true">yuv420p</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_ResetVideoSettings">
                 <property name="styleSheet">
                  <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
+background-color: rgb(231, 76, 60);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(29, 214, 177);
+background-color: rgb(255, 102, 64);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(23, 173, 143);
+background-color: rgb(204, 65, 53);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -2879,214 +3262,7 @@ padding:10px;
 }</string>
                 </property>
                 <property name="text">
-                 <string>Save Custom Font Settings</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" colspan="3">
-               <widget class="QSpinBox" name="spinBox_GlobalFontSize">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999</number>
-                </property>
-                <property name="value">
-                 <number>15</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="1" rowspan="3">
-            <widget class="QGroupBox" name="groupBox_8">
-             <property name="title">
-              <string/>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_14">
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string>Automatically check for updates on startup.</string>
-                </property>
-                <property name="text">
-                 <string>Automatically check update</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1" colspan="5">
-               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
-                <property name="toolTip">
-                 <string>0(worst quality)~99
-We recommend you use the default value(90)</string>
-                </property>
-                <property name="minimum">
-                 <number>0</number>
-                </property>
-                <property name="value">
-                 <number>90</number>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1" colspan="5">
-               <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-                <property name="minimumSize">
-                 <size>
-                  <width>280</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="currentIndex">
-                 <number>0</number>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Ignore Aspect Ratio</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Keep Aspect Ratio</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Keep Aspect Ratio By Expanding</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="4" column="0">
-               <widget class="QLabel" name="label_23">
-                <property name="text">
-                 <string>Compressed &quot;.jpg&quot; image quality:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_44">
-                <property name="text">
-                 <string>Aspect Ratio:
-(Custom resolution)</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_21">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>We recommend that you restart the software after changing 
-the language for the language settings to fully take effect.</string>
-                </property>
-                <property name="text">
-                 <string>Language:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1" colspan="5">
-               <widget class="QComboBox" name="comboBox_language">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>We recommend that you restart the software after changing 
-the language for the language settings to fully take effect.</string>
-                </property>
-                <property name="currentText">
-                 <string notr="true">English</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">English</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">简体中文</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="2" colspan="4">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
-                <property name="toolTip">
-                 <string>[Input Path] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Input path</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2" colspan="4">
-               <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
-                <property name="toolTip">
-                 <string>When the file processing status changes, the file list scrolls automatically.</string>
-                </property>
-                <property name="text">
-                 <string>File list scrolls automatically</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2" colspan="4">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
-                <property name="toolTip">
-                 <string>[Settings] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Settings</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
-                <property name="toolTip">
-                 <string>Settings will be saved automatically when you close the software.</string>
-                </property>
-                <property name="text">
-                 <string>Auto save settings</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
-                <property name="toolTip">
-                 <string>[Text browser] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Text Browser</string>
+                 <string>Reset video settings</string>
                 </property>
                </widget>
               </item>

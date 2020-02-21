@@ -86,13 +86,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     QString model_path;
-    if(ImageStyle==0)
+    if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
-        model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+        if(ImageStyle==0)
+        {
+            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+        }
+        else
+        {
+            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
+        }
     }
-    else
+    if(ui->comboBox_model_vulkan->currentIndex()==1)
     {
-        model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
+        model_path = Waifu2x_folder_path+"/models-cunet";
     }
     int ScaleRatio_tmp=0;
     //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
@@ -425,7 +432,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     {
         ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n.gif";
     }
-    Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration);
+    Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width);
     if(!file_isFileExist(ResGIFPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
@@ -497,8 +504,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
-    int CustRes_height=0;
-    int CustRes_width=0;
     if(CustRes_isContained(SourceFile_fullPath))
     {
         CustRes_isEnabled=true;
@@ -510,8 +515,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
             *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
             return 0;
         }
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
@@ -522,13 +525,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     QString model_path;
-    if(ImageStyle==0)
+    if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
-        model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+        if(ImageStyle==0)
+        {
+            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+        }
+        else
+        {
+            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
+        }
     }
-    else
+    if(ui->comboBox_model_vulkan->currentIndex()==1)
     {
-        model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
+        model_path = Waifu2x_folder_path+"/models-cunet";
     }
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -565,22 +575,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
         InputPath_tmp = OutputPath_tmp;
     }
     //============================ 调整大小 ====================================================
-    if(ScaleRatio_tmp != ScaleRatio||CustRes_isEnabled)
+    if(ScaleRatio_tmp != ScaleRatio&&!CustRes_isEnabled)
     {
         QImage qimage_original;
         qimage_original.load(Frame_fileFullPath);
         int New_height=0;
         int New_width=0;
-        if(CustRes_isEnabled)
-        {
-            New_height= CustRes_height;
-            New_width= CustRes_width;
-        }
-        else
-        {
-            New_height = qimage_original.height()*ScaleRatio;
-            New_width = qimage_original.width()*ScaleRatio;
-        }
+        New_height = qimage_original.height()*ScaleRatio;
+        New_width = qimage_original.width()*ScaleRatio;
         QImage qimage_adj(OutputPath_tmp);
         //读取放大后的图片并调整大小
         QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
@@ -773,7 +775,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+QString::number(DenoiseLevel,10)+"n"+"_"+file_ext+".mp4";
     }
     QFile::remove(video_mp4_scaled_fullpath);
-    video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath);
+    video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath,CustRes_isEnabled,CustRes_height,CustRes_width);
     if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
@@ -837,11 +839,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
-    int CustRes_height=0;
-    int CustRes_width=0;
     if(CustRes_isContained(SourceFile_fullPath))
     {
-        CustRes_isEnabled=true;
+        CustRes_isEnabled = true;
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
         ScaleRatio = CustRes_CalNewScaleRatio(Frame_fileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
@@ -850,8 +850,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
             *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
             return 0;
         }
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
@@ -861,15 +859,24 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    //===========
     QString model_path;
-    if(ImageStyle==0)
+    if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
-        model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+        if(ImageStyle==0)
+        {
+            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+        }
+        else
+        {
+            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
+        }
     }
-    else
+    if(ui->comboBox_model_vulkan->currentIndex()==1)
     {
-        model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
+        model_path = Waifu2x_folder_path+"/models-cunet";
     }
+    //=========
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
     {
@@ -905,67 +912,15 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
         InputPath_tmp = OutputPath_tmp;
     }
     //============================ 调整大小 ====================================================
-    if(ScaleRatio_tmp != ScaleRatio||CustRes_isEnabled)
+    if(ScaleRatio_tmp != ScaleRatio&&!CustRes_isEnabled)
     {
         QImage qimage_original;
         qimage_original.load(Frame_fileFullPath);
         int New_height=0;
         int New_width=0;
-        if(CustRes_isEnabled)
-        {
-            New_height= CustRes_height;
-            New_width= CustRes_width;
-        }
-        else
-        {
-            New_height = qimage_original.height()*ScaleRatio;
-            New_width = qimage_original.width()*ScaleRatio;
-        }
+        New_height = qimage_original.height()*ScaleRatio;
+        New_width = qimage_original.width()*ScaleRatio;
         QImage qimage_adj(OutputPath_tmp);
-        if(CustRes_isEnabled)
-        {
-            double Original_height = qimage_original.height();
-            double Original_width = qimage_original.width();
-            double AspectRatio = Original_height/Original_width;
-            if(CustRes_AspectRatioMode == Qt::KeepAspectRatio)
-            {
-                if(AspectRatio<1)
-                {
-                    New_height = (int)(New_width*AspectRatio);
-                    if(New_height%2!=0)
-                    {
-                        New_height+=1;
-                    }
-                }
-                else
-                {
-                    New_width = (int)(New_height/AspectRatio);
-                    if(New_width%2!=0)
-                    {
-                        New_width+=1;
-                    }
-                }
-            }
-            if(CustRes_AspectRatioMode == Qt::KeepAspectRatioByExpanding)
-            {
-                if(AspectRatio<1)
-                {
-                    New_width = (int)(New_height/AspectRatio);
-                    if(New_width%2!=0)
-                    {
-                        New_width+=1;
-                    }
-                }
-                else
-                {
-                    New_height = (int)(New_width*AspectRatio);
-                    if(New_height%2!=0)
-                    {
-                        New_height+=1;
-                    }
-                }
-            }
-        }
         QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
         QImageWriter qimageW_adj;
         qimageW_adj.setFormat("png");

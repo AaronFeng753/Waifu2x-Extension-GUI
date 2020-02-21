@@ -64,11 +64,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-
     MainWindow(QWidget *parent = nullptr);
-
     //=======================
-    QString VERSION="v0.411-beta";//软件版本号
+    QString VERSION="v0.45-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -84,7 +82,6 @@ public:
     void Add_File_Folder(QString Full_Path);//添加文件or文件夹(判断一个路径是文件还是文件夹,然后处理判断类型添加到table和file list)
     QStringList getFileNames(QString path);//当拖入的路径是文件夹时,读取文件夹内指定扩展名的文件并返回一个qstringlist
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
-
     //待处理的filelist
     QList<QMap<QString, QString>> FileList_image;//map["SourceFile_fullPath"],map["rowNum"]
     QList<QMap<QString, QString>> FileList_gif;
@@ -197,7 +194,7 @@ public:
     int Gif_getDuration(QString gifPath);//获取帧间隔时长
     int Gif_getFrameDigits(QString gifPath);//获取帧数量的位数
     void Gif_splitGif(QString gifPath,QString SplitFramesFolderPath);//拆分gif
-    void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration);//组装gif
+    void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
     void Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
 
     //================================= video ===============================
@@ -206,7 +203,7 @@ public:
     //拆分视频
     void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);
     //组装视频
-    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath);
+    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
 
     //============================   custom res  ====================================
     //自定义分辨率列表
@@ -424,6 +421,18 @@ private slots:
     void on_Ext_image_textChanged(const QString &arg1);
 
     void on_Ext_video_textChanged(const QString &arg1);
+
+    void on_comboBox_model_vulkan_currentIndexChanged(int index);
+
+    void on_comboBox_ImageStyle_currentIndexChanged(int index);
+
+    void on_pushButton_ResetVideoSettings_clicked();
+
+    void on_lineEdit_encoder_vid_textChanged(const QString &arg1);
+
+    void on_lineEdit_encoder_audio_textChanged(const QString &arg1);
+
+    void on_lineEdit_pixformat_textChanged(const QString &arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

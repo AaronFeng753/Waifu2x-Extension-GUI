@@ -56,6 +56,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/GIFEngine", ui->comboBox_Engine_GIF->currentIndex());
     configIniWrite->setValue("/settings/VideoEngine", ui->comboBox_Engine_Video->currentIndex());
     configIniWrite->setValue("/settings/ImageStyle", ui->comboBox_ImageStyle->currentIndex());
+    configIniWrite->setValue("/settings/ModelVulkan", ui->comboBox_model_vulkan->currentIndex());
     configIniWrite->setValue("/settings/TileSize", ui->spinBox_TileSize->value());
     configIniWrite->setValue("/settings/BlockSizeConverter", ui->spinBox_BlockSize_converter->value());
     configIniWrite->setValue("/settings/DisableGPUConverter", ui->checkBox_DisableGPU_converter->checkState());
@@ -86,6 +87,12 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
     configIniWrite->setValue("/settings/CustFont", ui->fontComboBox_CustFont->currentFont());
     configIniWrite->setValue("/settings/CustFont_isEnabled", ui->checkBox_isCustFontEnable->checkState());
+    //=================== 存储视频设置 ===========================
+    configIniWrite->setValue("/settings/EncoderVideo", ui->lineEdit_encoder_vid->text());
+    configIniWrite->setValue("/settings/EncoderAudio", ui->lineEdit_encoder_audio->text());
+    configIniWrite->setValue("/settings/PixelFormat", ui->lineEdit_pixformat->text());
+    configIniWrite->setValue("/settings/BitrateVideo", ui->spinBox_bitrate_vid->value());
+    configIniWrite->setValue("/settings/BitrateAudio", ui->spinBox_bitrate_audio->value());
     //==========
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
@@ -115,6 +122,8 @@ int MainWindow::Settings_Read_Apply()
         on_comboBox_Engine_GIF_currentIndexChanged(0);
         on_comboBox_Engine_Image_currentIndexChanged(0);
         on_comboBox_Engine_Video_currentIndexChanged(0);
+        on_comboBox_ImageStyle_currentIndexChanged(0);
+        on_comboBox_model_vulkan_currentIndexChanged(0);
         //=====
         on_spinBox_textbrowser_fontsize_valueChanged(0);
         //===
@@ -152,6 +161,8 @@ int MainWindow::Settings_Read_Apply()
             on_comboBox_Engine_GIF_currentIndexChanged(0);
             on_comboBox_Engine_Image_currentIndexChanged(0);
             on_comboBox_Engine_Video_currentIndexChanged(0);
+            on_comboBox_ImageStyle_currentIndexChanged(0);
+            on_comboBox_model_vulkan_currentIndexChanged(0);
             //=====
             on_spinBox_textbrowser_fontsize_valueChanged(0);
             //===
@@ -194,6 +205,7 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_Engine_GIF->setCurrentIndex(configIniRead->value("/settings/GIFEngine").toInt());
     ui->comboBox_Engine_Video->setCurrentIndex(configIniRead->value("/settings/VideoEngine").toInt());
     ui->comboBox_ImageStyle->setCurrentIndex(configIniRead->value("/settings/ImageStyle").toInt());
+    ui->comboBox_model_vulkan->setCurrentIndex(configIniRead->value("/settings/ModelVulkan").toInt());
     ui->spinBox_TileSize->setValue(configIniRead->value("/settings/TileSize").toInt());
     ui->spinBox_BlockSize_converter->setValue(configIniRead->value("/settings/BlockSizeConverter").toInt());
     ui->checkBox_DisableGPU_converter->setChecked(configIniRead->value("/settings/DisableGPUConverter").toBool());
@@ -218,6 +230,12 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_JPGCompressedQuality->setValue(configIniRead->value("/settings/JPGCompressedQuality").toInt());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
+    //=================== 加载视频设置 ===========================
+    ui->lineEdit_encoder_vid->setText(configIniRead->value("/settings/EncoderVideo").toString());
+    ui->lineEdit_encoder_audio->setText(configIniRead->value("/settings/EncoderAudio").toString());
+    ui->lineEdit_pixformat->setText(configIniRead->value("/settings/PixelFormat").toString());
+    ui->spinBox_bitrate_vid->setValue(configIniRead->value("/settings/BitrateVideo").toInt());
+    ui->spinBox_bitrate_audio->setValue(configIniRead->value("/settings/BitrateAudio").toInt());
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
@@ -232,6 +250,8 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
+    on_comboBox_ImageStyle_currentIndexChanged(0);
+    on_comboBox_model_vulkan_currentIndexChanged(0);
     ui->spinBox_DenoiseLevel_image->setValue(configIniRead->value("/settings/ImageDenoiseLevel").toInt());
     ui->spinBox_DenoiseLevel_gif->setValue(configIniRead->value("/settings/GIFDenoiseLevel").toInt());
     ui->spinBox_DenoiseLevel_video->setValue(configIniRead->value("/settings/VideoDenoiseLevel").toInt());
