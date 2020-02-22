@@ -1,4 +1,4 @@
-Encoders List
+Encoders List (ffmpeg 4.2.2)
 
  V..... = Video
  A..... = Audio
