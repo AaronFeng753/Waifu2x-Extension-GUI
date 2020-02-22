@@ -115,6 +115,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - NSIS: https://nsis.sourceforge.io/
 
+- Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
+
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
 # `Donate`
