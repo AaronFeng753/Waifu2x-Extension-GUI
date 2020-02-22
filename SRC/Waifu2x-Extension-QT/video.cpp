@@ -73,11 +73,32 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     {
         video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     }
-    //==============
+    //======= 转换到mp4 =======
     if(video_ext!="mp4")
     {
+        QString vcodec_copy_cmd = "";
+        QString acodec_copy_cmd = "";
+        QString bitrate_vid_cmd = "";
+        QString bitrate_audio_cmd = "";
+        if(ui->checkBox_vcodec_copy_2mp4->checkState())
+        {
+            vcodec_copy_cmd = " -vcodec copy ";
+        }
+        else
+        {
+            bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
+        }
+        if(ui->checkBox_acodec_copy_2mp4->checkState())
+        {
+            acodec_copy_cmd = " -acodec copy ";
+        }
+        else
+        {
+            bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
+        }
+        //=====
         QProcess video_tomp4;
-        video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" \""+video_mp4_fullpath+"\"");
+        video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+" \""+video_mp4_fullpath+"\"");
         while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
     }

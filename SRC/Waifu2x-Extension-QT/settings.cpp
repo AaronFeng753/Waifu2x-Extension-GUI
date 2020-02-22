@@ -93,6 +93,11 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/PixelFormat", ui->lineEdit_pixformat->text());
     configIniWrite->setValue("/settings/BitrateVideo", ui->spinBox_bitrate_vid->value());
     configIniWrite->setValue("/settings/BitrateAudio", ui->spinBox_bitrate_audio->value());
+    //===
+    configIniWrite->setValue("/settings/BitrateVideo2mp4", ui->spinBox_bitrate_vid_2mp4->value());
+    configIniWrite->setValue("/settings/BitrateAudio2mp4", ui->spinBox_bitrate_audio_2mp4->value());
+    configIniWrite->setValue("/settings/vcodecCopy", ui->checkBox_vcodec_copy_2mp4->checkState());
+    configIniWrite->setValue("/settings/acodecCopy", ui->checkBox_acodec_copy_2mp4->checkState());
     //==========
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
@@ -135,6 +140,9 @@ int MainWindow::Settings_Read_Apply()
         on_spinBox_ThreadNum_video_internal_valueChanged(0);
         //=====
         Init_Table();
+        //====
+        on_checkBox_acodec_copy_2mp4_stateChanged(1);
+        on_checkBox_vcodec_copy_2mp4_stateChanged(1);
         //========================
         return 0;
     }
@@ -174,6 +182,9 @@ int MainWindow::Settings_Read_Apply()
             on_spinBox_ThreadNum_video_internal_valueChanged(0);
             //=====
             Init_Table();
+            //====
+            on_checkBox_acodec_copy_2mp4_stateChanged(1);
+            on_checkBox_vcodec_copy_2mp4_stateChanged(1);
             //========================
             return 0;
         }
@@ -236,6 +247,11 @@ int MainWindow::Settings_Read_Apply()
     ui->lineEdit_pixformat->setText(configIniRead->value("/settings/PixelFormat").toString());
     ui->spinBox_bitrate_vid->setValue(configIniRead->value("/settings/BitrateVideo").toInt());
     ui->spinBox_bitrate_audio->setValue(configIniRead->value("/settings/BitrateAudio").toInt());
+    //===
+    ui->spinBox_bitrate_vid_2mp4->setValue(configIniRead->value("/settings/BitrateVideo2mp4").toInt());
+    ui->spinBox_bitrate_audio_2mp4->setValue(configIniRead->value("/settings/BitrateAudio2mp4").toInt());
+    ui->checkBox_vcodec_copy_2mp4->setChecked(configIniRead->value("/settings/vcodecCopy").toBool());
+    ui->checkBox_acodec_copy_2mp4->setChecked(configIniRead->value("/settings/acodecCopy").toBool());
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
@@ -266,6 +282,9 @@ int MainWindow::Settings_Read_Apply()
     on_spinBox_ThreadNum_video_internal_valueChanged(0);
     //=====
     Init_Table();
+    //====
+    on_checkBox_acodec_copy_2mp4_stateChanged(1);
+    on_checkBox_vcodec_copy_2mp4_stateChanged(1);
     //==================================
     return 0;
 }

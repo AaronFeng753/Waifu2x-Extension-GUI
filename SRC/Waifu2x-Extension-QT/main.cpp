@@ -31,14 +31,16 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-- 新特性:waifu2x-ncnn-vulkan引擎支持切换模型到cunet
-- 新特性:自定义视频的编码器,码率和像素格式(在附加设置中)
-- 新特性:自定义分辨率支持应用设置到所有文件
-- 视频画质增强
-- 性能优化,减少启用自定义分辨率时处理GIF和视频所需的时间
-- 修复bug:启用自定义分辨率时无法正确计算目标放大倍数
+- 新特性:支持更多视频相关的自定义参数
+- 新特性:初次启动时显示提示
+- 更新 waifu2x-ncnn-vulkan (20200222)
+- 界面布局调整
+- 增强视频画质
+- 修复bug:停止处理时没有删除软件生成的临时mp4视频
+- 修复bug:启用waifu2x-ncnn-vulkan时,无法正确计算目标放大倍数 (感谢 slimekingwin8cn 反馈)
 --------------------------------------------------------------------------
 To do:
+- 优化计算自定义分辨率所需放大倍数的函数
 - 移动到回收站
 - 改进剩余时间算法
 - 用python写一个视频的特殊字符路径检测(路径输入到python ext 让他看能不能判断exist)
@@ -50,7 +52,7 @@ To do:
 
 /*
 Integrated component(In releases):
-- waifu2x-ncnn-vulkan version Nov 4, 2019
+- waifu2x-ncnn-vulkan version 20200222
 - Anime4K Java v0.9 Beta
 - ffmpeg version 4.2.2
 - gifsicle version 1.92

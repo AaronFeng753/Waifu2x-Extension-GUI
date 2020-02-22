@@ -51,6 +51,7 @@
 #include <QCloseEvent>
 #include <QFileDialog>
 #include <QTextCodec>
+#include <math.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -66,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v0.45-beta";//软件版本号
+    QString VERSION="v0.46-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -257,6 +258,7 @@ public:
     QFuture<int> Waifu2xMain;//监视waifu2x主线程
     int Force_close();//调用cmd强制关闭自己
     //=============================================
+    void Tip_FirstTimeStart();
 
     ~MainWindow();
 
@@ -433,6 +435,14 @@ private slots:
     void on_lineEdit_encoder_audio_textChanged(const QString &arg1);
 
     void on_lineEdit_pixformat_textChanged(const QString &arg1);
+
+    void on_checkBox_vcodec_copy_2mp4_stateChanged(int arg1);
+
+    void on_checkBox_acodec_copy_2mp4_stateChanged(int arg1);
+
+    void on_pushButton_encodersList_clicked();
+
+    void on_pushButton_showTips_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

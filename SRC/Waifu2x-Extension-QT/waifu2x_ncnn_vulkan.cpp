@@ -111,10 +111,24 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     {
         ScaleRatio_tmp = ScaleRatio+1;
     }
+    //判断是否为2的幂数
+    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+    {
+        for(int i=1; true; i++)
+        {
+            int pow_ =pow(2,i);
+            if(pow_>=ScaleRatio_tmp)
+            {
+                ScaleRatio_tmp=pow_;
+                break;
+            }
+        }
+    }
+    //======
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int i=2; i<=ScaleRatio_tmp; i+=2)
+    for(int i=2; i<=ScaleRatio_tmp; i*=2)
     {
         OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
@@ -540,6 +554,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     {
         model_path = Waifu2x_folder_path+"/models-cunet";
     }
+    //======
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
     {
@@ -549,10 +564,25 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     {
         ScaleRatio_tmp = ScaleRatio+1;
     }
+    //======
+    //判断是否为2的幂数
+    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+    {
+        for(int i=1; true; i++)
+        {
+            int pow_ =pow(2,i);
+            if(pow_>=ScaleRatio_tmp)
+            {
+                ScaleRatio_tmp=pow_;
+                break;
+            }
+        }
+    }
+    //======
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int i=2; i<=ScaleRatio_tmp; i+=2)
+    for(int i=2; i<=ScaleRatio_tmp; i*=2)
     {
         OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
@@ -652,7 +682,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     {
         file_path = file_path.left(file_path.length() - 1);
     }
-    QString video_mp4_fullpath;
+    QString video_mp4_fullpath="";
     if(file_ext!="mp4")
     {
         video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
@@ -735,6 +765,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
             }
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
+            QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;//线程数量统计-1s
@@ -886,10 +917,24 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     {
         ScaleRatio_tmp = ScaleRatio+1;
     }
+    //======
+    //判断是否为2的幂数
+    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+    {
+        for(int i=1; true; i++)
+        {
+            int pow_ =pow(2,i);
+            if(pow_>=ScaleRatio_tmp)
+            {
+                ScaleRatio_tmp=pow_;
+                break;
+            }
+        }
+    }
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int i=2; i<=ScaleRatio_tmp; i+=2)
+    for(int i=2; i<=ScaleRatio_tmp; i*=2)
     {
         OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;

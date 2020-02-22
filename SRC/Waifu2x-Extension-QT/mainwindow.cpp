@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     //==============
     ui->tabWidget->setCurrentIndex(0);//显示home tab
     ui->tabWidget_waifu2xSettings->setCurrentIndex(0);
+    ui->tabWidget_videoSettings->setCurrentIndex(0);
     TextBrowser_StartMes();//显示启动msg
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
@@ -85,6 +86,9 @@ MainWindow::MainWindow(QWidget *parent)
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     SystemShutDown_isAutoShutDown();//上次是否自动关机
     Donate_Count();//捐赠统计
+    //===================================
+    Tip_FirstTimeStart();
+    //===================================
     this->adjustSize();
 }
 
@@ -1367,6 +1371,13 @@ void MainWindow::on_pushButton_ResetVideoSettings_clicked()
     ui->lineEdit_encoder_audio->setText("aac");
     ui->spinBox_bitrate_vid->setValue(6000);
     ui->spinBox_bitrate_audio->setValue(320);
+    //====
+    ui->spinBox_bitrate_vid_2mp4->setValue(1500);
+    ui->spinBox_bitrate_audio_2mp4->setValue(320);
+    ui->checkBox_acodec_copy_2mp4->setChecked(0);
+    ui->checkBox_vcodec_copy_2mp4->setChecked(0);
+    ui->spinBox_bitrate_vid_2mp4->setEnabled(1);
+    ui->spinBox_bitrate_audio_2mp4->setEnabled(1);
 }
 
 void MainWindow::on_lineEdit_encoder_vid_textChanged(const QString &arg1)
@@ -1385,4 +1396,86 @@ void MainWindow::on_lineEdit_pixformat_textChanged(const QString &arg1)
 {
     QString tmp = ui->lineEdit_pixformat->text().trimmed();
     ui->lineEdit_pixformat->setText(tmp);
+}
+
+void MainWindow::on_checkBox_vcodec_copy_2mp4_stateChanged(int arg1)
+{
+    if(ui->checkBox_vcodec_copy_2mp4->checkState())
+    {
+        ui->spinBox_bitrate_vid_2mp4->setEnabled(0);
+    }
+    else
+    {
+        ui->spinBox_bitrate_vid_2mp4->setEnabled(1);
+    }
+}
+
+void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
+{
+    if(ui->checkBox_acodec_copy_2mp4->checkState())
+    {
+        ui->spinBox_bitrate_audio_2mp4->setEnabled(0);
+    }
+    else
+    {
+        ui->spinBox_bitrate_audio_2mp4->setEnabled(1);
+    }
+}
+
+
+void MainWindow::on_pushButton_encodersList_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/EncodersList.txt"));
+}
+
+void MainWindow::Tip_FirstTimeStart()
+{
+    QString FirstTimeStart = Current_Path+"/FirstTimeStart";
+    if(file_isFileExist(FirstTimeStart))
+    {
+        return;
+    }
+    else
+    {
+        QString English_1 = "- Run a compatibility test to check which engines your PC is compatible with before starting to process files.\n";
+        QString English_2 = "- If the [block size] or [Number of threads] or [Scale ratio] is to large, the software may crash because insufficient VRAM or RAM.\n";
+        QString English_3 = "- Adjusting the number of threads and block size can increase processing speed. The number of threads and block size your computer can support depends on your computer's CPU, GPU, RAM and VRAM.\n";
+        QString English_4 = "- If the generated GIF file is too large, you can enable \"Optimize .gif\" to reduce the file size.\n";
+        QString English_5 = "- The software needs to split the video into pictures before process the video, so please make sure you have enough hard disk space.\n";
+        QString English_6 = "- You can further adjust the picture quality and sound quality of the output video in additional settings.\n";
+        QString English_7 = "- If there is a problem with the software font display, you can modify the font in the additional settings.\n";
+        QString English_8 = "- This software is free software, if you find anyone selling this software, please report the seller.\n";
+        QString English_9 = "- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n";
+        QString English_10 = "- If you like this software, please donate to the developer, thank you.\n";
+        //========
+        QString Chinese_1 = "- 开始处理文件前先运行一次兼容性测试以检查您的PC与哪些引擎兼容.\n";
+        QString Chinese_2 = "- 如果[块大小]或[线程数量]或[放大倍数]过大,软件可能因为RAM或VRAM不足而崩溃.\n";
+        QString Chinese_3 = "- 调整线程数量和块大小可以提高处理速度. 你的电脑能支持的线程数量和块大小取决于你的电脑的CPU, GPU, RAM和VRAM.\n";
+        QString Chinese_4 = "- 如果生成的GIF文件体积过大, 可以启用\"优化 .gif\"以降低文件体积.\n";
+        QString Chinese_5 = "- 软件在放大视频前需要先将视频文件拆分成图片, 所以请确保您有足够的硬盘空间.\n";
+        QString Chinese_6 = "- 您可以在附加设置进一步调整输出视频的画质和音质.\n";
+        QString Chinese_7 = "- 如果软件字体显示有问题, 您可以在附加设置内修改字体.\n";
+        QString Chinese_8 = "- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.\n";
+        QString Chinese_9 = "- 在附加设置内可以将语言调整为简体中文.\n";
+        QString Chinese_10 = "- 本软件免费开源, 并基于 GNU Affero General Public License v3.0 协议发行, 使用本软件的一切后果均由用户自己承担, 开发者不承担任何责任.\n";
+        QString Chinese_11 = "- 如果您喜欢本软件, 请向开发者捐赠, 谢谢.\n";
+        //========
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle("!!! Tips 必读 !!!");
+        MSG->setText(English_1+English_2+English_3+English_4+English_5+English_6+English_7+English_8+English_9+English_10+"----------------------\n"+Chinese_1+Chinese_2+Chinese_3+Chinese_4+Chinese_5+Chinese_6+Chinese_7+Chinese_8+Chinese_9+Chinese_10+Chinese_11);
+        MSG->setIcon(QMessageBox::Information);
+        MSG->setModal(true);
+        MSG->show();
+        //======
+        QFile file(FirstTimeStart);
+        file.open(QIODevice::WriteOnly);
+        file.close();
+    }
+}
+
+void MainWindow::on_pushButton_showTips_clicked()
+{
+    QString FirstTimeStart = Current_Path+"/FirstTimeStart";
+    QFile::remove(FirstTimeStart);
+    Tip_FirstTimeStart();
 }

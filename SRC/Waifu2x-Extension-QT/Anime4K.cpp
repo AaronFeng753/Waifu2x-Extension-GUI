@@ -66,7 +66,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     {
         file_path = file_path.left(file_path.length() - 1);
     }
-    QString video_mp4_fullpath;
+    QString video_mp4_fullpath="";
     if(file_ext!="mp4")
     {
         video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
@@ -149,6 +149,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
             }
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
+            QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;//线程数量统计-1s
