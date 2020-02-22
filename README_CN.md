@@ -133,6 +133,8 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - ImageMagick: http://www.imagemagick.org/
 
+- Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
+
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
 # `捐赠`
