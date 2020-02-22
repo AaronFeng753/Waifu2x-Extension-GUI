@@ -2,6 +2,18 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v0.461-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.46-beta)
+#### v0.461-beta 更新日志:
+- 修复bug:某些情况下会造成源视频文件丢失
+#### v0.46-beta 更新日志:
+- 新特性:支持更多视频相关的自定义参数
+- 新特性:初次启动时显示提示
+- 更新 waifu2x-ncnn-vulkan (20200222)
+- 界面布局调整
+- 增强视频画质
+- 修复bug:停止处理时没有删除软件生成的临时mp4视频
+- 修复bug:启用waifu2x-ncnn-vulkan时,无法正确计算目标放大倍数 (感谢 slimekingwin8cn 反馈)
+---
 ## [v0.45-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.45-beta)
 #### 更新日志:
 - 新特性:waifu2x-ncnn-vulkan引擎支持切换到cunet模型
