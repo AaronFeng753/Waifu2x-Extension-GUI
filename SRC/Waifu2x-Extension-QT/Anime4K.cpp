@@ -70,7 +70,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     if(file_ext!="mp4")
     {
         video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
-        QFile::remove(video_mp4_fullpath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     else
     {
@@ -149,7 +149,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
             }
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
-            QFile::remove(video_mp4_fullpath);
+            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             ThreadNumRunning--;//线程数量统计-1s
@@ -210,7 +210,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     if(DelOriginal)
     {
         QFile::remove(SourceFile_fullPath);
-        QFile::remove(video_mp4_fullpath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -232,7 +232,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     //=========================== 删除转换格式生成的mp4 ==========================
     if(file_ext!="mp4")
     {
-        QFile::remove(video_mp4_fullpath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     //========
     return 0;
