@@ -38,5 +38,9 @@ Name(or ID) | Donation amount | Time
 | Anonymous(\*木) | 10 RMB | 2020/2/21 |
 | Anonymous(\*乐) | 18 RMB | 2020/2/21 |
 | Anonymous(\*卫军) | 1.88 RMB | 2020/2/22 |
+| Anonymous(P\*+) | 1 RMB | 2020/2/22 |
+| Anonymous(x\*O) | 20 RMB | 2020/2/22 |
+| Anonymous(a\*a) | 10 RMB | 2020/2/22 |
+| Anonymous(\*杨) | 10 RMB | 2020/2/22 |
 
 Small donations (less than 1 RMB) will not recorded in the donation list.
