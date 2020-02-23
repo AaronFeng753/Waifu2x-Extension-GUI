@@ -1,5 +1,19 @@
 # Change log
-## [v0.461-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.46-beta)
+## [v0.51-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.51-beta)
+#### Change log:
+- New feature: When "Delete original file" is enabled, you can choose to move the original file to the recycle bin
+- New feature: Support to choose whether to enable custom video settings (additional settings, optional, disabled by default)
+- New feature: Specify output directory
+- New feature: Scan subfolders (additional settings, optional, enabled by default)
+- New feature: Added TTA support for waifu2x-ncnn-vulkan engine
+- New feature: Added TTA support for waifu2x-converter engine
+- New feature: file list interactivity settings (additional settings)
+- Update waifu2x-ncnn-vulkan (20200223)
+- Performance optimization
+- Improve error detection
+- Fix bug: text error
+---
+## [v0.461-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.461-beta)
 #### v0.461-beta Change log:
 - Fix bug: Source video files may get lost in some cases
 #### v0.46-beta Change log:
