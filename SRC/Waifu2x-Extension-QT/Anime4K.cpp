@@ -31,6 +31,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();//是否删除源文件
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();//是否重复处理已完成文件
     int Sub_video_ThreadNumRunning = 0;//子线程总数
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();//得到所在row
     //=== 将状态改为正在处理 =====
@@ -201,6 +202,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
+    OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
     if(file_isDirExist(SplitFramesFolderPath))
     {
@@ -209,7 +211,14 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         FileList_remove(File_map);
         status = "Finished, original file deleted";
@@ -227,13 +236,20 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
-    ThreadNumRunning--;//线程数量统计-1s
     //=========================== 删除转换格式生成的mp4 ==========================
     if(file_ext!="mp4")
     {
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
+    //=========================== 更新filelist ==============================
+    ThreadNumRunning--;//线程数量统计-1s
     //========
     return 0;
 }

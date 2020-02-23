@@ -61,6 +61,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/BlockSizeConverter", ui->spinBox_BlockSize_converter->value());
     configIniWrite->setValue("/settings/DisableGPUConverter", ui->checkBox_DisableGPU_converter->checkState());
     configIniWrite->setValue("/settings/ForceOpenCLConverter", ui->checkBox_ForceOpenCL_converter->checkState());
+    configIniWrite->setValue("/settings/TTAVulkan", ui->checkBox_TTA_vulkan->checkState());
+    configIniWrite->setValue("/settings/TTAConverter", ui->checkBox_TTA_converter->checkState());
     //================== 存储 扩展名 =================================
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
@@ -68,6 +70,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/SaveAsJPG", ui->checkBox_SaveAsJPG->checkState());
     configIniWrite->setValue("/settings/CompressJPG", ui->checkBox_CompressJPG->checkState());
     configIniWrite->setValue("/settings/DelOriginal", ui->checkBox_DelOriginal->checkState());
+    configIniWrite->setValue("/settings/Move2RecycleBin", ui->checkBox_Move2RecycleBin->checkState());
     configIniWrite->setValue("/settings/OptGIF", ui->checkBox_OptGIF->checkState());
     configIniWrite->setValue("/settings/NFSound", ui->checkBox_NfSound->checkState());
     configIniWrite->setValue("/settings/ReProFinFiles", ui->checkBox_ReProcFinFiles->checkState());
@@ -88,6 +91,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/CustFont", ui->fontComboBox_CustFont->currentFont());
     configIniWrite->setValue("/settings/CustFont_isEnabled", ui->checkBox_isCustFontEnable->checkState());
     //=================== 存储视频设置 ===========================
+    configIniWrite->setValue("/settings/VideoSettingsIsEnabled", ui->checkBox_videoSettings_isEnabled->checkState());
     configIniWrite->setValue("/settings/EncoderVideo", ui->lineEdit_encoder_vid->text());
     configIniWrite->setValue("/settings/EncoderAudio", ui->lineEdit_encoder_audio->text());
     configIniWrite->setValue("/settings/PixelFormat", ui->lineEdit_pixformat->text());
@@ -98,6 +102,9 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/BitrateAudio2mp4", ui->spinBox_bitrate_audio_2mp4->value());
     configIniWrite->setValue("/settings/vcodecCopy", ui->checkBox_vcodec_copy_2mp4->checkState());
     configIniWrite->setValue("/settings/acodecCopy", ui->checkBox_acodec_copy_2mp4->checkState());
+    //==================== 存储输出路径设置 ========================
+    configIniWrite->setValue("/settings/OutPutPath", ui->lineEdit_outputPath->text());
+    configIniWrite->setValue("/settings/OutPutPathIsEnabled", ui->checkBox_OutPath_isEnabled->checkState());
     //==========
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
@@ -112,38 +119,7 @@ int MainWindow::Settings_Read_Apply()
     if(!file_isFileExist(settings_ini))
     {
         Settings_Save();
-        //======
-        CustRes_SetToScreenRes();
-        //========================
-        on_comboBox_language_currentIndexChanged(0);
-        //====================================================
-        on_checkBox_SaveAsJPG_stateChanged(0);
-        on_checkBox_ReProcFinFiles_stateChanged(0);
-        on_checkBox_AlwaysHideInput_stateChanged(0);
-        on_checkBox_AlwaysHideSettings_stateChanged(0);
-        on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
-        //====
-        on_comboBox_GPUID_currentIndexChanged(0);
-        on_comboBox_Engine_GIF_currentIndexChanged(0);
-        on_comboBox_Engine_Image_currentIndexChanged(0);
-        on_comboBox_Engine_Video_currentIndexChanged(0);
-        on_comboBox_ImageStyle_currentIndexChanged(0);
-        on_comboBox_model_vulkan_currentIndexChanged(0);
-        //=====
-        on_spinBox_textbrowser_fontsize_valueChanged(0);
-        //===
-        on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
-        //====
-        on_spinBox_ThreadNum_gif_valueChanged(0);
-        on_spinBox_ThreadNum_gif_internal_valueChanged(0);
-        on_spinBox_ThreadNum_video_valueChanged(0);
-        on_spinBox_ThreadNum_video_internal_valueChanged(0);
-        //=====
-        Init_Table();
-        //====
-        on_checkBox_acodec_copy_2mp4_stateChanged(1);
-        on_checkBox_vcodec_copy_2mp4_stateChanged(1);
-        //========================
+        Settings_Apply();
         return 0;
     }
     else
@@ -154,38 +130,7 @@ int MainWindow::Settings_Read_Apply()
         if(Settings_VERSION!=VERSION)
         {
             Settings_Save();
-            //======
-            CustRes_SetToScreenRes();
-            //========================
-            on_comboBox_language_currentIndexChanged(0);
-            //====================================================
-            on_checkBox_SaveAsJPG_stateChanged(0);
-            on_checkBox_ReProcFinFiles_stateChanged(0);
-            on_checkBox_AlwaysHideInput_stateChanged(0);
-            on_checkBox_AlwaysHideSettings_stateChanged(0);
-            on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
-            //====
-            on_comboBox_GPUID_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            on_comboBox_ImageStyle_currentIndexChanged(0);
-            on_comboBox_model_vulkan_currentIndexChanged(0);
-            //=====
-            on_spinBox_textbrowser_fontsize_valueChanged(0);
-            //===
-            on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
-            //====
-            on_spinBox_ThreadNum_gif_valueChanged(0);
-            on_spinBox_ThreadNum_gif_internal_valueChanged(0);
-            on_spinBox_ThreadNum_video_valueChanged(0);
-            on_spinBox_ThreadNum_video_internal_valueChanged(0);
-            //=====
-            Init_Table();
-            //====
-            on_checkBox_acodec_copy_2mp4_stateChanged(1);
-            on_checkBox_vcodec_copy_2mp4_stateChanged(1);
-            //========================
+            Settings_Apply();
             return 0;
         }
     }
@@ -221,6 +166,8 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_BlockSize_converter->setValue(configIniRead->value("/settings/BlockSizeConverter").toInt());
     ui->checkBox_DisableGPU_converter->setChecked(configIniRead->value("/settings/DisableGPUConverter").toBool());
     ui->checkBox_ForceOpenCL_converter->setChecked(configIniRead->value("/settings/ForceOpenCLConverter").toBool());
+    ui->checkBox_TTA_vulkan->setChecked(configIniRead->value("/settings/TTAVulkan").toBool());
+    ui->checkBox_TTA_converter->setChecked(configIniRead->value("/settings/TTAConverter").toBool());
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
@@ -228,6 +175,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_SaveAsJPG->setChecked(configIniRead->value("/settings/SaveAsJPG").toBool());
     ui->checkBox_CompressJPG->setChecked(configIniRead->value("/settings/CompressJPG").toBool());
     ui->checkBox_DelOriginal->setChecked(configIniRead->value("/settings/DelOriginal").toBool());
+    ui->checkBox_Move2RecycleBin->setChecked(configIniRead->value("/settings/Move2RecycleBin").toBool());
     ui->checkBox_OptGIF->setChecked(configIniRead->value("/settings/OptGIF").toBool());
     ui->checkBox_NfSound->setChecked(configIniRead->value("/settings/NFSound").toBool());
     ui->checkBox_ReProcFinFiles->setChecked(configIniRead->value("/settings/ReProFinFiles").toBool());
@@ -242,6 +190,8 @@ int MainWindow::Settings_Read_Apply()
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
     //=================== 加载视频设置 ===========================
+    ui->checkBox_videoSettings_isEnabled->setChecked(configIniRead->value("/settings/VideoSettingsIsEnabled").toBool());
+    //===
     ui->lineEdit_encoder_vid->setText(configIniRead->value("/settings/EncoderVideo").toString());
     ui->lineEdit_encoder_audio->setText(configIniRead->value("/settings/EncoderAudio").toString());
     ui->lineEdit_pixformat->setText(configIniRead->value("/settings/PixelFormat").toString());
@@ -252,6 +202,9 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_bitrate_audio_2mp4->setValue(configIniRead->value("/settings/BitrateAudio2mp4").toInt());
     ui->checkBox_vcodec_copy_2mp4->setChecked(configIniRead->value("/settings/vcodecCopy").toBool());
     ui->checkBox_acodec_copy_2mp4->setChecked(configIniRead->value("/settings/acodecCopy").toBool());
+    //=============== 加载输出路径设置 ===========================
+    ui->lineEdit_outputPath->setText(configIniRead->value("/settings/OutPutPath").toString());
+    ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
@@ -261,6 +214,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_AlwaysHideInput_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
+    on_checkBox_DelOriginal_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -285,8 +239,49 @@ int MainWindow::Settings_Read_Apply()
     //====
     on_checkBox_acodec_copy_2mp4_stateChanged(1);
     on_checkBox_vcodec_copy_2mp4_stateChanged(1);
+    on_checkBox_videoSettings_isEnabled_stateChanged(1);
     //==================================
     return 0;
+}
+/*
+应用设置
+*/
+void MainWindow::Settings_Apply()
+{
+    //======
+    CustRes_SetToScreenRes();
+    //========================
+    on_comboBox_language_currentIndexChanged(0);
+    //====================================================
+    on_checkBox_SaveAsJPG_stateChanged(0);
+    on_checkBox_ReProcFinFiles_stateChanged(0);
+    on_checkBox_AlwaysHideInput_stateChanged(0);
+    on_checkBox_AlwaysHideSettings_stateChanged(0);
+    on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
+    on_checkBox_DelOriginal_stateChanged(0);
+    //====
+    on_comboBox_GPUID_currentIndexChanged(0);
+    on_comboBox_Engine_GIF_currentIndexChanged(0);
+    on_comboBox_Engine_Image_currentIndexChanged(0);
+    on_comboBox_Engine_Video_currentIndexChanged(0);
+    on_comboBox_ImageStyle_currentIndexChanged(0);
+    on_comboBox_model_vulkan_currentIndexChanged(0);
+    //=====
+    on_spinBox_textbrowser_fontsize_valueChanged(0);
+    //===
+    on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
+    //====
+    on_spinBox_ThreadNum_gif_valueChanged(0);
+    on_spinBox_ThreadNum_gif_internal_valueChanged(0);
+    on_spinBox_ThreadNum_video_valueChanged(0);
+    on_spinBox_ThreadNum_video_internal_valueChanged(0);
+    //=====
+    Init_Table();
+    //====
+    on_checkBox_acodec_copy_2mp4_stateChanged(1);
+    on_checkBox_vcodec_copy_2mp4_stateChanged(1);
+    on_checkBox_videoSettings_isEnabled_stateChanged(1);
+    //========================
 }
 /*
 保存设置pushbutton

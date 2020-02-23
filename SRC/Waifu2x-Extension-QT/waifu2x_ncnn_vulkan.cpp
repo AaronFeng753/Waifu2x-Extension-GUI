@@ -30,6 +30,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
     bool CompressJPG = ui->checkBox_CompressJPG->checkState();
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
+    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();//得到所在行
     //将状态设定到处理中
@@ -85,6 +87,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    //===========
+    QString TTA_cmd="";
+    if(TTA_isEnabled)TTA_cmd=" -x ";
+    //==========
     QString model_path;
     if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
@@ -131,7 +137,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     for(int i=2; i<=ScaleRatio_tmp; i*=2)
     {
         OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR+TTA_cmd;
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -168,6 +174,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         }
         InputPath_tmp = OutputPath_tmp;
     }
+    OutPutPath_Final = OutputPath_tmp;
     //============================ 调整大小 ====================================================
     if(ScaleRatio_tmp != ScaleRatio||CustRes_isEnabled)
     {
@@ -204,12 +211,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
             ThreadNumRunning--;//线程数量统计-1s
             return 0;
         }
+        OutPutPath_Final = OutPut_Path;
     }
     if(CustRes_isEnabled)
     {
         QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
         OutPut_Path = OutPut_Path_CustRes;
+        OutPutPath_Final = OutPut_Path;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
     if(SaveAsJPG)
@@ -259,6 +268,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
         if(file_isFileExist(OutPut_Path_jpg))
         {
             QFile::remove(OutPut_Path);
+            OutPutPath_Final = OutPut_Path_jpg;
         }
         else
         {
@@ -268,7 +278,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -285,6 +302,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
     //=========================== 更新线程数量统计==============================
     ThreadNumRunning--;//线程数量统计-1s
     return 0;
@@ -309,6 +333,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     bool OptGIF = ui->checkBox_OptGIF->checkState();
     int Sub_gif_ThreadNumRunning = 0;
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
@@ -456,6 +481,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
+    OutPutPath_Final = ResGIFPath;
     //======================================= 优化gif ===================================================
     if(OptGIF)
     {
@@ -472,6 +498,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
         if(file_isFileExist(ResGIFPath_compressed))
         {
             QFile::remove(ResGIFPath);
+            OutPutPath_Final = ResGIFPath_compressed;
         }
         else
         {
@@ -483,7 +510,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -500,6 +534,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
     //=========================== 更新filelist ==============================
     ThreadNumRunning--;//线程数量统计-1s
     return 0;
@@ -515,6 +556,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
+    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
@@ -538,6 +580,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    //===========
+    QString TTA_cmd="";
+    if(TTA_isEnabled)TTA_cmd=" -x ";
+    //=================
     QString model_path;
     if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
@@ -585,7 +631,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
     for(int i=2; i<=ScaleRatio_tmp; i*=2)
     {
         OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR+TTA_cmd;
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -649,6 +695,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     int Sub_video_ThreadNumRunning = 0;
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
@@ -817,6 +864,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
+    OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
     if(file_isDirExist(SplitFramesFolderPath))
     {
@@ -825,7 +873,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         FileList_remove(File_map);
         status = "Finished, original file deleted";
@@ -843,13 +898,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
-    ThreadNumRunning--;//线程数量统计-1s
     //=========================== 删除转换格式生成的mp4 ==========================
     if(file_ext!="mp4")
     {
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
+    //=========================== 更新filelist ==============================
+    ThreadNumRunning--;//线程数量统计-1s
     return 0;
 }
 
@@ -866,6 +928,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
+    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
     //========================================================================
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
@@ -890,6 +953,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    //===========
+    QString TTA_cmd="";
+    if(TTA_isEnabled)TTA_cmd=" -x ";
     //===========
     QString model_path;
     if(ui->comboBox_model_vulkan->currentIndex()==0)
@@ -937,7 +1003,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
     for(int i=2; i<=ScaleRatio_tmp; i*=2)
     {
         OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR+TTA_cmd;
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)

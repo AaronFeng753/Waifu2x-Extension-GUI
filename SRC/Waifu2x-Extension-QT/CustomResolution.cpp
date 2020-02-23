@@ -359,7 +359,9 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
 {
     QImage qimage_original;
     qimage_original.load(fullpath);
-    if(qimage_original.height()<=0||qimage_original.width()<=0)
+    int original_height = qimage_original.height();
+    int original_width = qimage_original.width();
+    if(original_height<=0||original_width<=0)
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("]  [ Unable to get source image resolution. ]"));
         return 0;
@@ -367,7 +369,7 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     //=====================分别计算高和宽的放大倍数=======================
     //==== 高 ======
     int ScaleRatio_height;
-    double ScaleRatio_height_double = (double)Height_new/(double)qimage_original.height();
+    double ScaleRatio_height_double = (double)Height_new/(double)original_height;
     if((ScaleRatio_height_double-(int)ScaleRatio_height_double)>0)
     {
         ScaleRatio_height = (int)(ScaleRatio_height_double)+1;
@@ -378,7 +380,7 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     }
     //==== 宽 ======
     int ScaleRatio_width;
-    double ScaleRatio_width_double = (double)width_new/(double)qimage_original.width();
+    double ScaleRatio_width_double = (double)width_new/(double)original_width;
     if((ScaleRatio_width_double-(int)ScaleRatio_width_double)>0)
     {
         ScaleRatio_width = (int)(ScaleRatio_width_double)+1;

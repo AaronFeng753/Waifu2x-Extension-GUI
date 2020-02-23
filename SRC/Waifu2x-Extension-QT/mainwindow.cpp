@@ -225,6 +225,33 @@ void MainWindow::on_pushButton_ClearList_clicked()
 
 void MainWindow::on_pushButton_Start_clicked()
 {
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QString tmp = ui->lineEdit_outputPath->text();
+        tmp = tmp.trimmed();
+        if(tmp=="")
+        {
+            emit Send_TextBrowser_NewMessage(tr("输出路径为空."));
+            return;
+        }
+        tmp = tmp.replace("\\","/");
+        tmp = tmp.replace("\\\\","/");
+        tmp = tmp.replace("//","/");
+        if(tmp.right(1)=="/")
+        {
+            tmp = tmp.left(tmp.length() - 1);
+        }
+        QFileInfo fileinfo_tmp(tmp);
+        if(file_isDirExist(tmp)&&fileinfo_tmp.isDir()&&fileinfo_tmp.isWritable())
+        {
+            OutPutFolder_main = tmp;
+        }
+        else
+        {
+            emit Send_TextBrowser_NewMessage(tr("输出路径无效."));
+            return;
+        }
+    }
     if(FileList_image.isEmpty()&&FileList_gif.isEmpty()&&FileList_video.isEmpty())
     {
         emit Send_TextBrowser_NewMessage(tr("Unable to start processing files: The file list is empty or there are no available files to process."));
@@ -247,6 +274,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_Stop->setEnabled(1);//启用stop button
         ui->pushButton_Start->setEnabled(0);//禁用start button
         ui->groupBox_Input->setEnabled(0);
+        ui->groupBox_OutPut->setEnabled(0);
         ui->pushButton_ClearList->setEnabled(0);
         ui->pushButton_RemoveItem->setEnabled(0);
         ui->groupBox_Engine->setEnabled(0);
@@ -268,6 +296,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->label_ETA->setText(tr("ETA:NULL"));
         ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
         ui->groupBox_video_settings->setEnabled(0);
+        ui->checkBox_Move2RecycleBin->setEnabled(0);
         //==========
         TimeCostTimer->start(1000);
         TimeCost=0;
@@ -779,13 +808,15 @@ void MainWindow::on_pushButton_HideInput_clicked()
 {
     if(ui->groupBox_Input->isVisible())
     {
+        ui->groupBox_OutPut->setVisible(0);
         ui->groupBox_Input->setVisible(0);
-        ui->pushButton_HideInput->setText(tr("Show input path"));
+        ui->pushButton_HideInput->setText(tr("Show Path Settings"));
     }
     else
     {
+        ui->groupBox_OutPut->setVisible(1);
         ui->groupBox_Input->setVisible(1);
-        ui->pushButton_HideInput->setText(tr("Hide input path"));
+        ui->pushButton_HideInput->setText(tr("Hide Path Settings"));
     }
 }
 
@@ -1026,7 +1057,8 @@ void MainWindow::on_checkBox_AlwaysHideInput_stateChanged(int arg1)
     if(ui->checkBox_AlwaysHideInput->checkState())
     {
         ui->groupBox_Input->setVisible(0);
-        ui->pushButton_HideInput->setText(tr("Show input path"));
+        ui->groupBox_OutPut->setVisible(0);
+        ui->pushButton_HideInput->setText(tr("Show Path Settings"));
     }
 }
 
@@ -1372,7 +1404,7 @@ void MainWindow::on_pushButton_ResetVideoSettings_clicked()
     ui->spinBox_bitrate_vid->setValue(6000);
     ui->spinBox_bitrate_audio->setValue(320);
     //====
-    ui->spinBox_bitrate_vid_2mp4->setValue(1500);
+    ui->spinBox_bitrate_vid_2mp4->setValue(2500);
     ui->spinBox_bitrate_audio_2mp4->setValue(320);
     ui->checkBox_acodec_copy_2mp4->setChecked(0);
     ui->checkBox_vcodec_copy_2mp4->setChecked(0);
@@ -1478,4 +1510,30 @@ void MainWindow::on_pushButton_showTips_clicked()
     QString FirstTimeStart = Current_Path+"/FirstTimeStart";
     QFile::remove(FirstTimeStart);
     Tip_FirstTimeStart();
+}
+
+void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
+{
+    if(ui->checkBox_DelOriginal->checkState())
+    {
+        ui->checkBox_Move2RecycleBin->setEnabled(1);
+    }
+    else
+    {
+        ui->checkBox_Move2RecycleBin->setEnabled(0);
+    }
+}
+/*
+是否启用自定义视频设置
+*/
+void MainWindow::on_checkBox_videoSettings_isEnabled_stateChanged(int arg1)
+{
+    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    {
+        ui->tabWidget_videoSettings->setEnabled(1);
+    }
+    else
+    {
+        ui->tabWidget_videoSettings->setEnabled(0);
+    }
 }

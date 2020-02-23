@@ -214,6 +214,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_Stop->setEnabled(0);
     ui->pushButton_Start->setEnabled(1);
     ui->groupBox_Input->setEnabled(1);
+    ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);
     ui->groupBox_Engine->setEnabled(1);
@@ -234,6 +235,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->comboBox_AspectRatio_custRes->setEnabled(1);
     ui->spinBox_JPGCompressedQuality->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
+    if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

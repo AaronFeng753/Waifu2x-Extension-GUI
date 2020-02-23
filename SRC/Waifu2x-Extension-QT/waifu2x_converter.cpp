@@ -32,6 +32,8 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
     bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
+    bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
@@ -85,8 +87,14 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
     QString ForceOpenCL_cmd ="";
     if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
+    //=======
+    QString TTA_cmd = " -t 0 ";
+    if(TTA_isEnabled)
+    {
+        TTA_cmd = " -t 1 ";
+    }
     //====
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR;
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
     //========
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -110,6 +118,7 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
         ThreadNumRunning--;
         return 0;
     }
+    OutPutPath_Final = OutPut_Path;
     //============================ 调整大小 ====================================================
     if(CustRes_isEnabled)
     {
@@ -145,12 +154,14 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
             ThreadNumRunning--;//线程数量统计-1s
             return 0;
         }
+        OutPutPath_Final = OutPut_Path;
     }
     if(CustRes_isEnabled)
     {
         QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
         OutPut_Path = OutPut_Path_CustRes;
+        OutPutPath_Final = OutPut_Path;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
     if(SaveAsJPG)
@@ -200,6 +211,7 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
         if(file_isFileExist(OutPut_Path_jpg))
         {
             QFile::remove(OutPut_Path);
+            OutPutPath_Final = OutPut_Path_jpg;
         }
         else
         {
@@ -209,7 +221,14 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -226,6 +245,13 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
     //=========================== 更新线程数量统计==============================
     ThreadNumRunning--;//线程数量统计-1s
     return 0;
@@ -241,6 +267,7 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     bool OptGIF = ui->checkBox_OptGIF->checkState();
     int Sub_gif_ThreadNumRunning = 0;
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
@@ -387,6 +414,7 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
+    OutPutPath_Final = ResGIFPath;
     //======================================= 优化gif ===================================================
     if(OptGIF)
     {
@@ -403,6 +431,7 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
         if(file_isFileExist(ResGIFPath_compressed))
         {
             QFile::remove(ResGIFPath);
+            OutPutPath_Final = ResGIFPath_compressed;
         }
         else
         {
@@ -414,7 +443,14 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -431,6 +467,13 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
     //=========================== 更新filelist ==============================
     ThreadNumRunning--;//线程数量统计-1s
     return 0;
@@ -447,6 +490,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString,
     int BlockSize = ui->spinBox_BlockSize_converter->value();
     bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
     bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
+    bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
     //========================================================================
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
@@ -472,7 +516,13 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString,
         }
     }
     //=======
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR;
+    QString TTA_cmd = " -t 0 ";
+    if(TTA_isEnabled)
+    {
+        TTA_cmd = " -t 1 ";
+    }
+    //=======
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -500,6 +550,7 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     int Sub_video_ThreadNumRunning = 0;
+    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
@@ -668,6 +719,7 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
+    OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
     if(file_isDirExist(SplitFramesFolderPath))
     {
@@ -676,7 +728,14 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        QFile::remove(SourceFile_fullPath);
+        if(ui->checkBox_Move2RecycleBin->checkState())
+        {
+            file_MoveToTrash(SourceFile_fullPath);
+        }
+        else
+        {
+            QFile::remove(SourceFile_fullPath);
+        }
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         FileList_remove(File_map);
         status = "Finished, original file deleted";
@@ -694,13 +753,20 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
-    ThreadNumRunning--;//线程数量统计-1s
     //=========================== 删除转换格式生成的mp4 ==========================
     if(file_ext!="mp4")
     {
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
+    //========== 移动到输出路径 =========
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        QFileInfo fileinfo_final(OutPutPath_Final);
+        QString Final_fileName = fileinfo_final.fileName();
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+    }
+    //=========================== 更新filelist ==============================
+    ThreadNumRunning--;//线程数量统计-1s
     return 0;
 }
 
@@ -718,6 +784,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QStrin
     int BlockSize = ui->spinBox_BlockSize_converter->value();
     bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
     bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
+    bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QProcess *Waifu2x = new QProcess();
@@ -744,7 +811,13 @@ int MainWindow::Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QStrin
         }
     }
     //=======
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR;
+    QString TTA_cmd = " -t 0 ";
+    if(TTA_isEnabled)
+    {
+        TTA_cmd = " -t 1 ";
+    }
+    //=======
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)

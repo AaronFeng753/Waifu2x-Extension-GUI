@@ -428,7 +428,8 @@ bool MainWindow::file_DelDir(const QString &path)
 /*
 重写的获取basename函数
 */
-QString MainWindow::file_getBaseName(QString path){
+QString MainWindow::file_getBaseName(QString path)
+{
     QFileInfo fileinfo(path);
     QString file_fullname = fileinfo.fileName();
     QStringList parts = file_fullname.split(".");
@@ -443,4 +444,46 @@ QString MainWindow::file_getBaseName(QString path){
         file_basename = file_basename.left(file_basename.length() - 1);
     }
     return file_basename;
+}
+/*
+移动文件到回收站
+*/
+void MainWindow::file_MoveToTrash( QString file )
+{
+    QFileInfo fileinfo( file );
+    if( !fileinfo.exists() )
+        return;
+    WCHAR from[ MAX_PATH ];
+    memset( from, 0, sizeof( from ));
+    int l = fileinfo.absoluteFilePath().toWCharArray( from );
+    Q_ASSERT( 0 <= l && l < MAX_PATH );
+    from[ l ] = '\0';
+    SHFILEOPSTRUCT fileop;
+    memset( &fileop, 0, sizeof( fileop ) );
+    fileop.wFunc = FO_DELETE;
+    fileop.pFrom = from;
+    fileop.fFlags = FOF_ALLOWUNDO | FOF_NOCONFIRMATION | FOF_NOERRORUI | FOF_SILENT;
+    int rv = SHFileOperation( &fileop );
+    if( 0 != rv )
+    {
+        return;
+    }
+}
+/*
+移动文件
+*/
+void MainWindow::file_MoveFile(QString Orginal,QString Target)
+{
+    if(file_isFileExist(Orginal))
+    {
+        if(file_isFileExist(Target))QFile::remove(Target);
+        if(QFile::rename(Orginal,Target)==false)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+Orginal+tr("] to [")+Target+"]");
+        }
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] dose not exists."));
+    }
 }

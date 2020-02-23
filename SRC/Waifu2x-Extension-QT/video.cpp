@@ -80,21 +80,24 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         QString acodec_copy_cmd = "";
         QString bitrate_vid_cmd = "";
         QString bitrate_audio_cmd = "";
-        if(ui->checkBox_vcodec_copy_2mp4->checkState())
+        if(ui->checkBox_videoSettings_isEnabled->checkState())
         {
-            vcodec_copy_cmd = " -vcodec copy ";
-        }
-        else
-        {
-            bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
-        }
-        if(ui->checkBox_acodec_copy_2mp4->checkState())
-        {
-            acodec_copy_cmd = " -acodec copy ";
-        }
-        else
-        {
-            bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
+            if(ui->checkBox_vcodec_copy_2mp4->checkState())
+            {
+                vcodec_copy_cmd = " -vcodec copy ";
+            }
+            else
+            {
+                bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
+            }
+            if(ui->checkBox_acodec_copy_2mp4->checkState())
+            {
+                acodec_copy_cmd = " -acodec copy ";
+            }
+            else
+            {
+                bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
+            }
         }
         //=====
         QProcess video_tomp4;
@@ -124,13 +127,22 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
 
 int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
 {
-    QString encoder_video_cmd=" -c:v "+ui->lineEdit_encoder_vid->text()+" ";
-    QString bitrate_video_cmd=" -b:v "+QString::number(ui->spinBox_bitrate_vid->value(),10)+"k ";
+    QString encoder_video_cmd="";
+    QString bitrate_video_cmd="";
     //====
-    QString encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
-    QString bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
+    QString encoder_audio_cmd="";
+    QString bitrate_audio_cmd="";
     //===
-    QString pixFormat_cmd=" -pix_fmt "+ui->lineEdit_pixformat->text()+" ";
+    QString pixFormat_cmd="";
+    //=======
+    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    {
+        encoder_video_cmd=" -c:v "+ui->lineEdit_encoder_vid->text()+" ";
+        bitrate_video_cmd=" -b:v "+QString::number(ui->spinBox_bitrate_vid->value(),10)+"k ";
+        encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
+        bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
+        pixFormat_cmd=" -pix_fmt "+ui->lineEdit_pixformat->text()+" ";
+    }
     //=====
     QString resize_cmd ="";
     if(CustRes_isEnabled)
@@ -162,6 +174,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
             }
         }
     }
+    //===========
     QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);

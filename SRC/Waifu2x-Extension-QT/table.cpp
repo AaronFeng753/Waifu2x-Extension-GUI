@@ -63,6 +63,12 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
     int rowNum = Table_model_image->rowCount();
     Table_model_image->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_image->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
+    if(ui->checkBox_FileListAutoSlide->checkState())
+    {
+        QAbstractItemModel *modessl = Table_model_image;
+        QModelIndex indextemp = modessl->index(rowNum, 1);
+        ui->tableView_image->scrollTo(indextemp);
+    }
     ui->tableView_image->setUpdatesEnabled(true);
 }
 
@@ -72,6 +78,12 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
     int rowNum = Table_model_gif->rowCount();
     Table_model_gif->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_gif->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
+    if(ui->checkBox_FileListAutoSlide->checkState())
+    {
+        QAbstractItemModel *modessl = Table_model_gif;
+        QModelIndex indextemp = modessl->index(rowNum, 1);
+        ui->tableView_gif->scrollTo(indextemp);
+    }
     ui->tableView_gif->setUpdatesEnabled(true);
 }
 
@@ -81,6 +93,12 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
     int rowNum = Table_model_video->rowCount();
     Table_model_video->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_video->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
+    if(ui->checkBox_FileListAutoSlide->checkState())
+    {
+        QAbstractItemModel *modessl = Table_model_video;
+        QModelIndex indextemp = modessl->index(rowNum, 1);
+        ui->tableView_video->scrollTo(indextemp);
+    }
     ui->tableView_video->setUpdatesEnabled(true);
 }
 
@@ -552,6 +570,7 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
     this->setAcceptDrops(1);//禁止drop file
     ui->pushButton_Start->setEnabled(1);//禁用start button
     ui->groupBox_Input->setEnabled(1);
+    ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
@@ -699,6 +718,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     this->setAcceptDrops(1);//禁止drop file
     ui->pushButton_Start->setEnabled(1);//禁用start button
     ui->groupBox_Input->setEnabled(1);
+    ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);

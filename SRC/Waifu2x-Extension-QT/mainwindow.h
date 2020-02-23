@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v0.461-beta";//软件版本号
+    QString VERSION="v0.47-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -108,6 +108,10 @@ public:
     bool file_DelDir(const QString &path);//删除文件夹(无论是否为空,强制删除)
     QString file_getBaseName(QString path);//获取basename
 
+    void file_MoveToTrash( QString file );//移动到回收站
+
+    void file_MoveFile(QString Orginal,QString Target);//移动文件
+
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
@@ -142,6 +146,8 @@ public:
 
 
     //================================= Waifu2x ====================================
+    QString OutPutFolder_main="";//总输出文件夹
+
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
 
     int Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map);//vulkan放大图片线程
@@ -222,6 +228,7 @@ public:
     //======================== 设置 ===========================================
     int Settings_Save();//保存设置
     int Settings_Read_Apply();//读取与apply设置
+    void Settings_Apply();
     bool Settings_isReseted = false;//是否重置设置标记
 
 
@@ -443,6 +450,10 @@ private slots:
     void on_pushButton_encodersList_clicked();
 
     void on_pushButton_showTips_clicked();
+
+    void on_checkBox_DelOriginal_stateChanged(int arg1);
+
+    void on_checkBox_videoSettings_isEnabled_stateChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
