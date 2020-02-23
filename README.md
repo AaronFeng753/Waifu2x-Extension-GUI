@@ -44,7 +44,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - Support to save enlarged and noise-reduced pictures as .jpg and automatically perform lossless compression
 - Automatically optimize the volume of the processed gif
 - Compatibility test
-- Multi-language (supports simplified Chinese)
+- Multi-language (supports English, Simplified Chinese)
 - Support to store personalization settings and apply them automatically at startup
 - Continually updated
 - And more
