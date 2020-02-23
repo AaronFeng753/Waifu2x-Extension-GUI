@@ -106,7 +106,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 #### Anime4k: 安装最新版的 JDK and JRE
 
 # 集成组件(releases内):
-- waifu2x-ncnn-vulkan version 20200222
+- waifu2x-ncnn-vulkan version 20200223
 
 - Anime4K Java v0.9 Beta
 
