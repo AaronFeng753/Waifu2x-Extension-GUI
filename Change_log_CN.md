@@ -2,7 +2,21 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
-## [v0.461-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.46-beta)
+## [v0.51-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.51-beta)
+#### 更新日志:
+- 新特性:当启用"删除原文件"时,可选择将原文件移动到回收站
+- 新特性:支持选择是否启用自定义视频设置(附加设置,可选,默认禁用)
+- 新特性:指定输出目录
+- 新特性:扫描子文件夹(附加设置,可选,默认启用)
+- 新特性:waifu2x-ncnn-vulkan 引擎新增TTA支持
+- 新特性:waifu2x-converter 引擎新增TTA支持
+- 新特性:文件列表互动性设置(附加设置)
+- 更新waifu2x-ncnn-vulkan(20200223)
+- 性能优化
+- 完善错误检测
+- 修复bug:文本错误
+---
+## [v0.461-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.461-beta)
 #### v0.461-beta 更新日志:
 - 修复bug:某些情况下会造成源视频文件丢失
 #### v0.46-beta 更新日志:
