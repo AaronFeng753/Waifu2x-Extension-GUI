@@ -422,6 +422,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
     //===============
+    bool Frame_failed = false;
+    //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
         InterPro_now++;
@@ -444,10 +446,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
         }
         Sub_gif_ThreadNumRunning++;
         QString Frame_fileName = Frame_fileName_list.at(i);
-        QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale,Frame_fileName,Sub_Thread_info,&Sub_gif_ThreadNumRunning);
+        Sub_Thread_info["Frame_fileName"]=Frame_fileName;
+        QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
         while (Sub_gif_ThreadNumRunning >= Sub_gif_ThreadNumMax)
         {
             Delay_msec_sleep(500);
+        }
+        if(Frame_failed)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
+            status = "Failed";
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            file_DelDir(SplitFramesFolderPath);
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;//如果启用stop位,则直接return
         }
     }
     //确保所有子线程结束
@@ -546,11 +558,12 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map)
     return 0;
 }
 
-int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning)
+int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed)
 {
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
+    QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
     int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
     int TileSize = ui->spinBox_TileSize->value();
@@ -668,11 +681,12 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QStrin
         if(qimageW_adj.canWrite())
         {
             qimageW_adj.write(qimage_adj_scaled);
-            QFile::remove(OutputPath_tmp);
+            if(Frame_fileOutPutPath!=OutputPath_tmp)QFile::remove(OutputPath_tmp);
         }
     }
     QFile::remove(Frame_fileFullPath);
     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+    if(file_isFileExist(Frame_fileOutPutPath)==false)*Frame_failed=true;
     return 0;
 }
 
@@ -796,6 +810,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
     //===============
+    //===============
+    bool Frame_failed = false;
+    //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
         InterPro_now++;
@@ -820,10 +837,21 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         }
         Sub_video_ThreadNumRunning++;
         QString Frame_fileName = Frame_fileName_list.at(i);
-        QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_Video_scale,Frame_fileName,Sub_Thread_info,&Sub_video_ThreadNumRunning);
+        Sub_Thread_info["Frame_fileName"]=Frame_fileName;
+        QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
         while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
         {
             Delay_msec_sleep(500);
+        }
+        if(Frame_failed)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
+            status = "Failed";
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            file_DelDir(SplitFramesFolderPath);
+            QFile::remove(AudioPath);
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;//如果启用stop位,则直接return
         }
     }
     while (Sub_video_ThreadNumRunning!=0)
@@ -918,11 +946,12 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
 
 
 
-int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning)
+int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
 {
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
+    QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //================
     int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
     int TileSize = ui->spinBox_TileSize->value();
@@ -1039,12 +1068,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QStr
         if(qimageW_adj.canWrite())
         {
             qimageW_adj.write(qimage_adj_scaled);
-            QFile::remove(OutputPath_tmp);
+            if(Frame_fileOutPutPath!=OutputPath_tmp)QFile::remove(OutputPath_tmp);
         }
     }
     QFile::remove(Frame_fileFullPath);
     QFile::rename(Frame_fileOutPutPath,ScaledFramesFolderPath+"/"+Frame_fileName);
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+    if(file_isFileExist(ScaledFramesFolderPath+"/"+Frame_fileName)==false)*Frame_failed=true;
     return 0;
 }
 

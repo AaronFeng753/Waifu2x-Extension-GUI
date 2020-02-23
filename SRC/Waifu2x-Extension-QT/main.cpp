@@ -32,11 +32,16 @@ int main(int argc, char *argv[])
 /*
 Change log:
 - 新特性:当启用"删除原文件"时,可选择将原文件移动到回收站
-- 新特性:支持调节是否启用自定义视频设置(默认禁用)
+- 新特性:支持选择是否启用自定义视频设置(附加设置,可选,默认禁用)
 - 新特性:指定输出目录
-- 新特性: waifu2x-ncnn-vulkan引擎与waifu2x-converter新增TTA支持 --- 未完成
-- 更新 waifu2x-ncnn-vulkan (20200223)
+- 新特性:扫描子文件夹(附加设置,可选,默认启用)
+- 新特性:waifu2x-ncnn-vulkan 引擎新增TTA支持
+- 新特性:waifu2x-converter 引擎新增TTA支持
+- 新特性:文件列表互动性设置(附加设置)
+- 更新waifu2x-ncnn-vulkan(20200223)
 - 性能优化
+- 完善错误检测
+- 修复bug:文本错误
 --------------------------------------------------------------------------
 To do:
 - 利用ffprobe获取视频信息
@@ -44,14 +49,11 @@ To do:
 - 改进剩余时间算法
 - 用python写一个视频的特殊字符路径检测(路径输入到python ext 让他看能不能判断exist)
 - 放大视频时, 判断磁盘空间够不够, 提取十个帧取平均值然后计算用量
-- tableview看能不能自动适配大小的同时, 还让用户自主调节
-- 扫描子文件夹
-- 隐藏到托盘
 */
 
 /*
 Integrated component(In releases):
-- waifu2x-ncnn-vulkan version 20200222
+- waifu2x-ncnn-vulkan version 20200223
 - Anime4K Java v0.9 Beta
 - ffmpeg version 4.2.2
 - gifsicle version 1.92

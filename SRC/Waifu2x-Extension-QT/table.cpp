@@ -30,7 +30,6 @@ void MainWindow::Init_Table()
     Table_model_image->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
     Table_model_image->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_image->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
-    ui->tableView_image->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_image->setModel(Table_model_image);
     //=================================
     Table_model_gif->setColumnCount(4);
@@ -39,7 +38,6 @@ void MainWindow::Init_Table()
     Table_model_gif->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
     Table_model_gif->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_gif->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
-    ui->tableView_gif->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_gif->setModel(Table_model_gif);
     //=================================
     Table_model_video->setColumnCount(4);
@@ -48,7 +46,6 @@ void MainWindow::Init_Table()
     Table_model_video->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
     Table_model_video->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_video->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
-    ui->tableView_video->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     ui->tableView_video->setModel(Table_model_video);
     //=============================================
     //将横向表头设置为可见

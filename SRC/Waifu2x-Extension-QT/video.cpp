@@ -133,7 +133,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString encoder_audio_cmd="";
     QString bitrate_audio_cmd="";
     //===
-    QString pixFormat_cmd="";
+    QString pixFormat_cmd=" -pix_fmt yuv420p ";
     //=======
     if(ui->checkBox_videoSettings_isEnabled->checkState())
     {

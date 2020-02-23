@@ -231,7 +231,7 @@ void MainWindow::on_pushButton_Start_clicked()
         tmp = tmp.trimmed();
         if(tmp=="")
         {
-            emit Send_TextBrowser_NewMessage(tr("输出路径为空."));
+            emit Send_TextBrowser_NewMessage(tr("Output path is empty."));
             return;
         }
         tmp = tmp.replace("\\","/");
@@ -248,7 +248,7 @@ void MainWindow::on_pushButton_Start_clicked()
         }
         else
         {
-            emit Send_TextBrowser_NewMessage(tr("输出路径无效."));
+            emit Send_TextBrowser_NewMessage(tr("Invalid output path."));
             return;
         }
     }
@@ -612,7 +612,14 @@ void MainWindow::on_pushButton_AddPath_clicked()
         AddNew_gif=false;
         AddNew_image=false;
         AddNew_video=false;
-        Add_File_Folder(Input_path);
+        if(ui->checkBox_ScanSubFolders->checkState())
+        {
+            Add_File_Folder_IncludeSubFolder(Input_path);
+        }
+        else
+        {
+            Add_File_Folder(Input_path);
+        }
     }
     else
     {
@@ -1535,5 +1542,21 @@ void MainWindow::on_checkBox_videoSettings_isEnabled_stateChanged(int arg1)
     else
     {
         ui->tabWidget_videoSettings->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_FileList_Interactive_stateChanged(int arg1)
+{
+    if(ui->checkBox_FileList_Interactive->checkState())
+    {
+        ui->tableView_image->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+        ui->tableView_gif->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+        ui->tableView_video->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    }
+    else
+    {
+        ui->tableView_image->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        ui->tableView_gif->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+        ui->tableView_video->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
     }
 }

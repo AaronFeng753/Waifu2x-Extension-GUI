@@ -41,7 +41,14 @@ void MainWindow::dropEvent(QDropEvent *event)
         return;
     foreach(QUrl url, urls)
     {
-        Add_File_Folder(url.toLocalFile());
+        if(ui->checkBox_ScanSubFolders->checkState())
+        {
+            Add_File_Folder_IncludeSubFolder(url.toLocalFile());
+        }
+        else
+        {
+            Add_File_Folder(url.toLocalFile());
+        }
     }
     //=================
     //如果没有增加任何文件
@@ -84,7 +91,9 @@ void MainWindow::dropEvent(QDropEvent *event)
     AddNew_video=false;
     Table_FileCount_reload();
 }
-
+/*
+添加文件&文件夹
+*/
 void MainWindow::Add_File_Folder(QString Full_Path)
 {
     QFileInfo fileinfo(Full_Path);
@@ -107,6 +116,54 @@ void MainWindow::Add_File_Folder(QString Full_Path)
             }
         }
     }
+}
+/*
+添加文件&文件夹
+扫描子文件夹
+*/
+void MainWindow::Add_File_Folder_IncludeSubFolder(QString Full_Path)
+{
+    QFileInfo fileinfo(Full_Path);
+    if(fileinfo.isFile())
+    {
+        QString file_name = fileinfo.fileName();
+        FileList_Add(file_name, Full_Path);
+    }
+    else
+    {
+        QStringList FileNameList = getFileNames_IncludeSubFolder(Full_Path);//读取合法的文件名
+        FileNameList.removeAll("..");
+        FileNameList.removeAll(".");
+        QString Full_Path_File = "";
+        if(!FileNameList.isEmpty())
+        {
+            for(int i = 0; i < FileNameList.size(); i++)
+            {
+                QString tmp = FileNameList.at(i);
+                Full_Path_File = Full_Path + "/" + tmp;
+                QFileInfo fileinfo_tmp(Full_Path_File);
+                if(fileinfo_tmp.isFile())
+                {
+                    if(QFile::exists(Full_Path_File))
+                        FileList_Add(tmp, Full_Path_File);
+                }
+                else
+                {
+                    if(QFile::exists(Full_Path_File))
+                        Add_File_Folder_IncludeSubFolder(Full_Path_File);
+                }
+            }
+        }
+    }
+}
+/*
+读取文件夹下的文件名(包括子文件夹
+*/
+QStringList MainWindow::getFileNames_IncludeSubFolder(QString path)
+{
+    QDir dir(path);
+    QStringList files = dir.entryList(QDir::Dirs | QDir::Files | QDir::Writable, QDir::Name);
+    return files;
 }
 /*
 读取文件夹下的文件名(不包括子文件夹

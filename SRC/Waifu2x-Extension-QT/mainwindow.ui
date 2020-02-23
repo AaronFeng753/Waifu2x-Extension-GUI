@@ -659,7 +659,7 @@ selection-background-color: rgb(178, 58, 238);
                 <bool>false</bool>
                </property>
                <attribute name="horizontalHeaderVisible">
-                <bool>true</bool>
+                <bool>false</bool>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>0</number>
@@ -2311,7 +2311,37 @@ padding:10px;
                     </item>
                    </widget>
                   </item>
-                  <item row="0" column="1">
+                  <item row="3" column="0">
+                   <widget class="QCheckBox" name="checkBox_TTA_converter">
+                    <property name="toolTip">
+                     <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                    </property>
+                    <property name="text">
+                     <string>TTA</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="3">
+                   <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
+                    <property name="toolTip">
+                     <string>Force to use OpenCL on Intel Platform.</string>
+                    </property>
+                    <property name="text">
+                     <string>Force OpenCL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" colspan="2">
+                   <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
+                    <property name="text">
+                     <string>Disable GPU</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" colspan="2">
                    <widget class="QSpinBox" name="spinBox_BlockSize_converter">
                     <property name="toolTip">
                      <string>Block size: This value will affacts GPU memory usage.
@@ -2329,36 +2359,6 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                     </property>
                     <property name="value">
                      <number>300</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QCheckBox" name="checkBox_TTA_converter">
-                    <property name="toolTip">
-                     <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                    </property>
-                    <property name="text">
-                     <string>TTA</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1">
-                   <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
-                    <property name="text">
-                     <string>Disable GPU</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
-                    <property name="toolTip">
-                     <string>Force to use OpenCL on Intel Platform.</string>
-                    </property>
-                    <property name="text">
-                     <string>Force OpenCL</string>
                     </property>
                    </widget>
                   </item>
@@ -2913,7 +2913,7 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="3" column="0">
+              <item row="4" column="0">
                <widget class="QLabel" name="label_21">
                 <property name="maximumSize">
                  <size>
@@ -2930,7 +2930,7 @@ the language for the language settings to fully take effect.</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="1" colspan="5">
+              <item row="6" column="1" colspan="5">
                <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
                 <property name="minimumSize">
                  <size>
@@ -2958,7 +2958,7 @@ the language for the language settings to fully take effect.</string>
                 </item>
                </widget>
               </item>
-              <item row="4" column="1" colspan="5">
+              <item row="5" column="1" colspan="5">
                <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
                 <property name="toolTip">
                  <string>0(worst quality)~99
@@ -3014,7 +3014,7 @@ We recommend you use the default value(90)</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="0">
+              <item row="6" column="0">
                <widget class="QLabel" name="label_44">
                 <property name="text">
                  <string>Aspect Ratio:
@@ -3025,7 +3025,7 @@ We recommend you use the default value(90)</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1" colspan="5">
+              <item row="4" column="1" colspan="5">
                <widget class="QComboBox" name="comboBox_language">
                 <property name="minimumSize">
                  <size>
@@ -3065,10 +3065,30 @@ the language for the language settings to fully take effect.</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
+              <item row="5" column="0">
                <widget class="QLabel" name="label_23">
                 <property name="text">
                  <string>Compressed &quot;.jpg&quot; image quality:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+                <property name="text">
+                 <string>Scan sub-folders</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2" colspan="4">
+               <widget class="QCheckBox" name="checkBox_FileList_Interactive">
+                <property name="text">
+                 <string>Interactive file list</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>

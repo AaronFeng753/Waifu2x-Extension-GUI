@@ -134,6 +134,9 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
     //===============
+    //===============
+    bool Frame_failed = false;
+    //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
         InterPro_now++;
@@ -158,10 +161,21 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
         }
         Sub_video_ThreadNumRunning++;
         QString Frame_fileName = Frame_fileName_list.at(i);
-        QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Frame_fileName,Sub_Thread_info,&Sub_video_ThreadNumRunning);
+        Sub_Thread_info["Frame_fileName"]=Frame_fileName;
+        QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
         while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
         {
             Delay_msec_sleep(500);
+        }
+        if(Frame_failed)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
+            status = "Failed";
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            file_DelDir(SplitFramesFolderPath);
+            QFile::remove(AudioPath);
+            ThreadNumRunning--;//线程数量统计-1s
+            return 0;//如果启用stop位,则直接return
         }
     }
     while (Sub_video_ThreadNumRunning!=0)
@@ -257,11 +271,12 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
 Anime4k视频放大子线程
 放大,修改大小
 */
-int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning)
+int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
 {
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
+    QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
@@ -300,5 +315,6 @@ int MainWindow::Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString>
     }
     QFile::remove(Frame_fileFullPath);
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+    if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     return 0;
 }

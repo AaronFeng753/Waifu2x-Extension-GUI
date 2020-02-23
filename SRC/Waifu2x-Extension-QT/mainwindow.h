@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v0.47-beta";//软件版本号
+    QString VERSION="v0.51-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -81,7 +81,9 @@ public:
     bool AddNew_image=false;//判断是否有新增文件-图片
     bool AddNew_video=false;//判断是否有新增文件-视频
     void Add_File_Folder(QString Full_Path);//添加文件or文件夹(判断一个路径是文件还是文件夹,然后处理判断类型添加到table和file list)
+    void Add_File_Folder_IncludeSubFolder(QString Full_Path);//添加文件文件夹(扫描子文件夹
     QStringList getFileNames(QString path);//当拖入的路径是文件夹时,读取文件夹内指定扩展名的文件并返回一个qstringlist
+    QStringList getFileNames_IncludeSubFolder(QString path);//读取文件列表, 包括文件夹
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
     //待处理的filelist
     QList<QMap<QString, QString>> FileList_image;//map["SourceFile_fullPath"],map["rowNum"]
@@ -153,21 +155,21 @@ public:
     int Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map);//vulkan放大图片线程
     //vulakn放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map);
-    int Waifu2x_NCNN_Vulkan_GIF_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning);
+    int Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //vulkan放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map);
-    int Waifu2x_NCNN_Vulkan_Video_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
+    int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Anime4k_Video(QMap<QString, QString> File_map);
-    int Anime4k_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
+    int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
     int Waifu2x_Converter_Image(QMap<QString, QString> File_map);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Converter_GIF(QMap<QString, QString> File_map);
-    int Waifu2x_Converter_GIF_scale(QString Frame_fileName,QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning);
+    int Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //Converter放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Converter_Video(QMap<QString, QString> File_map);
-    int Waifu2x_Converter_Video_scale(QString Frame_fileName,QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning);
+    int Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
@@ -454,6 +456,8 @@ private slots:
     void on_checkBox_DelOriginal_stateChanged(int arg1);
 
     void on_checkBox_videoSettings_isEnabled_stateChanged(int arg1);
+
+    void on_checkBox_FileList_Interactive_stateChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
