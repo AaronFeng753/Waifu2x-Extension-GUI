@@ -86,7 +86,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 #### Anime4k: Install the latest JDK and JRE
 
 # Integrated component(In releases):
-- waifu2x-ncnn-vulkan version 20200223
+- waifu2x-ncnn-vulkan version 20200224
 
 - Anime4K Java v0.9 Beta
 
