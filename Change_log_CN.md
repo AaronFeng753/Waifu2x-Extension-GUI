@@ -2,6 +2,14 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v0.52-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.52-beta)
+#### 更新日志:
+- 提高稳定性, 当引擎崩溃时将重试, 不会再因为一次引擎崩溃而整个处理过程失败
+- 提高Anime4k引擎的稳定性
+- 当未启用输出路径时, 禁用输出路径的lineEdit
+- 修正文本错误
+- 更新 waifu2x-ncnn-vulkan (version 20200224)
+---
 ## [v0.51-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.51-beta)
 #### 更新日志:
 - 新特性:当启用"删除原文件"时,可选择将原文件移动到回收站
