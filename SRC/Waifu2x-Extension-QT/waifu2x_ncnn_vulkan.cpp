@@ -134,7 +134,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int retry=0; retry<2; retry++)
+    for(int retry=0; retry<3; retry++)
     {
         InputPath_tmp = SourceFile_fullPath;
         OutputPath_tmp ="";
@@ -653,7 +653,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int retry=0; retry<2; retry++)
+    for(int retry=0; retry<3; retry++)
     {
         OutputPath_tmp ="";
         InputPath_tmp = Frame_fileFullPath;
@@ -1060,7 +1060,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     }
     //===================
     QString OutputPath_tmp ="";
-    for(int retry=0; retry<2; retry++)
+    for(int retry=0; retry<3; retry++)
     {
         QString InputPath_tmp = Frame_fileFullPath;
         OutputPath_tmp ="";

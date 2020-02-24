@@ -1477,7 +1477,7 @@ void MainWindow::Tip_FirstTimeStart()
     else
     {
         QString English_1 = "- Run a compatibility test to check which engines your PC is compatible with before starting to process files.\n";
-        QString English_2 = "- If the [block size] or [Number of threads] or [Scale ratio] is to large, the software may crash because insufficient VRAM or RAM.\n";
+        QString English_2 = "- If the [block size] or [Number of threads] or [Scale ratio] is too large, the software may crash because insufficient VRAM or RAM.\n";
         QString English_3 = "- Adjusting the number of threads and block size can increase processing speed. The number of threads and block size your computer can support depends on your computer's CPU, GPU, RAM and VRAM.\n";
         QString English_4 = "- If the generated GIF file is too large, you can enable \"Optimize .gif\" to reduce the file size.\n";
         QString English_5 = "- The software needs to split the video into pictures before process the video, so please make sure you have enough hard disk space.\n";
@@ -1558,5 +1558,17 @@ void MainWindow::on_checkBox_FileList_Interactive_stateChanged(int arg1)
         ui->tableView_image->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
         ui->tableView_gif->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
         ui->tableView_video->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    }
+}
+
+void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
+{
+    if(ui->checkBox_OutPath_isEnabled->checkState())
+    {
+        ui->lineEdit_outputPath->setEnabled(1);
+    }
+    else
+    {
+        ui->lineEdit_outputPath->setEnabled(0);
     }
 }

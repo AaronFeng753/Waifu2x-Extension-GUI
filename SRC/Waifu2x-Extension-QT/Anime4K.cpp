@@ -281,7 +281,6 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
-    QProcess *Waifu2x = new QProcess();
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K.jar";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
@@ -300,9 +299,11 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
     }
     //=======
-    Waifu2x->start(cmd);
-    if(Waifu2x->waitForStarted(-1))
+    for(int retry=0; retry<3; retry++)
     {
+        QProcess *Waifu2x = new QProcess();
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
         {
             if(waifu2x_STOP)
@@ -312,9 +313,19 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
                 return 0;
             }
         }
+        if(file_isFileExist(OutputPath))
+        {
+            break;
+        }
+        else
+        {
+            Delay_sec_sleep(5);
+            emit Send_TextBrowser_NewMessage(tr("Retry"));
+        }
     }
+    //=========
     QFile::remove(Frame_fileFullPath);
-    *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
+    *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
     return 0;
 }
