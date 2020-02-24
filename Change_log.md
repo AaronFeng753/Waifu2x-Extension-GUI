@@ -1,4 +1,12 @@
 # Change log
+## [v0.52-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.52-beta)
+#### Change log:
+- Improved stability, will retry when the engine crashes, and will not fail the entire process because of an engine crash
+- Improve the stability of Anime4k engine
+- Disable lineEdit of output path when output path is not enabled
+- Fix text errors
+- Update waifu2x-ncnn-vulkan (version 20200224)
+---
 ## [v0.51-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.51-beta)
 #### Change log:
 - New feature: When "Delete original file" is enabled, you can choose to move the original file to the recycle bin
