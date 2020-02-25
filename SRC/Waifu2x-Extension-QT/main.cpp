@@ -23,6 +23,7 @@
 
 int main(int argc, char *argv[])
 {
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
     QApplication a(argc, argv);
     MainWindow *w = new MainWindow;
     w->show();
@@ -35,6 +36,7 @@ Change log:
 - 提高Anime4k引擎的稳定性
 - 当未启用输出路径时, 禁用输出路径的lineEdit
 - 修正文本错误
+- 更新 waifu2x-ncnn-vulkan (version 20200224)
 --------------------------------------------------------------------------
 To do:
 - 利用ffprobe获取视频信息
