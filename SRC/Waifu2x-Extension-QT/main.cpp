@@ -32,8 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-- 新特性: 支持切换waifu2x-ncnn-vulkan引擎版本, 当您的电脑使用waifu2x-ncnn-vulkan引擎出现问题时, 可以尝试更新显卡驱动或启用旧版本的waifu2x-ncnn-vulkan引擎
-- 新特性: 兼容性测试新增对旧版本waifu2x-ncnn-vulkan引擎的测试
+- 新特性:支持切换waifu2x-ncnn-vulkan引擎版本, 当您的电脑使用waifu2x-ncnn-vulkan引擎出现问题时, 可以尝试更新显卡驱动或启用旧版本的waifu2x-ncnn-vulkan引擎
+- 新特性:兼容性测试新增对旧版本waifu2x-ncnn-vulkan引擎的测试
+- 新特性:自定义重试次数(附加设置)
 - 尝试修复高DPI屏幕显示的问题.(因为我自己没有高DPI显示器, 故无法测试)
 - 修复bug:文本错误
 --------------------------------------------------------------------------

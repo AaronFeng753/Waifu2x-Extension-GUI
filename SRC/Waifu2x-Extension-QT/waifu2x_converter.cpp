@@ -95,7 +95,7 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     //====
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
     //========
-    for(int retry=0; retry<3; retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -547,7 +547,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
         TTA_cmd = " -t 1 ";
     }
     //=======
-    for(int retry=0; retry<3; retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
         QProcess *Waifu2x = new QProcess();
@@ -871,7 +871,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         TTA_cmd = " -t 1 ";
     }
     //=======
-    for(int retry=0; retry<3; retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
         QProcess *Waifu2x = new QProcess();

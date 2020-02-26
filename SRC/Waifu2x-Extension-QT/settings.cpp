@@ -85,6 +85,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/JPGCompressedQuality", ui->spinBox_JPGCompressedQuality->value());
     configIniWrite->setValue("/settings/ScanSubFolders", ui->checkBox_ScanSubFolders->checkState());
     configIniWrite->setValue("/settings/InteractiveFileList", ui->checkBox_FileList_Interactive->checkState());
+    configIniWrite->setValue("/settings/RetryTimes", ui->spinBox_retry->value());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -193,6 +194,7 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_JPGCompressedQuality->setValue(configIniRead->value("/settings/JPGCompressedQuality").toInt());
     ui->checkBox_ScanSubFolders->setChecked(configIniRead->value("/settings/ScanSubFolders").toBool());
     ui->checkBox_FileList_Interactive->setChecked(configIniRead->value("/settings/InteractiveFileList").toBool());
+    ui->spinBox_retry->setValue(configIniRead->value("/settings/RetryTimes").toInt());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
     //=================== 加载视频设置 ===========================

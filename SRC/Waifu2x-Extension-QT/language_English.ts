@@ -194,22 +194,22 @@ It is recommended to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3023"/>
+        <location filename="mainwindow.ui" line="2921"/>
         <source>Automatically check for updates on startup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3026"/>
+        <location filename="mainwindow.ui" line="2924"/>
         <source>Automatically check update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2994"/>
+        <location filename="mainwindow.ui" line="2934"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2997"/>
+        <location filename="mainwindow.ui" line="2937"/>
         <source>File list scrolls automatically</source>
         <translation type="unfinished"></translation>
     </message>
@@ -323,7 +323,7 @@ You can run compatibility test to see which engines your PC is compatible with.<
     <message>
         <location filename="mainwindow.ui" line="1640"/>
         <location filename="mainwindow.ui" line="2024"/>
-        <location filename="mainwindow.ui" line="3135"/>
+        <location filename="mainwindow.ui" line="3155"/>
         <source>Image:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -353,7 +353,7 @@ When this option is enabled, alpha channel (ransparent images)support will be lo
     <message>
         <location filename="mainwindow.ui" line="1537"/>
         <location filename="mainwindow.ui" line="1965"/>
-        <location filename="mainwindow.ui" line="3164"/>
+        <location filename="mainwindow.ui" line="3184"/>
         <source>Video:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -451,7 +451,7 @@ folder as the source file.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="252"/>
-        <location filename="mainwindow.ui" line="3389"/>
+        <location filename="mainwindow.ui" line="3409"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -520,47 +520,52 @@ you can try to enable the older version of the engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2915"/>
+        <location filename="mainwindow.ui" line="2960"/>
         <source>[Path settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2918"/>
+        <location filename="mainwindow.ui" line="2963"/>
         <source>Always hide Path Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3094"/>
+        <location filename="mainwindow.ui" line="2990"/>
         <source>Scan sub-folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3104"/>
+        <location filename="mainwindow.ui" line="3000"/>
         <source>Interactive file list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3300"/>
+        <location filename="mainwindow.ui" line="3010"/>
+        <source>Retry:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="3320"/>
         <source>Video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3306"/>
+        <location filename="mainwindow.ui" line="3326"/>
         <source>Reset video settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3339"/>
+        <location filename="mainwindow.ui" line="3359"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3376"/>
+        <location filename="mainwindow.ui" line="3396"/>
         <source>Encoders List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3383"/>
+        <location filename="mainwindow.ui" line="3403"/>
         <source>When this option is enabled, your customized parameters 
 will be used when processing the video. 
 Otherwise the parameters automatically configured 
@@ -568,57 +573,57 @@ by the software will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3411"/>
+        <location filename="mainwindow.ui" line="3431"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3431"/>
-        <location filename="mainwindow.ui" line="3526"/>
+        <location filename="mainwindow.ui" line="3451"/>
+        <location filename="mainwindow.ui" line="3546"/>
         <source>Bitrate(video):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3505"/>
+        <location filename="mainwindow.ui" line="3525"/>
         <source>Pixel format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3520"/>
+        <location filename="mainwindow.ui" line="3540"/>
         <source>To mp4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3556"/>
+        <location filename="mainwindow.ui" line="3576"/>
         <source>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3596"/>
+        <location filename="mainwindow.ui" line="3616"/>
         <source>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3461"/>
+        <location filename="mainwindow.ui" line="3481"/>
         <source>Encoder(audio):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3475"/>
-        <location filename="mainwindow.ui" line="3566"/>
+        <location filename="mainwindow.ui" line="3495"/>
+        <location filename="mainwindow.ui" line="3586"/>
         <source>Bitrate(audio):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3454"/>
-        <location filename="mainwindow.ui" line="3498"/>
-        <location filename="mainwindow.ui" line="3549"/>
-        <location filename="mainwindow.ui" line="3589"/>
+        <location filename="mainwindow.ui" line="3474"/>
+        <location filename="mainwindow.ui" line="3518"/>
+        <location filename="mainwindow.ui" line="3569"/>
+        <location filename="mainwindow.ui" line="3609"/>
         <source>K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3417"/>
+        <location filename="mainwindow.ui" line="3437"/>
         <source>Encoder(video):</source>
         <translation type="unfinished"></translation>
     </message>
@@ -640,47 +645,47 @@ by the software will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3190"/>
+        <location filename="mainwindow.ui" line="3210"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3196"/>
+        <location filename="mainwindow.ui" line="3216"/>
         <source>Custom font size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3206"/>
+        <location filename="mainwindow.ui" line="3226"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3213"/>
+        <location filename="mainwindow.ui" line="3233"/>
         <source>Custom font:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3271"/>
+        <location filename="mainwindow.ui" line="3291"/>
         <source>Save Custom Font Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3087"/>
+        <location filename="mainwindow.ui" line="3074"/>
         <source>Compressed &quot;.jpg&quot; image quality:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2925"/>
+        <location filename="mainwindow.ui" line="2970"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2928"/>
+        <location filename="mainwindow.ui" line="2973"/>
         <source>Always hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2980"/>
+        <location filename="mainwindow.ui" line="3120"/>
         <source>0(worst quality)~99
 We recommend you use the default value(90)</source>
         <translation type="unfinished"></translation>
@@ -697,48 +702,48 @@ We recommend you use the default value(90)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2945"/>
+        <location filename="mainwindow.ui" line="3040"/>
         <source>Language:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3074"/>
+        <location filename="mainwindow.ui" line="2947"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3077"/>
+        <location filename="mainwindow.ui" line="2950"/>
         <source>Auto save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3036"/>
+        <location filename="mainwindow.ui" line="3081"/>
         <source>Aspect Ratio:
 (Custom resolution)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2962"/>
+        <location filename="mainwindow.ui" line="3102"/>
         <source>Ignore Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2967"/>
+        <location filename="mainwindow.ui" line="3107"/>
         <source>Keep Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2972"/>
+        <location filename="mainwindow.ui" line="3112"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3007"/>
+        <location filename="mainwindow.ui" line="2980"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3010"/>
+        <location filename="mainwindow.ui" line="2983"/>
         <source>Always hide Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -844,14 +849,14 @@ We recommend you use the default value(90)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2941"/>
+        <location filename="mainwindow.ui" line="3036"/>
         <location filename="mainwindow.ui" line="3053"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3123"/>
+        <location filename="mainwindow.ui" line="3143"/>
         <source>Input file extensions</source>
         <translation type="unfinished"></translation>
     </message>

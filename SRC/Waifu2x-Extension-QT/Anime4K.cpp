@@ -299,7 +299,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
     }
     //=======
-    for(int retry=0; retry<3; retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
