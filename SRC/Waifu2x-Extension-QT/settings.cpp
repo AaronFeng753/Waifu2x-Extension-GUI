@@ -63,6 +63,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ForceOpenCLConverter", ui->checkBox_ForceOpenCL_converter->checkState());
     configIniWrite->setValue("/settings/TTAVulkan", ui->checkBox_TTA_vulkan->checkState());
     configIniWrite->setValue("/settings/TTAConverter", ui->checkBox_TTA_converter->checkState());
+    configIniWrite->setValue("/settings/OLDVulkan", ui->checkBox_old_vulkan->checkState());
     //================== 存储 扩展名 =================================
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
@@ -170,6 +171,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_ForceOpenCL_converter->setChecked(configIniRead->value("/settings/ForceOpenCLConverter").toBool());
     ui->checkBox_TTA_vulkan->setChecked(configIniRead->value("/settings/TTAVulkan").toBool());
     ui->checkBox_TTA_converter->setChecked(configIniRead->value("/settings/TTAConverter").toBool());
+    ui->checkBox_old_vulkan->setChecked(configIniRead->value("/settings/OLDVulkan").toBool());
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
@@ -228,6 +230,8 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_comboBox_ImageStyle_currentIndexChanged(0);
     on_comboBox_model_vulkan_currentIndexChanged(0);
+    on_checkBox_TTA_vulkan_stateChanged(0);
+    on_checkBox_old_vulkan_stateChanged(0);
     ui->spinBox_DenoiseLevel_image->setValue(configIniRead->value("/settings/ImageDenoiseLevel").toInt());
     ui->spinBox_DenoiseLevel_gif->setValue(configIniRead->value("/settings/GIFDenoiseLevel").toInt());
     ui->spinBox_DenoiseLevel_video->setValue(configIniRead->value("/settings/VideoDenoiseLevel").toInt());
@@ -274,6 +278,8 @@ void MainWindow::Settings_Apply()
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_comboBox_ImageStyle_currentIndexChanged(0);
     on_comboBox_model_vulkan_currentIndexChanged(0);
+    on_checkBox_TTA_vulkan_stateChanged(0);
+    on_checkBox_old_vulkan_stateChanged(0);
     //=====
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //===

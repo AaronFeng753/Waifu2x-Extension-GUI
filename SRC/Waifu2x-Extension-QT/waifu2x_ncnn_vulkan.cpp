@@ -86,6 +86,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     //============================== 放大 =======================================
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
+    if(ui->checkBox_old_vulkan->checkState())
+    {
+        Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
+    }
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     //===========
     QString TTA_cmd="";
@@ -604,6 +608,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     //========================================================================
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
+    if(ui->checkBox_old_vulkan->checkState())
+    {
+        Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
+    }
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     //===========
     QString TTA_cmd="";
@@ -1012,7 +1020,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();
+    //========
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
+    if(ui->checkBox_old_vulkan->checkState())
+    {
+        Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
+    }
+    //========
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
     //===========
     QString TTA_cmd="";

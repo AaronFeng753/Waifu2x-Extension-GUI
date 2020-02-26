@@ -274,6 +274,24 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     QFile::remove(OutputPath);
     //================
+    Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
+    program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+    QProcess *Waifu2x_vulkan_old = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
+    Waifu2x_vulkan_old->start(cmd);
+    while(!Waifu2x_vulkan_old->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x_vulkan_old->waitForFinished(100)&&!QProcess_stop) {}
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Verison): Yes"));
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Verison): No. [Advice: Re-install gpu driver or update it to the latest.]"));
+    }
+    QFile::remove(OutputPath);
+    //================
     Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
     model_path= Waifu2x_folder_path + "/models_rgb";

@@ -948,7 +948,6 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
     else
     {
         Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
-        //Send_Table_Read_Saved_Table_Filelist_Finished();
     }
 }
 
@@ -1570,5 +1569,31 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     else
     {
         ui->lineEdit_outputPath->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_old_vulkan_stateChanged(int arg1)
+{
+    if(ui->checkBox_old_vulkan->checkState())
+    {
+        ui->checkBox_TTA_vulkan->setEnabled(0);
+        ui->checkBox_TTA_vulkan->setChecked(0);
+    }
+    else
+    {
+        ui->checkBox_TTA_vulkan->setEnabled(1);
+    }
+}
+
+void MainWindow::on_checkBox_TTA_vulkan_stateChanged(int arg1)
+{
+    if(ui->checkBox_TTA_vulkan->checkState())
+    {
+        ui->checkBox_old_vulkan->setEnabled(0);
+        ui->checkBox_old_vulkan->setChecked(0);
+    }
+    else
+    {
+        ui->checkBox_old_vulkan->setEnabled(1);
     }
 }

@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v0.52-beta";//软件版本号
+    QString VERSION="v0.53-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -460,6 +460,10 @@ private slots:
     void on_checkBox_FileList_Interactive_stateChanged(int arg1);
 
     void on_checkBox_OutPath_isEnabled_stateChanged(int arg1);
+
+    void on_checkBox_old_vulkan_stateChanged(int arg1);
+
+    void on_checkBox_TTA_vulkan_stateChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
