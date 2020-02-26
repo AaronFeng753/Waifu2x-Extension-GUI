@@ -70,6 +70,12 @@
 #### 经过4x放大,2级降噪和压缩后 3200x2140 (.jpg 881 KB):
 ![Scaled Imgae](/Samples/image/deer_Waifu2x.jpg)
 
+#### 原图 3D游戏图片 1200x630 (.jpg 168 KB):
+![Original Imgae](/Samples/image/Cyberpunk-2077.jpg)
+
+#### 经过 4x放大, 2级降噪 4800x2520 (.jpg 3.99 MB):
+![Scaled Imgae](/Samples/image/Cyberpunk-2077_waifu2x_4x_2n_jpg.jpg)
+
 #### 原图 GIF 500 x 372 (493 KB):
 ![Original GIF](/Samples/gif/2_original.gif)
 
