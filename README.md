@@ -71,6 +71,12 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 #### After 4x magnification, level 2 denoise and compress 3200x2140 (.jpg 881 KB):
 ![Scaled Imgae](/Samples/image/deer_Waifu2x.jpg)
 
+#### Original 3D Game Imgae 1200x630 (.jpg 168 KB):
+![Original Imgae](/Samples/image/Cyberpunk-2077.jpg)
+
+#### After 4x magnification, level 2 denoise 4800x2520 (.jpg 3.99 MB):
+![Scaled Imgae](/Samples/image/Cyberpunk-2077_waifu2x_4x_2n_jpg.jpg)
+
 #### Original GIF 500 x 372 (493 KB):
 ![Original GIF](/Samples/gif/2_original.gif)
 
