@@ -99,6 +99,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you really wanna exit Waifu2x-Extension-GUI ?")));
+    Msg.setIcon(QMessageBox::Question);
+    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+    Msg.exec();
+    if (Msg.clickedButton() == pNoBtn)
+    {
+        event->ignore();
+        return;
+    }
     bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->checkState();
     if(AutoSaveSettings&&(!Settings_isReseted))
     {
