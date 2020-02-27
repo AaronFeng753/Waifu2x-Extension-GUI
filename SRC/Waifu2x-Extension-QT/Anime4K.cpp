@@ -159,7 +159,9 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
             ThreadNumRunning--;//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
+        //====
         Sub_video_ThreadNumRunning++;
+        //====
         QString Frame_fileName = Frame_fileName_list.at(i);
         Sub_Thread_info["Frame_fileName"]=Frame_fileName;
         QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
@@ -179,7 +181,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
             return 0;//如果启用stop位,则直接return
         }
     }
-    while (Sub_video_ThreadNumRunning!=0)
+    while (Sub_video_ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
     }
@@ -328,6 +330,9 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     //=========
     QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
+    //========
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+    Delay_msec_sleep(10);
+    //========
     return 0;
 }

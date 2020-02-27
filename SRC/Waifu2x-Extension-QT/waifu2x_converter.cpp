@@ -575,7 +575,10 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     //========================
     QFile::remove(InputPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
+    //=======
     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+    Delay_msec_sleep(10);
+    //========
     return 0;
 }
 
@@ -901,7 +904,10 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     //========
     QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
+    //========
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+    Delay_msec_sleep(10);
+    //========
     return 0;
 }
 

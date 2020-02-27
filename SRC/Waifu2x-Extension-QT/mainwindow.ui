@@ -1066,6 +1066,9 @@ padding:10px;
            </item>
            <item row="0" column="7">
             <widget class="QPushButton" name="pushButton_ForceRetry">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="toolTip">
               <string>In some cases, the waifu2x process can get stuck.
 

@@ -785,7 +785,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
         }
     }
     QFile::remove(Frame_fileFullPath);
+    //=========
     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+    Delay_msec_sleep(10);
+    //========
     return 0;
 }
 
@@ -1231,6 +1234,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QFile::rename(Frame_fileOutPutPath,ScaledFramesFolderPath+"/"+Frame_fileName);
     //====================
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+    Delay_msec_sleep(10);
+    //========
     return 0;
 }
 
