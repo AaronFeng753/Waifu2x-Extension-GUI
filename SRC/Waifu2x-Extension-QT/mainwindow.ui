@@ -833,6 +833,19 @@ padding:10px;
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_TimeRemain">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="text">
+              <string>Time remaining:NULL</string>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_progressBar_filenum">
              <property name="frameShape">
@@ -846,23 +859,6 @@ padding:10px;
              </property>
              <property name="text">
               <string notr="true">0/0</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="9">
-            <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="value">
-              <number>9</number>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="8">
-            <widget class="QLabel" name="label_TextBroFontSize">
-             <property name="text">
-              <string>Font size:</string>
              </property>
             </widget>
            </item>
@@ -886,111 +882,6 @@ padding:10px;
              </property>
              <property name="format">
               <string notr="true">%p%</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="5">
-            <widget class="QPushButton" name="pushButton_Start">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>The result images will stay in the same folder of source images.</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Start</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="label_TimeCost">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="text">
-              <string>Time cost:NULL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="10">
-            <widget class="QPushButton" name="pushButton_clear_textbrowser">
-             <property name="toolTip">
-              <string>Clear text browser.</string>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color: rgb(0, 140, 158);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(0, 190, 211);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-	background-color: rgb(0, 108, 120);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Clear</string>
              </property>
             </widget>
            </item>
@@ -1051,8 +942,70 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="0" column="3">
-            <widget class="QLabel" name="label_TimeRemain">
+           <item row="0" column="5">
+            <widget class="QPushButton" name="pushButton_Start">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>70</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>The result images will stay in the same folder of source images.</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Start</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="10">
+            <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="value">
+              <number>9</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_TimeCost">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -1060,7 +1013,105 @@ padding:10px;
               <number>1</number>
              </property>
              <property name="text">
-              <string>Time remaining:NULL</string>
+              <string>Time cost:NULL</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="11">
+            <widget class="QPushButton" name="pushButton_clear_textbrowser">
+             <property name="toolTip">
+              <string>Clear text browser.</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	background-color: rgb(0, 140, 158);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(0, 190, 211);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+	background-color: rgb(0, 108, 120);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Clear</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="9">
+            <widget class="QLabel" name="label_TextBroFontSize">
+             <property name="text">
+              <string>Font size:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="7">
+            <widget class="QPushButton" name="pushButton_ForceRetry">
+             <property name="toolTip">
+              <string>In some cases, the waifu2x process can get stuck.
+
+When you find that the [Scale and denoise] progress has 
+not changed for a long time, it is recommended that you 
+perform a forced retry to remove the stuck.
+
+You can try using [Force Retry] to end the waifu2x process 
+and restart it, and the entire [Scale and denoise] process 
+will not be interrupted and will continue.
+
+Only effective when using waifu2x-ncnn-vulkan engine 
+and waifu2x-converter engine.</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Force retry</string>
              </property>
             </widget>
            </item>

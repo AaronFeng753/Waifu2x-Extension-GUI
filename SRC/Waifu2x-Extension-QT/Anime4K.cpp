@@ -174,6 +174,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
+            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             ThreadNumRunning--;//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
@@ -190,6 +191,7 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         QFile::remove(AudioPath);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return

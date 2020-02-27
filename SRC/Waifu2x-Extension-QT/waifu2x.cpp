@@ -236,6 +236,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->spinBox_JPGCompressedQuality->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
     if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
+    ui->pushButton_ForceRetry->setEnabled(0);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

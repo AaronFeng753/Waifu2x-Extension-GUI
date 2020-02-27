@@ -164,7 +164,21 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
                     ThreadNumRunning--;
                     return 0;
                 }
+                QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
+                QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    waifu2x_qprocess_failed = true;
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
+                    QFile::remove(OutputPath_tmp);
+                    break;
+                }
             }
+            //===============
+            if(waifu2x_qprocess_failed)break;
             //===============
             QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
             QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
@@ -697,7 +711,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
                     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
                     return 0;
                 }
+                QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
+                QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    waifu2x_qprocess_failed = true;
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
+                    QFile::remove(OutputPath_tmp);
+                    break;
+                }
             }
+            if(waifu2x_qprocess_failed)break;
             //===============
             QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
             QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
@@ -939,6 +966,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
@@ -961,6 +989,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         ThreadNumRunning--;//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
@@ -1126,7 +1155,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
                     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
                     return 0;
                 }
+                QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
+                QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    waifu2x_qprocess_failed = true;
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
+                    QFile::remove(OutputPath_tmp);
+                    break;
+                }
             }
+            if(waifu2x_qprocess_failed)break;
             //===============
             QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
             QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();

@@ -307,6 +307,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
         ui->groupBox_video_settings->setEnabled(0);
         ui->checkBox_Move2RecycleBin->setEnabled(0);
+        ui->pushButton_ForceRetry->setEnabled(1);
         //==========
         TimeCostTimer->start(1000);
         TimeCost=0;
@@ -1606,4 +1607,22 @@ void MainWindow::on_checkBox_TTA_vulkan_stateChanged(int arg1)
     {
         ui->checkBox_old_vulkan->setEnabled(1);
     }
+}
+
+void MainWindow::on_pushButton_ForceRetry_clicked()
+{
+    int tmp = ui->spinBox_retry->value();
+    tmp++;
+    ui->spinBox_retry->setValue(tmp);
+    //========
+    QProcess Close;
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //========
+    emit Send_TextBrowser_NewMessage(tr("Force retry."));
+    return;
 }

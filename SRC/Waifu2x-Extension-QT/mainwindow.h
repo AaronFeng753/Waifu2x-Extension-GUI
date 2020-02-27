@@ -465,6 +465,8 @@ private slots:
 
     void on_checkBox_TTA_vulkan_stateChanged(int arg1);
 
+    void on_pushButton_ForceRetry_clicked();
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
