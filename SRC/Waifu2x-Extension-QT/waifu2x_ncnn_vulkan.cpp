@@ -140,6 +140,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     int DenoiseLevel_tmp = DenoiseLevel;
     for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
+        bool waifu2x_qprocess_failed = false;
         InputPath_tmp = SourceFile_fullPath;
         OutputPath_tmp ="";
         DenoiseLevel_tmp = DenoiseLevel;
@@ -164,6 +165,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
                     return 0;
                 }
             }
+            //===============
+            QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
+            QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+            {
+                waifu2x_qprocess_failed = true;
+                if(i>2)
+                {
+                    QFile::remove(InputPath_tmp);
+                }
+                QFile::remove(OutputPath_tmp);
+                break;
+            }
+            //===============
             if(i>2)
             {
                 QFile::remove(InputPath_tmp);
@@ -172,12 +187,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
             InputPath_tmp = OutputPath_tmp;
         }
         //========= 检测是否成功,是否需要重试 ============
-        if(file_isFileExist(OutputPath_tmp))
+        if(file_isFileExist(OutputPath_tmp)&&!waifu2x_qprocess_failed)
         {
             break;
         }
         else
         {
+            QFile::remove(OutputPath_tmp);
             emit Send_TextBrowser_NewMessage(tr("Retry"));
             Delay_sec_sleep(5);
         }
@@ -663,6 +679,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     int DenoiseLevel_tmp = DenoiseLevel;
     for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
+        bool waifu2x_qprocess_failed = false;
         OutputPath_tmp ="";
         InputPath_tmp = Frame_fileFullPath;
         DenoiseLevel_tmp = DenoiseLevel;
@@ -681,6 +698,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
                     return 0;
                 }
             }
+            //===============
+            QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
+            QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+            {
+                waifu2x_qprocess_failed = true;
+                if(i>2)
+                {
+                    QFile::remove(InputPath_tmp);
+                }
+                QFile::remove(OutputPath_tmp);
+                break;
+            }
+            //===============
             if(i>2)
             {
                 QFile::remove(InputPath_tmp);
@@ -688,12 +719,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
             }
             InputPath_tmp = OutputPath_tmp;
         }
-        if(file_isFileExist(OutputPath_tmp))
+        if(file_isFileExist(OutputPath_tmp)&&!waifu2x_qprocess_failed)
         {
             break;
         }
         else
         {
+            QFile::remove(OutputPath_tmp);
             emit Send_TextBrowser_NewMessage(tr("Retry"));
             Delay_sec_sleep(5);
         }
@@ -1076,6 +1108,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QString OutputPath_tmp ="";
     for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {
+        bool waifu2x_qprocess_failed = false;
         QString InputPath_tmp = Frame_fileFullPath;
         OutputPath_tmp ="";
         int DenoiseLevel_tmp = DenoiseLevel;
@@ -1094,6 +1127,20 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
                     return 0;
                 }
             }
+            //===============
+            QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
+            QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+            {
+                waifu2x_qprocess_failed = true;
+                if(i>2)
+                {
+                    QFile::remove(InputPath_tmp);
+                }
+                QFile::remove(OutputPath_tmp);
+                break;
+            }
+            //===============
             if(i>2)
             {
                 QFile::remove(InputPath_tmp);
@@ -1101,12 +1148,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
             }
             InputPath_tmp = OutputPath_tmp;
         }
-        if(file_isFileExist(OutputPath_tmp))
+        if(file_isFileExist(OutputPath_tmp)&&!waifu2x_qprocess_failed)
         {
             break;
         }
         else
         {
+            QFile::remove(OutputPath_tmp);
             emit Send_TextBrowser_NewMessage(tr("Retry"));
             Delay_sec_sleep(5);
         }
