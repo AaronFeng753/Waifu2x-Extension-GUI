@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v0.54-beta";//软件版本号
+    QString VERSION="v0.55-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -77,6 +77,8 @@ public:
     //=================================  File 文件=================================
     void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
+    void Read_urls(QList<QUrl> urls);
+    void Read_Path(QString Input_path);
     bool AddNew_gif=false;//判断是否有新增文件-gif
     bool AddNew_image=false;//判断是否有新增文件-图片
     bool AddNew_video=false;//判断是否有新增文件-视频
@@ -85,6 +87,7 @@ public:
     QStringList getFileNames(QString path);//当拖入的路径是文件夹时,读取文件夹内指定扩展名的文件并返回一个qstringlist
     QStringList getFileNames_IncludeSubFolder(QString path);//读取文件列表, 包括文件夹
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
+    bool Table_insert_finished=false;
     //待处理的filelist
     QList<QMap<QString, QString>> FileList_image;//map["SourceFile_fullPath"],map["rowNum"]
     QList<QMap<QString, QString>> FileList_gif;
@@ -321,6 +324,7 @@ public slots:
 
     int Waifu2x_DumpProcessorList_converter_finished();
 
+    void Read_urls_finfished();
 
 
 
@@ -506,6 +510,8 @@ signals:
     void Send_Donate_Notification();
 
     void Send_Waifu2x_DumpProcessorList_converter_finished();
+
+    void Send_Read_urls_finfished();
 
 
 private:

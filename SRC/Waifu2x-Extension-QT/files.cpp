@@ -39,6 +39,27 @@ void MainWindow::dropEvent(QDropEvent *event)
     QList<QUrl> urls = event->mimeData()->urls();
     if(urls.isEmpty())
         return;
+    //================== 界面管制 ========================
+    ui->groupBox_Input->setEnabled(0);
+    ui->groupBox_Setting->setEnabled(0);
+    ui->groupBox_FileList->setEnabled(0);
+    ui->groupBox_InputExt->setEnabled(0);
+    ui->pushButton_Start->setEnabled(0);
+    this->setAcceptDrops(0);
+    ui->label_DropFile->setText(tr("Adding files, please wait."));
+    emit Send_TextBrowser_NewMessage(tr("Adding files, please wait."));
+    //===================================================
+    QtConcurrent::run(this, &MainWindow::Read_urls, urls);
+    //=============
+}
+/*
+读取urls
+*/
+void MainWindow::Read_urls(QList<QUrl> urls)
+{
+    Progressbar_MaxVal = urls.size();
+    Progressbar_CurrentVal = 0;
+    emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
     foreach(QUrl url, urls)
     {
         if(ui->checkBox_ScanSubFolders->checkState())
@@ -49,8 +70,31 @@ void MainWindow::dropEvent(QDropEvent *event)
         {
             Add_File_Folder(url.toLocalFile());
         }
+        emit Send_progressbar_Add();
+        Delay_msec_sleep(100);
     }
-    //=================
+    emit Send_Read_urls_finfished();
+}
+/*
+读取urls
+善后
+*/
+void MainWindow::Read_urls_finfished()
+{
+    //================== 解除界面管制 ========================
+    ui->groupBox_Input->setEnabled(1);
+    ui->groupBox_Setting->setEnabled(1);
+    ui->groupBox_FileList->setEnabled(1);
+    ui->pushButton_Start->setEnabled(1);
+    ui->groupBox_InputExt->setEnabled(1);
+    this->setAcceptDrops(1);
+    ui->label_DropFile->setText(tr("Drag and drop files or folders here\n(Image, GIF and Video)"));
+    emit Send_TextBrowser_NewMessage(tr("Add file complete."));
+    //===================================================
+    Progressbar_MaxVal = 0;
+    Progressbar_CurrentVal = 0;
+    progressbar_clear();
+    //======================
     //如果没有增加任何文件
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
     {
@@ -91,6 +135,8 @@ void MainWindow::dropEvent(QDropEvent *event)
     AddNew_video=false;
     Table_FileCount_reload();
 }
+
+
 /*
 添加文件&文件夹
 */
@@ -194,7 +240,13 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         if(!Deduplicate_filelist(FileList_image, SourceFile_fullPath)&&!Deduplicate_filelist(FileList_image_finished, SourceFile_fullPath))
         {
             FileList_image.append(map);
-            Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+            Table_insert_finished=false;
+            emit Send_Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+            while(!Table_insert_finished)
+            {
+                Delay_msec_sleep(10);
+            }
+            //Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
@@ -223,7 +275,13 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         if(!Deduplicate_filelist(FileList_video, SourceFile_fullPath)&&!Deduplicate_filelist(FileList_video_finished, SourceFile_fullPath))
         {
             FileList_video.append(map);
-            Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+            Table_insert_finished=false;
+            emit Send_Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+            while(!Table_insert_finished)
+            {
+                Delay_msec_sleep(10);
+            }
+            //Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
@@ -238,7 +296,13 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         if(!Deduplicate_filelist(FileList_gif, SourceFile_fullPath)&&!Deduplicate_filelist(FileList_gif_finished, SourceFile_fullPath))
         {
             FileList_gif.append(map);
-            Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+            Table_insert_finished=false;
+            emit Send_Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
+            while(!Table_insert_finished)
+            {
+                Delay_msec_sleep(10);
+            }
+            //Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }

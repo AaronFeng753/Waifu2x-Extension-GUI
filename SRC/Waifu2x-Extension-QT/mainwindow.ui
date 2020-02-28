@@ -2306,6 +2306,9 @@ you can try to enable the older version of the engine.</string>
                     <property name="text">
                      <string>OLD Version</string>
                     </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
                    </widget>
                   </item>
                  </layout>

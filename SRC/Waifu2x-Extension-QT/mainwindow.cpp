@@ -73,8 +73,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
-    //Send_Waifu2x_DumpProcessorList_converter_finished
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
+    connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -623,14 +623,17 @@ void MainWindow::on_pushButton_AddPath_clicked()
         AddNew_gif=false;
         AddNew_image=false;
         AddNew_video=false;
-        if(ui->checkBox_ScanSubFolders->checkState())
-        {
-            Add_File_Folder_IncludeSubFolder(Input_path);
-        }
-        else
-        {
-            Add_File_Folder(Input_path);
-        }
+        //================== 界面管制 ========================
+        ui->groupBox_Input->setEnabled(0);
+        ui->groupBox_Setting->setEnabled(0);
+        ui->groupBox_FileList->setEnabled(0);
+        ui->pushButton_Start->setEnabled(0);
+        ui->groupBox_InputExt->setEnabled(0);
+        this->setAcceptDrops(0);
+        ui->label_DropFile->setText(tr("Adding files, please wait."));
+        emit Send_TextBrowser_NewMessage(tr("Adding files, please wait."));
+        //===================================================
+        QtConcurrent::run(this, &MainWindow::Read_Path, Input_path);
     }
     else
     {
@@ -642,46 +645,21 @@ void MainWindow::on_pushButton_AddPath_clicked()
         MSG->show();
         return;
     }
-    if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
+}
+/*
+通过输入路径添加文件-的读取文件线程
+*/
+void MainWindow::Read_Path(QString Input_path)
+{
+    if(ui->checkBox_ScanSubFolders->checkState())
     {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Warning"));
-        MSG->setText(tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
-        MSG->show();
+        Add_File_Folder_IncludeSubFolder(Input_path);
     }
     else
     {
-        if(AddNew_image)
-        {
-            ui->label_DropFile->setVisible(0);//隐藏文件投放label
-            ui->tableView_image->setVisible(1);
-            ui->pushButton_ClearList->setVisible(1);
-            ui->pushButton_RemoveItem->setVisible(1);
-        }
-        if(AddNew_gif)
-        {
-            ui->label_DropFile->setVisible(0);//隐藏文件投放label
-            ui->tableView_gif->setVisible(1);
-            ui->pushButton_ClearList->setVisible(1);
-            ui->pushButton_RemoveItem->setVisible(1);
-        }
-        if(AddNew_video)
-        {
-            ui->label_DropFile->setVisible(0);//隐藏文件投放label
-            ui->tableView_video->setVisible(1);
-            ui->pushButton_ClearList->setVisible(1);
-            ui->pushButton_RemoveItem->setVisible(1);
-        }
+        Add_File_Folder(Input_path);
     }
-    ui->tableView_gif->scrollToBottom();
-    ui->tableView_image->scrollToBottom();
-    ui->tableView_video->scrollToBottom();
-    AddNew_image=false;
-    AddNew_image=false;
-    AddNew_video=false;
-    Table_FileCount_reload();
+    emit Send_Read_urls_finfished();
 }
 
 void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)

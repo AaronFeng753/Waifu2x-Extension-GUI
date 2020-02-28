@@ -67,6 +67,7 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
         ui->tableView_image->scrollTo(indextemp);
     }
     ui->tableView_image->setUpdatesEnabled(true);
+    Table_insert_finished=true;
 }
 
 void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
@@ -82,6 +83,7 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
         ui->tableView_gif->scrollTo(indextemp);
     }
     ui->tableView_gif->setUpdatesEnabled(true);
+    Table_insert_finished=true;
 }
 
 void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
@@ -97,6 +99,7 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
         ui->tableView_video->scrollTo(indextemp);
     }
     ui->tableView_video->setUpdatesEnabled(true);
+    Table_insert_finished=true;
 }
 
 void MainWindow::Table_image_ChangeStatus_rowNumInt_statusQString(int rowNum, QString status)
@@ -611,7 +614,12 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         file_map["SourceFile_fullPath"] = fullPath;
         file_map["rowNum"] = QString::number(i, 10);
         FileList_image.append(file_map);
+        Table_insert_finished=false;
         emit Send_Table_image_insert_fileName_fullPath(FileName,fullPath);
+        while(!Table_insert_finished)
+        {
+            Delay_msec_sleep(10);
+        }
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(i,status);
         if(status=="Failed")
         {
@@ -645,7 +653,12 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         file_map["SourceFile_fullPath"] = fullPath;
         file_map["rowNum"] = QString::number(i, 10);
         FileList_gif.append(file_map);
+        Table_insert_finished=false;
         emit Send_Table_gif_insert_fileName_fullPath(FileName,fullPath);
+        while(!Table_insert_finished)
+        {
+            Delay_msec_sleep(10);
+        }
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(i,status);
         if(status=="Failed")
         {
@@ -679,7 +692,12 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         file_map["SourceFile_fullPath"] = fullPath;
         file_map["rowNum"] = QString::number(i, 10);
         FileList_video.append(file_map);
+        Table_insert_finished=false;
         emit Send_Table_video_insert_fileName_fullPath(FileName,fullPath);
+        while(!Table_insert_finished)
+        {
+            Delay_msec_sleep(10);
+        }
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(i,status);
         if(status=="Failed")
         {
@@ -712,8 +730,12 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
 
 int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
 {
-    this->setAcceptDrops(1);//禁止drop file
-    ui->pushButton_Start->setEnabled(1);//禁用start button
+    Progressbar_MaxVal = 0;
+    Progressbar_CurrentVal = 0;
+    progressbar_clear();
+    //====
+    this->setAcceptDrops(1);
+    ui->pushButton_Start->setEnabled(1);
     ui->groupBox_Input->setEnabled(1);
     ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
