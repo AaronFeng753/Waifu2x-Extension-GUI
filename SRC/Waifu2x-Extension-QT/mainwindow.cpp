@@ -144,6 +144,24 @@ int MainWindow::Auto_Save_Settings_Watchdog()
 int MainWindow::Force_close()
 {
     QProcess Close;
+    Close.start("taskkill /f /t /fi \"imagename eq convert_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq ffmpeg_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq gifsicle_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq python_ext_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
@@ -324,6 +342,10 @@ void MainWindow::on_pushButton_Stop_clicked()
     ui->pushButton_Stop->setEnabled(0);//禁用stop button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
+    QProcess Close;
+    Close.start("taskkill /f /t /fi \"imagename eq ffmpeg_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
     QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
 }
 /*
@@ -1279,7 +1301,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter()
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
     //=========
     int Processor_ID=0;
@@ -1594,10 +1616,10 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     ui->spinBox_retry->setValue(tmp);
     //========
     QProcess Close;
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan.exe\"");
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp.exe\"");
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //========

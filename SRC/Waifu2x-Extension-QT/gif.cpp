@@ -21,11 +21,11 @@
 #include "ui_mainwindow.h"
 
 /*
-python_ext_Waifu2xEX.exe:
-get video fps : [python_ext_Waifu2xEX.exe videoFilePath fps]
-get video frame number : [python_ext_Waifu2xEX.exe videoFilePath countframe]
-get gif duration : [python_ext_Waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_Waifu2xEX.exe null checkupdate]
+python_ext_waifu2xEX.exe:
+get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
+get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
+get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
+check update :[python_ext_waifu2xEX.exe null checkupdate]
 */
 //=======================================================================
 /*
@@ -33,7 +33,7 @@ check update :[python_ext_Waifu2xEX.exe null checkupdate]
 */
 int MainWindow::Gif_getDuration(QString gifPath)
 {
-    QString program = Current_Path+"/python_ext_Waifu2xEX.exe";
+    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess GifDuration;
     GifDuration.start("\""+program+"\" \""+gifPath+"\" duration");
     while(!GifDuration.waitForStarted(100)&&!QProcess_stop) {}
@@ -65,7 +65,7 @@ int MainWindow::Gif_getFrameDigits(QString gifPath)
 void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
 {
     int FrameDigits = Gif_getFrameDigits(gifPath);
-    QString program = Current_Path+"/ffmpeg.exe";
+    QString program = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%0"+QString::number(FrameDigits,10)+"d.png\"";
     QProcess *SplitGIF=new QProcess();
     SplitGIF->start(cmd);
@@ -109,7 +109,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
             }
         }
     }
-    QString program = Current_Path+"/convert.exe";
+    QString program = Current_Path+"/convert_waifu2xEX.exe";
     QString cmd = "\"" + program + "\"" + " "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
     QProcess *AssembleGIF=new QProcess();
     AssembleGIF->start(cmd);
@@ -121,7 +121,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
 */
 void MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
 {
-    QString program = Current_Path+"/gifsicle.exe";
+    QString program = Current_Path+"/gifsicle_waifu2xEX.exe";
     QString cmd = "\"" + program + "\"" + " -O3 -i \""+gifPath+"\" -o \""+gifPath_compressd+"\"";
     QProcess *CompressGIF=new QProcess();
     CompressGIF->start(cmd);

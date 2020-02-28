@@ -258,7 +258,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
-    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
     QProcess *Waifu2x_vulkan = new QProcess();
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
@@ -276,7 +276,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     //================
     Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
-    program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
     QProcess *Waifu2x_vulkan_old = new QProcess();
     cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
@@ -294,7 +294,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     //================
     Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    program = Waifu2x_folder_path + "/waifu2x-converter-cpp.exe";
+    program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
     model_path= Waifu2x_folder_path + "/models_rgb";
     QString Denoise_cmd = " --noise-level 1 ";
     cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2" + Denoise_cmd + " --model-dir " + "\"" + model_path + "\"";
@@ -356,7 +356,7 @@ int MainWindow::Waifu2x_DetectGPU()
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
-    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
     //=========
     int GPU_ID=0;

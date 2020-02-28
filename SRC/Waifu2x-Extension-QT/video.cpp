@@ -22,16 +22,16 @@
 
 
 /*
-python_ext_Waifu2xEX.exe:
-get video fps : [python_ext_Waifu2xEX.exe videoFilePath fps]
-get video frame number : [python_ext_Waifu2xEX.exe videoFilePath countframe]
-get gif duration : [python_ext_Waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_Waifu2xEX.exe null checkupdate]
+python_ext_waifu2xEX.exe:
+get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
+get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
+get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
+check update :[python_ext_waifu2xEX.exe null checkupdate]
 */
 
 int MainWindow::video_get_fps(QString videoPath)
 {
-    QString program = Current_Path+"/python_ext_Waifu2xEX.exe";
+    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" fps");
     while(!vid.waitForStarted(100)&&!QProcess_stop) {}
@@ -42,7 +42,7 @@ int MainWindow::video_get_fps(QString videoPath)
 
 int MainWindow::video_get_frameNumDigits(QString videoPath)
 {
-    QString program = Current_Path+"/python_ext_Waifu2xEX.exe";
+    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" countframe");
     while(!vid.waitForStarted(100)&&!QProcess_stop) {}
@@ -54,7 +54,7 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
 
 void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath)
 {
-    QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
+    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFileInfo vfinfo(VideoPath);
     QString video_dir = vfinfo.path();
     if(video_dir.right(1)=="/")
@@ -175,7 +175,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         }
     }
     //===========
-    QString ffmpeg_path = Current_Path+"/ffmpeg.exe";
+    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);
     QString video_dir = vfinfo.path();

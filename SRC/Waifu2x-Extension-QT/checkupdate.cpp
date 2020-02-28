@@ -18,11 +18,11 @@
 */
 
 /*
-python_ext_Waifu2xEX.exe:
-get video fps : [python_ext_Waifu2xEX.exe videoFilePath fps]
-get video frame number : [python_ext_Waifu2xEX.exe videoFilePath countframe]
-get gif duration : [python_ext_Waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_Waifu2xEX.exe null checkupdate]
+python_ext_waifu2xEX.exe:
+get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
+get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
+get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
+check update :[python_ext_waifu2xEX.exe null checkupdate]
 */
 
 #include "mainwindow.h"
@@ -46,7 +46,7 @@ int MainWindow::CheckUpadte_Auto()
         return 0;
     }
     //Delay_sec_sleep(5);
-    QString program = Current_Path+"/python_ext_Waifu2xEX.exe";
+    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess checkupdate;
     checkupdate.start("\""+program+"\" null checkupdate");
     while(!checkupdate.waitForStarted(100)&&!QProcess_stop) {}

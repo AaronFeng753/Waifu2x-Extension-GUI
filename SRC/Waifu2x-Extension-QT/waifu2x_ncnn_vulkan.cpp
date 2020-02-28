@@ -90,7 +90,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map)
     {
         Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
     }
-    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     //===========
     QString TTA_cmd="";
     if(TTA_isEnabled)TTA_cmd=" -x ";
@@ -642,7 +642,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     {
         Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
     }
-    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     //===========
     QString TTA_cmd="";
     if(TTA_isEnabled)TTA_cmd=" -x ";
@@ -1091,7 +1091,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
         Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
     }
     //========
-    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan.exe";
+    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     //===========
     QString TTA_cmd="";
     if(TTA_isEnabled)TTA_cmd=" -x ";
