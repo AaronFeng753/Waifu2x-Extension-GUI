@@ -71,15 +71,6 @@ void MainWindow::Read_urls(QList<QUrl> urls)
             Add_File_Folder(url.toLocalFile());
         }
         emit Send_progressbar_Add();
-        QFileInfo fileinfo(url.toLocalFile());
-        if(fileinfo.isFile())
-        {
-            Delay_msec_sleep(10);
-        }
-        else
-        {
-            Delay_msec_sleep(100);
-        }
     }
     emit Send_Read_urls_finfished();
 }
