@@ -1,4 +1,41 @@
 # Change log
+## [v0.57-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.57-beta)
+#### Change log:
+- Add PayPal donate button
+- Rewrite code related to file list to speed up operation and reduce memory consumption.
+- Fix bug: When there are many entries in the list, removing a single entry will cause no response.
+- Fix bug: After specifying the output path, files with the same file name will overwrite each other.
+- Fix bug: New and old versions of waifu2x-ncnn-vulkan are not distinguished when detecting available GPU ID
+---
+## [v0.56-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.56-beta)
+#### Change log:
+- Fix bug: slow reading files speed
+- Fix bug: unable to stop processing file process normally due to waiting for ffmpeg to split video (or GIF)
+- Fix bug: In some cases, external plugins are still running when exiting the program
+---
+## [v0.55-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.55-beta)
+#### Change log:
+- Old version of waifu2x-ncnn-vulkan engine is enabled by default. (Because of the stability issue of new version of waifu2x-ncnn-vulkan)
+`If you need to use the TTA feature of the waifu2x-ncnn-vulkan engine, switch to the new version.`
+- Improve stability.
+- Fix bug: Adding a large number of files at one time will cause the program to become unresponsive.
+---
+## [v0.54-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.54-beta)
+#### Change log:
+- New feature: When the software is closed, a pop-up window asks the user whether to confirm the exit.
+- New feature: Added [Forced Retry], when waifu2x thread is stuck, you can perform forced retry to remove the stuck, and it will not interrupt the entire [scale and denoise] process
+- Improve error detection of waifu2x-ncnn-vulkan engine.
+- Fix bug: not delete all temporary files in some cases
+- Fix bug: In some special cases, multi-threaded scheduling error will cause stuck
+---
+## [v0.53-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.53-beta)
+#### Change log:
+- New feature: Support switching waifu2x-ncnn-vulkan engine version. When your computer has problems using waifu2x-ncnn-vulkan engine, you can try to update the graphics card driver or enable the old version of waifu2x-ncnn-vulkan engine
+- New feature: Added compatibility test for older versions of waifu2x-ncnn-vulkan engine
+- New feature: Custom retry times (additional settings)
+- Try to fix the problem of high DPI screen display. (I cannot test because I don’t have a high DPI display myself)
+- Fix bug: text error
+---
 ## [v0.52-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.52-beta)
 #### Change log:
 - Improved stability, will retry when the engine crashes, and will not fail the entire process because of an engine crash
