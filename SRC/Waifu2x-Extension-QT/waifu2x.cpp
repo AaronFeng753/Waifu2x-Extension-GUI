@@ -389,6 +389,10 @@ int MainWindow::Waifu2x_DetectGPU()
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
+    if(ui->checkBox_old_vulkan->checkState())
+    {
+        Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
+    }
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
     //=========
