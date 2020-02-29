@@ -2,6 +2,43 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v0.57-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.57-beta)
+#### 更新日志:
+- 添加PayPal捐赠按钮
+- 重写文件列表相关的代码,加快运行速度,减少内存占用.
+- 修复bug:当列表内条目较多时,移除单个条目会造成无响应.
+- 修复bug:指定输出路径后, 同一文件名的文件将互相覆盖.
+- 修复bug:当检测可用的GPU ID时未区分新旧版本的waifu2x-ncnn-vulkan
+---
+## [v0.56-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.56-beta)
+#### 更新日志:
+- 修复bug:读取文件速度慢
+- 修复bug:因为等待ffmpeg拆分视频(或GIF)而导致无法正常停止处理文件进程
+- 修复bug:某些情况下,当退出程序后外部插件仍在运行
+---
+## [v0.55-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.55-beta)
+#### 更新日志:
+- 默认启用旧版本的waifu2x-ncnn-vulkan引擎.(因为新版本的waifu2x-ncnn-vulkan存在稳定性问题)
+`如果您需要使用waifu2x-ncnn-vulkan引擎的TTA的特性,切换到新版本即可.`
+- 提高稳定性.
+- 修复bug:一次性添加大量文件时会造成程序无响应.
+---
+## [v0.54-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.54-beta)
+#### 更新日志:
+- 新特性:关闭软件时弹出窗口询问用户是否确认退出.
+- 新特性:新增[强制重试], 当waifu2x线程卡死时可以执行强制重试以解除卡死,并且不会中断整个[放大与降噪]进程
+- 完善对waifu2x-ncnn-vulkan引擎的错误检测, 提高稳定性.
+- 修复bug:一些情况下未删除所有临时文件
+- 修复bug:某些特殊情况下多线程调度出错导致卡死
+---
+## [v0.53-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.53-beta)
+#### 更新日志:
+- 新特性:支持切换waifu2x-ncnn-vulkan引擎版本, 当您的电脑使用waifu2x-ncnn-vulkan引擎出现问题时, 可以尝试更新显卡驱动或启用旧版本的waifu2x-ncnn-vulkan引擎
+- 新特性:兼容性测试新增对旧版本waifu2x-ncnn-vulkan引擎的测试
+- 新特性:自定义重试次数(附加设置)
+- 尝试修复高DPI屏幕显示的问题.(因为我自己没有高DPI显示器, 故无法测试)
+- 修复bug:文本错误
+---
 ## [v0.52-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.52-beta)
 #### 更新日志:
 - 提高稳定性, 当引擎崩溃时将重试, 不会再因为一次引擎崩溃而整个处理过程失败
