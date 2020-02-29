@@ -234,12 +234,6 @@ void MainWindow::on_pushButton_ClearList_clicked()
     curRow_gif = -1;
     curRow_video = -1;
     Table_Clear();
-    FileList_image.clear();
-    FileList_gif.clear();
-    FileList_video.clear();
-    FileList_image_finished.clear();
-    FileList_gif_finished.clear();
-    FileList_video_finished.clear();
     Custom_resolution_list.clear();
     ui->label_DropFile->setVisible(1);
     ui->tableView_gif->setVisible(0);
@@ -280,9 +274,10 @@ void MainWindow::on_pushButton_Start_clicked()
             return;
         }
     }
-    if(FileList_image.isEmpty()&&FileList_gif.isEmpty()&&FileList_video.isEmpty())
+    //===========
+    if(Table_model_image->rowCount()==0&&Table_model_gif->rowCount()==0&&Table_model_video->rowCount()==0)
     {
-        emit Send_TextBrowser_NewMessage(tr("Unable to start processing files: The file list is empty or there are no available files to process."));
+        emit Send_TextBrowser_NewMessage(tr("Unable to start processing files: The file list is empty."));
     }
     else
     {
@@ -372,91 +367,62 @@ void MainWindow::Wait_waifu2x_stop()
 int MainWindow::on_pushButton_RemoveItem_clicked()
 {
     ui->pushButton_RemoveItem->setEnabled(0);
+    //===========
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
+        ui->tableView_image->clearSelection();
+        ui->tableView_gif->clearSelection();
+        ui->tableView_video->clearSelection();
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Warning"));
         MSG->setText(tr("No items are currently selected."));
         MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
+        MSG->setModal(true);
         MSG->show();
         ui->pushButton_RemoveItem->setEnabled(1);
         return 0;
     }
-    RecFinedFiles();
+    //==========================
     if(curRow_image >= 0)
     {
-        QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_image, curRow_image);
-        if(!fileMap.isEmpty())
-        {
-            CustRes_remove(fileMap["SourceFile_fullPath"]);
-            FileList_remove(fileMap);
-            Table_FileList_reload();
-        }
-        else
-        {
-            Table_FileList_reload();
-        }
+        CustRes_remove(Table_model_image->item(curRow_image,2)->text());
+        ui->tableView_image->setUpdatesEnabled(false);
+        Table_model_image->removeRow(curRow_image);
+        ui->tableView_image->setUpdatesEnabled(true);
+        curRow_image = -1;
+        ui->tableView_image->clearSelection();
     }
-    ui->tableView_image->clearSelection();
     //============================================================
     if(curRow_video >= 0)
     {
-        QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_video, curRow_video);
-        if(!fileMap.isEmpty())
-        {
-            CustRes_remove(fileMap["SourceFile_fullPath"]);
-            FileList_remove(fileMap);
-            Table_FileList_reload();
-        }
-        else
-        {
-            Table_FileList_reload();
-        }
+        CustRes_remove(Table_model_video->item(curRow_video,2)->text());
+        ui->tableView_video->setUpdatesEnabled(false);
+        Table_model_video->removeRow(curRow_video);
+        ui->tableView_video->setUpdatesEnabled(true);
+        curRow_video = -1;
+        ui->tableView_video->clearSelection();
     }
-    ui->tableView_video->clearSelection();
     //============================================================
     if(curRow_gif >= 0)
     {
-        QMap<QString, QString> fileMap = FileList_find_rowNum(FileList_gif, curRow_gif);
-        if(!fileMap.isEmpty())
-        {
-            CustRes_remove(fileMap["SourceFile_fullPath"]);
-            FileList_remove(fileMap);
-            Table_FileList_reload();
-        }
-        else
-        {
-            Table_FileList_reload();
-        }
+        CustRes_remove(Table_model_gif->item(curRow_gif,2)->text());
+        ui->tableView_gif->setUpdatesEnabled(false);
+        Table_model_gif->removeRow(curRow_gif);
+        ui->tableView_gif->setUpdatesEnabled(true);
+        curRow_gif = -1;
+        ui->tableView_gif->clearSelection();
     }
-    ui->tableView_gif->clearSelection();
     //==================================================
-    if(!ui->checkBox_ReProcFinFiles->checkState())
-    {
-        MovToFinedList();
-    }
-    //=====================
-    curRow_image = -1;
-    curRow_gif = -1;
-    curRow_video = -1;
-    //======================
     if(Table_model_gif->rowCount()==0)
     {
-        FileList_gif.clear();
-        FileList_gif_finished.clear();
         ui->tableView_gif->setVisible(0);
     }
     if(Table_model_image->rowCount()==0)
     {
-        FileList_image.clear();
-        FileList_image_finished.clear();
         ui->tableView_image->setVisible(0);
     }
     if(Table_model_video->rowCount()==0)
     {
-        FileList_video.clear();
-        FileList_video_finished.clear();
         ui->tableView_video->setVisible(0);
     }
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
@@ -469,22 +435,12 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
         ui->label_FileCount->setVisible(0);
     }
     Table_FileCount_reload();
+    //============
     ui->pushButton_RemoveItem->setEnabled(1);
     return 0;
 }
 
-void MainWindow::on_checkBox_ReProcFinFiles_stateChanged(int arg1)
-{
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
-    if(ReProcFinFiles)
-    {
-        RecFinedFiles();
-    }
-    else
-    {
-        MovToFinedList();
-    }
-}
+
 //====== 自动关机===================================================================================
 /*
 60s倒计时
@@ -939,12 +895,6 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         curRow_gif = -1;
         curRow_video = -1;
         Table_Clear();
-        FileList_image.clear();
-        FileList_gif.clear();
-        FileList_video.clear();
-        FileList_image_finished.clear();
-        FileList_gif_finished.clear();
-        FileList_video_finished.clear();
         Custom_resolution_list.clear();
         ui->label_DropFile->setVisible(1);
         ui->tableView_gif->setVisible(0);
@@ -1625,4 +1575,9 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     //========
     emit Send_TextBrowser_NewMessage(tr("Force retry."));
     return;
+}
+
+void MainWindow::on_pushButton_PayPal_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.paypal.me/aaronfeng753"));
 }

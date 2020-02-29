@@ -218,7 +218,6 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
     on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_ReProcFinFiles_stateChanged(0);
     on_checkBox_AlwaysHideInput_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
@@ -266,7 +265,6 @@ void MainWindow::Settings_Apply()
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
     on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_ReProcFinFiles_stateChanged(0);
     on_checkBox_AlwaysHideInput_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);

@@ -24,21 +24,19 @@
 调用Anime4k处理视频
 读取设置,拆分,创建放大子线程,组装视频
 */
-int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
+int MainWindow::Anime4k_Video(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();//放大倍数
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();//是否删除源文件
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();//是否重复处理已完成文件
     int Sub_video_ThreadNumRunning = 0;//子线程总数
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    int rowNum = File_map["rowNum"].toInt();//得到所在row
     //=== 将状态改为正在处理 =====
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     //========================
-    QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
+    QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!file_isFileExist(SourceFile_fullPath))//判断源文件是否存在
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
@@ -238,17 +236,11 @@ int MainWindow::Anime4k_Video(QMap<QString, QString> File_map)
             QFile::remove(SourceFile_fullPath);
         }
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     else
     {
-        if(!ReProcFinFiles)
-        {
-            FileList_remove(File_map);
-            FileList_video_finished.append(File_map);
-        }
         status = "Finished";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }

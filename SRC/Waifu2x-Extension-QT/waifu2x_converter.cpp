@@ -20,7 +20,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
+int MainWindow::Waifu2x_Converter_Image(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
@@ -29,16 +29,14 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
     bool CompressJPG = ui->checkBox_CompressJPG->checkState();
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
     bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
     bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
     emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-    QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
+    QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     if(!file_isFileExist(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
@@ -241,17 +239,11 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
         {
             QFile::remove(SourceFile_fullPath);
         }
-        FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     else
     {
-        if(!ReProcFinFiles)
-        {
-            FileList_remove(File_map);
-            FileList_image_finished.append(File_map);
-        }
         status = "Finished";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
@@ -270,21 +262,19 @@ int MainWindow::Waifu2x_Converter_Image(QMap<QString, QString> File_map)
 }
 
 
-int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
+int MainWindow::Waifu2x_Converter_GIF(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     bool OptGIF = ui->checkBox_OptGIF->checkState();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
     emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-    QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
+    QString SourceFile_fullPath = Table_model_gif->item(rowNum,2)->text();
     if(!file_isFileExist(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
@@ -476,17 +466,11 @@ int MainWindow::Waifu2x_Converter_GIF(QMap<QString, QString> File_map)
         {
             QFile::remove(SourceFile_fullPath);
         }
-        FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     else
     {
-        if(!ReProcFinFiles)
-        {
-            FileList_remove(File_map);
-            FileList_gif_finished.append(File_map);
-        }
         status = "Finished";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
@@ -585,20 +569,18 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
 
 
 
-int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
+int MainWindow::Waifu2x_Converter_Video(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
     int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    int rowNum = File_map["rowNum"].toInt();
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-    QString SourceFile_fullPath = File_map["SourceFile_fullPath"];
+    QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!file_isFileExist(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
@@ -796,17 +778,11 @@ int MainWindow::Waifu2x_Converter_Video(QMap<QString, QString> File_map)
             QFile::remove(SourceFile_fullPath);
         }
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        FileList_remove(File_map);
         status = "Finished, original file deleted";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     else
     {
-        if(!ReProcFinFiles)
-        {
-            FileList_remove(File_map);
-            FileList_video_finished.append(File_map);
-        }
         status = "Finished";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }

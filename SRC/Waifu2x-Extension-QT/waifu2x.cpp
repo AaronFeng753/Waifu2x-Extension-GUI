@@ -23,15 +23,14 @@
 int MainWindow::Waifu2xMainThread()
 {
     QtConcurrent::run(this, &MainWindow::Table_ChangeAllStatusToWaiting);
-    Progressbar_MaxVal = FileList_image.count() + FileList_gif.count() + FileList_video.count();
+    Progressbar_MaxVal = Table_model_image->rowCount() + Table_model_gif->rowCount() + Table_model_video->rowCount();
     Progressbar_CurrentVal = 0;
     TaskNumFinished=0;
     emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
-    if(!FileList_image.isEmpty())
+    if(Table_model_image->rowCount()>0)
     {
         int ImageEngine = ui->comboBox_Engine_Image->currentIndex();
-        QList<QMap<QString, QString>> FileList_image_tmp = FileList_image;
-        for ( int i = 0; i != FileList_image_tmp.size(); ++i )
+        for ( int i = 0; i < Table_model_image->rowCount(); i++ )
         {
             if(waifu2x_STOP)
             {
@@ -42,14 +41,26 @@ int MainWindow::Waifu2xMainThread()
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
             }
-            QMap<QString, QString> File_map = FileList_image_tmp.at(i);
+            //=============== 判断状态 ================
+            if(!ui->checkBox_ReProcFinFiles->checkState())
+            {
+                if(Table_model_image->item(i,1)->text().contains("Finished"))
+                {
+                    continue;
+                }
+            }
+            if(Table_model_image->item(i,1)->text().contains("deleted"))
+            {
+                continue;
+            }
+            //=========
             ThreadNumMax = ui->spinBox_ThreadNum_image->value();//获取image线程数量最大值
             switch(ImageEngine)
             {
                 case 0:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, File_map);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -59,7 +70,7 @@ int MainWindow::Waifu2xMainThread()
                 case 1:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, File_map);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -73,11 +84,10 @@ int MainWindow::Waifu2xMainThread()
     {
         Delay_msec_sleep(500);
     }
-    if(!FileList_gif.isEmpty())
+    if(Table_model_gif->rowCount()>0)
     {
         int GIFEngine = ui->comboBox_Engine_GIF->currentIndex();
-        QList<QMap<QString, QString>> FileList_gif_tmp = FileList_gif;
-        for ( int i = 0; i != FileList_gif_tmp.size(); ++i )
+        for ( int i = 0; i < Table_model_gif->rowCount(); i++ )
         {
             if(waifu2x_STOP)
             {
@@ -88,14 +98,26 @@ int MainWindow::Waifu2xMainThread()
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
             }
-            QMap<QString, QString> File_map = FileList_gif_tmp.at(i);
+            //=============== 判断状态 ================
+            if(!ui->checkBox_ReProcFinFiles->checkState())
+            {
+                if(Table_model_gif->item(i,1)->text().contains("Finished"))
+                {
+                    continue;
+                }
+            }
+            if(Table_model_gif->item(i,1)->text().contains("deleted"))
+            {
+                continue;
+            }
+            //=========
             ThreadNumMax = ui->spinBox_ThreadNum_gif->value();//获取gif线程数量最大值
             switch(GIFEngine)
             {
                 case 0:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_GIF, File_map);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -105,7 +127,7 @@ int MainWindow::Waifu2xMainThread()
                 case 1:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_GIF, File_map);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -119,11 +141,10 @@ int MainWindow::Waifu2xMainThread()
     {
         Delay_msec_sleep(500);
     }
-    if(!FileList_video.isEmpty())
+    if(Table_model_video->rowCount()>0)
     {
         int VideoEngine = ui->comboBox_Engine_Video->currentIndex();
-        QList<QMap<QString, QString>> FileList_video_tmp = FileList_video;
-        for ( int i = 0; i != FileList_video_tmp.size(); ++i )
+        for ( int i = 0; i<Table_model_video->rowCount(); i++ )
         {
             if(waifu2x_STOP)
             {
@@ -134,14 +155,26 @@ int MainWindow::Waifu2xMainThread()
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
             }
-            QMap<QString, QString> File_map = FileList_video_tmp.at(i);
+            //=============== 判断状态 ================
+            if(!ui->checkBox_ReProcFinFiles->checkState())
+            {
+                if(Table_model_video->item(i,1)->text().contains("Finished"))
+                {
+                    continue;
+                }
+            }
+            if(Table_model_video->item(i,1)->text().contains("deleted"))
+            {
+                continue;
+            }
+            //=========
             ThreadNumMax = ui->spinBox_ThreadNum_video->value();//获取video线程数量最大值
             switch(VideoEngine)
             {
                 case 0:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video, File_map);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -151,7 +184,7 @@ int MainWindow::Waifu2xMainThread()
                 case 1:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video, File_map);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -161,7 +194,7 @@ int MainWindow::Waifu2xMainThread()
                 case 2:
                     {
                         ThreadNumRunning++;//线程数量统计+1s
-                        QtConcurrent::run(this, &MainWindow::Anime4k_Video, File_map);
+                        QtConcurrent::run(this, &MainWindow::Anime4k_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);

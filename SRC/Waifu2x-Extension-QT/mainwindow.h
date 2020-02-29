@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v0.56-beta";//软件版本号
+    QString VERSION="v0.57-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -88,22 +88,9 @@ public:
     QStringList getFileNames_IncludeSubFolder(QString path);//读取文件列表, 包括文件夹
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
     bool Table_insert_finished=false;
-    //待处理的filelist
-    QList<QMap<QString, QString>> FileList_image;//map["SourceFile_fullPath"],map["rowNum"]
-    QList<QMap<QString, QString>> FileList_gif;
-    QList<QMap<QString, QString>> FileList_video;
-    //处理完成的filelist(当重复处理已完成没启用时,将会把处理完的条目缓存在这里)
-    QList<QMap<QString, QString>> FileList_image_finished;//map["SourceFile_fullPath"],map["rowNum"]
-    QList<QMap<QString, QString>> FileList_gif_finished;
-    QList<QMap<QString, QString>> FileList_video_finished;
-    //判断一个文件是否已存在于一个文件列表中(输入list和完整路径,然后判断返回bool)
-    bool Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString SourceFile_fullPath);
-    //输入一个filemap,然后查询在哪个list内,找到后移除
-    int FileList_remove(QMap<QString, QString> File_map);
-    //根据行号在filelist内查找条目(map)
-    QMap<QString, QString> FileList_find_rowNum(QList<QMap<QString, QString>> FileList, int rowNum);
 
-    void RecFinedFiles();//将[已完成列表]接回对应的File list
+    //判断一个文件是否已存在于一个文件列表中(输入list和完整路径,然后判断返回bool)
+    bool Deduplicate_filelist(QString SourceFile_fullPath);
 
     bool file_isDirExist(QString SourceFile_fullPath);//判断文件夹是否存在
     void file_mkDir(QString SourceFile_fullPath);//创建文件夹
@@ -133,8 +120,7 @@ public:
     int Table_image_get_rowNum();
     int Table_gif_get_rowNum();
     int Table_video_get_rowNum();
-    //重载file list和tableview
-    void Table_FileList_reload();
+
     //根据输入的table,返回成对的[完整路径]和[状态]:[fullpath]=status;
     QMap<QString, QString> Table_Read_status_fullpath(QStandardItemModel *Table_model);
     //当前选中的rowNum
@@ -155,23 +141,23 @@ public:
 
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
 
-    int Waifu2x_NCNN_Vulkan_Image(QMap<QString, QString> File_map);//vulkan放大图片线程
+    int Waifu2x_NCNN_Vulkan_Image(int rowNum);//vulkan放大图片线程
     //vulakn放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
-    int Waifu2x_NCNN_Vulkan_GIF(QMap<QString, QString> File_map);
+    int Waifu2x_NCNN_Vulkan_GIF(int rowNum);
     int Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //vulkan放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
-    int Waifu2x_NCNN_Vulkan_Video(QMap<QString, QString> File_map);
+    int Waifu2x_NCNN_Vulkan_Video(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
-    int Anime4k_Video(QMap<QString, QString> File_map);
+    int Anime4k_Video(int rowNum);
     int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
-    int Waifu2x_Converter_Image(QMap<QString, QString> File_map);//Converter放大图片线程
+    int Waifu2x_Converter_Image(int rowNum);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
-    int Waifu2x_Converter_GIF(QMap<QString, QString> File_map);
+    int Waifu2x_Converter_GIF(int rowNum);
     int Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //Converter放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
-    int Waifu2x_Converter_Video(QMap<QString, QString> File_map);
+    int Waifu2x_Converter_Video(int rowNum);
     int Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
 
@@ -300,8 +286,6 @@ public slots:
 
     int Table_FileCount_reload();//重载table下的文件数量计数
 
-    void MovToFinedList();//将完成的文件移动到finished list
-
     //向table插入文件名和fullpath
     void Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
     void Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
@@ -337,7 +321,6 @@ private slots:
 
     int on_pushButton_RemoveItem_clicked();
 
-    void on_checkBox_ReProcFinFiles_stateChanged(int arg1);
 
     void on_checkBox_SaveAsJPG_stateChanged(int arg1);
 
@@ -470,6 +453,8 @@ private slots:
     void on_checkBox_TTA_vulkan_stateChanged(int arg1);
 
     void on_pushButton_ForceRetry_clicked();
+
+    void on_pushButton_PayPal_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

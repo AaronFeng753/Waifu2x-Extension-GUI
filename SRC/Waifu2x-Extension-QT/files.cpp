@@ -236,16 +236,14 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         QMap<QString, QString> map;
         map["SourceFile_fullPath"] = SourceFile_fullPath;
         map["rowNum"] = QString::number(rowNum, 10);
-        if(!Deduplicate_filelist(FileList_image, SourceFile_fullPath)&&!Deduplicate_filelist(FileList_image_finished, SourceFile_fullPath))
+        if(!Deduplicate_filelist(SourceFile_fullPath))
         {
-            FileList_image.append(map);
             Table_insert_finished=false;
             emit Send_Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
             while(!Table_insert_finished)
             {
                 Delay_msec_sleep(10);
             }
-            //Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
@@ -271,16 +269,14 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         QMap<QString, QString> map;
         map["SourceFile_fullPath"] = SourceFile_fullPath;
         map["rowNum"] = QString::number(rowNum, 10);
-        if(!Deduplicate_filelist(FileList_video, SourceFile_fullPath)&&!Deduplicate_filelist(FileList_video_finished, SourceFile_fullPath))
+        if(!Deduplicate_filelist(SourceFile_fullPath))
         {
-            FileList_video.append(map);
             Table_insert_finished=false;
             emit Send_Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
             while(!Table_insert_finished)
             {
                 Delay_msec_sleep(10);
             }
-            //Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
@@ -292,16 +288,14 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         map["SourceFile_fullPath"] = SourceFile_fullPath;
         map["rowNum"] = QString::number(rowNum, 10);
         AddNew_gif=true;
-        if(!Deduplicate_filelist(FileList_gif, SourceFile_fullPath)&&!Deduplicate_filelist(FileList_gif_finished, SourceFile_fullPath))
+        if(!Deduplicate_filelist(SourceFile_fullPath))
         {
-            FileList_gif.append(map);
             Table_insert_finished=false;
             emit Send_Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
             while(!Table_insert_finished)
             {
                 Delay_msec_sleep(10);
             }
-            //Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
         }
         return 0;
     }
@@ -310,133 +304,33 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
 /*
 判断是否已经在文件列表内
 */
-bool MainWindow::Deduplicate_filelist(QList<QMap<QString, QString>> FileList, QString SourceFile_fullPath)
+bool MainWindow::Deduplicate_filelist(QString SourceFile_fullPath)
 {
-    if(FileList.isEmpty())return false;
-    for ( int i = 0; i != FileList.size(); ++i )
+    for ( int i = 0; i < Table_model_image->rowCount(); i++ )
     {
-        QMap<QString, QString> File_map = FileList.at(i);
-        if(File_map["SourceFile_fullPath"] == SourceFile_fullPath)
+        QString fullpath_readRow =  Table_model_image->item(i,2)->text();
+        if(fullpath_readRow == SourceFile_fullPath)
+        {
+            return true;
+        }
+    }
+    for ( int i = 0; i < Table_model_gif->rowCount(); i++ )
+    {
+        QString fullpath_readRow =  Table_model_gif->item(i,2)->text();
+        if(fullpath_readRow == SourceFile_fullPath)
+        {
+            return true;
+        }
+    }
+    for ( int i = 0; i < Table_model_video->rowCount(); i++ )
+    {
+        QString fullpath_readRow =  Table_model_video->item(i,2)->text();
+        if(fullpath_readRow == SourceFile_fullPath)
         {
             return true;
         }
     }
     return false;
-}
-/*
-从文件列表内移除条目
-*/
-int MainWindow::FileList_remove(QMap<QString, QString> File_map)
-{
-    if(FileList_image.removeAll(File_map)>0)return 0;
-    if(FileList_gif.removeAll(File_map)>0)return 0;
-    if(FileList_video.removeAll(File_map)>0)return 0;
-    return 0;
-}
-/*
-查询某个文件所在row
-*/
-QMap<QString, QString> MainWindow::FileList_find_rowNum(QList<QMap<QString, QString>> FileList, int rowNum)
-{
-    QString rowNum_QS = QString::number(rowNum, 10);
-    for ( int i = 0; i != FileList.size(); ++i )
-    {
-        QMap<QString, QString> File_map = FileList.at(i);
-        if(File_map["rowNum"] == rowNum_QS)
-        {
-            return File_map;
-        }
-    }
-    QMap<QString, QString> emptymap;
-    emptymap.clear();
-    return emptymap;
-}
-/*
-恢复已处理完成的文件到待处理文件列表
-*/
-void MainWindow::RecFinedFiles()
-{
-    if(!FileList_image_finished.isEmpty())
-    {
-        FileList_image.append(FileList_image_finished);
-        FileList_image_finished.clear();
-    }
-    if(!FileList_gif_finished.isEmpty())
-    {
-        FileList_gif.append(FileList_gif_finished);
-        FileList_gif_finished.clear();
-    }
-    if(!FileList_video_finished.isEmpty())
-    {
-        FileList_video.append(FileList_video_finished);
-        FileList_video_finished.clear();
-    }
-}
-/*
-将处理完成的文件移出文件列表
-*/
-void MainWindow::MovToFinedList()
-{
-    if(!FileList_image.isEmpty())
-    {
-        int rowNum = Table_model_image->rowCount();
-        for (int i = 0; i < rowNum; i++)
-        {
-            QAbstractItemModel *modessl = Table_model_image;
-            QModelIndex indextemp = modessl->index(i, 1);
-            QVariant datatemp = modessl->data(indextemp);
-            QString status = datatemp.toString();
-            if(status == "Finished")
-            {
-                QMap<QString, QString> File_map = MainWindow::FileList_find_rowNum(FileList_image, i);
-                if(!File_map.isEmpty())
-                {
-                    FileList_remove(File_map);
-                    FileList_image_finished.append(File_map);
-                }
-            }
-        }
-    }
-    if(!FileList_gif.isEmpty())
-    {
-        int rowNum = Table_model_gif->rowCount();
-        for (int i = 0; i < rowNum; i++)
-        {
-            QAbstractItemModel *modessl = Table_model_gif;
-            QModelIndex indextemp = modessl->index(i, 1);
-            QVariant datatemp = modessl->data(indextemp);
-            QString status = datatemp.toString();
-            if(status == "Finished")
-            {
-                QMap<QString, QString> File_map = MainWindow::FileList_find_rowNum(FileList_gif, i);
-                if(!File_map.isEmpty())
-                {
-                    FileList_remove(File_map);
-                    FileList_gif_finished.append(File_map);
-                }
-            }
-        }
-    }
-    if(!FileList_video.isEmpty())
-    {
-        int rowNum = Table_model_video->rowCount();
-        for (int i = 0; i < rowNum; i++)
-        {
-            QAbstractItemModel *modessl = Table_model_video;
-            QModelIndex indextemp = modessl->index(i, 1);
-            QVariant datatemp = modessl->data(indextemp);
-            QString status = datatemp.toString();
-            if(status == "Finished")
-            {
-                QMap<QString, QString> File_map = MainWindow::FileList_find_rowNum(FileList_video, i);
-                if(!File_map.isEmpty())
-                {
-                    FileList_remove(File_map);
-                    FileList_video_finished.append(File_map);
-                }
-            }
-        }
-    }
 }
 /*
 文件夹是否存在
@@ -596,7 +490,24 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
 {
     if(file_isFileExist(Orginal))
     {
-        if(file_isFileExist(Target))QFile::remove(Target);
+        if(file_isFileExist(Target))
+        {
+            while(true)
+            {
+                qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+                int random = qrand()%10000;
+                QFileInfo fileinfo_tmp(Target);
+                QString file_name = file_getBaseName(fileinfo_tmp.filePath());
+                QString file_ext = fileinfo_tmp.suffix();
+                QString file_path = fileinfo_tmp.path();
+                if(file_path.right(1)=="/")
+                {
+                    file_path = file_path.left(file_path.length() - 1);
+                }
+                Target = file_path+"/"+file_name+"_"+QString::number(random,10)+"."+file_ext;
+                if(!file_isFileExist(Target))break;
+            }
+        }
         if(QFile::rename(Orginal,Target)==false)
         {
             emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+Orginal+tr("] to [")+Target+"]");

@@ -59,7 +59,9 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
     ui->tableView_image->setUpdatesEnabled(false);
     int rowNum = Table_model_image->rowCount();
     Table_model_image->setItem(rowNum, 0, new QStandardItem(fileName));
+    Table_model_image->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_image->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
+    Table_model_image->setItem(rowNum, 3, new QStandardItem(""));
     if(ui->checkBox_FileListAutoSlide->checkState())
     {
         QAbstractItemModel *modessl = Table_model_image;
@@ -75,7 +77,9 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
     ui->tableView_gif->setUpdatesEnabled(false);
     int rowNum = Table_model_gif->rowCount();
     Table_model_gif->setItem(rowNum, 0, new QStandardItem(fileName));
+    Table_model_gif->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_gif->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
+    Table_model_gif->setItem(rowNum, 3, new QStandardItem(""));
     if(ui->checkBox_FileListAutoSlide->checkState())
     {
         QAbstractItemModel *modessl = Table_model_gif;
@@ -91,7 +95,9 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
     ui->tableView_video->setUpdatesEnabled(false);
     int rowNum = Table_model_video->rowCount();
     Table_model_video->setItem(rowNum, 0, new QStandardItem(fileName));
+    Table_model_video->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_video->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
+    Table_model_video->setItem(rowNum, 3, new QStandardItem(""));
     if(ui->checkBox_FileListAutoSlide->checkState())
     {
         QAbstractItemModel *modessl = Table_model_video;
@@ -143,7 +149,7 @@ void MainWindow::Table_video_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
 
 void MainWindow::Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width)
 {
-    QString ResStr = width+" x "+height;
+    QString ResStr = width+"x"+height;
     ui->tableView_image->setUpdatesEnabled(false);
     Table_model_image->setItem(rowNum, 3, new QStandardItem(ResStr));
     ui->tableView_image->setUpdatesEnabled(true);
@@ -151,7 +157,7 @@ void MainWindow::Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int ro
 
 void MainWindow::Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width)
 {
-    QString ResStr = width+" x "+height;
+    QString ResStr = width+"x"+height;
     ui->tableView_gif->setUpdatesEnabled(false);
     Table_model_gif->setItem(rowNum, 3, new QStandardItem(ResStr));
     ui->tableView_gif->setUpdatesEnabled(true);
@@ -159,7 +165,7 @@ void MainWindow::Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowN
 
 void MainWindow::Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width)
 {
-    QString ResStr = width+" x "+height;
+    QString ResStr = width+"x"+height;
     ui->tableView_video->setUpdatesEnabled(false);
     Table_model_video->setItem(rowNum, 3, new QStandardItem(ResStr));
     ui->tableView_video->setUpdatesEnabled(true);
@@ -321,104 +327,7 @@ QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel
     }
     return Map_fullPath_status;
 }
-/*
-重载table和filelist
-*/
-void MainWindow::Table_FileList_reload()
-{
-    //[fullpath]=status;
-    QMap<QString, QString> Map_fullPath_status_image = Table_Read_status_fullpath(Table_model_image);
-    QMap<QString, QString> Map_fullPath_status_video = Table_Read_status_fullpath(Table_model_video);
-    QMap<QString, QString> Map_fullPath_status_gif = Table_Read_status_fullpath(Table_model_gif);
-    Table_Clear();
-    RecFinedFiles();
-    QList<QMap<QString, QString>> FileList_image_temp;//map["SourceFile_fullPath"],map["rowNum"]
-    QList<QMap<QString, QString>> FileList_gif_temp;
-    QList<QMap<QString, QString>> FileList_video_temp;
-    //====================================================================
-    if(!FileList_image.isEmpty())
-    {
-        for ( int i = 0; i != FileList_image.size(); ++i )
-        {
-            QMap<QString, QString> File_map = FileList_image.at(i);
-            QString Full_Path = File_map["SourceFile_fullPath"];
-            QFileInfo fileinfo(Full_Path);
-            QString file_name = fileinfo.fileName();
-            int rowNum = Table_image_get_rowNum();
-            QMap<QString, QString> map;
-            map["SourceFile_fullPath"] = Full_Path;
-            map["rowNum"] = QString::number(rowNum, 10);
-            FileList_image_temp.append(map);
-            //======
-            Table_image_insert_fileName_fullPath(file_name, Full_Path);
-            QString status = Map_fullPath_status_image[Full_Path];
-            Table_model_image->setItem(rowNum, 1, new QStandardItem(status));
-            //======
-            QMap<QString, QString> ResMap = CustRes_getResMap(Full_Path);
-            if(!ResMap.isEmpty())
-            {
-                Table_image_CustRes_rowNumInt_HeightQString_WidthQString(rowNum,ResMap["height"],ResMap["width"]);
-            }
-        }
-        FileList_image = FileList_image_temp;
-    }
-    //=======================================================================
-    if(!FileList_gif.isEmpty())
-    {
-        for ( int i = 0; i != FileList_gif.size(); ++i )
-        {
-            QMap<QString, QString> File_map = FileList_gif.at(i);
-            QString Full_Path = File_map["SourceFile_fullPath"];
-            QFileInfo fileinfo(Full_Path);
-            QString file_name = fileinfo.fileName();
-            int rowNum = Table_gif_get_rowNum();
-            QMap<QString, QString> map;
-            map["SourceFile_fullPath"] = Full_Path;
-            map["rowNum"] = QString::number(rowNum, 10);
-            FileList_gif_temp.append(map);
-            Table_gif_insert_fileName_fullPath(file_name, Full_Path);
-            QString status = Map_fullPath_status_gif[Full_Path];
-            Table_model_gif->setItem(rowNum, 1, new QStandardItem(status));
-            //======
-            QMap<QString, QString> ResMap = CustRes_getResMap(Full_Path);
-            if(!ResMap.isEmpty())
-            {
-                Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(rowNum,ResMap["height"],ResMap["width"]);
-            }
-        }
-        FileList_gif = FileList_gif_temp;
-    }
-    //=======================================================================
-    if(!FileList_video.isEmpty())
-    {
-        for ( int i = 0; i != FileList_video.size(); ++i )
-        {
-            QMap<QString, QString> File_map = FileList_video.at(i);
-            QString Full_Path = File_map["SourceFile_fullPath"];
-            QFileInfo fileinfo(Full_Path);
-            QString file_name = fileinfo.fileName();
-            int rowNum = Table_video_get_rowNum();
-            QMap<QString, QString> map;
-            map["SourceFile_fullPath"] = Full_Path;
-            map["rowNum"] = QString::number(rowNum, 10);
-            FileList_video_temp.append(map);
-            Table_video_insert_fileName_fullPath(file_name, Full_Path);
-            QString status = Map_fullPath_status_video[Full_Path];
-            Table_model_video->setItem(rowNum, 1, new QStandardItem(status));
-            //======
-            QMap<QString, QString> ResMap = CustRes_getResMap(Full_Path);
-            if(!ResMap.isEmpty())
-            {
-                Table_video_CustRes_rowNumInt_HeightQString_WidthQString(rowNum,ResMap["height"],ResMap["width"]);
-            }
-        }
-        FileList_video = FileList_video_temp;
-    }
-    if(!ui->checkBox_ReProcFinFiles->checkState())
-    {
-        MovToFinedList();
-    }
-}
+
 /*
 重载Tableview下的文件数量统计
 */
@@ -610,10 +519,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         QString fullPath =configIniRead->value("/table_image/"+QString::number(i,10)+"_fullPath").toString();
         QString CustRes_str =configIniRead->value("/table_image/"+QString::number(i,10)+"_CustRes_str").toString();
         //================
-        QMap<QString, QString> file_map;
-        file_map["SourceFile_fullPath"] = fullPath;
-        file_map["rowNum"] = QString::number(i, 10);
-        FileList_image.append(file_map);
         Table_insert_finished=false;
         emit Send_Table_image_insert_fileName_fullPath(FileName,fullPath);
         while(!Table_insert_finished)
@@ -649,10 +554,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         QString fullPath =configIniRead->value("/table_gif/"+QString::number(i,10)+"_fullPath").toString();
         QString CustRes_str =configIniRead->value("/table_gif/"+QString::number(i,10)+"_CustRes_str").toString();
         //================
-        QMap<QString, QString> file_map;
-        file_map["SourceFile_fullPath"] = fullPath;
-        file_map["rowNum"] = QString::number(i, 10);
-        FileList_gif.append(file_map);
         Table_insert_finished=false;
         emit Send_Table_gif_insert_fileName_fullPath(FileName,fullPath);
         while(!Table_insert_finished)
@@ -688,10 +589,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         QString fullPath =configIniRead->value("/table_video/"+QString::number(i,10)+"_fullPath").toString();
         QString CustRes_str =configIniRead->value("/table_video/"+QString::number(i,10)+"_CustRes_str").toString();
         //================
-        QMap<QString, QString> file_map;
-        file_map["SourceFile_fullPath"] = fullPath;
-        file_map["rowNum"] = QString::number(i, 10);
-        FileList_video.append(file_map);
         Table_insert_finished=false;
         emit Send_Table_video_insert_fileName_fullPath(FileName,fullPath);
         while(!Table_insert_finished)
