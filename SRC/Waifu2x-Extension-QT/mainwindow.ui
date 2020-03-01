@@ -3171,6 +3171,11 @@ the language for the language settings to fully take effect.</string>
                   <string notr="true">简体中文</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">日本語(機械翻訳)</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="6" column="0" colspan="2">

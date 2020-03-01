@@ -318,11 +318,11 @@ int MainWindow::Waifu2x_Compatibility_Test()
     while(!Waifu2x_vulkan_old->waitForFinished(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Verison): Yes"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Version): Yes"));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Verison): No. [Advice: Re-install gpu driver or update it to the latest.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Version): No. [Advice: Re-install gpu driver or update it to the latest.]"));
     }
     QFile::remove(OutputPath);
     //================

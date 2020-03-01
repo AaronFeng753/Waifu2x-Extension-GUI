@@ -58,8 +58,11 @@ FORMS += \
     mainwindow.ui
 
 TRANSLATIONS += language_English.ts \
-               language_Chinese.ts
+               language_Chinese.ts \
+               language_Japanese.ts
+
 TARGET = Waifu2x-Extension-GUI
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

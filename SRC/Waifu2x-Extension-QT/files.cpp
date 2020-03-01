@@ -515,6 +515,6 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] dose not exists."));
+        emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] does not exists."));
     }
 }

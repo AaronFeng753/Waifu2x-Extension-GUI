@@ -834,6 +834,11 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
                 qmFilename = runPath + "/language_Chinese.qm";
                 break;
             }
+        case 2:
+            {
+                qmFilename = runPath + "/language_Japanese.qm";
+                break;
+            }
     }
     if (translator->load(qmFilename))
     {
@@ -842,6 +847,11 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         Table_FileCount_reload();
         Init_Table();
         Set_Font_fixed();
+        ui->groupBox_OutPut->setVisible(1);
+        ui->groupBox_Input->setVisible(1);
+        ui->groupBox_Setting->setVisible(1);
+        ui->textBrowser->setVisible(1);
+        this->adjustSize();
     }
     else
     {
