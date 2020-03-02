@@ -54,6 +54,8 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
 
 void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath)
 {
+    emit Send_TextBrowser_NewMessage(tr("Start splitting video: [")+VideoPath+"]");
+    //=================
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFileInfo vfinfo(VideoPath);
     QString video_dir = vfinfo.path();
@@ -123,10 +125,14 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+AudioPath+"\"");
     while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
+    //====================================
+    emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
 }
 
 int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
 {
+    emit Send_TextBrowser_NewMessage(tr("Start assembling video:[")+VideoPath+"]");
+    //=================
     QString encoder_video_cmd="";
     QString bitrate_video_cmd="";
     //====
@@ -221,5 +227,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
     }
     QFile::remove(AudioPath);
+    //==============================
+    emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;
 }

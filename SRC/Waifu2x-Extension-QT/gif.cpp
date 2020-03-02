@@ -64,6 +64,7 @@ int MainWindow::Gif_getFrameDigits(QString gifPath)
 */
 void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
 {
+    emit Send_TextBrowser_NewMessage(tr("Start splitting GIF:[")+gifPath+"]");
     int FrameDigits = Gif_getFrameDigits(gifPath);
     QString program = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%0"+QString::number(FrameDigits,10)+"d.png\"";
@@ -80,12 +81,15 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
         while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
         while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
     }
+    emit Send_TextBrowser_NewMessage(tr("Finish splitting GIF:[")+gifPath+"]");
 }
 /*
 组装gif
 */
 void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
 {
+    emit Send_TextBrowser_NewMessage(tr("Start to assemble GIF:[")+ResGifPath+"]");
+    //===============================
     QString resize_cmd ="";
     if(CustRes_isEnabled)
     {
@@ -115,6 +119,8 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
     AssembleGIF->start(cmd);
     while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleGIF->waitForFinished(100)&&!QProcess_stop) {}
+    //===========
+    emit Send_TextBrowser_NewMessage(tr("Finish assembling GIF:[")+ResGifPath+"]");
 }
 /*
 压缩gif

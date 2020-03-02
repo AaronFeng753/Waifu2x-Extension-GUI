@@ -1260,14 +1260,14 @@ Do you wanna update now???</source>
 您想要现在更新吗???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="72"/>
-        <location filename="checkupdate.cpp" line="82"/>
+        <location filename="checkupdate.cpp" line="73"/>
+        <location filename="checkupdate.cpp" line="83"/>
         <source>New version available!</source>
         <translation>有新版本!</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="72"/>
-        <location filename="checkupdate.cpp" line="82"/>
+        <location filename="checkupdate.cpp" line="73"/>
+        <location filename="checkupdate.cpp" line="83"/>
         <source>New version: %1 
 
 Do you wanna update now???</source>
@@ -1276,15 +1276,15 @@ Do you wanna update now???</source>
 您想现在更新吗???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="74"/>
+        <location filename="checkupdate.cpp" line="75"/>
         <location filename="mainwindow.cpp" line="103"/>
         <location filename="mainwindow.cpp" line="977"/>
         <source>YES</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="75"/>
-        <location filename="checkupdate.cpp" line="86"/>
+        <location filename="checkupdate.cpp" line="76"/>
+        <location filename="checkupdate.cpp" line="87"/>
         <location filename="mainwindow.cpp" line="104"/>
         <location filename="mainwindow.cpp" line="978"/>
         <source>NO</source>
@@ -1310,7 +1310,7 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="213"/>
         <location filename="Anime4K.cpp" line="292"/>
         <location filename="CustomResolution.cpp" line="282"/>
-        <location filename="video.cpp" line="191"/>
+        <location filename="video.cpp" line="197"/>
         <location filename="waifu2x_converter.cpp" line="42"/>
         <location filename="waifu2x_converter.cpp" line="59"/>
         <location filename="waifu2x_converter.cpp" line="125"/>
@@ -1632,9 +1632,29 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">所有文件(*.*);</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="191"/>
+        <location filename="video.cpp" line="57"/>
+        <source>Start splitting video: [</source>
+        <translation>开始拆分视频: [</translation>
+    </message>
+    <message>
+        <location filename="video.cpp" line="129"/>
+        <source>Finish splitting video: [</source>
+        <translation>结束拆分视频:[</translation>
+    </message>
+    <message>
+        <location filename="video.cpp" line="134"/>
+        <source>Start assembling video:[</source>
+        <translation>开始组装视频:[</translation>
+    </message>
+    <message>
+        <location filename="video.cpp" line="197"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]. 错误: [无法获取视频帧率.]</translation>
+    </message>
+    <message>
+        <location filename="video.cpp" line="231"/>
+        <source>Finish assembling video:[</source>
+        <translation>结束组装视频:[</translation>
     </message>
     <message>
         <location filename="waifu2x.cpp" line="226"/>
@@ -1777,6 +1797,26 @@ If you like the software, please donate to support the developers to ensure the 
         <location filename="waifu2x_ncnn_vulkan.cpp" line="553"/>
         <source>]. Error: [Can&apos;t optimize gif.]</source>
         <translation>]. 错误: [无法优化gif.]</translation>
+    </message>
+    <message>
+        <location filename="gif.cpp" line="67"/>
+        <source>Start splitting GIF:[</source>
+        <translation>开始拆分GIF:[</translation>
+    </message>
+    <message>
+        <location filename="gif.cpp" line="84"/>
+        <source>Finish splitting GIF:[</source>
+        <translation>结束拆分GIF:[</translation>
+    </message>
+    <message>
+        <location filename="gif.cpp" line="91"/>
+        <source>Start to assemble GIF:[</source>
+        <translation>开始组装GIF:[</translation>
+    </message>
+    <message>
+        <location filename="gif.cpp" line="123"/>
+        <source>Finish assembling GIF:[</source>
+        <translation>结束组装GIF:[</translation>
     </message>
 </context>
 </TS>

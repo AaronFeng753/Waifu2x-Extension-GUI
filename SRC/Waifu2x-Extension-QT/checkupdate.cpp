@@ -45,7 +45,6 @@ int MainWindow::CheckUpadte_Auto()
     {
         return 0;
     }
-    //Delay_sec_sleep(5);
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess checkupdate;
     checkupdate.start("\""+program+"\" null checkupdate");
@@ -87,6 +86,16 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str)
                 Msg.exec();
                 if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
                 if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases"));
+                return 0;
+            }
+        case 2:
+            {
+                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
+                Msg.setIcon(QMessageBox::Information);
+                QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+                QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+                Msg.exec();
+                if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
                 return 0;
             }
     }
