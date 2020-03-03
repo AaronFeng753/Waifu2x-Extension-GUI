@@ -77,6 +77,16 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
+                case 2:
+                    {
+                        ThreadNumRunning++;//线程数量统计+1s
+                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
             }
         }
     }
@@ -112,6 +122,7 @@ int MainWindow::Waifu2xMainThread()
             }
             //=========
             ThreadNumMax = ui->spinBox_ThreadNum_gif->value();//获取gif线程数量最大值
+            emit Send_TextBrowser_NewMessage("GIFEngine"+QString::number(GIFEngine,10));
             switch(GIFEngine)
             {
                 case 0:
@@ -128,6 +139,16 @@ int MainWindow::Waifu2xMainThread()
                     {
                         ThreadNumRunning++;//线程数量统计+1s
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_GIF, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        ThreadNumRunning++;//线程数量统计+1s
+                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -195,6 +216,16 @@ int MainWindow::Waifu2xMainThread()
                     {
                         ThreadNumRunning++;//线程数量统计+1s
                         QtConcurrent::run(this, &MainWindow::Anime4k_Video, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        ThreadNumRunning++;//线程数量统计+1s
+                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -365,7 +396,25 @@ int MainWindow::Waifu2x_Compatibility_Test()
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]"));
     }
     QFile::remove(OutputPath);
-    //===============
+    //================
+    Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
+    program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
+    model_path = Waifu2x_folder_path+"/models-srmd";
+    QProcess *SRMD_NCNN_VULKAN = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
+    SRMD_NCNN_VULKAN->start(cmd);
+    while(!SRMD_NCNN_VULKAN->waitForStarted(100)&&!QProcess_stop) {}
+    while(!SRMD_NCNN_VULKAN->waitForFinished(100)&&!QProcess_stop) {}
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with srmd-ncnn-vulkan: Yes"));
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with srmd-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]"));
+    }
+    QFile::remove(OutputPath);
+    //================
     emit Send_TextBrowser_NewMessage(tr("Compatibility test is complete!"));
     emit Send_Waifu2x_Compatibility_Test_finished();
     return 0;
@@ -376,6 +425,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
     return 0;
 }
@@ -434,6 +484,7 @@ int MainWindow::Waifu2x_DetectGPU_finished()
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_DetectGPU->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
     //====
     ui->comboBox_GPUID->clear();

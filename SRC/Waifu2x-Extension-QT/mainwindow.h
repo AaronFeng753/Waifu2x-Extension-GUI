@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v1.01";//软件版本号
+    QString VERSION="v1.11";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -140,7 +140,7 @@ public:
     QString OutPutFolder_main="";//总输出文件夹
 
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
-
+    //==========================
     int Waifu2x_NCNN_Vulkan_Image(int rowNum);//vulkan放大图片线程
     //vulakn放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_GIF(int rowNum);
@@ -148,10 +148,11 @@ public:
     //vulkan放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_Video(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    //=========================
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Anime4k_Video(int rowNum);
     int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
-
+    //=================================
     int Waifu2x_Converter_Image(int rowNum);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Converter_GIF(int rowNum);
@@ -159,6 +160,14 @@ public:
     //Converter放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Converter_Video(int rowNum);
     int Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    //===================================
+    int SRMD_NCNN_Vulkan_Image(int rowNum);//SRMD放大图片线程
+    //SRMD放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
+    int SRMD_NCNN_Vulkan_GIF(int rowNum);
+    int SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
+    //SRMD放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
+    int SRMD_NCNN_Vulkan_Video(int rowNum);
+    int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
@@ -178,6 +187,11 @@ public:
     int Waifu2x_DumpProcessorList_converter();
     QStringList Available_ProcessorList_converter;
     QString Processor_converter_STR="";
+
+    int SRMD_DetectGPU();//检测可用gpu(for srmd)
+    QStringList Available_GPUID_srmd;//可用GPU ID列表
+    QString GPU_ID_STR_SRMD="";//向srmd命令行cmd插入的gpuid命令,如果auto则为空
+
 
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
@@ -309,6 +323,8 @@ public slots:
     int Waifu2x_DumpProcessorList_converter_finished();
 
     void Read_urls_finfished();
+
+    void SRMD_DetectGPU_finished();
 
 
 
@@ -456,6 +472,10 @@ private slots:
 
     void on_pushButton_PayPal_clicked();
 
+    void on_pushButton_DetectGPUID_srmd_clicked();
+
+    void on_comboBox_GPUID_srmd_currentIndexChanged(int index);
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -497,6 +517,8 @@ signals:
     void Send_Waifu2x_DumpProcessorList_converter_finished();
 
     void Send_Read_urls_finfished();
+
+    void Send_SRMD_DetectGPU_finished();
 
 
 private:

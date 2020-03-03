@@ -44,6 +44,7 @@ SOURCES += \
     mainwindow.cpp \
     progressBar.cpp \
     settings.cpp \
+    srmd_ncnn_vulkan.cpp \
     table.cpp \
     textBrowser.cpp \
     video.cpp \

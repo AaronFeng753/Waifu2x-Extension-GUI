@@ -64,6 +64,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/TTAVulkan", ui->checkBox_TTA_vulkan->checkState());
     configIniWrite->setValue("/settings/TTAConverter", ui->checkBox_TTA_converter->checkState());
     configIniWrite->setValue("/settings/OLDVulkan", ui->checkBox_old_vulkan->checkState());
+    configIniWrite->setValue("/settings/TTA_SRMD", ui->checkBox_TTA_srmd->checkState());
+    configIniWrite->setValue("/settings/TileSize_SRMD", ui->spinBox_TileSize_srmd->value());
     //================== 存储 扩展名 =================================
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
@@ -173,6 +175,8 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_TTA_vulkan->setChecked(configIniRead->value("/settings/TTAVulkan").toBool());
     ui->checkBox_TTA_converter->setChecked(configIniRead->value("/settings/TTAConverter").toBool());
     ui->checkBox_old_vulkan->setChecked(configIniRead->value("/settings/OLDVulkan").toBool());
+    ui->checkBox_TTA_srmd->setChecked(configIniRead->value("/settings/TTA_SRMD").toBool());
+    ui->spinBox_TileSize_srmd->setValue(configIniRead->value("/settings/TileSize_SRMD").toInt());
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());

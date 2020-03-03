@@ -74,6 +74,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
+    connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -159,6 +160,9 @@ int MainWindow::Force_close()
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq srmd-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
@@ -661,6 +665,15 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
                 return;
             }
+        case 2:
+            {
+                ui->spinBox_DenoiseLevel_image->setRange(-1,10);
+                ui->spinBox_DenoiseLevel_image->setValue(4);
+                ui->spinBox_DenoiseLevel_image->setEnabled(1);
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                return;
+            }
     }
 }
 
@@ -684,6 +697,15 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:0(No noise reduction)~3"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
+                return;
+            }
+        case 2:
+            {
+                ui->spinBox_DenoiseLevel_gif->setRange(-1,10);
+                ui->spinBox_DenoiseLevel_gif->setValue(4);
+                ui->spinBox_DenoiseLevel_gif->setEnabled(1);
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 return;
             }
     }
@@ -720,6 +742,15 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 return;
             }
+        case 3:
+            {
+                ui->spinBox_DenoiseLevel_video->setRange(-1,10);
+                ui->spinBox_DenoiseLevel_video->setValue(4);
+                ui->spinBox_DenoiseLevel_video->setEnabled(1);
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                return;
+            }
     }
 }
 
@@ -741,6 +772,7 @@ void MainWindow::on_pushButton_compatibilityTest_clicked()
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
     if(!ui->textBrowser->isVisible())
     {
@@ -798,6 +830,7 @@ void MainWindow::on_pushButton_DetectGPU_clicked()
 {
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     Available_GPUID.clear();
@@ -1245,6 +1278,7 @@ void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
 {
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     Available_ProcessorList_converter.clear();
@@ -1310,6 +1344,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_DetectGPU->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
     //====
     ui->comboBox_TargetProcessor_converter->clear();
@@ -1581,6 +1616,9 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq srmd-ncnn-vulkan_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
     //========
     emit Send_TextBrowser_NewMessage(tr("Force retry."));
     return;
@@ -1589,4 +1627,91 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
 void MainWindow::on_pushButton_PayPal_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.paypal.me/aaronfeng753"));
+}
+
+void MainWindow::on_pushButton_DetectGPUID_srmd_clicked()
+{
+    ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
+    Available_GPUID_srmd.clear();
+    QtConcurrent::run(this, &MainWindow::SRMD_DetectGPU);
+}
+
+int MainWindow::SRMD_DetectGPU()
+{
+    emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
+    //===============
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QFile::remove(OutputPath);
+    //==============
+    QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
+    QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
+    QString model_path = Waifu2x_folder_path+"/models-srmd";
+    //=========
+    int GPU_ID=0;
+    //=========
+    while(true)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(file_isFileExist(OutputPath))
+        {
+            Available_GPUID_srmd.append(QString::number(GPU_ID,10));
+            GPU_ID++;
+            QFile::remove(OutputPath);
+        }
+        else
+        {
+            break;
+        }
+    }
+    QFile::remove(OutputPath);
+    //===============
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
+    if(Available_GPUID_srmd.isEmpty())
+    {
+        Send_TextBrowser_NewMessage(tr("No available GPU ID detected!"));
+    }
+    emit Send_SRMD_DetectGPU_finished();
+    return 0;
+}
+
+void MainWindow::SRMD_DetectGPU_finished()
+{
+    ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    //====
+    ui->comboBox_GPUID_srmd->clear();
+    ui->comboBox_GPUID_srmd->addItem("auto");
+    if(!Available_GPUID_srmd.isEmpty())
+    {
+        for(int i=0; i<Available_GPUID_srmd.size(); i++)
+        {
+            ui->comboBox_GPUID_srmd->addItem(Available_GPUID_srmd.at(i));
+        }
+    }
+}
+
+void MainWindow::on_comboBox_GPUID_srmd_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUID_srmd->currentText()!="auto")
+    {
+        GPU_ID_STR_SRMD = " -g "+ui->comboBox_GPUID_srmd->currentText()+" ";
+    }
+    else
+    {
+        GPU_ID_STR_SRMD="";
+    }
 }

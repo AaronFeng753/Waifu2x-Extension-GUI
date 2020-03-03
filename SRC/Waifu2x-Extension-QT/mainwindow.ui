@@ -833,6 +833,23 @@ padding:10px;
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="1">
+            <widget class="QProgressBar" name="progressBar">
+             <property name="value">
+              <number>0</number>
+             </property>
+             <property name="format">
+              <string notr="true">%p%</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="9">
+            <widget class="QLabel" name="label_TextBroFontSize">
+             <property name="text">
+              <string>Font size:</string>
+             </property>
+            </widget>
+           </item>
            <item row="0" column="3">
             <widget class="QLabel" name="label_TimeRemain">
              <property name="frameShape">
@@ -846,22 +863,6 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_progressBar_filenum">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Plain</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="text">
-              <string notr="true">0/0</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="4">
             <widget class="QLabel" name="label_ETA">
              <property name="frameShape">
@@ -872,16 +873,6 @@ padding:10px;
              </property>
              <property name="text">
               <string>ETA:NULL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QProgressBar" name="progressBar">
-             <property name="value">
-              <number>0</number>
-             </property>
-             <property name="format">
-              <string notr="true">%p%</string>
              </property>
             </widget>
            </item>
@@ -994,29 +985,6 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="0" column="10">
-            <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="value">
-              <number>9</number>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="label_TimeCost">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="text">
-              <string>Time cost:NULL</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="11">
             <widget class="QPushButton" name="pushButton_clear_textbrowser">
              <property name="toolTip">
@@ -1054,13 +1022,6 @@ padding:10px;
              </property>
              <property name="text">
               <string>Clear</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="9">
-            <widget class="QLabel" name="label_TextBroFontSize">
-             <property name="text">
-              <string>Font size:</string>
              </property>
             </widget>
            </item>
@@ -1118,31 +1079,46 @@ padding:10px;
              </property>
             </widget>
            </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_TimeCost">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="text">
+              <string>Time cost:NULL</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="10">
+            <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+             <property name="value">
+              <number>9</number>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_progressBar_filenum">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="text">
+              <string notr="true">0/0</string>
+             </property>
+            </widget>
+           </item>
           </layout>
-         </widget>
-        </item>
-        <item row="4" column="0" colspan="2">
-         <widget class="QTextBrowser" name="textBrowser">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>170</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Arial</family>
-           </font>
-          </property>
-          <property name="acceptDrops">
-           <bool>false</bool>
-          </property>
          </widget>
         </item>
         <item row="2" column="0" colspan="2">
@@ -1955,6 +1931,7 @@ padding:10px;
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:☆ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 You can run compatibility test to see which engines your 
 PC is compatible with.
 We don't recommend you to use Anime4k, it can only bring 
@@ -1979,6 +1956,11 @@ see the difference.</string>
                   <string notr="true">Anime4k</string>
                  </property>
                 </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">srmd-ncnn-vulkan</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item row="2" column="1" colspan="2">
@@ -1990,6 +1972,7 @@ see the difference.</string>
                  <string>Select the engine for processing GIF. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 You can run compatibility test to see which engines your PC is compatible with.</string>
                 </property>
                 <property name="currentText">
@@ -2003,6 +1986,11 @@ You can run compatibility test to see which engines your PC is compatible with.<
                 <item>
                  <property name="text">
                   <string notr="true">waifu2x-converter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">srmd-ncnn-vulkan</string>
                  </property>
                 </item>
                </widget>
@@ -2035,6 +2023,7 @@ You can run compatibility test to see which engines your PC is compatible with.<
                  <string>Select the engine for processing Image. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 Only waifu2x-converter engine supports alpha channel (transparent images).
 You can run compatibility test to see which engines your PC is compatible with.</string>
                 </property>
@@ -2049,6 +2038,11 @@ You can run compatibility test to see which engines your PC is compatible with.<
                 <item>
                  <property name="text">
                   <string notr="true">waifu2x-converter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">srmd-ncnn-vulkan</string>
                  </property>
                 </item>
                </widget>
@@ -2142,7 +2136,9 @@ and it's much more slower than &quot;upconv_7&quot; model.</string>
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                     </property>
                     <property name="text">
                      <string>Image Style:</string>
@@ -2177,7 +2173,9 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. Other engines only support &quot;2D Anime&quot; image style.</string>
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">2D Anime</string>
@@ -2437,6 +2435,110 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                   </item>
                  </layout>
                 </widget>
+                <widget class="QWidget" name="tab_5">
+                 <attribute name="title">
+                  <string>srmd-ncnn-vulkan</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_24">
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUID_srmd">
+                    <property name="toolTip">
+                     <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">auto</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QSpinBox" name="spinBox_TileSize_srmd">
+                    <property name="toolTip">
+                     <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means SRMD will use more GPU memory and run faster.
+Smaller tile size means SRMD will use less GPU memory and run slower.</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>200</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Detect available GPU ID</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_41">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_40">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QCheckBox" name="checkBox_TTA_srmd">
+                    <property name="toolTip">
+                     <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                    </property>
+                    <property name="text">
+                     <string>TTA</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
@@ -2634,6 +2736,30 @@ padding:10px;
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+        <item row="4" column="0" colspan="2">
+         <widget class="QTextBrowser" name="textBrowser">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>170</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Arial</family>
+           </font>
+          </property>
+          <property name="acceptDrops">
+           <bool>false</bool>
+          </property>
          </widget>
         </item>
        </layout>
