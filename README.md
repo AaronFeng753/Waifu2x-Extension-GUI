@@ -52,6 +52,9 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - And more
 
 # Samples
+
+`All of these samples were processed using Waifu2x-ncnn-vulkan engine.`
+
 ### **`Image`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
