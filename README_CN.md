@@ -20,9 +20,9 @@
 # Waifu2x-Extension-GUI是什么?
  借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
-基于 `Waifu2x-ncnn-vulkan` 和 `Waifu2x-converter` . 
+基于 `Waifu2x-ncnn-vulkan`, `SRMD-ncnn-Vulkan` 和 `Waifu2x-converter` . 
 
-借助waifu2x-ncnn-vulkan, Waifu2x-Extension-GUI 可以借助任何支持`Vulkan`的显卡进行运算,即便是Intel的集成显卡. 
+借助waifu2x-ncnn-vulkan和SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI 可以借助任何支持`Vulkan`的显卡进行运算,即便是Intel的集成显卡. 
 
 如果您的显卡不支持vulkan, 您还可以将引擎切换为Waifu2x-converter,同样可以很快的对图像进行放大与降噪.(已集成在release内)
 
@@ -51,6 +51,9 @@
 - 以及更多
 
 # 示例
+
+`所有示例图像均使用waifu2x-ncnn-vulkan引擎处理`
+
 ### **`图片`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
@@ -131,6 +134,8 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 
+- SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
+
 - FFmpeg: https://ffmpeg.org/
 
 - Gifsicle: https://www.lcdf.org/gifsicle/
@@ -144,6 +149,10 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 - NSIS: https://nsis.sourceforge.io/
 
 - Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
+
+- waifu2x: https://github.com/nagadomi/waifu2x
+
+- SRMD: https://github.com/cszn/SRMD
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
