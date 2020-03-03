@@ -21,9 +21,9 @@
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Based on `Waifu2x-ncnn-vulkan` and `Waifu2x-converter` . 
+Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan` and `Waifu2x-converter` . 
 
-Thanks to waifu2x-ncnn-vulkan, Waifu2x-Extension-GUI could use any kind of gpu that support `Vulkan`, even Intel GPU. 
+Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could use any kind of gpu that support `Vulkan`, even Intel GPU. 
 
 If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into the Waifu2x-Extension-GUI.
 
@@ -96,6 +96,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 # Integrated component(In releases):
 - waifu2x-ncnn-vulkan version 20200224
 
+- SRMD-ncnn-Vulkan version 20200224
+
 - Anime4K Java v0.9 Beta
 
 - ffmpeg version 4.2.2
@@ -110,6 +112,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - Donors: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
 
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
+
+- SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
 
 - FFmpeg: https://ffmpeg.org/
 
