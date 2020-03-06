@@ -103,11 +103,13 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/PixelFormat", ui->lineEdit_pixformat->text());
     configIniWrite->setValue("/settings/BitrateVideo", ui->spinBox_bitrate_vid->value());
     configIniWrite->setValue("/settings/BitrateAudio", ui->spinBox_bitrate_audio->value());
+    configIniWrite->setValue("/settings/ExtraCommandOutput", ui->lineEdit_ExCommand_output->text());
     //===
     configIniWrite->setValue("/settings/BitrateVideo2mp4", ui->spinBox_bitrate_vid_2mp4->value());
     configIniWrite->setValue("/settings/BitrateAudio2mp4", ui->spinBox_bitrate_audio_2mp4->value());
     configIniWrite->setValue("/settings/vcodecCopy", ui->checkBox_vcodec_copy_2mp4->checkState());
     configIniWrite->setValue("/settings/acodecCopy", ui->checkBox_acodec_copy_2mp4->checkState());
+    configIniWrite->setValue("/settings/ExtraCommand2mp4", ui->lineEdit_ExCommand_2mp4->text());
     //==================== 存储输出路径设置 ========================
     configIniWrite->setValue("/settings/OutPutPath", ui->lineEdit_outputPath->text());
     configIniWrite->setValue("/settings/OutPutPathIsEnabled", ui->checkBox_OutPath_isEnabled->checkState());
@@ -209,11 +211,13 @@ int MainWindow::Settings_Read_Apply()
     ui->lineEdit_pixformat->setText(configIniRead->value("/settings/PixelFormat").toString());
     ui->spinBox_bitrate_vid->setValue(configIniRead->value("/settings/BitrateVideo").toInt());
     ui->spinBox_bitrate_audio->setValue(configIniRead->value("/settings/BitrateAudio").toInt());
+    ui->lineEdit_ExCommand_output->setText(configIniRead->value("/settings/ExtraCommandOutput").toString());
     //===
     ui->spinBox_bitrate_vid_2mp4->setValue(configIniRead->value("/settings/BitrateVideo2mp4").toInt());
     ui->spinBox_bitrate_audio_2mp4->setValue(configIniRead->value("/settings/BitrateAudio2mp4").toInt());
     ui->checkBox_vcodec_copy_2mp4->setChecked(configIniRead->value("/settings/vcodecCopy").toBool());
     ui->checkBox_acodec_copy_2mp4->setChecked(configIniRead->value("/settings/acodecCopy").toBool());
+    ui->lineEdit_ExCommand_2mp4->setText(configIniRead->value("/settings/ExtraCommand2mp4").toString());
     //=============== 加载输出路径设置 ===========================
     ui->lineEdit_outputPath->setText(configIniRead->value("/settings/OutPutPath").toString());
     ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());

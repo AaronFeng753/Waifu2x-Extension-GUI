@@ -238,7 +238,11 @@ padding:10px;
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_outputPath"/>
+            <widget class="QLineEdit" name="lineEdit_outputPath">
+             <property name="text">
+              <string notr="true"/>
+             </property>
+            </widget>
            </item>
            <item row="0" column="2">
             <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
@@ -1990,7 +1994,7 @@ see the difference.</string>
                </widget>
               </item>
               <item row="4" column="0" colspan="3">
-               <widget class="QToolBox" name="toolBox">
+               <widget class="QToolBox" name="toolBox_engines">
                 <property name="minimumSize">
                  <size>
                   <width>290</width>
@@ -2802,7 +2806,7 @@ padding:10px;
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>360</height>
+            <height>350</height>
            </size>
           </property>
           <property name="sizeIncrement">
@@ -3145,7 +3149,7 @@ padding:10px;
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>300</height>
+            <height>345</height>
            </size>
           </property>
           <property name="title">
@@ -3685,20 +3689,6 @@ height:28
                   <string>Output</string>
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_18">
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_31">
-                    <property name="text">
-                     <string>Encoder(video):</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1" colspan="2">
-                   <widget class="QLineEdit" name="lineEdit_encoder_vid">
-                    <property name="text">
-                     <string notr="true">libx264</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="1" column="0">
                    <widget class="QLabel" name="label_27">
                     <property name="text">
@@ -3706,40 +3696,10 @@ height:28
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="1">
-                   <widget class="QSpinBox" name="spinBox_bitrate_vid">
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                    <property name="singleStep">
-                     <number>100</number>
-                    </property>
-                    <property name="value">
-                     <number>6000</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2">
-                   <widget class="QLabel" name="label_28">
-                    <property name="text">
-                     <string>K</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="2" column="0">
                    <widget class="QLabel" name="label_32">
                     <property name="text">
                      <string>Encoder(audio):</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="1" colspan="2">
-                   <widget class="QLineEdit" name="lineEdit_encoder_audio">
-                    <property name="text">
-                     <string notr="true">aac</string>
                     </property>
                    </widget>
                   </item>
@@ -3773,6 +3733,50 @@ height:28
                     </property>
                    </widget>
                   </item>
+                  <item row="0" column="1" colspan="2">
+                   <widget class="QLineEdit" name="lineEdit_encoder_vid">
+                    <property name="text">
+                     <string notr="true">libx264</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_31">
+                    <property name="text">
+                     <string>Encoder(video):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QSpinBox" name="spinBox_bitrate_vid">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>100</number>
+                    </property>
+                    <property name="value">
+                     <number>6000</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1" colspan="2">
+                   <widget class="QLineEdit" name="lineEdit_encoder_audio">
+                    <property name="text">
+                     <string notr="true">aac</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2">
+                   <widget class="QLabel" name="label_28">
+                    <property name="text">
+                     <string>K</string>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="4" column="0">
                    <widget class="QLabel" name="label_33">
                     <property name="text">
@@ -3787,6 +3791,24 @@ height:28
                     </property>
                    </widget>
                   </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="label_42">
+                    <property name="text">
+                     <string>Extra command:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0" colspan="3">
+                   <widget class="QLineEdit" name="lineEdit_ExCommand_output">
+                    <property name="toolTip">
+                     <string>You can enter ffmpeg instructions here, for example:
+-crf 18</string>
+                    </property>
+                    <property name="text">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
                  </layout>
                 </widget>
                 <widget class="QWidget" name="tab_4">
@@ -3798,6 +3820,20 @@ height:28
                    <widget class="QLabel" name="label_34">
                     <property name="text">
                      <string>Bitrate(video):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0">
+                   <widget class="QLabel" name="label_45">
+                    <property name="text">
+                     <string>Extra Command:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QLabel" name="label_37">
+                    <property name="text">
+                     <string>K</string>
                     </property>
                    </widget>
                   </item>
@@ -3817,13 +3853,6 @@ height:28
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="2">
-                   <widget class="QLabel" name="label_37">
-                    <property name="text">
-                     <string>K</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="4" column="0">
                    <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
                     <property name="toolTip">
@@ -3831,6 +3860,23 @@ height:28
                     </property>
                     <property name="text">
                      <string notr="true">-acodec copy</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QLabel" name="label_36">
+                    <property name="text">
+                     <string>K</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
+                    <property name="toolTip">
+                     <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
+                    </property>
+                    <property name="text">
+                     <string notr="true">-vcodec copy</string>
                     </property>
                    </widget>
                   </item>
@@ -3857,20 +3903,14 @@ height:28
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QLabel" name="label_36">
-                    <property name="text">
-                     <string>K</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
+                  <item row="6" column="0" colspan="3">
+                   <widget class="QLineEdit" name="lineEdit_ExCommand_2mp4">
                     <property name="toolTip">
-                     <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
+                     <string>You can enter ffmpeg instructions here, for example:
+-crf 18</string>
                     </property>
                     <property name="text">
-                     <string notr="true">-vcodec copy</string>
+                     <string notr="true"/>
                     </property>
                    </widget>
                   </item>

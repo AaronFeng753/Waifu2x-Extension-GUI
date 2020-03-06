@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     //==============
     ui->tabWidget->setCurrentIndex(0);//显示home tab
     ui->tabWidget_videoSettings->setCurrentIndex(0);
+    ui->toolBox_engines->setCurrentIndex(0);
     TextBrowser_StartMes();//显示启动msg
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
