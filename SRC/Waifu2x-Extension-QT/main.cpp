@@ -35,7 +35,10 @@ int main(int argc, char *argv[])
 ############## 发更新前别忘了翻译!!! ################
 Change log:
 - 新特性:支持记住上一次浏览的文件夹.(remember the last browsed folder)
+- 新特性:改进自动检查更新, 支持显示更新日志.
+- 新特性:启动器加入多开检测.
 - 更新 ImageMagick (7.0.9-27-Q16-x64)
+- 更新 自动检查更新时使用的 User-Agent
 - 更改部分界面布局.
 - 改进稳定性.
 - 添加了一些提示.

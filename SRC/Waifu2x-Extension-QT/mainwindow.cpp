@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_TextBrowser_NewMessage(QString)), this, SLOT(TextBrowser_NewMessage(QString)));
     connect(this, SIGNAL(Send_Waifu2x_Compatibility_Test_finished()), this, SLOT(Waifu2x_Compatibility_Test_finished()));
     connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
-    connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString)), this, SLOT(CheckUpadte_NewUpdate(QString)));
+    connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString,QString)), this, SLOT(CheckUpadte_NewUpdate(QString,QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Donate_Notification()), this, SLOT(Donate_Notification()));
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));

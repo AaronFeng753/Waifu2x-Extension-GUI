@@ -22,7 +22,7 @@ python_ext_waifu2xEX.exe:
 get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
 get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
 get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_waifu2xEX.exe null checkupdate]
+check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
 */
 
 #include "mainwindow.h"
@@ -45,30 +45,69 @@ int MainWindow::CheckUpadte_Auto()
     {
         return 0;
     }
+    //============
+    QString Latest_Ver="";
+    //============================
+    QString Github_UpdateInfo = Current_Path+"/Update_Info_Github.ini";
+    QString Gitee_UpdateInfo = Current_Path+"/Update_Info_Gitee.ini";
+    QFile::remove(Github_UpdateInfo);
+    QFile::remove(Gitee_UpdateInfo);
+    //===========================
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess checkupdate;
-    checkupdate.start("\""+program+"\" null checkupdate");
-    while(!checkupdate.waitForStarted(100)&&!QProcess_stop) {}
-    while(!checkupdate.waitForFinished(100)&&!QProcess_stop) {}
-    QString update_str="";
-    if(!QProcess_stop)update_str=checkupdate.readAllStandardOutput().data();
-    update_str = update_str.trimmed();
-    if(update_str!=VERSION&&update_str!="failed"&&update_str!="")
+    checkupdate.start("\""+program+"\" "+Current_Path+" checkupdate");
+    while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
+    while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
+    //========= 先检查github的文件是否下载成功 =================
+    if(QFile::exists(Github_UpdateInfo))
     {
-        emit Send_CheckUpadte_NewUpdate(update_str);
+        QSettings *configIniRead = new QSettings(Github_UpdateInfo, QSettings::IniFormat);
+        configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
+        QString Change_log = configIniRead->value("/Change_log/log").toString();
+        Latest_Ver = Latest_Ver.trimmed();
+        if(Latest_Ver!=VERSION&&Latest_Ver!="")
+        {
+            emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
+            //=====
+            QFile::remove(Github_UpdateInfo);
+            QFile::remove(Gitee_UpdateInfo);
+            return 0;
+        }
+    }
+    //========= 再检查gitee的文件是否下载成功 =================
+    if(QFile::exists(Gitee_UpdateInfo))
+    {
+        QSettings *configIniRead = new QSettings(Gitee_UpdateInfo, QSettings::IniFormat);
+        configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
+        QString Change_log = configIniRead->value("/Change_log/log").toString();
+        Latest_Ver = Latest_Ver.trimmed();
+        if(Latest_Ver!=VERSION&&Latest_Ver!="")
+        {
+            emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
+            //=====
+            QFile::remove(Github_UpdateInfo);
+            QFile::remove(Gitee_UpdateInfo);
+            return 0;
+        }
+    }
+    if(Latest_Ver=="")
+    {
+        emit Send_TextBrowser_NewMessage(tr("Unable to check for updates automatically! Please check your network or check for updates manually."));
     }
     return 0;
 }
 /*
 自动更新弹窗
 */
-int MainWindow::CheckUpadte_NewUpdate(QString update_str)
+int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
 {
     switch(ui->comboBox_language->currentIndex())
     {
         case 0:
             {
-                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
+                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
                 Msg.setIcon(QMessageBox::Information);
                 QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
                 QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
@@ -78,7 +117,7 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str)
             }
         case 1:
             {
-                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
+                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
                 Msg.setIcon(QMessageBox::Information);
                 QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
                 QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆境内)"), QMessageBox::YesRole);
@@ -90,7 +129,7 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str)
             }
         case 2:
             {
-                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1 \n\nDo you wanna update now???")).arg(update_str));
+                QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
                 Msg.setIcon(QMessageBox::Information);
                 QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
                 QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);

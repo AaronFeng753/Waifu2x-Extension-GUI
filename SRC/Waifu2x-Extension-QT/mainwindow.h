@@ -296,7 +296,7 @@ public slots:
 
     int Waifu2x_DetectGPU_finished();//检测可用gpu结束后的执行的槽函数
 
-    int CheckUpadte_NewUpdate(QString update_str);//检测到更新的弹窗代码
+    int CheckUpadte_NewUpdate(QString update_str,QString Change_log);//检测到更新的弹窗代码
 
     int Table_FileCount_reload();//重载table下的文件数量计数
 
@@ -493,7 +493,7 @@ signals:
 
     void Send_Waifu2x_DetectGPU_finished();
 
-    void Send_CheckUpadte_NewUpdate(QString update_str);
+    void Send_CheckUpadte_NewUpdate(QString, QString);
 
     void Send_Table_FileCount_reload();
 
