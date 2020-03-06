@@ -3682,7 +3682,7 @@ height:28
 }</string>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="tab_3">
                  <attribute name="title">
@@ -3826,7 +3826,7 @@ height:28
                   <item row="5" column="0">
                    <widget class="QLabel" name="label_45">
                     <property name="text">
-                     <string>Extra Command:</string>
+                     <string>Extra command:</string>
                     </property>
                    </widget>
                   </item>

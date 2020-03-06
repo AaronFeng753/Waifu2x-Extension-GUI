@@ -316,7 +316,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         else
         {
             Delay_sec_sleep(5);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
     }
     //=========

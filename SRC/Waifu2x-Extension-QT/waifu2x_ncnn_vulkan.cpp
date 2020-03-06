@@ -206,7 +206,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         else
         {
             QFile::remove(OutputPath_tmp);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
     }
@@ -737,7 +737,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
         else
         {
             QFile::remove(OutputPath_tmp);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
     }
@@ -1176,7 +1176,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
         else
         {
             QFile::remove(OutputPath_tmp);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
     }

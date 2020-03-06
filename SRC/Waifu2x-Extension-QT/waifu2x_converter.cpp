@@ -116,7 +116,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         else
         {
             Delay_sec_sleep(5);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
     }
     //========
@@ -553,7 +553,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
         else
         {
             Delay_sec_sleep(5);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
     }
     //========================
@@ -874,7 +874,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         else
         {
             Delay_sec_sleep(5);
-            emit Send_TextBrowser_NewMessage(tr("Retry"));
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
     }
     //========

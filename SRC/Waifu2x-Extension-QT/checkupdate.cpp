@@ -34,6 +34,7 @@ check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
 void MainWindow::on_pushButton_CheckUpdate_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+    if(ui->comboBox_language->currentIndex()==1)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases"));
 }
 /*
 自动检查更新:
@@ -96,6 +97,8 @@ int MainWindow::CheckUpadte_Auto()
     {
         emit Send_TextBrowser_NewMessage(tr("Unable to check for updates automatically! Please check your network or check for updates manually."));
     }
+    QFile::remove(Github_UpdateInfo);
+    QFile::remove(Gitee_UpdateInfo);
     return 0;
 }
 /*
