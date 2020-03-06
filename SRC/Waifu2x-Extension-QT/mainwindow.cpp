@@ -29,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     translator = new QTranslator(this);
     //==============
     ui->tabWidget->setCurrentIndex(0);//显示home tab
-    ui->tabWidget_waifu2xSettings->setCurrentIndex(0);
     ui->tabWidget_videoSettings->setCurrentIndex(0);
     TextBrowser_StartMes();//显示启动msg
     this->setAcceptDrops(true);//mainwindow接收drop
@@ -99,6 +98,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    //=============== 询问是否退出 =======================
     QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you really wanna exit Waifu2x-Extension-GUI ?")));
     Msg.setIcon(QMessageBox::Question);
     QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
@@ -109,6 +109,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         event->ignore();
         return;
     }
+    //=============================
     bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->checkState();
     if(AutoSaveSettings&&(!Settings_isReseted))
     {
@@ -1136,6 +1137,7 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
 
 void MainWindow::on_pushButton_BrowserFile_clicked()
 {
+    QString Last_browsed_path = Current_Path+"/Last_browsed_path_waifu2xEX.ini";
     //========
     QStringList nameFilters;
     nameFilters.append("*.gif");
@@ -1161,9 +1163,19 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
         QString tmp = nameFilters.at(i);
         nameFilters_QString = nameFilters_QString +" "+ tmp;
     }
-    //========
+    //=====================================================
+    QString BrowserStartPath = "";//浏览文件时的起始文件夹
+    //=========== 读取上一次浏览的文件夹 ===========================
+    if(QFile::exists(Last_browsed_path))
+    {
+        QSettings *configIniRead = new QSettings(Last_browsed_path, QSettings::IniFormat);
+        configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        BrowserStartPath = configIniRead->value("/Path").toString();
+        if(!QFile::exists(BrowserStartPath))BrowserStartPath = "";
+    }
+    //===========================================================
     QString Input_path = "";
-    Input_path = QFileDialog::getOpenFileName(this, tr("Select file"), " ",  tr("All file(")+nameFilters_QString+")");
+    Input_path = QFileDialog::getOpenFileName(this, tr("Select file"), BrowserStartPath,  tr("All file(")+nameFilters_QString+")");
     Input_path = Input_path.trimmed();
     if(Input_path=="")return;
     //=====
@@ -1174,9 +1186,22 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     {
         Input_path = Input_path.left(Input_path.length() - 1);
     }
-    //=======
+    //=======================
     if(QFile::exists(Input_path))
     {
+        //================== 记住上一次浏览的文件夹 =======================
+        QFile::remove(Last_browsed_path);
+        QSettings *configIniWrite = new QSettings(Last_browsed_path, QSettings::IniFormat);
+        configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+        QFileInfo lastPath(Input_path);
+        QString folder_lastPath = lastPath.path();
+        if(folder_lastPath.right(1)=="/")
+        {
+            folder_lastPath = folder_lastPath.left(folder_lastPath.length() - 1);
+        }
+        configIniWrite->setValue("/Path", folder_lastPath);
+        //===============================================================
         AddNew_gif=false;
         AddNew_image=false;
         AddNew_video=false;
@@ -1192,6 +1217,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
         MSG->show();
         return;
     }
+    //=========================
     if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
     {
         QMessageBox *MSG = new QMessageBox();

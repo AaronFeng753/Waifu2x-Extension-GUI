@@ -26,6 +26,7 @@ void MainWindow::progressbar_setRange_min_max(int min, int max)
 {
     ui->progressBar->setRange(min, max);
     TaskNumTotal=max;
+    ui->label_progressBar_filenum->setText("0/"+QString::number(max,10));
 }
 /*
 将进度条直接充满

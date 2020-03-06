@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1540</width>
-    <height>890</height>
+    <width>1553</width>
+    <height>953</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -1963,36 +1963,516 @@ see the difference.</string>
                 </item>
                </widget>
               </item>
-              <item row="2" column="1" colspan="2">
-               <widget class="QComboBox" name="comboBox_Engine_GIF">
-                <property name="enabled">
-                 <bool>true</bool>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
                 </property>
-                <property name="toolTip">
-                 <string>Select the engine for processing GIF. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-You can run compatibility test to see which engines your PC is compatible with.</string>
+                <property name="text">
+                 <string>GIF:</string>
                 </property>
-                <property name="currentText">
-                 <string notr="true">waifu2x-ncnn-vulkan</string>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
                 </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-ncnn-vulkan</string>
+                <property name="text">
+                 <string>Image:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0" colspan="3">
+               <widget class="QToolBox" name="toolBox">
+                <property name="minimumSize">
+                 <size>
+                  <width>290</width>
+                  <height>290</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="currentIndex">
+                 <number>2</number>
+                </property>
+                <widget class="QWidget" name="page">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>299</width>
+                   <height>200</height>
+                  </rect>
                  </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-converter</string>
+                 <attribute name="label">
+                  <string>waifu2x-ncnn-vulkan</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_5">
+                  <property name="sizeConstraint">
+                   <enum>QLayout::SetDefaultConstraint</enum>
+                  </property>
+                  <item row="0" column="0" colspan="2">
+                   <widget class="QLabel" name="label_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2" colspan="2">
+                   <widget class="QComboBox" name="comboBox_ImageStyle">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="currentText">
+                     <string notr="true">2D Anime</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>2D Anime</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3D Real-life</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_26">
+                    <property name="text">
+                     <string>Model:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="3">
+                   <widget class="QComboBox" name="comboBox_model_vulkan">
+                    <property name="toolTip">
+                     <string>We recommend you use the default &quot;upconv_7&quot; model.
+Only &quot;upconv_7&quot; model supports image style switching.
+&quot;cunet&quot; model only supports 2D anime image style, 
+and it's much more slower than &quot;upconv_7&quot; model.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">upconv_7</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string notr="true">cunet</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QLabel" name="label_9">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.
+(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
+                    </property>
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2" colspan="2">
+                   <widget class="QSpinBox" name="spinBox_TileSize">
+                    <property name="toolTip">
+                     <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
+                    </property>
+                    <property name="minimum">
+                     <number>10</number>
+                    </property>
+                    <property name="maximum">
+                     <number>10000</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>200</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_10">
+                    <property name="toolTip">
+                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+                    </property>
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1" colspan="3">
+                   <widget class="QComboBox" name="comboBox_GPUID">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+                    </property>
+                    <property name="currentText">
+                     <string notr="true">auto</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">auto</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="3">
+                   <widget class="QCheckBox" name="checkBox_old_vulkan">
+                    <property name="toolTip">
+                     <string>If the default version of the waifu2x-ncnn-vulkan engine 
+does not work properly on your computer, 
+you can try to enable the older version of the engine.</string>
+                    </property>
+                    <property name="text">
+                     <string>OLD Version</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="3">
+                   <widget class="QCheckBox" name="checkBox_TTA_vulkan">
+                    <property name="toolTip">
+                     <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.
+Uncheck the [OLD Version] to enable [TTA].</string>
+                    </property>
+                    <property name="text">
+                     <string>TTA</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="0" colspan="4">
+                   <widget class="QPushButton" name="pushButton_DetectGPU">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Detect available GPU ID</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="page_2">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>299</width>
+                   <height>200</height>
+                  </rect>
                  </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">srmd-ncnn-vulkan</string>
-                 </property>
-                </item>
+                 <attribute name="label">
+                  <string>waifu2x-converter</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_26">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_14">
+                    <property name="text">
+                     <string>Block size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QSpinBox" name="spinBox_BlockSize_converter">
+                    <property name="toolTip">
+                     <string>Block size: This value will affacts GPU memory usage.
+Larger Block size means waifu2x will use more GPU memory and run faster.
+Smaller Block size means waifu2x will use less GPU memory and run slower.</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>300</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
+                    <property name="toolTip">
+                     <string>Force to use OpenCL on Intel Platform.</string>
+                    </property>
+                    <property name="text">
+                     <string>Force OpenCL</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QCheckBox" name="checkBox_TTA_converter">
+                    <property name="toolTip">
+                     <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                    </property>
+                    <property name="text">
+                     <string>TTA</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
+                    <property name="text">
+                     <string>Disable GPU</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_25">
+                    <property name="text">
+                     <string>Target processor:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
+                   <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">auto</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="2">
+                   <widget class="QPushButton" name="pushButton_DumpProcessorList_converter">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+	background-color: rgb(238, 119, 133);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(255, 127, 144);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+	background-color: rgb(226, 112, 128);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Dump processor list</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+                <widget class="QWidget" name="page_3">
+                 <attribute name="label">
+                  <string>srmd-ncnn-vulkan</string>
+                 </attribute>
+                 <layout class="QGridLayout" name="gridLayout_25">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_40">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QSpinBox" name="spinBox_TileSize_srmd">
+                    <property name="toolTip">
+                     <string>Tile size: This value will affacts GPU memory usage.
+Larger tile size means SRMD will use more GPU memory and run faster.
+Smaller tile size means SRMD will use less GPU memory and run slower.</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>200</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_41">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUID_srmd">
+                    <property name="toolTip">
+                     <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string notr="true">auto</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QCheckBox" name="checkBox_TTA_srmd">
+                    <property name="toolTip">
+                     <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                    </property>
+                    <property name="text">
+                     <string>TTA</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Detect available GPU ID</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
               <item row="3" column="0">
@@ -2047,498 +2527,36 @@ You can run compatibility test to see which engines your PC is compatible with.<
                 </item>
                </widget>
               </item>
-              <item row="2" column="0">
-               <widget class="QLabel" name="label_7">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>GIF:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_6">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Image:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0" colspan="3">
-               <widget class="QTabWidget" name="tabWidget_waifu2xSettings">
-                <property name="styleSheet">
-                 <string notr="true">QTabBar::tab{
-height:28
-}</string>
-                </property>
-                <property name="currentIndex">
-                 <number>0</number>
-                </property>
-                <property name="usesScrollButtons">
+              <item row="2" column="1" colspan="2">
+               <widget class="QComboBox" name="comboBox_Engine_GIF">
+                <property name="enabled">
                  <bool>true</bool>
                 </property>
-                <property name="documentMode">
-                 <bool>false</bool>
+                <property name="toolTip">
+                 <string>Select the engine for processing GIF. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+You can run compatibility test to see which engines your PC is compatible with.</string>
                 </property>
-                <property name="movable">
-                 <bool>false</bool>
+                <property name="currentText">
+                 <string notr="true">waifu2x-ncnn-vulkan</string>
                 </property>
-                <property name="tabBarAutoHide">
-                 <bool>false</bool>
-                </property>
-                <widget class="QWidget" name="tab">
-                 <attribute name="title">
-                  <string>waifu2x-ncnn-vulkan</string>
-                 </attribute>
-                 <layout class="QGridLayout" name="gridLayout_5">
-                  <item row="1" column="1" colspan="3">
-                   <widget class="QComboBox" name="comboBox_model_vulkan">
-                    <property name="toolTip">
-                     <string>We recommend you use the default &quot;upconv_7&quot; model.
-Only &quot;upconv_7&quot; model supports image style switching.
-&quot;cunet&quot; model only supports 2D anime image style, 
-and it's much more slower than &quot;upconv_7&quot; model.</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string notr="true">upconv_7</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string notr="true">cunet</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_26">
-                    <property name="text">
-                     <string>Model:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QLabel" name="label_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                    </property>
-                    <property name="text">
-                     <string>Image Style:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QLabel" name="label_9">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.
-(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
-                    </property>
-                    <property name="text">
-                     <string>Tile size:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2" colspan="2">
-                   <widget class="QComboBox" name="comboBox_ImageStyle">
-                    <property name="minimumSize">
-                     <size>
-                      <width>120</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                    </property>
-                    <property name="currentText">
-                     <string notr="true">2D Anime</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>2D Anime</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3D Real-life</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="2" column="2" colspan="2">
-                   <widget class="QSpinBox" name="spinBox_TileSize">
-                    <property name="toolTip">
-                     <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
-                    </property>
-                    <property name="minimum">
-                     <number>10</number>
-                    </property>
-                    <property name="maximum">
-                     <number>10000</number>
-                    </property>
-                    <property name="singleStep">
-                     <number>10</number>
-                    </property>
-                    <property name="value">
-                     <number>200</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_10">
-                    <property name="toolTip">
-                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-                    </property>
-                    <property name="text">
-                     <string>GPU ID:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="0" colspan="4">
-                   <widget class="QPushButton" name="pushButton_DetectGPU">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Detect available GPU ID</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="1" colspan="3">
-                   <widget class="QComboBox" name="comboBox_GPUID">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-                    </property>
-                    <property name="currentText">
-                     <string notr="true">auto</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string notr="true">auto</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="4" column="3">
-                   <widget class="QCheckBox" name="checkBox_TTA_vulkan">
-                    <property name="toolTip">
-                     <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                    </property>
-                    <property name="text">
-                     <string>TTA</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0" colspan="3">
-                   <widget class="QCheckBox" name="checkBox_old_vulkan">
-                    <property name="toolTip">
-                     <string>If the default version of the waifu2x-ncnn-vulkan engine 
-does not work properly on your computer, 
-you can try to enable the older version of the engine.</string>
-                    </property>
-                    <property name="text">
-                     <string>OLD Version</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="tab_2">
-                 <attribute name="title">
-                  <string>waifu2x-converter</string>
-                 </attribute>
-                 <layout class="QGridLayout" name="gridLayout_16">
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
-                    <property name="toolTip">
-                     <string>Force to use OpenCL on Intel Platform.</string>
-                    </property>
-                    <property name="text">
-                     <string>Force OpenCL</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_14">
-                    <property name="text">
-                     <string>Block size:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="1" colspan="2">
-                   <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string notr="true">auto</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="3" column="1" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
-                    <property name="text">
-                     <string>Disable GPU</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="0">
-                   <widget class="QLabel" name="label_25">
-                    <property name="text">
-                     <string>Target processor:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="8" column="0" colspan="3">
-                   <widget class="QPushButton" name="pushButton_DumpProcessorList_converter">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-	background-color: rgb(238, 119, 133);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(255, 127, 144);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-	background-color: rgb(226, 112, 128);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Dump processor list</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QCheckBox" name="checkBox_TTA_converter">
-                    <property name="toolTip">
-                     <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                    </property>
-                    <property name="text">
-                     <string>TTA</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1" colspan="2">
-                   <widget class="QSpinBox" name="spinBox_BlockSize_converter">
-                    <property name="toolTip">
-                     <string>Block size: This value will affacts GPU memory usage.
-Larger Block size means waifu2x will use more GPU memory and run faster.
-Smaller Block size means waifu2x will use less GPU memory and run slower.</string>
-                    </property>
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                    <property name="singleStep">
-                     <number>10</number>
-                    </property>
-                    <property name="value">
-                     <number>300</number>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-                <widget class="QWidget" name="tab_5">
-                 <attribute name="title">
-                  <string>srmd-ncnn-vulkan</string>
-                 </attribute>
-                 <layout class="QGridLayout" name="gridLayout_24">
-                  <item row="1" column="1">
-                   <widget class="QComboBox" name="comboBox_GPUID_srmd">
-                    <property name="toolTip">
-                     <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string notr="true">auto</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QSpinBox" name="spinBox_TileSize_srmd">
-                    <property name="toolTip">
-                     <string>Tile size: This value will affacts GPU memory usage.
-Larger tile size means SRMD will use more GPU memory and run faster.
-Smaller tile size means SRMD will use less GPU memory and run slower.</string>
-                    </property>
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                    <property name="singleStep">
-                     <number>10</number>
-                    </property>
-                    <property name="value">
-                     <number>200</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0" colspan="2">
-                   <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Detect available GPU ID</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_41">
-                    <property name="text">
-                     <string>GPU ID:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_40">
-                    <property name="text">
-                     <string>Tile size:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0">
-                   <widget class="QCheckBox" name="checkBox_TTA_srmd">
-                    <property name="toolTip">
-                     <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                    </property>
-                    <property name="text">
-                     <string>TTA</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-ncnn-vulkan</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">waifu2x-converter</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">srmd-ncnn-vulkan</string>
+                 </property>
+                </item>
                </widget>
               </item>
              </layout>

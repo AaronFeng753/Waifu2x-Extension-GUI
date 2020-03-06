@@ -31,10 +31,14 @@ int main(int argc, char *argv[])
 }
 
 /*
+
+############## 发更新前别忘了翻译!!! ################
 Change log:
-- 新特性:新增SRMD-NCNN-Vulkan引擎.
-SRMD-NCNN-Vulkan引擎可以同时支持2D动漫和3D现实两种图像样式.
-您可以[点击本页面](https://github.com/cszn/SRMD)以了解SRMD
+- 新特性:支持记住上一次浏览的文件夹.(remember the last browsed folder)
+- 更新 ImageMagick (7.0.9-27-Q16-x64)
+- 更改部分界面布局.
+- 改进稳定性.
+- 添加了一些提示.
 --------------------------------------------------------------------------
 To do:
 - 浏览文件记住上一次文件夹
@@ -54,7 +58,7 @@ Integrated component(In releases):
 - ffmpeg version 4.2.2
 - gifsicle version 1.92
 - Waifu2x-converter version: v5.3.3
-- ImageMagick 7.0.9-22-Q16-x64
+- ImageMagick 7.0.9-27-Q16-x64
 */
 
 /*

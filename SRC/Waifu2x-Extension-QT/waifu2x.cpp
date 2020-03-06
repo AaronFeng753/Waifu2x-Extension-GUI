@@ -22,7 +22,9 @@
 
 int MainWindow::Waifu2xMainThread()
 {
-    QtConcurrent::run(this, &MainWindow::Table_ChangeAllStatusToWaiting);
+    Delay_msec_sleep(500);
+    Table_ChangeAllStatusToWaiting();
+    Delay_msec_sleep(500);
     Progressbar_MaxVal = Table_model_image->rowCount() + Table_model_gif->rowCount() + Table_model_video->rowCount();
     Progressbar_CurrentVal = 0;
     TaskNumFinished=0;
@@ -416,6 +418,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     //================
     emit Send_TextBrowser_NewMessage(tr("Compatibility test is complete!"));
+    emit Send_TextBrowser_NewMessage(tr("Tip: If one of these engines : [waifu2x-ncnn-vulkan, waifu2x-converter, srmd-ncnn-vulkan] is compatible with your computer, then you can use all functions in this software."));
     emit Send_Waifu2x_Compatibility_Test_finished();
     return 0;
 }
