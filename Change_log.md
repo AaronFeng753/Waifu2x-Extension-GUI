@@ -1,4 +1,32 @@
 # Change log
+## [v1.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.21)
+#### Change log:
+- New feature: support remember the last browsed folder
+- New feature: Improved automatic check for updates, support for displaying update logs
+- New feature: Launcher added multi-open detection.
+- New feature: Support for typing extra commands in video customization settings.
+- Update ImageMagick (7.0.9-27-Q16-x64)
+- Update User-Agent used when checking for updates automatically.
+- Changed some interface layouts.
+- Improved stability.
+- Added some tips.
+- Modified some confusing text.
+---
+## [v1.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.11)
+#### Change log:
+- New feature: Add SRMD-NCNN-Vulkan engine. 🎉🥳🎉
+The SRMD-NCNN-Vulkan engine can support both `2D Anime` and `3D Real-life` image styles.
+You can [click this page](https://github.com/cszn/SRMD) to learn about SRMD.
+---
+## [v1.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.01)
+#### Change log:
+- ### End the beta test and start the development of the stable version. 🎉🥳🎉
+- New feature: Add [ 日本語 Japanese ] language support.  🐱‍👤
+`(Machine translation, may contain errors)`
+- Added some tips.
+- Fix bug: text error.
+- Fixed bug: After switching languages, some texts were displayed incorrectly.
+---
 ## [v0.57-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.57-beta)
 #### Change log:
 - Add PayPal donate button
