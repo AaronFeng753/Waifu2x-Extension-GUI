@@ -2,6 +2,34 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v1.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.21)
+#### 更新日志:
+- 新特性:支持记住上一次浏览的文件夹.(remember the last browsed folder)
+- 新特性:改进自动检查更新, 支持显示更新日志.
+- 新特性:启动器加入多开检测.
+- 新特性:视频自定义设置中支持键入额外指令.
+- 更新 ImageMagick (7.0.9-27-Q16-x64)
+- 更新 自动检查更新时使用的User-Agent.
+- 更改部分界面布局.
+- 改进稳定性.
+- 添加了一些提示.
+- 修改了一些令人迷惑的文本.
+---
+## [v1.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.11)
+#### 更新日志:
+- 新特性:新增SRMD-NCNN-Vulkan引擎. 🎉🥳🎉
+SRMD-NCNN-Vulkan引擎可以同时支持`2D动漫`和`3D现实`两种图像样式.
+您可以[点击本页面](https://github.com/cszn/SRMD)以了解SRMD技术.
+---
+## [v1.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.01)
+#### 更新日志:
+- ### 结束beta测试,开始正式版本的更新迭代. 🎉🥳🎉
+- 新特性:新增[日本語]语言支持. 🐱‍👤
+`(机器翻译,可能包含错误)`
+- 增加一些提示.
+- 修复bug:文本错误.
+- 修复bug:切换语言后,部分文本显示错误的问题.
+---
 ## [v0.57-beta](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v0.57-beta)
 #### 更新日志:
 - 添加PayPal捐赠按钮
