@@ -77,6 +77,10 @@ Name(or ID) | Donation amount | Time
 | Anonymous | 1 RMB | 2020/3/5 |
 | Kaneda Yoshihide | 1000 JPY | 2020/3/5 |
 | Anonymous | 100 RMB | 2020/3/6 |
-
+| Anonymous | 1.36 RMB | 2020/3/6 |
+| Anonymous | 10 RMB | 2020/3/7 |
+| Anonymous | 5 RMB | 2020/3/7 |
+| Anonymous | 6.66 RMB | 2020/3/7 |
+| Anonymous | 5 RMB | 2020/3/8 |
 
 Small donations (less than 1 RMB) will not recorded in the donation list.
