@@ -26,7 +26,7 @@ python_ext_waifu2xEX.exe:
 get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
 get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
 get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_waifu2xEX.exe null checkupdate]
+check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
 */
 
 int MainWindow::video_get_fps(QString videoPath)

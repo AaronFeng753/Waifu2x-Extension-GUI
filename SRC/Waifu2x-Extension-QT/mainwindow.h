@@ -67,7 +67,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v1.21";//软件版本号
+    QString VERSION="v1.25";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -185,13 +185,14 @@ public:
     QString GPU_ID_STR="";//向vulkan命令行cmd插入的gpuid命令,如果auto则为空
 
     int Waifu2x_DumpProcessorList_converter();
-    QStringList Available_ProcessorList_converter;
+    int Core_num = 0;
     QString Processor_converter_STR="";
 
     int SRMD_DetectGPU();//检测可用gpu(for srmd)
     QStringList Available_GPUID_srmd;//可用GPU ID列表
     QString GPU_ID_STR_SRMD="";//向srmd命令行cmd插入的gpuid命令,如果auto则为空
 
+    bool Imgae_hasAlphaChannel(int rowNum);
 
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值

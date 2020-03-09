@@ -330,6 +330,7 @@ void MainWindow::on_pushButton_Start_clicked()
         TimeCostTimer->start(1000);
         TimeCost=0;
         emit Send_TextBrowser_NewMessage(tr("Start processing files."));
+        Table_ChangeAllStatusToWaiting();
         Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
     }
 }
@@ -1308,61 +1309,24 @@ void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
-    Available_ProcessorList_converter.clear();
     QtConcurrent::run(this, &MainWindow::Waifu2x_DumpProcessorList_converter);
 }
 
 int MainWindow::Waifu2x_DumpProcessorList_converter()
 {
+    Core_num = 0;
     emit Send_TextBrowser_NewMessage(tr("Detecting available Processor, please wait."));
-    //===============
-    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
-    QFile::remove(OutputPath);
-    //==============
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
-    QString model_path= Waifu2x_folder_path + "/models_rgb";
-    //=========
-    int Processor_ID=0;
-    //=========
-    while(true)
-    {
-        QFile::remove(OutputPath);
-        QProcess *Waifu2x = new QProcess();
-        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2 --noise-level 1 --model-dir " + "\"" + model_path + "\""+Processor_str;
-        Waifu2x->start(cmd);
-        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-        if(file_isFileExist(OutputPath))
-        {
-            Available_ProcessorList_converter.append(QString::number(Processor_ID,10));
-            Processor_ID++;
-            QFile::remove(OutputPath);
-        }
-        else
-        {
-            break;
-        }
-    }
-    QFile::remove(OutputPath);
-    //===============
+    QProcess *Waifu2x = new QProcess();
+    QString cmd = "\"" + program + "\"" + " -l ";
+    Waifu2x->start(cmd);
+    while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+    QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
+    Core_num = waifu2x_stdOut.count("num_core");
+    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut+"\n-------------");
     emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
-    if(Available_ProcessorList_converter.isEmpty())
-    {
-        Send_TextBrowser_NewMessage(tr("No available Processor detected!"));
-    }
-    else
-    {
-        QProcess *Waifu2x = new QProcess();
-        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
-        QString cmd = "\"" + program + "\"" + " -l ";
-        Waifu2x->start(cmd);
-        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-        ui->textBrowser->append(Waifu2x->readAllStandardOutput());
-    }
     emit Send_Waifu2x_DumpProcessorList_converter_finished();
     return 0;
 }
@@ -1373,15 +1337,13 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
-    //====
+    //===========================
     ui->comboBox_TargetProcessor_converter->clear();
     ui->comboBox_TargetProcessor_converter->addItem("auto");
-    if(!Available_ProcessorList_converter.isEmpty())
+    if(Core_num<=0)return 0;
+    for(int i = 0; i<Core_num; i++)
     {
-        for(int i=0; i<Available_ProcessorList_converter.size(); i++)
-        {
-            ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
-        }
+        ui->comboBox_TargetProcessor_converter->addItem(QString::number(i,10));
     }
     return 0;
 }

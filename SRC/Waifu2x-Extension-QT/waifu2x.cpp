@@ -22,9 +22,9 @@
 
 int MainWindow::Waifu2xMainThread()
 {
-    Delay_msec_sleep(500);
-    Table_ChangeAllStatusToWaiting();
-    Delay_msec_sleep(500);
+    //Delay_msec_sleep(500);
+    //Table_ChangeAllStatusToWaiting();
+    Delay_msec_sleep(1000);
     Progressbar_MaxVal = Table_model_image->rowCount() + Table_model_gif->rowCount() + Table_model_video->rowCount();
     Progressbar_CurrentVal = 0;
     TaskNumFinished=0;
@@ -57,6 +57,21 @@ int MainWindow::Waifu2xMainThread()
             }
             //=========
             ThreadNumMax = ui->spinBox_ThreadNum_image->value();//获取image线程数量最大值
+            //===================================================================================
+            //=============== 判断图片是否含有透明通道, 如果有, 则强制调用converter处理图片 ============
+            //===================================================================================
+            if(Imgae_hasAlphaChannel(i))
+            {
+                emit Send_TextBrowser_NewMessage(tr("Detected that the current picture [")+Table_model_image->item(i,2)->text()+tr("] contains Alpha channel, so it automatically uses the waifu2x-converter engine to process the current picture and force it to save as PNG."));
+                ThreadNumRunning++;//线程数量统计+1s
+                QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
+                while (ThreadNumRunning >= ThreadNumMax)
+                {
+                    Delay_msec_sleep(500);
+                }
+                continue;
+            }
+            //====================================================================================
             switch(ImageEngine)
             {
                 case 0:
@@ -124,7 +139,6 @@ int MainWindow::Waifu2xMainThread()
             }
             //=========
             ThreadNumMax = ui->spinBox_ThreadNum_gif->value();//获取gif线程数量最大值
-            emit Send_TextBrowser_NewMessage("GIFEngine"+QString::number(GIFEngine,10));
             switch(GIFEngine)
             {
                 case 0:
@@ -384,11 +398,10 @@ int MainWindow::Waifu2x_Compatibility_Test()
     cmd = "java -jar \"" + program + "\" \"" + InputPath + "\" \"" + OutputPath + "\" 2";
     QProcess *Waifu2x_anime4k = new QProcess();
     Waifu2x_anime4k->start(cmd);
-    if(Waifu2x_anime4k->waitForStarted(-1))
+    if(Waifu2x_anime4k->waitForStarted(60000))
     {
         while(!Waifu2x_anime4k->waitForFinished(100)&&!QProcess_stop) {}
     }
-    //while(!Waifu2x_anime4k->waitForStarted(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: Yes."));
@@ -502,4 +515,18 @@ int MainWindow::Waifu2x_DetectGPU_finished()
     return 0;
 }
 
+/*
+判断图片是否含有透明通道
+*/
+bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
+{
+    /*
+    ======== 如果没开启检测, 直接返回false =============
+    */
+    if(ui->checkBox_AutoDetectAlphaChannel->checkState()==false)return false;
+    //======
+    QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
+    QImage img(SourceFile_fullPath);
+    return img.hasAlphaChannel();
+}
 

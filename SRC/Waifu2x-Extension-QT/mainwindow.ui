@@ -2374,6 +2374,14 @@ padding:10px;
                  </layout>
                 </widget>
                 <widget class="QWidget" name="page_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>299</width>
+                   <height>200</height>
+                  </rect>
+                 </property>
                  <attribute name="label">
                   <string>srmd-ncnn-vulkan</string>
                  </attribute>
@@ -3383,6 +3391,20 @@ We recommend you use the default value(90)</string>
                 </property>
                 <property name="value">
                  <number>90</number>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                <property name="toolTip">
+                 <string>When the alpha channel is detected in the picture, software will
+automatically use the waifu2x-converter engine to process the
+picture and force the picture to be saved as PNG.
+Please make sure the waifu2x-converter engine is compatible
+with your PC before enabling this option.</string>
+                </property>
+                <property name="text">
+                 <string>Auto detect Alpha channel</string>
                 </property>
                </widget>
               </item>

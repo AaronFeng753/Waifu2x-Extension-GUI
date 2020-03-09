@@ -25,9 +25,29 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
+    if(ui->comboBox_Engine_Image->currentIndex()==0)
+    {
+        if(DenoiseLevel==-1)
+        {
+            DenoiseLevel=0;
+        }
+        else
+        {
+            if(DenoiseLevel==0)
+            {
+                DenoiseLevel=1;
+            }
+        }
+    }
     int BlockSize = ui->spinBox_BlockSize_converter->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
+    //======
+    if(SaveAsJPG)
+    {
+        SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
+    }
+    //======
     bool CompressJPG = ui->checkBox_CompressJPG->checkState();
     bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
     bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
