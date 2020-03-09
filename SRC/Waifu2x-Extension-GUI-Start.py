@@ -70,5 +70,8 @@ def Main():
 #======================== Start ========================
         
 if __name__ == '__main__':
-	
-	Multi_open_detection()
+	try:
+		Multi_open_detection()
+	except BaseException:
+		os.chdir('waifu2x-extension-gui\\')
+		os.system('start Waifu2x-Extension-GUI.exe')
