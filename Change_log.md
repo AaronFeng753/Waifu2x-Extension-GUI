@@ -1,4 +1,12 @@
 # Change log
+## [v1.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.31)
+#### Change log:
+- New feature: Automatically determine whether the picture has an alpha channel and switch to a compatible engine. (Optional, additional settings, disabled by default) (`Please make sure your computer is compatible with waiuf2x-converter before enabling this feature.`)
+- New feature: Compatibility tests run automatically the first time the software is launched.
+- Improved multi-thread management and stability.
+- Remove the [Show Tips] button.
+- Fix bug: In some cases, outputting the processor list of waifu2x-converter will cause the software to enter an endless loop.
+---
 ## [v1.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.21)
 #### Change log:
 - New feature: support remember the last browsed folder
