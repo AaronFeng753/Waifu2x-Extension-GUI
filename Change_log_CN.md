@@ -2,6 +2,14 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v1.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.31)
+#### 更新日志:
+- 新特性:自动判断图片是否带有Alpha通道并切换到兼容的引擎.(可选,附加设置,默认禁用)(`启用此特性前请先确保您的电脑与waiuf2x-converter兼容.`)
+- 新特性:第一次启动软件时自动运行兼容性测试.
+- 改进多线程管理,提高稳定性.
+- 去掉[显示Tips]按钮.
+- 修复bug:某些情况下输出waifu2x-converter的处理器列表会造成软件陷入死循环.
+---
 ## [v1.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.21)
 #### 更新日志:
 - 新特性:支持记住上一次浏览的文件夹.(remember the last browsed folder)
