@@ -42,7 +42,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
     //===============
@@ -61,7 +63,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;
         }
         CustRes_height=Res_map["height"].toInt();
@@ -159,7 +163,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
                     }
                     status = "Interrupted";
                     emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
+                    mutex_ThreadNumRunning.unlock();
                     return 0;
                 }
                 QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
@@ -215,7 +221,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();
         return 0;
     }
     OutPutPath_Final = OutputPath_tmp;
@@ -252,7 +260,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;
         }
         OutPutPath_Final = OutPut_Path;
@@ -348,7 +358,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
     //=========================== 更新线程数量统计==============================
-    ThreadNumRunning--;//线程数量统计-1s
+    mutex_ThreadNumRunning.lock();
+    ThreadNumRunning--;
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
     return 0;
 }
 
@@ -380,7 +392,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
     //==========================
@@ -412,7 +426,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         //file_DelDir(SplitFramesFolderPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //============================== 拆分 ==========================================
@@ -435,7 +451,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //===========建立存储放大后frame的文件夹===========
@@ -477,7 +495,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
         Sub_gif_ThreadNumRunning++;
@@ -494,7 +514,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
             status = "Failed";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             file_DelDir(SplitFramesFolderPath);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -511,7 +533,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -526,7 +550,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = ResGIFPath;
@@ -584,7 +610,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
     //=========================== 更新filelist ==============================
-    ThreadNumRunning--;//线程数量统计-1s
+    mutex_ThreadNumRunning.lock();
+    ThreadNumRunning--;
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
     return 0;
 }
 
@@ -611,7 +639,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
         if(ScaleRatio==0)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+Frame_fileFullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            mutex_SubThreadNumRunning.lock();
             *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+            mutex_SubThreadNumRunning.unlock();
             return 0;
         }
     }
@@ -692,7 +722,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    mutex_SubThreadNumRunning.lock();
                     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+                    mutex_SubThreadNumRunning.unlock();
                     return 0;
                 }
                 QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
@@ -744,7 +776,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     if(file_isFileExist(OutputPath_tmp)==false)
     {
         *Frame_failed=true;
+        mutex_SubThreadNumRunning.lock();
         *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+        mutex_SubThreadNumRunning.unlock();
         return 0;
     }
     //============================ 调整大小 ====================================================
@@ -770,8 +804,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     }
     QFile::remove(Frame_fileFullPath);
     //=========
+    mutex_SubThreadNumRunning.lock();
     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
-    Delay_msec_sleep(10);
+    mutex_SubThreadNumRunning.unlock();
     //========
     return 0;
 }
@@ -804,7 +839,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
     //==========================
@@ -858,7 +895,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //============================== 扫描获取文件名 ===============================
@@ -870,7 +909,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //============================== 放大 =======================================
@@ -916,7 +957,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
         Sub_video_ThreadNumRunning++;
@@ -934,7 +977,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -952,7 +997,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -975,7 +1022,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -1019,7 +1068,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
     //=========================== 更新filelist ==============================
-    ThreadNumRunning--;//线程数量统计-1s
+    mutex_ThreadNumRunning.lock();
+    ThreadNumRunning--;
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
     return 0;
 }
 
@@ -1050,7 +1101,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
         if(ScaleRatio==0)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+Frame_fileFullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            mutex_SubThreadNumRunning.lock();
             *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+            mutex_SubThreadNumRunning.unlock();
             return 0;
         }
     }
@@ -1131,7 +1184,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    mutex_SubThreadNumRunning.lock();
                     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+                    mutex_SubThreadNumRunning.unlock();
                     return 0;
                 }
                 QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
@@ -1183,7 +1238,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     if(file_isFileExist(OutputPath_tmp)==false)
     {
         *Frame_failed=true;
+        mutex_SubThreadNumRunning.lock();
         *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+        mutex_SubThreadNumRunning.unlock();
         return 0;
     }
     //============================ 调整大小 ====================================================
@@ -1209,8 +1266,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QFile::remove(Frame_fileFullPath);
     QFile::rename(Frame_fileOutPutPath,ScaledFramesFolderPath+"/"+Frame_fileName);
     //====================
+    mutex_SubThreadNumRunning.lock();
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-    Delay_msec_sleep(10);
+    mutex_SubThreadNumRunning.unlock();
     //========
     return 0;
 }

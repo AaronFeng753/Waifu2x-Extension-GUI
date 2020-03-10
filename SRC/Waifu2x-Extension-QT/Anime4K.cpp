@@ -42,7 +42,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
     //==========================
@@ -96,7 +98,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //============================== 扫描获取文件名 ===============================
@@ -108,7 +112,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //============================== 放大 =======================================
@@ -154,7 +160,9 @@ int MainWindow::Anime4k_Video(int rowNum)
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
         //====
@@ -175,10 +183,13 @@ int MainWindow::Anime4k_Video(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-            ThreadNumRunning--;//线程数量统计-1s
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
     }
+    //=======================================================
     while (Sub_video_ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
@@ -193,7 +204,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         QFile::remove(AudioPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -215,7 +228,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        ThreadNumRunning--;//线程数量统计-1s
+        mutex_ThreadNumRunning.lock();
+        ThreadNumRunning--;
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -259,7 +274,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
     //=========================== 更新filelist ==============================
-    ThreadNumRunning--;//线程数量统计-1s
+    mutex_ThreadNumRunning.lock();
+    ThreadNumRunning--;
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
     //========
     return 0;
 }
@@ -290,7 +307,9 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         if(ScaleRatio==0)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            mutex_SubThreadNumRunning.lock();
             *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+            mutex_SubThreadNumRunning.unlock();
             return 0;
         }
     }
@@ -305,7 +324,9 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
             if(waifu2x_STOP)
             {
                 Waifu2x->close();
+                mutex_SubThreadNumRunning.lock();
                 *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+                mutex_SubThreadNumRunning.unlock();
                 return 0;
             }
         }
@@ -323,8 +344,10 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
+    mutex_SubThreadNumRunning.lock();
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-    Delay_msec_sleep(10);
+    mutex_SubThreadNumRunning.unlock();
     //========
     return 0;
 }
+

@@ -111,6 +111,9 @@ int MainWindow::Waifu2xMainThread()
     {
         Delay_msec_sleep(500);
     }
+    //=========================================================
+    //                   GIF 线程调度
+    //===========================================================
     if(Table_model_gif->rowCount()>0)
     {
         int GIFEngine = ui->comboBox_Engine_GIF->currentIndex();
@@ -317,6 +320,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->groupBox_video_settings->setEnabled(1);
     if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
     ui->pushButton_ForceRetry->setEnabled(0);
+    ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

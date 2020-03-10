@@ -52,6 +52,7 @@
 #include <QFileDialog>
 #include <QTextCodec>
 #include <math.h>
+#include <QMutex>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -67,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v1.25";//软件版本号
+    QString VERSION="v1.31";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -134,8 +135,6 @@ public:
 
     int Table_Save_Current_Table_Filelist_Watchdog();//保存文件列表的看门狗线程,确保文件成功保存
 
-
-
     //================================= Waifu2x ====================================
     QString OutPutFolder_main="";//总输出文件夹
 
@@ -178,6 +177,9 @@ public:
     int ThreadNumMax = 0;//waifu2x放大线程最大值
     int ThreadNumRunning = 0;//正在运行的waifu2x线程数量
 
+    QMutex mutex_ThreadNumRunning;//监管总线程数量的mutex
+    QMutex mutex_SubThreadNumRunning;//监管内部线程数量的mutex
+
     int Waifu2x_Compatibility_Test();//引擎兼容性检测
 
     int Waifu2x_DetectGPU();//检测可用gpu(for vulkan)
@@ -186,6 +188,7 @@ public:
 
     int Waifu2x_DumpProcessorList_converter();
     int Core_num = 0;
+    QStringList Available_ProcessorList_converter;
     QString Processor_converter_STR="";
 
     int SRMD_DetectGPU();//检测可用gpu(for srmd)
@@ -327,8 +330,6 @@ public slots:
 
     void SRMD_DetectGPU_finished();
 
-
-
 private slots:
 
     void on_pushButton_Start_clicked();
@@ -454,8 +455,6 @@ private slots:
     void on_checkBox_acodec_copy_2mp4_stateChanged(int arg1);
 
     void on_pushButton_encodersList_clicked();
-
-    void on_pushButton_showTips_clicked();
 
     void on_checkBox_DelOriginal_stateChanged(int arg1);
 

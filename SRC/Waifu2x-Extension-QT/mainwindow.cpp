@@ -326,6 +326,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->groupBox_video_settings->setEnabled(0);
         ui->checkBox_Move2RecycleBin->setEnabled(0);
         ui->pushButton_ForceRetry->setEnabled(1);
+        ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
         //==========
         TimeCostTimer->start(1000);
         TimeCost=0;
@@ -1314,6 +1315,9 @@ void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
 
 int MainWindow::Waifu2x_DumpProcessorList_converter()
 {
+    //============================
+    //     调用converter输出列表
+    //============================
     Core_num = 0;
     emit Send_TextBrowser_NewMessage(tr("Detecting available Processor, please wait."));
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
@@ -1326,6 +1330,39 @@ int MainWindow::Waifu2x_DumpProcessorList_converter()
     QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
     Core_num = waifu2x_stdOut.count("num_core");
     emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut+"\n-------------");
+    //====================================================================
+    //               获取到列表后, 对列表内处理器执行测试确认是否真的可用
+    //====================================================================
+    emit Send_TextBrowser_NewMessage(tr("Please wait while testing the processor."));
+    //========
+    Available_ProcessorList_converter.clear();
+    //========
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QFile::remove(OutputPath);
+    //==============
+    QString model_path= Waifu2x_folder_path + "/models_rgb";
+    //=========
+    int Processor_ID=0;
+    //=========
+    for(int i = 0; i<Core_num; i++)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2 --noise-level 1 --model-dir " + "\"" + model_path + "\""+Processor_str;
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(file_isFileExist(OutputPath))
+        {
+            Available_ProcessorList_converter.append(QString::number(Processor_ID,10));
+            Processor_ID++;
+            QFile::remove(OutputPath);
+        }
+    }
+    QFile::remove(OutputPath);
+    //====================
     emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
     emit Send_Waifu2x_DumpProcessorList_converter_finished();
     return 0;
@@ -1340,10 +1377,12 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     //===========================
     ui->comboBox_TargetProcessor_converter->clear();
     ui->comboBox_TargetProcessor_converter->addItem("auto");
-    if(Core_num<=0)return 0;
-    for(int i = 0; i<Core_num; i++)
+    if(!Available_ProcessorList_converter.isEmpty())
     {
-        ui->comboBox_TargetProcessor_converter->addItem(QString::number(i,10));
+        for(int i=0; i<Available_ProcessorList_converter.size(); i++)
+        {
+            ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
+        }
     }
     return 0;
 }
@@ -1469,23 +1508,13 @@ void MainWindow::Tip_FirstTimeStart()
     }
     else
     {
-        QString English_1 = "- Run a compatibility test to check which engines your PC is compatible with before starting to process files.\n";
-        QString English_2 = "- If the [block size] or [Number of threads] or [Scale ratio] is too large, the software may crash because insufficient VRAM or RAM.\n";
-        QString English_3 = "- Adjusting the number of threads and block size can increase processing speed. The number of threads and block size your computer can support depends on your computer's CPU, GPU, RAM and VRAM.\n";
-        QString English_4 = "- If the generated GIF file is too large, you can enable \"Optimize .gif\" to reduce the file size.\n";
-        QString English_5 = "- The software needs to split the video into pictures before process the video, so please make sure you have enough hard disk space.\n";
-        QString English_6 = "- You can further adjust the picture quality and sound quality of the output video in additional settings.\n";
+        QString English_1 = "- Please read the Wiki before starting to use the software.\n";
         QString English_7 = "- If there is a problem with the software font display, you can modify the font in the additional settings.\n";
         QString English_8 = "- This software is free software, if you find anyone selling this software, please report the seller.\n";
         QString English_9 = "- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n";
         QString English_10 = "- If you like this software, please donate to the developer, thank you.\n";
         //========
-        QString Chinese_1 = "- 开始处理文件前先运行一次兼容性测试以检查您的PC与哪些引擎兼容.\n";
-        QString Chinese_2 = "- 如果[块大小]或[线程数量]或[放大倍数]过大,软件可能因为RAM或VRAM不足而崩溃.\n";
-        QString Chinese_3 = "- 调整线程数量和块大小可以提高处理速度. 你的电脑能支持的线程数量和块大小取决于你的电脑的CPU, GPU, RAM和VRAM.\n";
-        QString Chinese_4 = "- 如果生成的GIF文件体积过大, 可以启用\"优化 .gif\"以降低文件体积.\n";
-        QString Chinese_5 = "- 软件在放大视频前需要先将视频文件拆分成图片, 所以请确保您有足够的硬盘空间.\n";
-        QString Chinese_6 = "- 您可以在附加设置进一步调整输出视频的画质和音质.\n";
+        QString Chinese_1 = "- 正式开始使用本软件前请先阅读 Wiki.\n";
         QString Chinese_7 = "- 如果软件字体显示有问题, 您可以在附加设置内修改字体.\n";
         QString Chinese_8 = "- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.\n";
         QString Chinese_9 = "- 在附加设置内可以将语言调整为简体中文.\n";
@@ -1494,22 +1523,24 @@ void MainWindow::Tip_FirstTimeStart()
         //========
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle("!!! Tips 必读 !!!");
-        MSG->setText(English_1+English_2+English_3+English_4+English_5+English_6+English_7+English_8+English_9+English_10+"----------------------\n"+Chinese_1+Chinese_2+Chinese_3+Chinese_4+Chinese_5+Chinese_6+Chinese_7+Chinese_8+Chinese_9+Chinese_10+Chinese_11);
+        MSG->setText(English_1+English_7+English_8+English_9+English_10+"----------------------\n"+Chinese_1+Chinese_7+Chinese_8+Chinese_9+Chinese_10+Chinese_11);
         MSG->setIcon(QMessageBox::Information);
         MSG->setModal(true);
         MSG->show();
         //======
+        QMessageBox *MSG_2 = new QMessageBox();
+        MSG_2->setWindowTitle(tr("Notification"));
+        MSG_2->setText(tr("It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, and you can view the test results in the text box at the bottom of the main interface of the software."));
+        MSG_2->setIcon(QMessageBox::Information);
+        MSG_2->setModal(true);
+        MSG_2->show();
+        //=======
         QFile file(FirstTimeStart);
         file.open(QIODevice::WriteOnly);
         file.close();
+        //=======
+        on_pushButton_compatibilityTest_clicked();
     }
-}
-
-void MainWindow::on_pushButton_showTips_clicked()
-{
-    QString FirstTimeStart = Current_Path+"/FirstTimeStart";
-    QFile::remove(FirstTimeStart);
-    Tip_FirstTimeStart();
 }
 
 void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
