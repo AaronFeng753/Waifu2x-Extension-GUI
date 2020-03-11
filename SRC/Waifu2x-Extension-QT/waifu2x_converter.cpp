@@ -87,6 +87,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -106,6 +107,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -154,6 +156,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
                 Waifu2x->close();
                 status = "Interrupted";
                 emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                emit Send_progressbar_Add();
                 mutex_ThreadNumRunning.lock();
                 ThreadNumRunning--;
                 mutex_ThreadNumRunning.unlock();
@@ -176,6 +179,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();
@@ -214,6 +218,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -302,8 +307,6 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         status = "Finished";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
-    //============================ 更新进度条 =================================
-    emit Send_progressbar_Add();
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->checkState())
     {
@@ -311,6 +314,8 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         QString Final_fileName = fileinfo_final.fileName();
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
+    //============================ 更新进度条 =================================
+    emit Send_progressbar_Add();
     //=========================== 更新线程数量统计==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
@@ -337,6 +342,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -371,6 +377,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         //file_DelDir(SplitFramesFolderPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -396,6 +403,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -441,6 +449,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -460,6 +469,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
             status = "Failed";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             file_DelDir(SplitFramesFolderPath);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -478,6 +488,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -495,6 +506,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -545,8 +557,6 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         status = "Finished";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
-    //============================ 更新进度条 =================================
-    emit Send_progressbar_Add();
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->checkState())
     {
@@ -554,6 +564,8 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         QString Final_fileName = fileinfo_final.fileName();
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
+    //============================ 更新进度条 =================================
+    emit Send_progressbar_Add();
     //=========================== 更新filelist ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
@@ -664,6 +676,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -720,6 +733,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -734,6 +748,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -782,6 +797,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -803,6 +819,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -823,6 +840,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -847,6 +865,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -878,8 +897,6 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         status = "Finished";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
-    //============================ 更新进度条 =================================
-    emit Send_progressbar_Add();
     //=========================== 删除转换格式生成的mp4 ==========================
     if(file_ext!="mp4")
     {
@@ -892,6 +909,8 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         QString Final_fileName = fileinfo_final.fileName();
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
+    //============================ 更新进度条 =================================
+    emit Send_progressbar_Add();
     //=========================== 更新filelist ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;

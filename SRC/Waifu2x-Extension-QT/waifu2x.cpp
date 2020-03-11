@@ -48,11 +48,13 @@ int MainWindow::Waifu2xMainThread()
             {
                 if(Table_model_image->item(i,1)->text().contains("Finished"))
                 {
+                    emit Send_progressbar_Add();
                     continue;
                 }
             }
             if(Table_model_image->item(i,1)->text().contains("deleted"))
             {
+                emit Send_progressbar_Add();
                 continue;
             }
             //=========
@@ -133,11 +135,13 @@ int MainWindow::Waifu2xMainThread()
             {
                 if(Table_model_gif->item(i,1)->text().contains("Finished"))
                 {
+                    emit Send_progressbar_Add();
                     continue;
                 }
             }
             if(Table_model_gif->item(i,1)->text().contains("deleted"))
             {
+                emit Send_progressbar_Add();
                 continue;
             }
             //=========
@@ -200,11 +204,13 @@ int MainWindow::Waifu2xMainThread()
             {
                 if(Table_model_video->item(i,1)->text().contains("Finished"))
                 {
+                    emit Send_progressbar_Add();
                     continue;
                 }
             }
             if(Table_model_video->item(i,1)->text().contains("deleted"))
             {
+                emit Send_progressbar_Add();
                 continue;
             }
             //=========

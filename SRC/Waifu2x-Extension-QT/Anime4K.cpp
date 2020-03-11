@@ -42,6 +42,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -98,6 +99,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -112,6 +114,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -160,6 +163,7 @@ int MainWindow::Anime4k_Video(int rowNum)
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -183,6 +187,7 @@ int MainWindow::Anime4k_Video(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -204,6 +209,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -228,6 +234,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
+        emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -259,8 +266,6 @@ int MainWindow::Anime4k_Video(int rowNum)
         status = "Finished";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
-    //============================ 更新进度条 =================================
-    emit Send_progressbar_Add();
     //=========================== 删除转换格式生成的mp4 ==========================
     if(file_ext!="mp4")
     {
@@ -273,7 +278,9 @@ int MainWindow::Anime4k_Video(int rowNum)
         QString Final_fileName = fileinfo_final.fileName();
         file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
     }
-    //=========================== 更新filelist ==============================
+    //============================ 更新进度条 =================================
+    emit Send_progressbar_Add();
+    //=========================== 进程数量-- ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s

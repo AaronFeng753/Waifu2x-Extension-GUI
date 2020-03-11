@@ -40,7 +40,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2011,7 +2011,7 @@ see the difference.</string>
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="page">
                  <property name="geometry">
@@ -3353,7 +3353,7 @@ We recommend you use the default value(90)</string>
                  <number>0</number>
                 </property>
                 <property name="value">
-                 <number>90</number>
+                 <number>95</number>
                 </property>
                </widget>
               </item>
