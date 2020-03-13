@@ -152,6 +152,9 @@ int MainWindow::Force_close()
     Close.start("taskkill /f /t /fi \"imagename eq ffmpeg_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq ffprobe_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq gifsicle_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
@@ -328,8 +331,8 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_ForceRetry->setEnabled(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
         //==========
-        TimeCostTimer->start(1000);
         TimeCost=0;
+        TimeCostTimer->start(1000);
         emit Send_TextBrowser_NewMessage(tr("Start processing files."));
         Table_ChangeAllStatusToWaiting();
         Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
@@ -829,29 +832,6 @@ void MainWindow::on_pushButton_HideInput_clicked()
     }
 }
 
-
-void MainWindow::on_pushButton_DetectGPU_clicked()
-{
-    ui->pushButton_Start->setEnabled(0);
-    ui->pushButton_DetectGPU->setEnabled(0);
-    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
-    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
-    ui->pushButton_compatibilityTest->setEnabled(0);
-    Available_GPUID.clear();
-    QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
-}
-
-void MainWindow::on_comboBox_GPUID_currentIndexChanged(int index)
-{
-    if(ui->comboBox_GPUID->currentText()!="auto")
-    {
-        GPU_ID_STR = " -g "+ui->comboBox_GPUID->currentText()+" ";
-    }
-    else
-    {
-        GPU_ID_STR="";
-    }
-}
 /*
 改变语言设置
 */
@@ -1303,101 +1283,7 @@ void MainWindow::on_checkBox_AlwaysHideTextBrowser_stateChanged(int arg1)
     }
 }
 
-void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
-{
-    ui->pushButton_Start->setEnabled(0);
-    ui->pushButton_DetectGPU->setEnabled(0);
-    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
-    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
-    ui->pushButton_compatibilityTest->setEnabled(0);
-    QtConcurrent::run(this, &MainWindow::Waifu2x_DumpProcessorList_converter);
-}
 
-int MainWindow::Waifu2x_DumpProcessorList_converter()
-{
-    //============================
-    //     调用converter输出列表
-    //============================
-    Core_num = 0;
-    emit Send_TextBrowser_NewMessage(tr("Detecting available Processor, please wait."));
-    QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
-    QProcess *Waifu2x = new QProcess();
-    QString cmd = "\"" + program + "\"" + " -l ";
-    Waifu2x->start(cmd);
-    while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-    while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-    QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
-    Core_num = waifu2x_stdOut.count("num_core");
-    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut+"\n-------------");
-    //====================================================================
-    //               获取到列表后, 对列表内处理器执行测试确认是否真的可用
-    //====================================================================
-    emit Send_TextBrowser_NewMessage(tr("Please wait while testing the processor."));
-    //========
-    Available_ProcessorList_converter.clear();
-    //========
-    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
-    QFile::remove(OutputPath);
-    //==============
-    QString model_path= Waifu2x_folder_path + "/models_rgb";
-    //=========
-    int Processor_ID=0;
-    //=========
-    for(int i = 0; i<Core_num; i++)
-    {
-        QFile::remove(OutputPath);
-        QProcess *Waifu2x = new QProcess();
-        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2 --noise-level 1 --model-dir " + "\"" + model_path + "\""+Processor_str;
-        Waifu2x->start(cmd);
-        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-        if(file_isFileExist(OutputPath))
-        {
-            Available_ProcessorList_converter.append(QString::number(Processor_ID,10));
-            Processor_ID++;
-            QFile::remove(OutputPath);
-        }
-    }
-    QFile::remove(OutputPath);
-    //====================
-    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
-    emit Send_Waifu2x_DumpProcessorList_converter_finished();
-    return 0;
-}
-int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
-{
-    ui->pushButton_Start->setEnabled(1);
-    ui->pushButton_DetectGPU->setEnabled(1);
-    ui->pushButton_compatibilityTest->setEnabled(1);
-    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
-    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
-    //===========================
-    ui->comboBox_TargetProcessor_converter->clear();
-    ui->comboBox_TargetProcessor_converter->addItem("auto");
-    if(!Available_ProcessorList_converter.isEmpty())
-    {
-        for(int i=0; i<Available_ProcessorList_converter.size(); i++)
-        {
-            ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
-        }
-    }
-    return 0;
-}
-
-void MainWindow::on_comboBox_TargetProcessor_converter_currentIndexChanged(int index)
-{
-    if(ui->comboBox_TargetProcessor_converter->currentText()!="auto")
-    {
-        Processor_converter_STR = " -p "+ui->comboBox_TargetProcessor_converter->currentText()+" ";
-    }
-    else
-    {
-        Processor_converter_STR="";
-    }
-}
 
 void MainWindow::on_Ext_image_textChanged(const QString &arg1)
 {
@@ -1647,91 +1533,4 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
 void MainWindow::on_pushButton_PayPal_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.paypal.me/aaronfeng753"));
-}
-
-void MainWindow::on_pushButton_DetectGPUID_srmd_clicked()
-{
-    ui->pushButton_Start->setEnabled(0);
-    ui->pushButton_DetectGPU->setEnabled(0);
-    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
-    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
-    ui->pushButton_compatibilityTest->setEnabled(0);
-    Available_GPUID_srmd.clear();
-    QtConcurrent::run(this, &MainWindow::SRMD_DetectGPU);
-}
-
-int MainWindow::SRMD_DetectGPU()
-{
-    emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
-    //===============
-    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
-    QFile::remove(OutputPath);
-    //==============
-    QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
-    QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
-    QString model_path = Waifu2x_folder_path+"/models-srmd";
-    //=========
-    int GPU_ID=0;
-    //=========
-    while(true)
-    {
-        QFile::remove(OutputPath);
-        QProcess *Waifu2x = new QProcess();
-        QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
-        Waifu2x->start(cmd);
-        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-        if(file_isFileExist(OutputPath))
-        {
-            Available_GPUID_srmd.append(QString::number(GPU_ID,10));
-            GPU_ID++;
-            QFile::remove(OutputPath);
-        }
-        else
-        {
-            break;
-        }
-    }
-    QFile::remove(OutputPath);
-    //===============
-    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
-    if(Available_GPUID_srmd.isEmpty())
-    {
-        Send_TextBrowser_NewMessage(tr("No available GPU ID detected!"));
-    }
-    emit Send_SRMD_DetectGPU_finished();
-    return 0;
-}
-
-void MainWindow::SRMD_DetectGPU_finished()
-{
-    ui->pushButton_Start->setEnabled(1);
-    ui->pushButton_DetectGPU->setEnabled(1);
-    ui->pushButton_compatibilityTest->setEnabled(1);
-    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
-    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
-    //====
-    ui->comboBox_GPUID_srmd->clear();
-    ui->comboBox_GPUID_srmd->addItem("auto");
-    if(!Available_GPUID_srmd.isEmpty())
-    {
-        for(int i=0; i<Available_GPUID_srmd.size(); i++)
-        {
-            ui->comboBox_GPUID_srmd->addItem(Available_GPUID_srmd.at(i));
-        }
-    }
-}
-
-void MainWindow::on_comboBox_GPUID_srmd_currentIndexChanged(int index)
-{
-    if(ui->comboBox_GPUID_srmd->currentText()!="auto")
-    {
-        GPU_ID_STR_SRMD = " -g "+ui->comboBox_GPUID_srmd->currentText()+" ";
-    }
-    else
-    {
-        GPU_ID_STR_SRMD="";
-    }
 }

@@ -1291,5 +1291,101 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     //========
     return 0;
 }
+/*
+================================================================================
+                    WAIFU2X NCNN VULKAN 检测可用GPU
+=================================================================================
+*/
+void MainWindow::on_pushButton_DetectGPU_clicked()
+{
+    ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
+    Available_GPUID.clear();
+    QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
+}
+
+int MainWindow::Waifu2x_DetectGPU()
+{
+    emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
+    //===============
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QFile::remove(OutputPath);
+    //==============
+    QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
+    if(ui->checkBox_old_vulkan->checkState())
+    {
+        Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
+    }
+    QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
+    QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+    //=========
+    int GPU_ID=0;
+    //=========
+    while(true)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(file_isFileExist(OutputPath))
+        {
+            Available_GPUID.append(QString::number(GPU_ID,10));
+            GPU_ID++;
+            QFile::remove(OutputPath);
+        }
+        else
+        {
+            break;
+        }
+    }
+    QFile::remove(OutputPath);
+    //===============
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
+    if(Available_GPUID.isEmpty())
+    {
+        Send_TextBrowser_NewMessage(tr("No available GPU ID detected!"));
+    }
+    emit Send_Waifu2x_DetectGPU_finished();
+    return 0;
+}
+
+int MainWindow::Waifu2x_DetectGPU_finished()
+{
+    ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    //====
+    ui->comboBox_GPUID->clear();
+    ui->comboBox_GPUID->addItem("auto");
+    if(!Available_GPUID.isEmpty())
+    {
+        for(int i=0; i<Available_GPUID.size(); i++)
+        {
+            ui->comboBox_GPUID->addItem(Available_GPUID.at(i));
+        }
+    }
+    return 0;
+}
 
 
+
+void MainWindow::on_comboBox_GPUID_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUID->currentText()!="auto")
+    {
+        GPU_ID_STR = " -g "+ui->comboBox_GPUID->currentText()+" ";
+    }
+    else
+    {
+        GPU_ID_STR="";
+    }
+}

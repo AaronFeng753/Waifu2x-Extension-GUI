@@ -1230,4 +1230,94 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     return 0;
 }
 
+/*
+SRMD 检测可用GPU
+*/
+void MainWindow::on_pushButton_DetectGPUID_srmd_clicked()
+{
+    ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
+    Available_GPUID_srmd.clear();
+    QtConcurrent::run(this, &MainWindow::SRMD_DetectGPU);
+}
+
+int MainWindow::SRMD_DetectGPU()
+{
+    emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
+    //===============
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QFile::remove(OutputPath);
+    //==============
+    QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
+    QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
+    QString model_path = Waifu2x_folder_path+"/models-srmd";
+    //=========
+    int GPU_ID=0;
+    //=========
+    while(true)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(file_isFileExist(OutputPath))
+        {
+            Available_GPUID_srmd.append(QString::number(GPU_ID,10));
+            GPU_ID++;
+            QFile::remove(OutputPath);
+        }
+        else
+        {
+            break;
+        }
+    }
+    QFile::remove(OutputPath);
+    //===============
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
+    if(Available_GPUID_srmd.isEmpty())
+    {
+        Send_TextBrowser_NewMessage(tr("No available GPU ID detected!"));
+    }
+    emit Send_SRMD_DetectGPU_finished();
+    return 0;
+}
+
+void MainWindow::SRMD_DetectGPU_finished()
+{
+    ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    //====
+    ui->comboBox_GPUID_srmd->clear();
+    ui->comboBox_GPUID_srmd->addItem("auto");
+    if(!Available_GPUID_srmd.isEmpty())
+    {
+        for(int i=0; i<Available_GPUID_srmd.size(); i++)
+        {
+            ui->comboBox_GPUID_srmd->addItem(Available_GPUID_srmd.at(i));
+        }
+    }
+}
+
+void MainWindow::on_comboBox_GPUID_srmd_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUID_srmd->currentText()!="auto")
+    {
+        GPU_ID_STR_SRMD = " -g "+ui->comboBox_GPUID_srmd->currentText()+" ";
+    }
+    else
+    {
+        GPU_ID_STR_SRMD="";
+    }
+}
+
 

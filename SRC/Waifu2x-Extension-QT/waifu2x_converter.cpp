@@ -1004,5 +1004,104 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     //========
     return 0;
 }
+/*
+==========================================================================================================
+                        WAIFU2X CONVERTER 检测GPU ID
+==========================================================================================================
+*/
 
+void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
+{
+    ui->pushButton_Start->setEnabled(0);
+    ui->pushButton_DetectGPU->setEnabled(0);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(0);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_compatibilityTest->setEnabled(0);
+    QtConcurrent::run(this, &MainWindow::Waifu2x_DumpProcessorList_converter);
+}
 
+int MainWindow::Waifu2x_DumpProcessorList_converter()
+{
+    //============================
+    //     调用converter输出列表
+    //============================
+    Core_num = 0;
+    emit Send_TextBrowser_NewMessage(tr("Detecting available Processor, please wait."));
+    QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
+    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
+    QProcess *Waifu2x = new QProcess();
+    QString cmd = "\"" + program + "\"" + " -l ";
+    Waifu2x->start(cmd);
+    while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+    QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
+    Core_num = waifu2x_stdOut.count("num_core");
+    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut+"\n-------------");
+    //====================================================================
+    //               获取到列表后, 对列表内处理器执行测试确认是否真的可用
+    //====================================================================
+    emit Send_TextBrowser_NewMessage(tr("Please wait while testing the processor."));
+    //========
+    Available_ProcessorList_converter.clear();
+    //========
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QFile::remove(OutputPath);
+    //==============
+    QString model_path= Waifu2x_folder_path + "/models_rgb";
+    //=========
+    int Processor_ID=0;
+    //=========
+    for(int i = 0; i<Core_num; i++)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString Processor_str = " -p "+QString::number(Processor_ID,10)+" ";
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2 --noise-level 1 --model-dir " + "\"" + model_path + "\""+Processor_str;
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(file_isFileExist(OutputPath))
+        {
+            Available_ProcessorList_converter.append(QString::number(Processor_ID,10));
+            Processor_ID++;
+            QFile::remove(OutputPath);
+        }
+    }
+    QFile::remove(OutputPath);
+    //====================
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
+    emit Send_Waifu2x_DumpProcessorList_converter_finished();
+    return 0;
+}
+int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
+{
+    ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_DetectGPU->setEnabled(1);
+    ui->pushButton_compatibilityTest->setEnabled(1);
+    ui->pushButton_DetectGPUID_srmd->setEnabled(1);
+    ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    //===========================
+    ui->comboBox_TargetProcessor_converter->clear();
+    ui->comboBox_TargetProcessor_converter->addItem("auto");
+    if(!Available_ProcessorList_converter.isEmpty())
+    {
+        for(int i=0; i<Available_ProcessorList_converter.size(); i++)
+        {
+            ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
+        }
+    }
+    return 0;
+}
+
+void MainWindow::on_comboBox_TargetProcessor_converter_currentIndexChanged(int index)
+{
+    if(ui->comboBox_TargetProcessor_converter->currentText()!="auto")
+    {
+        Processor_converter_STR = " -p "+ui->comboBox_TargetProcessor_converter->currentText()+" ";
+    }
+    else
+    {
+        Processor_converter_STR="";
+    }
+}

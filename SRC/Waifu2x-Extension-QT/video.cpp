@@ -28,6 +28,84 @@ get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
 get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
 check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
 */
+QString MainWindow::video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath)
+{
+    QStringList flist = file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath);
+    flist.removeAll("..");
+    flist.removeAll(".");
+    QString Full_Path_File = "";
+    if(!flist.isEmpty())
+    {
+        for(int i = 0; i < flist.size(); i++)
+        {
+            QString tmp = flist.at(i);
+            Full_Path_File = ScaledFrameFolderPath + "/" + tmp;
+            QFileInfo finfo(Full_Path_File);
+            if(finfo.suffix()=="png")break;
+        }
+    }
+    QImage qimage_original;
+    qimage_original.load(Full_Path_File);
+    int original_height = qimage_original.height();
+    int original_width = qimage_original.width();
+    if(original_height<=0||original_width<=0)
+    {
+        return "";
+    }
+    if(original_height<=original_width)
+    {
+        return QString::number(original_height*6,10);
+    }
+    else
+    {
+        return QString::number(original_width*6,10);
+    }
+}
+
+QString MainWindow::video_get_bitrate(QString videoPath)
+{
+    //========================= 调用ffprobe读取视频信息 ======================
+    QProcess *Get_Bitrate_process = new QProcess();
+    QString cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
+    Get_Bitrate_process->start(cmd);
+    while(!Get_Bitrate_process->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Get_Bitrate_process->waitForFinished(100)&&!QProcess_stop) {}
+    //============= 保存ffprobe输出的ini格式文本 =============
+    QString ffprobe_output_str = Get_Bitrate_process->readAllStandardOutput();
+    //================ 将ini写入文件保存 ================
+    //创建文件夹
+    QString video_info_dir = Current_Path+"/videoInfo";
+    if(!file_isDirExist(video_info_dir))
+    {
+        file_mkDir(video_info_dir);
+    }
+    //========================
+    QFileInfo videoFileInfo(videoPath);
+    QString Path_video_info_ini = "";
+    do
+    {
+        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+        int random = qrand()%1000;
+        Path_video_info_ini = video_info_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+    }
+    while(file_isFileExist(Path_video_info_ini));
+    //=========
+    QFile video_info_ini(Path_video_info_ini);
+    video_info_ini.remove();
+    if (video_info_ini.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&video_info_ini);
+        stream << ffprobe_output_str;
+    }
+    video_info_ini.close();
+    //================== 读取ini获得参数 =====================
+    QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
+    QString BitRate = configIniRead_videoInfo->value("/format/bit_rate").toString().trimmed();
+    //=======================
+    if(BitRate=="")emit Send_TextBrowser_NewMessage(tr("Warning! Unable to get the bitrate of the [")+videoPath+tr("]. The bit rate automatically allocated by ffmpeg will be used."));
+    video_info_ini.remove();
+    return BitRate;
+}
 
 int MainWindow::video_get_fps(QString videoPath)
 {
@@ -83,6 +161,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         QString bitrate_vid_cmd = "";
         QString bitrate_audio_cmd = "";
         QString Extra_command = "";
+        QString bitrate_OverAll = "";
         if(ui->checkBox_videoSettings_isEnabled->checkState())
         {
             Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
@@ -103,9 +182,14 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
                 bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
             }
         }
+        else
+        {
+            QString BitRate = video_get_bitrate(VideoPath);
+            if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
+        }
         //=====
         QProcess video_tomp4;
-        video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
+        video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
         while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
     }
@@ -154,10 +238,30 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         pixFormat_cmd=" -pix_fmt "+ui->lineEdit_pixformat->text()+" ";
         Extra_Command_cmd = ui->lineEdit_ExCommand_output->text().trimmed();
     }
+    else
+    {
+        QString BitRate = video_get_bitrate_AccordingToRes(ScaledFrameFolderPath);
+        if(BitRate!="")bitrate_video_cmd=" -b:v "+BitRate+"k ";
+    }
     //=====
     QString resize_cmd ="";
     if(CustRes_isEnabled)
     {
+        //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
+        if(ui->checkBox_videoSettings_isEnabled->checkState()==false)
+        {
+            int small_res =0;
+            if(CustRes_width<=CustRes_height)
+            {
+                small_res = CustRes_width;
+            }
+            else
+            {
+                small_res = CustRes_height;
+            }
+            bitrate_video_cmd=" -b:v "+QString::number(small_res*6,10)+"k ";
+        }
+        //=================================================================
         if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
         {
             resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":"+QString::number(CustRes_height,10)+" ";

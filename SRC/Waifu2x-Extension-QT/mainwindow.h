@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v1.35";//软件版本号
+    QString VERSION="v1.37";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -214,13 +214,17 @@ public:
     void Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
 
     //================================= video ===============================
+
     int video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
     //拆分视频
     void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);
     //组装视频
     int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
-
+    //获取视频比特率
+    QString video_get_bitrate(QString videoPath);
+    //获取视频比特率(根据分辨率计算)
+    QString video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath);
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
