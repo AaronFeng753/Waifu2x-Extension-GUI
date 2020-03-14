@@ -1,4 +1,11 @@
 # Change log
+## [v1.37](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.37)
+#### Change log:
+- New feature: When converting videos to mp4, support to automatically obtain the bit rate of the original video and apply it to the converted mp4.
+- New feature: When outputting video, the bit rate will be allocated using the software's built-in algorithm.
+- Change the default [compressed ".jpg" image quality] value to 95.
+- Fix bug: Progress bar could not display progress normally in some cases.
+---
 ## [v1.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.31)
 #### Change log:
 - New feature: Automatically determine whether the picture has an alpha channel and switch to a compatible engine. (Optional, additional settings, disabled by default) (`Please make sure your computer is compatible with waiuf2x-converter before enabling this feature.`)
