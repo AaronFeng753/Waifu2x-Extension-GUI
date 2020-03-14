@@ -2,6 +2,13 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v1.37](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.37)
+#### 更新日志:
+- 新特性:在将视频转换到mp4时,支持自动获取原视频的比特率并应用到转换后的mp4上.
+- 新特性:在输出视频时,将使用软件内置算法分配比特率.
+- 将默认的[压缩后的".jpg"图像质量]值改为95.
+- 修复bug:某些情况下进度条无法正常显示进度.
+---
 ## [v1.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.31)
 #### 更新日志:
 - 新特性:自动判断图片是否带有Alpha通道并切换到兼容的引擎.(可选,附加设置,默认禁用)(`启用此特性前请先确保您的电脑与waiuf2x-converter兼容.`)
