@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION="v1.37";//软件版本号
+    QString VERSION = "v1.41";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -334,6 +334,8 @@ public slots:
 
     void SRMD_DetectGPU_finished();
 
+    void AutoDetectAlphaChannel_setChecked(bool);
+
 private slots:
 
     void on_pushButton_Start_clicked();
@@ -523,6 +525,8 @@ signals:
     void Send_Read_urls_finfished();
 
     void Send_SRMD_DetectGPU_finished();
+
+    void Send_AutoDetectAlphaChannel_setChecked(bool);
 
 
 private:

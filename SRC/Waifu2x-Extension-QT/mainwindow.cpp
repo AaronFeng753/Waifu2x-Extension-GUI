@@ -75,6 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
+    connect(this, SIGNAL(Send_AutoDetectAlphaChannel_setChecked(bool)), this, SLOT(AutoDetectAlphaChannel_setChecked(bool)));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -100,15 +101,18 @@ MainWindow::~MainWindow()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     //=============== 询问是否退出 =======================
-    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you really wanna exit Waifu2x-Extension-GUI ?")));
-    Msg.setIcon(QMessageBox::Question);
-    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
-    Msg.exec();
-    if (Msg.clickedButton() == pNoBtn)
+    if(ui->checkBox_PromptWhenExit->checkState())
     {
-        event->ignore();
-        return;
+        QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you really wanna exit Waifu2x-Extension-GUI ?")));
+        Msg.setIcon(QMessageBox::Question);
+        QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+        QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+        Msg.exec();
+        if (Msg.clickedButton() == pNoBtn)
+        {
+            event->ignore();
+            return;
+        }
     }
     //=============================
     bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->checkState();
@@ -319,7 +323,6 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_CustRes_cancel->setEnabled(0);
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);
-        ui->pushButton_SaveFileList->setEnabled(0);
         ui->comboBox_AspectRatio_custRes->setEnabled(0);
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
         progressbar_clear();
@@ -1533,4 +1536,18 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
 void MainWindow::on_pushButton_PayPal_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.paypal.me/aaronfeng753"));
+}
+
+void MainWindow::AutoDetectAlphaChannel_setChecked(bool Checked_)
+{
+    ui->checkBox_AutoDetectAlphaChannel->setChecked(Checked_);
+    //=============
+    if(Checked_)
+    {
+        emit Send_TextBrowser_NewMessage("[Auto detect Alpha channel] has been automatically enabled based on your PC's compatibility with the waifu2x-converter engine.");
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage("[Auto detect Alpha channel] has been automatically disabled based on your PC's compatibility with the waifu2x-converter engine.");
+    }
 }

@@ -320,7 +320,6 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_CustRes_cancel->setEnabled(1);
     ui->pushButton_CustRes_apply->setEnabled(1);
     ui->pushButton_ReadFileList->setEnabled(1);
-    ui->pushButton_SaveFileList->setEnabled(1);
     ui->comboBox_AspectRatio_custRes->setEnabled(1);
     ui->spinBox_JPGCompressedQuality->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
@@ -394,10 +393,12 @@ int MainWindow::Waifu2x_Compatibility_Test()
     while(!Waifu2x_converter->waitForFinished(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
+        emit Send_AutoDetectAlphaChannel_setChecked(true);
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: Yes."));
     }
     else
     {
+        emit Send_AutoDetectAlphaChannel_setChecked(false);
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]"));
     }
     QFile::remove(OutputPath);
