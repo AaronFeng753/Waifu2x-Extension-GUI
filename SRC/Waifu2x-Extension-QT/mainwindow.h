@@ -334,7 +334,9 @@ public slots:
 
     void SRMD_DetectGPU_finished();
 
-    void AutoDetectAlphaChannel_setChecked(bool);
+    void AutoDetectAlphaChannel_setChecked(bool Checked_);
+
+    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
 
 private slots:
 
@@ -527,6 +529,8 @@ signals:
     void Send_SRMD_DetectGPU_finished();
 
     void Send_AutoDetectAlphaChannel_setChecked(bool);
+
+    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
 
 
 private:

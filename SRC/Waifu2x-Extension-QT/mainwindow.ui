@@ -40,7 +40,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2018,8 +2018,8 @@ see the difference.</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>299</width>
-                   <height>200</height>
+                   <width>245</width>
+                   <height>193</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -2378,8 +2378,8 @@ padding:10px;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>299</width>
-                   <height>200</height>
+                   <width>226</width>
+                   <height>137</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -3917,12 +3917,12 @@ the language for the language settings to fully take effect.</string>
                </widget>
               </item>
               <item row="4" column="3">
-               <widget class="QCheckBox" name="checkBox_SaveVideoCache">
+               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
                 <property name="text">
-                 <string>Save video task</string>
+                 <string>Keep video cache</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>

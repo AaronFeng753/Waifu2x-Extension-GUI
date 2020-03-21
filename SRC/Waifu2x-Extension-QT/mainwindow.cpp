@@ -76,6 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
     connect(this, SIGNAL(Send_AutoDetectAlphaChannel_setChecked(bool)), this, SLOT(AutoDetectAlphaChannel_setChecked(bool)));
+    connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int)));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));

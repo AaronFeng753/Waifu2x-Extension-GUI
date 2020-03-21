@@ -20,7 +20,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
+void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
+{
+    QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
+    configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
+    //================= 添加警告 =========================
+    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    //==================== 存储视频信息 ==================================
+    configIniWrite->setValue("/VideoConfiguration/ScaleRatio", ScaleRatio);
+    configIniWrite->setValue("/VideoConfiguration/DenoiseLevel", DenoiseLevel);
+    configIniWrite->setValue("/VideoConfiguration/CustRes_isEnabled", CustRes_isEnabled);
+    configIniWrite->setValue("/VideoConfiguration/CustRes_height", CustRes_height);
+    configIniWrite->setValue("/VideoConfiguration/CustRes_width", CustRes_width);
+}
 /*
 python_ext_waifu2xEX.exe:
 get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
@@ -156,6 +168,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     //======= 转换到mp4 =======
     if(video_ext!="mp4")
     {
+        QFile::remove(video_mp4_fullpath);
         QString vcodec_copy_cmd = "";
         QString acodec_copy_cmd = "";
         QString bitrate_vid_cmd = "";
@@ -335,7 +348,6 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
         while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
     }
-    QFile::remove(AudioPath);
     //==============================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;

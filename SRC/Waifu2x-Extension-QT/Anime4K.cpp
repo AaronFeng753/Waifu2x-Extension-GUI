@@ -242,9 +242,11 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(file_isDirExist(SplitFramesFolderPath))
+    QFile::remove(AudioPath);
+    file_DelDir(SplitFramesFolderPath);
+    if(file_ext!="mp4")
     {
-        file_DelDir(SplitFramesFolderPath);
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
@@ -265,11 +267,6 @@ int MainWindow::Anime4k_Video(int rowNum)
     {
         status = "Finished";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-    }
-    //=========================== 删除转换格式生成的mp4 ==========================
-    if(file_ext!="mp4")
-    {
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->checkState())
