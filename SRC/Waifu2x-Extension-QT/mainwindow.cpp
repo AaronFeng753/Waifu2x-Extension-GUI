@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
     connect(this, SIGNAL(Send_AutoDetectAlphaChannel_setChecked(bool)), this, SLOT(AutoDetectAlphaChannel_setChecked(bool)));
-    connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int)));
+    connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString)));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -373,6 +373,7 @@ void MainWindow::Wait_waifu2x_stop()
         Delay_msec_sleep(300);
     }
     Waifu2xMain.cancel();
+    Waifu2xMain.waitForFinished();
     emit Send_Waifu2x_Finished_manual();
 }
 /*

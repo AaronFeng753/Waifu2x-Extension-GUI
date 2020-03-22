@@ -22,17 +22,19 @@
 
 int MainWindow::Waifu2xMainThread()
 {
-    //Delay_msec_sleep(500);
-    //Table_ChangeAllStatusToWaiting();
-    Delay_msec_sleep(1000);
-    Progressbar_MaxVal = Table_model_image->rowCount() + Table_model_gif->rowCount() + Table_model_video->rowCount();
+    Delay_msec_sleep(2000);
+    int rowCount_image = Table_model_image->rowCount();
+    int rowCount_gif = Table_model_gif->rowCount();
+    int rowCount_video = Table_model_video->rowCount();
+    //=======================
+    Progressbar_MaxVal = rowCount_image + rowCount_gif + rowCount_video;
     Progressbar_CurrentVal = 0;
     TaskNumFinished=0;
     emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
-    if(Table_model_image->rowCount()>0)
+    if(rowCount_image>0)
     {
         int ImageEngine = ui->comboBox_Engine_Image->currentIndex();
-        for ( int i = 0; i < Table_model_image->rowCount(); i++ )
+        for ( int i = 0; i < rowCount_image; i++ )
         {
             if(waifu2x_STOP)
             {
@@ -65,7 +67,9 @@ int MainWindow::Waifu2xMainThread()
             if(Imgae_hasAlphaChannel(i))
             {
                 emit Send_TextBrowser_NewMessage(tr("Detected that the current picture [")+Table_model_image->item(i,2)->text()+tr("] contains Alpha channel, so it automatically uses the waifu2x-converter engine to process the current picture and force it to save as PNG."));
-                ThreadNumRunning++;//线程数量统计+1s
+                mutex_ThreadNumRunning.lock();
+                ThreadNumRunning++;//线程数量统计+1
+                mutex_ThreadNumRunning.unlock();
                 QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
                 while (ThreadNumRunning >= ThreadNumMax)
                 {
@@ -78,7 +82,9 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -88,7 +94,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 1:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -98,7 +106,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 2:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -116,10 +126,10 @@ int MainWindow::Waifu2xMainThread()
     //=========================================================
     //                   GIF 线程调度
     //===========================================================
-    if(Table_model_gif->rowCount()>0)
+    if(rowCount_gif>0)
     {
         int GIFEngine = ui->comboBox_Engine_GIF->currentIndex();
-        for ( int i = 0; i < Table_model_gif->rowCount(); i++ )
+        for ( int i = 0; i < rowCount_gif; i++ )
         {
             if(waifu2x_STOP)
             {
@@ -150,7 +160,9 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -160,7 +172,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 1:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -170,7 +184,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 2:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -185,10 +201,10 @@ int MainWindow::Waifu2xMainThread()
     {
         Delay_msec_sleep(500);
     }
-    if(Table_model_video->rowCount()>0)
+    if(rowCount_video>0)
     {
         int VideoEngine = ui->comboBox_Engine_Video->currentIndex();
-        for ( int i = 0; i<Table_model_video->rowCount(); i++ )
+        for ( int i = 0; i<rowCount_video; i++ )
         {
             if(waifu2x_STOP)
             {
@@ -219,7 +235,9 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -229,7 +247,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 1:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -239,7 +259,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 2:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Anime4k_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -249,7 +271,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 3:
                     {
-                        ThreadNumRunning++;//线程数量统计+1s
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
@@ -263,6 +287,11 @@ int MainWindow::Waifu2xMainThread()
     while (ThreadNumRunning>0)
     {
         Delay_msec_sleep(500);
+    }
+    if(waifu2x_STOP)
+    {
+        waifu2x_STOP_confirm = true;
+        return 0;//如果启用stop位,则直接return
     }
     emit Send_Waifu2x_Finished();
     return 0;

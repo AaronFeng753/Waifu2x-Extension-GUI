@@ -509,7 +509,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
+        mutex_SubThreadNumRunning.lock();
         Sub_gif_ThreadNumRunning++;
+        mutex_SubThreadNumRunning.unlock();
         QString Frame_fileName = Frame_fileName_list.at(i);
         Sub_Thread_info["Frame_fileName"]=Frame_fileName;
         QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
@@ -906,23 +908,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         bool CustRes_isEnabled_old = configIniRead->value("/VideoConfiguration/CustRes_isEnabled").toBool();
         int CustRes_height_old = configIniRead->value("/VideoConfiguration/CustRes_height").toInt();
         int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
+        QString EngineName_old = configIniRead->value("/VideoConfiguration/EngineName").toString();
         //=================== 比对信息 ================================
-        if(CustRes_isEnabled_old==false&&CustRes_isEnabled==false)
+        if(EngineName_old=="waifu2x-ncnn-vulkan")
         {
-            if(ScaleRatio_old!=ScaleRatio||DenoiseLevel_old!=DenoiseLevel)
+            if(CustRes_isEnabled_old==false&&CustRes_isEnabled==false)
             {
-                isVideoConfigChanged=true;
-            }
-            else
-            {
-                isVideoConfigChanged=false;
-            }
-        }
-        else
-        {
-            if(CustRes_isEnabled_old==true&&CustRes_isEnabled==true)
-            {
-                if(CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+                if(ScaleRatio_old!=ScaleRatio||DenoiseLevel_old!=DenoiseLevel)
                 {
                     isVideoConfigChanged=true;
                 }
@@ -933,13 +925,31 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             }
             else
             {
-                isVideoConfigChanged=true;
+                if(CustRes_isEnabled_old==true&&CustRes_isEnabled==true)
+                {
+                    if(CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+                    {
+                        isVideoConfigChanged=true;
+                    }
+                    else
+                    {
+                        isVideoConfigChanged=false;
+                    }
+                }
+                else
+                {
+                    isVideoConfigChanged=true;
+                }
             }
+        }
+        else
+        {
+            isVideoConfigChanged=true;
         }
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan");
     }
     //=======================
     //   检测缓存是否存在
@@ -1069,7 +1079,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
+        mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
+        mutex_SubThreadNumRunning.unlock();
         QString Frame_fileName = Frame_fileName_list.at(i);
         Sub_Thread_info["Frame_fileName"]=Frame_fileName;
         QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
@@ -1364,6 +1376,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
             qimageW_adj.write(qimage_adj_scaled);
             if(Frame_fileOutPutPath!=OutputPath_tmp)QFile::remove(OutputPath_tmp);
         }
+    }
+    else
+    {
+        Frame_fileOutPutPath = OutputPath_tmp;
     }
     QFile::remove(Frame_fileFullPath);
     QFile::rename(Frame_fileOutPutPath,ScaledFramesFolderPath+"/"+Frame_fileName);

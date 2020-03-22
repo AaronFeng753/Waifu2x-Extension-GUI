@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.41";//软件版本号
+    QString VERSION = "v1.45";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -88,7 +88,6 @@ public:
     QStringList getFileNames(QString path);//当拖入的路径是文件夹时,读取文件夹内指定扩展名的文件并返回一个qstringlist
     QStringList getFileNames_IncludeSubFolder(QString path);//读取文件列表, 包括文件夹
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
-    bool Table_insert_finished=false;
 
     //判断一个文件是否已存在于一个文件列表中(输入list和完整路径,然后判断返回bool)
     bool Deduplicate_filelist(QString SourceFile_fullPath);
@@ -134,6 +133,11 @@ public:
     int Table_Read_Saved_Table_Filelist();//读取保存的文件列表
 
     int Table_Save_Current_Table_Filelist_Watchdog();//保存文件列表的看门狗线程,确保文件成功保存
+
+    bool Table_insert_finished=false;
+    QMutex mutex_Table_insert_finished;//监管是否完成表格插入的bool值的mutex
+
+    QMutex mutex_Table_insert;//监管表格插入的mutex
 
     //================================= Waifu2x ====================================
     QString OutPutFolder_main="";//总输出文件夹
@@ -286,7 +290,7 @@ public:
 
 public slots:
     void progressbar_setRange_min_max(int min, int max);//进度条设定min和max
-    void progressbar_Add();//进度条进度+1s
+    void progressbar_Add();//进度条进度+1
 
     //根据row修改指定row的状态
     void Table_image_ChangeStatus_rowNumInt_statusQString(int rowNum, QString status);
@@ -336,7 +340,7 @@ public slots:
 
     void AutoDetectAlphaChannel_setChecked(bool Checked_);
 
-    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
+    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName);
 
 private slots:
 
@@ -530,7 +534,7 @@ signals:
 
     void Send_AutoDetectAlphaChannel_setChecked(bool);
 
-    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
+    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName);
 
 
 private:

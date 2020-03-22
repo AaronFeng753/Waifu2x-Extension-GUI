@@ -20,7 +20,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
+void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName)
 {
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -32,6 +32,7 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     configIniWrite->setValue("/VideoConfiguration/CustRes_isEnabled", CustRes_isEnabled);
     configIniWrite->setValue("/VideoConfiguration/CustRes_height", CustRes_height);
     configIniWrite->setValue("/VideoConfiguration/CustRes_width", CustRes_width);
+    configIniWrite->setValue("/VideoConfiguration/EngineName", EngineName);
 }
 /*
 python_ext_waifu2xEX.exe:

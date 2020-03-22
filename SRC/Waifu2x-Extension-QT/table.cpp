@@ -56,6 +56,8 @@ void MainWindow::Init_Table()
 
 void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
 {
+    mutex_Table_insert.lock();
+    //=========
     ui->tableView_image->setUpdatesEnabled(false);
     int rowNum = Table_model_image->rowCount();
     Table_model_image->setItem(rowNum, 0, new QStandardItem(fileName));
@@ -69,11 +71,17 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
         ui->tableView_image->scrollTo(indextemp);
     }
     ui->tableView_image->setUpdatesEnabled(true);
+    mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
+    mutex_Table_insert_finished.unlock();
+    //========
+    mutex_Table_insert.unlock();
 }
 
 void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
 {
+    mutex_Table_insert.lock();
+    //=========
     ui->tableView_gif->setUpdatesEnabled(false);
     int rowNum = Table_model_gif->rowCount();
     Table_model_gif->setItem(rowNum, 0, new QStandardItem(fileName));
@@ -87,11 +95,17 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
         ui->tableView_gif->scrollTo(indextemp);
     }
     ui->tableView_gif->setUpdatesEnabled(true);
+    mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
+    mutex_Table_insert_finished.unlock();
+    //========
+    mutex_Table_insert.unlock();
 }
 
 void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
 {
+    mutex_Table_insert.lock();
+    //=========
     ui->tableView_video->setUpdatesEnabled(false);
     int rowNum = Table_model_video->rowCount();
     Table_model_video->setItem(rowNum, 0, new QStandardItem(fileName));
@@ -105,7 +119,11 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
         ui->tableView_video->scrollTo(indextemp);
     }
     ui->tableView_video->setUpdatesEnabled(true);
+    mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
+    mutex_Table_insert_finished.unlock();
+    //========
+    mutex_Table_insert.unlock();
 }
 
 void MainWindow::Table_image_ChangeStatus_rowNumInt_statusQString(int rowNum, QString status)
@@ -519,7 +537,9 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         QString fullPath =configIniRead->value("/table_image/"+QString::number(i,10)+"_fullPath").toString();
         QString CustRes_str =configIniRead->value("/table_image/"+QString::number(i,10)+"_CustRes_str").toString();
         //================
+        mutex_Table_insert_finished.lock();
         Table_insert_finished=false;
+        mutex_Table_insert_finished.unlock();
         emit Send_Table_image_insert_fileName_fullPath(FileName,fullPath);
         while(!Table_insert_finished)
         {
@@ -554,7 +574,9 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         QString fullPath =configIniRead->value("/table_gif/"+QString::number(i,10)+"_fullPath").toString();
         QString CustRes_str =configIniRead->value("/table_gif/"+QString::number(i,10)+"_CustRes_str").toString();
         //================
+        mutex_Table_insert_finished.lock();
         Table_insert_finished=false;
+        mutex_Table_insert_finished.unlock();
         emit Send_Table_gif_insert_fileName_fullPath(FileName,fullPath);
         while(!Table_insert_finished)
         {
@@ -589,7 +611,9 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         QString fullPath =configIniRead->value("/table_video/"+QString::number(i,10)+"_fullPath").toString();
         QString CustRes_str =configIniRead->value("/table_video/"+QString::number(i,10)+"_CustRes_str").toString();
         //================
+        mutex_Table_insert_finished.lock();
         Table_insert_finished=false;
+        mutex_Table_insert_finished.unlock();
         emit Send_Table_video_insert_fileName_fullPath(FileName,fullPath);
         while(!Table_insert_finished)
         {

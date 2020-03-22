@@ -94,23 +94,13 @@ int MainWindow::Anime4k_Video(int rowNum)
         bool CustRes_isEnabled_old = configIniRead->value("/VideoConfiguration/CustRes_isEnabled").toBool();
         int CustRes_height_old = configIniRead->value("/VideoConfiguration/CustRes_height").toInt();
         int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
+        QString EngineName_old = configIniRead->value("/VideoConfiguration/EngineName").toString();
         //=================== 比对信息 ================================
-        if(CustRes_isEnabled_old==false&&CustRes_isEnabled==false)
+        if(EngineName_old=="anime4k")
         {
-            if(ScaleRatio_old!=ScaleRatio)
+            if(CustRes_isEnabled_old==false&&CustRes_isEnabled==false)
             {
-                isVideoConfigChanged=true;
-            }
-            else
-            {
-                isVideoConfigChanged=false;
-            }
-        }
-        else
-        {
-            if(CustRes_isEnabled_old==true&&CustRes_isEnabled==true)
-            {
-                if(CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+                if(ScaleRatio_old!=ScaleRatio)
                 {
                     isVideoConfigChanged=true;
                 }
@@ -121,13 +111,31 @@ int MainWindow::Anime4k_Video(int rowNum)
             }
             else
             {
-                isVideoConfigChanged=true;
+                if(CustRes_isEnabled_old==true&&CustRes_isEnabled==true)
+                {
+                    if(CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+                    {
+                        isVideoConfigChanged=true;
+                    }
+                    else
+                    {
+                        isVideoConfigChanged=false;
+                    }
+                }
+                else
+                {
+                    isVideoConfigChanged=true;
+                }
             }
+        }
+        else
+        {
+            isVideoConfigChanged=true;
         }
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"anime4k");
     }
     //=======================
     //   检测缓存是否存在
@@ -257,7 +265,9 @@ int MainWindow::Anime4k_Video(int rowNum)
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
             return 0;//如果启用stop位,则直接return
         }
+        mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
+        mutex_SubThreadNumRunning.unlock();
         QString Frame_fileName = Frame_fileName_list.at(i);
         Sub_Thread_info["Frame_fileName"]=Frame_fileName;
         QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);

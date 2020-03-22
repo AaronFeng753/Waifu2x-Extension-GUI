@@ -238,7 +238,9 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         map["rowNum"] = QString::number(rowNum, 10);
         if(!Deduplicate_filelist(SourceFile_fullPath))
         {
+            mutex_Table_insert_finished.lock();
             Table_insert_finished=false;
+            mutex_Table_insert_finished.unlock();
             emit Send_Table_image_insert_fileName_fullPath(fileName, SourceFile_fullPath);
             while(!Table_insert_finished)
             {
@@ -271,7 +273,9 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         map["rowNum"] = QString::number(rowNum, 10);
         if(!Deduplicate_filelist(SourceFile_fullPath))
         {
+            mutex_Table_insert_finished.lock();
             Table_insert_finished=false;
+            mutex_Table_insert_finished.unlock();
             emit Send_Table_video_insert_fileName_fullPath(fileName, SourceFile_fullPath);
             while(!Table_insert_finished)
             {
@@ -290,7 +294,9 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         AddNew_gif=true;
         if(!Deduplicate_filelist(SourceFile_fullPath))
         {
+            mutex_Table_insert_finished.lock();
             Table_insert_finished=false;
+            mutex_Table_insert_finished.unlock();
             emit Send_Table_gif_insert_fileName_fullPath(fileName, SourceFile_fullPath);
             while(!Table_insert_finished)
             {
