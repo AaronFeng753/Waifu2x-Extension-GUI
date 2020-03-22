@@ -10,7 +10,9 @@
 <img src="https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI">
 </p>
 
-<h4 align="center"> Supported Language: English, 简体中文, 日本語(機械翻訳) </h4>
+<h4 align="center"> 支持的语言: English, 简体中文, 日本語(機械翻訳) </h4>
+
+<h4 align="center"> 支持的显卡品牌: AMD, NVIDIA, Intel </h4>
 
 ### [下载](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)---[Wiki 使用说明](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki)---[更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)---[捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md)
 
