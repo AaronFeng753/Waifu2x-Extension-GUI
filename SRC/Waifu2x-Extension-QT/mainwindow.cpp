@@ -1545,10 +1545,10 @@ void MainWindow::AutoDetectAlphaChannel_setChecked(bool Checked_)
     //=============
     if(Checked_)
     {
-        emit Send_TextBrowser_NewMessage("[Auto detect Alpha channel] has been automatically enabled based on your PC's compatibility with the waifu2x-converter engine.");
+        emit Send_TextBrowser_NewMessage(tr("[Auto detect Alpha channel] has been automatically enabled based on your PC's compatibility with the waifu2x-converter engine."));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage("[Auto detect Alpha channel] has been automatically disabled based on your PC's compatibility with the waifu2x-converter engine.");
+        emit Send_TextBrowser_NewMessage(tr("[Auto detect Alpha channel] has been automatically disabled based on your PC's compatibility with the waifu2x-converter engine."));
     }
 }

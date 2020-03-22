@@ -841,7 +841,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool isCacheExists = false;
-    bool isVideoConfigChanged = false;
+    bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -907,13 +907,34 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         int CustRes_height_old = configIniRead->value("/VideoConfiguration/CustRes_height").toInt();
         int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
         //=================== 比对信息 ================================
-        if(ScaleRatio_old!=ScaleRatio||DenoiseLevel_old!=DenoiseLevel||CustRes_isEnabled_old!=CustRes_isEnabled||CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+        if(CustRes_isEnabled_old==false&&CustRes_isEnabled==false)
         {
-            isVideoConfigChanged=true;
+            if(ScaleRatio_old!=ScaleRatio||DenoiseLevel_old!=DenoiseLevel)
+            {
+                isVideoConfigChanged=true;
+            }
+            else
+            {
+                isVideoConfigChanged=false;
+            }
         }
         else
         {
-            isVideoConfigChanged=false;
+            if(CustRes_isEnabled_old==true&&CustRes_isEnabled==true)
+            {
+                if(CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+                {
+                    isVideoConfigChanged=true;
+                }
+                else
+                {
+                    isVideoConfigChanged=false;
+                }
+            }
+            else
+            {
+                isVideoConfigChanged=true;
+            }
         }
     }
     else
@@ -923,12 +944,12 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //=======================
     //   检测缓存是否存在
     //=======================
-    if(file_isFileExist(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&file_isDirExist(ScaledFramesFolderPath))
+    if(file_isFileExist(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&file_isDirExist(ScaledFramesFolderPath)&&file_isFileExist(VideoConfiguration_fullPath))
     {
         if(!isVideoConfigChanged)
         {
             isCacheExists=true;
-            emit Send_TextBrowser_NewMessage("The previous video cache file is detected and processing of the previous video cache will continue. If you want to restart processing of the current video:["+SourceFile_fullPath+"], delete the cache manually.");
+            emit Send_TextBrowser_NewMessage(tr("The previous video cache file is detected and processing of the previous video cache will continue. If you want to restart processing of the current video:[")+SourceFile_fullPath+tr("], delete the cache manually."));
         }
         else
         {
@@ -942,7 +963,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
                 if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             }
             //=======
-            emit Send_TextBrowser_NewMessage("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:["+SourceFile_fullPath+"] will restart.");
+            emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
         }
     }
     else

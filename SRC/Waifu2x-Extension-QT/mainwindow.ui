@@ -2018,8 +2018,8 @@ see the difference.</string>
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>245</width>
-                   <height>193</height>
+                   <width>299</width>
+                   <height>200</height>
                   </rect>
                  </property>
                  <attribute name="label">
@@ -2378,8 +2378,8 @@ padding:10px;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>226</width>
-                   <height>137</height>
+                   <width>299</width>
+                   <height>200</height>
                   </rect>
                  </property>
                  <attribute name="label">

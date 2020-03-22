@@ -801,6 +801,8 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool isCacheExists = false;
+    bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -838,69 +840,161 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     {
         file_path = file_path.left(file_path.length() - 1);
     }
-    QString video_mp4_fullpath="";
+    //===================================================================
+    QString video_mp4_fullpath="";//mp4路径
     if(file_ext!="mp4")
     {
         video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     else
     {
         video_mp4_fullpath = file_path+"/"+file_name+".mp4";
     }
-    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";
-    //============================== 拆分 ==========================================
+    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    if(file_isDirExist(SplitFramesFolderPath))
+    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
+    //==========================
+    //   检测之前的视频配置文件
+    //==========================
+    QString VideoConfiguration_fullPath = file_path+"/VideoConfiguration_"+file_name+"_"+file_ext+"_Waifu2xEX.ini";
+    if(file_isFileExist(VideoConfiguration_fullPath))
     {
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
+        QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
+        configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        //=================== 加载之前存储的视频信息 =========================
+        int ScaleRatio_old = configIniRead->value("/VideoConfiguration/ScaleRatio").toInt();
+        int DenoiseLevel_old = configIniRead->value("/VideoConfiguration/DenoiseLevel").toInt();
+        bool CustRes_isEnabled_old = configIniRead->value("/VideoConfiguration/CustRes_isEnabled").toBool();
+        int CustRes_height_old = configIniRead->value("/VideoConfiguration/CustRes_height").toInt();
+        int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
+        //=================== 比对信息 ================================
+        if(CustRes_isEnabled_old==false&&CustRes_isEnabled==false)
+        {
+            if(ScaleRatio_old!=ScaleRatio||DenoiseLevel_old!=DenoiseLevel)
+            {
+                isVideoConfigChanged=true;
+            }
+            else
+            {
+                isVideoConfigChanged=false;
+            }
+        }
+        else
+        {
+            if(CustRes_isEnabled_old==true&&CustRes_isEnabled==true)
+            {
+                if(CustRes_height_old!=CustRes_height||CustRes_width_old!=CustRes_width)
+                {
+                    isVideoConfigChanged=true;
+                }
+                else
+                {
+                    isVideoConfigChanged=false;
+                }
+            }
+            else
+            {
+                isVideoConfigChanged=true;
+            }
+        }
     }
     else
     {
-        file_mkDir(SplitFramesFolderPath);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width);
     }
-    QFile::remove(AudioPath);
-    video_video2images(SourceFile_fullPath,SplitFramesFolderPath,AudioPath);
-    if(!file_isFileExist(video_mp4_fullpath))//检查是否成功生成mp4
+    //=======================
+    //   检测缓存是否存在
+    //=======================
+    if(file_isFileExist(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&file_isDirExist(ScaledFramesFolderPath)&&file_isFileExist(VideoConfiguration_fullPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        if(!isVideoConfigChanged)
+        {
+            isCacheExists=true;
+            emit Send_TextBrowser_NewMessage(tr("The previous video cache file is detected and processing of the previous video cache will continue. If you want to restart processing of the current video:[")+SourceFile_fullPath+tr("], delete the cache manually."));
+        }
+        else
+        {
+            isCacheExists=false;
+            //========
+            QFile::remove(VideoConfiguration_fullPath);
+            file_DelDir(SplitFramesFolderPath);
+            QFile::remove(AudioPath);
+            if(file_ext!="mp4")
+            {
+                if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+            }
+            //=======
+            emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
+        }
+    }
+    else
+    {
+        isCacheExists=false;
+        //========
+        QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
-        return 0;//如果启用stop位,则直接return
+        if(file_ext!="mp4")
+        {
+            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+        }
+        //========
+    }
+    if(!isCacheExists)
+    {
+        //============================== 拆分 ==========================================
+        if(file_isDirExist(SplitFramesFolderPath))
+        {
+            file_DelDir(SplitFramesFolderPath);
+            file_mkDir(SplitFramesFolderPath);
+        }
+        else
+        {
+            file_mkDir(SplitFramesFolderPath);
+        }
+        QFile::remove(AudioPath);
+        video_video2images(SourceFile_fullPath,SplitFramesFolderPath,AudioPath);
+        if(!file_isFileExist(video_mp4_fullpath))//检查是否成功生成mp4
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
+            status = "Failed";
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            return 0;//如果启用stop位,则直接return
+        }
     }
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
-    if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
+    if(!isCacheExists)
     {
-        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        file_DelDir(SplitFramesFolderPath);
-        QFile::remove(AudioPath);
-        emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
-        return 0;//如果启用stop位,则直接return
+        if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
+            status = "Failed";
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_progressbar_Add();
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning--;
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            return 0;//如果启用stop位,则直接return
+        }
     }
     //============================== 放大 =======================================
     //===========建立存储放大后frame的文件夹===========
-    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";
-    if(file_isDirExist(ScaledFramesFolderPath))
+    if(!isCacheExists)
     {
-        file_DelDir(ScaledFramesFolderPath);
-        file_mkDir(ScaledFramesFolderPath);
-    }
-    else
-    {
-        file_mkDir(ScaledFramesFolderPath);
+        if(file_isDirExist(ScaledFramesFolderPath))
+        {
+            file_DelDir(ScaledFramesFolderPath);
+            file_mkDir(ScaledFramesFolderPath);
+        }
+        else
+        {
+            file_mkDir(ScaledFramesFolderPath);
+        }
     }
     //==========开始放大==========================
     int InterPro_total = Frame_fileName_list.size();
@@ -928,9 +1022,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
-            file_DelDir(SplitFramesFolderPath);
-            QFile::remove(AudioPath);
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
@@ -952,8 +1043,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            file_DelDir(SplitFramesFolderPath);
-            QFile::remove(AudioPath);
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
@@ -967,14 +1056,11 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     }
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
+    if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        file_DelDir(SplitFramesFolderPath);
-        QFile::remove(AudioPath);
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
@@ -998,9 +1084,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-        file_DelDir(SplitFramesFolderPath);
-        QFile::remove(AudioPath);
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
@@ -1009,11 +1092,15 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    file_DelDir(SplitFramesFolderPath);
-    QFile::remove(AudioPath);
-    if(file_ext!="mp4")
+    if(!ui->checkBox_KeepVideoCache->checkState())
     {
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+        QFile::remove(VideoConfiguration_fullPath);
+        file_DelDir(SplitFramesFolderPath);
+        QFile::remove(AudioPath);
+        if(file_ext!="mp4")
+        {
+            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
+        }
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
@@ -1026,7 +1113,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         {
             QFile::remove(SourceFile_fullPath);
         }
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         status = "Finished, original file deleted";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
@@ -1044,7 +1130,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 运行中线程-- ==============================
+    //=========================== 更新filelist ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
