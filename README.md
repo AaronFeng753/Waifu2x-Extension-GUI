@@ -12,6 +12,8 @@
 
 <h4 align="center"> Supported Language: English, 简体中文, 日本語(機械翻訳) </h4>
 
+<h4 align="center"> Supported graphics card brands: AMD, NVIDIA, Intel </h4>
+
 ### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
 ### [Download](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)---[Wiki](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki)---[Change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)---[Donation list](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
 
