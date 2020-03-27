@@ -6,7 +6,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI">
-<img src="https://img.shields.io/badge/support-Windows-blue?logo=Windows x64">
+<img src="https://img.shields.io/badge/support-Windows-blue?logo=Windows-x64">
 <img src="https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI">
 </p>
 
