@@ -10,6 +10,12 @@
     <height>953</height>
    </rect>
   </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
   <property name="minimumSize">
    <size>
     <width>0</width>
@@ -2011,7 +2017,7 @@ see the difference.</string>
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>2</number>
                 </property>
                 <widget class="QWidget" name="page">
                  <property name="geometry">
@@ -3116,127 +3122,17 @@ padding:10px;
          </widget>
         </item>
         <item row="0" column="0" colspan="2">
-         <widget class="QGroupBox" name="groupBox_4">
+         <widget class="QGroupBox" name="groupBox_AdditionalSettings">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>345</height>
+            <height>360</height>
            </size>
           </property>
           <property name="title">
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_19">
-           <item row="1" column="0" rowspan="2">
-            <widget class="QGroupBox" name="groupBox_3">
-             <property name="title">
-              <string>Custom Font Settings (Restart the software to take effect)</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_17">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_22">
-                <property name="text">
-                 <string>Custom font size:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
-                <property name="text">
-                 <string>Enable</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_24">
-                <property name="text">
-                 <string>Custom font:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1" colspan="2">
-               <widget class="QFontComboBox" name="fontComboBox_CustFont">
-                <property name="currentText">
-                 <string notr="true">宋体</string>
-                </property>
-                <property name="currentFont">
-                 <font>
-                  <family>宋体</family>
-                 </font>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>Save Custom Font Settings</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" colspan="3">
-               <widget class="QSpinBox" name="spinBox_GlobalFontSize">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999</number>
-                </property>
-                <property name="value">
-                 <number>15</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="0" column="1" rowspan="3">
             <widget class="QGroupBox" name="groupBox_video_settings">
              <property name="title">
@@ -3923,6 +3819,180 @@ the language for the language settings to fully take effect.</string>
                 </property>
                 <property name="checked">
                  <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>Custom Font Settings (Restart the software to take effect)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_17">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_22">
+                <property name="text">
+                 <string>Custom font size:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
+                <property name="text">
+                 <string>Enable</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_24">
+                <property name="text">
+                 <string>Custom font:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                <property name="currentText">
+                 <string notr="true">宋体</string>
+                </property>
+                <property name="currentFont">
+                 <font>
+                  <family>宋体</family>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Save Custom Font Settings</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="3">
+               <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999</number>
+                </property>
+                <property name="value">
+                 <number>15</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QGroupBox" name="groupBox_AudioDenoise">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>70</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Audio denoise(for video)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_16">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_46">
+                <property name="text">
+                 <string>Denoise level:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QDoubleSpinBox" name="doubleSpinBox_AudioDenoiseLevel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>How much noise should be removed is specified by amount-a 
+number between 0.01 and 1 with a default of 0.25. Higher 
+numbers will remove more noise but present a greater 
+likelihood of removing wanted components of the audio signal.</string>
+                </property>
+                <property name="decimals">
+                 <number>2</number>
+                </property>
+                <property name="minimum">
+                 <double>0.010000000000000</double>
+                </property>
+                <property name="maximum">
+                 <double>1.000000000000000</double>
+                </property>
+                <property name="singleStep">
+                 <double>0.010000000000000</double>
+                </property>
+                <property name="value">
+                 <double>0.250000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="Line" name="line_7">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QCheckBox" name="checkBox_AudioDenoise">
+                <property name="text">
+                 <string>Enabled</string>
                 </property>
                </widget>
               </item>

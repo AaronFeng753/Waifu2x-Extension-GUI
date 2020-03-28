@@ -32,7 +32,9 @@ void MainWindow::TextBrowser_NewMessage(QString message)
 void MainWindow::TextBrowser_StartMes()
 {
     ui->textBrowser->append("Waifu2x-Extension-GUI by Aaron Feng");
-    ui->textBrowser->append("Version: "+VERSION);
+    ui->textBrowser->append(tr("Version:")+" "+VERSION);
     ui->textBrowser->append("Github: https://github.com/AaronFeng753/Waifu2x-Extension-GUI");
+    ui->textBrowser->append(tr("If you like this software, please donate to support the developer, thank you!"));
+    ui->textBrowser->append("---------");
     ui->textBrowser->moveCursor(QTextCursor::End);
 }

@@ -314,6 +314,11 @@ void MainWindow::Waifu2x_Finished()
         AutoShutDown->setModal(false);
         AutoShutDown->show();
         emit Send_TextBrowser_NewMessage(tr("The computer will automatically shut down in 60 seconds!"));
+        //关机前自动保存设置
+        if(ui->checkBox_AutoSaveSettings->checkState())
+        {
+            emit Send_Settings_Save();
+        }
         QtConcurrent::run(this, &MainWindow::SystemShutDown_Countdown);
     }
     //==================== 进度条 =================================
@@ -355,6 +360,7 @@ void MainWindow::Waifu2x_Finished_manual()
     if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
     ui->pushButton_ForceRetry->setEnabled(0);
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
+    ui->groupBox_AudioDenoise->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

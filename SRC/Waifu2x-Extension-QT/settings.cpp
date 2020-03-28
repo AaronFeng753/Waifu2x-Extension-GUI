@@ -91,6 +91,10 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/AutoDetectAlphaChannel", ui->checkBox_AutoDetectAlphaChannel->checkState());
     configIniWrite->setValue("/settings/PromptWhenExit", ui->checkBox_PromptWhenExit->checkState());
     configIniWrite->setValue("/settings/KeepVideoCache", ui->checkBox_KeepVideoCache->checkState());
+    //=====
+    configIniWrite->setValue("/settings/AudioDenoise", ui->checkBox_AudioDenoise->checkState());
+    configIniWrite->setValue("/settings/AudioDenoiseLevel", ui->doubleSpinBox_AudioDenoiseLevel->value());
+    //=====
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -207,6 +211,10 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_AutoDetectAlphaChannel->setChecked(configIniRead->value("/settings/AutoDetectAlphaChannel").toBool());
     ui->checkBox_PromptWhenExit->setChecked(configIniRead->value("/settings/PromptWhenExit").toBool());
     ui->checkBox_KeepVideoCache->setChecked(configIniRead->value("/settings/KeepVideoCache").toBool());
+    //=========
+    ui->checkBox_AudioDenoise->setChecked(configIniRead->value("/settings/AudioDenoise").toBool());
+    ui->doubleSpinBox_AudioDenoiseLevel->setValue(configIniRead->value("/settings/AudioDenoiseLevel").toDouble());
+    //=========
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
     //=================== 加载视频设置 ===========================
@@ -238,6 +246,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_DelOriginal_stateChanged(0);
     on_checkBox_FileList_Interactive_stateChanged(0);
     on_checkBox_OutPath_isEnabled_stateChanged(0);
+    on_checkBox_AudioDenoise_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -285,6 +294,7 @@ void MainWindow::Settings_Apply()
     on_checkBox_DelOriginal_stateChanged(0);
     on_checkBox_FileList_Interactive_stateChanged(0);
     on_checkBox_OutPath_isEnabled_stateChanged(0);
+    on_checkBox_AudioDenoise_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);

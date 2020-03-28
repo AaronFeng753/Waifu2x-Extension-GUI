@@ -29,6 +29,7 @@ MainWindow::MainWindow(QWidget *parent)
     translator = new QTranslator(this);
     //==============
     ui->tabWidget->setCurrentIndex(0);//显示home tab
+    on_tabWidget_currentChanged(0);
     ui->tabWidget_videoSettings->setCurrentIndex(0);
     ui->toolBox_engines->setCurrentIndex(0);
     TextBrowser_StartMes();//显示启动msg
@@ -77,6 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
     connect(this, SIGNAL(Send_AutoDetectAlphaChannel_setChecked(bool)), this, SLOT(AutoDetectAlphaChannel_setChecked(bool)));
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString)));
+    connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -151,33 +153,47 @@ int MainWindow::Auto_Save_Settings_Watchdog()
 int MainWindow::Force_close()
 {
     QProcess Close;
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq convert_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq ffmpeg_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq ffprobe_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq gifsicle_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq python_ext_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq srmd-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
+    Close.start("taskkill /f /t /fi \"imagename eq sox_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    //==============
     return 0;
 }
 
@@ -260,6 +276,10 @@ void MainWindow::on_pushButton_ClearList_clicked()
 
 void MainWindow::on_pushButton_Start_clicked()
 {
+    /*
+     * 判断是否启用自定义输出路径
+     * 判断输出路径是否合法
+    */
     if(ui->checkBox_OutPath_isEnabled->checkState())
     {
         QString tmp = ui->lineEdit_outputPath->text();
@@ -287,7 +307,9 @@ void MainWindow::on_pushButton_Start_clicked()
             return;
         }
     }
-    //===========
+    //=============================
+    //      判断文件列表是否为空
+    //=============================
     if(Table_model_image->rowCount()==0&&Table_model_gif->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         emit Send_TextBrowser_NewMessage(tr("Unable to start processing files: The file list is empty."));
@@ -334,6 +356,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_Move2RecycleBin->setEnabled(0);
         ui->pushButton_ForceRetry->setEnabled(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
+        ui->groupBox_AudioDenoise->setEnabled(0);
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
@@ -1551,5 +1574,29 @@ void MainWindow::AutoDetectAlphaChannel_setChecked(bool Checked_)
     else
     {
         emit Send_TextBrowser_NewMessage(tr("[Auto detect Alpha channel] has been automatically disabled based on your PC's compatibility with the waifu2x-converter engine."));
+    }
+}
+
+void MainWindow::on_checkBox_AudioDenoise_stateChanged(int arg1)
+{
+    if(ui->checkBox_AudioDenoise->checkState())
+    {
+        ui->doubleSpinBox_AudioDenoiseLevel->setEnabled(1);
+    }
+    else
+    {
+        ui->doubleSpinBox_AudioDenoiseLevel->setEnabled(0);
+    }
+}
+
+void MainWindow::on_tabWidget_currentChanged(int index)
+{
+    if(ui->tabWidget->currentIndex()==0)
+    {
+        ui->groupBox_AdditionalSettings->setVisible(0);
+    }
+    if(ui->tabWidget->currentIndex()==1)
+    {
+        ui->groupBox_AdditionalSettings->setVisible(1);
     }
 }

@@ -20,6 +20,47 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
+{
+    /*
+    sox 输入音频.wav -n noiseprof 噪音分析.prof
+    sox 输入音频.wav 输出音频.wav noisered 噪音分析.prof 0.21
+    */
+    QFileInfo fileinfo(OriginalAudioPath);
+    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_ext = fileinfo.suffix();
+    QString file_path = fileinfo.path();
+    if(file_path.right(1)=="/")
+    {
+        file_path = file_path.left(file_path.length() - 1);
+    }
+    //================
+    QString program = Current_Path+"/SoX/sox_waifu2xEX.exe";
+    QString DenoiseProfile = file_path+"/"+file_name+"_DenoiseProfile.dp";
+    QString DenoisedAudio = file_path+"/"+file_name+"_Denoised."+file_ext;
+    double DenoiseLevel = ui->doubleSpinBox_AudioDenoiseLevel->value();
+    //================
+    QProcess vid;
+    vid.start("\""+program+"\" \""+OriginalAudioPath+"\" -n noiseprof \""+DenoiseProfile+"\"");
+    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
+    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
+    //================
+    vid.start("\""+program+"\" \""+OriginalAudioPath+"\" \""+DenoisedAudio+"\" noisered \""+DenoiseProfile+"\" "+QString("%1").arg(DenoiseLevel));
+    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
+    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
+    //================
+    if(file_isFileExist(DenoisedAudio))
+    {
+        QFile::remove(DenoiseProfile);
+        return DenoisedAudio;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error! Unable to denoise audio.[")+OriginalAudioPath+"]");
+        return OriginalAudioPath;
+    }
+}
+
 void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName)
 {
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -232,6 +273,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
 int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
 {
     emit Send_TextBrowser_NewMessage(tr("Start assembling video:[")+VideoPath+"]");
+    bool Del_DenoisedAudio = false;
     //=================
     QString encoder_video_cmd="";
     QString bitrate_video_cmd="";
@@ -257,7 +299,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         QString BitRate = video_get_bitrate_AccordingToRes(ScaledFrameFolderPath);
         if(BitRate!="")bitrate_video_cmd=" -b:v "+BitRate+"k ";
     }
-    //=====
+    //================ 自定义分辨率 ======================
     QString resize_cmd ="";
     if(CustRes_isEnabled)
     {
@@ -303,7 +345,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
             }
         }
     }
-    //===========
+    //=========== 获取fps ===========
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);
@@ -320,6 +362,17 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+VideoPath+tr("]. Error: [Unable to get video frame rate.]"));
         return 0;
     }
+    //=============== 音频降噪 ========================
+    if((ui->checkBox_AudioDenoise->checkState())&&file_isFileExist(AudioPath))
+    {
+        QString AudioPath_tmp = video_AudioDenoise(AudioPath);
+        if(AudioPath_tmp!=AudioPath)
+        {
+            AudioPath = AudioPath_tmp;
+            Del_DenoisedAudio = true;
+        }
+    }
+    //================= 开始处理 =============================
     QString CMD = "";
     if(file_isFileExist(AudioPath))
     {
@@ -349,6 +402,8 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
         while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
     }
+    //===================
+    if(Del_DenoisedAudio)QFile::remove(AudioPath);
     //==============================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;

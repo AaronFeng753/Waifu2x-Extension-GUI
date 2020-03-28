@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.45";//软件版本号
+    QString VERSION = "v1.50.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -138,10 +138,8 @@ public:
     QMutex mutex_Table_insert_finished;//监管是否完成表格插入的bool值的mutex
 
     QMutex mutex_Table_insert;//监管表格插入的mutex
-
     //================================= Waifu2x ====================================
     QString OutPutFolder_main="";//总输出文件夹
-
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
     //==========================
     int Waifu2x_NCNN_Vulkan_Image(int rowNum);//vulkan放大图片线程
@@ -216,9 +214,7 @@ public:
     void Gif_splitGif(QString gifPath,QString SplitFramesFolderPath);//拆分gif
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
     void Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
-
     //================================= video ===============================
-
     int video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
     //拆分视频
@@ -229,6 +225,8 @@ public:
     QString video_get_bitrate(QString videoPath);
     //获取视频比特率(根据分辨率计算)
     QString video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath);
+    //音频降噪
+    QString video_AudioDenoise(QString OriginalAudioPath);
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
@@ -243,7 +241,7 @@ public:
     Qt::AspectRatioMode CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;//自定义分辨率的纵横比策略
 
     //======================== 设置 ===========================================
-    int Settings_Save();//保存设置
+
     int Settings_Read_Apply();//读取与apply设置
     void Settings_Apply();
     bool Settings_isReseted = false;//是否重置设置标记
@@ -341,6 +339,8 @@ public slots:
     void AutoDetectAlphaChannel_setChecked(bool Checked_);
 
     void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName);
+
+    int Settings_Save();//保存设置
 
 private slots:
 
@@ -488,6 +488,10 @@ private slots:
 
     void on_comboBox_GPUID_srmd_currentIndexChanged(int index);
 
+    void on_checkBox_AudioDenoise_stateChanged(int arg1);
+
+    void on_tabWidget_currentChanged(int index);
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -536,6 +540,7 @@ signals:
 
     void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName);
 
+    void Send_Settings_Save();
 
 private:
     Ui::MainWindow *ui;
