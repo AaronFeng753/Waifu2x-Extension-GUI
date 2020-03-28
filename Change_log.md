@@ -1,4 +1,22 @@
 # Change log
+## [v1.50.2](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.50.2)
+#### Change log:
+- New feature: Use SoX (14.4.2-win32) to reduce the noise of the video's audio. (Optional, additional settings, disabled by default) (thanks @wenbob for the suggestion)
+- New feature: Software settings will be saved before automatically shutting down the computer.
+- Optimized interface display.
+- Improve multi-language support and fix translation errors.
+- Fix bug: When [Keep Video Cache] is enabled, the source video files will still be deleted.
+---
+## [v1.45](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.45)
+#### Change log:
+- New feature: You can choose whether to show a pop up when exit. (Optional, additional settings, enabled by default)
+- New feature: Automatically enable(or disable) [Auto Detect Alpha Channel] based on the results of the compatibility test.
+- New feature: Keep video cache. (Optional, additional settings, enabled by default)
+- New feature: When the user stops the task or an error occurs, the video's cache will not be automatically deleted, and it can also be read by the software to continue the previous progress.
+- Improve the stability of multi-threaded scheduling.
+- Fix bug: In some cases, the file cannot be renamed properly then the video cannot be assembled normally.
+- Fix bug: The files in the list could not be processed normally due to the thread scheduling error.
+---
 ## [v1.37](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.37)
 #### Change log:
 - New feature: When converting videos to mp4, support to automatically obtain the bit rate of the original video and apply it to the converted mp4.
