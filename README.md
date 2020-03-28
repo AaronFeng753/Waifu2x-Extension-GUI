@@ -115,6 +115,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - ImageMagick 7.0.9-27-Q16-x64
 
+- SoX 14.4.2-win32
+
 # Credits:
 - Donors: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
 
@@ -139,6 +141,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - waifu2x: https://github.com/nagadomi/waifu2x
 
 - SRMD: https://github.com/cszn/SRMD
+
+- SoX: http://sox.sourceforge.net/
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
