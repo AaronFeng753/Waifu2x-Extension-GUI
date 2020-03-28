@@ -339,6 +339,10 @@ int MainWindow::Anime4k_Video(int rowNum)
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         }
     }
+    else
+    {
+        DelOriginal=false;
+    }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
