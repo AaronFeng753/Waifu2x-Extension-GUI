@@ -134,6 +134,8 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - ImageMagick 7.0.9-27-Q16-x64
 
+- SoX 14.4.2-win32
+
 # 鸣谢:
 - 捐赠者们: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md
 
@@ -158,6 +160,8 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 - waifu2x: https://github.com/nagadomi/waifu2x
 
 - SRMD: https://github.com/cszn/SRMD
+
+- SoX: http://sox.sourceforge.net/
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
