@@ -1,4 +1,4 @@
-# `Donate 捐赠`
+# ❤ Donate 捐赠 ❤
 # [PayPal](https://www.paypal.me/aaronfeng753)
 ### [Donation list 捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
 ### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用(比如直接把红包发给我🤣), 我也可以获得收入
