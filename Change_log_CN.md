@@ -53,6 +53,7 @@
 - 新特性:新增SRMD-NCNN-Vulkan引擎. 🎉🥳🎉
 SRMD-NCNN-Vulkan引擎可以同时支持`2D动漫`和`3D现实`两种图像样式.
 您可以[点击本页面](https://github.com/cszn/SRMD)以了解SRMD技术.
+
 ---
 ## [v1.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.01)
 #### 更新日志:
