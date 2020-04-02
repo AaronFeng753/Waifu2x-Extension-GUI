@@ -147,7 +147,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
-# `Donate`
+# ❤ Donate ❤
 # [PayPal](https://www.paypal.me/aaronfeng753)
 ### [Donation list](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
 ### 除了扫码捐赠现金, 您也可以 打开支付宝首页搜“682796694”领红包并使用(比如直接把红包发给我🤣), 我也可以获得收入.
