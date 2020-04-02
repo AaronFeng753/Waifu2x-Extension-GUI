@@ -496,11 +496,16 @@ int MainWindow::SystemShutDown_Countdown()
 bool MainWindow::SystemShutDown()
 {
     on_pushButton_SaveFileList_clicked();
+    //================
     QString AutoShutDown = Current_Path+"/AutoShutDown";
     QFile file(AutoShutDown);
-    file.open(QIODevice::WriteOnly);
-    file.close();
-    Delay_msec_sleep(50);
+    file.remove();
+    if (file.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&file);
+        stream << "Don't delete this file!!";
+    }
+    //================
     HANDLE hToken;
     TOKEN_PRIVILEGES tkp;
     //获取进程标志
@@ -594,7 +599,15 @@ void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
 void MainWindow::on_pushButton_donate_clicked()
 {
     emit Send_TextBrowser_NewMessage(tr("Thank you! :)"));
-    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+    if(ui->comboBox_language->currentIndex()==1)
+    {
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+    }
+    else
+    {
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+    }
     ui->tabWidget->setCurrentIndex(1);
 }
 
@@ -605,18 +618,14 @@ void MainWindow::on_pushButton_Report_clicked()
 
 void MainWindow::on_pushButton_ReadMe_clicked()
 {
-    switch(ui->comboBox_language->currentIndex())
+    if(ui->comboBox_language->currentIndex()==1)
     {
-        case 0:
-            {
-                QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md"));
-                return;
-            }
-        case 1:
-            {
-                QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
-                return;
-            }
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
+        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
+    }
+    else
+    {
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md"));
     }
 }
 /*
@@ -1444,14 +1453,18 @@ void MainWindow::Tip_FirstTimeStart()
         //======
         QMessageBox *MSG_2 = new QMessageBox();
         MSG_2->setWindowTitle(tr("Notification"));
-        MSG_2->setText(tr("It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, and you can view the test results in the text box at the bottom of the main interface of the software."));
+        MSG_2->setText("It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, and you can view the test results in the text box at the bottom of the main interface of the software.\n\n检测到这是您第一次启动软件,所以将自动执行兼容性测试.请稍等片刻,然后在软件主界面底部的文本框内查看兼容性测试结果.");
         MSG_2->setIcon(QMessageBox::Information);
         MSG_2->setModal(true);
         MSG_2->show();
         //=======
         QFile file(FirstTimeStart);
-        file.open(QIODevice::WriteOnly);
-        file.close();
+        file.remove();
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+        {
+            QTextStream stream(&file);
+            stream << "Don't delete this file!!";
+        }
         //=======
         on_pushButton_compatibilityTest_clicked();
     }

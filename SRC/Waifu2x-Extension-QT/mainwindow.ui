@@ -2924,7 +2924,12 @@ padding:10px;
              </property>
              <property name="font">
               <font>
-               <pointsize>15</pointsize>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+               <underline>false</underline>
+               <strikeout>false</strikeout>
               </font>
              </property>
              <property name="styleSheet">
