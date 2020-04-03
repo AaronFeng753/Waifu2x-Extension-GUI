@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.51.1";//软件版本号
+    QString VERSION = "v1.51.2";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -250,9 +250,6 @@ public:
     //================================ Other =======================================
     int SystemShutDown_Countdown();//自动关机倒计时
     int SystemShutDown_isAutoShutDown();//判断之前是否执行过自动关机
-    //延时(不安全
-    void Delay_sec(int time);
-    void Delay_msec(int time);
     //阻塞延时(安全
     void Delay_sec_sleep(int time);
     void Delay_msec_sleep(int time);

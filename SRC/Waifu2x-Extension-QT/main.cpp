@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-
+v1.51.2:
+- 删除冗余代码.
 v1.51.1:
 - 完善多语言支持.
 - 修复bug:当软件语言为日语时,无法正常打开Readme.

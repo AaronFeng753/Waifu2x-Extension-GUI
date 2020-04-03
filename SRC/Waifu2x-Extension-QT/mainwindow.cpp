@@ -544,21 +544,6 @@ int MainWindow::SystemShutDown_isAutoShutDown()
 }
 //==========================================================
 /*
-============= 不安全的非阻塞延时 =====================
-*/
-void MainWindow::Delay_sec(int time)
-{
-    QTime dieTime = QTime::currentTime().addSecs(time);
-    while( QTime::currentTime() < dieTime ) QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-}
-
-void MainWindow::Delay_msec(int time)
-{
-    QTime dieTime = QTime::currentTime().addMSecs(time);
-    while( QTime::currentTime() < dieTime ) QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
-}
-//==========================================================
-/*
 ============= 安全的阻塞延时 =====================
 */
 void MainWindow::Delay_sec_sleep(int time)
