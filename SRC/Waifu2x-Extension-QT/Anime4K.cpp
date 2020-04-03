@@ -63,7 +63,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
-    QString file_path = fileinfo.path();
+    QString file_path = file_getFolderPath(fileinfo);
     if(file_path.right(1)=="/")
     {
         file_path = file_path.left(file_path.length() - 1);

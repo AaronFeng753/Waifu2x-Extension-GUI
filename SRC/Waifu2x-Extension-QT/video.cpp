@@ -29,7 +29,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     QFileInfo fileinfo(OriginalAudioPath);
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
-    QString file_path = fileinfo.path();
+    QString file_path = file_getFolderPath(fileinfo);
     if(file_path.right(1)=="/")
     {
         file_path = file_path.left(file_path.length() - 1);
@@ -190,7 +190,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     //=================
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFileInfo vfinfo(VideoPath);
-    QString video_dir = vfinfo.path();
+    QString video_dir = file_getFolderPath(vfinfo);
     if(video_dir.right(1)=="/")
     {
         video_dir = video_dir.left(video_dir.length() - 1);
@@ -349,7 +349,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);
-    QString video_dir = vfinfo.path();
+    QString video_dir = file_getFolderPath(vfinfo);
     if(video_dir.right(1)=="/")
     {
         video_dir = video_dir.left(video_dir.length() - 1);

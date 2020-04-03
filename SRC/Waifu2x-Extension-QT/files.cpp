@@ -258,7 +258,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         {
             QString file_name = file_getBaseName(fileinfo.filePath());
             QString file_ext = fileinfo.suffix();
-            QString file_path = fileinfo.path();
+            QString file_path = file_getFolderPath(fileinfo);
             if(file_path.right(1)=="/")
             {
                 file_path = file_path.left(file_path.length() - 1);
@@ -505,7 +505,7 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
                 QFileInfo fileinfo_tmp(Target);
                 QString file_name = file_getBaseName(fileinfo_tmp.filePath());
                 QString file_ext = fileinfo_tmp.suffix();
-                QString file_path = fileinfo_tmp.path();
+                QString file_path = file_getFolderPath(fileinfo_tmp);
                 if(file_path.right(1)=="/")
                 {
                     file_path = file_path.left(file_path.length() - 1);
@@ -523,4 +523,16 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
     {
         emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] does not exists."));
     }
+}
+/*
+获取文件夹路径(去除末尾的"/")
+*/
+QString MainWindow::file_getFolderPath(QFileInfo fileInfo)
+{
+    QString folder_path = fileInfo.path();
+    if(folder_path.right(1)=="/")
+    {
+        folder_path = folder_path.left(folder_path.length() - 1);
+    }
+    return folder_path;
 }
