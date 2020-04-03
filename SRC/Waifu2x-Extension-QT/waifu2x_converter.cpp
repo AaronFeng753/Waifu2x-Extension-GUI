@@ -121,10 +121,6 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
-    if(file_path.right(1)=="/")
-    {
-        file_path = file_path.left(file_path.length() - 1);
-    }
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
     //============================== 放大 =======================================
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
@@ -364,10 +360,6 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
-    if(file_path.right(1)=="/")
-    {
-        file_path = file_path.left(file_path.length() - 1);
-    }
     QString ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.gif";
     //=========================== 获取帧时间 ====================================
     int GIF_Duration = Gif_getDuration(SourceFile_fullPath);
@@ -702,10 +694,6 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
-    if(file_path.right(1)=="/")
-    {
-        file_path = file_path.left(file_path.length() - 1);
-    }
     //===================================================================
     QString video_mp4_fullpath="";//mp4路径
     if(file_ext!="mp4")

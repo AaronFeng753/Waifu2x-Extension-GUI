@@ -259,10 +259,6 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
             QString file_name = file_getBaseName(fileinfo.filePath());
             QString file_ext = fileinfo.suffix();
             QString file_path = file_getFolderPath(fileinfo);
-            if(file_path.right(1)=="/")
-            {
-                file_path = file_path.left(file_path.length() - 1);
-            }
             QFile::rename(file_path+"/"+file_name+"."+file_ext,file_path+"/"+file_name+".mp4");
             SourceFile_fullPath = file_path+"/"+file_name+".mp4";
         }
@@ -506,10 +502,6 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
                 QString file_name = file_getBaseName(fileinfo_tmp.filePath());
                 QString file_ext = fileinfo_tmp.suffix();
                 QString file_path = file_getFolderPath(fileinfo_tmp);
-                if(file_path.right(1)=="/")
-                {
-                    file_path = file_path.left(file_path.length() - 1);
-                }
                 Target = file_path+"/"+file_name+"_"+QString::number(random,10)+"."+file_ext;
                 if(!file_isFileExist(Target))break;
             }

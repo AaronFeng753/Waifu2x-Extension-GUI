@@ -1201,10 +1201,6 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
         configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
         QFileInfo lastPath(Input_path);
         QString folder_lastPath = file_getFolderPath(lastPath);
-        if(folder_lastPath.right(1)=="/")
-        {
-            folder_lastPath = folder_lastPath.left(folder_lastPath.length() - 1);
-        }
         configIniWrite->setValue("/Path", folder_lastPath);
         //===============================================================
         AddNew_gif=false;

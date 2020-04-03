@@ -64,10 +64,6 @@ int MainWindow::Anime4k_Video(int rowNum)
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
-    if(file_path.right(1)=="/")
-    {
-        file_path = file_path.left(file_path.length() - 1);
-    }
     //===================================================================
     QString video_mp4_fullpath="";//mp4路径
     if(file_ext!="mp4")
