@@ -4,6 +4,7 @@
 #### 请在捐赠时通过备注等方式留下您的姓名, 以方便我们将您记录到[捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)内.
 ---
 # [PayPal](https://www.paypal.me/aaronfeng753)
+---
 ### [Donation list 捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)
 ### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用(比如直接把红包发给我🤣), 我也可以获得收入
 ![donate_new](/donate_new.jpg)
