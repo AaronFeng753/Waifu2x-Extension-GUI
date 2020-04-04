@@ -1,8 +1,8 @@
 # 更新日志
 ---
-#### 历史版本下载:
-- 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
-- 百度云链接: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
+#### 全部历史版本安装包合集:
+- 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
+- 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
 ## [v1.51.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.51.3)
 #### 更新日志:
