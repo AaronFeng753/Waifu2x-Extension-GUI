@@ -1,4 +1,4 @@
-# ❤ Donate 捐赠 ❤
+# ❤ Donate 捐赠 ❤ (PayPal, 支付宝&微信 二维码)
 ---
 #### Please leave your name through remarks or other methods when donating, so that we can record you in the [donation list](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md).
 #### 请在捐赠时通过备注等方式留下您的姓名, 以方便我们将您记录到[捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md)内.
