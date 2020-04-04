@@ -2,6 +2,16 @@
 #### 历史版本下载:
 #### 微云链接：https://share.weiyun.com/5abrs1W 密码：s4monw
 ---
+## [v1.51.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.51.3)
+#### 更新日志:
+- 性能优化.
+- 删除冗余代码.
+- 完善多语言支持.
+- 修复bug:当软件语言为日语时,无法正常打开Readme.
+- 修复bug:一些由本软件自动生成的缓存文件可能会被垃圾清理软件识别为空文件并删除.
+- 修复bug:关机前的倒计时的时间不准确.
+- 其他小改进.
+---
 ## [v1.50.2](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.50.2)
 #### 更新日志:
 - 新特性:借助SoX(14.4.2-win32)对视频的音频进行降噪.(可选,附加设置,默认禁用)(感谢 @wenbob 的建议)
