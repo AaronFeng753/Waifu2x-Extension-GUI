@@ -49,7 +49,7 @@
 ---
 ## [v1.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.21)
 #### 更新日志:
-- 新特性:支持记住上一次浏览的文件夹.(remember the last browsed folder)
+- 新特性:支持记住上一次浏览的文件夹.
 - 新特性:改进自动检查更新, 支持显示更新日志.
 - 新特性:启动器加入多开检测.
 - 新特性:视频自定义设置中支持键入额外指令.
