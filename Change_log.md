@@ -1,5 +1,13 @@
 # Change log
 ---
+## [v1.61.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.61.3)
+#### Change log:
+- New feature: Processing video in segments, greatly reducing the hard disk space occupied when processing video. 🎉🥳🎉 (Optional, additional settings, enabled by default)
+- Improve multi-language support.
+- Other minor improvements.
+- Fix bug: When the processing process is stopped, the ffmpeg process will be forcibly terminated, which will cause the cache file cannot be generated normally.
+- Fix bug: In some cases, the progress bar cannot display the progress normally.
+---
 ## [v1.51.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.51.3)
 #### Change log:
 - Performance optimization.
