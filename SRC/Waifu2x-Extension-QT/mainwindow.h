@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.51.4";//软件版本号
+    QString VERSION = "v1.61.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -154,6 +154,7 @@ public:
     //=========================
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Anime4k_Video(int rowNum);
+    int Anime4k_Video_BySegment(int rowNum);
     int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     //=================================
     int Waifu2x_Converter_Image(int rowNum);//Converter放大图片线程
@@ -172,9 +173,7 @@ public:
     int SRMD_NCNN_Vulkan_Video(int rowNum);
     int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
-
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
-
     bool waifu2x_STOP = false;//负责通知waifu2x主线程及其子线程的停止信号
     bool waifu2x_STOP_confirm = false;//返回给waifu2x停止看门狗的信号
 
@@ -229,6 +228,16 @@ public:
     QString video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath);
     //音频降噪
     QString video_AudioDenoise(QString OriginalAudioPath);
+    //获取时长(秒)
+    int video_get_duration(QString videoPath);
+    //转换为mp4
+    void video_2mp4(QString VideoPath);
+    //提取音频
+    void video_get_audio(QString VideoPath,QString AudioPath);
+    //拆分视频(分段)
+    void video_video2images_ProcessBySegment(QString VideoPath,QString FrameFolderPath,int StartTime,int SegmentDuration);
+    //组装视频(mp4片段到成片)
+    void video_AssembleVideoClips(QString VideoClipsFolderPath,QString VideoClipsFolderName,QString video_mp4_scaled_fullpath,QString AudioPath);
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
@@ -243,7 +252,6 @@ public:
     Qt::AspectRatioMode CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;//自定义分辨率的纵横比策略
 
     //======================== 设置 ===========================================
-
     int Settings_Read_Apply();//读取与apply设置
     void Settings_Apply();
     bool Settings_isReseted = false;//是否重置设置标记
@@ -337,9 +345,12 @@ public slots:
 
     void AutoDetectAlphaChannel_setChecked(bool Checked_);
 
-    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName);
+    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment);
 
     int Settings_Save();//保存设置
+
+    //存储进度
+    void video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete);
 
 private slots:
 
@@ -537,9 +548,11 @@ signals:
 
     void Send_AutoDetectAlphaChannel_setChecked(bool);
 
-    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName);
+    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment);
 
     void Send_Settings_Save();
+
+    void Send_video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete);
 
 private:
     Ui::MainWindow *ui;

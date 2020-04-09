@@ -262,7 +262,14 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Anime4k_Video, i);
+                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        {
+                            QtConcurrent::run(this, &MainWindow::Anime4k_Video_BySegment, i);
+                        }
+                        else
+                        {
+                            QtConcurrent::run(this, &MainWindow::Anime4k_Video, i);
+                        }
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);

@@ -19,7 +19,270 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+/*
+组装视频(从mp4片段组装)
+*/
+void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString VideoClipsFolderName,QString video_mp4_scaled_fullpath,QString AudioPath)
+{
+    emit Send_TextBrowser_NewMessage(tr("Finish assembling video with clips:[")+video_mp4_scaled_fullpath+"]");
+    //==============================
+    QStringList VideoClips_Scan_list = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath);
+    int VideoClipsNum = VideoClips_Scan_list.count();
+    QStringList VideoClips_fileName_list;
+    VideoClips_fileName_list.clear();
+    QFileInfo vfinfo(video_mp4_scaled_fullpath);
+    QString video_dir = file_getFolderPath(video_mp4_scaled_fullpath);
+    /*
+    生成视频片段文件名称QStringList
+    */
+    for (int VideoNameNo = 1; VideoNameNo<=VideoClipsNum; VideoNameNo++)
+    {
+        QString VideoClip_FullPath_tmp = VideoClipsFolderPath+"/"+QString::number(VideoNameNo,10)+".mp4";
+        QString VideoClip_IncompletePath_tmp = VideoClipsFolderName+"/"+QString::number(VideoNameNo,10)+".mp4";
+        if(file_isFileExist(VideoClip_FullPath_tmp))
+        {
+            VideoClips_fileName_list.append(VideoClip_IncompletePath_tmp);
+        }
+    }
+    /*
+    生成文件列表QString
+    */
+    QString FFMpegFileList_QString = "";
+    for(int CurrentVideoClipNo = 0; CurrentVideoClipNo < VideoClips_fileName_list.size(); CurrentVideoClipNo++)
+    {
+        QString VideoClip_fullPath = VideoClips_fileName_list.at(CurrentVideoClipNo);
+        QString Line = "file \'"+VideoClip_fullPath+"\'\n";
+        FFMpegFileList_QString.append(Line);
+    }
+    //================ 将文件列表写入文件保存 ================
+    QFileInfo videoFileInfo(video_mp4_scaled_fullpath);
+    QString Path_FFMpegFileList = "";
+    do
+    {
+        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+        int random = qrand()%1000;
+        Path_FFMpegFileList = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_fileList_"+QString::number(random,10)+"_Waifu2xEX.txt";
+    }
+    while(file_isFileExist(Path_FFMpegFileList));
+    //=========
+    QFile FFMpegFileList(Path_FFMpegFileList);
+    FFMpegFileList.remove();
+    if (FFMpegFileList.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&FFMpegFileList);
+        stream << FFMpegFileList_QString;
+    }
+    FFMpegFileList.close();
+    //========
+    /*
+    组装视频
+    */
+    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
+    bool Del_DenoisedAudio = false;
+    //=============== 音频降噪 ========================
+    if((ui->checkBox_AudioDenoise->checkState())&&file_isFileExist(AudioPath))
+    {
+        QString AudioPath_tmp = video_AudioDenoise(AudioPath);
+        if(AudioPath_tmp!=AudioPath)
+        {
+            AudioPath = AudioPath_tmp;
+            Del_DenoisedAudio = true;
+        }
+    }
+    //================= 开始处理 =============================
+    QString CMD = "";
+    if(file_isFileExist(AudioPath))
+    {
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\" -c:v copy -c:a aac \""+video_mp4_scaled_fullpath+"\"";
+    }
+    else
+    {
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 -i \""+Path_FFMpegFileList+"\" -c:v copy \""+video_mp4_scaled_fullpath+"\"";
+    }
+    QProcess AssembleVideo;
+    AssembleVideo.start(CMD);
+    while(!AssembleVideo.waitForStarted(100)&&!QProcess_stop) {}
+    while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop) {}
+    QFile::remove(Path_FFMpegFileList);//删除文件列表
+    //===================
+    if(Del_DenoisedAudio)QFile::remove(AudioPath);
+    //==============================
+    emit Send_TextBrowser_NewMessage(tr("Finish assembling video with clips:[")+video_mp4_scaled_fullpath+"]");
+}
+/*
+将视频拆分到帧(分段的)
+*/
+void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString FrameFolderPath,int StartTime,int SegmentDuration)
+{
+    emit Send_TextBrowser_NewMessage(tr("Start splitting video: [")+VideoPath+"]");
+    //=================
+    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
+    QFileInfo vfinfo(VideoPath);
+    QString video_dir = file_getFolderPath(vfinfo);
+    QString video_filename = file_getBaseName(vfinfo.filePath());
+    QString video_ext = vfinfo.suffix();
+    QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
+    //==============
+    if(video_ext!="mp4")
+    {
+        video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
+    }
+    else
+    {
+        video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
+    }
+    //=====================
+    int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
+    QProcess video_splitFrame;
+    video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+" \""+FrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
+    while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
+    while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
+    QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(FrameFolderPath);
+    if(Frame_fileName_list.isEmpty())
+    {
+        video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+" \""+FrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\"");
+        while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
+        while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
+    }
+    //====================================
+    emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
+}
 
+/*
+提取视频的音频
+*/
+void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
+{
+    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
+    QFile::remove(AudioPath);
+    QProcess video_splitSound;
+    video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" \""+AudioPath+"\"");
+    while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
+    while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
+}
+/*
+将视频转换为mp4
+*/
+void MainWindow::video_2mp4(QString VideoPath)
+{
+    emit Send_TextBrowser_NewMessage(tr("Start converting video: [")+VideoPath+tr("] to mp4"));
+    //=================
+    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
+    QFileInfo vfinfo(VideoPath);
+    QString video_dir = file_getFolderPath(vfinfo);
+    QString video_filename = file_getBaseName(vfinfo.filePath());
+    QString video_ext = vfinfo.suffix();
+    QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
+    //==============
+    if(video_ext!="mp4")
+    {
+        video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
+    }
+    else
+    {
+        video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
+    }
+    //======= 转换到mp4 =======
+    if(video_ext!="mp4")
+    {
+        QFile::remove(video_mp4_fullpath);
+        QString vcodec_copy_cmd = "";
+        QString acodec_copy_cmd = "";
+        QString bitrate_vid_cmd = "";
+        QString bitrate_audio_cmd = "";
+        QString Extra_command = "";
+        QString bitrate_OverAll = "";
+        if(ui->checkBox_videoSettings_isEnabled->checkState())
+        {
+            Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
+            if(ui->checkBox_vcodec_copy_2mp4->checkState())
+            {
+                vcodec_copy_cmd = " -vcodec copy ";
+            }
+            else
+            {
+                bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
+            }
+            if(ui->checkBox_acodec_copy_2mp4->checkState())
+            {
+                acodec_copy_cmd = " -acodec copy ";
+            }
+            else
+            {
+                bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
+            }
+        }
+        else
+        {
+            QString BitRate = video_get_bitrate(VideoPath);
+            if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
+        }
+        //=====
+        QProcess video_tomp4;
+        video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
+        while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
+        while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
+    }
+}
+
+//===============
+//获取时长(秒)
+//===============
+int MainWindow::video_get_duration(QString videoPath)
+{
+    //========================= 调用ffprobe读取视频信息 ======================
+    QProcess *Get_Duration_process = new QProcess();
+    QString cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
+    Get_Duration_process->start(cmd);
+    while(!Get_Duration_process->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Get_Duration_process->waitForFinished(100)&&!QProcess_stop) {}
+    //============= 保存ffprobe输出的ini格式文本 =============
+    QString ffprobe_output_str = Get_Duration_process->readAllStandardOutput();
+    //================ 将ini写入文件保存 ================
+    //创建文件夹
+    QString video_info_dir = Current_Path+"/videoInfo";
+    if(!file_isDirExist(video_info_dir))
+    {
+        file_mkDir(video_info_dir);
+    }
+    //========================
+    QFileInfo videoFileInfo(videoPath);
+    QString Path_video_info_ini = "";
+    do
+    {
+        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+        int random = qrand()%1000;
+        Path_video_info_ini = video_info_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+    }
+    while(file_isFileExist(Path_video_info_ini));
+    //=========
+    QFile video_info_ini(Path_video_info_ini);
+    video_info_ini.remove();
+    if (video_info_ini.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&video_info_ini);
+        stream << ffprobe_output_str;
+    }
+    video_info_ini.close();
+    //================== 读取ini获得参数 =====================
+    QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
+    QString Duration = configIniRead_videoInfo->value("/format/duration").toString().trimmed();
+    video_info_ini.remove();
+    //=======================
+    if(Duration=="")
+    {
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the duration of the [")+videoPath+tr("]."));
+        return 0;
+    }
+    //=======================
+    double Duration_double = Duration.toDouble();
+    int Duration_int = (int)Duration_double;
+    //=====================
+    return Duration_int;
+}
+/*
+音频降噪
+*/
 QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
 {
     /*
@@ -56,8 +319,22 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
         return OriginalAudioPath;
     }
 }
-
-void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName)
+/*
+保存进度
+*/
+void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete)
+{
+    QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
+    configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
+    //==================== 存储进度 ==================================
+    configIniWrite->setValue("/Progress/StartTime", StartTime);
+    configIniWrite->setValue("/Progress/isSplitComplete", isSplitComplete);
+    configIniWrite->setValue("/Progress/isScaleComplete", isScaleComplete);
+}
+/*
+保存视频配置
+*/
+void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment)
 {
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -70,6 +347,11 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     configIniWrite->setValue("/VideoConfiguration/CustRes_height", CustRes_height);
     configIniWrite->setValue("/VideoConfiguration/CustRes_width", CustRes_width);
     configIniWrite->setValue("/VideoConfiguration/EngineName", EngineName);
+    configIniWrite->setValue("/VideoConfiguration/isProcessBySegment", isProcessBySegment);
+    //==================== 存储进度 ==================================
+    configIniWrite->setValue("/Progress/StartTime", 0);
+    configIniWrite->setValue("/Progress/isSplitComplete", false);
+    configIniWrite->setValue("/Progress/isScaleComplete", false);
 }
 /*
 python_ext_waifu2xEX.exe:
@@ -111,7 +393,9 @@ QString MainWindow::video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPa
         return QString::number(original_width*6,10);
     }
 }
-
+/*
+获取视频比特率
+*/
 QString MainWindow::video_get_bitrate(QString videoPath)
 {
     //========================= 调用ffprobe读取视频信息 ======================

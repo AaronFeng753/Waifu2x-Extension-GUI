@@ -91,6 +91,9 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/AutoDetectAlphaChannel", ui->checkBox_AutoDetectAlphaChannel->checkState());
     configIniWrite->setValue("/settings/PromptWhenExit", ui->checkBox_PromptWhenExit->checkState());
     configIniWrite->setValue("/settings/KeepVideoCache", ui->checkBox_KeepVideoCache->checkState());
+    //===
+    configIniWrite->setValue("/settings/ProcessVideoBySegment", ui->checkBox_ProcessVideoBySegment->checkState());
+    configIniWrite->setValue("/settings/SegmentDuration", ui->spinBox_SegmentDuration->value());
     //=====
     configIniWrite->setValue("/settings/AudioDenoise", ui->checkBox_AudioDenoise->checkState());
     configIniWrite->setValue("/settings/AudioDenoiseLevel", ui->doubleSpinBox_AudioDenoiseLevel->value());
@@ -211,6 +214,9 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_AutoDetectAlphaChannel->setChecked(configIniRead->value("/settings/AutoDetectAlphaChannel").toBool());
     ui->checkBox_PromptWhenExit->setChecked(configIniRead->value("/settings/PromptWhenExit").toBool());
     ui->checkBox_KeepVideoCache->setChecked(configIniRead->value("/settings/KeepVideoCache").toBool());
+    //===
+    ui->checkBox_ProcessVideoBySegment->setChecked(configIniRead->value("/settings/ProcessVideoBySegment").toBool());
+    ui->spinBox_SegmentDuration->setValue(configIniRead->value("/settings/SegmentDuration").toInt());
     //=========
     ui->checkBox_AudioDenoise->setChecked(configIniRead->value("/settings/AudioDenoise").toBool());
     ui->doubleSpinBox_AudioDenoiseLevel->setValue(configIniRead->value("/settings/AudioDenoiseLevel").toDouble());
