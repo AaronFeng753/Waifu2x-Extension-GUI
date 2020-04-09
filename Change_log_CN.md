@@ -4,6 +4,14 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v1.61.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.61.3)
+#### 更新日志:
+- 新特性:分段处理视频,大幅减少处理视频时占用的硬盘空间. 🎉🥳🎉 (可选,附加设置,默认启用)
+- 完善多语言支持.
+- 其他小改进.
+- 修复bug:停止处理进程时将强制终止ffmpeg进程,会导致无法正常生成缓存文件,影响下次读取任务进度.
+- 修复bug:某些情况下进度条无法正常显示进度.
+---
 ## [v1.51.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.51.3)
 #### 更新日志:
 - 性能优化.
