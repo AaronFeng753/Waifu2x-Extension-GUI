@@ -48,6 +48,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - Custom output resolution (support pictures & GIF & video)
 - Audio denoise.(for video)
 - Flexible multi-thread management
+- Processing video in segments, greatly reducing the hard disk space occupied when processing video.
 - Support to save enlarged and noise-reduced pictures as .jpg and automatically perform lossless compression
 - Automatically optimize the volume of the processed gif
 - Compatibility test
