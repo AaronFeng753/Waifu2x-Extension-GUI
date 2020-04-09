@@ -238,7 +238,14 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video, i);
+                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        {
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment, i);
+                        }
+                        else
+                        {
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video, i);
+                        }
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -250,7 +257,14 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video, i);
+                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        {
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video_BySegment, i);
+                        }
+                        else
+                        {
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video, i);
+                        }
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -281,7 +295,14 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video, i);
+                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        {
+                            QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video_BySegment, i);
+                        }
+                        else
+                        {
+                            QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video, i);
+                        }
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);

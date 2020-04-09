@@ -46,7 +46,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -3138,6 +3138,189 @@ padding:10px;
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_19">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox_InputExt">
+             <property name="maximumSize">
+              <size>
+               <width>528</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>Input file extensions</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Image:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="Ext_image">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Video:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="Ext_video">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="text">
+                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>Custom Font Settings (Restart the software to take effect)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_17">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_22">
+                <property name="text">
+                 <string>Custom font size:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
+                <property name="text">
+                 <string>Enable</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_24">
+                <property name="text">
+                 <string>Custom font:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                <property name="currentText">
+                 <string notr="true">宋体</string>
+                </property>
+                <property name="currentFont">
+                 <font>
+                  <family>宋体</family>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                </property>
+                <property name="text">
+                 <string>Save Custom Font Settings</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" colspan="3">
+               <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999</number>
+                </property>
+                <property name="value">
+                 <number>15</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
            <item row="0" column="1" rowspan="3">
             <widget class="QGroupBox" name="groupBox_video_settings">
              <property name="title">
@@ -3487,501 +3670,6 @@ height:28
              </layout>
             </widget>
            </item>
-           <item row="0" column="0">
-            <widget class="QGroupBox" name="groupBox_InputExt">
-             <property name="maximumSize">
-              <size>
-               <width>528</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="title">
-              <string>Input file extensions</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_10">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_4">
-                <property name="maximumSize">
-                 <size>
-                  <width>50</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Image:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="Ext_image">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_5">
-                <property name="maximumSize">
-                 <size>
-                  <width>50</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string>Video:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="Ext_video">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="text">
-                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="0" column="2" rowspan="3">
-            <widget class="QGroupBox" name="groupBox_8">
-             <property name="title">
-              <string/>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_14">
-              <item row="8" column="0" colspan="2">
-               <widget class="QLabel" name="label_23">
-                <property name="text">
-                 <string>Compressed &quot;.jpg&quot; image quality:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
-                <property name="toolTip">
-                 <string>[Text browser] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Text Browser</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_39">
-                <property name="text">
-                 <string>Retry:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="2" colspan="2">
-               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
-                <property name="toolTip">
-                 <string>0(worst quality)~99
-We recommend you use the default value(90)</string>
-                </property>
-                <property name="minimum">
-                 <number>0</number>
-                </property>
-                <property name="value">
-                 <number>95</number>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="2" colspan="2">
-               <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-                <property name="minimumSize">
-                 <size>
-                  <width>280</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="currentIndex">
-                 <number>0</number>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Ignore Aspect Ratio</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Keep Aspect Ratio</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Keep Aspect Ratio By Expanding</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QSpinBox" name="spinBox_SegmentDuration">
-                <property name="toolTip">
-                 <string>Unit: second</string>
-                </property>
-                <property name="suffix">
-                 <string>s</string>
-                </property>
-                <property name="prefix">
-                 <string/>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999999999</number>
-                </property>
-                <property name="value">
-                 <number>5</number>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_47">
-                <property name="text">
-                 <string>Segment duration:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0" colspan="2">
-               <widget class="QLabel" name="label_21">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>We recommend that you restart the software after changing 
-the language for the language settings to fully take effect.</string>
-                </property>
-                <property name="text">
-                 <string notr="true">Language:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
-                <property name="text">
-                 <string>Scan sub-folders</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="3">
-               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
-                <property name="toolTip">
-                 <string>When the alpha channel is detected in the picture, software will
-automatically use the waifu2x-converter engine to process the
-picture and force the picture to be saved as PNG.
-Please make sure the waifu2x-converter engine is compatible
-with your PC before enabling this option.</string>
-                </property>
-                <property name="text">
-                 <string>Auto detect Alpha channel</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
-                <property name="toolTip">
-                 <string>[Path settings] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Path Settings</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string>Automatically check for updates on startup.</string>
-                </property>
-                <property name="text">
-                 <string>Automatically check update</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QSpinBox" name="spinBox_retry">
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999999999</number>
-                </property>
-                <property name="value">
-                 <number>5</number>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_PromptWhenExit">
-                <property name="text">
-                 <string>Prompt when exit</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="3">
-               <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
-                <property name="toolTip">
-                 <string>Experimental function, can reduce the hard disk space occupation when processing video.</string>
-                </property>
-                <property name="text">
-                 <string>Process video by segment</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="3">
-               <widget class="QCheckBox" name="checkBox_FileList_Interactive">
-                <property name="text">
-                 <string>Interactive file list</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="2" colspan="2">
-               <widget class="QComboBox" name="comboBox_language">
-                <property name="minimumSize">
-                 <size>
-                  <width>150</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>We recommend that you restart the software after changing 
-the language for the language settings to fully take effect.</string>
-                </property>
-                <property name="currentText">
-                 <string notr="true">English</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">English</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">简体中文</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">日本語(機械翻訳)</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
-                <property name="toolTip">
-                 <string>Settings will be saved automatically when you close the software.</string>
-                </property>
-                <property name="text">
-                 <string>Auto save settings</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
-                <property name="toolTip">
-                 <string>When the file processing status changes, the file list scrolls automatically.</string>
-                </property>
-                <property name="text">
-                 <string>File list scrolls automatically</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0" colspan="2">
-               <widget class="QLabel" name="label_44">
-                <property name="text">
-                 <string>Aspect Ratio:
-(Custom resolution)</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="3">
-               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
-                <property name="text">
-                 <string>Keep video cache</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="3">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
-                <property name="toolTip">
-                 <string>[Settings] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Settings</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QGroupBox" name="groupBox_3">
-             <property name="title">
-              <string>Custom Font Settings (Restart the software to take effect)</string>
-             </property>
-             <layout class="QGridLayout" name="gridLayout_17">
-              <item row="0" column="0">
-               <widget class="QLabel" name="label_22">
-                <property name="text">
-                 <string>Custom font size:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
-                <property name="text">
-                 <string>Enable</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_24">
-                <property name="text">
-                 <string>Custom font:</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1" colspan="2">
-               <widget class="QFontComboBox" name="fontComboBox_CustFont">
-                <property name="currentText">
-                 <string notr="true">宋体</string>
-                </property>
-                <property name="currentFont">
-                 <font>
-                  <family>宋体</family>
-                 </font>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                </property>
-                <property name="text">
-                 <string>Save Custom Font Settings</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1" colspan="3">
-               <widget class="QSpinBox" name="spinBox_GlobalFontSize">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999</number>
-                </property>
-                <property name="value">
-                 <number>15</number>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
            <item row="2" column="0">
             <widget class="QGroupBox" name="groupBox_AudioDenoise">
              <property name="maximumSize">
@@ -4040,6 +3728,318 @@ likelihood of removing wanted components of the audio signal.</string>
                <widget class="QCheckBox" name="checkBox_AudioDenoise">
                 <property name="text">
                  <string>Enabled</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="2" rowspan="3">
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_14">
+              <item row="5" column="3">
+               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                <property name="toolTip">
+                 <string>When the alpha channel is detected in the picture, software will
+automatically use the waifu2x-converter engine to process the
+picture and force the picture to be saved as PNG.
+Please make sure the waifu2x-converter engine is compatible
+with your PC before enabling this option.</string>
+                </property>
+                <property name="text">
+                 <string>Auto detect Alpha channel</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0" colspan="2">
+               <widget class="QLabel" name="label_23">
+                <property name="text">
+                 <string>Compressed &quot;.jpg&quot; image quality:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>Automatically check for updates on startup.</string>
+                </property>
+                <property name="text">
+                 <string>Automatically check update</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QCheckBox" name="checkBox_FileList_Interactive">
+                <property name="text">
+                 <string>Interactive file list</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+                <property name="toolTip">
+                 <string>Settings will be saved automatically when you close the software.</string>
+                </property>
+                <property name="text">
+                 <string>Auto save settings</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_39">
+                <property name="text">
+                 <string>Retry:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+                <property name="toolTip">
+                 <string>When the file processing status changes, the file list scrolls automatically.</string>
+                </property>
+                <property name="text">
+                 <string>File list scrolls automatically</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QSpinBox" name="spinBox_retry">
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="value">
+                 <number>5</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
+                <property name="toolTip">
+                 <string>[Text browser] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Text Browser</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="2" colspan="2">
+               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
+                <property name="toolTip">
+                 <string>0(worst quality)~99
+We recommend you use the default value(90)</string>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="value">
+                 <number>95</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QSpinBox" name="spinBox_SegmentDuration">
+                <property name="toolTip">
+                 <string>Unit: second</string>
+                </property>
+                <property name="suffix">
+                 <string>s</string>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="value">
+                 <number>5</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_47">
+                <property name="text">
+                 <string>Segment duration:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+                <property name="text">
+                 <string>Scan sub-folders</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2" colspan="2">
+               <widget class="QComboBox" name="comboBox_language">
+                <property name="minimumSize">
+                 <size>
+                  <width>150</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
+                </property>
+                <property name="currentText">
+                 <string notr="true">English</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string notr="true">English</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">简体中文</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string notr="true">日本語(機械翻訳)</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="7" column="0" colspan="2">
+               <widget class="QLabel" name="label_21">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
+                </property>
+                <property name="text">
+                 <string notr="true">Language:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="2" colspan="2">
+               <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+                <property name="minimumSize">
+                 <size>
+                  <width>280</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="currentIndex">
+                 <number>0</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Ignore Aspect Ratio</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Keep Aspect Ratio</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Keep Aspect Ratio By Expanding</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_PromptWhenExit">
+                <property name="text">
+                 <string>Prompt when exit</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0" colspan="2">
+               <widget class="QLabel" name="label_44">
+                <property name="text">
+                 <string>Aspect Ratio:
+(Custom resolution)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+                <property name="toolTip">
+                 <string>[Settings] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Settings</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideInput">
+                <property name="toolTip">
+                 <string>[Path settings] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Path Settings</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
+                <property name="text">
+                 <string>Keep video cache</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="3">
+               <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
+                <property name="toolTip">
+                 <string>Experimental function, can reduce the hard disk space occupation when processing video.</string>
+                </property>
+                <property name="text">
+                 <string>Process video by segment</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>

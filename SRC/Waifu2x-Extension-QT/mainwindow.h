@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.61.1";//软件版本号
+    QString VERSION = "v1.61.2";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -150,6 +150,7 @@ public:
     int Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //vulkan放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_Video(int rowNum);
+    int Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     //=========================
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
@@ -163,6 +164,7 @@ public:
     int Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //Converter放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Converter_Video(int rowNum);
+    int Waifu2x_Converter_Video_BySegment(int rowNum);
     int Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     //===================================
     int SRMD_NCNN_Vulkan_Image(int rowNum);//SRMD放大图片线程
@@ -171,6 +173,7 @@ public:
     int SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //SRMD放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int SRMD_NCNN_Vulkan_Video(int rowNum);
+    int SRMD_NCNN_Vulkan_Video_BySegment(int rowNum);
     int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程

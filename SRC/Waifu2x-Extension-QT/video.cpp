@@ -24,7 +24,16 @@
 */
 void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString VideoClipsFolderName,QString video_mp4_scaled_fullpath,QString AudioPath)
 {
-    emit Send_TextBrowser_NewMessage(tr("Finish assembling video with clips:[")+video_mp4_scaled_fullpath+"]");
+    emit Send_TextBrowser_NewMessage(tr("Start assembling video with clips:[")+video_mp4_scaled_fullpath+"]");
+    //=================
+    QString encoder_audio_cmd=" -c:a aac ";
+    QString bitrate_audio_cmd="";
+    //=======
+    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    {
+        encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
+        bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
+    }
     //==============================
     QStringList VideoClips_Scan_list = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath);
     int VideoClipsNum = VideoClips_Scan_list.count();
@@ -93,7 +102,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString CMD = "";
     if(file_isFileExist(AudioPath))
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\" -c:v copy -c:a aac \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\" -c:v copy "+encoder_audio_cmd+bitrate_audio_cmd+" \""+video_mp4_scaled_fullpath+"\"";
     }
     else
     {

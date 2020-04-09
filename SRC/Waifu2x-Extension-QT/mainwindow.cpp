@@ -375,10 +375,6 @@ void MainWindow::on_pushButton_Stop_clicked()
     ui->pushButton_Stop->setEnabled(0);//禁用stop button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
-    QProcess Close;
-    Close.start("taskkill /f /t /fi \"imagename eq ffmpeg_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
     QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
 }
 /*
