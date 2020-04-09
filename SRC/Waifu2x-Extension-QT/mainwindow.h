@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.61.2";//软件版本号
+    QString VERSION = "v1.61.3";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -504,6 +504,8 @@ private slots:
     void on_checkBox_AudioDenoise_stateChanged(int arg1);
 
     void on_tabWidget_currentChanged(int index);
+
+    void on_checkBox_ProcessVideoBySegment_stateChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

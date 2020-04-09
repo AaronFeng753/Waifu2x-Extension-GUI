@@ -358,6 +358,8 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_ForceRetry->setEnabled(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
         ui->groupBox_AudioDenoise->setEnabled(0);
+        ui->checkBox_ProcessVideoBySegment->setEnabled(0);
+        ui->spinBox_SegmentDuration->setEnabled(0);
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
@@ -977,23 +979,44 @@ int MainWindow::Donate_Count()
     if(!file_isFileExist(donate_ini))
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/OpenCount", 1);
-        configIniWrite->setValue("/Donate/PopUp", 0);
-        return 0;
-    }
-    QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
-    if(configIniRead->value("/Donate/PopUp").toInt()==1)return 0;
-    //=======  读取打开次数  ======
-    int Open_count = configIniRead->value("/Donate/OpenCount").toInt();
-    Open_count++;
-    if(Open_count<5)
-    {
-        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/OpenCount", Open_count);
+        configIniWrite->setValue("/Donate/VERSION", VERSION);
+        configIniWrite->setValue("/Donate/OpenCount_Current", 1);
+        configIniWrite->setValue("/Donate/OpenCount_Max", 5);
+        configIniWrite->setValue("/Donate/OFF", 0);
         return 0;
     }
     else
     {
+        QSettings *configIniRead_ver = new QSettings(donate_ini, QSettings::IniFormat);
+        configIniRead_ver->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        QString DonateINI_VERSION = configIniRead_ver->value("/Donate/VERSION").toString();
+        if(DonateINI_VERSION!=VERSION)
+        {
+            QFile::remove(donate_ini);
+            QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+            configIniWrite->setValue("/Donate/VERSION", VERSION);
+            configIniWrite->setValue("/Donate/OpenCount_Current", 1);
+            configIniWrite->setValue("/Donate/OpenCount_Max", 5);
+            configIniWrite->setValue("/Donate/OFF", 0);
+            return 0;
+        }
+    }
+    QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
+    if(configIniRead->value("/Donate/OFF").toInt()==1)return 0;
+    //=======  读取打开次数  ======
+    int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
+    int OpenCount_Max = configIniRead->value("/Donate/OpenCount_Max").toInt();
+    OpenCount_Current++;
+    if(OpenCount_Current<OpenCount_Max)
+    {
+        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+        configIniWrite->setValue("/Donate/OpenCount_Current", OpenCount_Current);
+        return 0;
+    }
+    else
+    {
+        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+        configIniWrite->setValue("/Donate/OpenCount_Max", OpenCount_Max+60);
         QtConcurrent::run(this, &MainWindow::Donate_watchdog);
         return 0;
     }
@@ -1008,16 +1031,18 @@ int MainWindow::Donate_watchdog()
 
 int MainWindow::Donate_Notification()
 {
-    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you like using this software?\nIf you like the software, please donate to support the developers to ensure the software is continuously updated.\n(This popup will only pop up once after the software is installed.)")));
+    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you like this software?\n\nIf you like this software, please donate to support the developers to ensure the software is continuously updated.\n\nThank you!")));
     Msg.setModal(false);
+    Msg.setIcon(QMessageBox::Information);
     QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
     QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
     Msg.exec();
-    if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
-    //=========
-    QString donate_ini = Current_Path+"/donate.ini";
-    QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-    configIniWrite->setValue("/Donate/PopUp", 1);
+    if (Msg.clickedButton() == pYesBtn)
+    {
+        ui->tabWidget->setCurrentIndex(1);
+        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
+    }
     //=========
     return 0;
 }
@@ -1589,5 +1614,19 @@ void MainWindow::on_tabWidget_currentChanged(int index)
     if(ui->tabWidget->currentIndex()==1)
     {
         ui->groupBox_AdditionalSettings->setVisible(1);
+    }
+}
+
+void MainWindow::on_checkBox_ProcessVideoBySegment_stateChanged(int arg1)
+{
+    if(ui->checkBox_ProcessVideoBySegment->checkState())
+    {
+        ui->label_SegmentDuration->setEnabled(1);
+        ui->spinBox_SegmentDuration->setEnabled(1);
+    }
+    else
+    {
+        ui->label_SegmentDuration->setEnabled(0);
+        ui->spinBox_SegmentDuration->setEnabled(0);
     }
 }

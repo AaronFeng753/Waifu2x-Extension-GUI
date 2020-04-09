@@ -152,7 +152,6 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
                 Waifu2x->close();
                 status = "Interrupted";
                 emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-                emit Send_progressbar_Add();
                 mutex_ThreadNumRunning.lock();
                 ThreadNumRunning--;
                 mutex_ThreadNumRunning.unlock();
@@ -441,7 +440,6 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -893,7 +891,6 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             }
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
             mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1314,7 +1311,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                 InterPro_now++;
                 if(ui->checkBox_ShowInterPro->checkState())
                 {
-                    emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
+                    emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
                 }
                 int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
                 if(waifu2x_STOP)
@@ -1325,7 +1322,6 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                     }
                     status = "Interrupted";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-                    emit Send_progressbar_Add();
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
                     mutex_ThreadNumRunning.unlock();//线程数量统计-1s

@@ -253,6 +253,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_FileList_Interactive_stateChanged(0);
     on_checkBox_OutPath_isEnabled_stateChanged(0);
     on_checkBox_AudioDenoise_stateChanged(0);
+    on_checkBox_ProcessVideoBySegment_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -301,6 +302,7 @@ void MainWindow::Settings_Apply()
     on_checkBox_FileList_Interactive_stateChanged(0);
     on_checkBox_OutPath_isEnabled_stateChanged(0);
     on_checkBox_AudioDenoise_stateChanged(0);
+    on_checkBox_ProcessVideoBySegment_stateChanged(0);
     //====
     on_comboBox_GPUID_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);

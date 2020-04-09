@@ -389,6 +389,8 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_ForceRetry->setEnabled(0);
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     ui->groupBox_AudioDenoise->setEnabled(1);
+    ui->checkBox_ProcessVideoBySegment->setEnabled(1);
+    ui->spinBox_SegmentDuration->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;
