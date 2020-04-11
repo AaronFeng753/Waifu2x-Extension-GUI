@@ -17,7 +17,7 @@
 
 <h4 align="center"> 支持的语言: English, 简体中文, 日本語(機械翻訳) </h4>
 
-<h4 align="center"> 支持的显卡品牌: AMD, NVIDIA, Intel </h4>
+<h4 align="center"> 支持的显卡品牌: <b style="color:#EDEC24">AMD</b>, NVIDIA, Intel </h4>
 
 ### [下载](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)---[Wiki 使用说明](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki)---[更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)---[捐赠](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md)
 
