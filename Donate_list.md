@@ -129,5 +129,12 @@ Name(or ID) | Donation amount | Time
 | Anonymous | 10 RMB | 2020/4/4 |
 | Anonymous | 5 RMB | 2020/4/7 |
 | Anonymous | 2.88 RMB | 2020/4/8 |
+| Esper Wang | 23.76 USD | 2020/4/10 |
+| 匿名 | 1 RMB | 2020/4/10 |
+| 匿名 | 4 RMB | 2020/4/10 |
+| 匿名 | 3 RMB | 2020/4/10 |
+| 匿名 | 2 RMB | 2020/4/10 |
+| 匿名 | 20 RMB | 2020/4/11 |
+| 匿名 | 1 RMB | 2020/4/11 |
 
 #### Small donations (less than 1 RMB) will not recorded in the donation list.
