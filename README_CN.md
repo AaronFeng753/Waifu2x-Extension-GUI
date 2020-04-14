@@ -167,7 +167,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
-# ❤ 捐赠 ❤
+# ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
 ### [捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md)
 ### 除了扫码捐赠现金, 您也可以 打开支付宝首页搜“682796694”领红包并使用(比如直接把红包发给我🤣), 我也可以获得收入.
