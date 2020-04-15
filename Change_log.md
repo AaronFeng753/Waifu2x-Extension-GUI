@@ -1,5 +1,14 @@
 # Change log
 ---
+## [v1.62.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.3)
+#### Change log:
+- New feature: waifu2x-ncnn-vulkan adds fp16p support, which improves compatibility with some old drivers.
+- Update waifu2x-ncnn-vulkan (version 20200414).
+- Update ImageMagick (7.0.10-6-Q16-x64).
+- Change the default custom resolution aspect ratio strategy to keep aspect ratio.
+- Fixe bug: interface display error in some cases.
+- Fixe bug: when the source video file name contains Chinese, the video cannot be assembled correctly after processing the video in segments.
+---
 ## [v1.61.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.61.3)
 #### Change log:
 - New feature: Processing video in segments, greatly reducing the hard disk space occupied when processing video. 🎉🥳🎉 (Optional, additional settings, enabled by default)
