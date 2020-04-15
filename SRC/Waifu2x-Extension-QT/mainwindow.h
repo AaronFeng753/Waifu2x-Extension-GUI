@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.62.3";//软件版本号
+    QString VERSION = "v1.62.4";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -222,7 +222,7 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
     void Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
-    int video_get_fps(QString videoPath);//获取视频fps
+    QString video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
     //拆分视频
     void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);

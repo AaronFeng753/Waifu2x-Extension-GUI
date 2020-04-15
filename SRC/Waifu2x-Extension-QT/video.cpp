@@ -450,14 +450,14 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     return BitRate;
 }
 
-int MainWindow::video_get_fps(QString videoPath)
+QString MainWindow::video_get_fps(QString videoPath)
 {
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess vid;
     vid.start("\""+program+"\" \""+videoPath+"\" fps");
     while(!vid.waitForStarted(100)&&!QProcess_stop) {}
     while(!vid.waitForFinished(100)&&!QProcess_stop) {}
-    int fps=vid.readAllStandardOutput().toInt();
+    QString fps=vid.readAllStandardOutput();
     return fps;
 }
 
@@ -637,8 +637,8 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString video_dir = file_getFolderPath(vfinfo);
     QString video_filename = file_getBaseName(vfinfo.filePath());
     QString video_ext = vfinfo.suffix();
-    int fps = video_get_fps(VideoPath);
-    if(fps<=0)
+    QString fps = video_get_fps(VideoPath).trimmed();
+    if(fps == "0")
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+VideoPath+tr("]. Error: [Unable to get video frame rate.]"));
         return 0;
@@ -657,11 +657,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString CMD = "";
     if(file_isFileExist(AudioPath))
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
     }
     else
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
     }
     QProcess images2video;
     images2video.start(CMD);
@@ -672,11 +672,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     {
         if(file_isFileExist(AudioPath))
         {
-            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -i \""+AudioPath+"\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -i \""+AudioPath+"\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
         }
         else
         {
-            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+QString::number(fps,10)+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -r "+QString::number(fps,10)+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
         }
         QProcess images2video;
         images2video.start(CMD);
