@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v1.62.2:
+- 修复一处bug
 v1.62.1:
 - 新特性:waifu2x-ncnn-vulkan新增了fp16p支持,改善了对一些老驱动的兼容性.
 - 更新waifu2x-ncnn-vulkan(version 20200414).
