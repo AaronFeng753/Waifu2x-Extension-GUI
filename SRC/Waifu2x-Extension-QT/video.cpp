@@ -110,9 +110,10 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     }
     QProcess AssembleVideo;
     AssembleVideo.start(CMD);
+    emit Send_TextBrowser_NewMessage(CMD);
     while(!AssembleVideo.waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop) {}
-    QFile::remove(Path_FFMpegFileList);//删除文件列表
+    //QFile::remove(Path_FFMpegFileList);//删除文件列表
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);
     //==============================

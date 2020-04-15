@@ -441,8 +441,17 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
     QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
-    QString VideoClipsFolderPath = file_path+"/"+file_name+"_"+file_ext+"_videoClips_waifu2x";//存储视频片段的文件夹(完整路径)
-    QString VideoClipsFolderName = file_name+"_"+file_ext+"_videoClips_waifu2x";//存储视频片段的文件夹(名称)
+    //===
+    QString VideoClipsFolderPath = "";//存储视频片段的文件夹(完整路径)
+    int RandomNum_tmp = 0;
+    do
+    {
+        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+        RandomNum_tmp = qrand()%100000;
+        VideoClipsFolderPath = file_path+"/"+QString::number(RandomNum_tmp,10)+"_videoClips_waifu2x";//存储视频片段的文件夹(完整路径)
+    }
+    while(file_isDirExist(VideoClipsFolderPath));
+    QString VideoClipsFolderName = QString::number(RandomNum_tmp,10)+"_videoClips_waifu2x";//存储视频片段的文件夹(名称)
     //==========================
     //   检测之前的视频配置文件
     //==========================

@@ -32,8 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v1.62.3:
+- 修复bug:当源视频文件名称内包含中文时,分段处理视频后无法正确的组装视频.
 v1.62.2:
-- 修复一处bug
+- 修复bug:某些情况下的界面显示错误.
 v1.62.1:
 - 新特性:waifu2x-ncnn-vulkan新增了fp16p支持,改善了对一些老驱动的兼容性.
 - 更新waifu2x-ncnn-vulkan(version 20200414).
