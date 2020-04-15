@@ -6,7 +6,7 @@
 ---
 ## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
 #### 更新日志:
-- 修复bug: 一些情况下,输出的视频会音画不同步.
+- 修复bug: 一些情况下,输出的视频会音画不同步.(感谢  @FITHRPG6 的反馈)
 ---
 ## [v1.62.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.3)
 #### 更新日志:
