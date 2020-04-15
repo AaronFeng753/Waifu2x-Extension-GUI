@@ -421,11 +421,11 @@ int MainWindow::Waifu2x_Compatibility_Test()
     while(!Waifu2x_vulkan->waitForFinished(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan: Yes"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version): Yes"));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version): No. [Advice: Re-install gpu driver or update it to the latest.]"));
     }
     QFile::remove(OutputPath);
     //================
@@ -439,11 +439,29 @@ int MainWindow::Waifu2x_Compatibility_Test()
     while(!Waifu2x_vulkan_old->waitForFinished(100)&&!QProcess_stop) {}
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Version): Yes"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(Old Version): Yes"));
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(OLD Version): No. [Advice: Re-install gpu driver or update it to the latest.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(Old Version): No. [Advice: Re-install gpu driver or update it to the latest.]"));
+    }
+    QFile::remove(OutputPath);
+    //================
+    Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
+    program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe";
+    model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
+    QProcess *Waifu2x_vulkan_fp16p = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1";
+    Waifu2x_vulkan_fp16p->start(cmd);
+    while(!Waifu2x_vulkan_fp16p->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x_vulkan_fp16p->waitForFinished(100)&&!QProcess_stop) {}
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version(fp16p)): Yes"));
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]"));
     }
     QFile::remove(OutputPath);
     //================

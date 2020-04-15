@@ -179,6 +179,10 @@ int MainWindow::Force_close()
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //==============
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
@@ -1016,7 +1020,7 @@ int MainWindow::Donate_Count()
     else
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/OpenCount_Max", OpenCount_Max+60);
+        configIniWrite->setValue("/Donate/OpenCount_Max", OpenCount_Max+30);
         QtConcurrent::run(this, &MainWindow::Donate_watchdog);
         return 0;
     }
@@ -1527,31 +1531,9 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     }
 }
 
-void MainWindow::on_checkBox_old_vulkan_stateChanged(int arg1)
-{
-    if(ui->checkBox_old_vulkan->checkState())
-    {
-        ui->checkBox_TTA_vulkan->setEnabled(0);
-        ui->checkBox_TTA_vulkan->setChecked(0);
-    }
-    else
-    {
-        ui->checkBox_TTA_vulkan->setEnabled(1);
-    }
-}
 
-void MainWindow::on_checkBox_TTA_vulkan_stateChanged(int arg1)
-{
-    if(ui->checkBox_TTA_vulkan->checkState())
-    {
-        ui->checkBox_old_vulkan->setEnabled(0);
-        ui->checkBox_old_vulkan->setChecked(0);
-    }
-    else
-    {
-        ui->checkBox_old_vulkan->setEnabled(1);
-    }
-}
+
+
 
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
@@ -1561,6 +1543,9 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     //========
     QProcess Close;
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
@@ -1628,5 +1613,34 @@ void MainWindow::on_checkBox_ProcessVideoBySegment_stateChanged(int arg1)
     {
         ui->label_SegmentDuration->setEnabled(0);
         ui->spinBox_SegmentDuration->setEnabled(0);
+    }
+}
+
+void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int index)
+{
+    switch (ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex())
+    {
+        case 0:
+            {
+                Waifu2x_ncnn_vulkan_FolderPath = Current_Path + "/waifu2x-ncnn-vulkan";
+                Waifu2x_ncnn_vulkan_ProgramPath = Waifu2x_ncnn_vulkan_FolderPath + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
+                ui->checkBox_TTA_vulkan->setEnabled(1);
+                return;
+            }
+        case 1:
+            {
+                Waifu2x_ncnn_vulkan_FolderPath = Current_Path + "/waifu2x-ncnn-vulkan";
+                Waifu2x_ncnn_vulkan_ProgramPath = Waifu2x_ncnn_vulkan_FolderPath + "/waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe";
+                ui->checkBox_TTA_vulkan->setEnabled(1);
+                return;
+            }
+        case 2:
+            {
+                Waifu2x_ncnn_vulkan_FolderPath = Current_Path + "/waifu2x-ncnn-vulkan-old";
+                Waifu2x_ncnn_vulkan_ProgramPath = Waifu2x_ncnn_vulkan_FolderPath + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
+                ui->checkBox_TTA_vulkan->setEnabled(0);
+                ui->checkBox_TTA_vulkan->setChecked(0);
+                return;
+            }
     }
 }

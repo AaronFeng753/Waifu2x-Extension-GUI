@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.61.3";//软件版本号
+    QString VERSION = "v1.62.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -144,6 +144,9 @@ public:
     QString OutPutFolder_main="";//总输出文件夹
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
     //==========================
+    QString Waifu2x_ncnn_vulkan_FolderPath = "";
+    QString Waifu2x_ncnn_vulkan_ProgramPath = "";
+    //===
     int Waifu2x_NCNN_Vulkan_Image(int rowNum);//vulkan放大图片线程
     //vulakn放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_GIF(int rowNum);
@@ -489,10 +492,6 @@ private slots:
 
     void on_checkBox_OutPath_isEnabled_stateChanged(int arg1);
 
-    void on_checkBox_old_vulkan_stateChanged(int arg1);
-
-    void on_checkBox_TTA_vulkan_stateChanged(int arg1);
-
     void on_pushButton_ForceRetry_clicked();
 
     void on_pushButton_PayPal_clicked();
@@ -506,6 +505,8 @@ private slots:
     void on_tabWidget_currentChanged(int index);
 
     void on_checkBox_ProcessVideoBySegment_stateChanged(int arg1);
+
+    void on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int index);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
