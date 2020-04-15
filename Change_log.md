@@ -2,7 +2,7 @@
 ---
 ## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
 #### Change log:
-- Fix bug: In some cases, the output video will be out of sync.
+- Fix bug: In some cases, the output video will be out of sync.(thanks to  @FITHRPG6 for feedback)
 ---
 ## [v1.62.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.3)
 #### Change log:
