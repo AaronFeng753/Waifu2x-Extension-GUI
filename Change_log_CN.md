@@ -4,6 +4,10 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
+#### 更新日志:
+- 修复bug: 一些情况下,输出的视频会音画不同步.
+---
 ## [v1.62.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.3)
 #### 更新日志:
 - 新特性:waifu2x-ncnn-vulkan新增了fp16p支持,改善了对一些老驱动的兼容性.
