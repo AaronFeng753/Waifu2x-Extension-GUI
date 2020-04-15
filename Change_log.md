@@ -1,5 +1,9 @@
 # Change log
 ---
+## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
+#### Change log:
+- Fix bug: In some cases, the output video will be out of sync.
+---
 ## [v1.62.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.3)
 #### Change log:
 - New feature: waifu2x-ncnn-vulkan adds fp16p support, which improves compatibility with some old drivers.
