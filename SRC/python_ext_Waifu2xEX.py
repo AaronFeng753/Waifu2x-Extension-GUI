@@ -55,7 +55,7 @@ def getDuration(FILENAME):
 def getVideoInfo():
 	cap = cv2.VideoCapture(inputpath)
 	if opt=="fps":
-		fps = int(round(cap.get(cv2.CAP_PROP_FPS)))
+		fps = cap.get(cv2.CAP_PROP_FPS)
 		print(fps)
 	elif opt=="countframe":
 		frame_counter = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
