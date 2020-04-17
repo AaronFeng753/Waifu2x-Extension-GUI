@@ -115,6 +115,7 @@ Name(or ID) | Donation amount | Time
 | Anonymous | 1.26 RMB | 2020/3/23 |
 | Anonymous | 1 RMB | 2020/3/25 |
 | Anonymous | 10 RMB | 2020/3/26 |
+| Dominique Jouan | 4.48 USD | 2020/3/26 |
 | Anonymous | 10 RMB | 2020/3/27 |
 | Anonymous | 3 RMB | 2020/3/27 |
 | Anonymous | 3 RMB | 2020/3/28 |
