@@ -2,6 +2,16 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v1.63.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.63.1)
+#### Change log:
+- Improve stability.
+- Optimize performance.
+- Add some tips.
+- Change some text.
+- Fix translation errors.
+- Fix bug: In rare cases, the cached files will have the same name and cause an error.
+- Fix bug: Reset video settings button does not work properly.
+---
 ## [v1.62.5](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.5)
 #### Change log:
 - Fix bug: when the `Process video by segment` is enabled, the cache cannot be read normally, which will cause the software unable to continue the previous progress.(Thanks to Esper Wang for feedback✔)
