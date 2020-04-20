@@ -1,8 +1,14 @@
 # 更新日志
 ---
+#### [English](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
+---
 #### 全部历史版本安装包合集:
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
+---
+## [v1.62.5](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.5)
+#### 更新日志:
+- 修复bug:当`分段处理视频`启用时,无法正常读取缓存,这将导致软件无法继续之前的进度.
 ---
 ## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
 #### 更新日志:
