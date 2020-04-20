@@ -6,6 +6,16 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v1.63.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.63.1)
+#### 更新日志:
+- 提高稳定性.
+- 优化性能.
+- 添加一些提示.
+- 修改部分文字.
+- 修正翻译错误.
+- 修复bug:极少数情况下缓存文件会重名并导致错误.
+- 修复bug:重置视频设置按钮无法正常工作.
+---
 ## [v1.62.5](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.5)
 #### 更新日志:
 - 修复bug:当`分段处理视频`启用时,无法正常读取缓存,这将导致软件无法继续之前的进度.(感谢 Esper Wang 的反馈✔)
