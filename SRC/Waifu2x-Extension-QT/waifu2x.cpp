@@ -22,7 +22,7 @@
 
 int MainWindow::Waifu2xMainThread()
 {
-    Delay_msec_sleep(2000);
+    Delay_msec_sleep(1000);
     int rowCount_image = Table_model_image->rowCount();
     int rowCount_gif = Table_model_gif->rowCount();
     int rowCount_video = Table_model_video->rowCount();

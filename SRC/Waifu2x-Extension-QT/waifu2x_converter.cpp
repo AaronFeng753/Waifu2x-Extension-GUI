@@ -1071,15 +1071,14 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
     //===
     QString VideoClipsFolderPath = "";//存储视频片段的文件夹(完整路径)
-    int RandomNum_tmp = 0;
+    QString DateStr = "";
     do
     {
-        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-        RandomNum_tmp = qrand()%100000;
-        VideoClipsFolderPath = file_path+"/"+QString::number(RandomNum_tmp,10)+"_videoClips_waifu2x";//存储视频片段的文件夹(完整路径)
+        DateStr = video_getClipsFolderNo();
+        VideoClipsFolderPath = file_path+"/"+DateStr+"_VideoClipsWaifu2xEX";//存储视频片段的文件夹(完整路径)
     }
     while(file_isDirExist(VideoClipsFolderPath));
-    QString VideoClipsFolderName = QString::number(RandomNum_tmp,10)+"_videoClips_waifu2x";//存储视频片段的文件夹(名称)
+    QString VideoClipsFolderName = DateStr+"_VideoClipsWaifu2xEX";//存储视频片段的文件夹(名称)
     //==========================
     //   检测之前的视频配置文件
     //==========================

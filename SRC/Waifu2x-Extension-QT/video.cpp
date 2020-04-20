@@ -20,6 +20,17 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+生成视频片段文件夹编号
+*/
+QString MainWindow::video_getClipsFolderNo()
+{
+    getClipsFolderNo_mutex.lock();
+    Delay_msec_sleep(1500);
+    QString current_date =QDateTime::currentDateTime().toString("yyMMddhhmmss");
+    getClipsFolderNo_mutex.unlock();
+    return current_date;
+}
+/*
 组装视频(从mp4片段组装)
 */
 void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString VideoClipsFolderName,QString video_mp4_scaled_fullpath,QString AudioPath)

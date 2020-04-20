@@ -1020,7 +1020,8 @@ int MainWindow::Donate_Count()
     else
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/OpenCount_Max", OpenCount_Max+30);
+        configIniWrite->setValue("/Donate/OpenCount_Current", 1);
+        configIniWrite->setValue("/Donate/OpenCount_Max", 30);//间隔多少次弹出一次捐赠提示
         QtConcurrent::run(this, &MainWindow::Donate_watchdog);
         return 0;
     }

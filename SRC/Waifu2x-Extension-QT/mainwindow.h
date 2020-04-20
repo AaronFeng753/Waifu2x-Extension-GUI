@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.62.5";//软件版本号
+    QString VERSION = "v1.62.6";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -244,6 +244,9 @@ public:
     void video_video2images_ProcessBySegment(QString VideoPath,QString FrameFolderPath,int StartTime,int SegmentDuration);
     //组装视频(mp4片段到成片)
     void video_AssembleVideoClips(QString VideoClipsFolderPath,QString VideoClipsFolderName,QString video_mp4_scaled_fullpath,QString AudioPath);
+    //生成视频片段文件夹编号
+    QString video_getClipsFolderNo();
+    QMutex getClipsFolderNo_mutex;
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]

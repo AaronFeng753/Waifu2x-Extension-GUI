@@ -60,8 +60,7 @@ FORMS += \
 
 TRANSLATIONS += language_English.ts \
                language_Chinese.ts \
-               language_Japanese.ts \
-               language_TraditionalChinese.ts
+               language_Japanese.ts
 
 TARGET = Waifu2x-Extension-GUI
 
