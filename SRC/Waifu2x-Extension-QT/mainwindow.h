@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.62.6";//软件版本号
+    QString VERSION = "v1.63.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -105,7 +105,6 @@ public:
     void file_MoveFile(QString Orginal,QString Target);//移动文件
 
     QString file_getFolderPath(QFileInfo fileInfo);//获取文件夹路径(去除末尾的"/")
-
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
@@ -205,7 +204,6 @@ public:
     QString GPU_ID_STR_SRMD="";//向srmd命令行cmd插入的gpuid命令,如果auto则为空
 
     bool Imgae_hasAlphaChannel(int rowNum);
-
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -259,13 +257,10 @@ public:
     int CustRes_SetToScreenRes();//将自定义分辨率值设定为屏幕分辨率
 
     Qt::AspectRatioMode CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;//自定义分辨率的纵横比策略
-
     //======================== 设置 ===========================================
     int Settings_Read_Apply();//读取与apply设置
     void Settings_Apply();
     bool Settings_isReseted = false;//是否重置设置标记
-
-
     //================================ Other =======================================
     int SystemShutDown_Countdown();//自动关机倒计时
     int SystemShutDown_isAutoShutDown();//判断之前是否执行过自动关机
@@ -287,7 +282,6 @@ public:
 
     int Donate_Count();//计算启动次数判断是否弹窗
     int Donate_watchdog();//后台延时,然后弹出捐赠提示
-
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件,包含所有关闭时执行的代码
     bool QProcess_stop=false;//所有QProcess停止标记

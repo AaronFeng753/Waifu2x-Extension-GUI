@@ -587,14 +587,10 @@ void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
 void MainWindow::on_pushButton_donate_clicked()
 {
     emit Send_TextBrowser_NewMessage(tr("Thank you! :)"));
+    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
     if(ui->comboBox_language->currentIndex()==1)
     {
-        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
         QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
-    }
-    else
-    {
-        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
     }
     ui->tabWidget->setCurrentIndex(1);
 }
@@ -1057,7 +1053,7 @@ void MainWindow::on_checkBox_autoCheckUpdate_clicked()
     if(ui->checkBox_autoCheckUpdate->checkState()==false)
     {
         QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Warning"));
+        MSG->setWindowTitle(tr("!!! Warning !!!"));
         MSG->setText(tr("We do not recommend that you cancel the automatic check for updates as this may prevent you from receiving timely bug fixes."));
         MSG->setIcon(QMessageBox::Warning);
         MSG->setModal(false);
@@ -1292,6 +1288,10 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
 */
 void MainWindow::on_pushButton_wiki_clicked()
 {
+    if(ui->comboBox_language->currentIndex()==1)
+    {
+        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/wikis"));
+    }
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki"));
 }
 /*
@@ -1380,6 +1380,9 @@ void MainWindow::on_pushButton_ResetVideoSettings_clicked()
     ui->checkBox_vcodec_copy_2mp4->setChecked(0);
     ui->spinBox_bitrate_vid_2mp4->setEnabled(1);
     ui->spinBox_bitrate_audio_2mp4->setEnabled(1);
+    //====
+    ui->lineEdit_ExCommand_2mp4->setText("");
+    ui->lineEdit_ExCommand_output->setText("");
 }
 
 void MainWindow::on_lineEdit_encoder_vid_textChanged(const QString &arg1)

@@ -130,7 +130,7 @@ void MainWindow::Read_urls_finfished()
     ui->tableView_image->scrollToBottom();
     ui->tableView_video->scrollToBottom();
     AddNew_image=false;
-    AddNew_image=false;
+    AddNew_gif=false;
     AddNew_video=false;
     Table_FileCount_reload();
 }

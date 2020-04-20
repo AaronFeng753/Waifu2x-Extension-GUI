@@ -46,7 +46,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -576,7 +576,7 @@ selection-background-color: rgb(52, 152, 219);
                 <number>0</number>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>200</number>
+                <number>0</number>
                </attribute>
                <attribute name="horizontalHeaderStretchLastSection">
                 <bool>false</bool>
@@ -630,7 +630,7 @@ selection-background-color: rgb(26, 188, 156);
                 <number>0</number>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>200</number>
+                <number>0</number>
                </attribute>
                <attribute name="verticalHeaderVisible">
                 <bool>false</bool>
@@ -675,7 +675,7 @@ selection-background-color: rgb(178, 58, 238);
                 <number>0</number>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>200</number>
+                <number>0</number>
                </attribute>
                <attribute name="verticalHeaderVisible">
                 <bool>false</bool>
@@ -1539,7 +1539,9 @@ where the file is located is enabled)</string>
               <item row="4" column="3">
                <widget class="QSpinBox" name="spinBox_ThreadNum_video_internal">
                 <property name="toolTip">
-                 <string>Internal threads number of Video.</string>
+                 <string>The number of threads that the software processes video frames,
+which will determine how many video frames the software will
+process at the same time when processing a video.</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1573,6 +1575,11 @@ where the file is located is enabled)</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="toolTip">
+                 <string>The number of threads that the software processes video,
+which will determine how many video files the software
+will process at the same time.</string>
+                </property>
                 <property name="text">
                  <string>Video:</string>
                 </property>
@@ -1580,6 +1587,11 @@ where the file is located is enabled)</string>
               </item>
               <item row="0" column="1" colspan="4">
                <widget class="QSpinBox" name="spinBox_ThreadNum_image">
+                <property name="toolTip">
+                 <string>The number of threads that the software processes pictures,
+which will determine how many pictures the software will
+process at the same time.</string>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -1601,6 +1613,11 @@ where the file is located is enabled)</string>
                   <width>50</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="toolTip">
+                 <string>The number of threads that the software processes GIF,
+which will determine how many GIF files the software
+will process at the same time.</string>
                 </property>
                 <property name="text">
                  <string>GIF:</string>
@@ -1629,7 +1646,9 @@ where the file is located is enabled)</string>
                  </size>
                 </property>
                 <property name="toolTip">
-                 <string>Internal threads number of Video.</string>
+                 <string>The number of threads that the software processes video frames,
+which will determine how many video frames the software will
+process at the same time when processing a video.</string>
                 </property>
                 <property name="text">
                  <string>Internal:</string>
@@ -1638,6 +1657,11 @@ where the file is located is enabled)</string>
               </item>
               <item row="2" column="1">
                <widget class="QSpinBox" name="spinBox_ThreadNum_gif">
+                <property name="toolTip">
+                 <string>The number of threads that the software processes GIF,
+which will determine how many GIF files the software
+will process at the same time.</string>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -1668,7 +1692,9 @@ where the file is located is enabled)</string>
                  </size>
                 </property>
                 <property name="toolTip">
-                 <string/>
+                 <string>The number of threads that the software processes pictures,
+which will determine how many pictures the software will
+process at the same time.</string>
                 </property>
                 <property name="statusTip">
                  <string/>
@@ -1683,6 +1709,11 @@ where the file is located is enabled)</string>
               </item>
               <item row="4" column="1">
                <widget class="QSpinBox" name="spinBox_ThreadNum_video">
+                <property name="toolTip">
+                 <string>The number of threads that the software processes video,
+which will determine how many video files the software
+will process at the same time.</string>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -1712,7 +1743,9 @@ where the file is located is enabled)</string>
                  </size>
                 </property>
                 <property name="toolTip">
-                 <string>Internal threads number of GIF.</string>
+                 <string>The number of threads that the software processes GIF frames,
+which will determine how many GIF frames the software will
+process at the same time when processing a GIF.</string>
                 </property>
                 <property name="text">
                  <string>Internal:</string>
@@ -1722,7 +1755,9 @@ where the file is located is enabled)</string>
               <item row="2" column="3">
                <widget class="QSpinBox" name="spinBox_ThreadNum_gif_internal">
                 <property name="toolTip">
-                 <string>Internal threads number of GIF.</string>
+                 <string>The number of threads that the software processes GIF frames,
+which will determine how many GIF frames the software will
+process at the same time when processing a GIF.</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -2108,7 +2143,7 @@ You can run compatibility test to see which engines your PC is compatible with.<
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>290</width>
+                   <width>294</width>
                    <height>200</height>
                   </rect>
                  </property>
@@ -2945,6 +2980,9 @@ padding:10px;
                <underline>false</underline>
                <strikeout>false</strikeout>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>Donate to the developer through PayPal.</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
