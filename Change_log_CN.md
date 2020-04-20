@@ -8,7 +8,7 @@
 ---
 ## [v1.62.5](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.5)
 #### 更新日志:
-- 修复bug:当`分段处理视频`启用时,无法正常读取缓存,这将导致软件无法继续之前的进度.
+- 修复bug:当`分段处理视频`启用时,无法正常读取缓存,这将导致软件无法继续之前的进度.(感谢 Esper Wang 的反馈.👍)
 ---
 ## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
 #### 更新日志:
