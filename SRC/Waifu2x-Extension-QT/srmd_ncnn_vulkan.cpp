@@ -901,7 +901,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",false);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",false,"","");
     }
     //=======================
     //   检测缓存是否存在
@@ -924,7 +924,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             {
                 if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             }
-            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",false);
+            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",false,"","");
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
         }
@@ -940,7 +940,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         {
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         }
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",false);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",false,"","");
         //========
     }
     if(!isCacheExists)
@@ -1273,10 +1273,18 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
         {
             isVideoConfigChanged=true;
         }
+        //============ 修正文件夹名称 =============
+        QString VideoClipsFolderPath_old = configIniRead->value("/VideoConfiguration/VideoClipsFolderPath").toString();
+        QString VideoClipsFolderName_old = configIniRead->value("/VideoConfiguration/VideoClipsFolderName").toString();
+        if(file_isDirExist(VideoClipsFolderPath_old)==true)
+        {
+            VideoClipsFolderPath = VideoClipsFolderPath_old;
+            VideoClipsFolderName = VideoClipsFolderName_old;
+        }
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",true);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
     }
     //=======================
     //   检测缓存是否存在
@@ -1300,7 +1308,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             {
                 if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             }
-            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",true);
+            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
         }
@@ -1317,7 +1325,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
         {
             if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         }
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",true);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"srmd-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
         //========
     }
     /*====================================

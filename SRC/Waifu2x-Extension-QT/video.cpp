@@ -343,7 +343,7 @@ void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguratio
 /*
 保存视频配置
 */
-void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment)
+void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName)
 {
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -357,6 +357,8 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     configIniWrite->setValue("/VideoConfiguration/CustRes_width", CustRes_width);
     configIniWrite->setValue("/VideoConfiguration/EngineName", EngineName);
     configIniWrite->setValue("/VideoConfiguration/isProcessBySegment", isProcessBySegment);
+    configIniWrite->setValue("/VideoConfiguration/VideoClipsFolderPath", VideoClipsFolderPath);
+    configIniWrite->setValue("/VideoConfiguration/VideoClipsFolderName", VideoClipsFolderName);
     //==================== 存储进度 ==================================
     configIniWrite->setValue("/Progress/StartTime", 0);
     configIniWrite->setValue("/Progress/isSplitComplete", false);
