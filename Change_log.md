@@ -1,5 +1,11 @@
 # Change log
 ---
+#### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
+---
+## [v1.62.5](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.5)
+#### Change log:
+- Fix bug: when the `Process video by segment` is enabled, the cache cannot be read normally, which will cause the software unable to continue the previous progress.
+---
 ## [v1.62.4](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.62.4)
 #### Change log:
 - Fix bug: In some cases, the output video will be out of sync.(thanks to  @FITHRPG6 for feedback)
