@@ -146,6 +146,8 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - SoX: http://sox.sourceforge.net/
 
+- Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
+
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
