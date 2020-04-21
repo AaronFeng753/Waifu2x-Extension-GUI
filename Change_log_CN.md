@@ -6,6 +6,15 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v1.71.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.71.1)
+#### 更新日志:
+- 新特性:用Anime4KCPP替换掉了之前的Anime4K-JAVA,Anime4KCPP与Anime4K-JAVA相比速度更快,画质更好.
+- 新特性:为Anime4K引擎添加了大量自定义设置.
+![cn](https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/temp/anime4kSettings_cn.jpg)
+- 界面布局调整.
+- 修正翻译错误.
+- 修改部分文本.
+---
 ## [v1.63.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.63.1)
 #### 更新日志:
 - 提高稳定性.
