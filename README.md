@@ -25,7 +25,7 @@
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan` and `Waifu2x-converter` . 
+Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter` and `Anime4K`. 
 
 Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could use any kind of gpu that support `Vulkan`, even Intel GPU. 
 
