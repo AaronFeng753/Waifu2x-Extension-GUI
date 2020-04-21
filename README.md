@@ -107,7 +107,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 - SRMD-ncnn-Vulkan version 20200224
 
-- Anime4K Java v0.9 Beta
+- Anime4KCPP v1.3.1
 
 - ffmpeg version 4.2.2
 
