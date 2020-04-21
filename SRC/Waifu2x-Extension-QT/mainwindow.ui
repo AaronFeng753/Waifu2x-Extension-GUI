@@ -46,7 +46,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="iconSize">
        <size>
@@ -573,10 +573,10 @@ selection-background-color: rgb(52, 152, 219);
                 <bool>false</bool>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>0</number>
+                <number>20</number>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>0</number>
+                <number>200</number>
                </attribute>
                <attribute name="horizontalHeaderStretchLastSection">
                 <bool>false</bool>
@@ -627,10 +627,10 @@ selection-background-color: rgb(26, 188, 156);
                 <bool>false</bool>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>0</number>
+                <number>20</number>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>0</number>
+                <number>200</number>
                </attribute>
                <attribute name="verticalHeaderVisible">
                 <bool>false</bool>
@@ -669,13 +669,13 @@ selection-background-color: rgb(178, 58, 238);
                 <bool>false</bool>
                </property>
                <attribute name="horizontalHeaderVisible">
-                <bool>false</bool>
+                <bool>true</bool>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>0</number>
+                <number>20</number>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>0</number>
+                <number>200</number>
                </attribute>
                <attribute name="verticalHeaderVisible">
                 <bool>false</bool>
@@ -2313,7 +2313,7 @@ padding:10px;
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
 but the effect may not be obvious. It is not recommended to enable it.
-Uncheck the [OLD Version] to enable [TTA].</string>
+[TTA] is not available for [OLD Version] of waifu2x-ncnn-vulkan.</string>
                     </property>
                     <property name="text">
                      <string>TTA</string>
