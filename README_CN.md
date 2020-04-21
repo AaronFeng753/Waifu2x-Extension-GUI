@@ -165,6 +165,8 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - SoX: http://sox.sourceforge.net/
 
+- Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
+
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
