@@ -485,14 +485,14 @@ int MainWindow::Waifu2x_Compatibility_Test()
     else
     {
         emit Send_AutoDetectAlphaChannel_setChecked(false);
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No."));
     }
     QFile::remove(OutputPath);
     //===============
     Current_Path = qApp->applicationDirPath();
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
-    program = Anime4k_folder_path + "/Anime4K.jar";
-    cmd = "java -jar \"" + program + "\" \"" + InputPath + "\" \"" + OutputPath + "\" 2";
+    program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
+    cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2";
     QProcess *Waifu2x_anime4k = new QProcess();
     Waifu2x_anime4k->start(cmd);
     if(Waifu2x_anime4k->waitForStarted(60000))
@@ -505,7 +505,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: No."));
     }
     QFile::remove(OutputPath);
     //================

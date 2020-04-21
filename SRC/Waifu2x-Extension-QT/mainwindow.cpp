@@ -195,6 +195,10 @@ int MainWindow::Force_close()
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //==============
+    Close.start("taskkill /f /t /fi \"imagename eq Anime4K_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //==============
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
@@ -1646,5 +1650,53 @@ void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int i
                 ui->checkBox_TTA_vulkan->setChecked(0);
                 return;
             }
+    }
+}
+
+void MainWindow::on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1)
+{
+    if(ui->checkBox_EnablePreProcessing_Anime4k->checkState())
+    {
+        ui->checkBox_MedianBlur_Pre_Anime4k->setEnabled(1);
+        ui->checkBox_MeanBlur_Pre_Anime4k->setEnabled(1);
+        ui->checkBox_CASSharping_Pre_Anime4k->setEnabled(1);
+        ui->checkBox_GaussianBlurWeak_Pre_Anime4k->setEnabled(1);
+        ui->checkBox_GaussianBlur_Pre_Anime4k->setEnabled(1);
+        ui->checkBox_BilateralFilter_Pre_Anime4k->setEnabled(1);
+        ui->checkBox_BilateralFilterFaster_Pre_Anime4k->setEnabled(1);
+    }
+    else
+    {
+        ui->checkBox_MedianBlur_Pre_Anime4k->setEnabled(0);
+        ui->checkBox_MeanBlur_Pre_Anime4k->setEnabled(0);
+        ui->checkBox_CASSharping_Pre_Anime4k->setEnabled(0);
+        ui->checkBox_GaussianBlurWeak_Pre_Anime4k->setEnabled(0);
+        ui->checkBox_GaussianBlur_Pre_Anime4k->setEnabled(0);
+        ui->checkBox_BilateralFilter_Pre_Anime4k->setEnabled(0);
+        ui->checkBox_BilateralFilterFaster_Pre_Anime4k->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1)
+{
+    if(ui->checkBox_EnablePostProcessing_Anime4k->checkState())
+    {
+        ui->checkBox_MedianBlur_Post_Anime4k->setEnabled(1);
+        ui->checkBox_MeanBlur_Post_Anime4k->setEnabled(1);
+        ui->checkBox_CASSharping_Post_Anime4k->setEnabled(1);
+        ui->checkBox_GaussianBlurWeak_Post_Anime4k->setEnabled(1);
+        ui->checkBox_GaussianBlur_Post_Anime4k->setEnabled(1);
+        ui->checkBox_BilateralFilter_Post_Anime4k->setEnabled(1);
+        ui->checkBox_BilateralFilterFaster_Post_Anime4k->setEnabled(1);
+    }
+    else
+    {
+        ui->checkBox_MedianBlur_Post_Anime4k->setEnabled(0);
+        ui->checkBox_MeanBlur_Post_Anime4k->setEnabled(0);
+        ui->checkBox_CASSharping_Post_Anime4k->setEnabled(0);
+        ui->checkBox_GaussianBlurWeak_Post_Anime4k->setEnabled(0);
+        ui->checkBox_GaussianBlur_Post_Anime4k->setEnabled(0);
+        ui->checkBox_BilateralFilter_Post_Anime4k->setEnabled(0);
+        ui->checkBox_BilateralFilterFaster_Post_Anime4k->setEnabled(0);
     }
 }

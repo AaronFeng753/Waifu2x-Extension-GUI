@@ -123,6 +123,30 @@ int MainWindow::Settings_Save()
     //==================== 存储输出路径设置 ========================
     configIniWrite->setValue("/settings/OutPutPath", ui->lineEdit_outputPath->text());
     configIniWrite->setValue("/settings/OutPutPathIsEnabled", ui->checkBox_OutPath_isEnabled->checkState());
+    //=================== 存储Anime4k设置 =============================
+    configIniWrite->setValue("/settings/checkBox_FastMode_Anime4K", ui->checkBox_FastMode_Anime4K->checkState());
+    configIniWrite->setValue("/settings/spinBox_Passes_Anime4K", ui->spinBox_Passes_Anime4K->value());
+    configIniWrite->setValue("/settings/spinBox_PushColorCount_Anime4K", ui->spinBox_PushColorCount_Anime4K->value());
+    configIniWrite->setValue("/settings/doubleSpinBox_PushColorStrength_Anime4K", ui->doubleSpinBox_PushColorStrength_Anime4K->value());
+    configIniWrite->setValue("/settings/doubleSpinBox_PushGradientStrength_Anime4K", ui->doubleSpinBox_PushGradientStrength_Anime4K->value());
+    //Pre-Processing
+    configIniWrite->setValue("/settings/checkBox_EnablePreProcessing_Anime4k", ui->checkBox_EnablePreProcessing_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_MedianBlur_Pre_Anime4k", ui->checkBox_MedianBlur_Pre_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_MeanBlur_Pre_Anime4k", ui->checkBox_MeanBlur_Pre_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_CASSharping_Pre_Anime4k", ui->checkBox_CASSharping_Pre_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_GaussianBlurWeak_Pre_Anime4k", ui->checkBox_GaussianBlurWeak_Pre_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_GaussianBlur_Pre_Anime4k", ui->checkBox_GaussianBlur_Pre_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_BilateralFilter_Pre_Anime4k", ui->checkBox_BilateralFilter_Pre_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_BilateralFilterFaster_Pre_Anime4k", ui->checkBox_BilateralFilterFaster_Pre_Anime4k->checkState());
+    //Post-Processing
+    configIniWrite->setValue("/settings/checkBox_EnablePostProcessing_Anime4k", ui->checkBox_EnablePostProcessing_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_MedianBlur_Post_Anime4k", ui->checkBox_MedianBlur_Post_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_MeanBlur_Post_Anime4k", ui->checkBox_MeanBlur_Post_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_CASSharping_Post_Anime4k", ui->checkBox_CASSharping_Post_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_GaussianBlurWeak_Post_Anime4k", ui->checkBox_GaussianBlurWeak_Post_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_GaussianBlur_Post_Anime4k", ui->checkBox_GaussianBlur_Post_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_BilateralFilter_Post_Anime4k", ui->checkBox_BilateralFilter_Post_Anime4k->checkState());
+    configIniWrite->setValue("/settings/checkBox_BilateralFilterFaster_Post_Anime4k", ui->checkBox_BilateralFilterFaster_Post_Anime4k->checkState());
     //==========
     Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
     return 0;
@@ -241,6 +265,30 @@ int MainWindow::Settings_Read_Apply()
     //=============== 加载输出路径设置 ===========================
     ui->lineEdit_outputPath->setText(configIniRead->value("/settings/OutPutPath").toString());
     ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());
+    //================== 加载Anime4k设置 ===================================
+    ui->checkBox_FastMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_FastMode_Anime4K").toBool());
+    ui->spinBox_Passes_Anime4K->setValue(configIniRead->value("/settings/spinBox_Passes_Anime4K").toInt());
+    ui->spinBox_PushColorCount_Anime4K->setValue(configIniRead->value("/settings/spinBox_PushColorCount_Anime4K").toInt());
+    ui->doubleSpinBox_PushColorStrength_Anime4K->setValue(configIniRead->value("/settings/doubleSpinBox_PushColorStrength_Anime4K").toDouble());
+    ui->doubleSpinBox_PushGradientStrength_Anime4K->setValue(configIniRead->value("/settings/doubleSpinBox_PushGradientStrength_Anime4K").toDouble());
+    //Pre-Processing
+    ui->checkBox_EnablePreProcessing_Anime4k->setChecked(configIniRead->value("/settings/checkBox_EnablePreProcessing_Anime4k").toBool());
+    ui->checkBox_MedianBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MedianBlur_Pre_Anime4k").toBool());
+    ui->checkBox_MeanBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MeanBlur_Pre_Anime4k").toBool());
+    ui->checkBox_CASSharping_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_CASSharping_Pre_Anime4k").toBool());
+    ui->checkBox_GaussianBlurWeak_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlurWeak_Pre_Anime4k").toBool());
+    ui->checkBox_GaussianBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlur_Pre_Anime4k").toBool());
+    ui->checkBox_BilateralFilter_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilter_Pre_Anime4k").toBool());
+    ui->checkBox_BilateralFilterFaster_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilterFaster_Pre_Anime4k").toBool());
+    //Post-Processing
+    ui->checkBox_EnablePostProcessing_Anime4k->setChecked(configIniRead->value("/settings/checkBox_EnablePostProcessing_Anime4k").toBool());
+    ui->checkBox_MedianBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MedianBlur_Post_Anime4k").toBool());
+    ui->checkBox_MeanBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MeanBlur_Post_Anime4k").toBool());
+    ui->checkBox_CASSharping_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_CASSharping_Post_Anime4k").toBool());
+    ui->checkBox_GaussianBlurWeak_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlurWeak_Post_Anime4k").toBool());
+    ui->checkBox_GaussianBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlur_Post_Anime4k").toBool());
+    ui->checkBox_BilateralFilter_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilter_Post_Anime4k").toBool());
+    ui->checkBox_BilateralFilterFaster_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilterFaster_Post_Anime4k").toBool());
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
@@ -254,6 +302,8 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_OutPath_isEnabled_stateChanged(0);
     on_checkBox_AudioDenoise_stateChanged(0);
     on_checkBox_ProcessVideoBySegment_stateChanged(0);
+    on_checkBox_EnablePreProcessing_Anime4k_stateChanged(0);
+    on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
     //====
     on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -301,6 +351,8 @@ void MainWindow::Settings_Apply()
     on_checkBox_OutPath_isEnabled_stateChanged(0);
     on_checkBox_AudioDenoise_stateChanged(0);
     on_checkBox_ProcessVideoBySegment_stateChanged(0);
+    on_checkBox_EnablePreProcessing_Anime4k_stateChanged(0);
+    on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
     //====
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);

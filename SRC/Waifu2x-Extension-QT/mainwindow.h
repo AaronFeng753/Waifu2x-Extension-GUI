@@ -159,6 +159,7 @@ public:
     int Anime4k_Video(int rowNum);
     int Anime4k_Video_BySegment(int rowNum);
     int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    QString Anime4k_ReadSettings();
     //=================================
     int Waifu2x_Converter_Image(int rowNum);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -504,6 +505,10 @@ private slots:
     void on_checkBox_ProcessVideoBySegment_stateChanged(int arg1);
 
     void on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int index);
+
+    void on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1);
+
+    void on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

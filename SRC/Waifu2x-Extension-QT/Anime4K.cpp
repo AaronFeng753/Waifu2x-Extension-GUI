@@ -880,10 +880,10 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
-    QString program = Anime4k_folder_path + "/Anime4K.jar";
+    QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    QString cmd = "java -jar \"" + program + "\" \"" + InputPath + "\" \"" + OutputPath + "\" " + QString::number(ScaleRatio, 10);
+    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -935,4 +935,113 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     //========
     return 0;
 }
-
+/*
+Anime4k
+读取配置生成配置string
+*/
+QString MainWindow::Anime4k_ReadSettings()
+{
+    QString Anime4k_Settings_str = " ";
+    //快速模式
+    if(ui->checkBox_FastMode_Anime4K->checkState())
+    {
+        Anime4k_Settings_str.append("-f ");
+    }
+    //Passes
+    Anime4k_Settings_str.append("-p "+QString::number(ui->spinBox_Passes_Anime4K->value(),10)+" ");
+    //Push color count
+    Anime4k_Settings_str.append("-n "+QString::number(ui->spinBox_PushColorCount_Anime4K->value(),10)+" ");
+    //Push color strength
+    Anime4k_Settings_str.append("-c "+QString::number(ui->doubleSpinBox_PushColorStrength_Anime4K->value(),'f',2)+" ");
+    //Push gradient strength
+    Anime4k_Settings_str.append("-g "+QString::number(ui->doubleSpinBox_PushGradientStrength_Anime4K->value(),'f',2)+" ");
+    //Pre-processing
+    if(ui->checkBox_EnablePreProcessing_Anime4k->checkState())
+    {
+        Anime4k_Settings_str.append("-b ");
+        uint8_t PreProcessingFilters = 0;
+        //读取滤镜选择情况
+        if (ui->checkBox_MedianBlur_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=1;
+        }
+        if (ui->checkBox_MeanBlur_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=2;
+        }
+        if (ui->checkBox_CASSharping_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=4;
+        }
+        if (ui->checkBox_GaussianBlurWeak_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=8;
+        }
+        if (ui->checkBox_GaussianBlur_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=16;
+        }
+        if (ui->checkBox_BilateralFilter_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=32;
+        }
+        if (ui->checkBox_BilateralFilterFaster_Pre_Anime4k->checkState())
+        {
+            PreProcessingFilters|=64;
+        }
+        //生成添加滤镜指令
+        if(PreProcessingFilters!=0)
+        {
+            Anime4k_Settings_str.append("-r "+QString::number(PreProcessingFilters,10)+" ");
+        }
+        else
+        {
+            Anime4k_Settings_str.append("-r 4 ");
+        }
+    }
+    //Post-processing
+    if(ui->checkBox_EnablePostProcessing_Anime4k->checkState())
+    {
+        Anime4k_Settings_str.append("-a ");
+        uint8_t PostProcessingFilters = 0;
+        //读取滤镜选择情况
+        if (ui->checkBox_MedianBlur_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=1;
+        }
+        if (ui->checkBox_MeanBlur_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=2;
+        }
+        if (ui->checkBox_CASSharping_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=4;
+        }
+        if (ui->checkBox_GaussianBlurWeak_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=8;
+        }
+        if (ui->checkBox_GaussianBlur_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=16;
+        }
+        if (ui->checkBox_BilateralFilter_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=32;
+        }
+        if (ui->checkBox_BilateralFilterFaster_Post_Anime4k->checkState())
+        {
+            PostProcessingFilters|=64;
+        }
+        //生成添加滤镜指令
+        if(PostProcessingFilters!=0)
+        {
+            Anime4k_Settings_str.append("-e "+QString::number(PostProcessingFilters,10)+" ");
+        }
+        else
+        {
+            Anime4k_Settings_str.append("-e 4 ");
+        }
+    }
+    return Anime4k_Settings_str;
+}

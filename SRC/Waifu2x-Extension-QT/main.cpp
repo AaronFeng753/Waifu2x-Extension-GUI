@@ -33,11 +33,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 v1.71.1:
-
+- 新特性:用Anime4KCPP替换掉了之前的Anime4K-JAVA,Anime4KCPP与Anime4K-JAVA相比速度更快,画质更好.
+- 新特性:为Anime4K引擎添加了大量自定义设置.
 --------------------------------------------------------------------------
 To do:
-集成 Anime4KCPP
----
 - 多gpu支持
 - 改进剩余时间算法
 - 用python写一个视频的特殊字符路径检测(路径输入到python ext 让他看能不能判断exist)
@@ -50,7 +49,7 @@ To do:
 /*
 Integrated component(In releases):
 - waifu2x-ncnn-vulkan version 20200223
-- Anime4K Java v0.9 Beta
+- Anime4KCPP v1.3.1
 - ffmpeg version 4.2.2
 - gifsicle version 1.92
 - Waifu2x-converter version: v5.3.3
