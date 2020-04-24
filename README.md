@@ -6,6 +6,7 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/support-Windows-blue?logo=Windows">
+<img src="https://img.shields.io/github/downloads/aaronfeng753/waifu2x-extension-gui/total?label=Downloads&logo=github">
 <img src="https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI">
 </p>
 
