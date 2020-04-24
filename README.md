@@ -6,14 +6,13 @@
 
 <p align="center">
 <img src="https://img.shields.io/badge/support-Windows-blue?logo=Windows">
-<img src="https://img.shields.io/github/downloads/aaronfeng753/waifu2x-extension-gui/total?label=Downloads&logo=github">
 <img src="https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI">
 </p>
 
 <p align="center">
 <img src="https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI">
 <img src="https://img.shields.io/github/commits-since/AaronFeng753/Waifu2x-Extension-GUI/latest">
-<img src="https://img.shields.io/github/last-commit/AaronFeng753/Waifu2x-Extension-GUI">
+<img src="https://img.shields.io/github/downloads/aaronfeng753/waifu2x-extension-gui/total?label=Downloads&logo=github">
 </p>
 
 <h4 align="center"> Supported Language: English, 简体中文, 日本語(機械翻訳) </h4>
