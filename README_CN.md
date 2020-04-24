@@ -11,7 +11,6 @@
 
 <p align="center">
 <img src="https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI">
-<img src="https://img.shields.io/github/commits-since/AaronFeng753/Waifu2x-Extension-GUI/latest">
 <img src="https://img.shields.io/github/downloads/aaronfeng753/waifu2x-extension-gui/total?label=Downloads&logo=github">
 </p>
 
