@@ -147,5 +147,16 @@ Name(or ID) | Donation amount | Time
 | Anonymous | 5 RMB | 2020/4/17 |
 | 徒堇 | 10 RMB | 2020/4/19 |
 | Anonymous | 1 RMB | 2020/4/20 |
+| Anonymous | 15 RMB | 2020/4/20 |
+| Anonymous | 1 RMB | 2020/4/21 |
+| Anonymous | 1 RMB | 2020/4/22 |
+| Anonymous | 20 RMB | 2020/4/22 |
+| Anonymous | 6.66 RMB | 2020/4/23 |
+| Anonymous | 5 RMB | 2020/4/23 |
+| Anonymous | 1 RMB | 2020/4/24 |
+| Anonymous | 6.66 RMB | 2020/4/24 |
+| Anonymous | 20 RMB | 2020/4/24 |
+| Anonymous | 5 RMB | 2020/4/25 |
+| Anonymous | 5 RMB | 2020/4/25 |
 
 #### Small donations (less than 1 RMB) will not recorded in the donation list.
