@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.71.1";//软件版本号
+    QString VERSION = "v1.73.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -423,8 +423,6 @@ private slots:
     void on_Ext_image_editingFinished();
 
     void on_Ext_video_editingFinished();
-
-    void on_checkBox_autoCheckUpdate_clicked();
 
     void on_checkBox_AutoSaveSettings_clicked();
 

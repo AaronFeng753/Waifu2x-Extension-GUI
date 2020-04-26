@@ -947,6 +947,11 @@ QString MainWindow::Anime4k_ReadSettings()
     {
         Anime4k_Settings_str.append("-f ");
     }
+    //GPU加速
+    if(ui->checkBox_GPUMode_Anime4K->checkState())
+    {
+        Anime4k_Settings_str.append("-q ");
+    }
     //Passes
     Anime4k_Settings_str.append("-p "+QString::number(ui->spinBox_Passes_Anime4K->value(),10)+" ");
     //Push color count

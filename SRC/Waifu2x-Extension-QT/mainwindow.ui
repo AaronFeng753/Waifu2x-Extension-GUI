@@ -669,7 +669,7 @@ selection-background-color: rgb(178, 58, 238);
                 <bool>false</bool>
                </property>
                <attribute name="horizontalHeaderVisible">
-                <bool>true</bool>
+                <bool>false</bool>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>20</number>
@@ -2619,11 +2619,19 @@ padding:10px;
                  </layout>
                 </widget>
                 <widget class="QWidget" name="page_4">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>320</width>
+                   <height>426</height>
+                  </rect>
+                 </property>
                  <attribute name="label">
                   <string>Anime4K</string>
                  </attribute>
                  <layout class="QGridLayout" name="gridLayout_24">
-                  <item row="4" column="0">
+                  <item row="5" column="0">
                    <widget class="QLabel" name="label_51">
                     <property name="toolTip">
                      <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
@@ -2633,57 +2641,7 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="0" colspan="2">
-                   <widget class="QLabel" name="label_48">
-                    <property name="toolTip">
-                     <string>Passes for processing.</string>
-                    </property>
-                    <property name="text">
-                     <string>Passes:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="0" colspan="2">
-                   <widget class="QLabel" name="label_49">
-                    <property name="toolTip">
-                     <string>Limit the number of color pushes.</string>
-                    </property>
-                    <property name="text">
-                     <string>Push color count:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QLabel" name="label_50">
-                    <property name="toolTip">
-                     <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
-                    </property>
-                    <property name="text">
-                     <string>Push color strength:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
-                    <property name="toolTip">
-                     <string>Faster but maybe low quality.</string>
-                    </property>
-                    <property name="text">
-                     <string>Fast mode</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="2" column="2">
-                   <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="2">
+                  <item row="4" column="2">
                    <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
                     <property name="maximum">
                      <double>1.000000000000000</double>
@@ -2696,17 +2654,27 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="1" column="2">
-                   <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
-                    <property name="minimum">
-                     <number>1</number>
+                  <item row="2" column="0" colspan="2">
+                   <widget class="QLabel" name="label_48">
+                    <property name="toolTip">
+                     <string>Passes for processing.</string>
                     </property>
-                    <property name="maximum">
-                     <number>999999999</number>
+                    <property name="text">
+                     <string>Passes:</string>
                     </property>
                    </widget>
                   </item>
-                  <item row="4" column="1" colspan="2">
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QLabel" name="label_49">
+                    <property name="toolTip">
+                     <string>Limit the number of color pushes.</string>
+                    </property>
+                    <property name="text">
+                     <string>Push color count:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="5" column="1" colspan="2">
                    <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
                     <property name="maximum">
                      <double>1.000000000000000</double>
@@ -2719,7 +2687,27 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="5" column="0" colspan="3">
+                  <item row="3" column="2">
+                   <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0" colspan="3">
                    <widget class="QTabWidget" name="tabWidget_2">
                     <property name="currentIndex">
                      <number>0</number>
@@ -2870,6 +2858,36 @@ padding:10px;
                       </item>
                      </layout>
                     </widget>
+                   </widget>
+                  </item>
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_50">
+                    <property name="toolTip">
+                     <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
+                    </property>
+                    <property name="text">
+                     <string>Push color strength:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
+                    <property name="toolTip">
+                     <string>Faster but maybe low quality.</string>
+                    </property>
+                    <property name="text">
+                     <string>Fast mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
+                    <property name="toolTip">
+                     <string>Enable GPU acceleration.</string>
+                    </property>
+                    <property name="text">
+                     <string>GPU Mode</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -4067,7 +4085,7 @@ with your PC before enabling this option.</string>
                </widget>
               </item>
               <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_autoCheckUpdate">
+               <widget class="QCheckBox" name="checkBox_UpdatePopup">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -4078,7 +4096,7 @@ with your PC before enabling this option.</string>
                  <string>Automatically check for updates on startup.</string>
                 </property>
                 <property name="text">
-                 <string>Automatically check update</string>
+                 <string>Update popup</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>

@@ -45,10 +45,6 @@ void MainWindow::on_pushButton_CheckUpdate_clicked()
 */
 int MainWindow::CheckUpadte_Auto()
 {
-    if(ui->checkBox_autoCheckUpdate->checkState()==false)
-    {
-        return 0;
-    }
     //============
     QString Latest_Ver="";
     //============================
@@ -109,27 +105,34 @@ int MainWindow::CheckUpadte_Auto()
 */
 int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
 {
-    if(ui->comboBox_language->currentIndex()==1)
+    if(ui->checkBox_UpdatePopup->checkState())
     {
-        QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
-        Msg.setIcon(QMessageBox::Information);
-        QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆境内)"), QMessageBox::YesRole);
-        QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
-        Msg.exec();
-        if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
-        if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases"));
-        return 0;
+        if(ui->comboBox_language->currentIndex()==1)
+        {
+            QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
+            Msg.setIcon(QMessageBox::Information);
+            QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
+            QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆境内)"), QMessageBox::YesRole);
+            QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+            Msg.exec();
+            if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+            if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases"));
+            return 0;
+        }
+        else
+        {
+            QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
+            Msg.setIcon(QMessageBox::Information);
+            QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+            QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+            Msg.exec();
+            if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+            return 0;
+        }
     }
     else
     {
-        QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
-        Msg.setIcon(QMessageBox::Information);
-        QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-        QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
-        Msg.exec();
-        if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
-        return 0;
+        emit Send_TextBrowser_NewMessage(QString(tr("New version: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str));
     }
     return 0;
 }

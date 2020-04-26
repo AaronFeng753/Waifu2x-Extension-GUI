@@ -508,6 +508,25 @@ int MainWindow::Waifu2x_Compatibility_Test()
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: No."));
     }
     QFile::remove(OutputPath);
+    //===============
+    Current_Path = qApp->applicationDirPath();
+    program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
+    cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2 -q";
+    QProcess *Waifu2x_anime4k_gpu = new QProcess();
+    Waifu2x_anime4k_gpu->start(cmd);
+    if(Waifu2x_anime4k_gpu->waitForStarted(60000))
+    {
+        while(!Waifu2x_anime4k_gpu->waitForFinished(100)&&!QProcess_stop) {}
+    }
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(GPU Mode): Yes."));
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(GPU Mode): No."));
+    }
+    QFile::remove(OutputPath);
     //================
     Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
@@ -540,6 +559,12 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_DetectGPU->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("The compatibility test has been completed. Please check the test results in the text box and configure the engine settings based on the test results."));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
     return 0;
 }
 

@@ -1052,18 +1052,7 @@ int MainWindow::Donate_Notification()
     return 0;
 }
 
-void MainWindow::on_checkBox_autoCheckUpdate_clicked()
-{
-    if(ui->checkBox_autoCheckUpdate->checkState()==false)
-    {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("!!! Warning !!!"));
-        MSG->setText(tr("We do not recommend that you cancel the automatic check for updates as this may prevent you from receiving timely bug fixes."));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
-        MSG->show();
-    }
-}
+
 
 void MainWindow::on_checkBox_AutoSaveSettings_clicked()
 {
@@ -1482,6 +1471,17 @@ void MainWindow::Tip_FirstTimeStart()
         }
         //=======
         on_pushButton_compatibilityTest_clicked();
+        //=======
+        QMessageBox Msg(QMessageBox::Question, QString("Choose your language"), QString("Choose your language.\n\n选择您的语言。\n\n言語を選んでください。"));
+        Msg.setIcon(QMessageBox::Information);
+        QAbstractButton *pYesBtn_English = (QAbstractButton *)Msg.addButton(QString("English"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_Chinese = (QAbstractButton *)Msg.addButton(QString("简体中文"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_Japanese = (QAbstractButton *)Msg.addButton(QString("日本語(機械翻訳)"), QMessageBox::YesRole);
+        Msg.exec();
+        if (Msg.clickedButton() == pYesBtn_English)ui->comboBox_language->setCurrentIndex(0);
+        if (Msg.clickedButton() == pYesBtn_Chinese)ui->comboBox_language->setCurrentIndex(1);
+        if (Msg.clickedButton() == pYesBtn_Japanese)ui->comboBox_language->setCurrentIndex(2);
+        on_comboBox_language_currentIndexChanged(0);
     }
 }
 
