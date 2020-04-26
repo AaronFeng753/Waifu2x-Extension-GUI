@@ -133,7 +133,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - Waifu2x-converter version: v5.3.3
 
-- ImageMagick 7.0.9-27-Q16-x64
+- ImageMagick 7.0.10-6-Q16-x64
 
 - SoX 14.4.2-win32
 
