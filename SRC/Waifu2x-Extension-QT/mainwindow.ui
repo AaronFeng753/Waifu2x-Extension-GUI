@@ -46,7 +46,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2136,7 +2136,7 @@ You can run compatibility test to see which engines your PC is compatible with.<
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-65</y>
                    <width>289</width>
                    <height>195</height>
                   </rect>
@@ -2710,7 +2710,7 @@ padding:10px;
                   <item row="6" column="0" colspan="3">
                    <widget class="QTabWidget" name="tabWidget_2">
                     <property name="currentIndex">
-                     <number>0</number>
+                     <number>1</number>
                     </property>
                     <widget class="QWidget" name="tab">
                      <attribute name="title">

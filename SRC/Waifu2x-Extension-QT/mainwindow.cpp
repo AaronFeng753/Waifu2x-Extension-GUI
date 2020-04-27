@@ -32,7 +32,6 @@ MainWindow::MainWindow(QWidget *parent)
     on_tabWidget_currentChanged(0);
     ui->tabWidget_videoSettings->setCurrentIndex(0);
     ui->toolBox_engines->setCurrentIndex(0);
-    TextBrowser_StartMes();//显示启动msg
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
     //=================== 初始隐藏所有table和按钮 ======================
@@ -94,6 +93,7 @@ MainWindow::MainWindow(QWidget *parent)
     //===================================
     Tip_FirstTimeStart();
     //===================================
+    TextBrowser_StartMes();//显示启动msg
     this->adjustSize();
 }
 
@@ -325,6 +325,17 @@ void MainWindow::on_pushButton_Start_clicked()
     }
     else
     {
+        //============== 判断是否需要隐藏ETA和剩余时间 ================
+        if(Table_model_gif->rowCount()!=0||Table_model_video->rowCount()!=0)
+        {
+            ui->label_TimeRemain->setVisible(0);
+            ui->label_ETA->setVisible(0);
+        }
+        else
+        {
+            ui->label_TimeRemain->setVisible(1);
+            ui->label_ETA->setVisible(1);
+        }
         //============== 数值初始化 ==================
         waifu2x_STOP = false;
         waifu2x_STOP_confirm = false;
