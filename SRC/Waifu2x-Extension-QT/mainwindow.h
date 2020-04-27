@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.73.2";//软件版本号
+    QString VERSION = "v1.73.3";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -292,7 +292,7 @@ public:
     int Force_close();//调用cmd强制关闭自己
     //=============================================
     void Tip_FirstTimeStart();
-
+    //=============
     ~MainWindow();
 
 

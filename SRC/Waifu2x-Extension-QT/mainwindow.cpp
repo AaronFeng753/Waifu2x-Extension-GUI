@@ -90,10 +90,11 @@ MainWindow::MainWindow(QWidget *parent)
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     SystemShutDown_isAutoShutDown();//上次是否自动关机
     Donate_Count();//捐赠统计
+    //====================================
+    TextBrowser_StartMes();//显示启动msg
     //===================================
     Tip_FirstTimeStart();
     //===================================
-    TextBrowser_StartMes();//显示启动msg
     this->adjustSize();
 }
 
@@ -1446,29 +1447,34 @@ void MainWindow::Tip_FirstTimeStart()
     }
     else
     {
-        QString English_1 = "- Please read the Wiki before starting to use the software.\n";
-        QString English_7 = "- If there is a problem with the software font display, you can modify the font in the additional settings.\n";
-        QString English_8 = "- This software is free software, if you find anyone selling this software, please report the seller.\n";
-        QString English_9 = "- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n";
-        QString English_10 = "- If you like this software, please donate to the developer, thank you.\n";
-        //========
-        QString Chinese_1 = "- 正式开始使用本软件前请先阅读 Wiki.\n";
-        QString Chinese_7 = "- 如果软件字体显示有问题, 您可以在附加设置内修改字体.\n";
-        QString Chinese_8 = "- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.\n";
-        QString Chinese_9 = "- 在附加设置内可以将语言调整为简体中文.\n";
-        QString Chinese_10 = "- 本软件免费开源, 并基于 GNU Affero General Public License v3.0 协议发行, 使用本软件的一切后果均由用户自己承担, 开发者不承担任何责任.\n";
-        QString Chinese_11 = "- 如果您喜欢本软件, 请向开发者捐赠, 谢谢.\n";
+        //=======
+        QMessageBox Msg(QMessageBox::Question, QString("Choose your language"), QString("Choose your language.\n\n选择您的语言。\n\n言語を選んでください。"));
+        Msg.setIcon(QMessageBox::Information);
+        QAbstractButton *pYesBtn_English = (QAbstractButton *)Msg.addButton(QString("English"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_Chinese = (QAbstractButton *)Msg.addButton(QString("简体中文"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_Japanese = (QAbstractButton *)Msg.addButton(QString("日本語(機械翻訳)"), QMessageBox::YesRole);
+        Msg.exec();
+        if (Msg.clickedButton() == pYesBtn_English)ui->comboBox_language->setCurrentIndex(0);
+        if (Msg.clickedButton() == pYesBtn_Chinese)ui->comboBox_language->setCurrentIndex(1);
+        if (Msg.clickedButton() == pYesBtn_Japanese)ui->comboBox_language->setCurrentIndex(2);
+        on_comboBox_language_currentIndexChanged(0);
+        //=======
+        QString English_1 = tr("- Please read the Wiki before starting to use the software.\n");
+        QString English_7 = tr("- If there is a problem with the software font display, you can modify the font in the additional settings.\n");
+        QString English_8 = tr("- This software is free software, if you find anyone selling this software, please report the seller.\n");
+        QString English_9 = tr("- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n");
+        QString English_10 = tr("- If you like this software, please donate to the developer, thank you.\n");
         //========
         QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle("!!! Tips 必读 !!!");
-        MSG->setText(English_1+English_7+English_8+English_9+English_10+"----------------------\n"+Chinese_1+Chinese_7+Chinese_8+Chinese_9+Chinese_10+Chinese_11);
+        MSG->setWindowTitle(tr("!!! Tips !!!"));
+        MSG->setText(English_1+English_7+English_8+English_9+English_10);
         MSG->setIcon(QMessageBox::Information);
         MSG->setModal(true);
         MSG->show();
         //======
         QMessageBox *MSG_2 = new QMessageBox();
         MSG_2->setWindowTitle(tr("Notification"));
-        MSG_2->setText("It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, and you can view the test results in the text box at the bottom of the main interface of the software.\n\n检测到这是您第一次启动软件,所以将自动执行兼容性测试.请稍等片刻,然后在软件主界面底部的文本框内查看兼容性测试结果.");
+        MSG_2->setText(tr("It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, and you can view the test results in the text box at the bottom of the main interface of the software."));
         MSG_2->setIcon(QMessageBox::Information);
         MSG_2->setModal(true);
         MSG_2->show();
@@ -1481,18 +1487,8 @@ void MainWindow::Tip_FirstTimeStart()
             stream << "Don't delete this file!!";
         }
         //=======
+        on_pushButton_clear_textbrowser_clicked();
         on_pushButton_compatibilityTest_clicked();
-        //=======
-        QMessageBox Msg(QMessageBox::Question, QString("Choose your language"), QString("Choose your language.\n\n选择您的语言。\n\n言語を選んでください。"));
-        Msg.setIcon(QMessageBox::Information);
-        QAbstractButton *pYesBtn_English = (QAbstractButton *)Msg.addButton(QString("English"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_Chinese = (QAbstractButton *)Msg.addButton(QString("简体中文"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_Japanese = (QAbstractButton *)Msg.addButton(QString("日本語(機械翻訳)"), QMessageBox::YesRole);
-        Msg.exec();
-        if (Msg.clickedButton() == pYesBtn_English)ui->comboBox_language->setCurrentIndex(0);
-        if (Msg.clickedButton() == pYesBtn_Chinese)ui->comboBox_language->setCurrentIndex(1);
-        if (Msg.clickedButton() == pYesBtn_Japanese)ui->comboBox_language->setCurrentIndex(2);
-        on_comboBox_language_currentIndexChanged(0);
     }
 }
 
