@@ -2,6 +2,18 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v1.73.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.73.3)
+#### Change log:
+- New feature: Add GPU acceleration support for Anime4K engine.
+- New feature: After installing the software, a pop-up window allows users to choose their own language when they first start up.
+- Update Anime4K (v1.5.0)
+- It is no longer allowed to disable the automatic check for updates, but the automatic update pop-up window can be disabled. After disabling the pop-up window, an update prompt will be displayed in the text box.
+- A pop-up window prompts the user to view the test results after the compatibility test.
+- Improve compatibility test.
+- Hide ETA and remaining time when GIF or video is included in the file list.
+- Improve multi-language support.
+- Fix bugs.
+---
 ## [v1.71.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.71.1)
 #### Change log:
 - New feature: replaced the previous Anime4K-JAVA with Anime4KCPP.Anime4KCPP is faster and has better image quality than Anime4K-JAVA.
