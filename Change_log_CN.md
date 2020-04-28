@@ -6,6 +6,18 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v1.73.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.73.3)
+#### 更新日志:
+- 新特性:为Anime4K引擎加入GPU加速支持.
+- 新特性:安装软件后,首次启动时弹窗让用户选择自己所使用的语言.
+- 更新Anime4K(v1.5.0)
+- 不再允许禁用自动检查更新，但是可以禁用自动更新弹窗，禁用弹窗后将在文本框内显示更新提示.
+- 兼容测试结束后弹窗提示用户查看测试结果.
+- 完善兼容性测试.
+- 当文件列表内包含GIF或视频时隐藏ETA和剩余时间.
+- 完善多语言支持.
+- 修复bug.
+---
 ## [v1.71.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.71.1)
 #### 更新日志:
 - 新特性:用Anime4KCPP替换掉了之前的Anime4K-JAVA,Anime4KCPP与Anime4K-JAVA相比速度更快,画质更好.
