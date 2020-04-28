@@ -18,7 +18,6 @@
 #### Change log:
 - New feature: replaced the previous Anime4K-JAVA with Anime4KCPP.Anime4KCPP is faster and has better image quality than Anime4K-JAVA.
 - New feature: Add a lot of custom settings for the Anime4K engine.
-![en](https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/temp/anime4kSettings_en.jpg)
 - Interface layout adjustment.
 - Fixe translation errors.
 - Modify some texts.
