@@ -47,9 +47,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/CustResAspectRatioMode", ui->comboBox_AspectRatio_custRes->currentIndex());
     //============ 存储线程数量 ====================================
     configIniWrite->setValue("/settings/ImageThreadNum", ui->spinBox_ThreadNum_image->value());
-    configIniWrite->setValue("/settings/GIFThreadNum", ui->spinBox_ThreadNum_gif->value());
     configIniWrite->setValue("/settings/GIFThreadNumInternal", ui->spinBox_ThreadNum_gif_internal->value());
-    configIniWrite->setValue("/settings/VideoThreadNum", ui->spinBox_ThreadNum_video->value());
     configIniWrite->setValue("/settings/VideoThreadNumInternal", ui->spinBox_ThreadNum_video_internal->value());
     //================== 存储引擎设置 =========================
     configIniWrite->setValue("/settings/ImageEngine", ui->comboBox_Engine_Image->currentIndex());
@@ -66,6 +64,13 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/TTA_SRMD", ui->checkBox_TTA_srmd->checkState());
     configIniWrite->setValue("/settings/TileSize_SRMD", ui->spinBox_TileSize_srmd->value());
     configIniWrite->setValue("/settings/Version_Waifu2xNCNNVulkan", ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex());
+    //GPU ID List
+    configIniWrite->setValue("/settings/CurrentGPUID_Waifu2xNCNNVulkan", ui->comboBox_GPUID->currentIndex());
+    configIniWrite->setValue("/settings/Available_GPUID_Waifu2xNCNNVulkan", Available_GPUID);
+    configIniWrite->setValue("/settings/comboBox_TargetProcessor_converter", ui->comboBox_TargetProcessor_converter->currentIndex());
+    configIniWrite->setValue("/settings/Available_ProcessorList_converter", Available_ProcessorList_converter);
+    configIniWrite->setValue("/settings/comboBox_GPUID_srmd", ui->comboBox_GPUID_srmd->currentIndex());
+    configIniWrite->setValue("/settings/Available_GPUID_srmd", Available_GPUID_srmd);
     //================== 存储 扩展名 =================================
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
@@ -81,7 +86,6 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/UpdatePopup", ui->checkBox_UpdatePopup->checkState());
     configIniWrite->setValue("/settings/FileListAutoScroll", ui->checkBox_FileListAutoSlide->checkState());
     configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
-    configIniWrite->setValue("/settings/AlwaysHideInput", ui->checkBox_AlwaysHideInput->checkState());
     configIniWrite->setValue("/settings/AlwaysHideSettings", ui->checkBox_AlwaysHideSettings->checkState());
     configIniWrite->setValue("/settings/AlwaysHideTextBrowser", ui->checkBox_AlwaysHideTextBrowser->checkState());
     configIniWrite->setValue("/settings/JPGCompressedQuality", ui->spinBox_JPGCompressedQuality->value());
@@ -130,6 +134,9 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/spinBox_PushColorCount_Anime4K", ui->spinBox_PushColorCount_Anime4K->value());
     configIniWrite->setValue("/settings/doubleSpinBox_PushColorStrength_Anime4K", ui->doubleSpinBox_PushColorStrength_Anime4K->value());
     configIniWrite->setValue("/settings/doubleSpinBox_PushGradientStrength_Anime4K", ui->doubleSpinBox_PushGradientStrength_Anime4K->value());
+    configIniWrite->setValue("/settings/checkBox_SpecifyGPU_Anime4k", ui->checkBox_SpecifyGPU_Anime4k->checkState());
+    configIniWrite->setValue("/settings/spinBox_PlatformID_Anime4k", ui->spinBox_PlatformID_Anime4k->value());
+    configIniWrite->setValue("/settings/spinBox_DeviceID_Anime4k", ui->spinBox_DeviceID_Anime4k->value());
     //Pre-Processing
     configIniWrite->setValue("/settings/checkBox_EnablePreProcessing_Anime4k", ui->checkBox_EnablePreProcessing_Anime4k->checkState());
     configIniWrite->setValue("/settings/checkBox_MedianBlur_Pre_Anime4k", ui->checkBox_MedianBlur_Pre_Anime4k->checkState());
@@ -148,8 +155,21 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_GaussianBlur_Post_Anime4k", ui->checkBox_GaussianBlur_Post_Anime4k->checkState());
     configIniWrite->setValue("/settings/checkBox_BilateralFilter_Post_Anime4k", ui->checkBox_BilateralFilter_Post_Anime4k->checkState());
     configIniWrite->setValue("/settings/checkBox_BilateralFilterFaster_Post_Anime4k", ui->checkBox_BilateralFilterFaster_Post_Anime4k->checkState());
-    //==========
-    Send_TextBrowser_NewMessage(tr("Settings saved successfully!"));
+    //========================= 存储兼容性测试结果 ================
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW", ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P", ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD", ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_Converter", ui->checkBox_isCompatible_Waifu2x_Converter->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_SRMD_NCNN_Vulkan", ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Anime4k_CPU", ui->checkBox_isCompatible_Anime4k_CPU->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Anime4k_GPU", ui->checkBox_isCompatible_Anime4k_GPU->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_PythonExtension", ui->checkBox_isCompatible_PythonExtension->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_FFmpeg", ui->checkBox_isCompatible_FFmpeg->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_FFprobe", ui->checkBox_isCompatible_FFprobe->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_ImageMagick", ui->checkBox_isCompatible_ImageMagick->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Gifsicle", ui->checkBox_isCompatible_Gifsicle->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_SoX", ui->checkBox_isCompatible_SoX->checkState());
+    //========
     return 0;
 }
 /*
@@ -195,9 +215,7 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_AspectRatio_custRes->setCurrentIndex(configIniRead->value("/settings/CustResAspectRatioMode").toInt());
     //============ 加载 线程数量 ==================================
     ui->spinBox_ThreadNum_image->setValue(configIniRead->value("/settings/ImageThreadNum").toInt());
-    ui->spinBox_ThreadNum_gif->setValue(configIniRead->value("/settings/GIFThreadNum").toInt());
     ui->spinBox_ThreadNum_gif_internal->setValue(configIniRead->value("/settings/GIFThreadNumInternal").toInt());
-    ui->spinBox_ThreadNum_video->setValue(configIniRead->value("/settings/VideoThreadNum").toInt());
     ui->spinBox_ThreadNum_video_internal->setValue(configIniRead->value("/settings/VideoThreadNumInternal").toInt());
     //================ 加载 引擎设置 ================================
     ui->comboBox_Engine_Image->setCurrentIndex(configIniRead->value("/settings/ImageEngine").toInt());
@@ -214,6 +232,22 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_TTA_srmd->setChecked(configIniRead->value("/settings/TTA_SRMD").toBool());
     ui->spinBox_TileSize_srmd->setValue(configIniRead->value("/settings/TileSize_SRMD").toInt());
     ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(configIniRead->value("/settings/Version_Waifu2xNCNNVulkan").toInt());
+    //GPU ID List
+    //Waifu2x-NCNN-Vulkan
+    Available_GPUID = configIniRead->value("/settings/Available_GPUID_Waifu2xNCNNVulkan").toStringList();
+    Waifu2x_DetectGPU_finished();
+    ui->comboBox_GPUID->setCurrentIndex(configIniRead->value("/settings/CurrentGPUID_Waifu2xNCNNVulkan").toInt());
+    on_comboBox_GPUID_currentIndexChanged(0);
+    //Waifu2x-Converter
+    Available_ProcessorList_converter = configIniRead->value("/settings/Available_ProcessorList_converter").toStringList();
+    Waifu2x_DumpProcessorList_converter_finished();
+    ui->comboBox_TargetProcessor_converter->setCurrentIndex(configIniRead->value("/settings/comboBox_TargetProcessor_converter").toInt());
+    on_comboBox_TargetProcessor_converter_currentIndexChanged(0);
+    //SRMD-NCNN-Vulkan
+    Available_GPUID_srmd = configIniRead->value("/settings/Available_GPUID_srmd").toStringList();
+    SRMD_DetectGPU_finished();
+    ui->comboBox_GPUID_srmd->setCurrentIndex(configIniRead->value("/settings/comboBox_GPUID_srmd").toInt());
+    on_comboBox_GPUID_srmd_currentIndexChanged(0);
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
@@ -229,7 +263,6 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_UpdatePopup->setChecked(configIniRead->value("/settings/UpdatePopup").toBool());
     ui->checkBox_FileListAutoSlide->setChecked(configIniRead->value("/settings/FileListAutoScroll").toBool());
     ui->checkBox_AutoSaveSettings->setChecked(configIniRead->value("/settings/AutoSaveSettings").toBool());
-    ui->checkBox_AlwaysHideInput->setChecked(configIniRead->value("/settings/AlwaysHideInput").toBool());
     ui->checkBox_AlwaysHideSettings->setChecked(configIniRead->value("/settings/AlwaysHideSettings").toBool());
     ui->checkBox_AlwaysHideTextBrowser->setChecked(configIniRead->value("/settings/AlwaysHideTextBrowser").toBool());
     ui->spinBox_JPGCompressedQuality->setValue(configIniRead->value("/settings/JPGCompressedQuality").toInt());
@@ -273,6 +306,9 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_PushColorCount_Anime4K->setValue(configIniRead->value("/settings/spinBox_PushColorCount_Anime4K").toInt());
     ui->doubleSpinBox_PushColorStrength_Anime4K->setValue(configIniRead->value("/settings/doubleSpinBox_PushColorStrength_Anime4K").toDouble());
     ui->doubleSpinBox_PushGradientStrength_Anime4K->setValue(configIniRead->value("/settings/doubleSpinBox_PushGradientStrength_Anime4K").toDouble());
+    ui->checkBox_SpecifyGPU_Anime4k->setChecked(configIniRead->value("/settings/checkBox_SpecifyGPU_Anime4k").toBool());
+    ui->spinBox_PlatformID_Anime4k->setValue(configIniRead->value("/settings/spinBox_PlatformID_Anime4k").toInt());
+    ui->spinBox_DeviceID_Anime4k->setValue(configIniRead->value("/settings/spinBox_DeviceID_Anime4k").toInt());
     //Pre-Processing
     ui->checkBox_EnablePreProcessing_Anime4k->setChecked(configIniRead->value("/settings/checkBox_EnablePreProcessing_Anime4k").toBool());
     ui->checkBox_MedianBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MedianBlur_Pre_Anime4k").toBool());
@@ -291,12 +327,39 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_GaussianBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlur_Post_Anime4k").toBool());
     ui->checkBox_BilateralFilter_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilter_Post_Anime4k").toBool());
     ui->checkBox_BilateralFilterFaster_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilterFaster_Post_Anime4k").toBool());
+    //===================== 加载兼容性测试结果 ============================
+    isCompatible_Waifu2x_NCNN_Vulkan_NEW = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW").toBool();
+    isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P").toBool();
+    isCompatible_Waifu2x_NCNN_Vulkan_OLD = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD").toBool();
+    isCompatible_Waifu2x_Converter = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Converter").toBool();
+    isCompatible_SRMD_NCNN_Vulkan = configIniRead->value("/settings/checkBox_isCompatible_SRMD_NCNN_Vulkan").toBool();
+    isCompatible_Anime4k_CPU = configIniRead->value("/settings/checkBox_isCompatible_Anime4k_CPU").toBool();
+    isCompatible_Anime4k_GPU = configIniRead->value("/settings/checkBox_isCompatible_Anime4k_GPU").toBool();
+    isCompatible_PythonExtension = configIniRead->value("/settings/checkBox_isCompatible_PythonExtension").toBool();
+    isCompatible_FFmpeg = configIniRead->value("/settings/checkBox_isCompatible_FFmpeg").toBool();
+    isCompatible_FFprobe = configIniRead->value("/settings/checkBox_isCompatible_FFprobe").toBool();
+    isCompatible_ImageMagick = configIniRead->value("/settings/checkBox_isCompatible_ImageMagick").toBool();
+    isCompatible_Gifsicle = configIniRead->value("/settings/checkBox_isCompatible_Gifsicle").toBool();
+    isCompatible_SoX = configIniRead->value("/settings/checkBox_isCompatible_SoX").toBool();
+    //===
+    ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW);
+    ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P);
+    ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_OLD);
+    ui->checkBox_isCompatible_Waifu2x_Converter->setChecked(isCompatible_Waifu2x_Converter);
+    ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->setChecked(isCompatible_SRMD_NCNN_Vulkan);
+    ui->checkBox_isCompatible_Anime4k_CPU->setChecked(isCompatible_Anime4k_CPU);
+    ui->checkBox_isCompatible_Anime4k_GPU->setChecked(isCompatible_Anime4k_GPU);
+    ui->checkBox_isCompatible_PythonExtension->setChecked(isCompatible_PythonExtension);
+    ui->checkBox_isCompatible_FFmpeg->setChecked(isCompatible_FFmpeg);
+    ui->checkBox_isCompatible_FFprobe->setChecked(isCompatible_FFprobe);
+    ui->checkBox_isCompatible_ImageMagick->setChecked(isCompatible_ImageMagick);
+    ui->checkBox_isCompatible_Gifsicle->setChecked(isCompatible_Gifsicle);
+    ui->checkBox_isCompatible_SoX->setChecked(isCompatible_SoX);
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
     on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_AlwaysHideInput_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
     on_checkBox_DelOriginal_stateChanged(0);
@@ -306,6 +369,8 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_ProcessVideoBySegment_stateChanged(0);
     on_checkBox_EnablePreProcessing_Anime4k_stateChanged(0);
     on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
+    on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
+    on_checkBox_GPUMode_Anime4K_stateChanged(0);
     //====
     on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -320,11 +385,6 @@ int MainWindow::Settings_Read_Apply()
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //===
     on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
-    //====
-    on_spinBox_ThreadNum_gif_valueChanged(0);
-    on_spinBox_ThreadNum_gif_internal_valueChanged(0);
-    on_spinBox_ThreadNum_video_valueChanged(0);
-    on_spinBox_ThreadNum_video_internal_valueChanged(0);
     //=====
     Init_Table();
     //====
@@ -345,7 +405,6 @@ void MainWindow::Settings_Apply()
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
     on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_AlwaysHideInput_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
     on_checkBox_DelOriginal_stateChanged(0);
@@ -355,6 +414,8 @@ void MainWindow::Settings_Apply()
     on_checkBox_ProcessVideoBySegment_stateChanged(0);
     on_checkBox_EnablePreProcessing_Anime4k_stateChanged(0);
     on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
+    on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
+    on_checkBox_GPUMode_Anime4K_stateChanged(0);
     //====
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);
@@ -366,11 +427,6 @@ void MainWindow::Settings_Apply()
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //===
     on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
-    //====
-    on_spinBox_ThreadNum_gif_valueChanged(0);
-    on_spinBox_ThreadNum_gif_internal_valueChanged(0);
-    on_spinBox_ThreadNum_video_valueChanged(0);
-    on_spinBox_ThreadNum_video_internal_valueChanged(0);
     //=====
     Init_Table();
     //====

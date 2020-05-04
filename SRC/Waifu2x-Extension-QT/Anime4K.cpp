@@ -952,6 +952,12 @@ QString MainWindow::Anime4k_ReadSettings()
     {
         Anime4k_Settings_str.append("-q ");
     }
+    //指定GPU
+    if(ui->checkBox_SpecifyGPU_Anime4k->checkState())
+    {
+        Anime4k_Settings_str.append("-h "+QString::number(ui->spinBox_PlatformID_Anime4k->value(),10)+" ");
+        Anime4k_Settings_str.append("-d "+QString::number(ui->spinBox_DeviceID_Anime4k->value(),10)+" ");
+    }
     //Passes
     Anime4k_Settings_str.append("-p "+QString::number(ui->spinBox_Passes_Anime4K->value(),10)+" ");
     //Push color count
@@ -1050,3 +1056,25 @@ QString MainWindow::Anime4k_ReadSettings()
     }
     return Anime4k_Settings_str;
 }
+
+void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
+{
+    QString Anime4k_folder_path = Current_Path + "/Anime4K";
+    QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
+    QString cmd = "\"" + program + "\" -l";
+    QProcess *Waifu2x = new QProcess();
+    Waifu2x->start(cmd);
+    while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Waifu2x->waitForFinished(500)&&!QProcess_stop) {}
+    QString OutputString = Waifu2x->readAllStandardOutput().trimmed();
+    //====
+    emit Send_TextBrowser_NewMessage("\n"+OutputString);
+    //====
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("GPU List for Anime4K"));
+    MSG->setText(OutputString);
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+}
+

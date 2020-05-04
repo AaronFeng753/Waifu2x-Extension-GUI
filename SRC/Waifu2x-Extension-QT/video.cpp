@@ -173,6 +173,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
 */
 void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
 {
+    emit Send_TextBrowser_NewMessage(tr("Extract audio from video: [")+VideoPath+"]");
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFile::remove(AudioPath);
     QProcess video_splitSound;
@@ -185,26 +186,17 @@ void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
 */
 void MainWindow::video_2mp4(QString VideoPath)
 {
-    emit Send_TextBrowser_NewMessage(tr("Start converting video: [")+VideoPath+tr("] to mp4"));
     //=================
-    QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFileInfo vfinfo(VideoPath);
-    QString video_dir = file_getFolderPath(vfinfo);
-    QString video_filename = file_getBaseName(vfinfo.filePath());
     QString video_ext = vfinfo.suffix();
-    QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     //==============
     if(video_ext!="mp4")
     {
-        video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
-    }
-    else
-    {
-        video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
-    }
-    //======= 转换到mp4 =======
-    if(video_ext!="mp4")
-    {
+        emit Send_TextBrowser_NewMessage(tr("Start converting video: [")+VideoPath+tr("] to mp4"));
+        QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
+        QString video_dir = file_getFolderPath(vfinfo);
+        QString video_filename = file_getBaseName(vfinfo.filePath());
+        QString video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
         QFile::remove(video_mp4_fullpath);
         QString vcodec_copy_cmd = "";
         QString acodec_copy_cmd = "";
@@ -651,7 +643,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString video_filename = file_getBaseName(vfinfo.filePath());
     QString video_ext = vfinfo.suffix();
     QString fps = video_get_fps(VideoPath).trimmed();
-    if(fps == "0")
+    if(fps == "0.0")
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+VideoPath+tr("]. Error: [Unable to get video frame rate.]"));
         return 0;

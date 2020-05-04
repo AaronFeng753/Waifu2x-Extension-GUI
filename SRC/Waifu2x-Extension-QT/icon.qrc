@@ -3,5 +3,9 @@
         <file>icon/icon_main.png</file>
         <file>icon/Home.png</file>
         <file>icon/AddSetting.png</file>
+        <file>icon/EngineSettings.png</file>
+        <file>icon/VideoSettings.png</file>
+        <file>icon/CompatibilityTest.png</file>
+        <file>icon/donateTabIcon.png</file>
     </qresource>
 </RCC>

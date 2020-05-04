@@ -496,7 +496,6 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
 {
     this->setAcceptDrops(1);//禁止drop file
     ui->pushButton_Start->setEnabled(1);//禁用start button
-    ui->groupBox_Input->setEnabled(1);
     ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);
@@ -657,7 +656,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     //====
     this->setAcceptDrops(1);
     ui->pushButton_Start->setEnabled(1);
-    ui->groupBox_Input->setEnabled(1);
     ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);

@@ -40,7 +40,6 @@ void MainWindow::dropEvent(QDropEvent *event)
     if(urls.isEmpty())
         return;
     //================== 界面管制 ========================
-    ui->groupBox_Input->setEnabled(0);
     ui->groupBox_Setting->setEnabled(0);
     ui->groupBox_FileList->setEnabled(0);
     ui->groupBox_InputExt->setEnabled(0);
@@ -81,7 +80,6 @@ void MainWindow::Read_urls(QList<QUrl> urls)
 void MainWindow::Read_urls_finfished()
 {
     //================== 解除界面管制 ========================
-    ui->groupBox_Input->setEnabled(1);
     ui->groupBox_Setting->setEnabled(1);
     ui->groupBox_FileList->setEnabled(1);
     ui->pushButton_Start->setEnabled(1);

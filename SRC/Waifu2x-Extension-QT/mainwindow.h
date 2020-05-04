@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v1.73.3";//软件版本号
+    QString VERSION = "v2.01.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -79,7 +79,7 @@ public:
     void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
     void Read_urls(QList<QUrl> urls);
-    void Read_Path(QString Input_path);
+
     bool AddNew_gif=false;//判断是否有新增文件-gif
     bool AddNew_image=false;//判断是否有新增文件-图片
     bool AddNew_video=false;//判断是否有新增文件-视频
@@ -205,6 +205,22 @@ public:
     QString GPU_ID_STR_SRMD="";//向srmd命令行cmd插入的gpuid命令,如果auto则为空
 
     bool Imgae_hasAlphaChannel(int rowNum);
+
+    //兼容性检测
+    bool isCompatible_Waifu2x_NCNN_Vulkan_OLD=false;
+    bool isCompatible_Waifu2x_NCNN_Vulkan_NEW=false;
+    bool isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P=false;
+    bool isCompatible_SRMD_NCNN_Vulkan=false;
+    bool isCompatible_Waifu2x_Converter=false;
+    bool isCompatible_Anime4k_CPU=false;
+    bool isCompatible_Anime4k_GPU=false;
+
+    bool isCompatible_PythonExtension=false;
+    bool isCompatible_FFmpeg=false;
+    bool isCompatible_FFprobe=false;
+    bool isCompatible_ImageMagick=false;
+    bool isCompatible_Gifsicle=false;
+    bool isCompatible_SoX=false;
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -368,15 +384,11 @@ private slots:
 
     void on_checkBox_SaveAsJPG_stateChanged(int arg1);
 
-    void on_pushButton_donate_clicked();
-
     void on_pushButton_CheckUpdate_clicked();
 
     void on_pushButton_Report_clicked();
 
     void on_pushButton_ReadMe_clicked();
-
-    void on_pushButton_AddPath_clicked();
 
     void on_comboBox_Engine_Image_currentIndexChanged(int index);
 
@@ -390,7 +402,6 @@ private slots:
 
     void on_pushButton_compatibilityTest_clicked();
 
-
     void on_tableView_image_clicked(const QModelIndex &index);
 
     void on_tableView_gif_clicked(const QModelIndex &index);
@@ -402,9 +413,6 @@ private slots:
     void on_pushButton_CustRes_cancel_clicked();
 
     void on_pushButton_HideSettings_clicked();
-
-    void on_pushButton_HideInput_clicked();
-
 
     void on_pushButton_DetectGPU_clicked();
 
@@ -428,27 +436,15 @@ private slots:
 
     void on_pushButton_about_clicked();
 
-    void on_checkBox_AlwaysHideInput_stateChanged(int arg1);
-
     void on_comboBox_AspectRatio_custRes_currentIndexChanged(int index);
 
     void on_checkBox_AlwaysHideSettings_stateChanged(int arg1);
-
-    void on_spinBox_ThreadNum_gif_internal_valueChanged(int arg1);
-
-    void on_spinBox_ThreadNum_gif_valueChanged(int arg1);
-
-    void on_spinBox_ThreadNum_video_valueChanged(int arg1);
-
-    void on_spinBox_ThreadNum_video_internal_valueChanged(int arg1);
 
     void on_pushButton_Save_GlobalFontSize_clicked();
 
     void on_pushButton_BrowserFile_clicked();
 
     void on_pushButton_wiki_clicked();
-
-    void on_pushButton_Minimize_clicked();
 
     void on_pushButton_HideTextBro_clicked();
 
@@ -507,6 +503,38 @@ private slots:
     void on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1);
 
     void on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1);
+
+    void on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_clicked();
+
+    void on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P_clicked();
+
+    void on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD_clicked();
+
+    void on_checkBox_isCompatible_SRMD_NCNN_Vulkan_clicked();
+
+    void on_checkBox_isCompatible_Waifu2x_Converter_clicked();
+
+    void on_checkBox_isCompatible_Anime4k_CPU_clicked();
+
+    void on_checkBox_isCompatible_Anime4k_GPU_clicked();
+
+    void on_checkBox_SpecifyGPU_Anime4k_stateChanged(int arg1);
+
+    void on_pushButton_ListGPUs_Anime4k_clicked();
+
+    void on_checkBox_isCompatible_PythonExtension_clicked();
+
+    void on_checkBox_isCompatible_FFmpeg_clicked();
+
+    void on_checkBox_isCompatible_FFprobe_clicked();
+
+    void on_checkBox_isCompatible_ImageMagick_clicked();
+
+    void on_checkBox_isCompatible_Gifsicle_clicked();
+
+    void on_checkBox_isCompatible_SoX_clicked();
+
+    void on_checkBox_GPUMode_Anime4K_stateChanged(int arg1);
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
