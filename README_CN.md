@@ -14,7 +14,7 @@
 <img src="https://img.shields.io/github/downloads/aaronfeng753/waifu2x-extension-gui/total?label=Downloads&logo=github">
 </p>
 
-<h4 align="center"> 支持的语言: English, 简体中文, 日本語(機械翻訳) </h4>
+<h4 align="center"> 支持的语言: English, 简体中文, 日本語(機械翻訳), 繁體中文 </h4>
 
 <h4 align="center"> 支持的显卡品牌: AMD, NVIDIA, Intel </h4>
 
@@ -125,7 +125,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 # 集成组件(releases内):
 - waifu2x-ncnn-vulkan version 20200224
 
-- Anime4KCPP v1.3.1
+- Anime4KCPP v1.6.0
 
 - ffmpeg version 4.2.2
 
@@ -133,7 +133,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 
 - Waifu2x-converter version: v5.3.3
 
-- ImageMagick 7.0.10-6-Q16-x64
+- ImageMagick 7.0.10-10-Q16-x64
 
 - SoX 14.4.2-win32
 
@@ -171,6 +171,6 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
 ### [捐赠列表](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md)
-### 除了扫码捐赠现金, 您也可以 打开支付宝首页搜“682796694”领红包并使用(比如直接把红包发给我🤣), 我也可以获得收入.
+### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用, 我也可以获得收入.
 ![donate_new](/donate_new.jpg)
 #### 如果donate(捐赠)二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg)或者合法的连接国际网络后刷新页面, 当然您也可以[按照这个教程来尝试修复github图片加载的问题](https://github.com/AaronFeng753/Github_dns_hosts#github_dns_hosts).
