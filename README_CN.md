@@ -113,11 +113,6 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 处理结果:耗时11秒,放大到1920x1080
 ```
 
-# 如何修复兼容性问题 :
-#### waifu2x-ncnn-vulkan: 重装与更新显卡驱动.
-#### waifu2x-converter: 换个新电脑.
-#### Anime4k: 安装最新版的 JDK and JRE
-
 # 集成组件(releases内):
 - waifu2x-ncnn-vulkan version 20200224
 
