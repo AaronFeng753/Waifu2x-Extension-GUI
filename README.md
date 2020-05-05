@@ -92,11 +92,6 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 ### `Github doesn't support play video online, pls check link below:`
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# How to fix compatibility issue :
-#### waifu2x-ncnn-vulkan: Re-install gpu driver or update it to the latest.
-#### waifu2x-converter: Buy a new computer.
-#### Anime4k: Install the latest JDK and JRE
-
 # Integrated component(In releases):
 - waifu2x-ncnn-vulkan version 20200224
 
