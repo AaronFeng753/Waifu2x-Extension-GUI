@@ -6,6 +6,20 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.01.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.01.1)
+#### 更新日志:
+- 新特性:重新设计用户界面.
+- 新特性:添加[繁體中文]支持(感謝 @uimee 協助翻譯).
+- 新特性:Anime4K引擎支持指定GPU.
+- 新特性:存储与读取所有引擎的GPU设置.
+- 新特性:改进兼容性测试,增加检测项目,支持存储测试结果.
+- 更新Anime4K(v1.6.0).
+- 更新ImageMagick(7.0.10-10-Q16-x64).
+- 改进多线程管理.
+- 添加一些提示.
+- 性能优化.
+- 修复bug.
+---
 ## [v1.73.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.73.3)
 #### 更新日志:
 - 新特性:为Anime4K引擎加入GPU加速支持.
