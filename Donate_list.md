@@ -158,5 +158,23 @@ Name(or ID) | Donation amount | Time
 | Anonymous | 20 RMB | 2020/4/24 |
 | Anonymous | 5 RMB | 2020/4/25 |
 | Anonymous | 5 RMB | 2020/4/25 |
+| Anonymous | 1 RMB | 2020/4/27 |
+| Anonymous(\*羽) | 20 RMB | 2020/4/28 |
+| Anonymous | 1 RMB | 2020/4/28 |
+| Anonymous | 1 RMB | 2020/4/28 |
+| Anonymous | 1 RMB | 2020/4/29 |
+| Anonymous | 1 RMB | 2020/4/30 |
+| Anonymous | 5 RMB | 2020/5/1 |
+| Anonymous | 1 RMB | 2020/5/1 |
+| Anonymous | 5 RMB | 2020/5/2 |
+| Anonymous | 2 RMB | 2020/5/4 |
+| Anonymous | 10 RMB | 2020/5/4 |
+| Anonymous | 5.4 RMB | 2020/5/4 |
+| Anonymous | 1.29 RMB | 2020/5/4 |
+| Christopher Chisholm | 4.48 USD | 2020/5/5 |
+| Anonymous | 5 RMB | 2020/5/5 |
+| Anonymous | 1 RMB | 2020/5/7 |
+| Anonymous | 3 RMB | 2020/5/7 |
+| Anonymous | 10 RMB | 2020/5/7 |
 
 #### Small donations (less than 1 RMB) will not recorded in the donation list.
