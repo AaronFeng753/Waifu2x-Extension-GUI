@@ -2,6 +2,20 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.01.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.01.1)
+#### Change log:
+- New feature: Redesigned user interface.
+- New feature: add [繁體中文] support (thanks @uimee for assistance in translation).
+- New feature: Anime4K engine supports specified GPU.
+- New feature: store and read GPU settings of all engines.
+- New features: improved compatibility testing, increased inspection items, and support for storing test results.
+- Update Anime4K (v1.6.0).
+- Update ImageMagick (7.0.10-10-Q16-x64).
+- Improved multi-thread management.
+- Add some tips.
+- Performance optimization.
+- Fix bugs.
+---
 ## [v1.73.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v1.73.3)
 #### Change log:
 - New feature: Add GPU acceleration support for Anime4K engine.
