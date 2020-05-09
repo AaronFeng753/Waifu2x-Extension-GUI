@@ -32,30 +32,23 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.01.1:
-- 新特性:重新设计用户界面.
-- 新特性:添加[繁體中文]支持(感謝 @uimee 協助翻譯).
-- 新特性:Anime4K引擎支持指定GPU.
-- 新特性:存储与读取所有引擎的GPU设置.
-- 新特性:改进兼容性测试,增加检测项目,支持存储测试结果.
-- 更新Anime4K(v1.6.0).
-- 更新ImageMagick(7.0.10-10-Q16-x64).
-- 改进多线程管理.
-- 添加一些提示.
-- 性能优化.
-- 修复bug.
+v2.02.1:
+- 更新Anime4K(v1.7.0).
+- 优化简体中文支持.
+- 添加一些提示
+- 修复bug:某些情况下,程序会在运行兼容性测试时卡住.
 --------------------------------------------------------------------------
 To do:
 - 多gpu支持
-- 用python写一个视频的特殊字符路径检测(路径输入到python ext 让他看能不能判断exist)
 ---------------------------------------------------------------------------
 Integrated component(In releases):
-- waifu2x-ncnn-vulkan version 20200223
-- Anime4KCPP v1.6.0
+- Anime4KCPP v1.7.0
 - ffmpeg version 4.2.2
 - gifsicle version 1.92
+- waifu2x-ncnn-vulkan version 20200223
+- SRMD-ncnn-Vulkan version 20200224
 - Waifu2x-converter version: v5.3.3
-- ImageMagick 7.0.10-6-Q16-x64
+- ImageMagick 7.0.10-10-Q16-x64
 - SoX 14.4.2-win32
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/

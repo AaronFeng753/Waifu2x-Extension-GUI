@@ -999,11 +999,13 @@ void MainWindow::on_pushButton_about_clicked()
     MSG->setWindowTitle(tr("About"));
     QString line1 = "Waifu2x-Extension-GUI\n\n";
     QString line2 = VERSION+"\n\n";
-    QString line3 = "Github:https://github.com/AaronFeng753/Waifu2x-Extension-GUI\n\n";
+    QString line3 = "Github: https://github.com/AaronFeng753/Waifu2x-Extension-GUI\n\n";
     QString line4 = "Waifu2x-Extension-GUI is licensed under the\n";
     QString line5 = "GNU Affero General Public License v3.0\n\n";
-    QString line6 = "Copyright (C) 2020  Aaron Feng";
-    MSG->setText(line1+line2+line3+line4+line5+line6);
+    QString line6 = "Copyright (C) 2020 Aaron Feng. All rights reserved.\n\n";
+    QString line7 = "The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.\n\n";
+    QString line8 = "Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/";
+    MSG->setText(line1+line2+line3+line4+line5+line6+line7+line8);
     QImage img(":/new/prefix1/icon/icon_main.png");
     QImage img_scaled = img.scaled(50,50,Qt::KeepAspectRatio,Qt::SmoothTransformation);
     QPixmap pix(QPixmap::fromImage(img_scaled));
@@ -1309,6 +1311,10 @@ void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
 void MainWindow::on_pushButton_encodersList_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/EncodersList.txt"));
+    if(ui->comboBox_language->currentIndex()==1)
+    {
+        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/EncodersList.txt"));
+    }
 }
 
 void MainWindow::Tip_FirstTimeStart()

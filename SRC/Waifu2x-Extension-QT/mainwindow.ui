@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>5</number>
       </property>
       <property name="iconSize">
        <size>
@@ -253,21 +253,21 @@ padding:10px;
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
+background-color: rgb(26, 188, 156);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:hover{
-background-color: rgb(191, 62, 255);
+background-color: rgb(29, 214, 177);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
 padding:10px;
 }
 QPushButton:pressed{
-background-color: rgb(154, 50, 205);
+background-color: rgb(23, 173, 143);
 color: rgb(255, 255, 255);
 border-style:outset;
 border-radius:8px;
@@ -567,6 +567,12 @@ selection-background-color: rgb(178, 58, 238);
                  <italic>false</italic>
                  <bold>false</bold>
                 </font>
+               </property>
+               <property name="toolTip">
+                <string>When the software is running with administrator rights, 
+you will not be able to drag and drop files into the window.
+Please unauthorize the software or reinstall the software 
+into a directory that can run normally without administrator rights.</string>
                </property>
                <property name="styleSheet">
                 <string notr="true"/>
@@ -3299,6 +3305,16 @@ likelihood of removing wanted components of the audio signal.</string>
                   <height>16777215</height>
                  </size>
                 </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                </property>
                 <property name="text">
                  <string>Image:</string>
                 </property>
@@ -3315,6 +3331,16 @@ likelihood of removing wanted components of the audio signal.</string>
                 <property name="acceptDrops">
                  <bool>false</bool>
                 </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                </property>
                 <property name="text">
                  <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
                 </property>
@@ -3327,6 +3353,16 @@ likelihood of removing wanted components of the audio signal.</string>
                   <width>50</width>
                   <height>16777215</height>
                  </size>
+                </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
                 </property>
                 <property name="text">
                  <string>Video:</string>
@@ -3343,6 +3379,16 @@ likelihood of removing wanted components of the audio signal.</string>
                 </property>
                 <property name="acceptDrops">
                  <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
                 </property>
                 <property name="text">
                  <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
