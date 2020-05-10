@@ -5,10 +5,10 @@
 <h2 align="center"> Waifu2x-Extension-GUI </h2>
 
 <p align="center">
-<img src="https://img.shields.io/github/v/release/AaronFeng753/Waifu2x-Extension-GUI">
-<img src="https://img.shields.io/github/downloads/aaronfeng753/waifu2x-extension-gui/total?label=Downloads&logo=github">
-<img src="https://img.shields.io/badge/support-Windows-blue?logo=Windows">
-<img src="https://img.shields.io/github/license/AaronFeng753/Waifu2x-Extension-GUI">
+<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20release&style=flat-square">
+<img src="https://img.shields.io/github/downloads/AaronFeng753/Waifu2x-Extension-GUI/total?label=Downloads&logo=github&style=flat-square">
+<img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
+<img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square">
 </p>
 
 <h4 align="center"> Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文 </h4>
