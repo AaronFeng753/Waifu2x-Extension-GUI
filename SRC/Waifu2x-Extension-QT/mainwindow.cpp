@@ -380,6 +380,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->groupBox_AudioDenoise->setEnabled(0);
         ui->checkBox_ProcessVideoBySegment->setEnabled(0);
         ui->spinBox_SegmentDuration->setEnabled(0);
+        ui->comboBox_ImageStyle->setEnabled(0);
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
