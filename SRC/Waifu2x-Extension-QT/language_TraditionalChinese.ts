@@ -14,7 +14,7 @@
     </message>
     <message>
         <source>Do not include special characters in the input path, it may cause errors.</source>
-        <translation type="vanished">如果输入路径中有特殊字符, 可能會導致程式出錯.</translation>
+        <translation type="vanished">如果輸入路径中有特殊字符, 可能會導致程式出錯.</translation>
     </message>
     <message>
         <source>Add path</source>
@@ -1311,7 +1311,7 @@ It is recommended to enable this option.</source>
     <message>
         <location filename="mainwindow.ui" line="3842"/>
         <source>Optimize &quot;.gif&quot;</source>
-        <translation>优化&quot;.gif&quot;</translation>
+        <translation>優化&quot;.gif&quot;</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3708"/>
@@ -1359,7 +1359,7 @@ It is recommended to enable this option.</source>
     <message>
         <location filename="mainwindow.ui" line="3861"/>
         <source>Compressed &quot;.jpg&quot; image quality:</source>
-        <translation>压缩后的 &quot;.jpg&quot; 畫面質量:</translation>
+        <translation>壓縮后的 &quot;.jpg&quot; 畫面質量:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3824"/>
