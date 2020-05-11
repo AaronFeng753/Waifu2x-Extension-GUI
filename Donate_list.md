@@ -6,7 +6,9 @@ Thank you very much for your donation. If you have any suggestions for this soft
 
 Non-refundable, except in exceptional circumstances (e.g. incorrect large transfers)
 
-Sort by donation time.
+`This list is not updated in real time.`
+
+`Sort by donation time.`
 
 Name(or ID) | Donation amount | Time
 | - | :-: | -: |
