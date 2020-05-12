@@ -113,7 +113,7 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 # 集成组件(releases内):
 - waifu2x-ncnn-vulkan version 20200224
 
-- Anime4KCPP v1.6.0
+- Anime4KCPP v1.7.0
 
 - ffmpeg version 4.2.2
 
