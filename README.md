@@ -8,7 +8,7 @@
 <img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20release&style=flat-square">
 <img src="https://img.shields.io/github/downloads/AaronFeng753/Waifu2x-Extension-GUI/total?label=Downloads&logo=github&style=flat-square">
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
-<img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square?label=License">
+<img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
 
 <h4 align="center"> Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文 </h4>
