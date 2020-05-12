@@ -178,5 +178,10 @@ Name(or ID) | Donation amount | Time
 | Anonymous | 1 RMB | 2020/5/7 |
 | Anonymous | 3 RMB | 2020/5/7 |
 | Anonymous | 10 RMB | 2020/5/7 |
+| Anonymous | 5 RMB | 2020/5/9 |
+| Anonymous | 10 RMB | 2020/5/10 |
+| Anonymous | 20 RMB | 2020/5/10 |
+| Anonymous | 5 RMB | 2020/5/11 |
+| Anonymous | 5 RMB | 2020/5/11 |
 
 #### Small donations (less than 1 RMB) will not recorded in the donation list.
