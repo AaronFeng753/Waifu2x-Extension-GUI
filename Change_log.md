@@ -2,6 +2,15 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.02.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.02.3)
+#### Change log:
+- Update Anime4K (v1.7.0).
+- Improve Simplified Chinese support.
+- Reduce resource usage when running compatibility tests.
+- Add some tips.
+- Fix bug: In some cases, the program will get stuck when running compatibility tests.
+- Fix bug: Some components are not disabled when processing files, which may cause potential errors.
+---
 ## [v2.01.1](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.01.1)
 #### Change log:
 - New feature: Redesigned user interface.
