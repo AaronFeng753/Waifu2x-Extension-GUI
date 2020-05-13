@@ -116,20 +116,13 @@ A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和
 处理结果:耗时11秒,放大到1920x1080
 ```
 
-# 集成组件(releases内):
-- waifu2x-ncnn-vulkan version 20200224
+# [许可协议](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
-- Anime4KCPP v1.7.0
+Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)许可协议.
 
-- ffmpeg version 4.2.2
-
-- gifsicle version 1.92
-
-- Waifu2x-converter version: v5.3.3
-
-- ImageMagick 7.0.10-10-Q16-x64
-
-- SoX 14.4.2-win32
+<p align="left">
+<img src="/.github/AGPLv3_Logo.png" height="120">
+</p>
 
 # 鸣谢:
 - 捐赠者们: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md
