@@ -16,7 +16,6 @@
 <h4 align="center"> Supported graphics card brands: AMD, NVIDIA, Intel </h4>
 
 ### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
-### [Wiki](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki)---[Change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)---[Donate](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md)
 
 # [Download Latest Build (Windwos x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest installation(or portable) package for Windwos x64 with Intel/AMD/Nvidia GPU.
