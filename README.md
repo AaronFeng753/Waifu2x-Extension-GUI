@@ -11,18 +11,16 @@
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
 
-<h4 align="center"> Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文 </h4>
-
-<h4 align="center"> Supported graphics card brands: AMD, NVIDIA, Intel </h4>
-
 ### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
 
 # [Download Latest Build (Windwos x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
-Download Latest installation(or portable) package for Windwos x64 with Intel/AMD/Nvidia GPU.
+Download Latest installation(or portable) package for `Windwos x64` PC with `Intel/AMD/Nvidia` GPU.
 
 https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
 This package includes all the binaries and models required, so no CUDA or Caffe runtime environment is needed.
+
+Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
