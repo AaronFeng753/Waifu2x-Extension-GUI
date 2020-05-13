@@ -15,9 +15,15 @@
 
 <h4 align="center"> 支持的显卡品牌: AMD, NVIDIA, Intel </h4>
 
-### [💾下载](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)---[Wiki 使用说明](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki)---[更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)---[捐赠](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md)
-
 #### 如果README内的图片无法正常加载,请[打开此链接查看码云内存储的README.md](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md)或者[使用法定信道进行国际联网](http://www.cac.gov.cn/1996-02/02/c_126468621.htm)后刷新页面.
+
+# [下载最新版本 (Windwos x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+下载最新版本的完整版(或绿色版)安装包, 适用于拥有`Intel/AMD/Nvidia`显卡的`Windwos x64`系统PC.
+
+https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+
+安装包内已经包含软件运行所需的所有文件, 故`无需`额外安装配置CUDA或者Caffe运行环境.
+
 # Waifu2x-Extension-GUI是什么?
  借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
