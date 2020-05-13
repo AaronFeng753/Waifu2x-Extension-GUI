@@ -93,22 +93,13 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 ### `Github doesn't support play video online, pls check link below:`
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# Integrated component(In releases):
-- waifu2x-ncnn-vulkan version 20200224
+# [License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
-- SRMD-ncnn-Vulkan version 20200224
+Waifu2x-Extension-GUI is licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-- Anime4KCPP v1.7.0
-
-- ffmpeg version 4.2.2
-
-- gifsicle version 1.92
-
-- Waifu2x-converter version: v5.3.3
-
-- ImageMagick 7.0.10-10-Q16-x64
-
-- SoX 14.4.2-win32
+<p align="left">
+<img src="/.github/AGPLv3_Logo.png" height="120">
+</p>
 
 # Credits:
 - Donors: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
