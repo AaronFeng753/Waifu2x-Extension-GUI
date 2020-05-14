@@ -124,6 +124,17 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 <img src="/.github/AGPLv3_Logo.png" height="120">
 </p>
 
+# 隐私政策
+
+我们尊重您的隐私,所以本软件的隐私政策如下:
+```
+1. 本软件不会向互联网上传任何数据, 所以我们不会收集您的任何信息, 我们甚至没有服务器.
+
+2. 本软件仅在检查更新时会连接互联网, 此时将从github(如果你在用简体中文,那么还包括码云)下载一个.ini文件.
+
+总之, 我们不会收集您的任何信息. 如果您不信任我们, 您可以自行阅读本软件的源代码或者放弃使用本软件.
+```
+
 # 鸣谢:
 - 捐赠者们: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md
 
