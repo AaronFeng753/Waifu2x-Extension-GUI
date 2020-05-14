@@ -108,6 +108,8 @@ We respect your privacy, so the following is the privacy policy of this software
 1. This software won't upload anything to the internet, so we won't collect any data from you, we even don't have a server.
 
 2. This sofware will only connect to the internet when check for new update, which will download an .ini file frome github(and gitee if you are using Simplified Chinese).
+
+In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
 
 # Credits:
