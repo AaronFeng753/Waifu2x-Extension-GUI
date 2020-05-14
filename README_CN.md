@@ -5,7 +5,7 @@
 <h2 align="center"> Waifu2x-Extension-GUI </h2>
 
 <p align="center">
-<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20release&style=flat-square">
+<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20release&style=flat-square&color=brightgreen">
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
