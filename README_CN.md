@@ -137,6 +137,8 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 # 鸣谢:
 - 捐赠者们: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md
 
+- QT: https://www.qt.io/
+
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 
 - SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
@@ -163,7 +165,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 
-- Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
+- 图标作者: Freepik (https://www.flaticon.com/authors/freepik) 来自 Flaticon : https://www.flaticon.com/
 
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
