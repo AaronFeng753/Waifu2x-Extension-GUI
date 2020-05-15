@@ -5,9 +5,9 @@
 <h2 align="center"> Waifu2x-Extension-GUI </h2>
 
 <p align="center">
-<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20release&style=flat-square&color=brightgreen">
-<img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
-<img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
+<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=最新版本&style=flat-square&color=brightgreen">
+<img src="https://img.shields.io/badge/支持-Windows%20x64-blue?logo=Windows&style=flat-square">
+<img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=许可协议">
 </p>
 
 #### 如果README内的图片无法正常加载,请[点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md)或者[使用法定信道进行国际联网](http://www.cac.gov.cn/1996-02/02/c_126468621.htm)后刷新页面.
