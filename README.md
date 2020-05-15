@@ -114,6 +114,8 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 # Credits:
 - Donors: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
 
+- QT: https://www.qt.io/
+
 - waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 
 - SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
