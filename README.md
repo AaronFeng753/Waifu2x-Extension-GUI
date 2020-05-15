@@ -15,7 +15,7 @@
 # [Download Latest Build (Windwos x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest installation(or portable) package for `Windwos x64` PC with `Intel/AMD/Nvidia` GPU.
 
-https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+Download Latest Build: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
 This package includes all the binaries and models required, so no CUDA or Caffe runtime environment is needed.
 
