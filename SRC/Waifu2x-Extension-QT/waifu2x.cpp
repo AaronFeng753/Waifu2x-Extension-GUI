@@ -59,6 +59,12 @@ int MainWindow::Waifu2xMainThread()
                 emit Send_progressbar_Add();
                 continue;
             }
+            //============== 判断权限 =====================
+            if(file_isFilesFolderWritable_row_image(i)==false)
+            {
+                emit Send_progressbar_Add();
+                continue;
+            }
             //=========
             ThreadNumMax = ui->spinBox_ThreadNum_image->value();//获取image线程数量最大值
             //===================================================================================
@@ -154,6 +160,12 @@ int MainWindow::Waifu2xMainThread()
                 emit Send_progressbar_Add();
                 continue;
             }
+            //============== 判断权限 =====================
+            if(file_isFilesFolderWritable_row_gif(i)==false)
+            {
+                emit Send_progressbar_Add();
+                continue;
+            }
             //=========
             ThreadNumMax = 1;//获取gif线程数量最大值
             switch(GIFEngine)
@@ -225,6 +237,12 @@ int MainWindow::Waifu2xMainThread()
                 }
             }
             if(Table_model_video->item(i,1)->text().contains("deleted"))
+            {
+                emit Send_progressbar_Add();
+                continue;
+            }
+            //============== 判断权限 =====================
+            if(file_isFilesFolderWritable_row_video(i)==false)
             {
                 emit Send_progressbar_Add();
                 continue;

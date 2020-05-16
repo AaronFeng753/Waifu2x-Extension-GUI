@@ -242,6 +242,7 @@ void MainWindow::video_2mp4(QString VideoPath)
 //===============
 int MainWindow::video_get_duration(QString videoPath)
 {
+    emit Send_TextBrowser_NewMessage(tr("Get duration of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_Duration_process = new QProcess();
     QString cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
@@ -251,20 +252,14 @@ int MainWindow::video_get_duration(QString videoPath)
     //============= 保存ffprobe输出的ini格式文本 =============
     QString ffprobe_output_str = Get_Duration_process->readAllStandardOutput();
     //================ 将ini写入文件保存 ================
-    //创建文件夹
-    QString video_info_dir = Current_Path+"/videoInfo";
-    if(!file_isDirExist(video_info_dir))
-    {
-        file_mkDir(video_info_dir);
-    }
-    //========================
     QFileInfo videoFileInfo(videoPath);
     QString Path_video_info_ini = "";
+    QString video_dir = file_getFolderPath(videoPath);
     do
     {
         qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
         int random = qrand()%1000;
-        Path_video_info_ini = video_info_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(file_isFileExist(Path_video_info_ini));
     //=========
@@ -412,6 +407,7 @@ QString MainWindow::video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPa
 */
 QString MainWindow::video_get_bitrate(QString videoPath)
 {
+    emit Send_TextBrowser_NewMessage(tr("Get bitrate of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_Bitrate_process = new QProcess();
     QString cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
@@ -430,11 +426,12 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     //========================
     QFileInfo videoFileInfo(videoPath);
     QString Path_video_info_ini = "";
+    QString video_dir = file_getFolderPath(videoPath);
     do
     {
         qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
         int random = qrand()%1000;
-        Path_video_info_ini = video_info_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(file_isFileExist(Path_video_info_ini));
     //=========

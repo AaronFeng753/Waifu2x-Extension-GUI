@@ -32,15 +32,19 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.02.3:
-- 更新Anime4K(v1.7.0).
-- 改进简体中文支持.
-- 改进兼容性测试,减少资源占用.
+v2.11.1:
+- 更新ImageMagick(7.0.10-12-Q16-x64)
+- 更改默认设置.
 - 添加一些提示.
-- 修复bug:某些情况下,程序会在运行兼容性测试时卡住.
-- 修复bug:某些组件未在处理文件时禁用,可能导致潜在错误.
+- 处理文件前检测是否拥有文件所在目录的写权限.
+- 改进软件启动时的权限检测.
+- 修复bug:特殊情况下,处理视频时可能会卡在获取时长那一步.
+- 修复bug:无法正常检测是否拥有输出路径的写权限.
+- 修复bug:当使用Anime4k引擎处理视频时,自定义分辨率设定无效.
 --------------------------------------------------------------------------
 To do:
+- Anime4k引擎加入图片和GIF处理
+- 初次启动运行见兼容性检测后，帮助用户自动修改引擎设定。
 - 出处理视频&GIF时单独显示进度条和剩余时间一类的.(Current Video(GIF),平时隐藏,处理时可见)
 - 多gpu支持
 ---------------------------------------------------------------------------
@@ -51,7 +55,7 @@ Integrated component(In releases):
 - waifu2x-ncnn-vulkan version 20200223
 - SRMD-ncnn-Vulkan version 20200224
 - Waifu2x-converter version: v5.3.3
-- ImageMagick 7.0.10-10-Q16-x64
+- ImageMagick 7.0.10-12-Q16-x64
 - SoX 14.4.2-win32
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/

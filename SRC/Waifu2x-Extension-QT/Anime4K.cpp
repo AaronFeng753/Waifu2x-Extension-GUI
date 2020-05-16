@@ -883,7 +883,6 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -898,6 +897,9 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
             return 0;
         }
     }
+    //=======
+    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
+    emit Send_TextBrowser_NewMessage(cmd);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
     {

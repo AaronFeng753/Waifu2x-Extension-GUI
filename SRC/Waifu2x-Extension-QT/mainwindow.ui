@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="iconSize">
        <size>
@@ -409,7 +409,7 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>Read Saved Files List</string>
+              <string>Read Files List</string>
              </property>
             </widget>
            </item>
@@ -1734,7 +1734,7 @@ You can run compatibility test to see which engines your PC is compatible with.<
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -1801,7 +1801,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                   <number>10</number>
                  </property>
                  <property name="value">
-                  <number>200</number>
+                  <number>100</number>
                  </property>
                 </widget>
                </item>
@@ -2180,6 +2180,9 @@ padding:10px;
                       <property name="text">
                        <string>Enable Pre-processing</string>
                       </property>
+                      <property name="checked">
+                       <bool>true</bool>
+                      </property>
                      </widget>
                     </item>
                     <item row="1" column="0" colspan="4">
@@ -2254,6 +2257,9 @@ padding:10px;
                      <widget class="QCheckBox" name="checkBox_EnablePostProcessing_Anime4k">
                       <property name="text">
                        <string>Enable Post-processing</string>
+                      </property>
+                      <property name="checked">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -2422,6 +2428,9 @@ padding:10px;
                  <property name="maximum">
                   <number>999999999</number>
                  </property>
+                 <property name="value">
+                  <number>2</number>
+                 </property>
                 </widget>
                </item>
                <item row="1" column="0">
@@ -2491,6 +2500,9 @@ padding:10px;
                  </property>
                  <property name="maximum">
                   <number>999999999</number>
+                 </property>
+                 <property name="value">
+                  <number>2</number>
                  </property>
                 </widget>
                </item>

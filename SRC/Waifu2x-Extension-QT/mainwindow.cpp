@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //===================================
+    //==============
     this->setWindowTitle("Waifu2x-Extension-GUI "+VERSION+" by Aaron Feng");
     //==============
     translator = new QTranslator(this);
@@ -95,6 +95,17 @@ MainWindow::MainWindow(QWidget *parent)
     TextBrowser_StartMes();//显示启动msg
     //===================================
     Tip_FirstTimeStart();
+    //==============
+    /*
+    校验软件是否对所在目录有写权限
+    */
+    if(file_isDirWritable(Current_Path)==false)
+    {
+        QMessageBox Msg_Permission(QMessageBox::Question, QString(tr("Error")), QString(tr("It is detected that this software lacks the necessary permissions to run.\n\nPlease close this software and start this software again after giving this software administrator permission.\n\nOtherwise, this software may not work properly.")));
+        Msg_Permission.setIcon(QMessageBox::Warning);
+        QAbstractButton *pBtn_Permission = (QAbstractButton *)Msg_Permission.addButton(QString("OK"), QMessageBox::NoRole);
+        Msg_Permission.exec();
+    }
     //==============
     this->adjustSize();
 }
@@ -297,6 +308,14 @@ void MainWindow::on_pushButton_Start_clicked()
         tmp = tmp.trimmed();
         if(tmp=="")
         {
+            //=====
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Output path is empty."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            //=====
             emit Send_TextBrowser_NewMessage(tr("Output path is empty."));
             return;
         }
@@ -308,12 +327,20 @@ void MainWindow::on_pushButton_Start_clicked()
             tmp = tmp.left(tmp.length() - 1);
         }
         QFileInfo fileinfo_tmp(tmp);
-        if(file_isDirExist(tmp)&&fileinfo_tmp.isDir()&&fileinfo_tmp.isWritable())
+        if(file_isDirExist(tmp)&&fileinfo_tmp.isDir()&&file_isDirWritable(tmp))
         {
             OutPutFolder_main = tmp;
         }
         else
         {
+            //=====
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Invalid output path.\n\nOr do not have sufficient permissions to write files to the output path, you might need to grant administrator permissions to this software."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            //=====
             emit Send_TextBrowser_NewMessage(tr("Invalid output path."));
             return;
         }
@@ -431,12 +458,14 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
         ui->tableView_image->clearSelection();
         ui->tableView_gif->clearSelection();
         ui->tableView_video->clearSelection();
+        //=====
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Warning"));
         MSG->setText(tr("No items are currently selected."));
         MSG->setIcon(QMessageBox::Warning);
         MSG->setModal(true);
         MSG->show();
+        //=====
         ui->pushButton_RemoveItem->setEnabled(1);
         return 0;
     }
@@ -1327,7 +1356,9 @@ void MainWindow::Tip_FirstTimeStart()
     }
     else
     {
-        //=======
+        /*
+          弹出语言选择对话框
+        */
         QMessageBox Msg(QMessageBox::Question, QString("Choose your language"), QString("Choose your language.\n\n选择您的语言。\n\n言語を選んでください。"));
         Msg.setIcon(QMessageBox::Information);
         QAbstractButton *pYesBtn_English = (QAbstractButton *)Msg.addButton(QString("English"), QMessageBox::YesRole);
@@ -1340,7 +1371,9 @@ void MainWindow::Tip_FirstTimeStart()
         if (Msg.clickedButton() == pYesBtn_Japanese)ui->comboBox_language->setCurrentIndex(2);
         if (Msg.clickedButton() == pYesBtn_TraditionalChinese)ui->comboBox_language->setCurrentIndex(3);
         on_comboBox_language_currentIndexChanged(0);
-        //=======
+        /*
+          弹出必读Tips对话框
+        */
         QString English_1 = tr("- Please read the Wiki before starting to use the software.\n");
         QString English_7 = tr("- If there is a problem with the software font display, you can modify the font in the additional settings.\n");
         QString English_8 = tr("- This software is free software, if you find anyone selling this software, please report the seller.\n");

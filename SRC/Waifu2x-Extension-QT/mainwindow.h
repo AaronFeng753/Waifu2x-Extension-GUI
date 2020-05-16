@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.02.3";//软件版本号
+    QString VERSION = "v2.11.1";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -105,6 +105,13 @@ public:
     void file_MoveFile(QString Orginal,QString Target);//移动文件
 
     QString file_getFolderPath(QFileInfo fileInfo);//获取文件夹路径(去除末尾的"/")
+
+    bool file_isDirWritable(QString DirPath);//检查文件夹是否可写入
+
+    //检查当前行的文件所在的文件夹是否可写入
+    bool file_isFilesFolderWritable_row_image(int rowNum);
+    bool file_isFilesFolderWritable_row_video(int rowNum);
+    bool file_isFilesFolderWritable_row_gif(int rowNum);
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
