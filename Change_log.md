@@ -2,6 +2,20 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.11.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.11.3)
+- New feature: Anime4K engine supports processing Image and GIF.
+- New feature: Automatically adjust engine settings based on compatibility test results.
+- After the compatibility test, a pop up will shows up according to the test results.
+- Update Anime4K (v1.8.1).
+- Update ImageMagick (7.0.10-12-Q16-x64).
+- Change default settings.
+- Add some tips.
+- Check whether the software has write permission in the directory where the file is located before processing the file.
+- Improved permission detection when the software starts.
+- Fix bug: In special cases, the video may be stuck in the step of obtaining the duration.
+- Fix bug: Can't detect whether the software has write permission for output path normally.
+- Fix bug: when using Anime4k engine to process video, the custom resolution setting is invalid.
+---
 ## [v2.02.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.02.3)
 #### Change log:
 - Update Anime4K (v1.7.0).
