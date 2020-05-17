@@ -1766,7 +1766,7 @@ PC is compatible with.</string>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>3</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2106,7 +2106,7 @@ Smaller tile size means SRMD will use less GPU memory and run slower.</string>
                   <number>10</number>
                  </property>
                  <property name="value">
-                  <number>200</number>
+                  <number>100</number>
                  </property>
                 </widget>
                </item>
@@ -4548,7 +4548,7 @@ padding:10px;
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]</string>
+srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

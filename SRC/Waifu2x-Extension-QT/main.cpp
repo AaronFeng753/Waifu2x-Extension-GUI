@@ -32,10 +32,12 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.11.2:
+v2.11.3:
 - 新特性:Anime4K引擎支持处理图片和GIF.
 - 新特性:根据兼容性测试结果自动调整引擎设置.
-- 更新ImageMagick(7.0.10-12-Q16-x64)
+- 兼容性测试结束后,根据测试结果给予用户提示.
+- 更新Anime4K(v1.8.1).
+- 更新ImageMagick(7.0.10-12-Q16-x64).
 - 更改默认设置.
 - 添加一些提示.
 - 处理文件前检测是否拥有文件所在目录的写权限.
@@ -50,7 +52,7 @@ To do:
 - 升级更新时保存设置
 ---------------------------------------------------------------------------
 Integrated component(In releases):
-- Anime4KCPP v1.7.0
+- Anime4KCPP v1.8.1
 - ffmpeg version 4.2.2
 - gifsicle version 1.92
 - waifu2x-ncnn-vulkan version 20200223

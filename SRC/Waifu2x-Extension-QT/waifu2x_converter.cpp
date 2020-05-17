@@ -64,6 +64,10 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
             }
         }
     }
+    if(ui->comboBox_Engine_Image->currentIndex()==3)
+    {
+        DenoiseLevel=1;
+    }
     int BlockSize = ui->spinBox_BlockSize_converter->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();

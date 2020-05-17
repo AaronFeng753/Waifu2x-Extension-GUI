@@ -559,12 +559,12 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: Yes."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(CPU Mode): Yes."));
         isCompatible_Anime4k_CPU=true;
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k: No."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(CPU Mode): No."));
         isCompatible_Anime4k_CPU=false;
     }
     QFile::remove(OutputPath);
@@ -777,7 +777,19 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_compatibilityTest->setText(tr("Compatibility test"));
     ui->tabWidget->setCurrentIndex(5);
-    //============
+    /*
+    判断是否有必要部件不兼容,如果有则弹出提示
+    */
+    if(isCompatible_PythonExtension==false||isCompatible_FFmpeg==false||isCompatible_FFprobe==false||isCompatible_ImageMagick==false||isCompatible_Gifsicle==false||isCompatible_SoX==false)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Notification"));
+        MSG->setText(tr("One of the essential plugins is not compatible with your PC, the software may not work normally on your PC.\n\nYou can try to re-install this software, this might solve the problem."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
+    //========== 提示是否需要自动调整引擎设定 ==========
     QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?")));
     Msg.setIcon(QMessageBox::Information);
     QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("Yes")), QMessageBox::YesRole);
