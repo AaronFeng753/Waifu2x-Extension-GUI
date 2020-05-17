@@ -3,6 +3,7 @@
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
 ## [v2.11.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.11.3)
+#### Change log:
 - New feature: Anime4K engine supports processing Image and GIF.
 - New feature: Automatically adjust engine settings based on compatibility test results.
 - After the compatibility test, a pop up will shows up according to the test results.
