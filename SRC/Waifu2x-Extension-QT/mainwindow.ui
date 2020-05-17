@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1188</width>
+    <width>1173</width>
     <height>678</height>
    </rect>
   </property>
@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -114,7 +114,7 @@ height:35
         <string>Donate</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_22">
-        <item row="0" column="0">
+        <item row="1" column="0">
          <widget class="QLabel" name="label_DonateQRCode">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -159,7 +159,7 @@ height:35
           </property>
          </widget>
         </item>
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QPushButton" name="pushButton_PayPal">
           <property name="minimumSize">
            <size>
@@ -212,6 +212,31 @@ padding:10px;
           </property>
           <property name="text">
            <string>PayPal</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_DonateText">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+           </font>
+          </property>
+          <property name="text">
+           <string>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1707,9 +1732,11 @@ where the file is located is enabled)</string>
               <string>Select the engine for processing Image. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-Only waifu2x-converter engine supports alpha channel (transparent images).
-You can run compatibility test to see which engines your PC is compatible with.</string>
+Only waifu2x-converter supports alpha channel.
+You can run compatibility test to see which engines your 
+PC is compatible with.</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -1729,12 +1756,17 @@ You can run compatibility test to see which engines your PC is compatible with.<
                <string notr="true">srmd-ncnn-vulkan</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string notr="true">Anime4K</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2602,8 +2634,10 @@ padding:10px;
               <string>Select the engine for processing GIF. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-You can run compatibility test to see which engines your PC is compatible with.</string>
+You can run compatibility test to see which engines your 
+PC is compatible with.</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -2621,6 +2655,11 @@ You can run compatibility test to see which engines your PC is compatible with.<
              <item>
               <property name="text">
                <string notr="true">srmd-ncnn-vulkan</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Anime4K</string>
               </property>
              </item>
             </widget>

@@ -122,6 +122,18 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
+                case 3:
+                    {
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
+                        QtConcurrent::run(this, &MainWindow::Anime4k_Image, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
             }
         }
     }
@@ -200,6 +212,18 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_GIF, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
+                        QtConcurrent::run(this, &MainWindow::Anime4k_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -753,13 +777,127 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_compatibilityTest->setText(tr("Compatibility test"));
     ui->tabWidget->setCurrentIndex(5);
-    //提醒用户检查测试结果
-    QMessageBox *MSG = new QMessageBox();
-    MSG->setWindowTitle(tr("Notification"));
-    MSG->setText(tr("The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results."));
-    MSG->setIcon(QMessageBox::Information);
-    MSG->setModal(true);
-    MSG->show();
+    //============
+    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?")));
+    Msg.setIcon(QMessageBox::Information);
+    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("Yes")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("No")), QMessageBox::NoRole);
+    Msg.exec();
+    if (Msg.clickedButton() == pYesBtn)
+    {
+        /*
+        * 协助用户调整引擎设定:
+        */
+        //========== 检查waifu2x-ncnn-vulkan的兼容性 ===============
+        if(isCompatible_Waifu2x_NCNN_Vulkan_OLD==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(0);
+            ui->comboBox_Engine_GIF->setCurrentIndex(0);
+            ui->comboBox_Engine_Video->setCurrentIndex(0);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(2);
+            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
+            return 0;
+        }
+        if(isCompatible_Waifu2x_NCNN_Vulkan_NEW==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(0);
+            ui->comboBox_Engine_GIF->setCurrentIndex(0);
+            ui->comboBox_Engine_Video->setCurrentIndex(0);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(0);
+            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
+            return 0;
+        }
+        if(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(0);
+            ui->comboBox_Engine_GIF->setCurrentIndex(0);
+            ui->comboBox_Engine_Video->setCurrentIndex(0);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(1);
+            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
+            return 0;
+        }
+        //======================= 检查waifu2x-converter的兼容性 ===================
+        if(isCompatible_Waifu2x_Converter==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(1);
+            ui->comboBox_Engine_GIF->setCurrentIndex(1);
+            ui->comboBox_Engine_Video->setCurrentIndex(1);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            return 0;
+        }
+        //======================= 检查SRMD-NCNN-Vulkan的兼容性 ===================
+        if(isCompatible_SRMD_NCNN_Vulkan==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(2);
+            ui->comboBox_Engine_GIF->setCurrentIndex(2);
+            ui->comboBox_Engine_Video->setCurrentIndex(3);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            return 0;
+        }
+        //======================= 检查Anime4K的兼容性 ===================
+        if(isCompatible_Anime4k_CPU==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(3);
+            ui->comboBox_Engine_GIF->setCurrentIndex(3);
+            ui->comboBox_Engine_Video->setCurrentIndex(2);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //=====
+            ui->checkBox_GPUMode_Anime4K->setChecked(0);
+            on_checkBox_GPUMode_Anime4K_stateChanged(0);
+            return 0;
+        }
+        if(isCompatible_Anime4k_GPU==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(3);
+            ui->comboBox_Engine_GIF->setCurrentIndex(3);
+            ui->comboBox_Engine_Video->setCurrentIndex(2);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //=====
+            ui->checkBox_GPUMode_Anime4K->setChecked(1);
+            on_checkBox_GPUMode_Anime4K_stateChanged(0);
+            return 0;
+        }
+        //啥引擎都不兼容,提示用户自行修复兼容性问题
+        QMessageBox *MSG_ = new QMessageBox();
+        MSG_->setWindowTitle(tr("Notification"));
+        MSG_->setText(tr("According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:\n\nFirst, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).\n\nIf the current driver supports vulkan but still can't use waifu2x-ncnn-vulkan normally, then manually download the latest version of the beta driver and install it. And then test again to see if your PC is compatible with waifu2x-ncnn-vulkan.\n\nIf it is still not compatible, please uninstall and reinstall the graphics driver and update the Windows OS."));
+        MSG_->setIcon(QMessageBox::Warning);
+        MSG_->setModal(true);
+        MSG_->show();
+        return 0;
+    }
+    if (Msg.clickedButton() == pNoBtn)
+    {
+        //提醒用户检查测试结果
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Notification"));
+        MSG->setText(tr("The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results."));
+        MSG->setIcon(QMessageBox::Information);
+        MSG->setModal(true);
+        MSG->show();
+        return 0;
+    }
+    //===============
     return 0;
 }
 

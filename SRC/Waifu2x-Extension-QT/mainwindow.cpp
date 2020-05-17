@@ -681,6 +681,15 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 return;
             }
+        case 3:
+            {
+                ui->spinBox_DenoiseLevel_image->setRange(-1,0);
+                ui->spinBox_DenoiseLevel_image->setValue(-1);
+                ui->spinBox_DenoiseLevel_image->setEnabled(0);
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                return;
+            }
     }
 }
 
@@ -713,6 +722,15 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                return;
+            }
+        case 3:
+            {
+                ui->spinBox_DenoiseLevel_gif->setRange(-1,0);
+                ui->spinBox_DenoiseLevel_gif->setValue(-1);
+                ui->spinBox_DenoiseLevel_gif->setEnabled(0);
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 return;
             }
     }
@@ -1531,6 +1549,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(1);
                 ui->pushButton_PayPal->setVisible(1);
+                ui->label_DonateText->setVisible(1);
                 //tab 1
                 ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
@@ -1554,6 +1573,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_FileList->setVisible(1);
                 ui->groupBox_Progress->setVisible(1);
@@ -1577,6 +1597,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
@@ -1600,6 +1621,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
@@ -1623,6 +1645,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
@@ -1646,6 +1669,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);

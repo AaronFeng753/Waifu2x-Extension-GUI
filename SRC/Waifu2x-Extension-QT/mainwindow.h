@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.11.1";//软件版本号
+    QString VERSION = "v2.11.2";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -162,6 +162,9 @@ public:
     int Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     //=========================
+    int Anime4k_Image(int rowNum);
+    int Anime4k_GIF(int rowNum);
+    int Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Anime4k_Video(int rowNum);
     int Anime4k_Video_BySegment(int rowNum);

@@ -4,35 +4,35 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.ui" line="243"/>
+        <location filename="mainwindow.ui" line="264"/>
         <source>Files List (You can drag and drop files or folders into here)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="726"/>
+        <location filename="mainwindow.ui" line="747"/>
         <source>Remove item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="683"/>
+        <location filename="mainwindow.ui" line="704"/>
         <source>Clear list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="375"/>
-        <location filename="mainwindow.cpp" line="813"/>
+        <location filename="mainwindow.ui" line="396"/>
+        <location filename="mainwindow.cpp" line="831"/>
         <source>Hide settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="590"/>
+        <location filename="mainwindow.ui" line="611"/>
         <location filename="files.cpp" line="88"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="335"/>
+        <location filename="mainwindow.ui" line="356"/>
         <source>Save Files List</source>
         <translation type="unfinished"></translation>
     </message>
@@ -42,115 +42,115 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="285"/>
+        <location filename="mainwindow.ui" line="306"/>
         <source>Add File</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="412"/>
+        <location filename="mainwindow.ui" line="433"/>
         <source>Read Files List</source>
         <oldsource>Read Saved Files List</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="742"/>
+        <location filename="mainwindow.ui" line="763"/>
         <source>File count: null</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1086"/>
+        <location filename="mainwindow.ui" line="1107"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1098"/>
+        <location filename="mainwindow.ui" line="1119"/>
         <source>Scale ratio and Denoise level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1132"/>
-        <location filename="mainwindow.ui" line="1162"/>
-        <location filename="mainwindow.ui" line="1187"/>
-        <location filename="mainwindow.ui" line="1217"/>
-        <location filename="mainwindow.ui" line="1242"/>
-        <location filename="mainwindow.ui" line="1286"/>
+        <location filename="mainwindow.ui" line="1153"/>
+        <location filename="mainwindow.ui" line="1183"/>
+        <location filename="mainwindow.ui" line="1208"/>
+        <location filename="mainwindow.ui" line="1238"/>
+        <location filename="mainwindow.ui" line="1263"/>
+        <location filename="mainwindow.ui" line="1307"/>
         <source>Range: 1 ~ 999999999</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1190"/>
+        <location filename="mainwindow.ui" line="1211"/>
         <source>Image Scale ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1142"/>
+        <location filename="mainwindow.ui" line="1163"/>
         <source>GIF Denoise level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1245"/>
+        <location filename="mainwindow.ui" line="1266"/>
         <source>Video Scale ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1197"/>
+        <location filename="mainwindow.ui" line="1218"/>
         <source>Image Denoise level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1135"/>
+        <location filename="mainwindow.ui" line="1156"/>
         <source>GIF Scale ratio:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1204"/>
+        <location filename="mainwindow.ui" line="1225"/>
         <source>Video Denoise level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1507"/>
+        <location filename="mainwindow.ui" line="1528"/>
         <source>Apply to all</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1529"/>
+        <location filename="mainwindow.ui" line="1550"/>
         <source>Output path(Folder):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1680"/>
+        <location filename="mainwindow.ui" line="1701"/>
         <source>Engine settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4281"/>
-        <location filename="mainwindow.ui" line="4318"/>
-        <location filename="mainwindow.ui" line="4352"/>
-        <location filename="mainwindow.ui" line="4393"/>
-        <location filename="mainwindow.ui" line="4414"/>
-        <location filename="mainwindow.ui" line="4445"/>
-        <location filename="mainwindow.ui" line="4472"/>
+        <location filename="mainwindow.ui" line="4316"/>
+        <location filename="mainwindow.ui" line="4353"/>
+        <location filename="mainwindow.ui" line="4387"/>
+        <location filename="mainwindow.ui" line="4428"/>
+        <location filename="mainwindow.ui" line="4449"/>
+        <location filename="mainwindow.ui" line="4480"/>
+        <location filename="mainwindow.ui" line="4507"/>
         <source>Image processing engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4296"/>
+        <location filename="mainwindow.ui" line="4331"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4336"/>
-        <location filename="mainwindow.ui" line="4377"/>
+        <location filename="mainwindow.ui" line="4371"/>
+        <location filename="mainwindow.ui" line="4412"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4367"/>
+        <location filename="mainwindow.ui" line="4402"/>
         <source>For processing GIF and Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4505"/>
+        <location filename="mainwindow.ui" line="4540"/>
         <source>If one of these engines : [waifu2x-ncnn-vulkan, waifu2x-converter, srmd-ncnn-vulkan] is compatible with your computer, then you can use all functions in this software.
 
 [Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
@@ -162,17 +162,22 @@ srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4525"/>
+        <location filename="mainwindow.ui" line="4560"/>
         <source>For audio denoise(video).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2160"/>
+        <location filename="mainwindow.ui" line="2188"/>
         <source>Platform ID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="572"/>
+        <location filename="mainwindow.ui" line="232"/>
+        <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="593"/>
         <source>When the software is running with administrator rights, 
 you will not be able to drag and drop files into the window.
 Please unauthorize the software or reinstall the software 
@@ -180,40 +185,63 @@ into a directory that can run normally without administrator rights.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2352"/>
+        <location filename="mainwindow.ui" line="1728"/>
+        <source>Select the engine for processing Image. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+Only waifu2x-converter supports alpha channel.
+You can run compatibility test to see which engines your 
+PC is compatible with.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2380"/>
         <source>Device ID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2412"/>
+        <location filename="mainwindow.ui" line="2440"/>
         <source>List GPUs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2515"/>
+        <location filename="mainwindow.ui" line="2543"/>
         <source>Specify GPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2862"/>
+        <location filename="mainwindow.ui" line="2630"/>
+        <source>Select the engine for processing GIF. 
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+You can run compatibility test to see which engines your 
+PC is compatible with.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2897"/>
         <source>Video settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2975"/>
+        <location filename="mainwindow.ui" line="3010"/>
         <source>Output video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3104"/>
+        <location filename="mainwindow.ui" line="3139"/>
         <source>When convert video to mp4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3321"/>
-        <location filename="mainwindow.ui" line="3347"/>
-        <location filename="mainwindow.ui" line="3370"/>
-        <location filename="mainwindow.ui" line="3396"/>
+        <location filename="mainwindow.ui" line="3356"/>
+        <location filename="mainwindow.ui" line="3382"/>
+        <location filename="mainwindow.ui" line="3405"/>
+        <location filename="mainwindow.ui" line="3431"/>
         <source>When you find that the file format you want to process cannot 
 be added to the file list, you can add the file extension yourself 
 in the additional settings.
@@ -225,133 +253,133 @@ be processed successfully)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3691"/>
+        <location filename="mainwindow.ui" line="3726"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3694"/>
+        <location filename="mainwindow.ui" line="3729"/>
         <source>Show internal progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3883"/>
+        <location filename="mainwindow.ui" line="3918"/>
         <source>Compress JPG files, almost lossless.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3886"/>
+        <location filename="mainwindow.ui" line="3921"/>
         <source>Compress &quot;.jpg&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4269"/>
+        <location filename="mainwindow.ui" line="4304"/>
         <source>Compatibility test results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4480"/>
+        <location filename="mainwindow.ui" line="4515"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4360"/>
+        <location filename="mainwindow.ui" line="4395"/>
         <source>Waifu2x-ncnn-vulkan(NEW FP16P)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4429"/>
+        <location filename="mainwindow.ui" line="4464"/>
         <source>Essential, for all sorts of functions.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4453"/>
+        <location filename="mainwindow.ui" line="4488"/>
         <source>Waifu2x-ncnn-vulkan(NEW)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3866"/>
+        <location filename="mainwindow.ui" line="3901"/>
         <source>Save as &quot;.jpg&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3850"/>
+        <location filename="mainwindow.ui" line="3885"/>
         <source>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
 It is recommended to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3854"/>
+        <location filename="mainwindow.ui" line="3889"/>
         <source>Optimize &quot;.gif&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1602"/>
+        <location filename="mainwindow.ui" line="1623"/>
         <source>Re-process finished files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3704"/>
+        <location filename="mainwindow.ui" line="3739"/>
         <source>Play Notification sound when all files in the list have been processed.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3707"/>
+        <location filename="mainwindow.ui" line="3742"/>
         <source>Notification sound</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1649"/>
+        <location filename="mainwindow.ui" line="1670"/>
         <source>Automatically shut down the computer after processing all files in the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1652"/>
+        <location filename="mainwindow.ui" line="1673"/>
         <source>Turn off computer when finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1659"/>
+        <location filename="mainwindow.ui" line="1680"/>
         <source>Delete the original file after processing is complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1662"/>
+        <location filename="mainwindow.ui" line="1683"/>
         <source>Delete original files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3428"/>
+        <location filename="mainwindow.ui" line="3463"/>
         <source>Automatically check for updates on startup.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3471"/>
+        <location filename="mainwindow.ui" line="3506"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3474"/>
+        <location filename="mainwindow.ui" line="3509"/>
         <source>File list scrolls automatically</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1692"/>
+        <location filename="mainwindow.ui" line="1713"/>
         <source>Engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="231"/>
+        <location filename="mainwindow.ui" line="252"/>
         <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="901"/>
+        <location filename="mainwindow.ui" line="922"/>
         <source>The result images will stay in the same folder of source images.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1817"/>
+        <location filename="mainwindow.ui" line="1845"/>
         <source>Tile size: This value will affacts GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.
@@ -359,138 +387,138 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1823"/>
-        <location filename="mainwindow.ui" line="2056"/>
+        <location filename="mainwindow.ui" line="1851"/>
+        <location filename="mainwindow.ui" line="2084"/>
         <source>Tile size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1585"/>
+        <location filename="mainwindow.ui" line="1606"/>
         <source>2D Anime</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1590"/>
+        <location filename="mainwindow.ui" line="1611"/>
         <source>3D Real-life</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1897"/>
-        <location filename="mainwindow.ui" line="1910"/>
+        <location filename="mainwindow.ui" line="1925"/>
+        <location filename="mainwindow.ui" line="1938"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1900"/>
-        <location filename="mainwindow.ui" line="2084"/>
+        <location filename="mainwindow.ui" line="1928"/>
+        <location filename="mainwindow.ui" line="2112"/>
         <source>GPU ID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1620"/>
+        <location filename="mainwindow.ui" line="1641"/>
         <source>Image Style:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1890"/>
-        <location filename="mainwindow.ui" line="2146"/>
+        <location filename="mainwindow.ui" line="1918"/>
+        <location filename="mainwindow.ui" line="2174"/>
         <source>Detect available GPU ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2566"/>
-        <location filename="mainwindow.ui" line="2819"/>
+        <location filename="mainwindow.ui" line="2594"/>
+        <location filename="mainwindow.ui" line="2854"/>
         <source>GIF:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2582"/>
-        <location filename="mainwindow.ui" line="2794"/>
-        <location filename="mainwindow.ui" line="3331"/>
+        <location filename="mainwindow.ui" line="2610"/>
+        <location filename="mainwindow.ui" line="2829"/>
+        <location filename="mainwindow.ui" line="3366"/>
         <source>Image:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="640"/>
-        <location filename="mainwindow.cpp" line="1228"/>
+        <location filename="mainwindow.ui" line="661"/>
+        <location filename="mainwindow.cpp" line="1246"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3861"/>
+        <location filename="mainwindow.ui" line="3896"/>
         <source>Save the scaled image as &quot;.jpg&quot;.
 Images are stored in &quot;.png&quot; format by default.
 When this option is enabled, alpha channel (ransparent images)support will be lost.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1639"/>
+        <location filename="mainwindow.ui" line="1660"/>
         <source>Move to Recycle Bin</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2637"/>
-        <location filename="mainwindow.ui" line="2728"/>
-        <location filename="mainwindow.ui" line="3380"/>
+        <location filename="mainwindow.ui" line="2672"/>
+        <location filename="mainwindow.ui" line="2763"/>
+        <location filename="mainwindow.ui" line="3415"/>
         <source>Video:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1504"/>
+        <location filename="mainwindow.ui" line="1525"/>
         <source>Valid for all files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1790"/>
+        <location filename="mainwindow.ui" line="1818"/>
         <source>Tile size: This value will affacts GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1747"/>
+        <location filename="mainwindow.ui" line="1775"/>
         <source>Model:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1946"/>
+        <location filename="mainwindow.ui" line="1974"/>
         <source>Target processor:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2016"/>
+        <location filename="mainwindow.ui" line="2044"/>
         <source>Block size: This value will affacts GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1939"/>
+        <location filename="mainwindow.ui" line="1967"/>
         <source>Disable GPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1932"/>
+        <location filename="mainwindow.ui" line="1960"/>
         <source>Block size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1953"/>
+        <location filename="mainwindow.ui" line="1981"/>
         <source>Force to use OpenCL on Intel Platform.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1956"/>
+        <location filename="mainwindow.ui" line="1984"/>
         <source>Force OpenCL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2009"/>
+        <location filename="mainwindow.ui" line="2037"/>
         <source>Dump processor list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1542"/>
+        <location filename="mainwindow.ui" line="1563"/>
         <source>When this option is enabled, the output file 
 will be moved to the path you specified. 
 Otherwise, it will be saved in the same 
@@ -498,14 +526,14 @@ folder as the source file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1548"/>
-        <location filename="mainwindow.ui" line="2963"/>
-        <location filename="mainwindow.ui" line="3270"/>
+        <location filename="mainwindow.ui" line="1569"/>
+        <location filename="mainwindow.ui" line="2998"/>
+        <location filename="mainwindow.ui" line="3305"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="984"/>
+        <location filename="mainwindow.ui" line="1005"/>
         <source>In some cases, the waifu2x process can get stuck.
 
 When you find that the [Scale and denoise] progress has 
@@ -530,12 +558,12 @@ and waifu2x-converter engine.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1025"/>
+        <location filename="mainwindow.ui" line="1046"/>
         <source>Force retry</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1633"/>
+        <location filename="mainwindow.ui" line="1654"/>
         <source>Move original files to recycle bin 
 when [Delete original files] is enabled.
 (Only works when the recycle bin for the drive 
@@ -543,77 +571,58 @@ where the file is located is enabled)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2756"/>
+        <location filename="mainwindow.ui" line="2791"/>
         <source>The number of threads that the software processes video frames,
 which will determine how many video frames the software will
 process at the same time when processing a video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2723"/>
+        <location filename="mainwindow.ui" line="2758"/>
         <source>The number of threads that the software processes video,
 which will determine how many video files the software
 will process at the same time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2735"/>
-        <location filename="mainwindow.ui" line="2783"/>
+        <location filename="mainwindow.ui" line="2770"/>
+        <location filename="mainwindow.ui" line="2818"/>
         <source>The number of threads that the software processes pictures,
 which will determine how many pictures the software will
 process at the same time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2814"/>
+        <location filename="mainwindow.ui" line="2849"/>
         <source>The number of threads that the software processes GIF,
 which will determine how many GIF files the software
 will process at the same time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2826"/>
+        <location filename="mainwindow.ui" line="2861"/>
         <source>The number of threads that the software processes GIF frames,
 which will determine how many GIF frames the software will
 process at the same time when processing a GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2602"/>
-        <source>Select the engine for processing GIF. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-You can run compatibility test to see which engines your PC is compatible with.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1707"/>
-        <source>Select the engine for processing Image. 
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-Only waifu2x-converter engine supports alpha channel (transparent images).
-You can run compatibility test to see which engines your PC is compatible with.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1772"/>
+        <location filename="mainwindow.ui" line="1800"/>
         <source>New Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1777"/>
+        <location filename="mainwindow.ui" line="1805"/>
         <source>New Version(fp16p)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1782"/>
+        <location filename="mainwindow.ui" line="1810"/>
         <source>Old Version</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1837"/>
+        <location filename="mainwindow.ui" line="1865"/>
         <source>We recommend you use the default &quot;upconv_7&quot; model.
 Only &quot;upconv_7&quot; model supports image style switching.
 &quot;cunet&quot; model only supports 2D anime image style, 
@@ -621,8 +630,8 @@ and it&apos;s much more slower than &quot;upconv_7&quot; model.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1576"/>
-        <location filename="mainwindow.ui" line="1615"/>
+        <location filename="mainwindow.ui" line="1597"/>
+        <location filename="mainwindow.ui" line="1636"/>
         <source>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</source>
@@ -631,8 +640,8 @@ Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.</ol
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1963"/>
-        <location filename="mainwindow.ui" line="2103"/>
+        <location filename="mainwindow.ui" line="1991"/>
+        <location filename="mainwindow.ui" line="2131"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -640,26 +649,26 @@ but the effect may not be obvious. It is not recommended to enable it.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1761"/>
-        <location filename="mainwindow.ui" line="1969"/>
-        <location filename="mainwindow.ui" line="2109"/>
+        <location filename="mainwindow.ui" line="1789"/>
+        <location filename="mainwindow.ui" line="1997"/>
+        <location filename="mainwindow.ui" line="2137"/>
         <source>TTA</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2091"/>
+        <location filename="mainwindow.ui" line="2119"/>
         <source>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2063"/>
+        <location filename="mainwindow.ui" line="2091"/>
         <source>Tile size: This value will affacts GPU memory usage.
 Larger tile size means SRMD will use more GPU memory and run faster.
 Smaller tile size means SRMD will use less GPU memory and run slower.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1754"/>
+        <location filename="mainwindow.ui" line="1782"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -673,7 +682,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4168"/>
+        <location filename="mainwindow.ui" line="4203"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
@@ -683,30 +692,30 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3507"/>
-        <location filename="mainwindow.ui" line="3531"/>
+        <location filename="mainwindow.ui" line="3542"/>
+        <location filename="mainwindow.ui" line="3566"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3543"/>
+        <location filename="mainwindow.ui" line="3578"/>
         <source>Scan sub-folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3441"/>
+        <location filename="mainwindow.ui" line="3476"/>
         <source>Interactive file list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3464"/>
+        <location filename="mainwindow.ui" line="3499"/>
         <source>Retry:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3893"/>
+        <location filename="mainwindow.ui" line="3928"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically use the waifu2x-converter engine to process the
 picture and force the picture to be saved as PNG.
@@ -715,12 +724,12 @@ with your PC before enabling this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3900"/>
+        <location filename="mainwindow.ui" line="3935"/>
         <source>Auto detect Alpha channel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2650"/>
+        <location filename="mainwindow.ui" line="2685"/>
         <source>Select the engine for processing Video. 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
@@ -731,124 +740,124 @@ PC is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2469"/>
+        <location filename="mainwindow.ui" line="2497"/>
         <source>Strength for pushing gradient,range 0 to 1,higher for sharper.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2472"/>
+        <location filename="mainwindow.ui" line="2500"/>
         <source>Push gradient strength:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2359"/>
+        <location filename="mainwindow.ui" line="2387"/>
         <source>Passes for processing.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2362"/>
+        <location filename="mainwindow.ui" line="2390"/>
         <source>Passes:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2459"/>
+        <location filename="mainwindow.ui" line="2487"/>
         <source>Limit the number of color pushes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2462"/>
+        <location filename="mainwindow.ui" line="2490"/>
         <source>Push color count:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2532"/>
+        <location filename="mainwindow.ui" line="2560"/>
         <source>Strength for pushing color,range 0 to 1,higher for thinner.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2535"/>
+        <location filename="mainwindow.ui" line="2563"/>
         <source>Push color strength:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2439"/>
+        <location filename="mainwindow.ui" line="2467"/>
         <source>Faster but maybe low quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2442"/>
+        <location filename="mainwindow.ui" line="2470"/>
         <source>Fast mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2175"/>
+        <location filename="mainwindow.ui" line="2203"/>
         <source>Pre-processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2236"/>
-        <location filename="mainwindow.ui" line="2307"/>
+        <location filename="mainwindow.ui" line="2264"/>
+        <location filename="mainwindow.ui" line="2335"/>
         <source>Bilateral filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2205"/>
-        <location filename="mainwindow.ui" line="2300"/>
+        <location filename="mainwindow.ui" line="2233"/>
+        <location filename="mainwindow.ui" line="2328"/>
         <source>Gaussian blur</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2212"/>
-        <location filename="mainwindow.ui" line="2317"/>
+        <location filename="mainwindow.ui" line="2240"/>
+        <location filename="mainwindow.ui" line="2345"/>
         <source>Gaussian blur weak</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2219"/>
-        <location filename="mainwindow.ui" line="2283"/>
+        <location filename="mainwindow.ui" line="2247"/>
+        <location filename="mainwindow.ui" line="2311"/>
         <source>Mean blur</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2243"/>
-        <location filename="mainwindow.ui" line="2327"/>
+        <location filename="mainwindow.ui" line="2271"/>
+        <location filename="mainwindow.ui" line="2355"/>
         <source>Bilateral filter faster</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2226"/>
-        <location filename="mainwindow.ui" line="2290"/>
+        <location filename="mainwindow.ui" line="2254"/>
+        <location filename="mainwindow.ui" line="2318"/>
         <source>CAS Sharpening</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2198"/>
-        <location filename="mainwindow.ui" line="2276"/>
+        <location filename="mainwindow.ui" line="2226"/>
+        <location filename="mainwindow.ui" line="2304"/>
         <source>Median blur</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2181"/>
+        <location filename="mainwindow.ui" line="2209"/>
         <source>Enable Pre-processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2253"/>
+        <location filename="mainwindow.ui" line="2281"/>
         <source>Post-processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2259"/>
+        <location filename="mainwindow.ui" line="2287"/>
         <source>Enable Post-processing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2449"/>
+        <location filename="mainwindow.ui" line="2477"/>
         <source>Enable GPU acceleration.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2452"/>
+        <location filename="mainwindow.ui" line="2480"/>
         <source>GPU Mode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -858,22 +867,22 @@ PC is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2880"/>
+        <location filename="mainwindow.ui" line="2915"/>
         <source>Reset video settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2913"/>
+        <location filename="mainwindow.ui" line="2948"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2950"/>
+        <location filename="mainwindow.ui" line="2985"/>
         <source>Encoders List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2957"/>
+        <location filename="mainwindow.ui" line="2992"/>
         <source>When this option is enabled, your customized parameters 
 will be used when processing the video. 
 Otherwise the parameters automatically configured 
@@ -881,83 +890,83 @@ by the software will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3009"/>
-        <location filename="mainwindow.ui" line="3128"/>
+        <location filename="mainwindow.ui" line="3044"/>
+        <location filename="mainwindow.ui" line="3163"/>
         <source>Bitrate(video):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3032"/>
+        <location filename="mainwindow.ui" line="3067"/>
         <source>Pixel format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3083"/>
-        <location filename="mainwindow.ui" line="3121"/>
+        <location filename="mainwindow.ui" line="3118"/>
+        <location filename="mainwindow.ui" line="3156"/>
         <source>Extra command:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3090"/>
-        <location filename="mainwindow.ui" line="3110"/>
+        <location filename="mainwindow.ui" line="3125"/>
+        <location filename="mainwindow.ui" line="3145"/>
         <source>You can enter ffmpeg instructions here, for example:
 -crf 18</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3152"/>
+        <location filename="mainwindow.ui" line="3187"/>
         <source>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3142"/>
+        <location filename="mainwindow.ui" line="3177"/>
         <source>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3431"/>
+        <location filename="mainwindow.ui" line="3466"/>
         <source>Update popup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3676"/>
+        <location filename="mainwindow.ui" line="3711"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3536"/>
+        <location filename="mainwindow.ui" line="3571"/>
         <source>Segment duration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3635"/>
+        <location filename="mainwindow.ui" line="3670"/>
         <source>Prompt when exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3666"/>
+        <location filename="mainwindow.ui" line="3701"/>
         <source>Keep video cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3681"/>
+        <location filename="mainwindow.ui" line="3716"/>
         <source>Process video by segment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3222"/>
+        <location filename="mainwindow.ui" line="3257"/>
         <source>Audio denoise(for video)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3228"/>
+        <location filename="mainwindow.ui" line="3263"/>
         <source>Denoise level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3238"/>
+        <location filename="mainwindow.ui" line="3273"/>
         <source>How much noise should be removed is specified by amount-a 
 number between 0.01 and 1 with a default of 0.25. Higher 
 numbers will remove more noise but present a greater 
@@ -965,265 +974,265 @@ likelihood of removing wanted components of the audio signal.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3002"/>
+        <location filename="mainwindow.ui" line="3037"/>
         <source>Encoder(audio):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3039"/>
-        <location filename="mainwindow.ui" line="3135"/>
+        <location filename="mainwindow.ui" line="3074"/>
+        <location filename="mainwindow.ui" line="3170"/>
         <source>Bitrate(audio):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3046"/>
-        <location filename="mainwindow.ui" line="3076"/>
-        <location filename="mainwindow.ui" line="3162"/>
-        <location filename="mainwindow.ui" line="3185"/>
+        <location filename="mainwindow.ui" line="3081"/>
+        <location filename="mainwindow.ui" line="3111"/>
+        <location filename="mainwindow.ui" line="3197"/>
+        <location filename="mainwindow.ui" line="3220"/>
         <source>K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2988"/>
+        <location filename="mainwindow.ui" line="3023"/>
         <source>Encoder(video):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1598"/>
+        <location filename="mainwindow.ui" line="1619"/>
         <source>When there are finished files in the list, the finished files will be
  processed again when the processing process is started again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3285"/>
+        <location filename="mainwindow.ui" line="3320"/>
         <source>Additional settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3720"/>
+        <location filename="mainwindow.ui" line="3755"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3726"/>
+        <location filename="mainwindow.ui" line="3761"/>
         <source>Custom font size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3736"/>
+        <location filename="mainwindow.ui" line="3771"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3743"/>
+        <location filename="mainwindow.ui" line="3778"/>
         <source>Custom font:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3801"/>
+        <location filename="mainwindow.ui" line="3836"/>
         <source>Save Custom Font Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3873"/>
+        <location filename="mainwindow.ui" line="3908"/>
         <source>Compressed &quot;.jpg&quot; image quality:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3497"/>
+        <location filename="mainwindow.ui" line="3532"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3500"/>
+        <location filename="mainwindow.ui" line="3535"/>
         <source>Always hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3836"/>
+        <location filename="mainwindow.ui" line="3871"/>
         <source>0(worst quality)~99
 We recommend you use the default value(90)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4046"/>
+        <location filename="mainwindow.ui" line="4081"/>
         <source>Report issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4205"/>
-        <location filename="mainwindow.cpp" line="1029"/>
+        <location filename="mainwindow.ui" line="4240"/>
+        <location filename="mainwindow.cpp" line="1047"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3451"/>
+        <location filename="mainwindow.ui" line="3486"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3454"/>
+        <location filename="mainwindow.ui" line="3489"/>
         <source>Auto save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3645"/>
+        <location filename="mainwindow.ui" line="3680"/>
         <source>Aspect Ratio:
 (Custom resolution)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3617"/>
+        <location filename="mainwindow.ui" line="3652"/>
         <source>Ignore Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3622"/>
+        <location filename="mainwindow.ui" line="3657"/>
         <source>Keep Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3627"/>
+        <location filename="mainwindow.ui" line="3662"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3656"/>
+        <location filename="mainwindow.ui" line="3691"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3659"/>
+        <location filename="mainwindow.ui" line="3694"/>
         <source>Always hide Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4089"/>
+        <location filename="mainwindow.ui" line="4124"/>
         <source>Check update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4131"/>
+        <location filename="mainwindow.ui" line="4166"/>
         <source>Readme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3967"/>
+        <location filename="mainwindow.ui" line="4002"/>
         <source>Save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4226"/>
+        <location filename="mainwindow.ui" line="4261"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4220"/>
-        <location filename="mainwindow.ui" line="4259"/>
-        <location filename="waifu2x.cpp" line="754"/>
+        <location filename="mainwindow.ui" line="4255"/>
+        <location filename="mainwindow.ui" line="4294"/>
+        <location filename="waifu2x.cpp" line="778"/>
         <source>Compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4004"/>
+        <location filename="mainwindow.ui" line="4039"/>
         <source>Reset settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2708"/>
+        <location filename="mainwindow.ui" line="2743"/>
         <source>Number of threads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1358"/>
+        <location filename="mainwindow.ui" line="1379"/>
         <source>Custom resolution</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1497"/>
+        <location filename="mainwindow.ui" line="1518"/>
         <source>Width:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1477"/>
+        <location filename="mainwindow.ui" line="1498"/>
         <source>Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1435"/>
+        <location filename="mainwindow.ui" line="1456"/>
         <source>1.Set the height and width of the resolution.
 2.Select a file in the file list.
 3.Click the Apply button to set the resolution.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1470"/>
+        <location filename="mainwindow.ui" line="1491"/>
         <source>Apply</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1367"/>
+        <location filename="mainwindow.ui" line="1388"/>
         <source>1.Select a file in the file list.
 2.Click the Cancel button to cancel the custom resolution.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1415"/>
+        <location filename="mainwindow.ui" line="1436"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3559"/>
-        <location filename="mainwindow.ui" line="3596"/>
+        <location filename="mainwindow.ui" line="3594"/>
+        <location filename="mainwindow.ui" line="3631"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3309"/>
+        <location filename="mainwindow.ui" line="3344"/>
         <source>Input file extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="799"/>
+        <location filename="mainwindow.ui" line="820"/>
         <source>Font size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="882"/>
+        <location filename="mainwindow.ui" line="903"/>
         <source>Stop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1038"/>
+        <location filename="mainwindow.ui" line="1059"/>
         <location filename="mainwindow.cpp" line="400"/>
         <source>Time cost:NULL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="825"/>
+        <location filename="mainwindow.ui" line="846"/>
         <location filename="mainwindow.cpp" line="401"/>
         <source>ETA:NULL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="941"/>
+        <location filename="mainwindow.ui" line="962"/>
         <source>Clear text browser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="974"/>
+        <location filename="mainwindow.ui" line="995"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="812"/>
+        <location filename="mainwindow.ui" line="833"/>
         <location filename="mainwindow.cpp" line="402"/>
         <source>Time remaining:NULL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="934"/>
+        <location filename="mainwindow.ui" line="955"/>
         <source>Start</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1298,8 +1307,8 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="104"/>
         <location filename="mainwindow.cpp" line="313"/>
         <location filename="mainwindow.cpp" line="338"/>
-        <location filename="mainwindow.cpp" line="869"/>
-        <location filename="mainwindow.cpp" line="1157"/>
+        <location filename="mainwindow.cpp" line="887"/>
+        <location filename="mainwindow.cpp" line="1175"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1315,7 +1324,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="CustomResolution.cpp" line="135"/>
         <location filename="files.cpp" line="99"/>
         <location filename="mainwindow.cpp" line="463"/>
-        <location filename="mainwindow.cpp" line="1168"/>
+        <location filename="mainwindow.cpp" line="1186"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1349,7 +1358,7 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="files.cpp" line="100"/>
-        <location filename="mainwindow.cpp" line="1169"/>
+        <location filename="mainwindow.cpp" line="1187"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1383,11 +1392,13 @@ the language for the language settings to fully take effect.</source>
     <message>
         <location filename="mainwindow.cpp" line="123"/>
         <location filename="mainwindow.cpp" line="586"/>
-        <location filename="mainwindow.cpp" line="998"/>
-        <location filename="mainwindow.cpp" line="1391"/>
+        <location filename="mainwindow.cpp" line="1016"/>
+        <location filename="mainwindow.cpp" line="1409"/>
         <location filename="settings.cpp" line="446"/>
         <location filename="settings.cpp" line="462"/>
-        <location filename="waifu2x.cpp" line="758"/>
+        <location filename="waifu2x.cpp" line="781"/>
+        <location filename="waifu2x.cpp" line="882"/>
+        <location filename="waifu2x.cpp" line="893"/>
         <source>Notification</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1416,7 +1427,7 @@ Do you wanna update now???</source>
     <message>
         <location filename="checkupdate.cpp" line="126"/>
         <location filename="mainwindow.cpp" line="125"/>
-        <location filename="mainwindow.cpp" line="1001"/>
+        <location filename="mainwindow.cpp" line="1019"/>
         <source>YES</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1429,7 +1440,7 @@ Do you wanna update now???</source>
         <location filename="checkupdate.cpp" line="116"/>
         <location filename="checkupdate.cpp" line="127"/>
         <location filename="mainwindow.cpp" line="126"/>
-        <location filename="mainwindow.cpp" line="1002"/>
+        <location filename="mainwindow.cpp" line="1020"/>
         <source>NO</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1444,20 +1455,33 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="43"/>
-        <location filename="Anime4K.cpp" line="200"/>
-        <location filename="Anime4K.cpp" line="216"/>
-        <location filename="Anime4K.cpp" line="285"/>
-        <location filename="Anime4K.cpp" line="303"/>
-        <location filename="Anime4K.cpp" line="326"/>
-        <location filename="Anime4K.cpp" line="406"/>
-        <location filename="Anime4K.cpp" line="573"/>
-        <location filename="Anime4K.cpp" line="656"/>
-        <location filename="Anime4K.cpp" line="729"/>
-        <location filename="Anime4K.cpp" line="747"/>
-        <location filename="Anime4K.cpp" line="775"/>
-        <location filename="Anime4K.cpp" line="808"/>
-        <location filename="Anime4K.cpp" line="894"/>
+        <location filename="Anime4K.cpp" line="40"/>
+        <location filename="Anime4K.cpp" line="60"/>
+        <location filename="Anime4K.cpp" line="115"/>
+        <location filename="Anime4K.cpp" line="154"/>
+        <location filename="Anime4K.cpp" line="224"/>
+        <location filename="Anime4K.cpp" line="278"/>
+        <location filename="Anime4K.cpp" line="308"/>
+        <location filename="Anime4K.cpp" line="334"/>
+        <location filename="Anime4K.cpp" line="401"/>
+        <location filename="Anime4K.cpp" line="420"/>
+        <location filename="Anime4K.cpp" line="438"/>
+        <location filename="Anime4K.cpp" line="469"/>
+        <location filename="Anime4K.cpp" line="533"/>
+        <location filename="Anime4K.cpp" line="599"/>
+        <location filename="Anime4K.cpp" line="756"/>
+        <location filename="Anime4K.cpp" line="772"/>
+        <location filename="Anime4K.cpp" line="841"/>
+        <location filename="Anime4K.cpp" line="859"/>
+        <location filename="Anime4K.cpp" line="882"/>
+        <location filename="Anime4K.cpp" line="962"/>
+        <location filename="Anime4K.cpp" line="1129"/>
+        <location filename="Anime4K.cpp" line="1212"/>
+        <location filename="Anime4K.cpp" line="1285"/>
+        <location filename="Anime4K.cpp" line="1303"/>
+        <location filename="Anime4K.cpp" line="1331"/>
+        <location filename="Anime4K.cpp" line="1364"/>
+        <location filename="Anime4K.cpp" line="1449"/>
         <location filename="CustomResolution.cpp" line="282"/>
         <location filename="files.cpp" line="571"/>
         <location filename="files.cpp" line="589"/>
@@ -1548,8 +1572,10 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="43"/>
-        <location filename="Anime4K.cpp" line="406"/>
+        <location filename="Anime4K.cpp" line="40"/>
+        <location filename="Anime4K.cpp" line="278"/>
+        <location filename="Anime4K.cpp" line="599"/>
+        <location filename="Anime4K.cpp" line="962"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="41"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="373"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="806"/>
@@ -1566,8 +1592,8 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="150"/>
-        <location filename="Anime4K.cpp" line="531"/>
+        <location filename="Anime4K.cpp" line="706"/>
+        <location filename="Anime4K.cpp" line="1087"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="914"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1296"/>
         <location filename="waifu2x_converter.cpp" line="778"/>
@@ -1578,8 +1604,8 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="150"/>
-        <location filename="Anime4K.cpp" line="531"/>
+        <location filename="Anime4K.cpp" line="706"/>
+        <location filename="Anime4K.cpp" line="1087"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="914"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1296"/>
         <location filename="waifu2x_converter.cpp" line="778"/>
@@ -1590,14 +1616,14 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="165"/>
-        <location filename="Anime4K.cpp" line="547"/>
+        <location filename="Anime4K.cpp" line="721"/>
+        <location filename="Anime4K.cpp" line="1103"/>
         <source>The previous video cache file was detected, but because you changed the settings about the video resolution, the previous cache will be deleted and processing of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="165"/>
-        <location filename="Anime4K.cpp" line="547"/>
+        <location filename="Anime4K.cpp" line="721"/>
+        <location filename="Anime4K.cpp" line="1103"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="929"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1312"/>
         <location filename="waifu2x_converter.cpp" line="793"/>
@@ -1608,8 +1634,8 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="200"/>
-        <location filename="Anime4K.cpp" line="573"/>
+        <location filename="Anime4K.cpp" line="756"/>
+        <location filename="Anime4K.cpp" line="1129"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="962"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1338"/>
         <location filename="waifu2x_converter.cpp" line="826"/>
@@ -1620,8 +1646,8 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="216"/>
-        <location filename="Anime4K.cpp" line="656"/>
+        <location filename="Anime4K.cpp" line="772"/>
+        <location filename="Anime4K.cpp" line="1212"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="978"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1421"/>
         <location filename="waifu2x_converter.cpp" line="842"/>
@@ -1632,8 +1658,9 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="257"/>
-        <location filename="Anime4K.cpp" line="701"/>
+        <location filename="Anime4K.cpp" line="372"/>
+        <location filename="Anime4K.cpp" line="813"/>
+        <location filename="Anime4K.cpp" line="1257"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="466"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1019"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1466"/>
@@ -1647,16 +1674,17 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="257"/>
-        <location filename="Anime4K.cpp" line="701"/>
+        <location filename="Anime4K.cpp" line="372"/>
+        <location filename="Anime4K.cpp" line="813"/>
+        <location filename="Anime4K.cpp" line="1257"/>
         <source>]  Scale progress:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="285"/>
-        <location filename="Anime4K.cpp" line="303"/>
-        <location filename="Anime4K.cpp" line="729"/>
-        <location filename="Anime4K.cpp" line="747"/>
+        <location filename="Anime4K.cpp" line="841"/>
+        <location filename="Anime4K.cpp" line="859"/>
+        <location filename="Anime4K.cpp" line="1285"/>
+        <location filename="Anime4K.cpp" line="1303"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1047"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1065"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1494"/>
@@ -1673,8 +1701,8 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="326"/>
-        <location filename="Anime4K.cpp" line="775"/>
+        <location filename="Anime4K.cpp" line="882"/>
+        <location filename="Anime4K.cpp" line="1331"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1088"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1540"/>
         <location filename="waifu2x_converter.cpp" line="952"/>
@@ -1685,7 +1713,7 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="701"/>
+        <location filename="Anime4K.cpp" line="1257"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1466"/>
         <location filename="waifu2x_converter.cpp" line="1330"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1496"/>
@@ -1693,7 +1721,7 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="808"/>
+        <location filename="Anime4K.cpp" line="1364"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1573"/>
         <location filename="waifu2x_converter.cpp" line="1437"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1603"/>
@@ -1701,7 +1729,9 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="894"/>
+        <location filename="Anime4K.cpp" line="60"/>
+        <location filename="Anime4K.cpp" line="533"/>
+        <location filename="Anime4K.cpp" line="1449"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="63"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="625"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1656"/>
@@ -1715,7 +1745,9 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="925"/>
+        <location filename="Anime4K.cpp" line="109"/>
+        <location filename="Anime4K.cpp" line="566"/>
+        <location filename="Anime4K.cpp" line="1482"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="194"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="737"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1768"/>
@@ -1729,7 +1761,7 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1074"/>
+        <location filename="Anime4K.cpp" line="1631"/>
         <source>GPU List for Anime4K</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1785,12 +1817,12 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1392"/>
+        <location filename="mainwindow.cpp" line="1410"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1158"/>
+        <location filename="mainwindow.cpp" line="1176"/>
         <source>Input path does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1813,78 +1845,82 @@ Or do not have sufficient permissions to write files to the output path, you mig
     <message>
         <location filename="mainwindow.cpp" line="662"/>
         <location filename="mainwindow.cpp" line="663"/>
-        <location filename="mainwindow.cpp" line="696"/>
-        <location filename="mainwindow.cpp" line="697"/>
-        <location filename="mainwindow.cpp" line="730"/>
-        <location filename="mainwindow.cpp" line="731"/>
+        <location filename="mainwindow.cpp" line="705"/>
+        <location filename="mainwindow.cpp" line="706"/>
+        <location filename="mainwindow.cpp" line="748"/>
+        <location filename="mainwindow.cpp" line="749"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="671"/>
         <location filename="mainwindow.cpp" line="672"/>
-        <location filename="mainwindow.cpp" line="705"/>
-        <location filename="mainwindow.cpp" line="706"/>
-        <location filename="mainwindow.cpp" line="739"/>
-        <location filename="mainwindow.cpp" line="740"/>
+        <location filename="mainwindow.cpp" line="714"/>
+        <location filename="mainwindow.cpp" line="715"/>
+        <location filename="mainwindow.cpp" line="757"/>
+        <location filename="mainwindow.cpp" line="758"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="680"/>
         <location filename="mainwindow.cpp" line="681"/>
-        <location filename="mainwindow.cpp" line="714"/>
-        <location filename="mainwindow.cpp" line="715"/>
-        <location filename="mainwindow.cpp" line="757"/>
-        <location filename="mainwindow.cpp" line="758"/>
+        <location filename="mainwindow.cpp" line="723"/>
+        <location filename="mainwindow.cpp" line="724"/>
+        <location filename="mainwindow.cpp" line="775"/>
+        <location filename="mainwindow.cpp" line="776"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="748"/>
-        <location filename="mainwindow.cpp" line="749"/>
+        <location filename="mainwindow.cpp" line="689"/>
+        <location filename="mainwindow.cpp" line="690"/>
+        <location filename="mainwindow.cpp" line="732"/>
+        <location filename="mainwindow.cpp" line="733"/>
+        <location filename="mainwindow.cpp" line="766"/>
+        <location filename="mainwindow.cpp" line="767"/>
         <source>Anime4K engine does not support noise reduction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="785"/>
+        <location filename="mainwindow.cpp" line="803"/>
         <source>Testing, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="808"/>
-        <location filename="mainwindow.cpp" line="1075"/>
+        <location filename="mainwindow.cpp" line="826"/>
+        <location filename="mainwindow.cpp" line="1093"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="861"/>
+        <location filename="mainwindow.cpp" line="879"/>
         <source>Error: Language files cannot be loaded properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="870"/>
+        <location filename="mainwindow.cpp" line="888"/>
         <source>File list is empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="885"/>
+        <location filename="mainwindow.cpp" line="903"/>
         <source>Write to the file, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="934"/>
         <source>Please wait while reading the file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="921"/>
+        <location filename="mainwindow.cpp" line="939"/>
         <location filename="table.cpp" line="516"/>
         <source>Cannot find the saved Files List!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="998"/>
+        <location filename="mainwindow.cpp" line="1016"/>
         <source>Do you like this software?
 
 If you like this software, please donate to support the developers to ensure the software is continuously updated.
@@ -1893,64 +1929,64 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1126"/>
+        <location filename="mainwindow.cpp" line="1144"/>
         <source>Select file</source>
         <oldsource>open file</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1126"/>
+        <location filename="mainwindow.cpp" line="1144"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1223"/>
-        <location filename="mainwindow.cpp" line="1237"/>
+        <location filename="mainwindow.cpp" line="1241"/>
+        <location filename="mainwindow.cpp" line="1255"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1377"/>
+        <location filename="mainwindow.cpp" line="1395"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1378"/>
+        <location filename="mainwindow.cpp" line="1396"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1379"/>
+        <location filename="mainwindow.cpp" line="1397"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1380"/>
+        <location filename="mainwindow.cpp" line="1398"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1381"/>
+        <location filename="mainwindow.cpp" line="1399"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1384"/>
+        <location filename="mainwindow.cpp" line="1402"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1505"/>
+        <location filename="mainwindow.cpp" line="1523"/>
         <source>[Auto detect Alpha channel] has been automatically enabled based on your PC&apos;s compatibility with the waifu2x-converter engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1509"/>
+        <location filename="mainwindow.cpp" line="1527"/>
         <source>[Auto detect Alpha channel] has been automatically disabled based on your PC&apos;s compatibility with the waifu2x-converter engine.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1965,7 +2001,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1490"/>
+        <location filename="mainwindow.cpp" line="1508"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2067,169 +2103,195 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="357"/>
+        <location filename="waifu2x.cpp" line="381"/>
         <source>Warning!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="358"/>
-        <location filename="waifu2x.cpp" line="362"/>
+        <location filename="waifu2x.cpp" line="382"/>
+        <location filename="waifu2x.cpp" line="386"/>
         <source>The computer will automatically shut down in 60 seconds!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="373"/>
+        <location filename="waifu2x.cpp" line="397"/>
         <source>Process finished.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="429"/>
+        <location filename="waifu2x.cpp" line="453"/>
         <source>Compatibility test is ongoing, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="447"/>
+        <location filename="waifu2x.cpp" line="471"/>
         <source>Compatible with waifu2x-ncnn-vulkan(New Version): Yes</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan: Yes</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="452"/>
+        <location filename="waifu2x.cpp" line="476"/>
         <source>Compatible with waifu2x-ncnn-vulkan(New Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="469"/>
+        <location filename="waifu2x.cpp" line="493"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): Yes</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): Yes</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="474"/>
+        <location filename="waifu2x.cpp" line="498"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): No. [Advice: Re-install gpu driver or update it to the latest.]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="491"/>
+        <location filename="waifu2x.cpp" line="515"/>
         <source>Compatible with waifu2x-ncnn-vulkan(New Version(fp16p)): Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="496"/>
+        <location filename="waifu2x.cpp" line="520"/>
         <source>Compatible with waifu2x-ncnn-vulkan(New Version(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="515"/>
+        <location filename="waifu2x.cpp" line="539"/>
         <source>Compatible with waifu2x-converter: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="521"/>
+        <location filename="waifu2x.cpp" line="545"/>
         <source>Compatible with waifu2x-converter: No.</source>
         <oldsource>Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="538"/>
+        <location filename="waifu2x.cpp" line="562"/>
         <source>Compatible with Anime4k: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="543"/>
+        <location filename="waifu2x.cpp" line="567"/>
         <source>Compatible with Anime4k: No.</source>
         <oldsource>Compatible with Anime4k: No. [Advice: Install the latest JDK and JRE.]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="559"/>
+        <location filename="waifu2x.cpp" line="583"/>
         <source>Compatible with Anime4k(GPU Mode): Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="564"/>
+        <location filename="waifu2x.cpp" line="588"/>
         <source>Compatible with Anime4k(GPU Mode): No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="581"/>
+        <location filename="waifu2x.cpp" line="605"/>
         <source>Compatible with srmd-ncnn-vulkan: Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="586"/>
+        <location filename="waifu2x.cpp" line="610"/>
         <source>Compatible with srmd-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="602"/>
+        <location filename="waifu2x.cpp" line="626"/>
         <source>Compatible with Python extension: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="607"/>
+        <location filename="waifu2x.cpp" line="631"/>
         <source>Compatible with Python extension: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="623"/>
+        <location filename="waifu2x.cpp" line="647"/>
         <source>Compatible with FFmpeg: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="628"/>
+        <location filename="waifu2x.cpp" line="652"/>
         <source>Compatible with FFmpeg: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="647"/>
+        <location filename="waifu2x.cpp" line="671"/>
         <source>Compatible with FFprobe: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="652"/>
+        <location filename="waifu2x.cpp" line="676"/>
         <source>Compatible with FFprobe: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="668"/>
+        <location filename="waifu2x.cpp" line="692"/>
         <source>Compatible with ImageMagick: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="673"/>
+        <location filename="waifu2x.cpp" line="697"/>
         <source>Compatible with ImageMagick: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="693"/>
+        <location filename="waifu2x.cpp" line="717"/>
         <source>Compatible with Gifsicle: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="698"/>
+        <location filename="waifu2x.cpp" line="722"/>
         <source>Compatible with Gifsicle: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="717"/>
+        <location filename="waifu2x.cpp" line="741"/>
         <source>Compatible with SoX: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="722"/>
+        <location filename="waifu2x.cpp" line="746"/>
         <source>Compatible with SoX: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="727"/>
+        <location filename="waifu2x.cpp" line="751"/>
         <source>Compatibility test is complete!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="759"/>
+        <location filename="waifu2x.cpp" line="781"/>
+        <source>Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="waifu2x.cpp" line="783"/>
+        <source>Yes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="waifu2x.cpp" line="784"/>
+        <source>No</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="waifu2x.cpp" line="883"/>
+        <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
+
+First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
+
+If the current driver supports vulkan but still can&apos;t use waifu2x-ncnn-vulkan normally, then manually download the latest version of the beta driver and install it. And then test again to see if your PC is compatible with waifu2x-ncnn-vulkan.
+
+If it is still not compatible, please uninstall and reinstall the graphics driver and update the Windows OS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="waifu2x.cpp" line="894"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2253,6 +2315,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="115"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="200"/>
         <location filename="waifu2x_converter.cpp" line="174"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="215"/>
@@ -2260,6 +2323,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="154"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="240"/>
         <location filename="waifu2x_converter.cpp" line="213"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="255"/>
@@ -2267,6 +2331,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="224"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="310"/>
         <location filename="waifu2x_converter.cpp" line="283"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="325"/>
@@ -2274,6 +2339,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="308"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="403"/>
         <location filename="waifu2x_converter.cpp" line="367"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="418"/>
@@ -2281,6 +2347,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="334"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="429"/>
         <location filename="waifu2x_converter.cpp" line="393"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="444"/>
@@ -2301,6 +2368,8 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="401"/>
+        <location filename="Anime4K.cpp" line="420"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="495"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="515"/>
         <location filename="waifu2x_converter.cpp" line="460"/>
@@ -2311,6 +2380,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="438"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="533"/>
         <location filename="waifu2x_converter.cpp" line="497"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="548"/>
@@ -2318,6 +2388,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="469"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="564"/>
         <location filename="waifu2x_converter.cpp" line="528"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="579"/>
@@ -2355,7 +2426,7 @@ Thank you!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1830"/>
+        <location filename="mainwindow.ui" line="1858"/>
         <location filename="textBrowser.cpp" line="40"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
