@@ -658,7 +658,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QString FFprobe_VideoPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *FFprobe_Get_Duration_process = new QProcess();
-    QString FFprobe_cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+FFprobe_VideoPath+"\" -v quiet -print_format ini -show_format";
+    QString FFprobe_cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+FFprobe_VideoPath+"\" -v quiet -print_format ini -show_format";
     FFprobe_Get_Duration_process->start(FFprobe_cmd);
     if(FFprobe_Get_Duration_process->waitForStarted(30000))
     {

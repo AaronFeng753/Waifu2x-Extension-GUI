@@ -245,7 +245,7 @@ int MainWindow::video_get_duration(QString videoPath)
     emit Send_TextBrowser_NewMessage(tr("Get duration of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_Duration_process = new QProcess();
-    QString cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
     Get_Duration_process->start(cmd);
     while(!Get_Duration_process->waitForStarted(100)&&!QProcess_stop) {}
     while(!Get_Duration_process->waitForFinished(100)&&!QProcess_stop) {}
@@ -410,7 +410,7 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     emit Send_TextBrowser_NewMessage(tr("Get bitrate of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_Bitrate_process = new QProcess();
-    QString cmd = Current_Path+"/ffprobe_waifu2xEX.exe -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
     Get_Bitrate_process->start(cmd);
     while(!Get_Bitrate_process->waitForStarted(100)&&!QProcess_stop) {}
     while(!Get_Bitrate_process->waitForFinished(100)&&!QProcess_stop) {}
