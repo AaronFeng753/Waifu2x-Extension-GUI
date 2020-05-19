@@ -12,8 +12,8 @@
 
 ### [中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md#waifu2x-extension-gui)
 
-# [Download Latest Build (Windwos x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
-Download Latest installation(or portable) package for `Windows x64` PC with `Intel/AMD/Nvidia` GPU.
+# [Download Latest Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+Download Latest installation (or portable) package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
 
 Download Latest Build: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
@@ -26,9 +26,9 @@ Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文
 
 Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter` and `Anime4K`. 
 
-Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could use any kind of gpu that support `Vulkan`, including `Intel/AMD/Nvidia` GPU. 
+Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could use any kind of gpu that supports `Vulkan`, including `Intel/AMD/Nvidia` GPUs. 
 
-If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into the Waifu2x-Extension-GUI.
+If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into Waifu2x-Extension-GUI.
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
@@ -41,7 +41,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 - Integrated multiple engines, strong hardware compatibility, support for computing with NVIDIA, Intel, AMD
 - Unlimited scale ratio
 - Custom output resolution (support pictures & GIF & video)
-- Audio denoise.(for video)
+- Audio denoising for video
 - Flexible multi-thread management
 - Processing video in segments, greatly reducing the hard disk space occupied when processing video.
 - Support to save enlarged and noise-reduced pictures as .jpg and automatically perform lossless compression
@@ -62,7 +62,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 ### **`GIF`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/gif
 
-#### Original 2D Anime Imgae 480x300 (.jpg 93.2 KB):
+#### Original 2D Anime Image 480x300 (.jpg 93.2 KB):
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
 #### After 8x magnification, level 3 denoise and compress 3840x2400 (.jpg 525 KB):
@@ -71,7 +71,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 #### Comparison
 ![Comparison](/Samples/image/Comparison.png)
 
-#### Original 3D Real-life Imgae 800x535 (.jpg 81.4 KB):
+#### Original 3D Real-life Image 800x535 (.jpg 81.4 KB):
 ![Original Imgae](/Samples/image/deer.jpg)
 
 #### After 4x magnification, level 2 denoise and compress 3200x2140 (.jpg 881 KB):
@@ -106,7 +106,7 @@ We respect your privacy, so the following is the privacy policy of this software
 ```
 1. This software won't upload anything to the internet, so we won't collect any data from you, we even don't have a server.
 
-2. This sofware will only connect to the internet when check for new update, which will download an .ini file frome github(and gitee if you are using Simplified Chinese).
+2. This sofware will only connect to the internet when check for new update, which will download an .ini file frome github (and gitee if you are using Simplified Chinese).
 
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
