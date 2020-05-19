@@ -112,7 +112,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 ```
 
 # Credits:
-- Donors: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list.md
+- ❤All donors❤
 
 - QT: https://www.qt.io/
 
