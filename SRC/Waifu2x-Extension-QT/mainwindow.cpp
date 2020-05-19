@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget_Engines->setCurrentIndex(0);
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
+    ui->groupBox_CurrentFile->setVisible(0);//隐藏当前文件进度
     //=================== 初始隐藏所有table和按钮 ======================
     ui->tableView_image->setVisible(0);
     ui->tableView_gif->setVisible(0);
@@ -80,6 +81,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)));
     connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
     connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool)));
+    //================== 处理当前文件的进度 =========================
+    connect(this, SIGNAL(Send_CurrentFileProgress_Start(QString,int)), this, SLOT(CurrentFileProgress_Start(QString,int)));
+    connect(this, SIGNAL(Send_CurrentFileProgress_Stop()), this, SLOT(CurrentFileProgress_Stop()));
+    connect(this, SIGNAL(Send_CurrentFileProgress_progressbar_Add()), this, SLOT(CurrentFileProgress_progressbar_Add()));
+    connect(this, SIGNAL(Send_CurrentFileProgress_progressbar_Add_SegmentDuration(int)), this, SLOT(CurrentFileProgress_progressbar_Add_SegmentDuration(int)));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
@@ -222,35 +228,74 @@ int MainWindow::Force_close()
 void MainWindow::TimeSlot()
 {
     TimeCost++;
+    //====================总进度==================
     QString TimeCostStr = tr("Time cost:[")+Seconds2hms(TimeCost)+"]";
     ui->label_TimeCost->setText(TimeCostStr);
-    int TaskNumFinished_tmp = TaskNumFinished;
-    long unsigned int TimeCost_tmp = TimeCost;
-    int TaskNumTotal_tmp = TaskNumTotal;
-    if(TaskNumFinished_tmp>0&&TimeCost_tmp>0&&TaskNumTotal_tmp>0)
+    if(ui->label_TimeRemain_CurrentFile->isVisible())
     {
-        if(NewTaskFinished)
+        int TaskNumFinished_tmp = TaskNumFinished;
+        long unsigned int TimeCost_tmp = TimeCost;
+        int TaskNumTotal_tmp = TaskNumTotal;
+        if(TaskNumFinished_tmp>0&&TimeCost_tmp>0&&TaskNumTotal_tmp>0)
         {
-            NewTaskFinished=false;
-            long unsigned int avgTimeCost = TimeCost/TaskNumFinished_tmp;
-            ETA = int(avgTimeCost*(TaskNumTotal_tmp-TaskNumFinished_tmp));
-        }
-        else
-        {
-            if(ETA>1)
+            if(NewTaskFinished)
             {
-                ETA--;
+                NewTaskFinished=false;
+                long unsigned int avgTimeCost = TimeCost_tmp/TaskNumFinished_tmp;
+                ETA = int(avgTimeCost*(TaskNumTotal_tmp-TaskNumFinished_tmp));
             }
+            else
+            {
+                if(ETA>1)
+                {
+                    ETA--;
+                }
+            }
+            QString TimeRemainingStr = tr("Time remaining:[")+Seconds2hms(ETA)+"]";
+            ui->label_TimeRemain->setText(TimeRemainingStr);
+            QDateTime time = QDateTime::currentDateTime();
+            long unsigned int Time_t = time.toTime_t();
+            Time_t+=ETA;
+            time = QDateTime::fromTime_t(Time_t);
+            QString Current_Time = time.toString("hh:mm:ss");
+            QString ETA_str = "ETA:["+Current_Time+"]";
+            ui->label_ETA->setText(ETA_str);
         }
-        QString TimeRemainingStr = tr("Time remaining:[")+Seconds2hms(ETA)+"]";
-        ui->label_TimeRemain->setText(TimeRemainingStr);
-        QDateTime time = QDateTime::currentDateTime();
-        long unsigned int Time_t = time.toTime_t();
-        Time_t+=ETA;
-        time = QDateTime::fromTime_t(Time_t);
-        QString Current_Time = time.toString("hh:mm:ss");
-        QString ETA_str = "ETA:["+Current_Time+"]";
-        ui->label_ETA->setText(ETA_str);
+    }
+    //====================当前文件=================
+    if(isStart_CurrentFile)
+    {
+        TimeCost_CurrentFile++;
+        QString TimeCostStr_CurrentFile = tr("Time cost:[")+Seconds2hms(TimeCost_CurrentFile)+"]";
+        ui->label_TimeCost_CurrentFile->setText(TimeCostStr_CurrentFile);
+        int TaskNumFinished_tmp_CurrentFile = TaskNumFinished_CurrentFile;
+        long unsigned int TimeCost_tmp_CurrentFile = TimeCost_CurrentFile;
+        int TaskNumTotal_tmp_CurrentFile = TaskNumTotal_CurrentFile;
+        if(TaskNumFinished_tmp_CurrentFile>0&&TimeCost_tmp_CurrentFile>0&&TaskNumTotal_tmp_CurrentFile>0)
+        {
+            if(NewTaskFinished_CurrentFile)
+            {
+                NewTaskFinished_CurrentFile=false;
+                long unsigned int avgTimeCost_CurrentFile = TimeCost_tmp_CurrentFile/TaskNumFinished_tmp_CurrentFile;
+                ETA_CurrentFile = int(avgTimeCost_CurrentFile*(TaskNumTotal_tmp_CurrentFile-TaskNumFinished_tmp_CurrentFile));
+            }
+            else
+            {
+                if(ETA_CurrentFile>1)
+                {
+                    ETA_CurrentFile--;
+                }
+            }
+            QString TimeRemainingStr_CurrentFile = tr("Time remaining:[")+Seconds2hms(ETA_CurrentFile)+"]";
+            ui->label_TimeRemain_CurrentFile->setText(TimeRemainingStr_CurrentFile);
+            QDateTime time_CurrentFile = QDateTime::currentDateTime();
+            long unsigned int Time_t_CurrentFile = time_CurrentFile.toTime_t();
+            Time_t_CurrentFile+=ETA_CurrentFile;
+            time_CurrentFile = QDateTime::fromTime_t(Time_t_CurrentFile);
+            QString Current_Time_CurrentFile = time_CurrentFile.toString("hh:mm:ss");
+            QString ETA_str_CurrentFile = "ETA:["+Current_Time_CurrentFile+"]";
+            ui->label_ETA_CurrentFile->setText(ETA_str_CurrentFile);
+        }
     }
 }
 QString MainWindow::Seconds2hms(long unsigned int seconds)
@@ -963,7 +1008,6 @@ int MainWindow::Donate_Count()
         configIniWrite->setValue("/Donate/VERSION", VERSION);
         configIniWrite->setValue("/Donate/OpenCount_Current", 1);
         configIniWrite->setValue("/Donate/OpenCount_Max", 5);
-        configIniWrite->setValue("/Donate/OFF", 0);
         return 0;
     }
     else
@@ -978,12 +1022,10 @@ int MainWindow::Donate_Count()
             configIniWrite->setValue("/Donate/VERSION", VERSION);
             configIniWrite->setValue("/Donate/OpenCount_Current", 1);
             configIniWrite->setValue("/Donate/OpenCount_Max", 5);
-            configIniWrite->setValue("/Donate/OFF", 0);
             return 0;
         }
     }
     QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
-    if(configIniRead->value("/Donate/OFF").toInt()==1)return 0;
     //=======  读取打开次数  ======
     int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
     int OpenCount_Max = configIniRead->value("/Donate/OpenCount_Max").toInt();
@@ -998,38 +1040,11 @@ int MainWindow::Donate_Count()
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 15);//间隔多少次弹出一次捐赠提示
-        QtConcurrent::run(this, &MainWindow::Donate_watchdog);
+        configIniWrite->setValue("/Donate/OpenCount_Max", 10);//间隔多少次,提示捐赠
+        ui->tabWidget->setCurrentIndex(0);
         return 0;
     }
 }
-
-int MainWindow::Donate_watchdog()
-{
-    Delay_sec_sleep(5);
-    emit Send_Donate_Notification();
-    return 0;
-}
-
-int MainWindow::Donate_Notification()
-{
-    QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you like this software?\n\nIf you like this software, please donate to support the developers to ensure the software is continuously updated.\n\nThank you!")));
-    Msg.setModal(false);
-    Msg.setIcon(QMessageBox::Information);
-    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
-    Msg.exec();
-    if (Msg.clickedButton() == pYesBtn)
-    {
-        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
-        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_page.md"));
-    }
-    ui->tabWidget->setCurrentIndex(0);
-    //=========
-    return 0;
-}
-
-
 
 void MainWindow::on_checkBox_AutoSaveSettings_clicked()
 {
@@ -1873,5 +1888,13 @@ void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(0);
         ui->checkBox_SpecifyGPU_Anime4k->setChecked(0);
+    }
+}
+
+void MainWindow::on_checkBox_ShowInterPro_stateChanged(int arg1)
+{
+    if(ui->checkBox_ShowInterPro->checkState()==false)
+    {
+        emit Send_CurrentFileProgress_Stop();
     }
 }

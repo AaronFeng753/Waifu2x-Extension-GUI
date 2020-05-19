@@ -463,8 +463,13 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         file_mkDir(ScaledFramesFolderPath);
     }
     //==========开始放大==========================
-    int InterPro_total = Frame_fileName_list.size();
+    int InterPro_total = 0;
     int InterPro_now = 0;
+    if(ui->checkBox_ShowInterPro->checkState())
+    {
+        InterPro_total = Frame_fileName_list.size();
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
+    }
     //===============
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
@@ -475,9 +480,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        InterPro_now++;
         if(ui->checkBox_ShowInterPro->checkState())
         {
+            InterPro_now++;
+            emit Send_CurrentFileProgress_progressbar_Add();
             emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
         }
         int Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
@@ -518,6 +524,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
             return 0;//如果启用stop位,则直接return
         }
     }
+    emit Send_CurrentFileProgress_Stop();
     //确保所有子线程结束
     while (Sub_gif_ThreadNumRunning>0)
     {
@@ -1031,8 +1038,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    int InterPro_total = Frame_fileName_list.size();
-    int InterPro_now = 0;
+    if(ui->checkBox_ShowInterPro->checkState())
+    {
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
+    }
     //===============
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
@@ -1044,10 +1053,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        InterPro_now++;
         if(ui->checkBox_ShowInterPro->checkState())
         {
-            emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+"]");
+            emit Send_CurrentFileProgress_progressbar_Add();
         }
         int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
         if(waifu2x_STOP)
@@ -1085,6 +1093,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             return 0;//如果启用stop位,则直接return
         }
     }
+    emit Send_CurrentFileProgress_Stop();
     while (Sub_video_ThreadNumRunning!=0)
     {
         Delay_msec_sleep(500);
@@ -1385,6 +1394,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //================================== 开始分段处理视频 =================================================
     int StartTime = 0;//起始时间(秒)
     int VideoDuration = video_get_duration(video_mp4_fullpath);
+    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration)
+    {
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
+    }
     bool isSplitComplete = false;
     bool isScaleComplete = false;
     /*
@@ -1478,8 +1491,12 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
                 }
             }
             //==========开始放大==========================
-            int InterPro_total = Frame_fileName_list.size();
+            int InterPro_total = 0;
             int InterPro_now = 0;
+            if(ui->checkBox_ShowInterPro->checkState())
+            {
+                InterPro_total = Frame_fileName_list.size();
+            }
             //===============
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
@@ -1490,9 +1507,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             //===============
             for(int i = 0; i < Frame_fileName_list.size(); i++)
             {
-                InterPro_now++;
                 if(ui->checkBox_ShowInterPro->checkState())
                 {
+                    InterPro_now++;
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
                 }
                 int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
@@ -1579,11 +1596,16 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         /*==========================
         处理完当前片段,时间后移,记录起始时间
         ==========================*/
+        if(ui->checkBox_ShowInterPro->checkState())
+        {
+            emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(SegmentDuration_tmp);
+        }
         StartTime+=SegmentDuration_tmp;
         isSplitComplete = false;
         isScaleComplete = false;
         emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false);
     }
+    emit Send_CurrentFileProgress_Stop();
     //======================================================
     //                    组装(片段到成片)
     //======================================================

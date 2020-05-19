@@ -436,6 +436,7 @@ void MainWindow::Waifu2x_Finished_manual()
         ui->spinBox_SegmentDuration->setEnabled(1);
     }
     ui->comboBox_ImageStyle->setEnabled(1);
+    emit Send_CurrentFileProgress_Stop();
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

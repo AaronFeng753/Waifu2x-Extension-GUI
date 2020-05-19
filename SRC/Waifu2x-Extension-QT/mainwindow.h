@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.11.3";//软件版本号
+    QString VERSION = "v2.21.01-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -308,7 +308,6 @@ public:
     int CheckUpadte_Auto();//自动检查更新
 
     int Donate_Count();//计算启动次数判断是否弹窗
-    int Donate_watchdog();//后台延时,然后弹出捐赠提示
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件,包含所有关闭时执行的代码
     bool QProcess_stop=false;//所有QProcess停止标记
@@ -316,6 +315,13 @@ public:
     QFuture<int> AutoUpdate;//监视自动检查更新线程
     QFuture<int> Waifu2xMain;//监视waifu2x主线程
     int Force_close();//调用cmd强制关闭自己
+    //================== 处理当前文件的进度 =========================
+    long unsigned int TimeCost_CurrentFile =0;
+    int TaskNumTotal_CurrentFile=0;
+    int TaskNumFinished_CurrentFile=0;
+    bool NewTaskFinished_CurrentFile=false;
+    long unsigned int ETA_CurrentFile=0;
+    bool isStart_CurrentFile=false;
     //=============================================
     void Tip_FirstTimeStart();
     //=============
@@ -365,8 +371,6 @@ public slots:
 
     bool SystemShutDown();//关机
 
-    int Donate_Notification();//捐赠弹窗
-
     int Waifu2x_DumpProcessorList_converter_finished();
 
     void Read_urls_finfished();
@@ -381,6 +385,12 @@ public slots:
 
     //存储进度
     void video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete);
+
+    //================== 处理当前文件的进度 =========================
+    void CurrentFileProgress_Start(QString FileName,int FrameNum);
+    void CurrentFileProgress_Stop();
+    void CurrentFileProgress_progressbar_Add();
+    void CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
 
 private slots:
 
@@ -546,6 +556,8 @@ private slots:
 
     void on_checkBox_GPUMode_Anime4K_stateChanged(int arg1);
 
+    void on_checkBox_ShowInterPro_stateChanged(int arg1);
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -582,8 +594,6 @@ signals:
 
     void Send_SystemShutDown();
 
-    void Send_Donate_Notification();
-
     void Send_Waifu2x_DumpProcessorList_converter_finished();
 
     void Send_Read_urls_finfished();
@@ -597,6 +607,12 @@ signals:
     void Send_Settings_Save();
 
     void Send_video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete);
+
+    //================== 处理当前文件的进度 =========================
+    void Send_CurrentFileProgress_Start(QString FileName,int FrameNum);
+    void Send_CurrentFileProgress_Stop();
+    void Send_CurrentFileProgress_progressbar_Add();
+    void Send_CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
 
 private:
     Ui::MainWindow *ui;

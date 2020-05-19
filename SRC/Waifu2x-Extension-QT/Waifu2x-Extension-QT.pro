@@ -36,6 +36,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     Anime4K.cpp \
+    Current_File_Progress.cpp \
     CustomResolution.cpp \
     checkupdate.cpp \
     files.cpp \

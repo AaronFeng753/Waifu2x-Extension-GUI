@@ -371,6 +371,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
     on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
     on_checkBox_GPUMode_Anime4K_stateChanged(0);
+    on_checkBox_ShowInterPro_stateChanged(0);
     //====
     on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -416,6 +417,7 @@ void MainWindow::Settings_Apply()
     on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
     on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
     on_checkBox_GPUMode_Anime4K_stateChanged(0);
+    on_checkBox_ShowInterPro_stateChanged(0);
     //====
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);
