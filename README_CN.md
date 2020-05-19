@@ -135,7 +135,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 ```
 
 # 鸣谢:
-- 捐赠者们: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Donate_list_CN.md
+- ❤捐赠者们❤
 
 - QT: https://www.qt.io/
 
