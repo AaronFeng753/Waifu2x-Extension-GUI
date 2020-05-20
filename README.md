@@ -36,9 +36,9 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 # Features
 - Easy to use graphical user interface
-- Support batch processing of still pictures, gifs and videos
+- Supports batch processing of still pictures, gifs and videos
 - Supports anime style and 3D realistic style images (that is, supports all image styles)
-- Multiple integrated engines, strong hardware compatibility, support for computing with NVIDIA, Intel, AMD
+- Multiple integrated engines, strong hardware compatibility and support for NVIDIA, Intel and AMD GPUs
 - Unlimited scale ratio
 - Custom output resolution (support pictures & GIF & video)
 - Audio denoising for video
@@ -54,7 +54,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 # Samples
 
-`All of these samples were processed using Waifu2x-ncnn-vulkan engine.`
+`All of these samples were processed using the Waifu2x-ncnn-vulkan engine.`
 
 ### **`Image`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
@@ -106,7 +106,7 @@ We respect your privacy, so the following is the privacy policy of this software
 ```
 1. This software won't upload anything to the internet, so we won't collect any data from you, we even don't have a server.
 
-2. This sofware will only connect to the internet when check for new update, which will download an .ini file frome github (and gitee if you are using Simplified Chinese).
+2. This sofware will only connect to the internet when check for new update, which will download an .ini file from github (and gitee if you are using Simplified Chinese).
 
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
