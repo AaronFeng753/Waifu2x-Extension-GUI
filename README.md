@@ -32,13 +32,13 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
-#### Already been tested on `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
+#### Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
 # Features
 - Easy to use graphical user interface
 - Support batch processing of still pictures, gifs and videos
 - Supports anime style and 3D realistic style images (that is, supports all image styles)
-- Integrated multiple engines, strong hardware compatibility, support for computing with NVIDIA, Intel, AMD
+- Multiple integrated engines, strong hardware compatibility, support for computing with NVIDIA, Intel, AMD
 - Unlimited scale ratio
 - Custom output resolution (support pictures & GIF & video)
 - Audio denoising for video
@@ -89,7 +89,7 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also
 #### After 2x magnification, level 2 denoise and gif optimize 1000 x 744 (3.77 MB):
 ![Original GIF](/Samples/gif/2_waifu2x_compressed.gif)
 
-### `Github doesn't support play video online, pls check link below:`
+### `Github doesn't online video playback, please check link below:`
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 # [License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
