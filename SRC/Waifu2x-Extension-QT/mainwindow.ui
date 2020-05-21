@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1943,7 +1943,7 @@ and it's much more slower than &quot;upconv_7&quot; model.</string>
                  </item>
                  <item>
                   <property name="text">
-                   <string notr="true">cunet</string>
+                   <string>cunet(Only support 2D Anime)</string>
                   </property>
                  </item>
                 </widget>

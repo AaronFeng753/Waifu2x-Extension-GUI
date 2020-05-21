@@ -32,11 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.21.12:
-- 新特性:处理视频或GIF时,单独显示当前文件的进度(进度条,消耗时间,剩余时间,ETA).
+v2.22.01-beta:
+- 更新ImageMagick(7.0.10-13-Q16-x64)
 - 性能优化.
-- 改善ffporbe插件的兼容性.
-- 修复bug:一些情况下,处理视频时会卡在获取时长那一步.
+- 修复bug.
 - 其他改进.
 --------------------------------------------------------------------------
 To do:
@@ -50,7 +49,7 @@ Integrated component(In releases):
 - waifu2x-ncnn-vulkan version 20200223
 - SRMD-ncnn-Vulkan version 20200224
 - Waifu2x-converter version: v5.3.3
-- ImageMagick 7.0.10-12-Q16-x64
+- ImageMagick 7.0.10-13-Q16-x64
 - SoX 14.4.2-win32
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/

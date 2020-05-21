@@ -705,7 +705,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
-                return;
+                break;
             }
         case 1:
             {
@@ -714,7 +714,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:0(No noise reduction)~3"));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
-                return;
+                break;
             }
         case 2:
             {
@@ -723,7 +723,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(1);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
-                return;
+                break;
             }
         case 3:
             {
@@ -732,9 +732,10 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(0);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                return;
+                break;
             }
     }
+    on_comboBox_model_vulkan_currentIndexChanged(0);
 }
 
 void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
@@ -748,7 +749,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
-                return;
+                break;
             }
         case 1:
             {
@@ -757,7 +758,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:0(No noise reduction)~3"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
-                return;
+                break;
             }
         case 2:
             {
@@ -766,7 +767,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(1);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
-                return;
+                break;
             }
         case 3:
             {
@@ -775,9 +776,10 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_gif->setEnabled(0);
                 ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                return;
+                break;
             }
     }
+    on_comboBox_model_vulkan_currentIndexChanged(0);
 }
 
 void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
@@ -791,7 +793,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
-                return;
+                break;
             }
         case 1:
             {
@@ -800,7 +802,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:0(No noise reduction)~3"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:0(No noise reduction)~3"));
-                return;
+                break;
             }
         case 2:
             {
@@ -809,7 +811,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(0);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                return;
+                break;
             }
         case 3:
             {
@@ -818,9 +820,10 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
-                return;
+                break;
             }
     }
+    on_comboBox_model_vulkan_currentIndexChanged(0);
 }
 
 void MainWindow::on_pushButton_clear_textbrowser_clicked()
@@ -913,10 +916,12 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         Table_FileCount_reload();
         Init_Table();
         Set_Font_fixed();
-        ui->groupBox_OutPut->setVisible(1);
         ui->groupBox_Setting->setVisible(1);
         ui->textBrowser->setVisible(1);
-        this->adjustSize();
+        if(this->windowState()!=Qt::WindowMaximized)
+        {
+            this->adjustSize();
+        }
     }
     else
     {
@@ -1289,6 +1294,10 @@ void MainWindow::on_comboBox_model_vulkan_currentIndexChanged(int index)
     if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
         ui->comboBox_ImageStyle->setEnabled(1);
+        if(ui->comboBox_Engine_Image->currentIndex()!=0&&ui->comboBox_Engine_GIF->currentIndex()!=0&&ui->comboBox_Engine_Video->currentIndex()!=0)
+        {
+            ui->comboBox_ImageStyle->setEnabled(0);
+        }
     }
     if(ui->comboBox_model_vulkan->currentIndex()==1)
     {
