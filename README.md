@@ -24,11 +24,11 @@ Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter` and `Anime4K`. 
+Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe(beta)` and `Anime4K`. 
 
 Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could use any kind of gpu that supports `Vulkan`, including `Intel/AMD/Nvidia` GPUs. 
 
-If your gpu doesn't support vulkan, you can use Waifu2x-converter, which is also intergrated into Waifu2x-Extension-GUI.
+If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caffe(beta), which is also intergrated into Waifu2x-Extension-GUI.
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
@@ -127,6 +127,8 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Anime4K: https://github.com/bloc97/Anime4K
 
 - Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
+
+- waifu2x-caffe: https://github.com/lltcggie/waifu2x-caffe
 
 - ImageMagick: http://www.imagemagick.org/
 
