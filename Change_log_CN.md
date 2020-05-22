@@ -6,6 +6,14 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.21.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.21.12)
+#### 更新日志:
+- 新特性:处理视频或GIF时,单独显示当前文件的进度(进度条,消耗时间,剩余时间,ETA).
+- 性能优化.
+- 改善ffporbe插件的兼容性.
+- 修复bug:一些情况下,处理视频时会卡在获取时长那一步.
+- 其他改进.
+---
 ## [v2.11.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.11.3)
 #### 更新日志:
 - 新特性:Anime4K引擎支持处理图片和GIF.
