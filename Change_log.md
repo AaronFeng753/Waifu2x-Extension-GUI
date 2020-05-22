@@ -2,6 +2,14 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.21.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.21.12)
+#### Change log:
+- New feature: When processing video or GIF, the progress of the current file (a progress bar, Time cost, Time remaining, ETA) is displayed separately.
+- Performance optimization.
+- Improve the compatibility of ffporbe plugin.
+- Fix bug: In some cases, the video processing will be stuck in the step of obtaining the duration.
+- Other improvements.
+---
 ## [v2.11.3](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.11.3)
 #### Change log:
 - New feature: Anime4K engine supports processing Image and GIF.
