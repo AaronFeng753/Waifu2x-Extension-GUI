@@ -72,11 +72,27 @@ int MainWindow::Waifu2xMainThread()
             //===================================================================================
             if(Imgae_hasAlphaChannel(i))
             {
-                emit Send_TextBrowser_NewMessage(tr("Detected that the current picture [")+Table_model_image->item(i,2)->text()+tr("] contains Alpha channel, so it automatically uses the waifu2x-converter engine to process the current picture and force it to save as PNG."));
-                mutex_ThreadNumRunning.lock();
-                ThreadNumRunning++;//线程数量统计+1
-                mutex_ThreadNumRunning.unlock();
-                QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
+                switch(ui->comboBox_EngineForAlphaChannel->currentIndex())
+                {
+                    case 0:
+                        {
+                            emit Send_TextBrowser_NewMessage(tr("Detected that the current picture [")+Table_model_image->item(i,2)->text()+tr("] contains Alpha channel, so it automatically uses the waifu2x-converter engine to process the current picture and force it to save as PNG."));
+                            mutex_ThreadNumRunning.lock();
+                            ThreadNumRunning++;//线程数量统计+1
+                            mutex_ThreadNumRunning.unlock();
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
+                            break;
+                        }
+                    case 1:
+                        {
+                            emit Send_TextBrowser_NewMessage(tr("Detected that the current picture [")+Table_model_image->item(i,2)->text()+tr("] contains Alpha channel, so it automatically uses the waifu2x-caffe engine to process the current picture and force it to save as PNG."));
+                            mutex_ThreadNumRunning.lock();
+                            ThreadNumRunning++;//线程数量统计+1
+                            mutex_ThreadNumRunning.unlock();
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, i);
+                            break;
+                        }
+                }
                 while (ThreadNumRunning >= ThreadNumMax)
                 {
                     Delay_msec_sleep(500);
@@ -128,6 +144,18 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Anime4k_Image, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -224,6 +252,18 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Anime4k_GIF, i);
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_GIF, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(500);
@@ -351,6 +391,25 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
+                case 4:
+                    {
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
+                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        {
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Video_BySegment, i);
+                        }
+                        else
+                        {
+                            QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Video, i);
+                        }
+                        while (ThreadNumRunning >= ThreadNumMax)
+                        {
+                            Delay_msec_sleep(500);
+                        }
+                        break;
+                    }
             }
         }
     }
@@ -429,6 +488,7 @@ void MainWindow::Waifu2x_Finished_manual()
     if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
     ui->pushButton_ForceRetry->setEnabled(0);
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
+    on_checkBox_AutoDetectAlphaChannel_stateChanged(0);
     ui->groupBox_AudioDenoise->setEnabled(1);
     ui->checkBox_ProcessVideoBySegment->setEnabled(1);
     if(ui->checkBox_ProcessVideoBySegment->checkState())
@@ -536,13 +596,11 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     if(file_isFileExist(OutputPath))
     {
-        emit Send_AutoDetectAlphaChannel_setChecked(true);
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: Yes."));
         isCompatible_Waifu2x_Converter=true;
     }
     else
     {
-        emit Send_AutoDetectAlphaChannel_setChecked(false);
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No."));
         isCompatible_Waifu2x_Converter=false;
     }
@@ -610,6 +668,72 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with srmd-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]"));
         isCompatible_SRMD_NCNN_Vulkan=false;
+    }
+    QFile::remove(OutputPath);
+    //================
+    Waifu2x_folder_path = Current_Path + "/waifu2x-caffe";
+    program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
+    model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
+    QProcess *Waifu2x_Caffe_CPU_qprocess = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p cpu -m noise_scale -s 2 -n 1 -c 50 -b 1 --model_dir " + "\"" + model_path + "\"";
+    Waifu2x_Caffe_CPU_qprocess->start(cmd);
+    if(Waifu2x_Caffe_CPU_qprocess->waitForStarted(30000))
+    {
+        while(!Waifu2x_Caffe_CPU_qprocess->waitForFinished(100)&&!QProcess_stop) {}
+    }
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(CPU): Yes."));
+        isCompatible_Waifu2x_Caffe_CPU=true;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(CPU): No."));
+        isCompatible_Waifu2x_Caffe_CPU=false;
+    }
+    QFile::remove(OutputPath);
+    //================
+    Waifu2x_folder_path = Current_Path + "/waifu2x-caffe";
+    program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
+    model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
+    QProcess *Waifu2x_Caffe_GPU_qprocess = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p gpu -m noise_scale -s 2 -n 1 -c 50 -b 1 --model_dir " + "\"" + model_path + "\"";
+    Waifu2x_Caffe_GPU_qprocess->start(cmd);
+    if(Waifu2x_Caffe_GPU_qprocess->waitForStarted(30000))
+    {
+        while(!Waifu2x_Caffe_GPU_qprocess->waitForFinished(100)&&!QProcess_stop) {}
+    }
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(GPU): Yes."));
+        isCompatible_Waifu2x_Caffe_GPU=true;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(GPU): No."));
+        isCompatible_Waifu2x_Caffe_GPU=false;
+    }
+    QFile::remove(OutputPath);
+    //================
+    Waifu2x_folder_path = Current_Path + "/waifu2x-caffe";
+    program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
+    model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
+    QProcess *Waifu2x_Caffe_cuDNN_qprocess = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p cudnn -m noise_scale -s 2 -n 1 -c 50 -b 1 --model_dir " + "\"" + model_path + "\"";
+    Waifu2x_Caffe_cuDNN_qprocess->start(cmd);
+    if(Waifu2x_Caffe_cuDNN_qprocess->waitForStarted(30000))
+    {
+        while(!Waifu2x_Caffe_cuDNN_qprocess->waitForFinished(100)&&!QProcess_stop) {}
+    }
+    if(file_isFileExist(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(cuDNN): Yes."));
+        isCompatible_Waifu2x_Caffe_cuDNN=true;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(cuDNN): No."));
+        isCompatible_Waifu2x_Caffe_cuDNN=false;
     }
     QFile::remove(OutputPath);
     //================
@@ -770,6 +894,9 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->checkBox_isCompatible_ImageMagick->setChecked(isCompatible_ImageMagick);
     ui->checkBox_isCompatible_Gifsicle->setChecked(isCompatible_Gifsicle);
     ui->checkBox_isCompatible_SoX->setChecked(isCompatible_SoX);
+    ui->checkBox_isCompatible_Waifu2x_Caffe_CPU->setChecked(isCompatible_Waifu2x_Caffe_CPU);
+    ui->checkBox_isCompatible_Waifu2x_Caffe_GPU->setChecked(isCompatible_Waifu2x_Caffe_GPU);
+    ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
     //解除界面管制
     ui->tab_Home->setEnabled(1);
     ui->tab_EngineSettings->setEnabled(1);
@@ -778,6 +905,46 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_compatibilityTest->setText(tr("Compatibility test"));
     ui->tabWidget->setCurrentIndex(5);
+    //================= 判断是否可以启用自动检测alpha通道 =====================
+    do
+    {
+        if(ui->checkBox_AutoDetectAlphaChannel->checkState())
+        {
+            break;
+        }
+        if(isCompatible_Waifu2x_Caffe_GPU)
+        {
+            ui->checkBox_AutoDetectAlphaChannel->setChecked(true);
+            ui->comboBox_EngineForAlphaChannel->setCurrentIndex(1);
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(1);
+            emit Send_TextBrowser_NewMessage(tr("[Auto detect alpha channel] has been automatically enabled based on compatibility test results."));
+            break;
+        }
+        if(isCompatible_Waifu2x_Converter)
+        {
+            ui->checkBox_AutoDetectAlphaChannel->setChecked(true);
+            ui->comboBox_EngineForAlphaChannel->setCurrentIndex(0);
+            emit Send_TextBrowser_NewMessage(tr("[Auto detect alpha channel] has been automatically enabled based on compatibility test results."));
+            break;
+        }
+        if(isCompatible_Waifu2x_Caffe_cuDNN)
+        {
+            ui->checkBox_AutoDetectAlphaChannel->setChecked(true);
+            ui->comboBox_EngineForAlphaChannel->setCurrentIndex(1);
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(2);
+            emit Send_TextBrowser_NewMessage(tr("[Auto detect alpha channel] has been automatically enabled based on compatibility test results."));
+            break;
+        }
+        if(isCompatible_Waifu2x_Caffe_CPU)
+        {
+            ui->checkBox_AutoDetectAlphaChannel->setChecked(true);
+            ui->comboBox_EngineForAlphaChannel->setCurrentIndex(1);
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(0);
+            emit Send_TextBrowser_NewMessage(tr("[Auto detect alpha channel] has been automatically enabled based on compatibility test results."));
+            break;
+        }
+    }
+    while(false);
     /*
     判断是否有必要部件不兼容,如果有则弹出提示
     */
@@ -841,6 +1008,19 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
             return 0;
         }
+        //======================= 检查Waifu2x_Caffe_GPU的兼容性 ===================
+        if(isCompatible_Waifu2x_Caffe_GPU)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(4);
+            ui->comboBox_Engine_GIF->setCurrentIndex(4);
+            ui->comboBox_Engine_Video->setCurrentIndex(4);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(1);
+            return 0;
+        }
         //======================= 检查waifu2x-converter的兼容性 ===================
         if(isCompatible_Waifu2x_Converter==true)
         {
@@ -861,6 +1041,32 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             on_comboBox_Engine_Image_currentIndexChanged(0);
             on_comboBox_Engine_GIF_currentIndexChanged(0);
             on_comboBox_Engine_Video_currentIndexChanged(0);
+            return 0;
+        }
+        //======================= 检查Waifu2x_Caffe_cuDNN的兼容性 ===================
+        if(isCompatible_Waifu2x_Caffe_cuDNN)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(4);
+            ui->comboBox_Engine_GIF->setCurrentIndex(4);
+            ui->comboBox_Engine_Video->setCurrentIndex(4);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(2);
+            return 0;
+        }
+        //======================= 检查Waifu2x_Caffe_CPU的兼容性 ===================
+        if(isCompatible_Waifu2x_Caffe_CPU)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(4);
+            ui->comboBox_Engine_GIF->setCurrentIndex(4);
+            ui->comboBox_Engine_Video->setCurrentIndex(4);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(0);
             return 0;
         }
         //======================= 检查Anime4K的兼容性 ===================

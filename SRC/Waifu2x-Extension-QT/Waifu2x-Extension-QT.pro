@@ -50,6 +50,7 @@ SOURCES += \
     textBrowser.cpp \
     video.cpp \
     waifu2x.cpp \
+    waifu2x_caffe.cpp \
     waifu2x_converter.cpp \
     waifu2x_ncnn_vulkan.cpp
 

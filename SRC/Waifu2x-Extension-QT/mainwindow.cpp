@@ -76,7 +76,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
-    connect(this, SIGNAL(Send_AutoDetectAlphaChannel_setChecked(bool)), this, SLOT(AutoDetectAlphaChannel_setChecked(bool)));
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)));
     connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
     connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool)));
@@ -214,6 +213,10 @@ int MainWindow::Force_close()
     Close.waitForFinished(10000);
     //==============
     Close.start("taskkill /f /t /fi \"imagename eq Anime4K_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //==============
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //==============
@@ -448,6 +451,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_Move2RecycleBin->setEnabled(0);
         ui->pushButton_ForceRetry->setEnabled(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
+        ui->comboBox_EngineForAlphaChannel->setEnabled(0);
         ui->groupBox_AudioDenoise->setEnabled(0);
         ui->checkBox_ProcessVideoBySegment->setEnabled(0);
         ui->spinBox_SegmentDuration->setEnabled(0);
@@ -734,6 +738,15 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 break;
             }
+        case 4:
+            {
+                ui->spinBox_DenoiseLevel_image->setRange(-1,3);
+                ui->spinBox_DenoiseLevel_image->setValue(2);
+                ui->spinBox_DenoiseLevel_image->setEnabled(1);
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                break;
+            }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
 }
@@ -778,6 +791,15 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 break;
             }
+        case 4:
+            {
+                ui->spinBox_DenoiseLevel_gif->setRange(-1,3);
+                ui->spinBox_DenoiseLevel_gif->setValue(2);
+                ui->spinBox_DenoiseLevel_gif->setEnabled(1);
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                break;
+            }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
 }
@@ -820,6 +842,15 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~10"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~10"));
+                break;
+            }
+        case 4:
+            {
+                ui->spinBox_DenoiseLevel_video->setRange(-1,3);
+                ui->spinBox_DenoiseLevel_video->setValue(2);
+                ui->spinBox_DenoiseLevel_video->setEnabled(1);
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 break;
             }
     }
@@ -1527,6 +1558,9 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     Close.start("taskkill /f /t /fi \"imagename eq srmd-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
     //========
     emit Send_TextBrowser_NewMessage(tr("Force retry."));
     return;
@@ -1535,20 +1569,6 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
 void MainWindow::on_pushButton_PayPal_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.paypal.me/aaronfeng753"));
-}
-
-void MainWindow::AutoDetectAlphaChannel_setChecked(bool Checked_)
-{
-    ui->checkBox_AutoDetectAlphaChannel->setChecked(Checked_);
-    //=============
-    if(Checked_)
-    {
-        emit Send_TextBrowser_NewMessage(tr("[Auto detect Alpha channel] has been automatically enabled based on your PC's compatibility with the waifu2x-converter engine."));
-    }
-    else
-    {
-        emit Send_TextBrowser_NewMessage(tr("[Auto detect Alpha channel] has been automatically disabled based on your PC's compatibility with the waifu2x-converter engine."));
-    }
 }
 
 void MainWindow::on_checkBox_AudioDenoise_stateChanged(int arg1)
@@ -1905,4 +1925,31 @@ void MainWindow::on_checkBox_ShowInterPro_stateChanged(int arg1)
     {
         emit Send_CurrentFileProgress_Stop();
     }
+}
+
+void MainWindow::on_checkBox_AutoDetectAlphaChannel_stateChanged(int arg1)
+{
+    if(ui->checkBox_AutoDetectAlphaChannel->checkState())
+    {
+        ui->comboBox_EngineForAlphaChannel->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_EngineForAlphaChannel->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_CPU_clicked()
+{
+    ui->checkBox_isCompatible_Waifu2x_Caffe_CPU->setChecked(isCompatible_Waifu2x_Caffe_CPU);
+}
+
+void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_GPU_clicked()
+{
+    ui->checkBox_isCompatible_Waifu2x_Caffe_GPU->setChecked(isCompatible_Waifu2x_Caffe_GPU);
+}
+
+void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_cuDNN_clicked()
+{
+    ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
 }

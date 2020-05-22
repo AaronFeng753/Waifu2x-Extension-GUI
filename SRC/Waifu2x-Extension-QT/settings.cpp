@@ -64,6 +64,13 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/TTA_SRMD", ui->checkBox_TTA_srmd->checkState());
     configIniWrite->setValue("/settings/TileSize_SRMD", ui->spinBox_TileSize_srmd->value());
     configIniWrite->setValue("/settings/Version_Waifu2xNCNNVulkan", ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex());
+    //===
+    configIniWrite->setValue("/settings/TTA_Waifu2xCaffe", ui->checkBox_TTA_Waifu2xCaffe->checkState());
+    configIniWrite->setValue("/settings/Model_Waifu2xCaffe", ui->comboBox_Model_Waifu2xCaffe->currentIndex());
+    configIniWrite->setValue("/settings/ProcessMode_Waifu2xCaffe", ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex());
+    configIniWrite->setValue("/settings/BatchSize_Waifu2xCaffe", ui->spinBox_BatchSize_Waifu2xCaffe->value());
+    configIniWrite->setValue("/settings/GPUID_Waifu2xCaffe", ui->spinBox_GPUID_Waifu2xCaffe->value());
+    configIniWrite->setValue("/settings/SplitSize_Waifu2xCaffe", ui->spinBox_SplitSize_Waifu2xCaffe->value());
     //GPU ID List
     configIniWrite->setValue("/settings/CurrentGPUID_Waifu2xNCNNVulkan", ui->comboBox_GPUID->currentIndex());
     configIniWrite->setValue("/settings/Available_GPUID_Waifu2xNCNNVulkan", Available_GPUID);
@@ -93,6 +100,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/InteractiveFileList", ui->checkBox_FileList_Interactive->checkState());
     configIniWrite->setValue("/settings/RetryTimes", ui->spinBox_retry->value());
     configIniWrite->setValue("/settings/AutoDetectAlphaChannel", ui->checkBox_AutoDetectAlphaChannel->checkState());
+    configIniWrite->setValue("/settings/AlphaChannelEngine", ui->comboBox_EngineForAlphaChannel->currentIndex());
     configIniWrite->setValue("/settings/PromptWhenExit", ui->checkBox_PromptWhenExit->checkState());
     configIniWrite->setValue("/settings/KeepVideoCache", ui->checkBox_KeepVideoCache->checkState());
     //===
@@ -169,6 +177,9 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_isCompatible_ImageMagick", ui->checkBox_isCompatible_ImageMagick->checkState());
     configIniWrite->setValue("/settings/checkBox_isCompatible_Gifsicle", ui->checkBox_isCompatible_Gifsicle->checkState());
     configIniWrite->setValue("/settings/checkBox_isCompatible_SoX", ui->checkBox_isCompatible_SoX->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_Caffe_CPU", ui->checkBox_isCompatible_Waifu2x_Caffe_CPU->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_Caffe_GPU", ui->checkBox_isCompatible_Waifu2x_Caffe_GPU->checkState());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_Caffe_cuDNN", ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->checkState());
     //========
     return 0;
 }
@@ -232,6 +243,13 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_TTA_srmd->setChecked(configIniRead->value("/settings/TTA_SRMD").toBool());
     ui->spinBox_TileSize_srmd->setValue(configIniRead->value("/settings/TileSize_SRMD").toInt());
     ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(configIniRead->value("/settings/Version_Waifu2xNCNNVulkan").toInt());
+    //===
+    ui->checkBox_TTA_Waifu2xCaffe->setChecked(configIniRead->value("/settings/TTA_Waifu2xCaffe").toBool());
+    ui->comboBox_Model_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/Model_Waifu2xCaffe").toInt());
+    ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/ProcessMode_Waifu2xCaffe").toInt());
+    ui->spinBox_BatchSize_Waifu2xCaffe->setValue(configIniRead->value("/settings/BatchSize_Waifu2xCaffe").toInt());
+    ui->spinBox_GPUID_Waifu2xCaffe->setValue(configIniRead->value("/settings/GPUID_Waifu2xCaffe").toInt());
+    ui->spinBox_SplitSize_Waifu2xCaffe->setValue(configIniRead->value("/settings/SplitSize_Waifu2xCaffe").toInt());
     //GPU ID List
     //Waifu2x-NCNN-Vulkan
     Available_GPUID = configIniRead->value("/settings/Available_GPUID_Waifu2xNCNNVulkan").toStringList();
@@ -270,6 +288,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_FileList_Interactive->setChecked(configIniRead->value("/settings/InteractiveFileList").toBool());
     ui->spinBox_retry->setValue(configIniRead->value("/settings/RetryTimes").toInt());
     ui->checkBox_AutoDetectAlphaChannel->setChecked(configIniRead->value("/settings/AutoDetectAlphaChannel").toBool());
+    ui->comboBox_EngineForAlphaChannel->setCurrentIndex(configIniRead->value("/settings/AlphaChannelEngine").toInt());
     ui->checkBox_PromptWhenExit->setChecked(configIniRead->value("/settings/PromptWhenExit").toBool());
     ui->checkBox_KeepVideoCache->setChecked(configIniRead->value("/settings/KeepVideoCache").toBool());
     //===
@@ -341,6 +360,9 @@ int MainWindow::Settings_Read_Apply()
     isCompatible_ImageMagick = configIniRead->value("/settings/checkBox_isCompatible_ImageMagick").toBool();
     isCompatible_Gifsicle = configIniRead->value("/settings/checkBox_isCompatible_Gifsicle").toBool();
     isCompatible_SoX = configIniRead->value("/settings/checkBox_isCompatible_SoX").toBool();
+    isCompatible_Waifu2x_Caffe_CPU = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Caffe_CPU").toBool();
+    isCompatible_Waifu2x_Caffe_GPU = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Caffe_GPU").toBool();
+    isCompatible_Waifu2x_Caffe_cuDNN = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Caffe_cuDNN").toBool();
     //===
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW);
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P);
@@ -355,6 +377,9 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_isCompatible_ImageMagick->setChecked(isCompatible_ImageMagick);
     ui->checkBox_isCompatible_Gifsicle->setChecked(isCompatible_Gifsicle);
     ui->checkBox_isCompatible_SoX->setChecked(isCompatible_SoX);
+    ui->checkBox_isCompatible_Waifu2x_Caffe_CPU->setChecked(isCompatible_Waifu2x_Caffe_CPU);
+    ui->checkBox_isCompatible_Waifu2x_Caffe_GPU->setChecked(isCompatible_Waifu2x_Caffe_GPU);
+    ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
@@ -372,6 +397,7 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
     on_checkBox_GPUMode_Anime4K_stateChanged(0);
     on_checkBox_ShowInterPro_stateChanged(0);
+    on_checkBox_AutoDetectAlphaChannel_stateChanged(0);
     //====
     on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
@@ -418,6 +444,7 @@ void MainWindow::Settings_Apply()
     on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
     on_checkBox_GPUMode_Anime4K_stateChanged(0);
     on_checkBox_ShowInterPro_stateChanged(0);
+    on_checkBox_AutoDetectAlphaChannel_stateChanged(0);
     //====
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     on_comboBox_Engine_Image_currentIndexChanged(0);

@@ -409,11 +409,11 @@ int MainWindow::Anime4k_GIF(int rowNum)
             return 0;//如果启用stop位,则直接return
         }
     }
-    emit Send_CurrentFileProgress_Stop();
     while (Sub_gif_ThreadNumRunning!=0)
     {
         Delay_msec_sleep(500);
     }
+    emit Send_CurrentFileProgress_Stop();
     //======================= 检查是否成功放大所有帧 ===========================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
     if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
@@ -850,11 +850,11 @@ int MainWindow::Anime4k_Video(int rowNum)
             return 0;//如果启用stop位,则直接return
         }
     }
-    emit Send_CurrentFileProgress_Stop();
     while (Sub_video_ThreadNumRunning!=0)
     {
         Delay_msec_sleep(500);
     }
+    emit Send_CurrentFileProgress_Stop();
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
     if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())

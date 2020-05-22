@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.22.01-beta";//软件版本号
+    QString VERSION = "v2.31.01-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -188,6 +188,16 @@ public:
     int SRMD_NCNN_Vulkan_Video(int rowNum);
     int SRMD_NCNN_Vulkan_Video_BySegment(int rowNum);
     int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    //=================================
+    int Waifu2x_Caffe_Image(int rowNum);//Caffe放大图片线程
+    //Caffe放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
+    int Waifu2x_Caffe_GIF(int rowNum);
+    int Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
+    //Caffe放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
+    int Waifu2x_Caffe_Video(int rowNum);
+    int Waifu2x_Caffe_Video_BySegment(int rowNum);
+    int Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    QString Waifu2x_Caffe_ReadSettings();
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
     bool waifu2x_STOP = false;//负责通知waifu2x主线程及其子线程的停止信号
@@ -231,6 +241,10 @@ public:
     bool isCompatible_ImageMagick=false;
     bool isCompatible_Gifsicle=false;
     bool isCompatible_SoX=false;
+
+    bool isCompatible_Waifu2x_Caffe_CPU=false;
+    bool isCompatible_Waifu2x_Caffe_GPU=false;
+    bool isCompatible_Waifu2x_Caffe_cuDNN=false;
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -376,8 +390,6 @@ public slots:
     void Read_urls_finfished();
 
     void SRMD_DetectGPU_finished();
-
-    void AutoDetectAlphaChannel_setChecked(bool Checked_);
 
     void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName);
 
@@ -558,6 +570,14 @@ private slots:
 
     void on_checkBox_ShowInterPro_stateChanged(int arg1);
 
+    void on_checkBox_AutoDetectAlphaChannel_stateChanged(int arg1);
+
+    void on_checkBox_isCompatible_Waifu2x_Caffe_CPU_clicked();
+
+    void on_checkBox_isCompatible_Waifu2x_Caffe_GPU_clicked();
+
+    void on_checkBox_isCompatible_Waifu2x_Caffe_cuDNN_clicked();
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
@@ -599,8 +619,6 @@ signals:
     void Send_Read_urls_finfished();
 
     void Send_SRMD_DetectGPU_finished();
-
-    void Send_AutoDetectAlphaChannel_setChecked(bool);
 
     void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName);
 

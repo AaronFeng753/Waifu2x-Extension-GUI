@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.31.01-beta:
+- 新特性:新增waifu2x-caffe引擎(实验性功能).
+- 修复bug.
 v2.22.01-beta:
 - 更新ImageMagick(7.0.10-13-Q16-x64)
 - 性能优化.
@@ -39,8 +42,10 @@ v2.22.01-beta:
 - 其他改进.
 --------------------------------------------------------------------------
 To do:
+- 看看webp是否兼容所有引擎
 - 多gpu支持
 - 升级更新时保存设置
+- pdf格式支持
 ---------------------------------------------------------------------------
 Integrated component(In releases):
 - Anime4KCPP v1.8.1
@@ -51,6 +56,7 @@ Integrated component(In releases):
 - Waifu2x-converter version: v5.3.3
 - ImageMagick 7.0.10-13-Q16-x64
 - SoX 14.4.2-win32
+- waifu2x-caffe 1.2.0.2
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
