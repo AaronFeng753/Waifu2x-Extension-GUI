@@ -78,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)));
     connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
-    connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool)));
+    connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)));
     //================== 处理当前文件的进度 =========================
     connect(this, SIGNAL(Send_CurrentFileProgress_Start(QString,int)), this, SLOT(CurrentFileProgress_Start(QString,int)));
     connect(this, SIGNAL(Send_CurrentFileProgress_Stop()), this, SLOT(CurrentFileProgress_Stop()));
@@ -456,6 +456,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_ProcessVideoBySegment->setEnabled(0);
         ui->spinBox_SegmentDuration->setEnabled(0);
         ui->comboBox_ImageStyle->setEnabled(0);
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
@@ -749,6 +750,14 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
             }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
+    if(isWaifu2xCaffeEnabled())
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
+    }
 }
 
 void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
@@ -802,6 +811,14 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
             }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
+    if(isWaifu2xCaffeEnabled())
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
+    }
 }
 
 void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
@@ -855,6 +872,14 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
             }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
+    if(isWaifu2xCaffeEnabled())
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
+    }
 }
 
 void MainWindow::on_pushButton_clear_textbrowser_clicked()

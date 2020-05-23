@@ -496,6 +496,14 @@ void MainWindow::Waifu2x_Finished_manual()
         ui->spinBox_SegmentDuration->setEnabled(1);
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
+    if(isWaifu2xCaffeEnabled())
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
+    }
     emit Send_CurrentFileProgress_Stop();
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;

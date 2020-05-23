@@ -66,7 +66,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/Version_Waifu2xNCNNVulkan", ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex());
     //===
     configIniWrite->setValue("/settings/TTA_Waifu2xCaffe", ui->checkBox_TTA_Waifu2xCaffe->checkState());
-    configIniWrite->setValue("/settings/Model_Waifu2xCaffe", ui->comboBox_Model_Waifu2xCaffe->currentIndex());
+    configIniWrite->setValue("/settings/Model_2D_Waifu2xCaffe", ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex());
+    configIniWrite->setValue("/settings/Model_3D_Waifu2xCaffe", ui->comboBox_Model_3D_Waifu2xCaffe->currentIndex());
     configIniWrite->setValue("/settings/ProcessMode_Waifu2xCaffe", ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex());
     configIniWrite->setValue("/settings/BatchSize_Waifu2xCaffe", ui->spinBox_BatchSize_Waifu2xCaffe->value());
     configIniWrite->setValue("/settings/GPUID_Waifu2xCaffe", ui->spinBox_GPUID_Waifu2xCaffe->value());
@@ -245,7 +246,8 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(configIniRead->value("/settings/Version_Waifu2xNCNNVulkan").toInt());
     //===
     ui->checkBox_TTA_Waifu2xCaffe->setChecked(configIniRead->value("/settings/TTA_Waifu2xCaffe").toBool());
-    ui->comboBox_Model_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/Model_Waifu2xCaffe").toInt());
+    ui->comboBox_Model_2D_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/Model_2D_Waifu2xCaffe").toInt());
+    ui->comboBox_Model_3D_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/Model_3D_Waifu2xCaffe").toInt());
     ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/ProcessMode_Waifu2xCaffe").toInt());
     ui->spinBox_BatchSize_Waifu2xCaffe->setValue(configIniRead->value("/settings/BatchSize_Waifu2xCaffe").toInt());
     ui->spinBox_GPUID_Waifu2xCaffe->setValue(configIniRead->value("/settings/GPUID_Waifu2xCaffe").toInt());

@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.31.01-beta";//软件版本号
+    QString VERSION = "v2.31.02-beta";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -197,7 +197,8 @@ public:
     int Waifu2x_Caffe_Video(int rowNum);
     int Waifu2x_Caffe_Video_BySegment(int rowNum);
     int Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
-    QString Waifu2x_Caffe_ReadSettings();
+    QString Waifu2x_Caffe_ReadSettings(bool isImage);
+    bool isWaifu2xCaffeEnabled();
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
     bool waifu2x_STOP = false;//负责通知waifu2x主线程及其子线程的停止信号
@@ -396,7 +397,7 @@ public slots:
     int Settings_Save();//保存设置
 
     //存储进度
-    void video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete);
+    void video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration);
 
     //================== 处理当前文件的进度 =========================
     void CurrentFileProgress_Start(QString FileName,int FrameNum);
@@ -624,7 +625,7 @@ signals:
 
     void Send_Settings_Save();
 
-    void Send_video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete);
+    void Send_video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration);
 
     //================== 处理当前文件的进度 =========================
     void Send_CurrentFileProgress_Start(QString FileName,int FrameNum);
