@@ -41,7 +41,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     {
         if(DenoiseLevel==-1)
         {
-            DenoiseLevel=0;
+            DenoiseLevel=-1;
         }
         else
         {

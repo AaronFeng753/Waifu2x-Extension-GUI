@@ -1978,3 +1978,21 @@ void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_cuDNN_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
 }
+
+void MainWindow::on_pushButton_SplitSize_Add_Waifu2xCaffe_clicked()
+{
+    int VAL = ui->spinBox_SplitSize_Waifu2xCaffe->value()*2;
+    if(VAL<=999999999)
+    {
+        ui->spinBox_SplitSize_Waifu2xCaffe->setValue(VAL);
+    }
+}
+
+void MainWindow::on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked()
+{
+    int VAL = ui->spinBox_SplitSize_Waifu2xCaffe->value()/2;
+    if(VAL>=2)
+    {
+        ui->spinBox_SplitSize_Waifu2xCaffe->setValue(VAL);
+    }
+}

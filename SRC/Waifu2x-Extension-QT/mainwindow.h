@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.31.02-beta";//软件版本号
+    QString VERSION = "v2.31.14";//软件版本号
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -578,6 +578,10 @@ private slots:
     void on_checkBox_isCompatible_Waifu2x_Caffe_GPU_clicked();
 
     void on_checkBox_isCompatible_Waifu2x_Caffe_cuDNN_clicked();
+
+    void on_pushButton_SplitSize_Add_Waifu2xCaffe_clicked();
+
+    void on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);

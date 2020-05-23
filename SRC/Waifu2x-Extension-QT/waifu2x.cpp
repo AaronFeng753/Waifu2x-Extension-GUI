@@ -683,7 +683,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
     QProcess *Waifu2x_Caffe_CPU_qprocess = new QProcess();
-    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p cpu -m noise_scale -s 2 -n 1 -c 50 -b 1 --model_dir " + "\"" + model_path + "\"";
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p cpu -m noise_scale -s 2 -n 1 -c 32 -b 1 --model_dir " + "\"" + model_path + "\"";
     Waifu2x_Caffe_CPU_qprocess->start(cmd);
     if(Waifu2x_Caffe_CPU_qprocess->waitForStarted(30000))
     {
@@ -705,7 +705,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
     QProcess *Waifu2x_Caffe_GPU_qprocess = new QProcess();
-    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p gpu -m noise_scale -s 2 -n 1 -c 50 -b 1 --model_dir " + "\"" + model_path + "\"";
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p gpu -m noise_scale -s 2 -n 1 -c 32 -b 1 --model_dir " + "\"" + model_path + "\"";
     Waifu2x_Caffe_GPU_qprocess->start(cmd);
     if(Waifu2x_Caffe_GPU_qprocess->waitForStarted(30000))
     {
@@ -718,7 +718,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(GPU): No."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(GPU): No. [Advice: Install NVIDIA CUDA.]"));
         isCompatible_Waifu2x_Caffe_GPU=false;
     }
     QFile::remove(OutputPath);
@@ -727,7 +727,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
     QProcess *Waifu2x_Caffe_cuDNN_qprocess = new QProcess();
-    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p cudnn -m noise_scale -s 2 -n 1 -c 50 -b 1 --model_dir " + "\"" + model_path + "\"";
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -p cudnn -m noise_scale -s 2 -n 1 -c 32 -b 1 --model_dir " + "\"" + model_path + "\"";
     Waifu2x_Caffe_cuDNN_qprocess->start(cmd);
     if(Waifu2x_Caffe_cuDNN_qprocess->waitForStarted(30000))
     {
@@ -740,7 +740,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(cuDNN): No."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(cuDNN): No. [Advice: Install NVIDIA CUDA and NVIDIA cuDNN.]"));
         isCompatible_Waifu2x_Caffe_cuDNN=false;
     }
     QFile::remove(OutputPath);
