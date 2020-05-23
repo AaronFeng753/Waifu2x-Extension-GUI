@@ -6,6 +6,19 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.31.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.31.14)
+#### 更新日志:
+- 新特性:新增waifu2x-caffe引擎(实验性功能)(感谢 @CAFUCSteven 协助测试软件).
+- 新特性:waifu2x-caffe引擎支持快速切换图像样式.
+- 新特性:支持切换处理带有Alpha通道的图片时使用的引擎.
+- 优化处理带有Alpha通道的图片的流程.
+- 调整兼容性测试界面.
+- 性能优化.
+- 更改默认设置.
+- 添加一些提示,修改一些文本,修正错字.
+- 修复多个bug.
+- 其他改进.
+---
 ## [v2.21.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.21.12)
 #### 更新日志:
 - 新特性:处理视频或GIF时,单独显示当前文件的进度(进度条,消耗时间,剩余时间,ETA).
