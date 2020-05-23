@@ -17,8 +17,6 @@ Download Latest installation (or portable) package for `Windows x64` PCs with `I
 
 Download Latest Build: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-This package includes all the binaries and models required, so no CUDA or Caffe runtime environment is needed.
-
 Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
 # What is Waifu2x-Extension-GUI?
