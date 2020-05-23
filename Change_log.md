@@ -2,6 +2,19 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.31.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.31.14)
+#### Change log:
+- New feature: Add waifu2x-caffe engine (experimental function) (thanks to @CAFUCSteven for assistance in testing the software).
+- New feature: waifu2x-caffe engine supports quick switching of image styles.
+- New feature: Support for switching the engine used when processing images with Alpha channels.
+- Optimize the process of processing pictures with Alpha channel.
+- Adjust the compatibility test interface.
+- Performance optimization.
+- Change default settings.
+- Add some tips, modify some text, correct typos.
+- Fix multiple bugs.
+- Other improvements.
+---
 ## [v2.21.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.21.12)
 #### Change log:
 - New feature: When processing video or GIF, the progress of the current file (a progress bar, Time cost, Time remaining, ETA) is displayed separately.
