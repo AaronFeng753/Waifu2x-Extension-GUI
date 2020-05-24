@@ -1,6 +1,10 @@
 <p align="center">
-<img src="/.github/Social_preview_small.png.png" height="300">
+<img src="/SRC/Waifu2x-Extension-QT/icon/icon_main.png" height="150">
 </p>
+
+<h2 align="center"> Waifu2x-Extension-GUI </h2>
+
+<h3 align="center"> Photo/Video/GIF enlargement using machine learning </h3>
 
 <p align="center">
 <img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20release&style=flat-square&color=brightgreen">
