@@ -146,7 +146,11 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
-- Special thanks to @Nova-Aurora for fix several errors in the English README.
+- Thanks to @uimee for 繁體中文 translation.
+
+- Thanks to @Nova-Aurora for fix several errors in the English README.
+
+- Thanks to @CAFUCSteven for assistance in testing the software
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
