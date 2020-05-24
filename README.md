@@ -150,7 +150,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 
 - Thanks to @Nova-Aurora for fix several errors in the English README.
 
-- Thanks to @CAFUCSteven for assistance in testing the software
+- Thanks to @CAFUCSteven for assistance in testing the software.
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
