@@ -47,6 +47,15 @@ int MainWindow::CheckUpadte_Auto()
 {
     //============
     QString Latest_Ver="";
+    QString Current_Ver="";
+    if(isBetaVer)
+    {
+        Current_Ver=LastStableVer;
+    }
+    else
+    {
+        Current_Ver=VERSION;
+    }
     //============================
     QString Github_UpdateInfo = Current_Path+"/Update_Info_Github.ini";
     QString Gitee_UpdateInfo = Current_Path+"/Update_Info_Gitee.ini";
@@ -66,7 +75,7 @@ int MainWindow::CheckUpadte_Auto()
         Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
         QString Change_log = configIniRead->value("/Change_log/log").toString();
         Latest_Ver = Latest_Ver.trimmed();
-        if(Latest_Ver!=VERSION&&Latest_Ver!="")
+        if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
         {
             emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
             //=====
@@ -83,7 +92,7 @@ int MainWindow::CheckUpadte_Auto()
         Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
         QString Change_log = configIniRead->value("/Change_log/log").toString();
         Latest_Ver = Latest_Ver.trimmed();
-        if(Latest_Ver!=VERSION&&Latest_Ver!="")
+        if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
         {
             emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
             //=====
@@ -107,10 +116,10 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
 {
     if(ui->checkBox_UpdatePopup->checkState())
     {
+        QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
+        Msg.setIcon(QMessageBox::Information);
         if(ui->comboBox_language->currentIndex()==1)
         {
-            QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
-            Msg.setIcon(QMessageBox::Information);
             QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
             QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆境内)"), QMessageBox::YesRole);
             QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
@@ -121,8 +130,6 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
         }
         else
         {
-            QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
-            Msg.setIcon(QMessageBox::Information);
             QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
             QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
             Msg.exec();

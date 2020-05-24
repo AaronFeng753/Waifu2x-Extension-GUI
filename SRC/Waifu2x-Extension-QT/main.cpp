@@ -32,17 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.31.14:
-- 新特性:新增waifu2x-caffe引擎(实验性功能)(感谢 @CAFUCSteven 协助测试软件).
-- 新特性:waifu2x-caffe引擎支持快速切换图像样式.
-- 新特性:支持切换处理带有Alpha通道的图片时使用的引擎.
-- 优化处理带有Alpha通道的图片的流程.
-- 调整兼容性测试界面.
+v2.32.01-beta:
+- 更新ImageMagick(7.0.10-14-Q16-x64).
+- 优化检查更新的流程.
 - 性能优化.
-- 更改默认设置.
-- 添加一些提示,修改一些文本,修正错字.
-- 修复多个bug.
-- 其他改进.
 --------------------------------------------------------------------------
 To do:
 - 多gpu支持
@@ -57,7 +50,7 @@ Integrated component(In releases):
 - waifu2x-ncnn-vulkan version 20200223
 - SRMD-ncnn-Vulkan version 20200224
 - Waifu2x-converter version: v5.3.3
-- ImageMagick 7.0.10-13-Q16-x64
+- ImageMagick 7.0.10-14-Q16-x64
 - SoX 14.4.2-win32
 - waifu2x-caffe 1.2.0.2
 ---
