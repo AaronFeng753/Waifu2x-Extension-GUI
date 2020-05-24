@@ -169,6 +169,12 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 
 - 图标作者: Freepik (https://www.flaticon.com/authors/freepik) 来自 Flaticon : https://www.flaticon.com/
 
+- 感謝 @uimee 協助進行繁體中文翻譯.
+
+- 感谢 @Nova-Aurora 协助修复英文版README中的语法和拼写错误.
+
+- 感谢 @CAFUCSteven 协助测试软件.
+
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
 ### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用, 我也可以获得收入.
