@@ -32,9 +32,13 @@ Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could us
 
 If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caffe(beta), which is also intergrated into Waifu2x-Extension-GUI.
 
+#### Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
+
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
-#### Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
+![Engine_Settings](/Screenshot/Engine_Settings_EN.jpg)
+
+![Additional_Settings](/Screenshot/Additional_Settings_EN.jpg)
 
 # Features
 - Easy to use graphical user interface
