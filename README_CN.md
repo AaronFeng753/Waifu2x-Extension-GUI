@@ -34,9 +34,13 @@
 
 如果您的显卡不支持vulkan, 您还可以将引擎切换为Waifu2x-converter或者Waifu2x-Caffe(beta),同样可以很快的对图像进行放大与降噪.
 
+#### 已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
+
 ![mainwindow](/Screenshot/mainwindow_cn.jpg)
 
-#### 已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
+![Engine_Settings](/Screenshot/Engine_Settings_CN.jpg)
+
+![Additional_Settings](/Screenshot/Additional_Settings_CN.jpg)
 
 # 主要特性
 - 简单易用的图形用户界面
