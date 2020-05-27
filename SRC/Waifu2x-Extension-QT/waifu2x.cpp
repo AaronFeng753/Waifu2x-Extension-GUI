@@ -463,8 +463,8 @@ void MainWindow::Waifu2x_Finished_manual()
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
     this->setAcceptDrops(1);
-    ui->pushButton_Stop->setEnabled(0);
-    ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_Stop->setVisible(0);
+    ui->pushButton_Start->setVisible(1);
     ui->groupBox_OutPut->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);
@@ -486,7 +486,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->spinBox_JPGCompressedQuality->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
     if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
-    ui->pushButton_ForceRetry->setEnabled(0);
+    ui->pushButton_ForceRetry->setVisible(0);
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     on_checkBox_AutoDetectAlphaChannel_stateChanged(0);
     ui->groupBox_AudioDenoise->setEnabled(1);

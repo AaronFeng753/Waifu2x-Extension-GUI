@@ -475,7 +475,7 @@ padding:10px;
            <item row="0" column="7">
             <widget class="QPushButton" name="pushButton_ForceRetry">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="toolTip">
               <string>In some cases, the waifu2x process can get stuck.
@@ -548,6 +548,9 @@ padding:10px;
            </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_progressBar_filenum">
+             <property name="toolTip">
+              <string>Finished/Total</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -577,7 +580,207 @@ padding:10px;
            <string>Files List (You can drag and drop files or folders into here)</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
+           <item row="1" column="1">
+            <widget class="QPushButton" name="pushButton_ClearList">
+             <property name="maximumSize">
+              <size>
+               <width>110</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Clear list</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QPushButton" name="pushButton_RemoveItem">
+             <property name="maximumSize">
+              <size>
+               <width>110</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(255, 181, 6);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 200, 50);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(255, 170, 0);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Remove item</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="11">
+            <widget class="QPushButton" name="pushButton_SaveFileList">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Save Files List</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="12">
+            <widget class="QPushButton" name="pushButton_ReadFileList">
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+	background-color: rgb(238, 119, 133);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(255, 127, 144);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+	background-color: rgb(226, 112, 128);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Read Files List</string>
+             </property>
+            </widget>
+           </item>
            <item row="1" column="14">
+            <widget class="QPushButton" name="pushButton_HideSettings">
+             <property name="toolTip">
+              <string/>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Hide settings</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="17">
             <widget class="QPushButton" name="pushButton_BrowserFile">
              <property name="minimumSize">
               <size>
@@ -620,21 +823,8 @@ padding:10px;
              </property>
             </widget>
            </item>
-           <item row="1" column="10">
-            <widget class="Line" name="line_5">
-             <property name="frameShadow">
-              <enum>QFrame::Sunken</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="8">
-            <widget class="QPushButton" name="pushButton_SaveFileList">
+           <item row="1" column="15">
+            <widget class="QPushButton" name="pushButton_HideTextBro">
              <property name="styleSheet">
               <string notr="true">QPushButton{
 background-color: rgb(178, 58, 238);
@@ -666,88 +856,81 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>Save Files List</string>
+              <string>Hide Text Browser</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="11">
-            <widget class="QPushButton" name="pushButton_HideSettings">
+           <item row="1" column="13">
+            <widget class="Line" name="line_5">
+             <property name="frameShadow">
+              <enum>QFrame::Sunken</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="16">
+            <widget class="Line" name="line_10">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_FileCount">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="toolTip">
-              <string/>
+              <string>Number of files in the list.</string>
              </property>
              <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="midLineWidth">
+              <number>0</number>
              </property>
              <property name="text">
-              <string>Hide settings</string>
+              <string notr="true">File count: 0</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="margin">
+              <number>5</number>
+             </property>
+             <property name="openExternalLinks">
+              <bool>false</bool>
              </property>
             </widget>
            </item>
-           <item row="1" column="9">
-            <widget class="QPushButton" name="pushButton_ReadFileList">
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color: rgb(238, 119, 133);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(255, 127, 144);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-	background-color: rgb(226, 112, 128);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
+           <item row="1" column="3" colspan="8">
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
-             <property name="text">
-              <string>Read Files List</string>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
              </property>
-            </widget>
+            </spacer>
            </item>
-           <item row="0" column="0" colspan="15">
+           <item row="0" column="0" colspan="18">
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
               <widget class="QTableView" name="tableView_image">
@@ -930,165 +1113,6 @@ into a directory that can run normally without administrator rights.</string>
               </widget>
              </item>
             </layout>
-           </item>
-           <item row="1" column="13">
-            <widget class="Line" name="line_10">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="12">
-            <widget class="QPushButton" name="pushButton_HideTextBro">
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Hide Text Browser</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0">
-            <widget class="QPushButton" name="pushButton_ClearList">
-             <property name="maximumSize">
-              <size>
-               <width>110</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Clear list</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="1">
-            <widget class="QPushButton" name="pushButton_RemoveItem">
-             <property name="maximumSize">
-              <size>
-               <width>110</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(255, 181, 6);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 200, 50);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(255, 170, 0);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Remove item</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="2">
-            <widget class="QLabel" name="label_FileCount">
-             <property name="styleSheet">
-              <string notr="true"/>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="midLineWidth">
-              <number>0</number>
-             </property>
-             <property name="text">
-              <string>File count: null</string>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="3" colspan="5">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>
@@ -1746,6 +1770,9 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
            </item>
            <item row="0" column="0">
             <widget class="QLabel" name="label_FrameProgress_CurrentFile">
+             <property name="toolTip">
+              <string>Finished/Total</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -3876,6 +3903,9 @@ be processed successfully)</string>
               </item>
               <item row="5" column="0">
                <widget class="QLabel" name="label_39">
+                <property name="toolTip">
+                 <string>The number of retries when failed to processing a image (or frame).</string>
+                </property>
                 <property name="text">
                  <string>Retry:</string>
                 </property>
@@ -3896,6 +3926,9 @@ be processed successfully)</string>
               </item>
               <item row="5" column="1">
                <widget class="QSpinBox" name="spinBox_retry">
+                <property name="toolTip">
+                 <string>The number of retries when failed to processing a image (or frame).</string>
+                </property>
                 <property name="minimum">
                  <number>1</number>
                 </property>
@@ -3955,6 +3988,10 @@ when processing video in segments.</string>
               </item>
               <item row="3" column="0" colspan="2">
                <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+                <property name="toolTip">
+                 <string>When adding a folder to the file list, scan the files in
+the subfolder and add them to the file list.</string>
+                </property>
                 <property name="text">
                  <string>Scan sub-folders</string>
                 </property>
@@ -4025,6 +4062,9 @@ the language for the language settings to fully take effect.</string>
                   <height>0</height>
                  </size>
                 </property>
+                <property name="toolTip">
+                 <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
                 <property name="currentIndex">
                  <number>1</number>
                 </property>
@@ -4055,17 +4095,6 @@ the language for the language settings to fully take effect.</string>
                 </property>
                </widget>
               </item>
-              <item row="9" column="0" colspan="2">
-               <widget class="QLabel" name="label_44">
-                <property name="text">
-                 <string>Aspect Ratio:
-(Custom resolution)</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
               <item row="2" column="3">
                <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
                 <property name="toolTip">
@@ -4078,6 +4107,9 @@ the language for the language settings to fully take effect.</string>
               </item>
               <item row="4" column="3">
                <widget class="QCheckBox" name="checkBox_KeepVideoCache">
+                <property name="toolTip">
+                 <string>Keep video cache after processing the video.</string>
+                </property>
                 <property name="text">
                  <string>Keep video cache</string>
                 </property>
@@ -4124,6 +4156,20 @@ will increase the time required to process video.</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0" colspan="2">
+               <widget class="QLabel" name="label_44">
+                <property name="toolTip">
+                 <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="text">
+                 <string>Aspect Ratio:
+(Custom resolution)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
                </widget>
               </item>
@@ -4263,7 +4309,7 @@ It is recommended to enable this option.</string>
                  <bool>false</bool>
                 </property>
                 <property name="toolTip">
-                 <string>Compress JPG files, almost lossless.</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compress &lt;span style=&quot; font-weight:600;&quot;&gt;JPG&lt;/span&gt; files, almost lossless.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="text">
                  <string>Compress &quot;.jpg&quot;</string>
@@ -4274,7 +4320,7 @@ It is recommended to enable this option.</string>
                <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
                 <property name="toolTip">
                  <string>0(worst quality)~99
-We recommend you use the default value(90)</string>
+We recommend you use the default value(95)</string>
                 </property>
                 <property name="minimum">
                  <number>0</number>
@@ -4287,9 +4333,7 @@ We recommend you use the default value(90)</string>
               <item row="1" column="0">
                <widget class="QCheckBox" name="checkBox_SaveAsJPG">
                 <property name="toolTip">
-                 <string>Save the scaled image as &quot;.jpg&quot;.
-Images are stored in &quot;.png&quot; format by default.
-When this option is enabled, alpha channel (ransparent images)support will be lost.</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="text">
                  <string>Save as &quot;.jpg&quot;</string>

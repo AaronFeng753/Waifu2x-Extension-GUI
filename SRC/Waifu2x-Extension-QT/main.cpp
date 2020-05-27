@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.32.02-beta:
+- 调整界面.
+- 添加提示.
+- 修正文本错误.
 v2.32.01-beta:
 - 更新ImageMagick(7.0.10-14-Q16-x64).
 - 优化检查更新的流程.

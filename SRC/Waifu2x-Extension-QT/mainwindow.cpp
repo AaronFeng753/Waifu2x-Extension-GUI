@@ -36,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
     ui->groupBox_CurrentFile->setVisible(0);//隐藏当前文件进度
+    ui->pushButton_Stop->setVisible(0);
+    ui->pushButton_ForceRetry->setVisible(0);
     //=================== 初始隐藏所有table和按钮 ======================
     ui->tableView_image->setVisible(0);
     ui->tableView_gif->setVisible(0);
@@ -43,7 +45,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_ClearList->setVisible(0);
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
-    ui->pushButton_Stop->setEnabled(0);
     //===========================================
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
     connect(this, SIGNAL(Send_progressbar_Add()), this, SLOT(progressbar_Add()));
@@ -425,8 +426,8 @@ void MainWindow::on_pushButton_Start_clicked()
         ETA=0;
         //============== 界面初始化 ======================
         this->setAcceptDrops(0);//禁止drop file
-        ui->pushButton_Stop->setEnabled(1);//启用stop button
-        ui->pushButton_Start->setEnabled(0);//禁用start button
+        ui->pushButton_Stop->setVisible(1);//启用stop button
+        ui->pushButton_Start->setVisible(0);//禁用start button
         ui->groupBox_OutPut->setEnabled(0);
         ui->pushButton_ClearList->setEnabled(0);
         ui->pushButton_RemoveItem->setEnabled(0);
@@ -449,7 +450,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
         ui->groupBox_video_settings->setEnabled(0);
         ui->checkBox_Move2RecycleBin->setEnabled(0);
-        ui->pushButton_ForceRetry->setEnabled(1);
+        ui->pushButton_ForceRetry->setVisible(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
         ui->comboBox_EngineForAlphaChannel->setEnabled(0);
         ui->groupBox_AudioDenoise->setEnabled(0);
@@ -471,7 +472,7 @@ void MainWindow::on_pushButton_Start_clicked()
 void MainWindow::on_pushButton_Stop_clicked()
 {
     TimeCostTimer->stop();
-    ui->pushButton_Stop->setEnabled(0);//禁用stop button
+    ui->pushButton_Stop->setVisible(0);//隐藏stop button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
     QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
@@ -1566,6 +1567,8 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
 
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
+    ui->pushButton_ForceRetry->setEnabled(0);
+    //========
     int tmp = ui->spinBox_retry->value();
     tmp++;
     ui->spinBox_retry->setValue(tmp);
@@ -1588,6 +1591,7 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     Close.waitForFinished(10000);
     //========
     emit Send_TextBrowser_NewMessage(tr("Force retry."));
+    ui->pushButton_ForceRetry->setEnabled(1);
     return;
 }
 
