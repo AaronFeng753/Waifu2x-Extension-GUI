@@ -78,6 +78,7 @@
 ### **`GIF`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/gif
 
 ### 对比(3D写实)(使用内置的RealSR-NCNN-Vulkan引擎)
+#### 原照片来自Unsplash,由Jonatan Pie拍摄.
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
 ### 对比(2D动漫)(使用内置的Waifu2x-NCNN-Vulkan引擎)
