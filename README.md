@@ -67,39 +67,30 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caf
 
 # Samples
 
-`All of these samples were processed using the Waifu2x-ncnn-vulkan engine.`
-
 ### **`Image`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 ### **`GIF`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/gif
 
+### Comparison(3D Real-life)(Using RealSR-NCNN-Vulkan Engine)
+![Comparison](/Samples/image/Comparison_3D_Real-life.png)
+
+### Comparison(2D Anime)(Using Waifu2x-NCNN-Vulkan Engine)
+![Comparison](/Samples/image/Comparison.png)
+
 #### Original 2D Anime Image 480x300 (.jpg 93.2 KB):
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
 #### After 8x magnification, level 3 denoise and compress 3840x2400 (.jpg 525 KB):
+#### (Using Waifu2x-NCNN-Vulkan Engine)
 ![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
-
-#### Comparison
-![Comparison](/Samples/image/Comparison.png)
-
-#### Original 3D Real-life Image 800x535 (.jpg 81.4 KB):
-![Original Imgae](/Samples/image/deer.jpg)
-
-#### After 4x magnification, level 2 denoise and compress 3200x2140 (.jpg 881 KB):
-![Scaled Imgae](/Samples/image/deer_Waifu2x.jpg)
-
-#### Original 3D Game Imgae 1200x630 (.jpg 168 KB):
-![Original Imgae](/Samples/image/Cyberpunk-2077.jpg)
-
-#### After 4x magnification, level 2 denoise 4800x2520 (.jpg 3.99 MB):
-![Scaled Imgae](/Samples/image/Cyberpunk-2077_waifu2x_4x_2n_jpg.jpg)
 
 #### Original GIF 500 x 372 (493 KB):
 ![Original GIF](/Samples/gif/2_original.gif)
 
 #### After 2x magnification, level 2 denoise and gif optimize 1000 x 744 (3.77 MB):
+#### (Using Waifu2x-NCNN-Vulkan Engine)
 ![Original GIF](/Samples/gif/2_waifu2x_compressed.gif)
 
 ### `Github doesn't online video playback, please check link below:`
