@@ -26,9 +26,9 @@ Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe(beta)` and `Anime4K`. 
+Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe(beta)`,`RealSR-ncnn-vulkan(beta)` and `Anime4K`. 
 
-Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan, Waifu2x-Extension-GUI could use any kind of gpu that supports `Vulkan`, including `Intel/AMD/Nvidia` GPUs. 
+Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan & RealSR-ncnn-vulkan, Waifu2x-Extension-GUI could use any kind of gpu that supports `Vulkan`, including `Intel/AMD/Nvidia` GPUs. 
 
 If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caffe(beta), which is also intergrated into Waifu2x-Extension-GUI.
 
@@ -149,6 +149,10 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - SoX: http://sox.sourceforge.net/
 
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
+
+- realsr-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
+
+- Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
 
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 
