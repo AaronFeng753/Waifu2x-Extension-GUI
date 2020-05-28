@@ -25,6 +25,15 @@
 
 [点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
+# [下载测试版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
+测试版与稳定版相比拥有更快的更新周期,可以让您提前体验到本软件最新的特性.
+
+⚠请注意,测试版与稳定版相比更不稳定,因为测试版在发布前未经完整测试.
+
+前往Releases页面下载测试版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
+
+[点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
+
 # Waifu2x-Extension-GUI是什么?
  借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
