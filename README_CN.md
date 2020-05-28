@@ -71,39 +71,30 @@
 
 # 示例
 
-`所有示例图像均使用waifu2x-ncnn-vulkan引擎处理`
-
 ### **`图片`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 ### **`GIF`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/gif
 
+### 对比(3D写实)(使用内置的RealSR-NCNN-Vulkan引擎)
+![Comparison](/Samples/image/Comparison_3D_Real-life.png)
+
+### 对比(2D动漫)(使用内置的Waifu2x-NCNN-Vulkan引擎)
+![Comparison](/Samples/image/Comparison.png)
+
 #### 原图 2D动漫图片 480x300 (.jpg 93.2 KB):
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
 #### 经过8x放大, 3级降噪和压缩后 3840x2400 (.jpg 525 KB):
+#### (使用内置的Waifu2x-NCNN-Vulkan引擎)
 ![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
-
-#### 对比
-![Comparison](/Samples/image/Comparison.png)
-
-#### 原图 3D写实图片 800x535 (.jpg 81.4 KB):
-![Original Imgae](/Samples/image/deer.jpg)
-
-#### 经过4x放大,2级降噪和压缩后 3200x2140 (.jpg 881 KB):
-![Scaled Imgae](/Samples/image/deer_Waifu2x.jpg)
-
-#### 原图 3D游戏图片 1200x630 (.jpg 168 KB):
-![Original Imgae](/Samples/image/Cyberpunk-2077.jpg)
-
-#### 经过 4x放大, 2级降噪 4800x2520 (.jpg 3.99 MB):
-![Scaled Imgae](/Samples/image/Cyberpunk-2077_waifu2x_4x_2n_jpg.jpg)
 
 #### 原图 GIF 500 x 372 (493 KB):
 ![Original GIF](/Samples/gif/2_original.gif)
 
 #### 经过2x放大,2级降噪和gif优化后 1000 x 744 (3.77 MB):
+#### (使用内置的Waifu2x-NCNN-Vulkan引擎)
 ![Original GIF](/Samples/gif/2_waifu2x_compressed.gif)
 
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
