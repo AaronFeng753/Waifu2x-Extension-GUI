@@ -28,6 +28,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
+    //======
+    if(SaveAsJPG)
+    {
+        SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
+    }
     bool CompressJPG = ui->checkBox_CompressJPG->checkState();
     bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
     QString OutPutPath_Final ="";
@@ -1903,6 +1908,7 @@ void MainWindow::on_pushButton_DetectGPU_clicked()
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
+    ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(0);
     Available_GPUID.clear();
     QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
 }
@@ -1959,6 +1965,7 @@ int MainWindow::Waifu2x_DetectGPU_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //====
     ui->comboBox_GPUID->clear();
     ui->comboBox_GPUID->addItem("auto");

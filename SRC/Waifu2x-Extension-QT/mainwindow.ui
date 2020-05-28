@@ -1645,6 +1645,7 @@ folder as the source file.</string>
                 <property name="toolTip">
                  <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                 </property>
                 <property name="currentText">
@@ -1692,6 +1693,7 @@ where the file is located is enabled)</string>
                 <property name="toolTip">
                  <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                 </property>
                 <property name="text">
@@ -1717,6 +1719,7 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                 <property name="toolTip">
                  <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                 </property>
                 <property name="text">
@@ -1729,6 +1732,7 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                 <property name="toolTip">
                  <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                 </property>
                 <item>
@@ -1853,14 +1857,15 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
              </property>
              <property name="toolTip">
               <string>Select the engine for processing Image. 
+
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Only waifu2x-converter and Waifu2x-caffe supports alpha channel.
-You can run compatibility test to see which engines your 
-PC is compatible with.</string>
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
+
+Anime4K engine does NOT supports alpha channel.</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -1888,6 +1893,11 @@ PC is compatible with.</string>
              <item>
               <property name="text">
                <string>waifu2x-caffe(beta)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>realsr-ncnn-vulkan(beta)</string>
               </property>
              </item>
             </widget>
@@ -2027,7 +2037,7 @@ Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
                  </property>
                  <property name="minimum">
-                  <number>10</number>
+                  <number>32</number>
                  </property>
                  <property name="maximum">
                   <number>10000</number>
@@ -2043,21 +2053,21 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                <item row="3" column="1" colspan="2">
                 <widget class="QComboBox" name="comboBox_version_Waifu2xNCNNVulkan">
                  <property name="currentIndex">
-                  <number>2</number>
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">
-                   <string>New Version</string>
+                   <string>Latest(Only this version supports alpha channel)</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>New Version(fp16p)</string>
+                   <string>20200414(fp16p)</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>Old Version</string>
+                   <string>Old</string>
                   </property>
                  </item>
                 </widget>
@@ -2184,7 +2194,7 @@ Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</string>
                  </property>
                  <property name="minimum">
-                  <number>1</number>
+                  <number>32</number>
                  </property>
                  <property name="maximum">
                   <number>999999999</number>
@@ -2246,7 +2256,7 @@ Larger tile size means SRMD will use more GPU memory and run faster.
 Smaller tile size means SRMD will use less GPU memory and run slower.</string>
                  </property>
                  <property name="minimum">
-                  <number>1</number>
+                  <number>32</number>
                  </property>
                  <property name="maximum">
                   <number>999999999</number>
@@ -2969,6 +2979,137 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</strin
                </item>
               </layout>
              </widget>
+             <widget class="QWidget" name="tab_2">
+              <attribute name="title">
+               <string>Realsr-ncnn-vulkan(beta)</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_34">
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_62">
+                 <property name="text">
+                  <string>GPU ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_60">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="2">
+                <widget class="QSpinBox" name="spinBox_TileSize_RealsrNCNNVulkan">
+                 <property name="toolTip">
+                  <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means Realsr will use more GPU memory and run faster.
+Smaller tile size means Realsr will use less GPU memory and run slower.</string>
+                 </property>
+                 <property name="minimum">
+                  <number>32</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>10</number>
+                 </property>
+                 <property name="value">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="checkBox_TTA_RealsrNCNNVulkan">
+                 <property name="toolTip">
+                  <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                 </property>
+                 <property name="text">
+                  <string>TTA</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_61">
+                 <property name="text">
+                  <string>Tile size:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QComboBox" name="comboBox_Model_RealsrNCNNVulkan">
+                 <item>
+                  <property name="text">
+                   <string>models-DF2K_JPEG(Supports denoise)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>models-DF2K(Does NOT supports denoise)</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="2" column="1" colspan="2">
+                <widget class="QComboBox" name="comboBox_GPUID_RealsrNCNNVulkan">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string notr="true">auto</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="0" colspan="3">
+                <widget class="QPushButton" name="pushButton_DetectGPU_RealsrNCNNVulkan">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Detect available GPU ID</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
            <item row="1" column="0" colspan="8">
@@ -3024,13 +3165,13 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</strin
              </property>
              <property name="toolTip">
               <string>Select the engine for processing GIF. 
+
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-You can run compatibility test to see which engines your 
-PC is compatible with.</string>
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -3060,6 +3201,11 @@ PC is compatible with.</string>
                <string>waifu2x-caffe(beta)</string>
               </property>
              </item>
+             <item>
+              <property name="text">
+               <string>realsr-ncnn-vulkan(beta)</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="0" column="6">
@@ -3085,13 +3231,13 @@ PC is compatible with.</string>
              </property>
              <property name="toolTip">
               <string>Select the engine for processing Video. 
+
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-You can run compatibility test to see which engines your 
-PC is compatible with.</string>
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -3119,6 +3265,11 @@ PC is compatible with.</string>
              <item>
               <property name="text">
                <string>waifu2x-caffe(beta)</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>realsr-ncnn-vulkan(beta)</string>
               </property>
              </item>
             </widget>
@@ -4292,14 +4443,30 @@ padding:10px;
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
-              <item row="5" column="0">
-               <widget class="QCheckBox" name="checkBox_OptGIF">
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="checkBox_SaveAsJPG">
                 <property name="toolTip">
-                 <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="text">
-                 <string>Optimize &quot;.gif&quot;</string>
+                 <string>Save as &quot;.jpg&quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                <property name="toolTip">
+                 <string>When the alpha channel is detected in the picture, software will
+automatically use the waifu2x-converter engine to process the
+picture and force the picture to be saved as PNG.
+Please make sure the waifu2x-converter engine is compatible
+with your PC before enabling this option.</string>
+                </property>
+                <property name="text">
+                 <string>Auto detect Alpha channel</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -4313,6 +4480,17 @@ It is recommended to enable this option.</string>
                 </property>
                 <property name="text">
                  <string>Compress &quot;.jpg&quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QCheckBox" name="checkBox_OptGIF">
+                <property name="toolTip">
+                 <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</string>
+                </property>
+                <property name="text">
+                 <string>Optimize &quot;.gif&quot;</string>
                 </property>
                </widget>
               </item>
@@ -4330,61 +4508,10 @@ We recommend you use the default value(95)</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QCheckBox" name="checkBox_SaveAsJPG">
-                <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="text">
-                 <string>Save as &quot;.jpg&quot;</string>
-                </property>
-               </widget>
-              </item>
               <item row="3" column="0">
                <widget class="QLabel" name="label_23">
                 <property name="text">
                  <string>Compressed &quot;.jpg&quot; image quality:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QComboBox" name="comboBox_EngineForAlphaChannel">
-                <property name="currentText">
-                 <string notr="true">waifu2x-converter</string>
-                </property>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-converter</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string notr="true">waifu2x-caffe</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
-                <property name="toolTip">
-                 <string>When the alpha channel is detected in the picture, software will
-automatically use the waifu2x-converter engine to process the
-picture and force the picture to be saved as PNG.
-Please make sure the waifu2x-converter engine is compatible
-with your PC before enabling this option.</string>
-                </property>
-                <property name="text">
-                 <string>Auto detect Alpha channel</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_55">
-                <property name="text">
-                 <string>Engine for Alpha channel:</string>
                 </property>
                </widget>
               </item>
@@ -4768,13 +4895,13 @@ padding:10px;
              <property name="minimumSize">
               <size>
                <width>0</width>
-               <height>195</height>
+               <height>210</height>
               </size>
              </property>
              <property name="maximumSize">
               <size>
                <width>16777215</width>
-               <height>195</height>
+               <height>210</height>
               </size>
              </property>
              <property name="frameShape">
@@ -4792,7 +4919,8 @@ waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]</string>
+waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -4878,7 +5006,7 @@ waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]</string>
 }</string>
              </property>
              <property name="text">
-              <string>Waifu2x-ncnn-vulkan(NEW FP16P)</string>
+              <string notr="true">Waifu2x-ncnn-vulkan(20200414(fp16p))</string>
              </property>
             </widget>
            </item>
@@ -4899,7 +5027,7 @@ waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]</string>
 }</string>
              </property>
              <property name="text">
-              <string>Waifu2x-ncnn-vulkan(NEW)</string>
+              <string>Waifu2x-ncnn-vulkan(Latest)</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -5065,6 +5193,13 @@ waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]</string>
              </property>
              <property name="text">
               <string notr="true">FFmpeg</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QCheckBox" name="checkBox_isCompatible_Realsr_NCNN_Vulkan">
+             <property name="text">
+              <string notr="true">Realsr-ncnn-vulkan</string>
              </property>
             </widget>
            </item>

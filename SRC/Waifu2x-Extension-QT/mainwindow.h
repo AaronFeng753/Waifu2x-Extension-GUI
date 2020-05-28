@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.32.02-beta";//软件版本号
+    QString VERSION = "v2.41.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.31.14";
     //=======================
@@ -163,6 +163,16 @@ public:
     int Waifu2x_NCNN_Vulkan_Video(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    //===
+    int Realsr_NCNN_Vulkan_Image(int rowNum);//Realsr放大图片线程
+    //Realsr放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
+    int Realsr_NCNN_Vulkan_GIF(int rowNum);
+    int Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
+    //Realsr放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
+    int Realsr_NCNN_Vulkan_Video(int rowNum);
+    int Realsr_NCNN_Vulkan_Video_BySegment(int rowNum);
+    int Realsr_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    QString Realsr_NCNN_Vulkan_ReadSettings();
     //=========================
     int Anime4k_Image(int rowNum);
     int Anime4k_GIF(int rowNum);
@@ -227,6 +237,9 @@ public:
     QStringList Available_GPUID_srmd;//可用GPU ID列表
     QString GPU_ID_STR_SRMD="";//向srmd命令行cmd插入的gpuid命令,如果auto则为空
 
+    int Realsr_ncnn_vulkan_DetectGPU();//检测可用gpu(for realsr)
+    QStringList Available_GPUID_Realsr_ncnn_vulkan;//可用GPU ID列表
+
     bool Imgae_hasAlphaChannel(int rowNum);
 
     //兼容性检测
@@ -248,6 +261,8 @@ public:
     bool isCompatible_Waifu2x_Caffe_CPU=false;
     bool isCompatible_Waifu2x_Caffe_GPU=false;
     bool isCompatible_Waifu2x_Caffe_cuDNN=false;
+
+    bool isCompatible_Realsr_NCNN_Vulkan=false;
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -365,6 +380,8 @@ public slots:
     int Waifu2x_Compatibility_Test_finished();//兼容性检测结束后执行的槽函数
 
     int Waifu2x_DetectGPU_finished();//检测可用gpu结束后的执行的槽函数
+
+    int Realsr_ncnn_vulkan_DetectGPU_finished();//检测可用gpu结束后的执行的槽函数
 
     int CheckUpadte_NewUpdate(QString update_str,QString Change_log);//检测到更新的弹窗代码
 
@@ -573,8 +590,6 @@ private slots:
 
     void on_checkBox_ShowInterPro_stateChanged(int arg1);
 
-    void on_checkBox_AutoDetectAlphaChannel_stateChanged(int arg1);
-
     void on_checkBox_isCompatible_Waifu2x_Caffe_CPU_clicked();
 
     void on_checkBox_isCompatible_Waifu2x_Caffe_GPU_clicked();
@@ -584,6 +599,10 @@ private slots:
     void on_pushButton_SplitSize_Add_Waifu2xCaffe_clicked();
 
     void on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked();
+
+    void on_checkBox_isCompatible_Realsr_NCNN_Vulkan_clicked();
+
+    void on_pushButton_DetectGPU_RealsrNCNNVulkan_clicked();
 
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
@@ -601,6 +620,8 @@ signals:
     void Send_Waifu2x_Compatibility_Test_finished();
 
     void Send_Waifu2x_DetectGPU_finished();
+
+    void Send_Realsr_ncnn_vulkan_DetectGPU_finished();
 
     void Send_CheckUpadte_NewUpdate(QString, QString);
 

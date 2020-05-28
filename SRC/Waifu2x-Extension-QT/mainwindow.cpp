@@ -72,6 +72,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_TextBrowser_NewMessage(QString)), this, SLOT(TextBrowser_NewMessage(QString)));
     connect(this, SIGNAL(Send_Waifu2x_Compatibility_Test_finished()), this, SLOT(Waifu2x_Compatibility_Test_finished()));
     connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
+    connect(this, SIGNAL(Send_Realsr_ncnn_vulkan_DetectGPU_finished()), this, SLOT(Realsr_ncnn_vulkan_DetectGPU_finished()));
     connect(this, SIGNAL(Send_CheckUpadte_NewUpdate(QString,QString)), this, SLOT(CheckUpadte_NewUpdate(QString,QString)));
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
@@ -218,6 +219,10 @@ int MainWindow::Force_close()
     Close.waitForFinished(10000);
     //==============
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //==============
+    Close.start("taskkill /f /t /fi \"imagename eq realsr-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //==============
@@ -452,7 +457,6 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_Move2RecycleBin->setEnabled(0);
         ui->pushButton_ForceRetry->setVisible(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
-        ui->comboBox_EngineForAlphaChannel->setEnabled(0);
         ui->groupBox_AudioDenoise->setEnabled(0);
         ui->checkBox_ProcessVideoBySegment->setEnabled(0);
         ui->spinBox_SegmentDuration->setEnabled(0);
@@ -749,6 +753,15 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 break;
             }
+        case 5:
+            {
+                ui->spinBox_DenoiseLevel_image->setRange(0,1);
+                ui->spinBox_DenoiseLevel_image->setValue(1);
+                ui->spinBox_DenoiseLevel_image->setEnabled(0);
+                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Realsr-ncnn-vulkan engine will denoise automatically."));
+                ui->label_ImageDenoiseLevel->setToolTip(tr("Realsr-ncnn-vulkan engine will denoise automatically."));
+                break;
+            }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
     if(isWaifu2xCaffeEnabled())
@@ -810,6 +823,15 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 ui->label_GIFDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 break;
             }
+        case 5:
+            {
+                ui->spinBox_DenoiseLevel_gif->setRange(0,1);
+                ui->spinBox_DenoiseLevel_gif->setValue(1);
+                ui->spinBox_DenoiseLevel_gif->setEnabled(0);
+                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Realsr-ncnn-vulkan engine will denoise automatically."));
+                ui->label_GIFDenoiseLevel->setToolTip(tr("Realsr-ncnn-vulkan engine will denoise automatically."));
+                break;
+            }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
     if(isWaifu2xCaffeEnabled())
@@ -869,6 +891,15 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_video->setEnabled(1);
                 ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:-1(No noise reduction)~3"));
                 ui->label_VideoDenoiseLevel->setToolTip(tr("Range:-1(No noise reduction)~3"));
+                break;
+            }
+        case 5:
+            {
+                ui->spinBox_DenoiseLevel_video->setRange(0,1);
+                ui->spinBox_DenoiseLevel_video->setValue(1);
+                ui->spinBox_DenoiseLevel_video->setEnabled(0);
+                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Realsr-ncnn-vulkan engine will denoise automatically."));
+                ui->label_VideoDenoiseLevel->setToolTip(tr("Realsr-ncnn-vulkan engine will denoise automatically."));
                 break;
             }
     }
@@ -1561,10 +1592,6 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     }
 }
 
-
-
-
-
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
     ui->pushButton_ForceRetry->setEnabled(0);
@@ -1587,6 +1614,9 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    Close.start("taskkill /f /t /fi \"imagename eq realsr-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //========
@@ -1956,18 +1986,6 @@ void MainWindow::on_checkBox_ShowInterPro_stateChanged(int arg1)
     }
 }
 
-void MainWindow::on_checkBox_AutoDetectAlphaChannel_stateChanged(int arg1)
-{
-    if(ui->checkBox_AutoDetectAlphaChannel->checkState())
-    {
-        ui->comboBox_EngineForAlphaChannel->setEnabled(1);
-    }
-    else
-    {
-        ui->comboBox_EngineForAlphaChannel->setEnabled(0);
-    }
-}
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_CPU_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_Caffe_CPU->setChecked(isCompatible_Waifu2x_Caffe_CPU);
@@ -2000,3 +2018,9 @@ void MainWindow::on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked()
         ui->spinBox_SplitSize_Waifu2xCaffe->setValue(VAL);
     }
 }
+
+void MainWindow::on_checkBox_isCompatible_Realsr_NCNN_Vulkan_clicked()
+{
+    ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
+}
+

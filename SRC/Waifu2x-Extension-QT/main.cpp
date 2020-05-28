@@ -32,6 +32,17 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.41.01-beta:
+- 新特性:新增realsr-ncnn-vulkan引擎,大幅提升对3D写实风格图像的处理效果(感谢 @CAFUCSteven 协助测试软件).
+- 新特性:除Anime4k外的引擎均支持自动识别并处理Alpha通道图片.
+- 更新waifu2x-ncnn-vulkan引擎.
+- 更新srmd-ncnn-vulkan引擎.
+- 调整对带有Alpha通道的图片的处理流程.
+- 性能优化.
+- 添加一些提示,修改一些文本,修正错字.
+- 调整默认设置.
+- 修复若干bug.
+- 其他改进.
 v2.32.02-beta:
 - 调整界面.
 - 添加提示.

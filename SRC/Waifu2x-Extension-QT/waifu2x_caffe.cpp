@@ -26,46 +26,6 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
     bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    if(ui->comboBox_Engine_Image->currentIndex()==1)
-    {
-        if(DenoiseLevel==0)
-        {
-            DenoiseLevel=-1;
-        }
-        else
-        {
-            DenoiseLevel-=1;
-        }
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==2)
-    {
-        if(DenoiseLevel==-1)
-        {
-            DenoiseLevel=-1;
-        }
-        else
-        {
-            if(DenoiseLevel>=0&&DenoiseLevel<=2)
-            {
-                DenoiseLevel=1;
-            }
-            else
-            {
-                if(DenoiseLevel>=3&&DenoiseLevel<=6)
-                {
-                    DenoiseLevel=2;
-                }
-                else
-                {
-                    DenoiseLevel=3;
-                }
-            }
-        }
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==3)
-    {
-        DenoiseLevel=1;
-    }
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
     //======
     if(SaveAsJPG)

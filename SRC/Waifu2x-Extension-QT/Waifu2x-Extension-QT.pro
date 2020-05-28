@@ -44,6 +44,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     progressBar.cpp \
+    realsr_ncnn_vulkan.cpp \
     settings.cpp \
     srmd_ncnn_vulkan.cpp \
     table.cpp \
