@@ -24,11 +24,11 @@ Download Latest Build: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/rel
 Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
 # [Download Beta Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
-The beta version has a faster update cycle than the stable version, which allows you to experience the latest features of the software in advance.
+The beta build has a faster update cycle than the stable build, which allows you to experience the latest features of the software in advance.
 
-⚠Please note that the beta version is more unstable than the stable version because the beta version has not been fully tested before release.
+⚠Please note that the beta build is more unstable than the stable build because the beta build has not been fully tested before release.
 
-Download the beta version at releases page: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
+Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
 
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
