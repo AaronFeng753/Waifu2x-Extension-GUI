@@ -33,11 +33,11 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 # What is Waifu2x-Extension-GUI?
 `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe(beta)`,`RealSR-ncnn-vulkan(beta)` and `Anime4K`. 
+Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe`,`RealSR-ncnn-vulkan` and `Anime4K`. 
 
 Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan & RealSR-ncnn-vulkan, Waifu2x-Extension-GUI could use any kind of gpu that supports `Vulkan`, including `Intel/AMD/Nvidia` GPUs. 
 
-If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caffe(beta), which is also intergrated into Waifu2x-Extension-GUI.
+If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caffe, which is also intergrated into Waifu2x-Extension-GUI.
 
 #### Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
