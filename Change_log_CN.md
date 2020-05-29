@@ -6,6 +6,19 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.41.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.41.12)
+#### 更新日志:
+- #### 新特性:新增realsr-ncnn-vulkan引擎,大幅提升对3D写实风格图像的处理效果(感谢 @CAFUCSteven 协助测试软件).
+- 新特性:除Anime4k外的引擎均支持自动识别并处理Alpha通道图片.
+- 更新waifu2x-ncnn-vulkan引擎.
+- 更新srmd-ncnn-vulkan引擎.
+- 更新ImageMagick.
+- 优化启动器.
+- 优化检查更新的流程.
+- 调整对带有Alpha通道的图片的处理流程.
+- 修复若干bug.
+- 其他改进.
+---
 ## [v2.31.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.31.14)
 #### 更新日志:
 - 新特性:新增waifu2x-caffe引擎(实验性功能)(感谢 @CAFUCSteven 协助测试软件).
