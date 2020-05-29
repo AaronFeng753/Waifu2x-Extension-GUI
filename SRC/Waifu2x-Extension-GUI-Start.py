@@ -3,9 +3,8 @@
 
 import os
 import time
-import psutil
-import json
 import ctypes
+import traceback
 
 def remove_safe(path_):
 	if os.path.exists(path_):
@@ -30,26 +29,12 @@ def AdminTest():
 		return True
 
 def judgeprocess(processname):
-    pl = psutil.pids()
-    for pid in pl:
-        if psutil.Process(pid).name() == processname:
-            return False
-            break
-    else:
-        return True
-
-os.system('mode con cols=35 lines=15')
-os.system('color f0')
-os.system('title = Waifu2x-Extension-GUI')
-
-def Multi_open_detection():
-	if judgeprocess('Waifu2x-Extension-GUI.exe')==False:
-		print('It has been detected that the')
-		print('program is already running,do not')
-		print('start the program repeatedly.')
-		time.sleep(5)
+	pip = os.popen("tasklist")
+	text = pip.buffer.read().decode(encoding='ansi')
+	if processname in text:
+		return False
 	else:
-		Main()
+		return True
 
 def Main():
 	os.system('cls')
@@ -66,12 +51,28 @@ def Main():
 		time.sleep(0.5)
 	else:
 		ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+
+def Multi_open_detection():
+	if judgeprocess('Waifu2x-Extension-GUI.exe')==False:
+		print('It has been detected that the')
+		print('program is already running,do not')
+		print('start the program repeatedly.')
+		time.sleep(5)
+	else:
+		Main()
 	
 #======================== Start ========================
-        
+
+os.system('mode con cols=35 lines=15')
+os.system('color f0')
+os.system('title = Waifu2x-Extension-GUI')
+
 if __name__ == '__main__':
 	try:
 		Multi_open_detection()
 	except BaseException:
+		ErrorStr = traceback.format_exc()
+		print(ErrorStr)
+		time.sleep(3)
 		os.chdir('waifu2x-extension-gui\\')
 		os.system('start Waifu2x-Extension-GUI.exe')
