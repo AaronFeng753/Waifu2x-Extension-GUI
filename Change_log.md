@@ -2,6 +2,19 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.41.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.41.12)
+#### Change log:
+- #### New features: Add RealSR-ncnn-vulkan engine, greatly improving the ability to process 3D Real-life style images (thanks to @CAFUCSteven for assistance in testing software).
+- New feature: All engines (except Anime4k) now support automatic recognition and processing of Alpha channel pictures.
+- Update waifu2x-ncnn-vulkan engine.
+- Update srmd-ncnn-vulkan engine.
+- Update ImageMagick.
+- Optimize the launcher.
+- Optimize the process of checking for update.
+- Adjust the processing flow for pictures with Alpha channel.
+- Fixe several bugs.
+- Other improvements.
+---
 ## [v2.31.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.31.14)
 #### Change log:
 - New feature: Add waifu2x-caffe engine (experimental function) (thanks to @CAFUCSteven for assistance in testing the software).
