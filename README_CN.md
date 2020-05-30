@@ -101,27 +101,6 @@
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# Q&A
-```
-Q：在技术上和同样有gui的老牌软件waifu2x-caffe有什么区别？
-
-A：waifu2x-extension-GUI集成了腾讯的一位大佬制作的waifu2x-ncnn-vulkan（原程序并没有自带图形界面，只有命令行），
-vulkan是通用的全平台API，所以所有主流显卡（NVIDIA，Intel，AMD）均支持vulkan.
-而caffe仅支持NVIDIA的CUDA，在没有n卡的平台只能用CPU进行运算，速度很慢很慢。
-并且caffe不支持处理gif和视频，而extension通过集成外部开源组件实现了对gif和视频的自动拆分，放大，组装。
-这也是我开发extension的初衷，让所有人（包括我自己），无论用什么显卡，都能快速的借助waifu2x技术处理图像。
-```
-```
-Q：我的电脑连显卡都没有(或者显卡太老不支持vulkan)怎么办呢？
-
-A：waifu2x-extension-GUI还集成了waifu2x-converter引擎, 可以借助cpu和老旧显卡进行快速进行运算.
-速度参考:
-配置:Windows10专业版1909,i7-8550U,Intel UHD 620
-原图片:https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Samples/image/2_Original.jpg
-软件设置:v0.12-beta,使用waifu2x-converter引擎,图片两倍放大,二级降噪
-处理结果:耗时11秒,放大到1920x1080
-```
-
 # [许可协议](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
 Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)许可协议.
