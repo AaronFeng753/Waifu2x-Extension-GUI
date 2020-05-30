@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.42.01-beta";//软件版本号
+    QString VERSION = "v2.43.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.41.12";
     //=======================
@@ -242,6 +242,8 @@ public:
 
     bool Imgae_hasAlphaChannel(int rowNum);
 
+    QString Imgae_Convert2PNG(QString ImagePath);
+
     //兼容性检测
     bool isCompatible_Waifu2x_NCNN_Vulkan_OLD=false;
     bool isCompatible_Waifu2x_NCNN_Vulkan_NEW=false;
@@ -305,7 +307,6 @@ public:
     void video_AssembleVideoClips(QString VideoClipsFolderPath,QString VideoClipsFolderName,QString video_mp4_scaled_fullpath,QString AudioPath);
     //生成视频片段文件夹编号
     QString video_getClipsFolderNo();
-    QMutex getClipsFolderNo_mutex;
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]

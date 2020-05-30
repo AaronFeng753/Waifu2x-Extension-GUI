@@ -515,6 +515,7 @@ void MainWindow::Waifu2x_Finished_manual()
         ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
     }
     emit Send_CurrentFileProgress_Stop();
+    ui->checkBox_PreProcessImage->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;
@@ -1146,5 +1147,43 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     QImage img(SourceFile_fullPath);
     return img.hasAlphaChannel();
+}
+
+/*
+判断图片格式并转换
+*/
+QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
+{
+    QFileInfo fileinfo(ImagePath);
+    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_ext = fileinfo.suffix();
+    //判断是否已经是PNG
+    if((file_ext.trimmed().toLower()=="png")||(ui->checkBox_PreProcessImage->checkState()==false))
+    {
+        return ImagePath;
+    }
+    //不是PNG则开始转换
+    QString file_path = file_getFolderPath(fileinfo);
+    QString OutPut_Path = "";
+    do
+    {
+        QString DateStr = video_getClipsFolderNo();
+        OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//存储视频片段的文件夹(完整路径)
+    }
+    while(file_isFileExist(OutPut_Path));
+    //======
+    QString program = Current_Path+"/convert_waifu2xEX.exe";
+    QFile::remove(OutPut_Path);
+    QProcess Convert2PNG;
+    Convert2PNG.start("\""+program+"\" \""+ImagePath+"\" \""+OutPut_Path+"\"");
+    while(!Convert2PNG.waitForStarted(100)&&!QProcess_stop) {}
+    while(!Convert2PNG.waitForFinished(100)&&!QProcess_stop) {}
+    //======
+    if(file_isFileExist(OutPut_Path)==false)
+    {
+        return ImagePath;
+    }
+    //======
+    return OutPut_Path;
 }
 

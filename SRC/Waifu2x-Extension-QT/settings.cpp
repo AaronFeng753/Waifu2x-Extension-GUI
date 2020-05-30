@@ -116,6 +116,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/AudioDenoise", ui->checkBox_AudioDenoise->checkState());
     configIniWrite->setValue("/settings/AudioDenoiseLevel", ui->doubleSpinBox_AudioDenoiseLevel->value());
     //=====
+    configIniWrite->setValue("/settings/checkBox_PreProcessImage", ui->checkBox_PreProcessImage->checkState());
     //===================== 存储 textbrowser 设置 =====================
     configIniWrite->setValue("/settings/TextBrowserFontSize", ui->spinBox_textbrowser_fontsize->value());
     //===================== 存储语言设置 ================================
@@ -313,6 +314,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_AudioDenoise->setChecked(configIniRead->value("/settings/AudioDenoise").toBool());
     ui->doubleSpinBox_AudioDenoiseLevel->setValue(configIniRead->value("/settings/AudioDenoiseLevel").toDouble());
     //=========
+    ui->checkBox_PreProcessImage->setChecked(configIniRead->value("/settings/checkBox_PreProcessImage").toBool());
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
     //=================== 加载视频设置 ===========================

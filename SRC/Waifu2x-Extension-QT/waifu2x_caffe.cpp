@@ -50,6 +50,9 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
+    //========= 转换到 PNG =========
+    QString SourceFile_fullPath_Original = SourceFile_fullPath;
+    SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
     //=======================================================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
@@ -248,6 +251,11 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         }
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+    {
+        QFile::remove(SourceFile_fullPath);
+        SourceFile_fullPath = SourceFile_fullPath_Original;
+    }
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->checkState())

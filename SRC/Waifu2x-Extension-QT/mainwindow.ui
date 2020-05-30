@@ -4005,6 +4005,29 @@ likelihood of removing wanted components of the audio signal.</string>
               <string>Input file extensions</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_10">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="maximumSize">
+                 <size>
+                  <width>50</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                </property>
+                <property name="text">
+                 <string>Video:</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="0">
                <widget class="QLabel" name="label_4">
                 <property name="maximumSize">
@@ -4054,29 +4077,6 @@ be processed successfully)</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="label_5">
-                <property name="maximumSize">
-                 <size>
-                  <width>50</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                </property>
-                <property name="text">
-                 <string>Video:</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="Ext_video">
                 <property name="minimumSize">
@@ -4100,6 +4100,18 @@ be processed successfully)</string>
                 </property>
                 <property name="text">
                  <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_PreProcessImage">
+                <property name="toolTip">
+                 <string>Convert every image to PNG before processing it.
+Enabling this option will improve compatibility. However, it will
+increase the time and storage space required to process image.</string>
+                </property>
+                <property name="text">
+                 <string>Pre-process Image</string>
                 </property>
                </widget>
               </item>

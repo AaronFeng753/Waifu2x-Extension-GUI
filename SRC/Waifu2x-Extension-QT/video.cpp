@@ -24,10 +24,7 @@
 */
 QString MainWindow::video_getClipsFolderNo()
 {
-    getClipsFolderNo_mutex.lock();
-    Delay_msec_sleep(1500);
     QString current_date =QDateTime::currentDateTime().toString("yyMMddhhmmss");
-    getClipsFolderNo_mutex.unlock();
     return current_date;
 }
 /*

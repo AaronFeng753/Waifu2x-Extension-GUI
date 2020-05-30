@@ -32,7 +32,14 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.43.01-beta:
+- 新特性:支持预处理图片以兼容更多图片格式.(附加设置,可选,默认禁用)
+- 更新ImageMagick.
+- 更新srmd-ncnn-vulkan.
+- 更新realsr-ncnn-vulkan.
+- 性能优化.
 v2.42.01-beta:
+- 更新waifu2x-ncnn-vulkan.
 - 当启用视频自定义设置后,可以将单个设置项留空.
 - 当启用Anime4K引擎处理图片时,弹出警告.
 - 为每个引擎添加单独介绍.
@@ -42,6 +49,7 @@ v2.42.01-beta:
 - 修复bug.
 --------------------------------------------------------------------------
 To do:
+- 最小化到托盘
 - 多gpu支持
 - 升级更新时保存设置
 - pdf格式支持
@@ -52,10 +60,10 @@ Integrated component(In releases):
 - SoX 14.4.2-win32
 - waifu2x-caffe 1.2.0.2
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan version adb3d86
-- SRMD-ncnn-Vulkan version 67ed2a9
-- realsr-ncnn-vulkan e32679f
-- ImageMagick 7.0.10-14-Q16-x64
+- waifu2x-ncnn-vulkan 20200530(release)
+- SRMD-ncnn-Vulkan 20200530(release)
+- realsr-ncnn-vulkan 20200530(release)
+- ImageMagick 7.0.10-15-Q16-x64
 - Anime4KCPP v1.8.1
 - ffmpeg version 4.2.2
 ---

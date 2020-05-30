@@ -462,6 +462,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->spinBox_SegmentDuration->setEnabled(0);
         ui->comboBox_ImageStyle->setEnabled(0);
         ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
+        ui->checkBox_PreProcessImage->setEnabled(0);
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
@@ -1107,7 +1108,7 @@ int MainWindow::Donate_Count()
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Donate/VERSION", VERSION);
         configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 5);
+        configIniWrite->setValue("/Donate/OpenCount_Max", 3);
         return 0;
     }
     else
@@ -1121,7 +1122,7 @@ int MainWindow::Donate_Count()
             QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
             configIniWrite->setValue("/Donate/VERSION", VERSION);
             configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-            configIniWrite->setValue("/Donate/OpenCount_Max", 5);
+            configIniWrite->setValue("/Donate/OpenCount_Max", 3);
             return 0;
         }
     }
@@ -2031,4 +2032,3 @@ void MainWindow::on_checkBox_isCompatible_Realsr_NCNN_Vulkan_clicked()
 {
     ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
 }
-
