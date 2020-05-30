@@ -547,12 +547,12 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version): Yes"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(Latest Version): Yes"));
         isCompatible_Waifu2x_NCNN_Vulkan_NEW=true;
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version): No. [Advice: Re-install gpu driver or update it to the latest.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(Latest Version): No. [Advice: Re-install gpu driver or update it to the latest.]"));
         isCompatible_Waifu2x_NCNN_Vulkan_NEW=false;
     }
     QFile::remove(OutputPath);
@@ -591,12 +591,12 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     if(file_isFileExist(OutputPath))
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version(fp16p)): Yes"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): Yes"));
         isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P=true;
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(New Version(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]"));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]"));
         isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P=false;
     }
     QFile::remove(OutputPath);

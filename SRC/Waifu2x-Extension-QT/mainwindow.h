@@ -68,8 +68,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.41.12";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.42.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.41.12";
     //=======================
     QTranslator * translator;//界面翻译
@@ -285,6 +285,8 @@ public:
     void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);
     //组装视频
     int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
+    //读取输出视频的设定参数
+    QString video_ReadSettings_OutputVid(QString AudioPath);
     //获取视频比特率
     QString video_get_bitrate(QString videoPath);
     //获取视频比特率(根据分辨率计算)

@@ -1865,7 +1865,7 @@ srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
 Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
 
-Anime4K engine does NOT supports alpha channel.</string>
+★Anime4K engine does NOT supports alpha channel.★</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -1905,11 +1905,21 @@ Anime4K engine does NOT supports alpha channel.</string>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>4</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
                <string notr="true">Waifu2x-ncnn-vulkan</string>
+              </attribute>
+              <attribute name="toolTip">
+               <string>Waifu2x-NCNN-Vulkan:
+
+- Supports [2D Anime] and [3D Real-life] image style. But not at the
+same time, you need to change [Image style] settings at [Home] tab.
+
+- More suitable for processing [2D Anime] image.
+
+- [ Speed:★★  Image Quality:★★★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_31">
                <item row="0" column="0">
@@ -2096,6 +2106,13 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
               <attribute name="title">
                <string notr="true">Waifu2x-converter</string>
               </attribute>
+              <attribute name="toolTip">
+               <string>Waifu2x-Converter:
+
+- Only supports [2D Anime] image style.
+
+- [ Speed:★☆  Image Quality:★★☆ ]</string>
+              </attribute>
               <layout class="QGridLayout" name="gridLayout_35">
                <item row="0" column="0">
                 <widget class="QLabel" name="label_54">
@@ -2228,6 +2245,15 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
               <attribute name="title">
                <string notr="true">SRMD-ncnn-vulkan</string>
               </attribute>
+              <attribute name="toolTip">
+               <string>SRMD-NCNN-Vulkan:
+
+- Supports [2D Anime] and [3D Real-life] image style at the same time.
+
+- More suitable for processing [3D Real-life] images.
+
+- [ Speed:★☆  Image Quality:★★★ ]</string>
+              </attribute>
               <layout class="QGridLayout" name="gridLayout_36">
                <item row="0" column="0">
                 <widget class="QLabel" name="label_40">
@@ -2339,6 +2365,17 @@ padding:10px;
              <widget class="QWidget" name="tab_7">
               <attribute name="title">
                <string notr="true">Anime4K</string>
+              </attribute>
+              <attribute name="toolTip">
+               <string>Anime4K:
+
+- Only supports [2D Anime] image style.
+
+- More suitable for image with not too bad quality.
+
+- Does NOT supports alpha channel.
+
+- [ Speed:★★★  Image Quality:★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_5">
                <item row="1" column="5">
@@ -2736,6 +2773,20 @@ padding:10px;
               <attribute name="title">
                <string>Waifu2x-Caffe(beta)</string>
               </attribute>
+              <attribute name="toolTip">
+               <string>Waifu2x-Caffe:
+
+- Supports [2D Anime] and [3D Real-life] image style. But not at the
+same time, you need to change [Image style] settings at [Home] tab.
+
+- More suitable for processing [2D Anime] images.
+
+- When using [CPU Process mode], it's very slow, so we recommend you
+only using this engine when your PC is compatible with [GPU(or cuDNN) 
+Process mode]
+
+- [ Speed:★☆  Image Quality:★★★ ]</string>
+              </attribute>
               <layout class="QGridLayout" name="gridLayout_30">
                <item row="0" column="0">
                 <widget class="QLabel" name="label_14">
@@ -2982,6 +3033,17 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</strin
              <widget class="QWidget" name="tab_2">
               <attribute name="title">
                <string>Realsr-ncnn-vulkan(beta)</string>
+              </attribute>
+              <attribute name="toolTip">
+               <string>RealSR-NCNN-Vulkan:
+
+- Only support [3D Real-life] image style.
+
+- Best engine for processing [3D Real-life] images.
+
+- Much more slower then other engines.
+
+- [ Speed:☆  Image Quality:★★★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_34">
                <item row="2" column="0">
@@ -3508,6 +3570,295 @@ padding:10px;
              </property>
             </widget>
            </item>
+           <item row="0" column="0" colspan="4">
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
+               <property name="title">
+                <string>Output video</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_12">
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="spinBox_bitrate_vid">
+                  <property name="toolTip">
+                   <string>If you set it to 0, software will use auto settings.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>100</number>
+                  </property>
+                  <property name="value">
+                   <number>6000</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="1" colspan="2">
+                 <widget class="QLineEdit" name="lineEdit_ExCommand_output">
+                  <property name="toolTip">
+                   <string>You can enter ffmpeg instructions here.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true"/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1" colspan="2">
+                 <widget class="QLineEdit" name="lineEdit_encoder_audio">
+                  <property name="toolTip">
+                   <string>If you leave it empty, software will use auto settings.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">aac</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_32">
+                  <property name="text">
+                   <string>Encoder(audio):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_31">
+                  <property name="text">
+                   <string>Encoder(video):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_27">
+                  <property name="text">
+                   <string>Bitrate(video):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QLabel" name="label_30">
+                  <property name="text">
+                   <string>K</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="2">
+                 <widget class="QLabel" name="label_28">
+                  <property name="text">
+                   <string>K</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="2">
+                 <widget class="QLineEdit" name="lineEdit_encoder_vid">
+                  <property name="toolTip">
+                   <string>If you leave it empty, software will use auto settings.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">libx264</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="label_33">
+                  <property name="text">
+                   <string>Pixel format:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1" colspan="2">
+                 <widget class="QLineEdit" name="lineEdit_pixformat">
+                  <property name="toolTip">
+                   <string>If you leave it empty, software will use auto settings.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">yuv420p</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="label_42">
+                  <property name="text">
+                   <string>Extra command:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QSpinBox" name="spinBox_bitrate_audio">
+                  <property name="toolTip">
+                   <string>If you set it to 0, software will use auto settings.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>10</number>
+                  </property>
+                  <property name="value">
+                   <number>320</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_29">
+                  <property name="text">
+                   <string>Bitrate(audio):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0" colspan="3">
+                 <widget class="Line" name="line_17">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_ToMp4VideoSettings">
+               <property name="title">
+                <string>When convert video to mp4</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_33">
+                <item row="7" column="1" colspan="4">
+                 <widget class="QLineEdit" name="lineEdit_ExCommand_2mp4">
+                  <property name="toolTip">
+                   <string>You can enter ffmpeg instructions here.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true"/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="label_45">
+                  <property name="text">
+                   <string>Extra command:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="2">
+                 <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
+                  <property name="toolTip">
+                   <string>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">-acodec copy</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="2" colspan="3">
+                 <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
+                  <property name="toolTip">
+                   <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">-vcodec copy</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="3">
+                 <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
+                  <property name="toolTip">
+                   <string>If you set it to 0, software will use auto settings.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>100</number>
+                  </property>
+                  <property name="value">
+                   <number>2500</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="4">
+                 <widget class="QLabel" name="label_37">
+                  <property name="text">
+                   <string>K</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_34">
+                  <property name="text">
+                   <string>Bitrate(video):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_35">
+                  <property name="text">
+                   <string>Bitrate(audio):</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="4">
+                 <widget class="QLabel" name="label_36">
+                  <property name="text">
+                   <string>K</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1" colspan="3">
+                 <widget class="QSpinBox" name="spinBox_bitrate_audio_2mp4">
+                  <property name="toolTip">
+                   <string>If you set it to 0, software will use auto settings.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>10</number>
+                  </property>
+                  <property name="value">
+                   <number>320</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0" colspan="5">
+                 <widget class="Line" name="line_18">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="3">
+            <widget class="QCheckBox" name="checkBox_videoSettings_isEnabled">
+             <property name="toolTip">
+              <string>When this option is enabled, your customized parameters 
+will be used when processing the video. 
+Otherwise the parameters automatically configured 
+by the software will be used.</string>
+             </property>
+             <property name="text">
+              <string>Enabled</string>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
            <item row="1" column="1">
             <widget class="QPushButton" name="pushButton_encodersList">
              <property name="styleSheet">
@@ -3546,260 +3897,11 @@ padding:10px;
             </widget>
            </item>
            <item row="1" column="2">
-            <widget class="QCheckBox" name="checkBox_videoSettings_isEnabled">
-             <property name="toolTip">
-              <string>When this option is enabled, your customized parameters 
-will be used when processing the video. 
-Otherwise the parameters automatically configured 
-by the software will be used.</string>
-             </property>
-             <property name="text">
-              <string>Enabled</string>
-             </property>
-             <property name="checked">
-              <bool>false</bool>
+            <widget class="Line" name="line_19">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
             </widget>
-           </item>
-           <item row="0" column="0" colspan="3">
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <item>
-              <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
-               <property name="title">
-                <string>Output video</string>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_12">
-                <item row="3" column="1" colspan="2">
-                 <widget class="QLineEdit" name="lineEdit_encoder_audio">
-                  <property name="text">
-                   <string notr="true">aac</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_31">
-                  <property name="text">
-                   <string>Encoder(video):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1" colspan="2">
-                 <widget class="QLineEdit" name="lineEdit_encoder_vid">
-                  <property name="text">
-                   <string notr="true">libx264</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_32">
-                  <property name="text">
-                   <string>Encoder(audio):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_27">
-                  <property name="text">
-                   <string>Bitrate(video):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QSpinBox" name="spinBox_bitrate_audio">
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>10</number>
-                  </property>
-                  <property name="value">
-                   <number>320</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0">
-                 <widget class="QLabel" name="label_33">
-                  <property name="text">
-                   <string>Pixel format:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="label_29">
-                  <property name="text">
-                   <string>Bitrate(audio):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="2">
-                 <widget class="QLabel" name="label_28">
-                  <property name="text">
-                   <string>K</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="1" colspan="2">
-                 <widget class="QLineEdit" name="lineEdit_pixformat">
-                  <property name="text">
-                   <string notr="true">yuv420p</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QSpinBox" name="spinBox_bitrate_vid">
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>100</number>
-                  </property>
-                  <property name="value">
-                   <number>6000</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="QLabel" name="label_30">
-                  <property name="text">
-                   <string>K</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="label_42">
-                  <property name="text">
-                   <string>Extra command:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1" colspan="2">
-                 <widget class="QLineEdit" name="lineEdit_ExCommand_output">
-                  <property name="toolTip">
-                   <string>You can enter ffmpeg instructions here, for example:
--crf 18</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true"/>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QGroupBox" name="groupBox_ToMp4VideoSettings">
-               <property name="title">
-                <string>When convert video to mp4</string>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_33">
-                <item row="6" column="1" colspan="4">
-                 <widget class="QLineEdit" name="lineEdit_ExCommand_2mp4">
-                  <property name="toolTip">
-                   <string>You can enter ffmpeg instructions here, for example:
--crf 18</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true"/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="label_45">
-                  <property name="text">
-                   <string>Extra command:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_34">
-                  <property name="text">
-                   <string>Bitrate(video):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_35">
-                  <property name="text">
-                   <string>Bitrate(audio):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="2" colspan="3">
-                 <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
-                  <property name="toolTip">
-                   <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">-vcodec copy</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0" colspan="2">
-                 <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
-                  <property name="toolTip">
-                   <string>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">-acodec copy</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="4">
-                 <widget class="QLabel" name="label_36">
-                  <property name="text">
-                   <string>K</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1" colspan="3">
-                 <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>100</number>
-                  </property>
-                  <property name="value">
-                   <number>2500</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="4">
-                 <widget class="QLabel" name="label_37">
-                  <property name="text">
-                   <string>K</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1" colspan="3">
-                 <widget class="QSpinBox" name="spinBox_bitrate_audio_2mp4">
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>10</number>
-                  </property>
-                  <property name="value">
-                   <number>320</number>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-            </layout>
            </item>
           </layout>
          </widget>
@@ -4457,10 +4559,9 @@ padding:10px;
                <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
                 <property name="toolTip">
                  <string>When the alpha channel is detected in the picture, software will
-automatically use the waifu2x-converter engine to process the
-picture and force the picture to be saved as PNG.
-Please make sure the waifu2x-converter engine is compatible
-with your PC before enabling this option.</string>
+automatically force the picture to be saved as PNG.
+
+★Anime4K engine does NOT supports alpha channel.★</string>
                 </property>
                 <property name="text">
                  <string>Auto detect Alpha channel</string>
@@ -4476,7 +4577,7 @@ with your PC before enabling this option.</string>
                  <bool>false</bool>
                 </property>
                 <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Compress &lt;span style=&quot; font-weight:600;&quot;&gt;JPG&lt;/span&gt; files, almost lossless.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>Compress JPG files.</string>
                 </property>
                 <property name="text">
                  <string>Compress &quot;.jpg&quot;</string>

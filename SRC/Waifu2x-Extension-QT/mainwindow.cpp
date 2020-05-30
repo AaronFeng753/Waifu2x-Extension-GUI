@@ -742,6 +742,14 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setEnabled(0);
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                //=======
+                QMessageBox *MSG = new QMessageBox();
+                MSG->setWindowTitle(tr("Warning"));
+                MSG->setText(tr("Anime4K engine does NOT supports Alpha Channel."));
+                MSG->setIcon(QMessageBox::Warning);
+                MSG->setModal(false);
+                MSG->show();
+                //=======
                 break;
             }
         case 4:
