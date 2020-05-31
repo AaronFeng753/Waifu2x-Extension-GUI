@@ -187,87 +187,52 @@ int MainWindow::Waifu2xMainThread()
                 continue;
             }
             //=========
-            ThreadNumMax = 1;//获取gif线程数量最大值
             switch(GIFEngine)
             {
                 case 0:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_GIF, i);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=1;
+                        Waifu2x_NCNN_Vulkan_GIF(i);
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 1:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_GIF, i);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=1;
+                        Waifu2x_Converter_GIF(i);
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 2:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_GIF, i);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=1;
+                        SRMD_NCNN_Vulkan_GIF(i);
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 3:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Anime4k_GIF, i);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=1;
+                        Anime4k_GIF(i);
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 4:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_GIF, i);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=1;
+                        Waifu2x_Caffe_GIF(i);
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 5:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_GIF, i);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=1;
+                        Realsr_NCNN_Vulkan_GIF(i);
+                        ThreadNumRunning=0;
                         break;
                     }
             }
         }
-    }
-    while (ThreadNumRunning>0)
-    {
-        Delay_msec_sleep(500);
     }
     if(rowCount_video>0)
     {
@@ -304,129 +269,94 @@ int MainWindow::Waifu2xMainThread()
                 continue;
             }
             //=========
-            ThreadNumMax = 1;//获取video线程数量最大值
             switch(VideoEngine)
             {
                 case 0:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
+                        ThreadNumRunning=1;
                         if(ui->checkBox_ProcessVideoBySegment->checkState())
                         {
-                            QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment, i);
+                            Waifu2x_NCNN_Vulkan_Video_BySegment(i);
                         }
                         else
                         {
-                            QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Video, i);
+                            Waifu2x_NCNN_Vulkan_Video(i);
                         }
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 1:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
+                        ThreadNumRunning=1;
                         if(ui->checkBox_ProcessVideoBySegment->checkState())
                         {
-                            QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video_BySegment, i);
+                            Waifu2x_Converter_Video_BySegment(i);
                         }
                         else
                         {
-                            QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Video, i);
+                            Waifu2x_Converter_Video(i);
                         }
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 2:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
+                        ThreadNumRunning=1;
                         if(ui->checkBox_ProcessVideoBySegment->checkState())
                         {
-                            QtConcurrent::run(this, &MainWindow::Anime4k_Video_BySegment, i);
+                            Anime4k_Video_BySegment(i);
                         }
                         else
                         {
-                            QtConcurrent::run(this, &MainWindow::Anime4k_Video, i);
+                            Anime4k_Video(i);
                         }
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 3:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
+                        ThreadNumRunning=1;
                         if(ui->checkBox_ProcessVideoBySegment->checkState())
                         {
-                            QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video_BySegment, i);
+                            SRMD_NCNN_Vulkan_Video_BySegment(i);
                         }
                         else
                         {
-                            QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Video, i);
+                            SRMD_NCNN_Vulkan_Video(i);
                         }
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 4:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
+                        ThreadNumRunning=1;
                         if(ui->checkBox_ProcessVideoBySegment->checkState())
                         {
-                            QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Video_BySegment, i);
+                            Waifu2x_Caffe_Video_BySegment(i);
                         }
                         else
                         {
-                            QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Video, i);
+                            Waifu2x_Caffe_Video(i);
                         }
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=0;
                         break;
                     }
                 case 5:
                     {
-                        mutex_ThreadNumRunning.lock();
-                        ThreadNumRunning++;//线程数量统计+1
-                        mutex_ThreadNumRunning.unlock();
+                        ThreadNumRunning=1;
                         if(ui->checkBox_ProcessVideoBySegment->checkState())
                         {
-                            QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Video_BySegment, i);
+                            Realsr_NCNN_Vulkan_Video_BySegment(i);
                         }
                         else
                         {
-                            QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Video, i);
+                            Realsr_NCNN_Vulkan_Video(i);
                         }
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(500);
-                        }
+                        ThreadNumRunning=0;
                         break;
                     }
             }
         }
-    }
-    while (ThreadNumRunning>0)
-    {
-        Delay_msec_sleep(500);
     }
     if(waifu2x_STOP)
     {
@@ -1167,7 +1097,7 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     QString OutPut_Path = "";
     do
     {
-        QString DateStr = video_getClipsFolderNo();
+        QString DateStr = QDateTime::currentDateTime().toString("yyMMddhhmmss");
         OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//存储视频片段的文件夹(完整路径)
     }
     while(file_isFileExist(OutPut_Path));

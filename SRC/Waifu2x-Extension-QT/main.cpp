@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.43.02-beta:
+- 优化多线程调度机制.
 v2.43.01-beta:
 - 新特性:支持预处理图片以兼容更多图片格式.(附加设置,可选,默认禁用)
 - 更新ImageMagick.
