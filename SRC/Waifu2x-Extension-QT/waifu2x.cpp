@@ -48,13 +48,13 @@ int MainWindow::Waifu2xMainThread()
             //=============== 判断状态 ================
             if(!ui->checkBox_ReProcFinFiles->checkState())
             {
-                if(Table_model_image->item(i,1)->text().contains("Finished"))
+                if(Table_model_image->item(i,1)->text().toLower().contains("finished"))
                 {
                     emit Send_progressbar_Add();
                     continue;
                 }
             }
-            if(Table_model_image->item(i,1)->text().contains("deleted"))
+            if(Table_model_image->item(i,1)->text().toLower().contains("deleted"))
             {
                 emit Send_progressbar_Add();
                 continue;
@@ -169,13 +169,13 @@ int MainWindow::Waifu2xMainThread()
             //=============== 判断状态 ================
             if(!ui->checkBox_ReProcFinFiles->checkState())
             {
-                if(Table_model_gif->item(i,1)->text().contains("Finished"))
+                if(Table_model_gif->item(i,1)->text().toLower().contains("finished"))
                 {
                     emit Send_progressbar_Add();
                     continue;
                 }
             }
-            if(Table_model_gif->item(i,1)->text().contains("deleted"))
+            if(Table_model_gif->item(i,1)->text().toLower().contains("deleted"))
             {
                 emit Send_progressbar_Add();
                 continue;
@@ -251,13 +251,13 @@ int MainWindow::Waifu2xMainThread()
             //=============== 判断状态 ================
             if(!ui->checkBox_ReProcFinFiles->checkState())
             {
-                if(Table_model_video->item(i,1)->text().contains("Finished"))
+                if(Table_model_video->item(i,1)->text().toLower().contains("finished"))
                 {
                     emit Send_progressbar_Add();
                     continue;
                 }
             }
-            if(Table_model_video->item(i,1)->text().contains("deleted"))
+            if(Table_model_video->item(i,1)->text().toLower().contains("deleted"))
             {
                 emit Send_progressbar_Add();
                 continue;
@@ -1095,12 +1095,14 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     //不是PNG则开始转换
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = "";
+    QMutex_Imgae_Convert2PNG.lock();
     do
     {
         QString DateStr = QDateTime::currentDateTime().toString("yyMMddhhmmss");
         OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//存储视频片段的文件夹(完整路径)
     }
     while(file_isFileExist(OutPut_Path));
+    QMutex_Imgae_Convert2PNG.unlock();
     //======
     QString program = Current_Path+"/convert_waifu2xEX.exe";
     QFile::remove(OutPut_Path);

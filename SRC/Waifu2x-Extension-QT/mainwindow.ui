@@ -1580,6 +1580,9 @@ padding:10px;
              <layout class="QGridLayout" name="gridLayout_23">
               <item row="0" column="0" colspan="4">
                <widget class="QLineEdit" name="lineEdit_outputPath">
+                <property name="toolTip">
+                 <string>Output path must be a Folder.</string>
+                </property>
                 <property name="text">
                  <string notr="true"/>
                 </property>

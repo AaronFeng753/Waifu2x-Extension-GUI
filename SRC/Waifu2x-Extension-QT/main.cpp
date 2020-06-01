@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.43.03-beta:
+- 优化多线程.
+- 更新FFmpeg.
+- 添加tooltip.
 v2.43.02-beta:
 - 优化多线程调度机制.
 v2.43.01-beta:
@@ -67,7 +71,7 @@ Integrated component(In releases):
 - realsr-ncnn-vulkan 20200530(release)
 - ImageMagick 7.0.10-15-Q16-x64
 - Anime4KCPP v1.8.1
-- ffmpeg version 4.2.2
+- ffmpeg version 4.2.3
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

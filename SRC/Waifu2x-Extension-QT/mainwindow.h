@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.43.02-beta";//软件版本号
+    QString VERSION = "v2.43.03-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.41.12";
     //=======================
@@ -243,6 +243,7 @@ public:
     bool Imgae_hasAlphaChannel(int rowNum);
 
     QString Imgae_Convert2PNG(QString ImagePath);
+    QMutex QMutex_Imgae_Convert2PNG;
 
     //兼容性检测
     bool isCompatible_Waifu2x_NCNN_Vulkan_OLD=false;

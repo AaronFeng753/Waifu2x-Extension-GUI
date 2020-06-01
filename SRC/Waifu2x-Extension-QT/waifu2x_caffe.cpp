@@ -1694,7 +1694,10 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
         Waifu2x_Caffe_Settings_str.append("-t 0 ");
     }
     //GPU ID
-    Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+    if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
+    {
+        Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+    }
     //Batch size
     Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
     //Split size
