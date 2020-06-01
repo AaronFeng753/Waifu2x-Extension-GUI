@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.43.04-beta:
+- 改进自动检查更新流程.
+- 更新ImageMagick.
 v2.43.03-beta:
 - 优化多线程.
 - 更新FFmpeg.
