@@ -114,7 +114,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
         }
     }
     QString program = Current_Path+"/convert_waifu2xEX.exe";
-    QString cmd = "\"" + program + "\"" + " "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
+    QString cmd = "\"" + program + "\" "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
     QProcess *AssembleGIF=new QProcess();
     AssembleGIF->start(cmd);
     while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}

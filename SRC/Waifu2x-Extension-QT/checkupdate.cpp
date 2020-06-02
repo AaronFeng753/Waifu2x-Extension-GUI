@@ -64,7 +64,7 @@ int MainWindow::CheckUpadte_Auto()
     //===========================
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess checkupdate;
-    checkupdate.start("\""+program+"\" "+Current_Path+" checkupdate");
+    checkupdate.start("\""+program+"\" \""+Current_Path+"\" checkupdate");
     while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
     while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
     //========= 先检查github的文件是否下载成功 =================

@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.43.05-beta:
+- 修复bug:某些情况下无法正常检查更新.
 v2.43.04-beta:
 - 改进自动检查更新流程.
 - 更新ImageMagick.

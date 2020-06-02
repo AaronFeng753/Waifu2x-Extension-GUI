@@ -122,6 +122,19 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     AssembleVideo.start(CMD);
     while(!AssembleVideo.waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop) {}
+    //检查是否发生错误
+    if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    {
+        MultiLine_ErrorOutput_QMutex.lock();
+        emit Send_TextBrowser_NewMessage(tr("Error output for FFmpeg when processing:[")+video_mp4_scaled_fullpath+"]");
+        emit Send_TextBrowser_NewMessage("\n--------------------------------------");
+        //标准输出
+        emit Send_TextBrowser_NewMessage(AssembleVideo.readAllStandardOutput());
+        //错误输出
+        emit Send_TextBrowser_NewMessage(AssembleVideo.readAllStandardError());
+        emit Send_TextBrowser_NewMessage("\n--------------------------------------");
+        MultiLine_ErrorOutput_QMutex.unlock();
+    }
     QFile::remove(Path_FFMpegFileList);//删除文件列表
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);
