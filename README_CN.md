@@ -128,6 +128,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 - FFmpeg: https://ffmpeg.org/
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - ImageMagick: http://www.imagemagick.org/
+- NCNN: https://github.com/Tencent/ncnn
 - NSIS: https://nsis.sourceforge.io/
 - OpenCV: https://opencv.org/
 - Pillow: https://python-pillow.org/
