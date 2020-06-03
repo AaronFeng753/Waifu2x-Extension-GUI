@@ -122,47 +122,31 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 
 # 鸣谢:
 - ❤捐赠者们❤
-
-- QT: https://www.qt.io/
-
-- waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
-
-- SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
-
-- FFmpeg: https://ffmpeg.org/
-
-- Gifsicle: https://www.lcdf.org/gifsicle/
-
 - Anime4K: https://github.com/bloc97/Anime4K
-
-- Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
-
-- waifu2x-caffe: https://github.com/lltcggie/waifu2x-caffe
-
-- ImageMagick: http://www.imagemagick.org/
-
-- NSIS: https://nsis.sourceforge.io/
-
-- Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
-
-- waifu2x: https://github.com/nagadomi/waifu2x
-
-- SRMD: https://github.com/cszn/SRMD
-
-- SoX: http://sox.sourceforge.net/
-
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
-
-- realsr-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
-
+- Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
+- FFmpeg: https://ffmpeg.org/
+- Gifsicle: https://www.lcdf.org/gifsicle/
+- ImageMagick: http://www.imagemagick.org/
+- NSIS: https://nsis.sourceforge.io/
+- OpenCV: https://opencv.org/
+- Pillow: https://python-pillow.org/
+- PyInstaller: https://github.com/pyinstaller/pyinstaller
+- Python: https://www.python.org/
+- QT: https://www.qt.io/
+- RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
-
+- SoX: http://sox.sourceforge.net/
+- SRMD: https://github.com/cszn/SRMD
+- SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
+- Waifu2x: https://github.com/nagadomi/waifu2x
+- Waifu2x-caffe: https://github.com/lltcggie/waifu2x-caffe
+- Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
+- Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
+- Waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 - 图标作者: Freepik (https://www.flaticon.com/authors/freepik) 来自 Flaticon : https://www.flaticon.com/
-
 - 感謝 @uimee 協助進行繁體中文翻譯.
-
 - 感谢 @Nova-Aurora 协助修复英文版README中的语法和拼写错误.
-
 - 感谢 @CAFUCSteven 协助测试软件.
 
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
