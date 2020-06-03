@@ -118,47 +118,31 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 
 # Credits:
 - ❤All donors❤
-
-- QT: https://www.qt.io/
-
-- waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
-
-- SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
-
-- FFmpeg: https://ffmpeg.org/
-
-- Gifsicle: https://www.lcdf.org/gifsicle/
-
 - Anime4K: https://github.com/bloc97/Anime4K
-
-- Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
-
-- waifu2x-caffe: https://github.com/lltcggie/waifu2x-caffe
-
-- ImageMagick: http://www.imagemagick.org/
-
-- NSIS: https://nsis.sourceforge.io/
-
-- Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
-
-- waifu2x: https://github.com/nagadomi/waifu2x
-
-- SRMD: https://github.com/cszn/SRMD
-
-- SoX: http://sox.sourceforge.net/
-
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
-
-- realsr-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
-
+- Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
+- FFmpeg: https://ffmpeg.org/
+- Gifsicle: https://www.lcdf.org/gifsicle/
+- ImageMagick: http://www.imagemagick.org/
+- NSIS: https://nsis.sourceforge.io/
+- OpenCV: https://opencv.org/
+- Pillow: https://python-pillow.org/
+- PyInstaller: https://github.com/pyinstaller/pyinstaller
+- Python: https://www.python.org/
+- QT: https://www.qt.io/
+- RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
-
+- SoX: http://sox.sourceforge.net/
+- SRMD: https://github.com/cszn/SRMD
+- SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
+- Waifu2x: https://github.com/nagadomi/waifu2x
+- Waifu2x-caffe: https://github.com/lltcggie/waifu2x-caffe
+- Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
+- Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
+- Waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
-
 - Thanks to @uimee for 繁體中文 translation.
-
 - Thanks to @Nova-Aurora for fix several errors in the English README.
-
 - Thanks to @CAFUCSteven for assistance in testing the software.
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
