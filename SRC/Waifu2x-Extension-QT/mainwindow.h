@@ -68,9 +68,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.43.07-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.41.12";
+    QString VERSION = "v2.43.17";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.43.17";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -346,6 +346,10 @@ public:
 
     int Donate_Count();//计算启动次数判断是否弹窗
     int Donate_DownloadOnlineQRCode();
+
+    bool isSettingsHide=false;//是否隐藏主页的设置groupbox
+
+    bool isShowAnime4kWarning=true;
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件,包含所有关闭时执行的代码
     bool QProcess_stop=false;//所有QProcess停止标记

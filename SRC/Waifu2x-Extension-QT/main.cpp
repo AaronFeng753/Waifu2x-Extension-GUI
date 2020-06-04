@@ -32,38 +32,16 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.43.07-beta:
-- 调整UI.
-- 补全翻译.
-v2.43.06-beta:
-- 在线更新捐赠二维码
-- 更新python扩展,精简体积,提高稳定性.
-v2.43.05-beta:
-- 修复bug:某些情况下无法正常检查更新.
-v2.43.04-beta:
-- 改进自动检查更新流程.
-- 更新ImageMagick.
-v2.43.03-beta:
-- 优化多线程.
-- 更新FFmpeg.
-- 添加tooltip.
-v2.43.02-beta:
-- 优化多线程调度机制.
-v2.43.01-beta:
+v2.43.17:
 - 新特性:支持预处理图片以兼容更多图片格式.(附加设置,可选,默认禁用)
-- 更新ImageMagick.
-- 更新srmd-ncnn-vulkan.
-- 更新realsr-ncnn-vulkan.
+- 更新Python extension,waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg,ImageMagick.
+- 改进自动检查更新流程.
+- 改进多线程调度机制.
+- 添加与修改tooltip.
+- 支持在线更新捐赠二维码.
+- 添加一些提示,修改一些文本,修正错字.
 - 性能优化.
-v2.42.01-beta:
-- 更新waifu2x-ncnn-vulkan.
-- 当启用视频自定义设置后,可以将单个设置项留空.
-- 当启用Anime4K引擎处理图片时,弹出警告.
-- 为每个引擎添加单独介绍.
-- 修改Tooltip.
-- 修正兼容测试结果输出时的文字错误.
-- 性能优化.
-- 修复bug.
+- 修复若干bug.
 --------------------------------------------------------------------------
 To do:
 - 最小化到托盘

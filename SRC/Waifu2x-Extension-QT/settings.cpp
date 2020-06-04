@@ -237,6 +237,7 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_ThreadNum_gif_internal->setValue(configIniRead->value("/settings/GIFThreadNumInternal").toInt());
     ui->spinBox_ThreadNum_video_internal->setValue(configIniRead->value("/settings/VideoThreadNumInternal").toInt());
     //================ 加载 引擎设置 ================================
+    isShowAnime4kWarning=false;
     ui->comboBox_Engine_Image->setCurrentIndex(configIniRead->value("/settings/ImageEngine").toInt());
     ui->comboBox_Engine_GIF->setCurrentIndex(configIniRead->value("/settings/GIFEngine").toInt());
     ui->comboBox_Engine_Video->setCurrentIndex(configIniRead->value("/settings/VideoEngine").toInt());
@@ -419,6 +420,7 @@ int MainWindow::Settings_Read_Apply()
     //====
     on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
+    isShowAnime4kWarning=false;
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_comboBox_ImageStyle_currentIndexChanged(0);
@@ -464,6 +466,7 @@ void MainWindow::Settings_Apply()
     on_checkBox_ShowInterPro_stateChanged(0);
     //====
     on_comboBox_Engine_GIF_currentIndexChanged(0);
+    isShowAnime4kWarning=false;
     on_comboBox_Engine_Image_currentIndexChanged(0);
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_comboBox_ImageStyle_currentIndexChanged(0);

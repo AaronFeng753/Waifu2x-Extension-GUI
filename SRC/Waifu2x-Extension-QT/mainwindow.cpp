@@ -747,12 +747,15 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 ui->spinBox_DenoiseLevel_image->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 ui->label_ImageDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
                 //=======
-                QMessageBox *MSG = new QMessageBox();
-                MSG->setWindowTitle(tr("Warning"));
-                MSG->setText(tr("Anime4K engine does NOT supports Alpha Channel."));
-                MSG->setIcon(QMessageBox::Warning);
-                MSG->setModal(false);
-                MSG->show();
+                if(isShowAnime4kWarning)
+                {
+                    QMessageBox *MSG = new QMessageBox();
+                    MSG->setWindowTitle(tr("Warning"));
+                    MSG->setText(tr("Anime4K engine does NOT supports Alpha Channel."));
+                    MSG->setIcon(QMessageBox::Warning);
+                    MSG->setModal(false);
+                    MSG->show();
+                }
                 //=======
                 break;
             }
@@ -775,6 +778,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 break;
             }
     }
+    isShowAnime4kWarning=true;
     on_comboBox_model_vulkan_currentIndexChanged(0);
     if(isWaifu2xCaffeEnabled())
     {
@@ -970,11 +974,13 @@ void MainWindow::on_pushButton_HideSettings_clicked()
     if(ui->groupBox_Setting->isVisible())
     {
         ui->groupBox_Setting->setVisible(0);
+        isSettingsHide=true;
         ui->pushButton_HideSettings->setText(tr("Show settings"));
     }
     else
     {
         ui->groupBox_Setting->setVisible(1);
+        isSettingsHide=false;
         ui->pushButton_HideSettings->setText(tr("Hide settings"));
     }
 }
@@ -1016,8 +1022,14 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         Table_FileCount_reload();
         Init_Table();
         Set_Font_fixed();
+        //=========
         ui->groupBox_Setting->setVisible(1);
+        isSettingsHide=false;
+        ui->pushButton_HideSettings->setText(tr("Hide settings"));
+        //=========
         ui->textBrowser->setVisible(1);
+        ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
+        //=========
         if(this->windowState()!=Qt::WindowMaximized)
         {
             this->adjustSize();
@@ -1163,6 +1175,7 @@ void MainWindow::on_checkBox_AlwaysHideSettings_stateChanged(int arg1)
     {
         ui->groupBox_Setting->setVisible(0);
         ui->pushButton_HideSettings->setText(tr("Show settings"));
+        isSettingsHide=true;
     }
 }
 
@@ -1644,7 +1657,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 1
                 ui->groupBox_FileList->setVisible(1);
                 ui->groupBox_Progress->setVisible(1);
-                ui->groupBox_Setting->setVisible(1);
+                if(isSettingsHide==false)
+                {
+                    ui->groupBox_Setting->setVisible(1);
+                }
                 //tab 2
                 ui->groupBox_Engine->setVisible(0);
                 ui->groupBox_NumOfThreads->setVisible(0);

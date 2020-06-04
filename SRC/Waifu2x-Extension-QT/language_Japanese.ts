@@ -93,7 +93,8 @@ folder as the source file.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="779"/>
-        <location filename="mainwindow.cpp" line="978"/>
+        <location filename="mainwindow.cpp" line="984"/>
+        <location filename="mainwindow.cpp" line="1028"/>
         <source>Hide settings</source>
         <translation>設定を非表示にする</translation>
     </message>
@@ -116,7 +117,8 @@ folder as the source file.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="859"/>
-        <location filename="mainwindow.cpp" line="1318"/>
+        <location filename="mainwindow.cpp" line="1031"/>
+        <location filename="mainwindow.cpp" line="1331"/>
         <source>Hide Text Browser</source>
         <translation>テキスト ブラウザを非表示にする</translation>
     </message>
@@ -1167,7 +1169,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4935"/>
-        <location filename="mainwindow.cpp" line="1119"/>
+        <location filename="mainwindow.cpp" line="1131"/>
         <source>About</source>
         <translation>について</translation>
     </message>
@@ -2759,8 +2761,8 @@ by the software will be used.</source>
         <location filename="mainwindow.cpp" line="111"/>
         <location filename="mainwindow.cpp" line="369"/>
         <location filename="mainwindow.cpp" line="394"/>
-        <location filename="mainwindow.cpp" line="1036"/>
-        <location filename="mainwindow.cpp" line="1247"/>
+        <location filename="mainwindow.cpp" line="1048"/>
+        <location filename="mainwindow.cpp" line="1260"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
@@ -2775,8 +2777,8 @@ by the software will be used.</source>
         <location filename="CustomResolution.cpp" line="135"/>
         <location filename="files.cpp" line="99"/>
         <location filename="mainwindow.cpp" line="521"/>
-        <location filename="mainwindow.cpp" line="751"/>
-        <location filename="mainwindow.cpp" line="1258"/>
+        <location filename="mainwindow.cpp" line="753"/>
+        <location filename="mainwindow.cpp" line="1271"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -2862,7 +2864,7 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="files.cpp" line="100"/>
-        <location filename="mainwindow.cpp" line="1259"/>
+        <location filename="mainwindow.cpp" line="1272"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation>ファイル形式はサポートされていません。サポートされているファイル形式を入力するか、自分でファイル拡張子を追加してください。</translation>
     </message>
@@ -2900,13 +2902,13 @@ Do you wanna update now???</source>
     <message>
         <location filename="mainwindow.cpp" line="130"/>
         <location filename="mainwindow.cpp" line="644"/>
-        <location filename="mainwindow.cpp" line="1485"/>
-        <location filename="settings.cpp" line="492"/>
-        <location filename="settings.cpp" line="508"/>
+        <location filename="mainwindow.cpp" line="1498"/>
+        <location filename="settings.cpp" line="495"/>
+        <location filename="settings.cpp" line="511"/>
         <location filename="waifu2x.cpp" line="886"/>
         <location filename="waifu2x.cpp" line="893"/>
-        <location filename="waifu2x.cpp" line="1045"/>
-        <location filename="waifu2x.cpp" line="1056"/>
+        <location filename="waifu2x.cpp" line="1046"/>
+        <location filename="waifu2x.cpp" line="1057"/>
         <source>Notification</source>
         <translation>お知らせ</translation>
     </message>
@@ -2977,23 +2979,23 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="vanished">ありがとうございました！ :)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1248"/>
+        <location filename="mainwindow.cpp" line="1261"/>
         <source>Input path does not exist.</source>
         <translation>入力パスが存在しません。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="720"/>
         <location filename="mainwindow.cpp" line="721"/>
-        <location filename="mainwindow.cpp" line="764"/>
-        <location filename="mainwindow.cpp" line="765"/>
-        <location filename="mainwindow.cpp" line="798"/>
-        <location filename="mainwindow.cpp" line="799"/>
-        <location filename="mainwindow.cpp" line="834"/>
-        <location filename="mainwindow.cpp" line="835"/>
-        <location filename="mainwindow.cpp" line="868"/>
-        <location filename="mainwindow.cpp" line="869"/>
-        <location filename="mainwindow.cpp" line="904"/>
-        <location filename="mainwindow.cpp" line="905"/>
+        <location filename="mainwindow.cpp" line="767"/>
+        <location filename="mainwindow.cpp" line="768"/>
+        <location filename="mainwindow.cpp" line="802"/>
+        <location filename="mainwindow.cpp" line="803"/>
+        <location filename="mainwindow.cpp" line="838"/>
+        <location filename="mainwindow.cpp" line="839"/>
+        <location filename="mainwindow.cpp" line="872"/>
+        <location filename="mainwindow.cpp" line="873"/>
+        <location filename="mainwindow.cpp" line="908"/>
+        <location filename="mainwindow.cpp" line="909"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation>範囲：-1（ノイズリダクションなし）〜3</translation>
     </message>
@@ -3013,56 +3015,56 @@ Otherwise, this software may not work properly.</source>
     <message>
         <location filename="mainwindow.cpp" line="729"/>
         <location filename="mainwindow.cpp" line="730"/>
-        <location filename="mainwindow.cpp" line="807"/>
-        <location filename="mainwindow.cpp" line="808"/>
-        <location filename="mainwindow.cpp" line="877"/>
-        <location filename="mainwindow.cpp" line="878"/>
+        <location filename="mainwindow.cpp" line="811"/>
+        <location filename="mainwindow.cpp" line="812"/>
+        <location filename="mainwindow.cpp" line="881"/>
+        <location filename="mainwindow.cpp" line="882"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation>範囲：0（ノイズリダクションなし）〜3</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="738"/>
         <location filename="mainwindow.cpp" line="739"/>
-        <location filename="mainwindow.cpp" line="816"/>
-        <location filename="mainwindow.cpp" line="817"/>
-        <location filename="mainwindow.cpp" line="895"/>
-        <location filename="mainwindow.cpp" line="896"/>
+        <location filename="mainwindow.cpp" line="820"/>
+        <location filename="mainwindow.cpp" line="821"/>
+        <location filename="mainwindow.cpp" line="899"/>
+        <location filename="mainwindow.cpp" line="900"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation>範囲：-1（ノイズリダクションなし）~10</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="747"/>
         <location filename="mainwindow.cpp" line="748"/>
-        <location filename="mainwindow.cpp" line="825"/>
-        <location filename="mainwindow.cpp" line="826"/>
-        <location filename="mainwindow.cpp" line="886"/>
-        <location filename="mainwindow.cpp" line="887"/>
+        <location filename="mainwindow.cpp" line="829"/>
+        <location filename="mainwindow.cpp" line="830"/>
+        <location filename="mainwindow.cpp" line="890"/>
+        <location filename="mainwindow.cpp" line="891"/>
         <source>Anime4K engine does not support noise reduction.</source>
         <translation>Anime4Kエンジンはノイズリダクションをサポートしていません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="752"/>
+        <location filename="mainwindow.cpp" line="754"/>
         <source>Anime4K engine does NOT supports Alpha Channel.</source>
         <translation>Anime4Kエンジンはアルファチャネルをサポートしていません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="773"/>
-        <location filename="mainwindow.cpp" line="774"/>
-        <location filename="mainwindow.cpp" line="843"/>
-        <location filename="mainwindow.cpp" line="844"/>
-        <location filename="mainwindow.cpp" line="913"/>
-        <location filename="mainwindow.cpp" line="914"/>
+        <location filename="mainwindow.cpp" line="776"/>
+        <location filename="mainwindow.cpp" line="777"/>
+        <location filename="mainwindow.cpp" line="847"/>
+        <location filename="mainwindow.cpp" line="848"/>
+        <location filename="mainwindow.cpp" line="917"/>
+        <location filename="mainwindow.cpp" line="918"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <translation>Realsr-ncnn-vulkanエンジンは自動的にノイズを除去します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="950"/>
+        <location filename="mainwindow.cpp" line="954"/>
         <source>Testing, please wait...</source>
         <translation>テストしています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="973"/>
-        <location filename="mainwindow.cpp" line="1165"/>
+        <location filename="mainwindow.cpp" line="978"/>
+        <location filename="mainwindow.cpp" line="1177"/>
         <source>Show settings</source>
         <translation>設定を表示</translation>
     </message>
@@ -3071,27 +3073,27 @@ Otherwise, this software may not work properly.</source>
         <translation type="vanished">パス設定を表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1028"/>
+        <location filename="mainwindow.cpp" line="1040"/>
         <source>Error: Language files cannot be loaded properly.</source>
         <translation>エラー：言語ファイルを正しくロードできません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1037"/>
+        <location filename="mainwindow.cpp" line="1049"/>
         <source>File list is empty!</source>
         <translation>ファイルリストが空です！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1052"/>
+        <location filename="mainwindow.cpp" line="1064"/>
         <source>Write to the file, please wait.</source>
         <translation>ファイルに書き込みます。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1083"/>
+        <location filename="mainwindow.cpp" line="1095"/>
         <source>Please wait while reading the file.</source>
         <translation>ファイルの読み取り中にお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1088"/>
+        <location filename="mainwindow.cpp" line="1100"/>
         <location filename="table.cpp" line="516"/>
         <source>Cannot find the saved Files List!</source>
         <translation>保存されたファイルリストが見つかりません！</translation>
@@ -3129,63 +3131,63 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">合計：%1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1216"/>
+        <location filename="mainwindow.cpp" line="1229"/>
         <source>Select file</source>
         <translation>ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1216"/>
+        <location filename="mainwindow.cpp" line="1229"/>
         <source>All file(</source>
         <translation>すべてのファイル（</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1313"/>
-        <location filename="mainwindow.cpp" line="1327"/>
+        <location filename="mainwindow.cpp" line="1326"/>
+        <location filename="mainwindow.cpp" line="1340"/>
         <source>Show Text Browser</source>
         <translation>テキストブラウザを表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1471"/>
+        <location filename="mainwindow.cpp" line="1484"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- ソフトウェアを使用する前にWikiをお読みください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1472"/>
+        <location filename="mainwindow.cpp" line="1485"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- ソフトウェアのフォント表示に問題がある場合は、追加設定でフォントを変更できます。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1473"/>
+        <location filename="mainwindow.cpp" line="1486"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- このソフトウェアはフリーソフトウェアです。このソフトウェアを販売している人を見つけた場合は、販売者に報告してください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1474"/>
+        <location filename="mainwindow.cpp" line="1487"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- このソフトウェアは無料でオープンソースであり、GNU Affero General Public License v3.0の下でライセンスされています。 このソフトウェアを使用した結果はすべてユーザーが負担し、開発者は一切の責任を負いません。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1475"/>
+        <location filename="mainwindow.cpp" line="1488"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- このソフトウェアが気に入ったら、開発者に寄付してください、ありがとう。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1478"/>
+        <location filename="mainwindow.cpp" line="1491"/>
         <source>!!! Tips !!!</source>
         <translation>!!! プロンプト !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1486"/>
+        <location filename="mainwindow.cpp" line="1499"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>ソフトウェアを初めて起動したことが検出されたため、互換性テストが自動的に実行されます。 しばらく待ってから、テスト結果を確認してください。</translation>
     </message>
@@ -3224,17 +3226,17 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">利用可能なプロセッサが検出されません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1588"/>
+        <location filename="mainwindow.cpp" line="1601"/>
         <source>Force retry.</source>
         <translation>強制的に再試行します。</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="493"/>
+        <location filename="settings.cpp" line="496"/>
         <source>Settings saved successfully!</source>
         <translation>設定が正常に保存されました！</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="509"/>
+        <location filename="settings.cpp" line="512"/>
         <source>The settings file has been reset, please restart the software manually for the default settings to take effect.</source>
         <translation>設定ファイルがリセットされました。デフォルト設定を有効にするには、ソフトウェアを手動で再起動してください。</translation>
     </message>
@@ -3655,7 +3657,7 @@ You can try to re-install this software, this might solve the problem.</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1046"/>
+        <location filename="waifu2x.cpp" line="1047"/>
         <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
 
 First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
@@ -3676,7 +3678,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">ヒント：これらのエンジンのいずれか：[waifu2x-ncnn-vulkan、waifu2x-converter、srmd-ncnn-vulkan]がコンピューターと互換性がある場合、このソフトウェアのすべての機能を使用できます。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1057"/>
+        <location filename="waifu2x.cpp" line="1058"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation>互換性テストが完了しました。 テスト結果を確認し、テスト結果に基づいてエンジン設定を構成してください。</translation>
     </message>

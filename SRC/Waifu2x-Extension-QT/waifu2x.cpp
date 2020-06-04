@@ -1014,6 +1014,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             return 0;
         }
         //======================= 检查Anime4K的兼容性 ===================
+        isShowAnime4kWarning=false;
         if(isCompatible_Anime4k_CPU==true)
         {
             ui->comboBox_Engine_Image->setCurrentIndex(3);
