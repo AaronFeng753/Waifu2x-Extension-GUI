@@ -38,6 +38,7 @@ SOURCES += \
     Anime4K.cpp \
     Current_File_Progress.cpp \
     CustomResolution.cpp \
+    Donate.cpp \
     checkupdate.cpp \
     files.cpp \
     gif.cpp \

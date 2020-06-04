@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.43.05-beta";//软件版本号
+    QString VERSION = "v2.43.07-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.41.12";
     //=======================
@@ -345,11 +345,13 @@ public:
     int CheckUpadte_Auto();//自动检查更新
 
     int Donate_Count();//计算启动次数判断是否弹窗
+    int Donate_DownloadOnlineQRCode();
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件,包含所有关闭时执行的代码
     bool QProcess_stop=false;//所有QProcess停止标记
     int Auto_Save_Settings_Watchdog();//自动保存设置的看门狗
     QFuture<int> AutoUpdate;//监视自动检查更新线程
+    QFuture<int> DownloadOnlineQRCode;//监视在线下载二维码线程
     QFuture<int> Waifu2xMain;//监视waifu2x主线程
     int Force_close();//调用cmd强制关闭自己
     //================== 处理当前文件的进度 =========================
@@ -363,8 +365,6 @@ public:
     void Tip_FirstTimeStart();
     //=============
     ~MainWindow();
-
-
 
 public slots:
     void progressbar_setRange_min_max(int min, int max);//进度条设定min和max
@@ -428,6 +428,8 @@ public slots:
     void CurrentFileProgress_Stop();
     void CurrentFileProgress_progressbar_Add();
     void CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
+
+    void Donate_ReplaceQRCode(QString QRCodePath);
 
 private slots:
 
@@ -664,6 +666,8 @@ signals:
     void Send_CurrentFileProgress_Stop();
     void Send_CurrentFileProgress_progressbar_Add();
     void Send_CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
+
+    void Send_Donate_ReplaceQRCode(QString QRCodePath);
 
 private:
     Ui::MainWindow *ui;

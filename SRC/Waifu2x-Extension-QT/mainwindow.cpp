@@ -81,6 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString)));
     connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
     connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)));
+    connect(this, SIGNAL(Send_Donate_ReplaceQRCode(QString)), this, SLOT(Donate_ReplaceQRCode(QString)));
     //================== 处理当前文件的进度 =========================
     connect(this, SIGNAL(Send_CurrentFileProgress_Start(QString,int)), this, SLOT(CurrentFileProgress_Start(QString,int)));
     connect(this, SIGNAL(Send_CurrentFileProgress_Stop()), this, SLOT(CurrentFileProgress_Stop()));
@@ -95,8 +96,8 @@ MainWindow::MainWindow(QWidget *parent)
     Set_Font_fixed();//固定字体
     //=====================================
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
+    DownloadOnlineQRCode = QtConcurrent::run(this, &MainWindow::Donate_DownloadOnlineQRCode);//在线更新捐赠二维码
     SystemShutDown_isAutoShutDown();//上次是否自动关机
-    Donate_Count();//捐赠统计
     //====================================
     TextBrowser_StartMes();//显示启动msg
     //===================================
@@ -148,6 +149,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     {
         QProcess_stop=true;
         AutoUpdate.cancel();
+        DownloadOnlineQRCode.cancel();
         Waifu2xMain.cancel();
         Force_close();
     }
@@ -164,6 +166,7 @@ int MainWindow::Auto_Save_Settings_Watchdog()
     //=====
     QProcess_stop=true;
     AutoUpdate.cancel();
+    DownloadOnlineQRCode.cancel();
     Waifu2xMain.cancel();
     Force_close();
     //====
@@ -1098,53 +1101,6 @@ void MainWindow::on_Ext_video_editingFinished()
     QString ext_video_str = ui->Ext_video->text();
     ext_video_str = ext_video_str.trimmed();
     ui->Ext_video->setText(ext_video_str);
-}
-
-int MainWindow::Donate_Count()
-{
-    QString donate_ini = Current_Path+"/donate.ini";
-    if(!file_isFileExist(donate_ini))
-    {
-        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/VERSION", VERSION);
-        configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 3);
-        return 0;
-    }
-    else
-    {
-        QSettings *configIniRead_ver = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniRead_ver->setIniCodec(QTextCodec::codecForName("UTF-8"));
-        QString DonateINI_VERSION = configIniRead_ver->value("/Donate/VERSION").toString();
-        if(DonateINI_VERSION!=VERSION)
-        {
-            QFile::remove(donate_ini);
-            QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-            configIniWrite->setValue("/Donate/VERSION", VERSION);
-            configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-            configIniWrite->setValue("/Donate/OpenCount_Max", 3);
-            return 0;
-        }
-    }
-    QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
-    //=======  读取打开次数  ======
-    int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
-    int OpenCount_Max = configIniRead->value("/Donate/OpenCount_Max").toInt();
-    OpenCount_Current++;
-    if(OpenCount_Current<OpenCount_Max)
-    {
-        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/OpenCount_Current", OpenCount_Current);
-        return 0;
-    }
-    else
-    {
-        QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 10);//间隔多少次,提示捐赠
-        ui->tabWidget->setCurrentIndex(0);
-        return 0;
-    }
 }
 
 void MainWindow::on_checkBox_AutoSaveSettings_clicked()

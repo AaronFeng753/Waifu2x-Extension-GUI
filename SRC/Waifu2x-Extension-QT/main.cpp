@@ -32,6 +32,12 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.43.07-beta:
+- 调整UI.
+- 补全翻译.
+v2.43.06-beta:
+- 在线更新捐赠二维码
+- 更新python扩展,精简体积,提高稳定性.
 v2.43.05-beta:
 - 修复bug:某些情况下无法正常检查更新.
 v2.43.04-beta:

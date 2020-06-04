@@ -2038,7 +2038,7 @@ but the effect may not be obvious. It is not recommended to enable it.
 [TTA] is not available for [OLD Version] of waifu2x-ncnn-vulkan.</string>
                  </property>
                  <property name="text">
-                  <string>TTA</string>
+                  <string notr="true">TTA</string>
                  </property>
                 </widget>
                </item>
@@ -2162,7 +2162,7 @@ and the peak signal-to-noise ratio (PSNR) is increased by 0.15,
 but the effect may not be obvious. It is not recommended to enable it.</string>
                  </property>
                  <property name="text">
-                  <string>TTA</string>
+                  <string notr="true">TTA</string>
                  </property>
                 </widget>
                </item>
@@ -2307,7 +2307,7 @@ and the peak signal-to-noise ratio (PSNR) is increased by 0.15,
 but the effect may not be obvious. It is not recommended to enable it.</string>
                  </property>
                  <property name="text">
-                  <string>TTA</string>
+                  <string notr="true">TTA</string>
                  </property>
                 </widget>
                </item>
@@ -2934,7 +2934,7 @@ and the peak signal-to-noise ratio (PSNR) is increased by 0.15,
 but the effect may not be obvious. It is not recommended to enable it.</string>
                  </property>
                  <property name="text">
-                  <string>TTA</string>
+                  <string notr="true">TTA</string>
                  </property>
                 </widget>
                </item>
@@ -3093,7 +3093,7 @@ and the peak signal-to-noise ratio (PSNR) is increased by 0.15,
 but the effect may not be obvious. It is not recommended to enable it.</string>
                  </property>
                  <property name="text">
-                  <string>TTA</string>
+                  <string notr="true">TTA</string>
                  </property>
                 </widget>
                </item>
@@ -3125,6 +3125,9 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                  </property>
                  <property name="toolTip">
                   <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
+                 </property>
+                 <property name="currentText">
+                  <string notr="true">auto</string>
                  </property>
                  <item>
                   <property name="text">
@@ -4127,22 +4130,13 @@ increase the time and storage space required to process image.</string>
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_14">
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_UpdatePopup">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+              <item row="2" column="3">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
                 <property name="toolTip">
-                 <string>Automatically check for updates on startup.</string>
+                 <string>[Settings] will be automatically hidden when the software starts.</string>
                 </property>
                 <property name="text">
-                 <string>Update popup</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
+                 <string>Always hide Settings</string>
                 </property>
                </widget>
               </item>
@@ -4153,6 +4147,77 @@ increase the time and storage space required to process image.</string>
                 </property>
                 <property name="checked">
                  <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
+                <property name="toolTip">
+                 <string>Keep video cache after processing the video.</string>
+                </property>
+                <property name="text">
+                 <string>Keep video cache</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2" colspan="2">
+               <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+                <property name="minimumSize">
+                 <size>
+                  <width>280</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="currentIndex">
+                 <number>1</number>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Ignore Aspect Ratio</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Keep Aspect Ratio</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Keep Aspect Ratio By Expanding</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="8" column="0" colspan="2">
+               <widget class="QLabel" name="label_21">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="toolTip">
+                 <string>We recommend that you restart the software after changing 
+the language for the language settings to fully take effect.</string>
+                </property>
+                <property name="text">
+                 <string notr="true">Language:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_PromptWhenExit">
+                <property name="text">
+                 <string>Prompt when exit</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -4169,13 +4234,13 @@ increase the time and storage space required to process image.</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_39">
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
                 <property name="toolTip">
-                 <string>The number of retries when failed to processing a image (or frame).</string>
+                 <string>[Text browser] will be automatically hidden when the software starts.</string>
                 </property>
                 <property name="text">
-                 <string>Retry:</string>
+                 <string>Always hide Text Browser</string>
                 </property>
                </widget>
               </item>
@@ -4192,83 +4257,7 @@ increase the time and storage space required to process image.</string>
                 </property>
                </widget>
               </item>
-              <item row="5" column="1">
-               <widget class="QSpinBox" name="spinBox_retry">
-                <property name="toolTip">
-                 <string>The number of retries when failed to processing a image (or frame).</string>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999999999</number>
-                </property>
-                <property name="value">
-                 <number>5</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
-                <property name="toolTip">
-                 <string>[Text browser] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Text Browser</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QSpinBox" name="spinBox_SegmentDuration">
-                <property name="toolTip">
-                 <string>When processing video in segments, the length of each video clip.
-This will determine how much hard disk space the program will occupy 
-when processing video in segments.</string>
-                </property>
-                <property name="suffix">
-                 <string notr="true">s</string>
-                </property>
-                <property name="prefix">
-                 <string/>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999999999</number>
-                </property>
-                <property name="value">
-                 <number>10</number>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_SegmentDuration">
-                <property name="toolTip">
-                 <string>When processing video in segments, the length of each video clip.
-This will determine how much hard disk space the program will occupy 
-when processing video in segments.</string>
-                </property>
-                <property name="text">
-                 <string>Segment duration:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
-                <property name="toolTip">
-                 <string>When adding a folder to the file list, scan the files in
-the subfolder and add them to the file list.</string>
-                </property>
-                <property name="text">
-                 <string>Scan sub-folders</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="2" colspan="2">
+              <item row="8" column="2" colspan="2">
                <widget class="QComboBox" name="comboBox_language">
                 <property name="minimumSize">
                  <size>
@@ -4305,99 +4294,13 @@ the language for the language settings to fully take effect.</string>
                 </item>
                </widget>
               </item>
-              <item row="7" column="0" colspan="2">
-               <widget class="QLabel" name="label_21">
-                <property name="maximumSize">
-                 <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_39">
                 <property name="toolTip">
-                 <string>We recommend that you restart the software after changing 
-the language for the language settings to fully take effect.</string>
+                 <string>The number of retries when failed to processing a image (or frame).</string>
                 </property>
                 <property name="text">
-                 <string notr="true">Language:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="2" colspan="2">
-               <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-                <property name="minimumSize">
-                 <size>
-                  <width>280</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="toolTip">
-                 <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="currentIndex">
-                 <number>1</number>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Ignore Aspect Ratio</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Keep Aspect Ratio</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Keep Aspect Ratio By Expanding</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="4" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_PromptWhenExit">
-                <property name="text">
-                 <string>Prompt when exit</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="3">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
-                <property name="toolTip">
-                 <string>[Settings] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Settings</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="3">
-               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
-                <property name="toolTip">
-                 <string>Keep video cache after processing the video.</string>
-                </property>
-                <property name="text">
-                 <string>Keep video cache</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="3">
-               <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
-                <property name="toolTip">
-                 <string>Processing video in segments can greatly reduce the 
-hard disk space occupied by processing video. But it 
-will increase the time required to process video.</string>
-                </property>
-                <property name="text">
-                 <string>Process video by segment</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
+                 <string>Retry:</string>
                 </property>
                </widget>
               </item>
@@ -4408,6 +4311,37 @@ will increase the time required to process video.</string>
                 </property>
                 <property name="text">
                  <string>Show internal progress</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_SegmentDuration">
+                <property name="toolTip">
+                 <string>When processing video in segments, the length of each video clip.
+This will determine how much hard disk space the program will occupy 
+when processing video in segments.</string>
+                </property>
+                <property name="text">
+                 <string>Segment duration:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_UpdatePopup">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="toolTip">
+                 <string>Automatically check for updates on startup.</string>
+                </property>
+                <property name="text">
+                 <string>Update popup</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
@@ -4427,7 +4361,76 @@ will increase the time required to process video.</string>
                 </property>
                </widget>
               </item>
-              <item row="9" column="0" colspan="2">
+              <item row="5" column="1">
+               <widget class="QSpinBox" name="spinBox_retry">
+                <property name="toolTip">
+                 <string>The number of retries when failed to processing a image (or frame).</string>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="value">
+                 <number>5</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+                <property name="toolTip">
+                 <string>When adding a folder to the file list, scan the files in
+the subfolder and add them to the file list.</string>
+                </property>
+                <property name="text">
+                 <string>Scan sub-folders</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="3">
+               <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
+                <property name="toolTip">
+                 <string>Processing video in segments can greatly reduce the 
+hard disk space occupied by processing video. But it 
+will increase the time required to process video.</string>
+                </property>
+                <property name="text">
+                 <string>Process video by segment</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QSpinBox" name="spinBox_SegmentDuration">
+                <property name="toolTip">
+                 <string>When processing video in segments, the length of each video clip.
+This will determine how much hard disk space the program will occupy 
+when processing video in segments.</string>
+                </property>
+                <property name="suffix">
+                 <string notr="true">s</string>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="value">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0" colspan="2">
                <widget class="QLabel" name="label_44">
                 <property name="toolTip">
                  <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
