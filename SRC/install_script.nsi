@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "Waifu2x-Extension-GUI"
-!define PRODUCT_VERSION "v1.11"
+!define /file PRODUCT_VERSION "D:\workspace\Waifu2x-Extension-QT\Full_package\Waifu2xVerTemp.txt"
 !define PRODUCT_PUBLISHER "Aaron Feng"
 !define PRODUCT_WEB_SITE "https://github.com/AaronFeng753/Waifu2x-Extension-GUI"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Waifu2x-Extension-GUI-Start.exe"
@@ -10,7 +10,8 @@
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_STARTMENU_REGVAL "NSIS:StartMenuDir"
 
-SetCompressor lzma
+SetCompressor /SOLID lzma
+SetCompressorDictSize 64
 
 ; MUI 1.67 compatible ------
 !include "MUI.nsh"
@@ -28,7 +29,7 @@ SetCompressor lzma
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
 ; License page
-!insertmacro MUI_PAGE_LICENSE "D:\workspace\Waifu2x-Extension-QT\Full_package\#Install\LICENSE.txt"
+!insertmacro MUI_PAGE_LICENSE "D:\workspace\Waifu2x-Extension-QT\Full_package\LICENSE_许可协议"
 ; Directory page
 !insertmacro MUI_PAGE_DIRECTORY
 ; Start menu page
