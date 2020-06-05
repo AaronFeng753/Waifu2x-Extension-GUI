@@ -1895,12 +1895,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
              </item>
              <item>
               <property name="text">
-               <string>waifu2x-caffe(beta)</string>
+               <string notr="true">waifu2x-caffe</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>realsr-ncnn-vulkan(beta)</string>
+               <string notr="true">realsr-ncnn-vulkan</string>
               </property>
              </item>
             </widget>
@@ -1908,7 +1908,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2381,14 +2381,44 @@ padding:10px;
 - [ Speed:★★★  Image Quality:★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_5">
-               <item row="1" column="5">
-                <widget class="QLabel" name="label_19">
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_48">
+                 <property name="toolTip">
+                  <string>Passes for processing.</string>
+                 </property>
                  <property name="text">
-                  <string>Platform ID:</string>
+                  <string>Passes:</string>
                  </property>
                 </widget>
                </item>
-               <item row="4" column="0" colspan="13">
+               <item row="3" column="9" colspan="2">
+                <widget class="QLabel" name="label_51">
+                 <property name="toolTip">
+                  <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
+                 </property>
+                 <property name="text">
+                  <string>Push gradient strength:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="14">
+                <widget class="Line" name="line_14">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="9">
+                <widget class="QSpinBox" name="spinBox_DeviceID_Anime4k">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="14">
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
                  <item>
                   <widget class="QGroupBox" name="groupBox_5">
@@ -2560,7 +2590,114 @@ padding:10px;
                  </item>
                 </layout>
                </item>
-               <item row="3" column="10">
+               <item row="3" column="7">
+                <widget class="QLabel" name="label_50">
+                 <property name="toolTip">
+                  <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
+                 </property>
+                 <property name="text">
+                  <string>Push color strength:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="6">
+                <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                 <property name="value">
+                  <number>2</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
+                 <property name="toolTip">
+                  <string>Faster but maybe low quality.</string>
+                 </property>
+                 <property name="text">
+                  <string>Fast mode</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="3">
+                <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
+                 <property name="minimum">
+                  <number>1</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                 <property name="value">
+                  <number>2</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="7">
+                <widget class="QSpinBox" name="spinBox_PlatformID_Anime4k">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="4">
+                <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="text">
+                  <string>Specify GPU</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="8">
+                <widget class="QLabel" name="label_20">
+                 <property name="text">
+                  <string>Device ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="Line" name="line_13">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="6">
+                <widget class="QLabel" name="label_19">
+                 <property name="text">
+                  <string>Platform ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="5">
+                <widget class="Line" name="line_15">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="8">
+                <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
+                 <property name="maximum">
+                  <double>1.000000000000000</double>
+                 </property>
+                 <property name="singleStep">
+                  <double>0.100000000000000</double>
+                 </property>
+                 <property name="value">
+                  <double>0.300000000000000</double>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="11">
                 <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
                  <property name="maximum">
                   <double>1.000000000000000</double>
@@ -2573,34 +2710,7 @@ padding:10px;
                  </property>
                 </widget>
                </item>
-               <item row="1" column="7">
-                <widget class="QLabel" name="label_20">
-                 <property name="text">
-                  <string>Device ID:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_48">
-                 <property name="toolTip">
-                  <string>Passes for processing.</string>
-                 </property>
-                 <property name="text">
-                  <string>Passes:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="8">
-                <widget class="QSpinBox" name="spinBox_DeviceID_Anime4k">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="9">
+               <item row="1" column="10">
                 <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
                  <property name="enabled">
                   <bool>false</bool>
@@ -2640,47 +2750,7 @@ padding:10px;
                  </property>
                 </widget>
                </item>
-               <item row="2" column="0" colspan="13">
-                <widget class="Line" name="line_14">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="5">
-                <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                 <property name="value">
-                  <number>2</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
-                 <property name="toolTip">
-                  <string>Faster but maybe low quality.</string>
-                 </property>
-                 <property name="text">
-                  <string>Fast mode</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
-                 <property name="toolTip">
-                  <string>Enable GPU acceleration.</string>
-                 </property>
-                 <property name="text">
-                  <string>GPU Mode</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="3">
+               <item row="3" column="4">
                 <widget class="QLabel" name="label_49">
                  <property name="toolTip">
                   <string>Limit the number of color pushes.</string>
@@ -2690,83 +2760,27 @@ padding:10px;
                  </property>
                 </widget>
                </item>
-               <item row="3" column="8" colspan="2">
-                <widget class="QLabel" name="label_51">
+               <item row="1" column="3">
+                <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
                  <property name="toolTip">
-                  <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
+                  <string>Enable GPU acceleration.</string>
                  </property>
                  <property name="text">
-                  <string>Push gradient strength:</string>
+                  <string>GPU Mode</string>
                  </property>
                 </widget>
                </item>
                <item row="1" column="1">
-                <widget class="Line" name="line_13">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="7">
-                <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
-                 <property name="maximum">
-                  <double>1.000000000000000</double>
-                 </property>
-                 <property name="singleStep">
-                  <double>0.100000000000000</double>
-                 </property>
-                 <property name="value">
-                  <double>0.300000000000000</double>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="2">
-                <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                 <property name="value">
-                  <number>2</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
+                <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
-                 <property name="text">
-                  <string>Specify GPU</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="6">
-                <widget class="QSpinBox" name="spinBox_PlatformID_Anime4k">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="6">
-                <widget class="QLabel" name="label_50">
                  <property name="toolTip">
-                  <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
+                  <string>Enable ACNet.
+Will improve image quality.</string>
                  </property>
                  <property name="text">
-                  <string>Push color strength:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="4">
-                <widget class="Line" name="line_15">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
+                  <string notr="true">ACNet</string>
                  </property>
                 </widget>
                </item>
@@ -2774,7 +2788,7 @@ padding:10px;
              </widget>
              <widget class="QWidget" name="tab">
               <attribute name="title">
-               <string>Waifu2x-Caffe(beta)</string>
+               <string notr="true">Waifu2x-Caffe</string>
               </attribute>
               <attribute name="toolTip">
                <string>Waifu2x-Caffe:
@@ -3035,7 +3049,7 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</strin
              </widget>
              <widget class="QWidget" name="tab_2">
               <attribute name="title">
-               <string>Realsr-ncnn-vulkan(beta)</string>
+               <string notr="true">RealSR-ncnn-vulkan</string>
               </attribute>
               <attribute name="toolTip">
                <string>RealSR-NCNN-Vulkan:
@@ -3266,12 +3280,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </item>
              <item>
               <property name="text">
-               <string>waifu2x-caffe(beta)</string>
+               <string notr="true">waifu2x-caffe</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>realsr-ncnn-vulkan(beta)</string>
+               <string notr="true">realsr-ncnn-vulkan</string>
               </property>
              </item>
             </widget>
@@ -3332,12 +3346,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </item>
              <item>
               <property name="text">
-               <string>waifu2x-caffe(beta)</string>
+               <string notr="true">waifu2x-caffe</string>
               </property>
              </item>
              <item>
               <property name="text">
-               <string>realsr-ncnn-vulkan(beta)</string>
+               <string notr="true">realsr-ncnn-vulkan</string>
               </property>
              </item>
             </widget>

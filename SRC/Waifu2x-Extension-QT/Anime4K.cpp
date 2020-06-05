@@ -1540,6 +1540,11 @@ QString MainWindow::Anime4k_ReadSettings()
     {
         Anime4k_Settings_str.append("-f ");
     }
+    //ACNet
+    if(ui->checkBox_ACNet_Anime4K->checkState())
+    {
+        Anime4k_Settings_str.append("-w ");
+    }
     //GPU加速
     if(ui->checkBox_GPUMode_Anime4K->checkState())
     {

@@ -32,16 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.43.17:
-- 新特性:支持预处理图片以兼容更多图片格式.(附加设置,可选,默认禁用)
-- 更新Python extension,waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg,ImageMagick.
-- 改进自动检查更新流程.
-- 改进多线程调度机制.
-- 添加与修改tooltip.
-- 支持在线更新捐赠二维码.
-- 添加一些提示,修改一些文本,修正错字.
-- 性能优化.
-- 修复若干bug.
+v2.44.01-beta:
+- 预先为Anime4K引擎加入ACNet支持.
 --------------------------------------------------------------------------
 To do:
 - 最小化到托盘

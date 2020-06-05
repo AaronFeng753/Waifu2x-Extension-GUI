@@ -144,6 +144,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/OutPutPathIsEnabled", ui->checkBox_OutPath_isEnabled->checkState());
     //=================== 存储Anime4k设置 =============================
     configIniWrite->setValue("/settings/checkBox_FastMode_Anime4K", ui->checkBox_FastMode_Anime4K->checkState());
+    configIniWrite->setValue("/settings/checkBox_ACNet_Anime4K", ui->checkBox_ACNet_Anime4K->checkState());
     configIniWrite->setValue("/settings/checkBox_GPUMode_Anime4K", ui->checkBox_GPUMode_Anime4K->checkState());
     configIniWrite->setValue("/settings/spinBox_Passes_Anime4K", ui->spinBox_Passes_Anime4K->value());
     configIniWrite->setValue("/settings/spinBox_PushColorCount_Anime4K", ui->spinBox_PushColorCount_Anime4K->value());
@@ -338,6 +339,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());
     //================== 加载Anime4k设置 ===================================
     ui->checkBox_FastMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_FastMode_Anime4K").toBool());
+    ui->checkBox_ACNet_Anime4K->setChecked(configIniRead->value("/settings/checkBox_ACNet_Anime4K").toBool());
     ui->checkBox_GPUMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_GPUMode_Anime4K").toBool());
     ui->spinBox_Passes_Anime4K->setValue(configIniRead->value("/settings/spinBox_Passes_Anime4K").toInt());
     ui->spinBox_PushColorCount_Anime4K->setValue(configIniRead->value("/settings/spinBox_PushColorCount_Anime4K").toInt());
