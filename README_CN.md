@@ -37,7 +37,7 @@
 # Waifu2x-Extension-GUI是什么?
  借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
-基于 `Waifu2x-ncnn-vulkan`, `SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe`,`realsr-ncnn-vulkan`和`Anime4K`. 
+基于 `Waifu2x-ncnn-vulkan`, `SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe`,`realsr-ncnn-vulkan`和`Anime4KCPP`. 
 
 借助waifu2x-ncnn-vulkan,SRMD-ncnn-Vulkan以及realsr-ncnn-vulkan, Waifu2x-Extension-GUI 可以借助任何支持`Vulkan`的显卡进行运算,包括`Intel/AMD/Nvidia`. 
 
