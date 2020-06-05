@@ -122,6 +122,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 
 # 鸣谢:
 - ❤捐赠者们❤
+- ACNet: https://github.com/DingXiaoH/ACNet
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
