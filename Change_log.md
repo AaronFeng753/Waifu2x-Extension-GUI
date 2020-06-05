@@ -2,6 +2,19 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.43.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.43.17)
+#### Change log:
+- New feature: Pre-process Image. This will improve compatibility. (Additional settings, optional, disabled by default)
+- Update Python extension,waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg,ImageMagick.
+- Improve the process of checking for update.
+- Improve multi-thread scheduling mechanism.
+- Add and modify tooltip.
+- Support online update of donate QR code.
+- Add some tips, modify some text, correct typos.
+- Performance optimization.
+- Fix several bugs.
+- Other improvements.
+---
 ## [v2.41.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.41.12)
 #### Change log:
 - #### New features: Add RealSR-ncnn-vulkan engine, greatly improving the ability to process 3D Real-life style images (thanks to @CAFUCSteven for assistance in testing software).

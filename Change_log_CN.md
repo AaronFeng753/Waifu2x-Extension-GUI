@@ -6,6 +6,19 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.43.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.43.17)
+#### 更新日志:
+- 新特性:支持预处理图片以兼容更多图片格式.(附加设置,可选,默认禁用)
+- 更新Python extension,waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg,ImageMagick.
+- 改进自动检查更新流程.
+- 改进多线程调度机制.
+- 添加与修改tooltip.
+- 支持在线更新捐赠二维码.
+- 添加一些提示,修改一些文本,修正错字.
+- 性能优化.
+- 修复若干bug.
+- 其他改进.
+---
 ## [v2.41.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.41.12)
 #### 更新日志:
 - #### 新特性:新增realsr-ncnn-vulkan引擎,大幅提升对3D写实风格图像的处理效果(感谢 @CAFUCSteven 协助测试软件).
