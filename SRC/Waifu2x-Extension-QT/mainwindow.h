@@ -615,6 +615,8 @@ private slots:
 
     void on_pushButton_DetectGPU_RealsrNCNNVulkan_clicked();
 
+    void on_checkBox_ACNet_Anime4K_stateChanged(int arg1);
+
 signals:
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();

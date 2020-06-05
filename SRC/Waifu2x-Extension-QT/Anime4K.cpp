@@ -84,7 +84,7 @@ int MainWindow::Anime4k_Image(int rowNum)
     //====
     QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -108,6 +108,7 @@ int MainWindow::Anime4k_Image(int rowNum)
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -115,6 +116,11 @@ int MainWindow::Anime4k_Image(int rowNum)
     //========
     if(!file_isFileExist(OutPut_Path))
     {
+        if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+        {
+            QFile::remove(SourceFile_fullPath);
+            SourceFile_fullPath = SourceFile_fullPath_Original;
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -549,7 +555,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     //=======
     QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -571,6 +577,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -1492,7 +1499,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     //=======
     QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -1514,6 +1521,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -1535,15 +1543,20 @@ Anime4k
 QString MainWindow::Anime4k_ReadSettings()
 {
     QString Anime4k_Settings_str = " ";
-    //快速模式
-    if(ui->checkBox_FastMode_Anime4K->checkState())
-    {
-        Anime4k_Settings_str.append("-f ");
-    }
     //ACNet
     if(ui->checkBox_ACNet_Anime4K->checkState())
     {
         Anime4k_Settings_str.append("-w ");
+        if(ui->checkBox_GPUMode_Anime4K->checkState())
+        {
+            Anime4k_Settings_str.append("-q ");
+        }
+        return Anime4k_Settings_str;
+    }
+    //快速模式
+    if(ui->checkBox_FastMode_Anime4K->checkState())
+    {
+        Anime4k_Settings_str.append("-f ");
     }
     //GPU加速
     if(ui->checkBox_GPUMode_Anime4K->checkState())

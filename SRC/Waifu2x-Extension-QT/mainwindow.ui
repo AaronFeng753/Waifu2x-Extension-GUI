@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1173</width>
+    <width>1193</width>
     <height>747</height>
    </rect>
   </property>
@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1908,7 +1908,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2421,7 +2421,7 @@ padding:10px;
                <item row="4" column="0" colspan="14">
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
                  <item>
-                  <widget class="QGroupBox" name="groupBox_5">
+                  <widget class="QGroupBox" name="groupBox_PreProcessing_Anime4k">
                    <property name="maximumSize">
                     <size>
                      <width>16777215</width>
@@ -2505,7 +2505,7 @@ padding:10px;
                   </widget>
                  </item>
                  <item>
-                  <widget class="QGroupBox" name="groupBox_7">
+                  <widget class="QGroupBox" name="groupBox_PostProcessing_Anime4k">
                    <property name="title">
                     <string>Post-processing</string>
                    </property>
@@ -2773,7 +2773,7 @@ padding:10px;
                <item row="1" column="1">
                 <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
                  <property name="enabled">
-                  <bool>false</bool>
+                  <bool>true</bool>
                  </property>
                  <property name="toolTip">
                   <string>Enable ACNet.

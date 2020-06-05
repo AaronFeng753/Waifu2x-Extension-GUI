@@ -123,7 +123,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
     //======
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         InputPath_tmp = SourceFile_fullPath;
@@ -193,12 +193,18 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
         else
         {
             QFile::remove(OutputPath_tmp);
+            if(retry==ui->spinBox_retry->value())break;
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
     }
     if(!file_isFileExist(OutputPath_tmp))
     {
+        if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+        {
+            QFile::remove(SourceFile_fullPath);
+            SourceFile_fullPath = SourceFile_fullPath_Original;
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -680,7 +686,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_i
     //======
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         OutputPath_tmp ="";
@@ -742,6 +748,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_i
         else
         {
             QFile::remove(OutputPath_tmp);
+            if(retry==ui->spinBox_retry->value())break;
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
@@ -1728,7 +1735,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
     }
     //===================
     QString OutputPath_tmp ="";
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         QString InputPath_tmp = Frame_fileFullPath;
@@ -1790,6 +1797,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
         else
         {
             QFile::remove(OutputPath_tmp);
+            if(retry==ui->spinBox_retry->value())break;
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }

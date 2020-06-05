@@ -33,7 +33,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 v2.44.01-beta:
-- 预先为Anime4K引擎加入ACNet支持.
+- 新特性:为Anime4K引擎加入ACNet支持.
+- 更新Anime4K.
+- 支持将重试次数设定为0(即不重试).
+- 修复bug:重试次数比显示的少一次.
+- 修复bug:即使没有进行重试依旧在文本框内弹出重试提示.
+- 修复bug:处理图片失败时,没有删除预处理图片时生成的缓存.
 --------------------------------------------------------------------------
 To do:
 - 最小化到托盘
@@ -51,7 +56,7 @@ Integrated component(In releases):
 - SRMD-ncnn-Vulkan 20200530(release)
 - realsr-ncnn-vulkan 20200530(release)
 - ImageMagick 7.0.10-15-Q16-x64
-- Anime4KCPP v1.8.1
+- Anime4KCPP v2.0.0
 - ffmpeg version 4.2.3
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/

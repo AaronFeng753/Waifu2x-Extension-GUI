@@ -1948,7 +1948,7 @@ void MainWindow::on_checkBox_isCompatible_SoX_clicked()
 
 void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
 {
-    if(ui->checkBox_GPUMode_Anime4K->checkState())
+    if(ui->checkBox_GPUMode_Anime4K->checkState()&&ui->checkBox_ACNet_Anime4K->checkState()==false)
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(1);
     }
@@ -2003,4 +2003,34 @@ void MainWindow::on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked()
 void MainWindow::on_checkBox_isCompatible_Realsr_NCNN_Vulkan_clicked()
 {
     ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
+}
+
+void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
+{
+    if(ui->checkBox_ACNet_Anime4K->checkState())
+    {
+        ui->groupBox_PostProcessing_Anime4k->setEnabled(0);
+        ui->groupBox_PreProcessing_Anime4k->setEnabled(0);
+        ui->checkBox_FastMode_Anime4K->setEnabled(0);
+        ui->checkBox_SpecifyGPU_Anime4k->setEnabled(0);
+        ui->doubleSpinBox_PushColorStrength_Anime4K->setEnabled(0);
+        ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(0);
+        ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
+        ui->spinBox_DeviceID_Anime4k->setEnabled(0);
+        ui->spinBox_Passes_Anime4K->setEnabled(0);
+        ui->spinBox_PlatformID_Anime4k->setEnabled(0);
+        ui->spinBox_PushColorCount_Anime4K->setEnabled(0);
+    }
+    else
+    {
+        on_checkBox_GPUMode_Anime4K_stateChanged(0);
+        on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
+        ui->groupBox_PostProcessing_Anime4k->setEnabled(1);
+        ui->groupBox_PreProcessing_Anime4k->setEnabled(1);
+        ui->checkBox_FastMode_Anime4K->setEnabled(1);
+        ui->doubleSpinBox_PushColorStrength_Anime4K->setEnabled(1);
+        ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(1);
+        ui->spinBox_Passes_Anime4K->setEnabled(1);
+        ui->spinBox_PushColorCount_Anime4K->setEnabled(1);
+    }
 }
