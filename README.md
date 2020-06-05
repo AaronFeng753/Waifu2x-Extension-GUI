@@ -118,6 +118,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 
 # Credits:
 - ❤All donors❤
+- ACNet: https://github.com/DingXiaoH/ACNet
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
