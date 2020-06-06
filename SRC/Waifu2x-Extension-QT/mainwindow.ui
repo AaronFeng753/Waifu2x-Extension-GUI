@@ -1908,7 +1908,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2972,6 +2972,9 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                 <widget class="QComboBox" name="comboBox_ProcessMode_Waifu2xCaffe">
                  <property name="currentText">
                   <string notr="true">CPU</string>
+                 </property>
+                 <property name="currentIndex">
+                  <number>0</number>
                  </property>
                  <item>
                   <property name="text">

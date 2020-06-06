@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.44.02-beta:
+- 修改协助用户自动调整引擎设置时的策略.
+- 性能优化.
+- 修复bug:当使用waifu2x-caffe引擎处理视频和GIF时,自定义分辨率设定无法正常生效.
 v2.44.01-beta:
 - 新特性:为Anime4K引擎加入ACNet支持.
 - 更新Anime4K.
@@ -48,16 +52,16 @@ To do:
 - 等caffe跟着稳定走了一段时间确定稳定后, 把自动调整引擎设置的策略改成先caffe gpu 后 vulkan
 ---------------------------------------------------------------------------
 Integrated component(In releases):
-- gifsicle version 1.92
-- SoX 14.4.2-win32
-- waifu2x-caffe 1.2.0.2
+- gifsicle version 1.92(release)
+- SoX 14.4.2-win32(release)
+- waifu2x-caffe 1.2.0.2(release)
 - Waifu2x-converter e7de04d
 - waifu2x-ncnn-vulkan 20200530(release)
 - SRMD-ncnn-Vulkan 20200530(release)
 - realsr-ncnn-vulkan 20200530(release)
-- ImageMagick 7.0.10-15-Q16-x64
-- Anime4KCPP v2.0.0
-- ffmpeg version 4.2.3
+- ImageMagick 7.0.10-15-Q16-x64(release)
+- Anime4KCPP v2.0.0(release)
+- ffmpeg version 4.2.3(release)
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

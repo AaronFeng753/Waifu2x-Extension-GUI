@@ -900,7 +900,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
         /*
         * 协助用户调整引擎设定:
         */
-        //========== 检查waifu2x-ncnn-vulkan的兼容性 ===============
+        //========== 检查waifu2x-ncnn-vulkan 最新版 的兼容性 ===============
         if(isCompatible_Waifu2x_NCNN_Vulkan_NEW==true)
         {
             ui->comboBox_Engine_Image->setCurrentIndex(0);
@@ -911,32 +911,6 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             on_comboBox_Engine_Video_currentIndexChanged(0);
             //====
             ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(0);
-            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
-            return 0;
-        }
-        if(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P==true)
-        {
-            ui->comboBox_Engine_Image->setCurrentIndex(0);
-            ui->comboBox_Engine_GIF->setCurrentIndex(0);
-            ui->comboBox_Engine_Video->setCurrentIndex(0);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            //====
-            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(1);
-            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
-            return 0;
-        }
-        if(isCompatible_Waifu2x_NCNN_Vulkan_OLD==true)
-        {
-            ui->comboBox_Engine_Image->setCurrentIndex(0);
-            ui->comboBox_Engine_GIF->setCurrentIndex(0);
-            ui->comboBox_Engine_Video->setCurrentIndex(0);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            //====
-            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(2);
             on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
             return 0;
         }
@@ -953,28 +927,6 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(1);
             return 0;
         }
-        //======================= 检查waifu2x-converter的兼容性 ===================
-        if(isCompatible_Waifu2x_Converter==true)
-        {
-            ui->comboBox_Engine_Image->setCurrentIndex(1);
-            ui->comboBox_Engine_GIF->setCurrentIndex(1);
-            ui->comboBox_Engine_Video->setCurrentIndex(1);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            return 0;
-        }
-        //======================= 检查SRMD-NCNN-Vulkan的兼容性 ===================
-        if(isCompatible_SRMD_NCNN_Vulkan==true)
-        {
-            ui->comboBox_Engine_Image->setCurrentIndex(2);
-            ui->comboBox_Engine_GIF->setCurrentIndex(2);
-            ui->comboBox_Engine_Video->setCurrentIndex(3);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            return 0;
-        }
         //======================= 检查Waifu2x_Caffe_cuDNN的兼容性 ===================
         if(isCompatible_Waifu2x_Caffe_cuDNN)
         {
@@ -988,16 +940,54 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(2);
             return 0;
         }
-        //======================= 检查Realsr_NCNN_Vulkan的兼容性 ===================
-        if(isCompatible_Realsr_NCNN_Vulkan)
+        //========== 检查waifu2x-ncnn-vulkan FP16P 的兼容性 ===============
+        if(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P==true)
         {
-            ui->comboBox_Engine_Image->setCurrentIndex(5);
-            ui->comboBox_Engine_GIF->setCurrentIndex(5);
-            ui->comboBox_Engine_Video->setCurrentIndex(5);
+            ui->comboBox_Engine_Image->setCurrentIndex(0);
+            ui->comboBox_Engine_GIF->setCurrentIndex(0);
+            ui->comboBox_Engine_Video->setCurrentIndex(0);
             on_comboBox_Engine_Image_currentIndexChanged(0);
             on_comboBox_Engine_GIF_currentIndexChanged(0);
             on_comboBox_Engine_Video_currentIndexChanged(0);
             //====
+            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(1);
+            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
+            return 0;
+        }
+        //========== 检查waifu2x-ncnn-vulkan 老版本 的兼容性 ===============
+        if(isCompatible_Waifu2x_NCNN_Vulkan_OLD==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(0);
+            ui->comboBox_Engine_GIF->setCurrentIndex(0);
+            ui->comboBox_Engine_Video->setCurrentIndex(0);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(2);
+            on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
+            return 0;
+        }
+        //======================= 检查SRMD-NCNN-Vulkan的兼容性 ===================
+        if(isCompatible_SRMD_NCNN_Vulkan==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(2);
+            ui->comboBox_Engine_GIF->setCurrentIndex(2);
+            ui->comboBox_Engine_Video->setCurrentIndex(3);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            return 0;
+        }
+        //======================= 检查waifu2x-converter的兼容性 ===================
+        if(isCompatible_Waifu2x_Converter==true)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(1);
+            ui->comboBox_Engine_GIF->setCurrentIndex(1);
+            ui->comboBox_Engine_Video->setCurrentIndex(1);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
             return 0;
         }
         //======================= 检查Waifu2x_Caffe_CPU的兼容性 ===================
@@ -1013,23 +1003,22 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(0);
             return 0;
         }
-        //======================= 检查Anime4K的兼容性 ===================
-        isShowAnime4kWarning=false;
-        if(isCompatible_Anime4k_CPU==true)
+        //======================= 检查Realsr_NCNN_Vulkan的兼容性 ===================
+        if(isCompatible_Realsr_NCNN_Vulkan)
         {
-            ui->comboBox_Engine_Image->setCurrentIndex(3);
-            ui->comboBox_Engine_GIF->setCurrentIndex(3);
-            ui->comboBox_Engine_Video->setCurrentIndex(2);
+            ui->comboBox_Engine_Image->setCurrentIndex(5);
+            ui->comboBox_Engine_GIF->setCurrentIndex(5);
+            ui->comboBox_Engine_Video->setCurrentIndex(5);
             on_comboBox_Engine_Image_currentIndexChanged(0);
             on_comboBox_Engine_GIF_currentIndexChanged(0);
             on_comboBox_Engine_Video_currentIndexChanged(0);
-            //=====
-            ui->checkBox_GPUMode_Anime4K->setChecked(0);
-            on_checkBox_GPUMode_Anime4K_stateChanged(0);
+            //====
             return 0;
         }
+        //======================= 检查Anime4K的兼容性 ===================
         if(isCompatible_Anime4k_GPU==true)
         {
+            isShowAnime4kWarning=false;
             ui->comboBox_Engine_Image->setCurrentIndex(3);
             ui->comboBox_Engine_GIF->setCurrentIndex(3);
             ui->comboBox_Engine_Video->setCurrentIndex(2);
@@ -1038,6 +1027,20 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             on_comboBox_Engine_Video_currentIndexChanged(0);
             //=====
             ui->checkBox_GPUMode_Anime4K->setChecked(1);
+            on_checkBox_GPUMode_Anime4K_stateChanged(0);
+            return 0;
+        }
+        if(isCompatible_Anime4k_CPU==true)
+        {
+            isShowAnime4kWarning=false;
+            ui->comboBox_Engine_Image->setCurrentIndex(3);
+            ui->comboBox_Engine_GIF->setCurrentIndex(3);
+            ui->comboBox_Engine_Video->setCurrentIndex(2);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //=====
+            ui->checkBox_GPUMode_Anime4K->setChecked(0);
             on_checkBox_GPUMode_Anime4K_stateChanged(0);
             return 0;
         }

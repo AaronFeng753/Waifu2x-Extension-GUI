@@ -559,6 +559,20 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
     QString program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
+    //======
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        if(ScaleRatio==0)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            mutex_SubThreadNumRunning.lock();
+            *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+            mutex_SubThreadNumRunning.unlock();
+            return 0;
+        }
+    }
     //====
     QString ImageProcessingModeCMD = "";
     if(DenoiseLevel==-1)
@@ -577,20 +591,6 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
             DenoiseLevel_tmp = DenoiseLevel;
         }
         ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
-    }
-    //======
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
     }
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
@@ -1521,6 +1521,20 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
     QString program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
+    //======
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        if(ScaleRatio==0)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            mutex_SubThreadNumRunning.lock();
+            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
+            mutex_SubThreadNumRunning.unlock();
+            return 0;
+        }
+    }
     //====
     QString ImageProcessingModeCMD = "";
     if(DenoiseLevel==-1)
@@ -1539,20 +1553,6 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
             DenoiseLevel_tmp = DenoiseLevel;
         }
         ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
-    }
-    //======
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
     }
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
