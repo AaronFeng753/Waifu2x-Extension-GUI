@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.44.04-beta:
+- 更新 waifu2x-ncnn-vulkan.
+- 更新 SRMD-ncnn-Vulkan.
+- 更新 realsr-ncnn-vulkan.
 v2.44.03-beta:
 - 更新 waifu2x-ncnn-vulkan.
 - 更新 SRMD-ncnn-Vulkan.
