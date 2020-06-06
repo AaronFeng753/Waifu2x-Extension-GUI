@@ -32,6 +32,11 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.44.03-beta:
+- 更新 waifu2x-ncnn-vulkan.
+- 更新 SRMD-ncnn-Vulkan.
+- 更新 realsr-ncnn-vulkan.
+- 更改兼容性测试的输出文件格式以适配新版引擎.
 v2.44.02-beta:
 - 修改协助用户自动调整引擎设置时的策略.
 - 性能优化.
@@ -49,16 +54,15 @@ To do:
 - 多gpu支持
 - 升级更新时保存设置
 - pdf格式支持
-- 等caffe跟着稳定走了一段时间确定稳定后, 把自动调整引擎设置的策略改成先caffe gpu 后 vulkan
 ---------------------------------------------------------------------------
 Integrated component(In releases):
 - gifsicle version 1.92(release)
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.2(release)
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan 20200530(release)
-- SRMD-ncnn-Vulkan 20200530(release)
-- realsr-ncnn-vulkan 20200530(release)
+- waifu2x-ncnn-vulkan 20200606(release)
+- SRMD-ncnn-Vulkan 20200606(release)
+- realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-15-Q16-x64(release)
 - Anime4KCPP v2.0.0(release)
 - ffmpeg version 4.2.3(release)

@@ -463,7 +463,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     emit Send_TextBrowser_NewMessage(tr("Compatibility test is ongoing, please wait."));
     //===============
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.png";
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
