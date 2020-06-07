@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.44.05-beta:
+- 当检测到Alpha通道时在文本框内输出提示.
+- 补全翻译.
 v2.44.04-beta:
 - 更新 waifu2x-ncnn-vulkan.
 - 更新 SRMD-ncnn-Vulkan.

@@ -1080,7 +1080,15 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     //======
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     QImage img(SourceFile_fullPath);
-    return img.hasAlphaChannel();
+    if(img.hasAlphaChannel())
+    {
+        emit Send_TextBrowser_NewMessage(tr("It is detected that the image [")+SourceFile_fullPath+tr("] contains the Alpha channel, so the result image will be forcibly saved as PNG."));
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 /*
