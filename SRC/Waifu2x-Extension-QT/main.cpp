@@ -32,6 +32,11 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.44.06-beta:
+- 更新 ImageMagick.
+- 添加tooltip.
+- 将编码器列表移动到本地.
+- 优化GUI.
 v2.44.05-beta:
 - 当检测到Alpha通道时在文本框内输出提示.
 - 补全翻译.
@@ -70,7 +75,7 @@ Integrated component(In releases):
 - waifu2x-ncnn-vulkan 20200606(release)
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
-- ImageMagick 7.0.10-15-Q16-x64(release)
+- ImageMagick 7.0.10-17-Q16-x64(release)
 - Anime4KCPP v2.0.0(release)
 - ffmpeg version 4.2.3(release)
 ---

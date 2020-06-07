@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <property name="iconSize">
        <size>
@@ -5120,6 +5120,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            </item>
            <item row="3" column="1">
             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_CPU">
+             <property name="toolTip">
+              <string>Image processing engine.</string>
+             </property>
              <property name="text">
               <string notr="true">Waifu2x-caffe(CPU)</string>
              </property>
@@ -5195,6 +5198,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            </item>
            <item row="4" column="0">
             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_cuDNN">
+             <property name="toolTip">
+              <string>Image processing engine.</string>
+             </property>
              <property name="text">
               <string notr="true">Waifu2x-caffe(cuDNN)</string>
              </property>
@@ -5294,6 +5300,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            </item>
            <item row="3" column="2">
             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_GPU">
+             <property name="toolTip">
+              <string>Image processing engine.</string>
+             </property>
              <property name="text">
               <string notr="true">Waifu2x-caffe(GPU)</string>
              </property>
@@ -5334,6 +5343,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            </item>
            <item row="4" column="1">
             <widget class="QCheckBox" name="checkBox_isCompatible_Realsr_NCNN_Vulkan">
+             <property name="toolTip">
+              <string>Image processing engine.</string>
+             </property>
              <property name="text">
               <string notr="true">Realsr-ncnn-vulkan</string>
              </property>

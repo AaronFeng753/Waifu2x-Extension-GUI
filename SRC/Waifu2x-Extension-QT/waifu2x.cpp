@@ -413,10 +413,8 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->groupBox_ScaleRaton_DenoiseLevel->setEnabled(1);
     ui->checkBox_OptGIF->setEnabled(1);
     ui->checkBox_SaveAsJPG->setEnabled(1);
-    if(ui->checkBox_SaveAsJPG->checkState())
-    {
-        ui->checkBox_CompressJPG->setEnabled(1);
-    }
+    on_checkBox_SaveAsJPG_stateChanged(0);
+    on_checkBox_CompressJPG_stateChanged(0);
     ui->checkBox_DelOriginal->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
@@ -424,11 +422,9 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_CustRes_apply->setEnabled(1);
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->comboBox_AspectRatio_custRes->setEnabled(1);
-    ui->spinBox_JPGCompressedQuality->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
     if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
     ui->pushButton_ForceRetry->setVisible(0);
-    ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     ui->groupBox_AudioDenoise->setEnabled(1);
     ui->checkBox_ProcessVideoBySegment->setEnabled(1);
     if(ui->checkBox_ProcessVideoBySegment->checkState())

@@ -681,10 +681,14 @@ void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
     if(ui->checkBox_SaveAsJPG->checkState())
     {
         ui->checkBox_CompressJPG->setEnabled(1);
+        ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     }
     else
     {
+        ui->checkBox_CompressJPG->setChecked(0);
         ui->checkBox_CompressJPG->setEnabled(0);
+        ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
+        ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
 
@@ -1447,11 +1451,7 @@ void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
 
 void MainWindow::on_pushButton_encodersList_clicked()
 {
-    QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/EncodersList.txt"));
-    if(ui->comboBox_language->currentIndex()==1)
-    {
-        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/EncodersList.txt"));
-    }
+    QDesktopServices::openUrl(QUrl(Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.txt"));
 }
 
 void MainWindow::Tip_FirstTimeStart()
@@ -2032,5 +2032,17 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(1);
         ui->spinBox_Passes_Anime4K->setEnabled(1);
         ui->spinBox_PushColorCount_Anime4K->setEnabled(1);
+    }
+}
+
+void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
+{
+    if(ui->checkBox_CompressJPG->checkState())
+    {
+        ui->spinBox_JPGCompressedQuality->setEnabled(1);
+    }
+    else
+    {
+        ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
