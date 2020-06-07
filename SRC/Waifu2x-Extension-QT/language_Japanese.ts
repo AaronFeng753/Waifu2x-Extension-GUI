@@ -2357,12 +2357,12 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="900"/>
         <location filename="Anime4K.cpp" line="980"/>
         <location filename="Anime4K.cpp" line="1147"/>
-        <location filename="Anime4K.cpp" line="1246"/>
-        <location filename="Anime4K.cpp" line="1323"/>
-        <location filename="Anime4K.cpp" line="1341"/>
-        <location filename="Anime4K.cpp" line="1369"/>
-        <location filename="Anime4K.cpp" line="1407"/>
-        <location filename="Anime4K.cpp" line="1492"/>
+        <location filename="Anime4K.cpp" line="1262"/>
+        <location filename="Anime4K.cpp" line="1339"/>
+        <location filename="Anime4K.cpp" line="1357"/>
+        <location filename="Anime4K.cpp" line="1385"/>
+        <location filename="Anime4K.cpp" line="1423"/>
+        <location filename="Anime4K.cpp" line="1508"/>
         <location filename="CustomResolution.cpp" line="282"/>
         <location filename="files.cpp" line="571"/>
         <location filename="files.cpp" line="589"/>
@@ -2388,12 +2388,12 @@ by the software will be used.</source>
         <location filename="realsr_ncnn_vulkan.cpp" line="1103"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1183"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1350"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1449"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1526"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1544"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1572"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1610"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1693"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1465"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1542"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1560"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1588"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1626"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1709"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="46"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="71"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="214"/>
@@ -2415,12 +2415,12 @@ by the software will be used.</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1112"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1194"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1362"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1461"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1538"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1556"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1584"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1622"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1705"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1477"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1554"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1572"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1600"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1638"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1721"/>
         <location filename="video.cpp" line="645"/>
         <location filename="waifu2x_caffe.cpp" line="44"/>
         <location filename="waifu2x_caffe.cpp" line="67"/>
@@ -2443,12 +2443,12 @@ by the software will be used.</source>
         <location filename="waifu2x_caffe.cpp" line="937"/>
         <location filename="waifu2x_caffe.cpp" line="1019"/>
         <location filename="waifu2x_caffe.cpp" line="1187"/>
-        <location filename="waifu2x_caffe.cpp" line="1286"/>
-        <location filename="waifu2x_caffe.cpp" line="1363"/>
-        <location filename="waifu2x_caffe.cpp" line="1381"/>
-        <location filename="waifu2x_caffe.cpp" line="1409"/>
-        <location filename="waifu2x_caffe.cpp" line="1447"/>
-        <location filename="waifu2x_caffe.cpp" line="1531"/>
+        <location filename="waifu2x_caffe.cpp" line="1302"/>
+        <location filename="waifu2x_caffe.cpp" line="1379"/>
+        <location filename="waifu2x_caffe.cpp" line="1397"/>
+        <location filename="waifu2x_caffe.cpp" line="1425"/>
+        <location filename="waifu2x_caffe.cpp" line="1463"/>
+        <location filename="waifu2x_caffe.cpp" line="1547"/>
         <location filename="waifu2x_converter.cpp" line="48"/>
         <location filename="waifu2x_converter.cpp" line="71"/>
         <location filename="waifu2x_converter.cpp" line="144"/>
@@ -2470,12 +2470,12 @@ by the software will be used.</source>
         <location filename="waifu2x_converter.cpp" line="931"/>
         <location filename="waifu2x_converter.cpp" line="1013"/>
         <location filename="waifu2x_converter.cpp" line="1181"/>
-        <location filename="waifu2x_converter.cpp" line="1280"/>
-        <location filename="waifu2x_converter.cpp" line="1357"/>
-        <location filename="waifu2x_converter.cpp" line="1375"/>
-        <location filename="waifu2x_converter.cpp" line="1403"/>
-        <location filename="waifu2x_converter.cpp" line="1441"/>
-        <location filename="waifu2x_converter.cpp" line="1535"/>
+        <location filename="waifu2x_converter.cpp" line="1296"/>
+        <location filename="waifu2x_converter.cpp" line="1373"/>
+        <location filename="waifu2x_converter.cpp" line="1391"/>
+        <location filename="waifu2x_converter.cpp" line="1419"/>
+        <location filename="waifu2x_converter.cpp" line="1457"/>
+        <location filename="waifu2x_converter.cpp" line="1551"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="47"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="72"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="229"/>
@@ -2497,12 +2497,12 @@ by the software will be used.</source>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1148"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1229"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1397"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1496"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1573"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1591"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1619"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1657"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1742"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1512"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1589"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1607"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1635"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1673"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1758"/>
         <source>Error occured when processing [</source>
         <translation>処理中にエラーが発生しました[</translation>
     </message>
@@ -2608,147 +2608,147 @@ by the software will be used.</source>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="788"/>
-        <location filename="Anime4K.cpp" line="1246"/>
+        <location filename="Anime4K.cpp" line="1262"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="991"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1449"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1465"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1000"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1461"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1477"/>
         <location filename="waifu2x_caffe.cpp" line="825"/>
-        <location filename="waifu2x_caffe.cpp" line="1286"/>
+        <location filename="waifu2x_caffe.cpp" line="1302"/>
         <location filename="waifu2x_converter.cpp" line="819"/>
-        <location filename="waifu2x_converter.cpp" line="1280"/>
+        <location filename="waifu2x_converter.cpp" line="1296"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1036"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1496"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1512"/>
         <source>]. Error: [Unable to split video into pictures.]</source>
         <translation>]。 エラー：[ビデオを写真に分割できません。]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1295"/>
+        <location filename="Anime4K.cpp" line="1311"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="484"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1498"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1510"/>
-        <location filename="waifu2x_caffe.cpp" line="1335"/>
-        <location filename="waifu2x_converter.cpp" line="1329"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1514"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1526"/>
+        <location filename="waifu2x_caffe.cpp" line="1351"/>
+        <location filename="waifu2x_converter.cpp" line="1345"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="506"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1545"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1561"/>
         <source>File name:[</source>
         <translation>ファイル名：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1295"/>
+        <location filename="Anime4K.cpp" line="1311"/>
         <source>]  Scale progress:[</source>
         <translation>]スケールの進捗：[</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="858"/>
         <location filename="Anime4K.cpp" line="877"/>
-        <location filename="Anime4K.cpp" line="1323"/>
-        <location filename="Anime4K.cpp" line="1341"/>
+        <location filename="Anime4K.cpp" line="1339"/>
+        <location filename="Anime4K.cpp" line="1357"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1061"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1080"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1526"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1544"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1542"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1560"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1070"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1089"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1538"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1556"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1554"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1572"/>
         <location filename="waifu2x_caffe.cpp" line="895"/>
         <location filename="waifu2x_caffe.cpp" line="914"/>
-        <location filename="waifu2x_caffe.cpp" line="1363"/>
-        <location filename="waifu2x_caffe.cpp" line="1381"/>
+        <location filename="waifu2x_caffe.cpp" line="1379"/>
+        <location filename="waifu2x_caffe.cpp" line="1397"/>
         <location filename="waifu2x_converter.cpp" line="889"/>
         <location filename="waifu2x_converter.cpp" line="908"/>
-        <location filename="waifu2x_converter.cpp" line="1357"/>
-        <location filename="waifu2x_converter.cpp" line="1375"/>
+        <location filename="waifu2x_converter.cpp" line="1373"/>
+        <location filename="waifu2x_converter.cpp" line="1391"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1106"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1125"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1573"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1591"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1589"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1607"/>
         <source>]. Error: [Unable to scale all frames.]</source>
         <translation>]。 エラー：[すべてのフレームをスケーリングできません。]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="900"/>
-        <location filename="Anime4K.cpp" line="1369"/>
+        <location filename="Anime4K.cpp" line="1385"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1103"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1572"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1588"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1112"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1584"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1600"/>
         <location filename="waifu2x_caffe.cpp" line="937"/>
-        <location filename="waifu2x_caffe.cpp" line="1409"/>
+        <location filename="waifu2x_caffe.cpp" line="1425"/>
         <location filename="waifu2x_converter.cpp" line="931"/>
-        <location filename="waifu2x_converter.cpp" line="1403"/>
+        <location filename="waifu2x_converter.cpp" line="1419"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1148"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1619"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1635"/>
         <source>]. Error: [Unable to assemble pictures into videos.]</source>
         <translation>]。 エラー：[写真をビデオに組み立てることができません。]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1295"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1498"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1510"/>
-        <location filename="waifu2x_caffe.cpp" line="1335"/>
-        <location filename="waifu2x_converter.cpp" line="1329"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1545"/>
+        <location filename="Anime4K.cpp" line="1311"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1514"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1526"/>
+        <location filename="waifu2x_caffe.cpp" line="1351"/>
+        <location filename="waifu2x_converter.cpp" line="1345"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1561"/>
         <source>] Duration progress:[</source>
         <translation>] 期間の経過:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1407"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1610"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1622"/>
-        <location filename="waifu2x_caffe.cpp" line="1447"/>
-        <location filename="waifu2x_converter.cpp" line="1441"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1657"/>
+        <location filename="Anime4K.cpp" line="1423"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1626"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1638"/>
+        <location filename="waifu2x_caffe.cpp" line="1463"/>
+        <location filename="waifu2x_converter.cpp" line="1457"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1673"/>
         <source>]. Error: [Unable to assemble video clips.]</source>
         <translation>]. エラー: [ビデオクリップをアセンブルできません.]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="63"/>
         <location filename="Anime4K.cpp" line="548"/>
-        <location filename="Anime4K.cpp" line="1492"/>
+        <location filename="Anime4K.cpp" line="1508"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="70"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="643"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1693"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1709"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="71"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="646"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1705"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1721"/>
         <location filename="waifu2x_caffe.cpp" line="67"/>
         <location filename="waifu2x_caffe.cpp" line="569"/>
-        <location filename="waifu2x_caffe.cpp" line="1531"/>
+        <location filename="waifu2x_caffe.cpp" line="1547"/>
         <location filename="waifu2x_converter.cpp" line="71"/>
         <location filename="waifu2x_converter.cpp" line="576"/>
-        <location filename="waifu2x_converter.cpp" line="1535"/>
+        <location filename="waifu2x_converter.cpp" line="1551"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="72"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="667"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1742"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1758"/>
         <source>]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]</source>
         <translation>]。 エラー：[ソースファイルの解像度を読み取れないため、画像をカスタム解像度にスケーリングできません。]</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="113"/>
         <location filename="Anime4K.cpp" line="582"/>
-        <location filename="Anime4K.cpp" line="1526"/>
+        <location filename="Anime4K.cpp" line="1542"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="197"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="752"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1801"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1817"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="203"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="759"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1818"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1834"/>
         <location filename="waifu2x_caffe.cpp" line="136"/>
         <location filename="waifu2x_caffe.cpp" line="621"/>
-        <location filename="waifu2x_caffe.cpp" line="1583"/>
+        <location filename="waifu2x_caffe.cpp" line="1599"/>
         <location filename="waifu2x_converter.cpp" line="133"/>
         <location filename="waifu2x_converter.cpp" line="615"/>
-        <location filename="waifu2x_converter.cpp" line="1574"/>
+        <location filename="waifu2x_converter.cpp" line="1590"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="218"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="795"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1870"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1886"/>
         <source>Automatic retry, please wait.</source>
         <translation>自動再試行、お待ちください。</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1685"/>
+        <location filename="Anime4K.cpp" line="1701"/>
         <source>GPU List for Anime4K</source>
         <translation>Anime4KのGPUリスト</translation>
     </message>
@@ -3203,20 +3203,20 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">[アルファチャネルの自動検出]は、PCのwaifu2x-converterエンジンとの互換性に基づいて自動的に無効にされています。</translation>
     </message>
     <message>
-        <location filename="waifu2x_converter.cpp" line="1610"/>
+        <location filename="waifu2x_converter.cpp" line="1626"/>
         <source>Detecting available Processor, please wait.</source>
         <translation>使用可能なプロセッサを検出しています。お待ちください。</translation>
     </message>
     <message>
-        <location filename="waifu2x_converter.cpp" line="1624"/>
+        <location filename="waifu2x_converter.cpp" line="1640"/>
         <source>Please wait while testing the processor.</source>
         <translation>プロセッサのテスト中はお待ちください。</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1939"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1915"/>
-        <location filename="waifu2x_converter.cpp" line="1654"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1968"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1955"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1931"/>
+        <location filename="waifu2x_converter.cpp" line="1670"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1984"/>
         <source>Detection is complete!</source>
         <translation>検出が完了しました！</translation>
     </message>
@@ -3700,16 +3700,16 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">互換性テストが完了しました。 テキストボックスでテスト結果を確認し、テスト結果に基づいてエンジン設定を構成してください。</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1905"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1881"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1934"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1921"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1897"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1950"/>
         <source>Detecting available GPU, please wait.</source>
         <translation>利用可能なGPUを検出しています。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1942"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1918"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1971"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1958"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1934"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1987"/>
         <source>No available GPU ID detected!</source>
         <translation>利用可能なGPU IDが検出されません！</translation>
     </message>
@@ -3765,12 +3765,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
     </message>
     <message>
         <location filename="realsr_ncnn_vulkan.cpp" line="484"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1498"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1510"/>
-        <location filename="waifu2x_caffe.cpp" line="1335"/>
-        <location filename="waifu2x_converter.cpp" line="1329"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1514"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1526"/>
+        <location filename="waifu2x_caffe.cpp" line="1351"/>
+        <location filename="waifu2x_converter.cpp" line="1345"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="506"/>
-        <location filename="waifu2x_ncnn_vulkan.cpp" line="1545"/>
+        <location filename="waifu2x_ncnn_vulkan.cpp" line="1561"/>
         <source>]  Scale and Denoise progress:[</source>
         <translation>]スケーリングとノイズ除去の進行：[</translation>
     </message>

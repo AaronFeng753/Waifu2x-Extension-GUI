@@ -1414,10 +1414,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //================================== 开始分段处理视频 =================================================
     int StartTime = 0;//起始时间(秒)
     int VideoDuration = video_get_duration(video_mp4_fullpath);
-    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration)
-    {
-        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
-    }
     bool isSplitComplete = false;
     bool isScaleComplete = false;
     /*
@@ -1440,6 +1436,26 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     if(OLD_SegmentDuration>0)
     {
         read_OLD_SegmentDuration = true;
+    }
+    /*
+    加载进度条
+    */
+    int SegmentDuration_tmp_progressbar = 0;
+    if(read_OLD_SegmentDuration)
+    {
+        SegmentDuration_tmp_progressbar = OLD_SegmentDuration;
+    }
+    else
+    {
+        SegmentDuration_tmp_progressbar = SegmentDuration;
+    }
+    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration_tmp_progressbar)
+    {
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
+        if(StartTime>0)
+        {
+            emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(StartTime);
+        }
     }
     /*
     ============================================
