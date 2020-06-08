@@ -89,6 +89,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
     //=================== 存储 杂项设置 =================================
+    configIniWrite->setValue("/settings/checkBox_custres_isAll", ui->checkBox_custres_isAll->checkState());
     configIniWrite->setValue("/settings/SaveAsJPG", ui->checkBox_SaveAsJPG->checkState());
     configIniWrite->setValue("/settings/CompressJPG", ui->checkBox_CompressJPG->checkState());
     configIniWrite->setValue("/settings/DelOriginal", ui->checkBox_DelOriginal->checkState());
@@ -289,6 +290,7 @@ int MainWindow::Settings_Read_Apply()
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
     //================== 加载 杂项设置 ==================================
+    ui->checkBox_custres_isAll->setChecked(configIniRead->value("/settings/checkBox_custres_isAll").toBool());
     ui->checkBox_SaveAsJPG->setChecked(configIniRead->value("/settings/SaveAsJPG").toBool());
     ui->checkBox_CompressJPG->setChecked(configIniRead->value("/settings/CompressJPG").toBool());
     ui->checkBox_DelOriginal->setChecked(configIniRead->value("/settings/DelOriginal").toBool());

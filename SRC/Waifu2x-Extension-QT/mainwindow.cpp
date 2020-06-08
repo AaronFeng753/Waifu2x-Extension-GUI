@@ -160,7 +160,7 @@ int MainWindow::Auto_Save_Settings_Watchdog()
     QString settings_ini = Current_Path+"/settings.ini";
     while(!file_isFileExist(settings_ini))
     {
-        Delay_msec_sleep(100);
+        Delay_msec_sleep(250);
     }
     Delay_msec_sleep(500);
     //=====
@@ -410,6 +410,7 @@ void MainWindow::on_pushButton_Start_clicked()
     }
     else
     {
+        Table_ChangeAllStatusToWaiting();//将table内没开始处理或者被打断的条目状态变为等待中
         //============== 判断是否需要隐藏ETA和剩余时间 ================
         if(Table_model_gif->rowCount()!=0||Table_model_video->rowCount()!=0)
         {
@@ -470,7 +471,6 @@ void MainWindow::on_pushButton_Start_clicked()
         TimeCost=0;
         TimeCostTimer->start(1000);
         emit Send_TextBrowser_NewMessage(tr("Start processing files."));
-        Table_ChangeAllStatusToWaiting();
         Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
     }
 }
@@ -1188,6 +1188,15 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
     QString settings_ini = Current_Path+"/settings.ini";
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
+    //==========
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("Custom Font Settings saved successfully.\n\nRestart the software to take effect."));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+    //==========
+    return;
 }
 
 void MainWindow::on_pushButton_BrowserFile_clicked()

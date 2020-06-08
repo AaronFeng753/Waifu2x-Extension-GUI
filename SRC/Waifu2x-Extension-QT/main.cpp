@@ -32,6 +32,14 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.44.07-beta:
+- 缩短生成预处理图片时标记字符串的长度.
+- 保存字体设定后,弹窗提示用户重启软件以生效.
+- 性能优化.
+- 补全翻译.
+- 修复bug:无法查询[waifu2x-ncnn-vulkan,SRMD-ncnn-Vulkan,realsr-ncnn-vulkan]引擎的GPU ID.
+- 修复bug:当启用预处理图片后,自定义分辨率设定无效.
+- 修复bug:没有存储是否将自定义分辨率设定应用到全部的设置值.
 v2.44.06-beta:
 - 更新 ImageMagick.
 - 添加tooltip.

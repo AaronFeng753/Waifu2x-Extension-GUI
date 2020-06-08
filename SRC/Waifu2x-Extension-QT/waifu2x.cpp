@@ -22,7 +22,11 @@
 
 int MainWindow::Waifu2xMainThread()
 {
-    Delay_msec_sleep(1000);
+    //在table中的状态修改完成前一直block,防止偶发的多线程错误
+    QMutex_Table_ChangeAllStatusToWaiting.lock();
+    NULL;
+    QMutex_Table_ChangeAllStatusToWaiting.unlock();
+    //=======================
     int rowCount_image = Table_model_image->rowCount();
     int rowCount_gif = Table_model_gif->rowCount();
     int rowCount_video = Table_model_video->rowCount();
@@ -40,7 +44,7 @@ int MainWindow::Waifu2xMainThread()
             {
                 while (ThreadNumRunning > 0)
                 {
-                    Delay_msec_sleep(500);
+                    Delay_msec_sleep(750);
                 }
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
@@ -78,7 +82,7 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
-                            Delay_msec_sleep(500);
+                            Delay_msec_sleep(750);
                         }
                         break;
                     }
@@ -90,7 +94,7 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
-                            Delay_msec_sleep(500);
+                            Delay_msec_sleep(750);
                         }
                         break;
                     }
@@ -102,7 +106,7 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
-                            Delay_msec_sleep(500);
+                            Delay_msec_sleep(750);
                         }
                         break;
                     }
@@ -114,7 +118,7 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::Anime4k_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
-                            Delay_msec_sleep(500);
+                            Delay_msec_sleep(750);
                         }
                         break;
                     }
@@ -126,7 +130,7 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
-                            Delay_msec_sleep(500);
+                            Delay_msec_sleep(750);
                         }
                         break;
                     }
@@ -138,7 +142,7 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, i);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
-                            Delay_msec_sleep(500);
+                            Delay_msec_sleep(750);
                         }
                         break;
                     }
@@ -147,7 +151,7 @@ int MainWindow::Waifu2xMainThread()
     }
     while (ThreadNumRunning>0)
     {
-        Delay_msec_sleep(500);
+        Delay_msec_sleep(750);
     }
     //=========================================================
     //                   GIF 线程调度
@@ -161,7 +165,7 @@ int MainWindow::Waifu2xMainThread()
             {
                 while (ThreadNumRunning > 0)
                 {
-                    Delay_msec_sleep(500);
+                    Delay_msec_sleep(750);
                 }
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
@@ -234,6 +238,9 @@ int MainWindow::Waifu2xMainThread()
             }
         }
     }
+    //=========================================================
+    //                   视频 线程调度
+    //===========================================================
     if(rowCount_video>0)
     {
         int VideoEngine = ui->comboBox_Engine_Video->currentIndex();
@@ -243,7 +250,7 @@ int MainWindow::Waifu2xMainThread()
             {
                 while (ThreadNumRunning > 0)
                 {
-                    Delay_msec_sleep(500);
+                    Delay_msec_sleep(750);
                 }
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
@@ -1106,7 +1113,7 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     QMutex_Imgae_Convert2PNG.lock();
     do
     {
-        QString DateStr = QDateTime::currentDateTime().toString("yyMMddhhmmss");
+        QString DateStr = QDateTime::currentDateTime().toString("hhmmss");
         OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//存储视频片段的文件夹(完整路径)
     }
     while(file_isFileExist(OutPut_Path));

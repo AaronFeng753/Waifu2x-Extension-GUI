@@ -213,6 +213,7 @@ void MainWindow::Table_video_CustRes_Cancel_rowNumInt(int rowNum)
 
 void MainWindow::Table_ChangeAllStatusToWaiting()
 {
+    QMutex_Table_ChangeAllStatusToWaiting.lock();
     ui->tableView_image->setUpdatesEnabled(false);
     ui->tableView_gif->setUpdatesEnabled(false);
     ui->tableView_video->setUpdatesEnabled(false);
@@ -286,6 +287,7 @@ void MainWindow::Table_ChangeAllStatusToWaiting()
     ui->tableView_image->setUpdatesEnabled(true);
     ui->tableView_gif->setUpdatesEnabled(true);
     ui->tableView_video->setUpdatesEnabled(true);
+    QMutex_Table_ChangeAllStatusToWaiting.unlock();
 }
 
 void MainWindow::Table_Clear()

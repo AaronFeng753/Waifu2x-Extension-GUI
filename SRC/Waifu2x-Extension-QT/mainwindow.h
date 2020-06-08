@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.44.06-beta";//软件版本号
+    QString VERSION = "v2.44.07-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.43.17";
     //=======================
@@ -114,6 +114,7 @@ public:
     bool file_isFilesFolderWritable_row_image(int rowNum);
     bool file_isFilesFolderWritable_row_video(int rowNum);
     bool file_isFilesFolderWritable_row_gif(int rowNum);
+
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
@@ -125,6 +126,8 @@ public:
     void Table_video_CustRes_Cancel_rowNumInt(int rowNum);
 
     void Table_ChangeAllStatusToWaiting();//将所有row的状态改为waiting
+    QMutex QMutex_Table_ChangeAllStatusToWaiting;
+
     void Table_Clear();//清空tableview
     //获取下一个row值(用于插入新数据
     int Table_image_get_rowNum();

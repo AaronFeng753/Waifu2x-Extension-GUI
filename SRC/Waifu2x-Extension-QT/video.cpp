@@ -192,6 +192,14 @@ void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
     video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" \""+AudioPath+"\"");
     while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
+    if(QFile::exists(AudioPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Successfully extracted audio from video: [")+VideoPath+"]");
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Failed to extract audio from video: [")+VideoPath+tr("] This video might be a silent video, so will continue to process this video."));
+    }
 }
 /*
 将视频转换为mp4
@@ -246,6 +254,11 @@ void MainWindow::video_2mp4(QString VideoPath)
         video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
         while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
+        //======
+        if(QFile::exists(video_mp4_fullpath))
+        {
+            emit Send_TextBrowser_NewMessage(tr("Successfully converted video: [")+VideoPath+tr("] to mp4"));
+        }
     }
 }
 
@@ -308,6 +321,8 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     sox 输入音频.wav -n noiseprof 噪音分析.prof
     sox 输入音频.wav 输出音频.wav noisered 噪音分析.prof 0.21
     */
+    emit Send_TextBrowser_NewMessage(tr("Starting to denoise audio.[")+OriginalAudioPath+"]");
+    //===========
     QFileInfo fileinfo(OriginalAudioPath);
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
@@ -329,6 +344,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     //================
     if(file_isFileExist(DenoisedAudio))
     {
+        emit Send_TextBrowser_NewMessage(tr("Successfully denoise audio.[")+OriginalAudioPath+"]");
         QFile::remove(DenoiseProfile);
         return DenoisedAudio;
     }

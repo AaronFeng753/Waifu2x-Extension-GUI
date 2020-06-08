@@ -61,14 +61,14 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
     int CustRes_height=0;
     int CustRes_width=0;
     //检查是是否有自定义分辨率
-    if(CustRes_isContained(SourceFile_fullPath))
+    if(CustRes_isContained(SourceFile_fullPath_Original))
     {
         CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath_Original);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath_Original,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
@@ -1897,7 +1897,7 @@ int MainWindow::SRMD_DetectGPU()
     emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
     //===============
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.png";
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";

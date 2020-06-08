@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1908,7 +1908,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -3972,7 +3972,7 @@ likelihood of removing wanted components of the audio signal.</string>
               <double>0.010000000000000</double>
              </property>
              <property name="value">
-              <double>0.250000000000000</double>
+              <double>0.200000000000000</double>
              </property>
             </widget>
            </item>
