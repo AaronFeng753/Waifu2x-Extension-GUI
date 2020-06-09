@@ -1728,6 +1728,7 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
     Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
     return Waifu2x_Caffe_Settings_str;
 }
+//判断是否启用了caffe引擎
 bool MainWindow::isWaifu2xCaffeEnabled()
 {
     if(ui->comboBox_Engine_Image->currentIndex()!=4&&ui->comboBox_Engine_GIF->currentIndex()!=4&&ui->comboBox_Engine_Video->currentIndex()!=4)
@@ -1737,5 +1738,25 @@ bool MainWindow::isWaifu2xCaffeEnabled()
     else
     {
         return true;
+    }
+}
+/*
+删除caffe引擎生成的错误日志
+*/
+void MainWindow::DeleteErrorLog_Waifu2xCaffe()
+{
+    QStringList FileNameList = file_getFileNames_in_Folder_nofilter(Current_Path);//读取合法的文件名
+    QString Full_Path_File = "";
+    if(!FileNameList.isEmpty())
+    {
+        for(int i = 0; i < FileNameList.size(); i++)
+        {
+            QString tmp = FileNameList.at(i);
+            Full_Path_File = Current_Path + "/" + tmp;
+            if(Full_Path_File.contains("error_log_"))
+            {
+                QFile::remove(Full_Path_File);
+            }
+        }
     }
 }

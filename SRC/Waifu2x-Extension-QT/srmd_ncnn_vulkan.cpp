@@ -1882,10 +1882,14 @@ SRMD 检测可用GPU
 */
 void MainWindow::on_pushButton_DetectGPUID_srmd_clicked()
 {
+    //===
+    ui->pushButton_DetectGPUID_srmd->setText(tr("Detecting, please wait..."));
+    //===
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(0);
     Available_GPUID_srmd.clear();
@@ -1944,6 +1948,7 @@ void MainWindow::SRMD_DetectGPU_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //====
     ui->comboBox_GPUID_srmd->clear();
@@ -1955,6 +1960,9 @@ void MainWindow::SRMD_DetectGPU_finished()
             ui->comboBox_GPUID_srmd->addItem(Available_GPUID_srmd.at(i));
         }
     }
+    //===
+    ui->pushButton_DetectGPUID_srmd->setText(tr("Detect available GPU ID"));
+    //===
 }
 
 void MainWindow::on_comboBox_GPUID_srmd_currentIndexChanged(int index)

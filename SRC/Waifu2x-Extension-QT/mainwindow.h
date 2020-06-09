@@ -68,9 +68,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.44.07-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.43.17";
+    QString VERSION = "v2.44.18";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.44.18";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -87,7 +87,7 @@ public:
     bool AddNew_video=false;//判断是否有新增文件-视频
     void Add_File_Folder(QString Full_Path);//添加文件or文件夹(判断一个路径是文件还是文件夹,然后处理判断类型添加到table和file list)
     void Add_File_Folder_IncludeSubFolder(QString Full_Path);//添加文件文件夹(扫描子文件夹
-    QStringList getFileNames(QString path);//当拖入的路径是文件夹时,读取文件夹内指定扩展名的文件并返回一个qstringlist
+
     QStringList getFileNames_IncludeSubFolder(QString path);//读取文件列表, 包括文件夹
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
 
@@ -214,6 +214,7 @@ public:
     int Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Waifu2x_Caffe_ReadSettings(bool isImage);
     bool isWaifu2xCaffeEnabled();
+    void DeleteErrorLog_Waifu2xCaffe();
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
     bool waifu2x_STOP = false;//负责通知waifu2x主线程及其子线程的停止信号

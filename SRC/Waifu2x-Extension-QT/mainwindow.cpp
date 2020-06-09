@@ -95,6 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
     //=====================================
     Set_Font_fixed();//固定字体
     //=====================================
+    QtConcurrent::run(this, &MainWindow::DeleteErrorLog_Waifu2xCaffe);//删除Waifu2xCaffe生成的错误日志
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     DownloadOnlineQRCode = QtConcurrent::run(this, &MainWindow::Donate_DownloadOnlineQRCode);//在线更新捐赠二维码
     SystemShutDown_isAutoShutDown();//上次是否自动关机
@@ -406,7 +407,14 @@ void MainWindow::on_pushButton_Start_clicked()
     //=============================
     if(Table_model_image->rowCount()==0&&Table_model_gif->rowCount()==0&&Table_model_video->rowCount()==0)
     {
-        emit Send_TextBrowser_NewMessage(tr("Unable to start processing files: The file list is empty."));
+        //=====
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("Unable to start processing files: The file list is empty."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+        //=====
     }
     else
     {
@@ -1027,12 +1035,29 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         Init_Table();
         Set_Font_fixed();
         //=========
-        ui->groupBox_Setting->setVisible(1);
-        isSettingsHide=false;
-        ui->pushButton_HideSettings->setText(tr("Hide settings"));
+        if(ui->checkBox_AlwaysHideSettings->checkState())
+        {
+            ui->groupBox_Setting->setVisible(0);
+            isSettingsHide=true;
+            ui->pushButton_HideSettings->setText(tr("Show settings"));
+        }
+        else
+        {
+            ui->groupBox_Setting->setVisible(1);
+            isSettingsHide=false;
+            ui->pushButton_HideSettings->setText(tr("Hide settings"));
+        }
         //=========
-        ui->textBrowser->setVisible(1);
-        ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
+        if(ui->checkBox_AlwaysHideTextBrowser->checkState())
+        {
+            ui->textBrowser->setVisible(0);
+            ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
+        }
+        else
+        {
+            ui->textBrowser->setVisible(1);
+            ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
+        }
         //=========
         if(this->windowState()!=Qt::WindowMaximized)
         {
@@ -1075,6 +1100,9 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(file_isFileExist(Table_FileList_ini))
     {
+        //===
+        ui->pushButton_ReadFileList->setText(tr("Loading..."));
+        //===
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Start->setEnabled(0);//禁用start button
         ui->pushButton_ClearList->setEnabled(0);
@@ -1189,12 +1217,15 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
     //==========
-    QMessageBox *MSG = new QMessageBox();
-    MSG->setWindowTitle(tr("Notification"));
-    MSG->setText(tr("Custom Font Settings saved successfully.\n\nRestart the software to take effect."));
-    MSG->setIcon(QMessageBox::Information);
-    MSG->setModal(true);
-    MSG->show();
+    if(ui->checkBox_isCustFontEnable->checkState())
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Notification"));
+        MSG->setText(tr("Custom Font Settings saved successfully.\n\nRestart the software to take effect."));
+        MSG->setIcon(QMessageBox::Information);
+        MSG->setModal(true);
+        MSG->show();
+    }
     //==========
     return;
 }

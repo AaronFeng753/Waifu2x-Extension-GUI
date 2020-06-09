@@ -1608,10 +1608,14 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
 
 void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
 {
+    //=====
+    ui->pushButton_DumpProcessorList_converter->setText(tr("Loading, please wait..."));
+    //=====
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(0);
     QtConcurrent::run(this, &MainWindow::Waifu2x_DumpProcessorList_converter);
@@ -1678,6 +1682,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //===========================
     ui->comboBox_TargetProcessor_converter->clear();
@@ -1689,6 +1694,9 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
             ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
         }
     }
+    //=====
+    ui->pushButton_DumpProcessorList_converter->setText(tr("Dump processor list"));
+    //=====
     return 0;
 }
 

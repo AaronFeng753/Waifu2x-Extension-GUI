@@ -147,7 +147,7 @@ void MainWindow::Add_File_Folder(QString Full_Path)
     }
     else
     {
-        QStringList FileNameList = getFileNames(Full_Path);//读取合法的文件名
+        QStringList FileNameList = file_getFileNames_in_Folder_nofilter(Full_Path);//读取合法的文件名
         QString Full_Path_File = "";
         if(!FileNameList.isEmpty())
         {
@@ -204,19 +204,53 @@ void MainWindow::Add_File_Folder_IncludeSubFolder(QString Full_Path)
 */
 QStringList MainWindow::getFileNames_IncludeSubFolder(QString path)
 {
+    /*
     QDir dir(path);
     QStringList files = dir.entryList(QDir::Dirs | QDir::Files | QDir::Writable, QDir::Name);
     return files;
+    */
+    QDir dir(path);
+    QStringList files_old;
+    QStringList files_new;
+    while(true)
+    {
+        files_new = dir.entryList(QDir::Dirs | QDir::Files | QDir::Writable, QDir::Name);
+        if(files_new!=files_old)
+        {
+            files_old = files_new;
+            Delay_msec_sleep(100);
+        }
+        else
+        {
+            break;
+        }
+    }
+    return files_new;
 }
 /*
-读取文件夹下的文件名(不包括子文件夹
+扫描文件夹下文件名列表(无过滤
 */
-QStringList MainWindow::getFileNames(QString path)
+QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
 {
     QDir dir(path);
-    QStringList files = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
-    return files;
+    QStringList files_old;
+    QStringList files_new;
+    while(true)
+    {
+        files_new = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
+        if(files_new!=files_old)
+        {
+            files_old = files_new;
+            Delay_msec_sleep(100);
+        }
+        else
+        {
+            break;
+        }
+    }
+    return files_new;
 }
+
 /*
 向文件列表和table添加文件
 */
@@ -368,48 +402,7 @@ bool MainWindow::file_isFileExist(QString fullFilePath)
     return false;
 }
 //===================================================================================
-/*
-复制文件
-*/
-/*
-void MainWindow::file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist)
-{
-    toDir.replace("\\", "/");
-    QDir *createfile     = new QDir;
-    bool exist = createfile->exists(toDir);
-    if (exist)
-    {
-        if(coverFileIfExist)
-        {
-            createfile->remove(toDir);
-        }
-    }//end if
-    QFile::copy(sourceDir, toDir);
-}*/
-//=======================================================================================
-/*
-扫描文件夹下文件名列表(无过滤
-*/
-QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
-{
-    QDir dir(path);
-    QStringList files_old;
-    QStringList files_new;
-    while(true)
-    {
-        files_new = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
-        if(files_new!=files_old)
-        {
-            files_old = files_new;
-            Delay_sec_sleep(2);
-        }
-        else
-        {
-            break;
-        }
-    }
-    return files_new;
-}
+
 /*
 删除文件夹
 */

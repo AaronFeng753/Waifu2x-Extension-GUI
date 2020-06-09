@@ -1208,7 +1208,10 @@ into a directory that can run normally without administrator rights.</string>
                  <enum>Qt::WheelFocus</enum>
                 </property>
                 <property name="toolTip">
-                 <string>Range: 1 ~ 999999999</string>
+                 <string>Range: 1 ~ 999999999
+
+!Warning! When the [Scale ratio] is too large,
+it might cause the software to crash.</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1263,7 +1266,10 @@ into a directory that can run normally without administrator rights.</string>
                  <enum>Qt::WheelFocus</enum>
                 </property>
                 <property name="toolTip">
-                 <string>Range: 1 ~ 999999999</string>
+                 <string>Range: 1 ~ 999999999
+
+!Warning! When the [Scale ratio] is too large,
+it might cause the software to crash.</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -1332,7 +1338,10 @@ into a directory that can run normally without administrator rights.</string>
                  <enum>Qt::WheelFocus</enum>
                 </property>
                 <property name="toolTip">
-                 <string>Range: 1 ~ 999999999</string>
+                 <string>Range: 1 ~ 999999999
+
+!Warning! When the [Scale ratio] is too large,
+it might cause the software to crash.</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -2697,7 +2706,41 @@ padding:10px;
                  </property>
                 </widget>
                </item>
-               <item row="3" column="11">
+               <item row="3" column="4">
+                <widget class="QLabel" name="label_49">
+                 <property name="toolTip">
+                  <string>Limit the number of color pushes.</string>
+                 </property>
+                 <property name="text">
+                  <string>Push color count:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
+                <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
+                 <property name="toolTip">
+                  <string>Enable GPU acceleration.</string>
+                 </property>
+                 <property name="text">
+                  <string>GPU Mode</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>Enable ACNet.
+Will improve image quality.</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">ACNet</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="11" colspan="2">
                 <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
                  <property name="maximum">
                   <double>1.000000000000000</double>
@@ -2747,40 +2790,6 @@ padding:10px;
                  </property>
                  <property name="text">
                   <string>List GPUs</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="4">
-                <widget class="QLabel" name="label_49">
-                 <property name="toolTip">
-                  <string>Limit the number of color pushes.</string>
-                 </property>
-                 <property name="text">
-                  <string>Push color count:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="3">
-                <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
-                 <property name="toolTip">
-                  <string>Enable GPU acceleration.</string>
-                 </property>
-                 <property name="text">
-                  <string>GPU Mode</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>Enable ACNet.
-Will improve image quality.</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">ACNet</string>
                  </property>
                 </widget>
                </item>
@@ -3597,6 +3606,9 @@ padding:10px;
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
               <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="title">
                 <string>Output video</string>
                </property>
@@ -3747,6 +3759,9 @@ padding:10px;
              </item>
              <item>
               <widget class="QGroupBox" name="groupBox_ToMp4VideoSettings">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
                <property name="title">
                 <string>When convert video to mp4</string>
                </property>
@@ -4480,13 +4495,6 @@ when processing video in segments.</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="3">
-               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
-                <property name="text">
-                 <string>Enable</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_24">
                 <property name="text">
@@ -4494,18 +4502,6 @@ when processing video in segments.</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1" colspan="2">
-               <widget class="QFontComboBox" name="fontComboBox_CustFont">
-                <property name="currentText">
-                 <string notr="true">宋体</string>
-                </property>
-                <property name="currentFont">
-                 <font>
-                  <family>宋体</family>
-                 </font>
                 </property>
                </widget>
               </item>
@@ -4568,6 +4564,28 @@ padding:10px;
                 </property>
                 <property name="value">
                  <number>15</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="3">
+               <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                <property name="currentText">
+                 <string notr="true">宋体</string>
+                </property>
+                <property name="currentFont">
+                 <font>
+                  <family>宋体</family>
+                 </font>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2" colspan="2">
+               <widget class="QCheckBox" name="checkBox_isCustFontEnable">
+                <property name="toolTip">
+                 <string>Enable Custom Font Settings.</string>
+                </property>
+                <property name="text">
+                 <string>Enable</string>
                 </property>
                </widget>
               </item>

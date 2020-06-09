@@ -507,6 +507,14 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
     emit Send_TextBrowser_NewMessage(tr("File list saved successfully!"));
+    //===
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("File list saved successfully!"));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+    //===
     return 0;
 }
 
@@ -715,6 +723,9 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
         Send_TextBrowser_NewMessage(tr("The file list saved last time is empty."));
         progressbar_clear();
     }
+    //===
+    ui->pushButton_ReadFileList->setText(tr("Read Files List"));
+    //===
     return 0;
 }
 

@@ -1686,6 +1686,8 @@ QString MainWindow::Anime4k_ReadSettings()
 
 void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
 {
+    ui->pushButton_ListGPUs_Anime4k->setText(tr("Loading..."));
+    //====
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     QString cmd = "\"" + program + "\" -l";
@@ -1703,5 +1705,7 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
     MSG->setIcon(QMessageBox::Information);
     MSG->setModal(true);
     MSG->show();
+    //====
+    ui->pushButton_ListGPUs_Anime4k->setText(tr("List GPUs"));
 }
 
