@@ -32,50 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.44.18:
-- 添加tooltip.
+v2.45.01-beta:
 - 改进GUI.
-- 性能优化.
-- 提高稳定性.
-- 自动删除caffe引擎生成的错误日志.
-- 修复bug:当切换语言时,一直隐藏设置&文本框设定无效.
-v2.44.07-beta:
-- 缩短生成预处理图片时标记字符串的长度.
-- 保存字体设定后,弹窗提示用户重启软件以生效.
-- 性能优化.
-- 补全翻译.
-- 修复bug:无法查询[waifu2x-ncnn-vulkan,SRMD-ncnn-Vulkan,realsr-ncnn-vulkan]引擎的GPU ID.
-- 修复bug:当启用预处理图片后,自定义分辨率设定无效.
-- 修复bug:没有存储是否将自定义分辨率设定应用到全部的设置值.
-v2.44.06-beta:
-- 更新 ImageMagick.
-- 添加tooltip.
-- 将编码器列表移动到本地.
-- 优化GUI.
-- 修复bug:当处理视频和GIF时,当前文件进度的显示存在若干问题.
-v2.44.05-beta:
-- 当检测到Alpha通道时在文本框内输出提示.
-- 补全翻译.
-v2.44.04-beta:
-- 更新 waifu2x-ncnn-vulkan.
-- 更新 SRMD-ncnn-Vulkan.
-- 更新 realsr-ncnn-vulkan.
-v2.44.03-beta:
-- 更新 waifu2x-ncnn-vulkan.
-- 更新 SRMD-ncnn-Vulkan.
-- 更新 realsr-ncnn-vulkan.
-- 更改兼容性测试的输出文件格式以适配新版引擎.
-v2.44.02-beta:
-- 修改协助用户自动调整引擎设置时的策略.
-- 性能优化.
-- 修复bug:当使用waifu2x-caffe引擎处理视频和GIF时,自定义分辨率设定无法正常生效.
-v2.44.01-beta:
-- 新特性:为Anime4K引擎加入ACNet支持.
-- 更新Anime4K.
-- 支持将重试次数设定为0(即不重试).
-- 修复bug:重试次数比显示的少一次.
-- 修复bug:即使没有进行重试依旧在文本框内弹出重试提示.
-- 修复bug:处理图片失败时,没有删除预处理图片时生成的缓存.
+- 更新ImageMagick.
 --------------------------------------------------------------------------
 To do:
 - 最小化到托盘
@@ -91,7 +50,7 @@ Integrated component(In releases):
 - waifu2x-ncnn-vulkan 20200606(release)
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
-- ImageMagick 7.0.10-17-Q16-x64(release)
+- ImageMagick 7.0.10-18 Q16 x64(release)
 - Anime4KCPP v2.0.0(release)
 - ffmpeg version 4.2.3(release)
 ---

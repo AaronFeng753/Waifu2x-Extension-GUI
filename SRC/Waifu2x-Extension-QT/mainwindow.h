@@ -68,8 +68,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.44.18";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.45.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.44.18";
     //=======================
     QTranslator * translator;//界面翻译
