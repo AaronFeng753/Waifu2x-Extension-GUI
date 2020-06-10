@@ -1610,6 +1610,13 @@ folder as the source file.</string>
                 </property>
                </widget>
               </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
+                <property name="text">
+                 <string>Keep original file name</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>

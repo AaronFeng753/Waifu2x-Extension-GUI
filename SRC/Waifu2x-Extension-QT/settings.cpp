@@ -143,6 +143,7 @@ int MainWindow::Settings_Save()
     //==================== 存储输出路径设置 ========================
     configIniWrite->setValue("/settings/OutPutPath", ui->lineEdit_outputPath->text());
     configIniWrite->setValue("/settings/OutPutPathIsEnabled", ui->checkBox_OutPath_isEnabled->checkState());
+    configIniWrite->setValue("/settings/checkBox_OutPath_KeepOriginalFileName", ui->checkBox_OutPath_KeepOriginalFileName->checkState());
     //=================== 存储Anime4k设置 =============================
     configIniWrite->setValue("/settings/checkBox_FastMode_Anime4K", ui->checkBox_FastMode_Anime4K->checkState());
     configIniWrite->setValue("/settings/checkBox_ACNet_Anime4K", ui->checkBox_ACNet_Anime4K->checkState());
@@ -339,6 +340,7 @@ int MainWindow::Settings_Read_Apply()
     //=============== 加载输出路径设置 ===========================
     ui->lineEdit_outputPath->setText(configIniRead->value("/settings/OutPutPath").toString());
     ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());
+    ui->checkBox_OutPath_KeepOriginalFileName->setChecked(configIniRead->value("/settings/checkBox_OutPath_KeepOriginalFileName").toBool());
     //================== 加载Anime4k设置 ===================================
     ui->checkBox_FastMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_FastMode_Anime4K").toBool());
     ui->checkBox_ACNet_Anime4K->setChecked(configIniRead->value("/settings/checkBox_ACNet_Anime4K").toBool());

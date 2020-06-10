@@ -347,7 +347,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -609,7 +609,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1149,7 +1149,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1673,7 +1673,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();

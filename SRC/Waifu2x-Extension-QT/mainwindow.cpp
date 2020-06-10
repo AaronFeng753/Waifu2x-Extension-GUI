@@ -1491,7 +1491,7 @@ void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
 
 void MainWindow::on_pushButton_encodersList_clicked()
 {
-    QDesktopServices::openUrl(QUrl(Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.txt"));
+    QDesktopServices::openUrl(QUrl("file:"+Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.txt"));
 }
 
 void MainWindow::Tip_FirstTimeStart()
@@ -1603,10 +1603,12 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     if(ui->checkBox_OutPath_isEnabled->checkState())
     {
         ui->lineEdit_outputPath->setEnabled(1);
+        ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(1);
     }
     else
     {
         ui->lineEdit_outputPath->setEnabled(0);
+        ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(0);
     }
 }
 

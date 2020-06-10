@@ -479,10 +479,21 @@ void MainWindow::file_MoveToTrash( QString file )
 /*
 移动文件
 */
-void MainWindow::file_MoveFile(QString Orginal,QString Target)
+void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFilePath)
 {
     if(file_isFileExist(Orginal))
     {
+        //判断是否要保留文件名,若要保留,则替换掉原目标路径
+        if(ui->checkBox_OutPath_KeepOriginalFileName->checkState())
+        {
+            QFileInfo fileinfo_source(SourceFilePath);
+            QString file_name = file_getBaseName(fileinfo_source.filePath());
+            QFileInfo fileinfo_Target(Target);
+            QString file_ext = fileinfo_Target.suffix();
+            QString file_path = file_getFolderPath(fileinfo_Target);
+            Target = file_path+"/"+file_name+"."+file_ext;
+        }
+        //判断输出路径是否有和目标文件重名的
         if(file_isFileExist(Target))
         {
             while(true)

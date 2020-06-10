@@ -68,7 +68,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.45.01-beta";//软件版本号
+    QString VERSION = "v2.45.02-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.44.18";
     //=======================
@@ -104,7 +104,7 @@ public:
 
     void file_MoveToTrash( QString file );//移动到回收站
 
-    void file_MoveFile(QString Orginal,QString Target);//移动文件
+    void file_MoveFile(QString Orginal,QString Target,QString SourceFilePath);//移动文件
 
     QString file_getFolderPath(QFileInfo fileInfo);//获取文件夹路径(去除末尾的"/")
 
