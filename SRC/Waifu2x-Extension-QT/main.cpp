@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.45.03-beta:
+- 修复bug:无法处理某些特殊的GIF.
 v2.45.02-beta:
 - 新特性:保留源文件名.(可选,默认禁用)
 - 修复bug:当安装路径内有空格时,无法打开本地存储的FFmpeg编码器列表.
