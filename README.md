@@ -31,13 +31,26 @@ The beta build has a faster update cycle than the stable build, which allows you
 Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
 
 # What is Waifu2x-Extension-GUI?
-`Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Based on `Waifu2x-ncnn-vulkan`,`SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe`,`RealSR-ncnn-vulkan` and `Anime4KCPP`. 
+### `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-Thanks to waifu2x-ncnn-vulkan & SRMD-ncnn-Vulkan & RealSR-ncnn-vulkan, Waifu2x-Extension-GUI could use any kind of gpu that supports `Vulkan`, including `Intel/AMD/Nvidia` GPUs. 
+### Key features:
+- #### Multimedia support: Supports processing Image & GIF & Video at the same time.
+- #### Full image style support: Multiple built-in algorithms, 2D anime or your daily photos & videos, this software can handle all of them.
+- #### Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
+- Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
+- Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
+- Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
+- Easy-to-use graphical user interface.
+- Continually maintenance and updates.
 
-If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caffe, which is also intergrated into Waifu2x-Extension-GUI.
+```
+Built-in image processing algorithm:
+Waifu2x / SRMD / RealSR / Anime4K / ACNet
+
+Built-in image processing engine:
+Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
+```
 
 #### Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
@@ -46,24 +59,6 @@ If your gpu doesn't support vulkan, you can use Waifu2x-converter or Waifu2x-Caf
 ![Engine_Settings](/Screenshot/Engine_Settings_EN.jpg)
 
 ![Additional_Settings](/Screenshot/Additional_Settings_EN.jpg)
-
-# Features
-- Easy to use graphical user interface
-- Supports batch processing of still pictures, gifs and videos
-- Supports anime style and 3D realistic style images (that is, supports all image styles)
-- Multiple integrated engines, strong hardware compatibility and support for NVIDIA, Intel and AMD GPUs
-- Unlimited scale ratio
-- Custom output resolution (support pictures & GIF & video)
-- Audio denoising for video
-- Flexible multi-thread management
-- Processing video in segments, greatly reducing the hard disk space occupied when processing video.
-- Support to save enlarged and noise-reduced pictures as .jpg and automatically perform lossless compression
-- Automatically optimize the volume of the processed gif
-- Compatibility test
-- Multi-language (supports English, Simplified Chinese, Japanese)
-- Support to store personalization settings and apply them automatically at startup
-- Continually updated
-- And more
 
 # Samples
 
