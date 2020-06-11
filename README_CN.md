@@ -51,10 +51,10 @@
 - 持续的维护与更新.
 
 ```
-内置算法:
+内置图像处理算法:
 Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
-内置引擎:
+内置图像处理引擎:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
 ```
 
