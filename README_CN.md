@@ -37,13 +37,25 @@
 [点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
 # Waifu2x-Extension-GUI是什么?
- 借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
+借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
-基于 `Waifu2x-ncnn-vulkan`, `SRMD-ncnn-Vulkan`,`Waifu2x-converter`,`Waifu2x-Caffe`,`realsr-ncnn-vulkan`和`Anime4KCPP`. 
+### 主要特性:
+- #### 自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF 和 视频.
+- #### 全图像风格支持: 内置多种算法,无论是 二次元动漫 还是 您日常拍摄的照片&录像 ,都可以进行清晰化处理.
+- #### 强大的兼容性: 内置多个引擎,几乎与所有现代 Windows PC 兼容.
+- 灵活的多线程设定: 在为每个引擎提供完备的设置项的同时,您也可以自由调整线程数量,充分利用PC的一切性能.
+- 众多自定义设置: 您可以通过调整软件内的众多自定义设置实现自动化的工作流.
+- 智能设定: 程序可根据您的PC硬件信息和您要处理文件的信息自动调整部分软件设定.
+- 易于使用的图形用户界面.
+- 持续的维护与更新.
 
-借助waifu2x-ncnn-vulkan,SRMD-ncnn-Vulkan以及realsr-ncnn-vulkan, Waifu2x-Extension-GUI 可以借助任何支持`Vulkan`的显卡进行运算,包括`Intel/AMD/Nvidia`. 
+```
+内置算法:
+Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
-如果您的显卡不支持vulkan, 您还可以将引擎切换为Waifu2x-converter或者Waifu2x-Caffe,同样可以很快的对图像进行放大与降噪.
+内置引擎:
+Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
+```
 
 #### 已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
 
@@ -52,24 +64,6 @@
 ![Engine_Settings](/Screenshot/Engine_Settings_CN.jpg)
 
 ![Additional_Settings](/Screenshot/Additional_Settings_CN.jpg)
-
-# 主要特性
-- 简单易用的图形用户界面
-- 支持批量处理静态图片，gif和视频
-- 支持动漫风格和3D写实风格的图像（即支持所有图像风格）
-- 集成多个引擎，强大的硬件兼容性，支持借助NVIDIA、Intel、AMD进行运算
-- 无限放大倍数
-- 自定义输出分辨率（支持图片&GIF&视频）
-- 音频降噪(处理视频时)
-- 灵活的多线程管理
-- 分段处理视频,大幅减少磁盘占用.
-- 支持将放大&降噪后的图片另存为.jpg并自动进行无损压缩
-- 支持对放大&降噪后的gif自动进行体积优化
-- 兼容性测试
-- 多语言（支持英语,简体中文,日本语）
-- 支持存储个性化设置并在启动时自动应用
-- 持续更新
-- 以及更多
 
 # 示例
 
