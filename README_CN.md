@@ -37,7 +37,8 @@
 [点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
 # Waifu2x-Extension-GUI是什么?
-借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
+
+### 借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
 ### 主要特性:
 - #### 自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF 和 视频.
