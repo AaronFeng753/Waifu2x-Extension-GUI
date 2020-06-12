@@ -145,6 +145,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/OutPutPathIsEnabled", ui->checkBox_OutPath_isEnabled->checkState());
     configIniWrite->setValue("/settings/checkBox_OutPath_KeepOriginalFileName", ui->checkBox_OutPath_KeepOriginalFileName->checkState());
     //=================== 存储Anime4k设置 =============================
+    configIniWrite->setValue("/settings/checkBox_HDNMode_Anime4k", ui->checkBox_HDNMode_Anime4k->checkState());
     configIniWrite->setValue("/settings/checkBox_FastMode_Anime4K", ui->checkBox_FastMode_Anime4K->checkState());
     configIniWrite->setValue("/settings/checkBox_ACNet_Anime4K", ui->checkBox_ACNet_Anime4K->checkState());
     configIniWrite->setValue("/settings/checkBox_GPUMode_Anime4K", ui->checkBox_GPUMode_Anime4K->checkState());
@@ -204,7 +205,7 @@ int MainWindow::Settings_Read_Apply()
     if(!file_isFileExist(settings_ini))
     {
         Settings_Save();
-        Settings_Apply();
+        Settings_Read_Apply();
         return 0;
     }
     else
@@ -215,7 +216,7 @@ int MainWindow::Settings_Read_Apply()
         if(Settings_VERSION!=VERSION)
         {
             Settings_Save();
-            Settings_Apply();
+            Settings_Read_Apply();
             return 0;
         }
     }
@@ -342,6 +343,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());
     ui->checkBox_OutPath_KeepOriginalFileName->setChecked(configIniRead->value("/settings/checkBox_OutPath_KeepOriginalFileName").toBool());
     //================== 加载Anime4k设置 ===================================
+    ui->checkBox_HDNMode_Anime4k->setChecked(configIniRead->value("/settings/checkBox_HDNMode_Anime4k").toBool());
     ui->checkBox_FastMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_FastMode_Anime4K").toBool());
     ui->checkBox_ACNet_Anime4K->setChecked(configIniRead->value("/settings/checkBox_ACNet_Anime4K").toBool());
     ui->checkBox_GPUMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_GPUMode_Anime4K").toBool());

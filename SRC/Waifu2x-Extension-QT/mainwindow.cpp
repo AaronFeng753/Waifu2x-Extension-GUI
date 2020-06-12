@@ -2051,6 +2051,7 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
 {
     if(ui->checkBox_ACNet_Anime4K->checkState())
     {
+        ui->checkBox_HDNMode_Anime4k->setEnabled(1);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(0);
         ui->groupBox_PreProcessing_Anime4k->setEnabled(0);
         ui->checkBox_FastMode_Anime4K->setEnabled(0);
@@ -2065,6 +2066,7 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
     }
     else
     {
+        ui->checkBox_HDNMode_Anime4k->setEnabled(0);
         on_checkBox_GPUMode_Anime4K_stateChanged(0);
         on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(1);

@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.45.04-beta:
+- 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
+- 改进稳定性.
 v2.45.03-beta:
 - 修复bug:无法处理某些特殊的GIF.
 v2.45.02-beta:

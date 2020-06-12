@@ -1567,6 +1567,10 @@ QString MainWindow::Anime4k_ReadSettings()
         {
             Anime4k_Settings_str.append("-q ");
         }
+        if(ui->checkBox_HDNMode_Anime4k->checkState())
+        {
+            Anime4k_Settings_str.append("-H ");
+        }
         return Anime4k_Settings_str;
     }
     //快速模式
