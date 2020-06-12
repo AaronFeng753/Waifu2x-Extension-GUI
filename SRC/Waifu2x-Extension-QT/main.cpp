@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 Change log:
 v2.45.04-beta:
 - 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
+- 更新Anime4k引擎.
 - 改进稳定性.
 v2.45.03-beta:
 - 修复bug:无法处理某些特殊的GIF.
@@ -60,7 +61,7 @@ Integrated component(In releases):
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-18 Q16 x64(release)
-- Anime4KCPP v2.0.0(release)
+- Anime4KCPP 863648bfbf621bf3d9bea1ed4e167de0b7affc71
 - ffmpeg version 4.2.3(release)
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
