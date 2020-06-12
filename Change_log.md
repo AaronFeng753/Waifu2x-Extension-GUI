@@ -2,6 +2,14 @@
 ---
 #### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.44.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.44.18)
+#### Change log:
+- New feature: Add ACNet algorithm support for Anime4K engine, ACNet can achieve high-speed processing while improving image quality.(You need to manually enable ACNet in the Anime4k engine settings)
+- Update ImageMagick, waifu2x-ncnn-vulkan, SRMD-ncnn-Vulkan, realsr-ncnn-vulkan, Anime4K.
+- Optimize performance and improve stability.
+- Fixed multiple bugs.
+- And many other improvements.
+---
 ## [v2.43.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.43.17)
 #### Change log:
 - New feature: Pre-process Image. This will improve compatibility. (Additional settings, optional, disabled by default)
