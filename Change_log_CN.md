@@ -1,6 +1,6 @@
 # 更新日志
 ---
-#### [English](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
+#### [English Change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 ---
 #### 全部历史版本安装包合集:
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
