@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
 
-### [📜 中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
+### [📜中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
 
 # [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest installation (or portable) package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
@@ -32,7 +32,7 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 
 # What is Waifu2x-Extension-GUI?
 
-### 🖼`Image` & 🎞`GIF` & 📼`Video` Super-Resolution using Deep Convolutional Neural Networks.
+### `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
 ### Key features✨:
 - #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
