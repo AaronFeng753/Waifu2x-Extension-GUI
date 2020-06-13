@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -376,7 +376,7 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>Stop</string>
+              <string>Pause</string>
              </property>
             </widget>
            </item>
