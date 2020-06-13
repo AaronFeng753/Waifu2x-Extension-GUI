@@ -16,18 +16,18 @@
 
 #### 如果README内的图片无法正常加载,请[点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md)或者[使用法定信道进行国际联网](http://www.cac.gov.cn/1996-02/02/c_126468621.htm)后刷新页面.
 
-# [下载最新稳定版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+# [💾下载最新稳定版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 下载最新版本的完整版(或绿色版)安装包, 适用于拥有`Intel/AMD/Nvidia`显卡的`Windows 64位`系统个人电脑.
 
 下载最新版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-[-->点击查看完整更新日志<--](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
+[📝点击查看完整更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 
 支持的语言: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
 [点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
-# [下载测试版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
+# [😎下载测试版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
 测试版与稳定版相比拥有更快的更新周期,可以让您提前体验到本软件最新的特性.
 
 ⚠请注意,测试版与稳定版相比更不稳定,因为测试版在发布前未经完整测试.
@@ -41,9 +41,9 @@
 ### 借助深度卷积神经网络对`图片` & `GIF` & `视频`进行超分辨率放大(即放大与降噪).
 
 ### 主要特性:
-- #### 自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF 和 视频.
-- #### 全图像风格支持: 内置多种算法, 无论是 二次元动漫 还是 您日常拍摄的照片&录像 ,都可以进行清晰化处理.
-- #### 强大的兼容性: 内置多个引擎, 几乎与所有现代 Windows PC 兼容.
+- #### 📺自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF 和 视频.
+- #### 😍全图像风格支持: 内置多种算法, 无论是 二次元动漫 还是 您日常拍摄的照片&录像 ,都可以进行清晰化处理.
+- #### ✅强大的兼容性: 内置多个引擎, 几乎与所有现代 Windows PC 兼容.
 - 灵活的多线程设定: 在为每个引擎提供完备的设置项的同时,您也可以自由调整线程数量,充分利用PC的一切性能.
 - 众多自定义设置: 您可以通过调整软件内的众多自定义设置实现自动化的工作流.
 - 智能设定: 本软件可根据您的PC硬件信息和您要处理文件的信息自动调整部分软件设定.
@@ -59,7 +59,7 @@ Waifu2x / SRMD / RealSR / Anime4K / ACNet
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
 ```
 
-#### 已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
+#### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
 
 ![mainwindow](/Screenshot/mainwindow_cn.jpg)
 
@@ -67,7 +67,7 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 
 ![Additional_Settings](/Screenshot/Additional_Settings_CN.jpg)
 
-# 示例
+# 示例👀
 
 ### **`图片`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
@@ -99,7 +99,7 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# [许可协议](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
+# [📄许可协议](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
 Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)许可协议.
 
@@ -107,7 +107,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 <img src="/.github/AGPLv3_Logo.png" height="120">
 </p>
 
-# 隐私政策
+# 📄隐私政策
 
 我们尊重您的隐私,所以本软件的隐私政策如下:
 ```
