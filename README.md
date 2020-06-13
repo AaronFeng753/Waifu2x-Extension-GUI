@@ -15,7 +15,7 @@
 ### [📜 中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
 
 # [Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
-Download Latest installation (or portable) package for `Windows 10 x64` PCs with `Intel/AMD/Nvidia` GPUs.
+Download Latest installation (or portable) package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
 
 Download Latest Build: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
