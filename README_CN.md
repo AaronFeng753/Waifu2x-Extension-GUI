@@ -107,7 +107,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 <img src="/.github/AGPLv3_Logo.png" height="120">
 </p>
 
-# 📄隐私政策
+# 隐私政策🙈🙉🙊
 
 我们尊重您的隐私,所以本软件的隐私政策如下:
 ```
