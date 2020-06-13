@@ -21,13 +21,13 @@
 
 下载最新版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-[📝点击查看完整更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
+#### [📝点击查看完整更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 
 支持的语言: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
 [点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
-# [😎下载测试版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
+# [🌟下载测试版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
 测试版与稳定版相比拥有更快的更新周期,可以让您提前体验到本软件最新的特性.
 
 ⚠请注意,测试版与稳定版相比更不稳定,因为测试版在发布前未经完整测试.
