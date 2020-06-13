@@ -351,15 +351,6 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //============================== 拆分 ==========================================
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    if(file_isDirExist(SplitFramesFolderPath))
-    {
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
-    }
-    else
-    {
-        file_mkDir(SplitFramesFolderPath);
-    }
     Gif_splitGif(SourceFile_fullPath,SplitFramesFolderPath);
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);

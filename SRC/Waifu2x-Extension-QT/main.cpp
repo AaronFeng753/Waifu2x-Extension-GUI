@@ -32,6 +32,13 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.45.05-beta:
+- New notification sound with fadeout.(Edited by @Michael18751)
+- 更新ImageMagick.
+- 更新Anime4K.
+- 性能优化.
+- 改用ImageMagick处理GIF以改善兼容性.
+- 添加提示.
 v2.45.04-beta:
 - 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
 - 更新Anime4k引擎.
@@ -61,7 +68,7 @@ Integrated component(In releases):
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-18 Q16 x64(release)
-- Anime4KCPP 863648bfbf621bf3d9bea1ed4e167de0b7affc71
+- Anime4KCPP f1692754c1b6efaf3ccdb9d4370587751a5bdd3f
 - ffmpeg version 4.2.3(release)
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
