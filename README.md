@@ -34,7 +34,7 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 
 ### `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-### Key features✨:
+### ✨Key features:
 - #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
 - #### 😍Full image style support: Multiple built-in algorithms, 2D anime or your daily photos & videos, this software can handle all of them.
 - #### ✅Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
