@@ -32,7 +32,7 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 
 # What is Waifu2x-Extension-GUI?
 
-### `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
+### 🖼`Image` & 🎞`GIF` & 📼`Video` Super-Resolution using Deep Convolutional Neural Networks.
 
 ### Key features✨:
 - #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
