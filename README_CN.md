@@ -118,7 +118,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 总之, 我们不会收集您的任何信息. 如果您不信任我们, 您可以自行阅读本软件的源代码或者停止使用本软件.
 ```
 
-# 鸣谢:
+# 💝鸣谢💝:
 - ❤捐赠者们❤
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
