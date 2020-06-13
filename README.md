@@ -111,7 +111,7 @@ We respect your privacy, so the following is the privacy policy of this software
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
 
-# Credits:
+# 💝Credits💝:
 - ❤All donors❤
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
