@@ -12,18 +12,18 @@
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
 
-### [📜 中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
+### [📜中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
 
-# [Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+# [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest installation (or portable) package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
 
-Download Latest Build: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-[-->Full change log<--](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
+#### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
 Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
-# [Download Beta Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
+# [🌟Download Beta Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
 The beta build has a faster update cycle than the stable build, which allows you to experience the latest features of the software in advance.
 
 ⚠Beta build is more unstable than the stable build because the beta build has not been fully tested before release.
@@ -34,15 +34,15 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 
 ### `Image` & `GIF` & `Video` Super-Resolution using Deep Convolutional Neural Networks.
 
-### Key features:
-- #### Multimedia support: Supports processing Image & GIF & Video at the same time.
-- #### Full image style support: Multiple built-in algorithms, 2D anime or your daily photos & videos, this software can handle all of them.
-- #### Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
-- Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
-- Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
-- Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
-- Easy-to-use graphical user interface.
-- Continually maintenance and updates.
+### ✨Key features:
+- #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
+- #### 😍Full image style support: Multiple built-in algorithms, 2D anime or your daily photos & videos, this software can handle all of them.
+- #### ✅Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
+- 📊Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
+- 🛠Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
+- 🤖Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
+- 😉Easy-to-use graphical user interface.
+- 📨Continually maintenance and updates.
 
 ```
 Built-in image processing algorithm:
@@ -52,7 +52,7 @@ Built-in image processing engine:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
 ```
 
-#### Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
+#### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
@@ -60,7 +60,7 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 
 ![Additional_Settings](/Screenshot/Additional_Settings_EN.jpg)
 
-# Samples
+# Samples👀
 
 ### **`Image`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/image
 
@@ -92,7 +92,7 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 ### `Github doesn't online video playback, please check link below:`
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# [License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
+# [📄License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
 Waifu2x-Extension-GUI is licensed under the [GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
@@ -100,7 +100,7 @@ Waifu2x-Extension-GUI is licensed under the [GNU Affero General Public License v
 <img src="/.github/AGPLv3_Logo.png" height="120">
 </p>
 
-# Privacy policy
+# Privacy policy🙈🙉🙊
 
 We respect your privacy, so the following is the privacy policy of this software:
 ```
@@ -111,7 +111,7 @@ We respect your privacy, so the following is the privacy policy of this software
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
 
-# Credits:
+# 💝Credits💝:
 - ❤All donors❤
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
