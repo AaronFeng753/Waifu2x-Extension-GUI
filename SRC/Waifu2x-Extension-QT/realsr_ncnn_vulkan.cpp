@@ -1930,7 +1930,7 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU()
         QFile::remove(OutputPath);
         QProcess *Waifu2x = new QProcess();
         QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 4 -t 50 -m " + "\"" + model_path + "\" -g "+QString::number(GPU_ID,10);
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 4 -t 32 -m " + "\"" + model_path + "\" -g "+QString::number(GPU_ID,10);
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}

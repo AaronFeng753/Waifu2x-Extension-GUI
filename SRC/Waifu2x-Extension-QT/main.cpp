@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.45.06-beta:
+- 修复bug:在Windows 7平台上无法正常拆分视频.
+- 改进兼容性测试.
 v2.45.05-beta:
 - New notification sound with fadeout.(Edited by @Michael18751)
 - 更新ImageMagick.
