@@ -2093,7 +2093,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>3</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">

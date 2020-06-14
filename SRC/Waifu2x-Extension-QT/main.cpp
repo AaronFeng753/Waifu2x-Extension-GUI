@@ -33,6 +33,7 @@ int main(int argc, char *argv[])
 /*
 Change log:
 v2.45.07-beta:
+- 更新Anime4k引擎.
 - 补全翻译.
 v2.45.06-beta:
 - 修复bug:在Windows 7平台上无法正常拆分视频.
@@ -58,13 +59,12 @@ v2.45.01-beta:
 - 更新ImageMagick.
 --------------------------------------------------------------------------
 To do:
-- 保留原文件名.(1.向移动文件到输出目录的函数传输原文件地址+名称,2.判断是否要保留源文件名,3.在函数内提取源文件名并和输出目录组装代替原来的输出路径.)
 - 最小化到托盘
 - 多gpu支持
 - 升级更新时保存设置
 - pdf格式支持
 ---------------------------------------------------------------------------
-Integrated component(In releases):
+Integrated component:
 - gifsicle version 1.92(release)
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.2(release)
@@ -73,7 +73,7 @@ Integrated component(In releases):
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-18 Q16 x64(release)
-- Anime4KCPP f1692754c1b6efaf3ccdb9d4370587751a5bdd3f
+- Anime4KCPP v2.1.0(release)
 - ffmpeg version 4.2.3(release)
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
