@@ -146,6 +146,7 @@ Waifu2x-Extension-GUI遵循[GNU Affero General Public License v3.0](https://www.
 - 感謝 @uimee 協助進行繁體中文翻譯.
 - 感谢 @Nova-Aurora 协助修复英文版README中的语法和拼写错误.
 - 感谢 @CAFUCSteven 协助测试软件.
+- 感谢 @Michael18751 为提示音添加了淡出效果.
 
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
 # [PayPal](https://www.paypal.me/aaronfeng753)
