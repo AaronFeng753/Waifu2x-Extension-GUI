@@ -19,6 +19,8 @@ Download Latest installation (or portable) package for `Windows x64` PCs with `I
 
 Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
+📁Mirror(sourceforge): https://sourceforge.net/projects/waifu2x-extension-gui/files/
+
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
 Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文.
