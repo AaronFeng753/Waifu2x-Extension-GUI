@@ -2093,7 +2093,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>3</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -5398,7 +5398,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            <item row="8" column="2">
             <widget class="QCheckBox" name="checkBox_isCompatible_FFmpeg">
              <property name="toolTip">
-              <string>For processing GIF and Video.</string>
+              <string>For processing Video.</string>
              </property>
              <property name="text">
               <string notr="true">FFmpeg</string>

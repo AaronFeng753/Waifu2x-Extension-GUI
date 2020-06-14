@@ -32,31 +32,14 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.45.07-beta:
-- 更新Anime4k引擎.
-- 补全翻译.
-v2.45.06-beta:
-- 修复bug:在Windows 7平台上无法正常拆分视频.
-- 改进兼容性测试.
-v2.45.05-beta:
-- New notification sound with fadeout.(Edited by @Michael18751)
-- 更新ImageMagick.
-- 更新Anime4K.
-- 性能优化.
-- 改用ImageMagick处理GIF以改善兼容性.
-- 添加提示.
-v2.45.04-beta:
+v2.45.18:
 - 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
-- 更新Anime4k引擎.
-- 改进稳定性.
-v2.45.03-beta:
-- 修复bug:无法处理某些特殊的GIF.
-v2.45.02-beta:
-- 新特性:保留源文件名.(可选,默认禁用)
-- 修复bug:当安装路径内有空格时,无法打开本地存储的FFmpeg编码器列表.
-v2.45.01-beta:
-- 改进GUI.
-- 更新ImageMagick.
+- 新特性:保留原文件名.(可选,默认禁用)
+- 更新Anime4K,ImageMagick,FFmpeg.
+- 为提示音添加淡出效果.(由 @Michael18751 编辑)
+- 性能优化.
+- 修复多处Bug.
+- 以及其他多项改进.
 --------------------------------------------------------------------------
 To do:
 - 最小化到托盘
@@ -74,7 +57,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-18 Q16 x64(release)
 - Anime4KCPP v2.1.0(release)
-- ffmpeg version 4.2.3(release)
+- ffmpeg version 20200612-38737b3
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

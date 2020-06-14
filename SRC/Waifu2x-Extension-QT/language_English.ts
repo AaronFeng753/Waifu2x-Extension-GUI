@@ -149,6 +149,7 @@ We recommend you use the default value(95)</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5378"/>
+        <location filename="mainwindow.ui" line="5401"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -180,11 +181,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
     <message>
         <location filename="mainwindow.ui" line="5394"/>
         <source>Plugins:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="5401"/>
-        <source>For processing GIF and Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

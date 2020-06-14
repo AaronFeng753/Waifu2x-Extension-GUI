@@ -1550,9 +1550,11 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="5378"/>
         <location filename="mainwindow.ui" line="5401"/>
-        <source>For processing GIF and Video.</source>
-        <translation>用于处理GIF和视频.</translation>
+        <source>For processing Video.</source>
+        <oldsource>For processing GIF and Video.</oldsource>
+        <translation>用于处理视频.</translation>
     </message>
     <message>
         <source>FFmpeg</source>
@@ -1744,11 +1746,6 @@ waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="5378"/>
-        <source>For processing Video.</source>
-        <translation>用于处理视频。</translation>
     </message>
     <message>
         <source>FFprobe</source>

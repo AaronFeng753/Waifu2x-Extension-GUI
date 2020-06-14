@@ -1610,6 +1610,7 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5378"/>
+        <location filename="mainwindow.ui" line="5401"/>
         <source>For processing Video.</source>
         <translation>用於處理視頻。</translation>
     </message>
@@ -1626,11 +1627,6 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]</translation>
     <message>
         <source>Gifsicle</source>
         <translation type="vanished">Gifsicle</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="5401"/>
-        <source>For processing GIF and Video.</source>
-        <translation>用於處理GIF和視頻.</translation>
     </message>
     <message>
         <source>FFmpeg</source>

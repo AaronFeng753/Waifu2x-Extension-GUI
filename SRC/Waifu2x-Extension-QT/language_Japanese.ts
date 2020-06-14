@@ -1350,9 +1350,11 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="5378"/>
         <location filename="mainwindow.ui" line="5401"/>
-        <source>For processing GIF and Video.</source>
-        <translation>GIFとビデオの処理に使用されます。</translation>
+        <source>For processing Video.</source>
+        <oldsource>For processing GIF and Video.</oldsource>
+        <translation>ビデオの処理用。</translation>
     </message>
     <message>
         <source>FFmpeg</source>
@@ -1579,11 +1581,6 @@ waifu2x-converter [速度：★☆  画質：★★☆]
 Anime4k [速度：★★★  画質：★]
 srmd-ncnn-vulkan [速度：★☆  画質：★★★]
 waifu2x-caffe [速度：★  画質：★★★]</translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="5378"/>
-        <source>For processing Video.</source>
-        <translation>ビデオの処理用。</translation>
     </message>
     <message>
         <source>FFprobe</source>
