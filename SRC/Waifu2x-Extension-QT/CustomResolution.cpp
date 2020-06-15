@@ -319,16 +319,3 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
         return ScaleRatio_width;
     }
 }
-/*
-获取 屏幕分辨率值 并设定为 自定义分辨率 的默认值
-*/
-int MainWindow::CustRes_SetToScreenRes()
-{
-    QScreen *screen=QGuiApplication::primaryScreen ();
-    QRect mm=screen->availableGeometry() ;
-    int screen_width = mm.width();
-    int screen_height = mm.height();
-    ui->spinBox_CustRes_width->setValue(screen_width);
-    ui->spinBox_CustRes_height->setValue(screen_height);
-    return 0;
-}

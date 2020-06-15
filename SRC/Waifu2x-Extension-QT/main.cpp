@@ -32,14 +32,11 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.45.18:
-- 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
-- 新特性:保留原文件名.(可选,默认禁用)
-- 更新Anime4K,ImageMagick,FFmpeg.
-- 为提示音添加淡出效果.(由 @Michael18751 编辑)
-- 性能优化.
-- 修复多处Bug.
-- 以及其他多项改进.
+v2.46.01-beta:
+- 更新FFmpeg.
+- 添加tooltip.
+- 更改默认设定.
+- 删除冗余代码.
 --------------------------------------------------------------------------
 To do:
 - 最小化到托盘
@@ -55,9 +52,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20200606(release)
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
-- ImageMagick 7.0.10-18 Q16 x64(release)
+- ImageMagick 7.0.10-19 Q16 x64(release)
 - Anime4KCPP v2.1.0(release)
-- ffmpeg version 20200612-38737b3
+- FFmpeg version 20200615-9d80f3e
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

@@ -68,8 +68,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.45.18";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.46.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
     QTranslator * translator;//界面翻译
@@ -322,12 +322,10 @@ public:
     int CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int width_new);//计算新的放大倍数
     int CustRes_SetCustRes();//设定自定义分辨率
     int CustRes_CancelCustRes();//取消自定义分辨率
-    int CustRes_SetToScreenRes();//将自定义分辨率值设定为屏幕分辨率
 
     Qt::AspectRatioMode CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;//自定义分辨率的纵横比策略
     //======================== 设置 ===========================================
     int Settings_Read_Apply();//读取与apply设置
-    void Settings_Apply();
     bool Settings_isReseted = false;//是否重置设置标记
     //================================ Other =======================================
     int SystemShutDown_Countdown();//自动关机倒计时

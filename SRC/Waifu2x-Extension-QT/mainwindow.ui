@@ -1410,7 +1410,11 @@ it might cause the software to crash.</string>
               </size>
              </property>
              <property name="toolTip">
-              <string/>
+              <string>By default, the aspect ratio of the result image 
+will be as same as the original image.
+(So the image won't look weird.)
+You can change the aspect ratio settings for custom 
+resolution in the Additional settings.</string>
              </property>
              <property name="title">
               <string>Custom resolution</string>
@@ -1483,7 +1487,7 @@ padding:10px;
                  <number>999999999</number>
                 </property>
                 <property name="value">
-                 <number>100</number>
+                 <number>1920</number>
                 </property>
                </widget>
               </item>
@@ -1545,7 +1549,7 @@ padding:10px;
                  <number>999999999</number>
                 </property>
                 <property name="value">
-                 <number>100</number>
+                 <number>1080</number>
                 </property>
                </widget>
               </item>

@@ -450,49 +450,6 @@ int MainWindow::Settings_Read_Apply()
     return 0;
 }
 /*
-应用设置
-*/
-void MainWindow::Settings_Apply()
-{
-    //======
-    CustRes_SetToScreenRes();
-    //========================
-    on_comboBox_language_currentIndexChanged(0);
-    //====================================================
-    on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_AlwaysHideSettings_stateChanged(0);
-    on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
-    on_checkBox_DelOriginal_stateChanged(0);
-    on_checkBox_FileList_Interactive_stateChanged(0);
-    on_checkBox_OutPath_isEnabled_stateChanged(0);
-    on_checkBox_AudioDenoise_stateChanged(0);
-    on_checkBox_ProcessVideoBySegment_stateChanged(0);
-    on_checkBox_EnablePreProcessing_Anime4k_stateChanged(0);
-    on_checkBox_EnablePostProcessing_Anime4k_stateChanged(0);
-    on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
-    on_checkBox_GPUMode_Anime4K_stateChanged(0);
-    on_checkBox_ShowInterPro_stateChanged(0);
-    //====
-    on_comboBox_Engine_GIF_currentIndexChanged(0);
-    isShowAnime4kWarning=false;
-    on_comboBox_Engine_Image_currentIndexChanged(0);
-    on_comboBox_Engine_Video_currentIndexChanged(0);
-    on_comboBox_ImageStyle_currentIndexChanged(0);
-    on_comboBox_model_vulkan_currentIndexChanged(0);
-    on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
-    //=====
-    on_spinBox_textbrowser_fontsize_valueChanged(0);
-    //===
-    on_comboBox_AspectRatio_custRes_currentIndexChanged(0);
-    //=====
-    Init_Table();
-    //====
-    on_checkBox_acodec_copy_2mp4_stateChanged(1);
-    on_checkBox_vcodec_copy_2mp4_stateChanged(1);
-    on_checkBox_videoSettings_isEnabled_stateChanged(1);
-    //========================
-}
-/*
 保存设置pushbutton
 保存设置,弹窗
 */
