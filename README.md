@@ -91,7 +91,7 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 #### (Using Waifu2x-NCNN-Vulkan Engine)
 ![Original GIF](/Samples/gif/2_waifu2x_compressed.gif)
 
-#### `Github doesn't supports online video playback, please check link below:`
+#### `Github doesn't support online video playback, please check link below:`
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 # [📄License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
