@@ -50,7 +50,7 @@ int MainWindow::Waifu2xMainThread()
                 return 0;//如果启用stop位,则直接return
             }
             //=============== 判断状态 ================
-            if(!ui->checkBox_ReProcFinFiles->checkState())
+            if(!ui->checkBox_ReProcFinFiles->isChecked())
             {
                 if(Table_model_image->item(i,1)->text().toLower().contains("finished"))
                 {
@@ -171,7 +171,7 @@ int MainWindow::Waifu2xMainThread()
                 return 0;//如果启用stop位,则直接return
             }
             //=============== 判断状态 ================
-            if(!ui->checkBox_ReProcFinFiles->checkState())
+            if(!ui->checkBox_ReProcFinFiles->isChecked())
             {
                 if(Table_model_gif->item(i,1)->text().toLower().contains("finished"))
                 {
@@ -256,7 +256,7 @@ int MainWindow::Waifu2xMainThread()
                 return 0;//如果启用stop位,则直接return
             }
             //=============== 判断状态 ================
-            if(!ui->checkBox_ReProcFinFiles->checkState())
+            if(!ui->checkBox_ReProcFinFiles->isChecked())
             {
                 if(Table_model_video->item(i,1)->text().toLower().contains("finished"))
                 {
@@ -281,7 +281,7 @@ int MainWindow::Waifu2xMainThread()
                 case 0:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
                         {
                             Waifu2x_NCNN_Vulkan_Video_BySegment(i);
                         }
@@ -295,7 +295,7 @@ int MainWindow::Waifu2xMainThread()
                 case 1:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
                         {
                             Waifu2x_Converter_Video_BySegment(i);
                         }
@@ -309,7 +309,7 @@ int MainWindow::Waifu2xMainThread()
                 case 2:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
                         {
                             Anime4k_Video_BySegment(i);
                         }
@@ -323,7 +323,7 @@ int MainWindow::Waifu2xMainThread()
                 case 3:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
                         {
                             SRMD_NCNN_Vulkan_Video_BySegment(i);
                         }
@@ -337,7 +337,7 @@ int MainWindow::Waifu2xMainThread()
                 case 4:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
                         {
                             Waifu2x_Caffe_Video_BySegment(i);
                         }
@@ -351,7 +351,7 @@ int MainWindow::Waifu2xMainThread()
                 case 5:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->checkState())
+                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
                         {
                             Realsr_NCNN_Vulkan_Video_BySegment(i);
                         }
@@ -377,12 +377,12 @@ int MainWindow::Waifu2xMainThread()
 void MainWindow::Waifu2x_Finished()
 {
     //=================== 提示音 =================================
-    if(ui->checkBox_NfSound->checkState())
+    if(ui->checkBox_NfSound->isChecked())
     {
         QtConcurrent::run(this, &MainWindow::Play_NFSound);
     }
     //===================== 关机 ==============================
-    if(ui->checkBox_AutoTurnOFF->checkState())
+    if(ui->checkBox_AutoTurnOFF->isChecked())
     {
         QMessageBox *AutoShutDown = new QMessageBox();
         AutoShutDown->setWindowTitle(tr("Warning!"));
@@ -392,7 +392,7 @@ void MainWindow::Waifu2x_Finished()
         AutoShutDown->show();
         emit Send_TextBrowser_NewMessage(tr("The computer will automatically shut down in 60 seconds!"));
         //关机前自动保存设置
-        if(ui->checkBox_AutoSaveSettings->checkState())
+        if(ui->checkBox_AutoSaveSettings->isChecked())
         {
             emit Send_Settings_Save();
         }
@@ -430,11 +430,11 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->comboBox_AspectRatio_custRes->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
-    if(ui->checkBox_DelOriginal->checkState())ui->checkBox_Move2RecycleBin->setEnabled(1);
+    if(ui->checkBox_DelOriginal->isChecked())ui->checkBox_Move2RecycleBin->setEnabled(1);
     ui->pushButton_ForceRetry->setVisible(0);
     ui->groupBox_AudioDenoise->setEnabled(1);
     ui->checkBox_ProcessVideoBySegment->setEnabled(1);
-    if(ui->checkBox_ProcessVideoBySegment->checkState())
+    if(ui->checkBox_ProcessVideoBySegment->isChecked())
     {
         ui->spinBox_SegmentDuration->setEnabled(1);
     }
@@ -1079,7 +1079,7 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     /*
     ======== 如果没开启检测, 直接返回false =============
     */
-    if(ui->checkBox_AutoDetectAlphaChannel->checkState()==false)return false;
+    if(ui->checkBox_AutoDetectAlphaChannel->isChecked()==false)return false;
     //======
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     QImage img(SourceFile_fullPath);
@@ -1103,21 +1103,19 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     //判断是否已经是PNG
-    if((file_ext.trimmed().toLower()=="png")||(ui->checkBox_PreProcessImage->checkState()==false))
+    if((file_ext.trimmed().toLower()=="png")||(ui->checkBox_PreProcessImage->isChecked()==false))
     {
         return ImagePath;
     }
     //不是PNG则开始转换
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = "";
-    QMutex_Imgae_Convert2PNG.lock();
     do
     {
         QString DateStr = QDateTime::currentDateTime().toString("hhmmss");
-        OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//存储视频片段的文件夹(完整路径)
+        OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//输出的png图片的完整路径
     }
     while(file_isFileExist(OutPut_Path));
-    QMutex_Imgae_Convert2PNG.unlock();
     //======
     QString program = Current_Path+"/convert_waifu2xEX.exe";
     QFile::remove(OutPut_Path);

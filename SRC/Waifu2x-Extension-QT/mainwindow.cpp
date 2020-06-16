@@ -126,7 +126,7 @@ MainWindow::~MainWindow()
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     //=============== 询问是否退出 =======================
-    if(ui->checkBox_PromptWhenExit->checkState())
+    if(ui->checkBox_PromptWhenExit->isChecked())
     {
         QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you really wanna exit Waifu2x-Extension-GUI ?")));
         Msg.setIcon(QMessageBox::Question);
@@ -140,7 +140,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
         }
     }
     //=============================
-    bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->checkState();
+    bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->isChecked();
     if(AutoSaveSettings&&(!Settings_isReseted))
     {
         Settings_Save();
@@ -324,7 +324,7 @@ QString MainWindow::Seconds2hms(long unsigned int seconds)
 void MainWindow::Set_Font_fixed()
 {
     QFont font;
-    if(ui->checkBox_isCustFontEnable->checkState())
+    if(ui->checkBox_isCustFontEnable->isChecked())
     {
         font = ui->fontComboBox_CustFont->currentFont();
     }
@@ -359,7 +359,7 @@ void MainWindow::on_pushButton_Start_clicked()
      * 判断是否启用自定义输出路径
      * 判断输出路径是否合法
     */
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QString tmp = ui->lineEdit_outputPath->text();
         tmp = tmp.trimmed();
@@ -686,7 +686,7 @@ void MainWindow::Play_NFSound()
 
 void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
 {
-    if(ui->checkBox_SaveAsJPG->checkState())
+    if(ui->checkBox_SaveAsJPG->isChecked())
     {
         ui->checkBox_CompressJPG->setEnabled(1);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
@@ -1035,7 +1035,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         Init_Table();
         Set_Font_fixed();
         //=========
-        if(ui->checkBox_AlwaysHideSettings->checkState())
+        if(ui->checkBox_AlwaysHideSettings->isChecked())
         {
             ui->groupBox_Setting->setVisible(0);
             isSettingsHide=true;
@@ -1048,7 +1048,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
             ui->pushButton_HideSettings->setText(tr("Hide settings"));
         }
         //=========
-        if(ui->checkBox_AlwaysHideTextBrowser->checkState())
+        if(ui->checkBox_AlwaysHideTextBrowser->isChecked())
         {
             ui->textBrowser->setVisible(0);
             ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
@@ -1153,7 +1153,7 @@ void MainWindow::on_checkBox_AutoSaveSettings_clicked()
     if(file_isFileExist(settings_ini))
     {
         QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
-        configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->checkState());
+        configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->isChecked());
     }
 }
 
@@ -1203,7 +1203,7 @@ void MainWindow::on_comboBox_AspectRatio_custRes_currentIndexChanged(int index)
 
 void MainWindow::on_checkBox_AlwaysHideSettings_stateChanged(int arg1)
 {
-    if(ui->checkBox_AlwaysHideSettings->checkState())
+    if(ui->checkBox_AlwaysHideSettings->isChecked())
     {
         ui->groupBox_Setting->setVisible(0);
         ui->pushButton_HideSettings->setText(tr("Show settings"));
@@ -1217,7 +1217,7 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
     //==========
-    if(ui->checkBox_isCustFontEnable->checkState())
+    if(ui->checkBox_isCustFontEnable->isChecked())
     {
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Notification"));
@@ -1378,7 +1378,7 @@ void MainWindow::on_pushButton_HideTextBro_clicked()
 
 void MainWindow::on_checkBox_AlwaysHideTextBrowser_stateChanged(int arg1)
 {
-    if(ui->checkBox_AlwaysHideTextBrowser->checkState())
+    if(ui->checkBox_AlwaysHideTextBrowser->isChecked())
     {
         ui->textBrowser->setVisible(0);
         ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
@@ -1466,7 +1466,7 @@ void MainWindow::on_lineEdit_pixformat_textChanged(const QString &arg1)
 
 void MainWindow::on_checkBox_vcodec_copy_2mp4_stateChanged(int arg1)
 {
-    if(ui->checkBox_vcodec_copy_2mp4->checkState())
+    if(ui->checkBox_vcodec_copy_2mp4->isChecked())
     {
         ui->spinBox_bitrate_vid_2mp4->setEnabled(0);
     }
@@ -1478,7 +1478,7 @@ void MainWindow::on_checkBox_vcodec_copy_2mp4_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
 {
-    if(ui->checkBox_acodec_copy_2mp4->checkState())
+    if(ui->checkBox_acodec_copy_2mp4->isChecked())
     {
         ui->spinBox_bitrate_audio_2mp4->setEnabled(0);
     }
@@ -1556,7 +1556,7 @@ void MainWindow::Tip_FirstTimeStart()
 
 void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
 {
-    if(ui->checkBox_DelOriginal->checkState())
+    if(ui->checkBox_DelOriginal->isChecked())
     {
         ui->checkBox_Move2RecycleBin->setEnabled(1);
     }
@@ -1570,7 +1570,7 @@ void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
 */
 void MainWindow::on_checkBox_videoSettings_isEnabled_stateChanged(int arg1)
 {
-    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    if(ui->checkBox_videoSettings_isEnabled->isChecked())
     {
         ui->groupBox_OutputVideoSettings->setEnabled(1);
         ui->groupBox_ToMp4VideoSettings->setEnabled(1);
@@ -1584,7 +1584,7 @@ void MainWindow::on_checkBox_videoSettings_isEnabled_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_FileList_Interactive_stateChanged(int arg1)
 {
-    if(ui->checkBox_FileList_Interactive->checkState())
+    if(ui->checkBox_FileList_Interactive->isChecked())
     {
         ui->tableView_image->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
         ui->tableView_gif->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
@@ -1600,7 +1600,7 @@ void MainWindow::on_checkBox_FileList_Interactive_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
 {
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         ui->lineEdit_outputPath->setEnabled(1);
         ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(1);
@@ -1652,7 +1652,7 @@ void MainWindow::on_pushButton_PayPal_clicked()
 
 void MainWindow::on_checkBox_AudioDenoise_stateChanged(int arg1)
 {
-    if(ui->checkBox_AudioDenoise->checkState())
+    if(ui->checkBox_AudioDenoise->isChecked())
     {
         ui->doubleSpinBox_AudioDenoiseLevel->setEnabled(1);
     }
@@ -1818,7 +1818,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
 
 void MainWindow::on_checkBox_ProcessVideoBySegment_stateChanged(int arg1)
 {
-    if(ui->checkBox_ProcessVideoBySegment->checkState())
+    if(ui->checkBox_ProcessVideoBySegment->isChecked())
     {
         ui->label_SegmentDuration->setEnabled(1);
         ui->spinBox_SegmentDuration->setEnabled(1);
@@ -1861,7 +1861,7 @@ void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int i
 
 void MainWindow::on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1)
 {
-    if(ui->checkBox_EnablePreProcessing_Anime4k->checkState())
+    if(ui->checkBox_EnablePreProcessing_Anime4k->isChecked())
     {
         ui->checkBox_MedianBlur_Pre_Anime4k->setEnabled(1);
         ui->checkBox_MeanBlur_Pre_Anime4k->setEnabled(1);
@@ -1885,7 +1885,7 @@ void MainWindow::on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1)
 {
-    if(ui->checkBox_EnablePostProcessing_Anime4k->checkState())
+    if(ui->checkBox_EnablePostProcessing_Anime4k->isChecked())
     {
         ui->checkBox_MedianBlur_Post_Anime4k->setEnabled(1);
         ui->checkBox_MeanBlur_Post_Anime4k->setEnabled(1);
@@ -1909,7 +1909,7 @@ void MainWindow::on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_SpecifyGPU_Anime4k_stateChanged(int arg1)
 {
-    if(ui->checkBox_SpecifyGPU_Anime4k->checkState())
+    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
     {
         ui->spinBox_PlatformID_Anime4k->setEnabled(1);
         ui->spinBox_DeviceID_Anime4k->setEnabled(1);
@@ -1990,7 +1990,7 @@ void MainWindow::on_checkBox_isCompatible_SoX_clicked()
 
 void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
 {
-    if(ui->checkBox_GPUMode_Anime4K->checkState()&&ui->checkBox_ACNet_Anime4K->checkState()==false)
+    if(ui->checkBox_GPUMode_Anime4K->isChecked()&&ui->checkBox_ACNet_Anime4K->isChecked()==false)
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(1);
     }
@@ -2003,7 +2003,7 @@ void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_ShowInterPro_stateChanged(int arg1)
 {
-    if(ui->checkBox_ShowInterPro->checkState()==false)
+    if(ui->checkBox_ShowInterPro->isChecked()==false)
     {
         emit Send_CurrentFileProgress_Stop();
     }
@@ -2049,7 +2049,7 @@ void MainWindow::on_checkBox_isCompatible_Realsr_NCNN_Vulkan_clicked()
 
 void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
 {
-    if(ui->checkBox_ACNet_Anime4K->checkState())
+    if(ui->checkBox_ACNet_Anime4K->isChecked())
     {
         ui->checkBox_HDNMode_Anime4k->setEnabled(1);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(0);
@@ -2081,7 +2081,7 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
 
 void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
 {
-    if(ui->checkBox_CompressJPG->checkState())
+    if(ui->checkBox_CompressJPG->isChecked())
     {
         ui->spinBox_JPGCompressedQuality->setEnabled(1);
     }

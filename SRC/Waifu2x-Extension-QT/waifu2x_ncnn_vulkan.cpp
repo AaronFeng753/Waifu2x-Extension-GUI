@@ -26,15 +26,15 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
     int TileSize = ui->spinBox_TileSize->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     //======
     if(SaveAsJPG)
     {
         SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
     }
-    bool CompressJPG = ui->checkBox_CompressJPG->checkState();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
+    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
+    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     //将状态设定到处理中
@@ -347,7 +347,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     }
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -364,7 +364,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -394,8 +394,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool OptGIF = ui->checkBox_OptGIF->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -475,7 +475,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //==========开始放大==========================
     int InterPro_total = 0;
     int InterPro_now = 0;
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         InterPro_total = Frame_fileName_list.size();
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
@@ -490,7 +490,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             InterPro_now++;
             emit Send_CurrentFileProgress_progressbar_Add();
@@ -601,7 +601,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -618,7 +618,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -644,7 +644,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
+    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
@@ -841,7 +841,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1049,7 +1049,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -1064,7 +1064,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -1147,7 +1147,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1164,7 +1164,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1181,7 +1181,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -1205,7 +1205,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1440,7 +1440,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     {
         SegmentDuration_tmp_progressbar = SegmentDuration;
     }
-    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration_tmp_progressbar)
+    if(ui->checkBox_ShowInterPro->isChecked()&&VideoDuration>SegmentDuration_tmp_progressbar)
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
         if(StartTime>0)
@@ -1532,7 +1532,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             //==========开始放大==========================
             int InterPro_total = 0;
             int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->checkState())
+            if(ui->checkBox_ShowInterPro->isChecked())
             {
                 InterPro_total = Frame_fileName_list.size();
             }
@@ -1546,7 +1546,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             //===============
             for(int i = 0; i < Frame_fileName_list.size(); i++)
             {
-                if(ui->checkBox_ShowInterPro->checkState())
+                if(ui->checkBox_ShowInterPro->isChecked())
                 {
                     InterPro_now++;
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
@@ -1635,7 +1635,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         /*==========================
               处理完当前片段
         ==========================*/
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(SegmentDuration_tmp);
         }
@@ -1672,7 +1672,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1690,7 +1690,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1707,7 +1707,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -1734,7 +1734,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
+    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     //========================================================================
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======

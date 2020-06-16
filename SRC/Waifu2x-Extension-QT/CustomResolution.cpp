@@ -24,7 +24,7 @@ Apply自定义分辨率
 */
 int MainWindow::CustRes_SetCustRes()
 {
-    if(ui->checkBox_custres_isAll->checkState())
+    if(ui->checkBox_custres_isAll->isChecked())
     {
         int row_count_image = Table_image_get_rowNum();
         int row_count_gif = Table_gif_get_rowNum();
@@ -157,7 +157,7 @@ int MainWindow::CustRes_SetCustRes()
 */
 int MainWindow::CustRes_CancelCustRes()
 {
-    if(ui->checkBox_custres_isAll->checkState())
+    if(ui->checkBox_custres_isAll->isChecked())
     {
         int row_count_image = Table_image_get_rowNum();
         int row_count_gif = Table_gif_get_rowNum();

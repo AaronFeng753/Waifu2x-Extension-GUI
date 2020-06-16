@@ -37,7 +37,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString encoder_audio_cmd="";
     QString bitrate_audio_cmd="";
     //=======
-    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    if(ui->checkBox_videoSettings_isEnabled->isChecked())
     {
         if(ui->lineEdit_encoder_audio->text()!="")
             encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
@@ -99,7 +99,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     bool Del_DenoisedAudio = false;
     //=============== 音频降噪 ========================
-    if((ui->checkBox_AudioDenoise->checkState())&&file_isFileExist(AudioPath))
+    if((ui->checkBox_AudioDenoise->isChecked())&&file_isFileExist(AudioPath))
     {
         QString AudioPath_tmp = video_AudioDenoise(AudioPath);
         if(AudioPath_tmp!=AudioPath)
@@ -224,10 +224,10 @@ void MainWindow::video_2mp4(QString VideoPath)
         QString bitrate_audio_cmd = "";
         QString Extra_command = "";
         QString bitrate_OverAll = "";
-        if(ui->checkBox_videoSettings_isEnabled->checkState())
+        if(ui->checkBox_videoSettings_isEnabled->isChecked())
         {
             Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
-            if(ui->checkBox_vcodec_copy_2mp4->checkState())
+            if(ui->checkBox_vcodec_copy_2mp4->isChecked())
             {
                 vcodec_copy_cmd = " -vcodec copy ";
             }
@@ -235,7 +235,7 @@ void MainWindow::video_2mp4(QString VideoPath)
             {
                 if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
             }
-            if(ui->checkBox_acodec_copy_2mp4->checkState())
+            if(ui->checkBox_acodec_copy_2mp4->isChecked())
             {
                 acodec_copy_cmd = " -acodec copy ";
             }
@@ -244,7 +244,7 @@ void MainWindow::video_2mp4(QString VideoPath)
                 if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
             }
         }
-        if((ui->checkBox_videoSettings_isEnabled->checkState()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
+        if((ui->checkBox_videoSettings_isEnabled->isChecked()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
         {
             QString BitRate = video_get_bitrate(VideoPath);
             if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
@@ -533,10 +533,10 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         QString bitrate_audio_cmd = "";
         QString Extra_command = "";
         QString bitrate_OverAll = "";
-        if(ui->checkBox_videoSettings_isEnabled->checkState())
+        if(ui->checkBox_videoSettings_isEnabled->isChecked())
         {
             Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
-            if(ui->checkBox_vcodec_copy_2mp4->checkState())
+            if(ui->checkBox_vcodec_copy_2mp4->isChecked())
             {
                 vcodec_copy_cmd = " -vcodec copy ";
             }
@@ -544,7 +544,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
             {
                 if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
             }
-            if(ui->checkBox_acodec_copy_2mp4->checkState())
+            if(ui->checkBox_acodec_copy_2mp4->isChecked())
             {
                 acodec_copy_cmd = " -acodec copy ";
             }
@@ -553,7 +553,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
                 if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
             }
         }
-        if((ui->checkBox_videoSettings_isEnabled->checkState()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
+        if((ui->checkBox_videoSettings_isEnabled->isChecked()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
         {
             QString BitRate = video_get_bitrate(VideoPath);
             if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
@@ -593,7 +593,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     //=================
     QString bitrate_video_cmd="";
     //=======
-    if(ui->checkBox_videoSettings_isEnabled->checkState()&&(ui->spinBox_bitrate_vid->value()>0))
+    if(ui->checkBox_videoSettings_isEnabled->isChecked()&&(ui->spinBox_bitrate_vid->value()>0))
     {
         bitrate_video_cmd=" -b:v "+QString::number(ui->spinBox_bitrate_vid->value(),10)+"k ";
     }
@@ -607,7 +607,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     if(CustRes_isEnabled)
     {
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
-        if(ui->checkBox_videoSettings_isEnabled->checkState()==false)
+        if(ui->checkBox_videoSettings_isEnabled->isChecked()==false)
         {
             int small_res =0;
             if(CustRes_width<=CustRes_height)
@@ -662,7 +662,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         return 0;
     }
     //=============== 音频降噪 ========================
-    if((ui->checkBox_AudioDenoise->checkState())&&file_isFileExist(AudioPath))
+    if((ui->checkBox_AudioDenoise->isChecked())&&file_isFileExist(AudioPath))
     {
         QString AudioPath_tmp = video_AudioDenoise(AudioPath);
         if(AudioPath_tmp!=AudioPath)
@@ -712,7 +712,7 @@ QString MainWindow::video_ReadSettings_OutputVid(QString AudioPath)
 {
     QString OutputVideoSettings= " ";
     //====
-    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    if(ui->checkBox_videoSettings_isEnabled->isChecked())
     {
         if(ui->lineEdit_encoder_vid->text()!="")
         {

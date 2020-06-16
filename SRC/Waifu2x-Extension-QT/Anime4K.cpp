@@ -27,9 +27,9 @@ int MainWindow::Anime4k_Image(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
-    bool CompressJPG = ui->checkBox_CompressJPG->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
+    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -241,7 +241,7 @@ int MainWindow::Anime4k_Image(int rowNum)
     }
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -258,7 +258,7 @@ int MainWindow::Anime4k_Image(int rowNum)
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -279,8 +279,8 @@ int MainWindow::Anime4k_GIF(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool OptGIF = ui->checkBox_OptGIF->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -358,7 +358,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
         file_mkDir(ScaledFramesFolderPath);
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -372,7 +372,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -480,7 +480,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -497,7 +497,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -592,7 +592,7 @@ int MainWindow::Anime4k_Video(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -801,7 +801,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -816,7 +816,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -899,7 +899,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -916,7 +916,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -933,7 +933,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -956,7 +956,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1190,7 +1190,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     {
         SegmentDuration_tmp_progressbar = SegmentDuration;
     }
-    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration_tmp_progressbar)
+    if(ui->checkBox_ShowInterPro->isChecked()&&VideoDuration>SegmentDuration_tmp_progressbar)
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
         if(StartTime>0)
@@ -1282,7 +1282,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             //==========开始放大==========================
             int InterPro_total = 0;
             int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->checkState())
+            if(ui->checkBox_ShowInterPro->isChecked())
             {
                 InterPro_total = Frame_fileName_list.size();
             }
@@ -1296,7 +1296,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             //===============
             for(int i = 0; i < Frame_fileName_list.size(); i++)
             {
-                if(ui->checkBox_ShowInterPro->checkState())
+                if(ui->checkBox_ShowInterPro->isChecked())
                 {
                     InterPro_now++;
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
@@ -1385,7 +1385,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
         /*==========================
         处理完当前片段,时间后移,记录起始时间
         ==========================*/
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(SegmentDuration_tmp);
         }
@@ -1422,7 +1422,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1440,7 +1440,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1457,7 +1457,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
@@ -1551,31 +1551,31 @@ QString MainWindow::Anime4k_ReadSettings()
 {
     QString Anime4k_Settings_str = " ";
     //ACNet
-    if(ui->checkBox_ACNet_Anime4K->checkState())
+    if(ui->checkBox_ACNet_Anime4K->isChecked())
     {
         Anime4k_Settings_str.append("-w ");
-        if(ui->checkBox_GPUMode_Anime4K->checkState())
+        if(ui->checkBox_GPUMode_Anime4K->isChecked())
         {
             Anime4k_Settings_str.append("-q ");
         }
-        if(ui->checkBox_HDNMode_Anime4k->checkState())
+        if(ui->checkBox_HDNMode_Anime4k->isChecked())
         {
             Anime4k_Settings_str.append("-H ");
         }
         return Anime4k_Settings_str;
     }
     //快速模式
-    if(ui->checkBox_FastMode_Anime4K->checkState())
+    if(ui->checkBox_FastMode_Anime4K->isChecked())
     {
         Anime4k_Settings_str.append("-f ");
     }
     //GPU加速
-    if(ui->checkBox_GPUMode_Anime4K->checkState())
+    if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         Anime4k_Settings_str.append("-q ");
     }
     //指定GPU
-    if(ui->checkBox_SpecifyGPU_Anime4k->checkState())
+    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
     {
         Anime4k_Settings_str.append("-h "+QString::number(ui->spinBox_PlatformID_Anime4k->value(),10)+" ");
         Anime4k_Settings_str.append("-d "+QString::number(ui->spinBox_DeviceID_Anime4k->value(),10)+" ");
@@ -1589,36 +1589,36 @@ QString MainWindow::Anime4k_ReadSettings()
     //Push gradient strength
     Anime4k_Settings_str.append("-g "+QString::number(ui->doubleSpinBox_PushGradientStrength_Anime4K->value(),'f',2)+" ");
     //Pre-processing
-    if(ui->checkBox_EnablePreProcessing_Anime4k->checkState())
+    if(ui->checkBox_EnablePreProcessing_Anime4k->isChecked())
     {
         Anime4k_Settings_str.append("-b ");
         uint8_t PreProcessingFilters = 0;
         //读取滤镜选择情况
-        if (ui->checkBox_MedianBlur_Pre_Anime4k->checkState())
+        if (ui->checkBox_MedianBlur_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=1;
         }
-        if (ui->checkBox_MeanBlur_Pre_Anime4k->checkState())
+        if (ui->checkBox_MeanBlur_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=2;
         }
-        if (ui->checkBox_CASSharping_Pre_Anime4k->checkState())
+        if (ui->checkBox_CASSharping_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=4;
         }
-        if (ui->checkBox_GaussianBlurWeak_Pre_Anime4k->checkState())
+        if (ui->checkBox_GaussianBlurWeak_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=8;
         }
-        if (ui->checkBox_GaussianBlur_Pre_Anime4k->checkState())
+        if (ui->checkBox_GaussianBlur_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=16;
         }
-        if (ui->checkBox_BilateralFilter_Pre_Anime4k->checkState())
+        if (ui->checkBox_BilateralFilter_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=32;
         }
-        if (ui->checkBox_BilateralFilterFaster_Pre_Anime4k->checkState())
+        if (ui->checkBox_BilateralFilterFaster_Pre_Anime4k->isChecked())
         {
             PreProcessingFilters|=64;
         }
@@ -1633,36 +1633,36 @@ QString MainWindow::Anime4k_ReadSettings()
         }
     }
     //Post-processing
-    if(ui->checkBox_EnablePostProcessing_Anime4k->checkState())
+    if(ui->checkBox_EnablePostProcessing_Anime4k->isChecked())
     {
         Anime4k_Settings_str.append("-a ");
         uint8_t PostProcessingFilters = 0;
         //读取滤镜选择情况
-        if (ui->checkBox_MedianBlur_Post_Anime4k->checkState())
+        if (ui->checkBox_MedianBlur_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=1;
         }
-        if (ui->checkBox_MeanBlur_Post_Anime4k->checkState())
+        if (ui->checkBox_MeanBlur_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=2;
         }
-        if (ui->checkBox_CASSharping_Post_Anime4k->checkState())
+        if (ui->checkBox_CASSharping_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=4;
         }
-        if (ui->checkBox_GaussianBlurWeak_Post_Anime4k->checkState())
+        if (ui->checkBox_GaussianBlurWeak_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=8;
         }
-        if (ui->checkBox_GaussianBlur_Post_Anime4k->checkState())
+        if (ui->checkBox_GaussianBlur_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=16;
         }
-        if (ui->checkBox_BilateralFilter_Post_Anime4k->checkState())
+        if (ui->checkBox_BilateralFilter_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=32;
         }
-        if (ui->checkBox_BilateralFilterFaster_Post_Anime4k->checkState())
+        if (ui->checkBox_BilateralFilterFaster_Post_Anime4k->isChecked())
         {
             PostProcessingFilters|=64;
         }

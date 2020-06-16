@@ -105,6 +105,7 @@ public:
     void file_MoveToTrash( QString file );//移动到回收站
 
     void file_MoveFile(QString Orginal,QString Target,QString SourceFilePath);//移动文件
+    QMutex MoveFile_QMutex;
 
     QString file_getFolderPath(QFileInfo fileInfo);//获取文件夹路径(去除末尾的"/")
 
@@ -247,7 +248,6 @@ public:
     bool Imgae_hasAlphaChannel(int rowNum);
 
     QString Imgae_Convert2PNG(QString ImagePath);
-    QMutex QMutex_Imgae_Convert2PNG;
 
     //兼容性检测
     bool isCompatible_Waifu2x_NCNN_Vulkan_OLD=false;

@@ -33,7 +33,11 @@ int main(int argc, char *argv[])
 /*
 Change log:
 v2.46.02-beta:
-- 添加tooltip.
+- Add overwrite switch.
+- Add tooltip.
+- Performance optimization.
+- Use isChecked() to replace checkState().
+- Fix bug: Potential multi-thread bug when writing files.
 v2.46.01-beta:
 - 更新FFmpeg.
 - 添加tooltip.

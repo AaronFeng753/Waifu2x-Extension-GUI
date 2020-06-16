@@ -61,7 +61,7 @@ void MainWindow::Read_urls(QList<QUrl> urls)
     emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
     foreach(QUrl url, urls)
     {
-        if(ui->checkBox_ScanSubFolders->checkState())
+        if(ui->checkBox_ScanSubFolders->isChecked())
         {
             Add_File_Folder_IncludeSubFolder(url.toLocalFile());
         }
@@ -481,10 +481,11 @@ void MainWindow::file_MoveToTrash( QString file )
 */
 void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFilePath)
 {
+    MoveFile_QMutex.lock();
     if(file_isFileExist(Orginal))
     {
         //判断是否要保留文件名,若要保留,则替换掉原目标路径
-        if(ui->checkBox_OutPath_KeepOriginalFileName->checkState())
+        if(ui->checkBox_OutPath_KeepOriginalFileName->isChecked())
         {
             QFileInfo fileinfo_source(SourceFilePath);
             QString file_name = file_getBaseName(fileinfo_source.filePath());
@@ -493,8 +494,8 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFile
             QString file_path = file_getFolderPath(fileinfo_Target);
             Target = file_path+"/"+file_name+"."+file_ext;
         }
-        //判断输出路径是否有和目标文件重名的
-        if(file_isFileExist(Target))
+        //判断输出路径是否有和目标文件重名的 以及 是否启用了直接覆盖
+        if(file_isFileExist(Target)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
         {
             while(true)
             {
@@ -508,6 +509,10 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFile
                 if(!file_isFileExist(Target))break;
             }
         }
+        if(ui->checkBox_OutPath_Overwrite->isChecked()==true)
+        {
+            QFile::remove(Target);
+        }
         if(QFile::rename(Orginal,Target)==false)
         {
             emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+Orginal+tr("] to [")+Target+"]");
@@ -517,6 +522,7 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFile
     {
         emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] does not exists."));
     }
+    MoveFile_QMutex.unlock();
 }
 /*
 获取文件夹路径(去除末尾的"/")

@@ -1616,25 +1616,41 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="1" column="0">
-               <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
-                <property name="toolTip">
-                 <string>When this option is enabled, the output file 
-will be moved to the path you specified. 
-Otherwise, it will be saved in the same 
-folder as the source file.</string>
-                </property>
-                <property name="text">
-                 <string>Enabled</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
+              <item row="3" column="0">
                <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
                 <property name="text">
                  <string>Keep original file name</string>
                 </property>
                </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
+                  <property name="toolTip">
+                   <string>When this option is enabled, the output file 
+will be moved to the path you specified. 
+Otherwise, it will be saved in the same 
+folder as the source file.</string>
+                  </property>
+                  <property name="text">
+                   <string>Enabled</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
+                  <property name="toolTip">
+                   <string>When this option is enabled, the output file will
+replace the file with the same name as the output
+file that exists in the output path.</string>
+                  </property>
+                  <property name="text">
+                   <string>Overwrite</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </widget>
