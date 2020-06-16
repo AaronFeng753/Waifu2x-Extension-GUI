@@ -2,6 +2,16 @@
 ---
 #### [中文版 更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 ---
+## [v2.45.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.45.18)
+#### Change log:
+- New feature: Add HDN mode support to the Anime4k engine to improve image quality. (HDN can only be enabled after ACNet is enabled)
+- New feature: Keep original file name. (optional, disabled by default)
+- Update Anime4K, ImageMagick, FFmpeg.
+- New notification sound with fadeout.(Edited by @Michael18751)
+- Performance optimization.
+- Fix multiple bugs.
+- And many other improvements.
+---
 ## [v2.44.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.44.18)
 #### Change log:
 - New feature: Add ACNet algorithm support for Anime4K engine, ACNet can achieve high-speed processing while improving image quality.(You need to manually enable ACNet in the Anime4k engine settings)
