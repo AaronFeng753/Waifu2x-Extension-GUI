@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.46.02-beta:
+- 添加tooltip.
 v2.46.01-beta:
 - 更新FFmpeg.
 - 添加tooltip.

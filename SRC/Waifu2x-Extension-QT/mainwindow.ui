@@ -292,6 +292,9 @@ padding:10px;
            </item>
            <item row="0" column="9">
             <widget class="QLabel" name="label_TextBroFontSize">
+             <property name="toolTip">
+              <string>Change the font size of the text browser.</string>
+             </property>
              <property name="text">
               <string>Font size:</string>
              </property>
@@ -538,6 +541,9 @@ padding:10px;
            </item>
            <item row="0" column="10">
             <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
+             <property name="toolTip">
+              <string>Change the font size of the text browser.</string>
+             </property>
              <property name="minimum">
               <number>1</number>
              </property>
@@ -588,6 +594,9 @@ padding:10px;
                <height>16777215</height>
               </size>
              </property>
+             <property name="toolTip">
+              <string>Remove all the files in the File list.</string>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
 background-color: rgb(231, 76, 60);
@@ -630,6 +639,9 @@ padding:10px;
                <width>110</width>
                <height>16777215</height>
               </size>
+             </property>
+             <property name="toolTip">
+              <string>Remove the selected file from File List.</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
@@ -787,6 +799,9 @@ padding:10px;
                <width>0</width>
                <height>35</height>
               </size>
+             </property>
+             <property name="toolTip">
+              <string>Browse and add file.</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
