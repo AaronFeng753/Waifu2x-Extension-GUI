@@ -6,6 +6,16 @@
 - 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.45.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.45.18)
+#### 更新日志:
+- 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
+- 新特性:保留原文件名.(可选,默认禁用)
+- 更新Anime4K,ImageMagick,FFmpeg.
+- 为提示音添加淡出效果.(由 @Michael18751 编辑)
+- 性能优化.
+- 修复多处Bug.
+- 以及其他多项改进.
+---
 ## [v2.44.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.44.18)
 #### 更新日志:
 - 新特性:为Anime4K引擎加入ACNet算法支持, ACNet可以在改善画质的同时实现高速处理.(您需要在Anime4k引擎设置中手动启用ACNet)
