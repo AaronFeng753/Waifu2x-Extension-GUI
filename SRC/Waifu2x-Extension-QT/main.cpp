@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.46.03-beta:
+- 更新FFmpeg.
+- 更新FFmpeg编码器列表.
 v2.46.02-beta:
 - Add overwrite switch.
 - Add tooltip.
@@ -60,7 +63,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-19 Q16 x64(release)
 - Anime4KCPP v2.1.0(release)
-- FFmpeg version 20200615-9d80f3e
+- FFmpeg version 20200617-0b3bd00
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

@@ -128,39 +128,39 @@ We recommend you use the default value(95)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5187"/>
-        <location filename="mainwindow.ui" line="5208"/>
-        <location filename="mainwindow.ui" line="5223"/>
-        <location filename="mainwindow.ui" line="5239"/>
-        <location filename="mainwindow.ui" line="5260"/>
-        <location filename="mainwindow.ui" line="5301"/>
-        <location filename="mainwindow.ui" line="5317"/>
-        <location filename="mainwindow.ui" line="5354"/>
-        <location filename="mainwindow.ui" line="5388"/>
-        <location filename="mainwindow.ui" line="5403"/>
-        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5190"/>
+        <location filename="mainwindow.ui" line="5211"/>
+        <location filename="mainwindow.ui" line="5226"/>
+        <location filename="mainwindow.ui" line="5242"/>
+        <location filename="mainwindow.ui" line="5263"/>
+        <location filename="mainwindow.ui" line="5304"/>
+        <location filename="mainwindow.ui" line="5320"/>
+        <location filename="mainwindow.ui" line="5357"/>
+        <location filename="mainwindow.ui" line="5391"/>
+        <location filename="mainwindow.ui" line="5406"/>
+        <location filename="mainwindow.ui" line="5449"/>
         <source>Image processing engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5294"/>
+        <location filename="mainwindow.ui" line="5297"/>
         <source>Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5413"/>
-        <location filename="mainwindow.ui" line="5436"/>
+        <location filename="mainwindow.ui" line="5416"/>
+        <location filename="mainwindow.ui" line="5439"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5332"/>
-        <location filename="mainwindow.ui" line="5372"/>
+        <location filename="mainwindow.ui" line="5335"/>
+        <location filename="mainwindow.ui" line="5375"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5149"/>
+        <location filename="mainwindow.ui" line="5152"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -174,17 +174,17 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5268"/>
+        <location filename="mainwindow.ui" line="5271"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5429"/>
+        <location filename="mainwindow.ui" line="5432"/>
         <source>Plugins:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5171"/>
+        <location filename="mainwindow.ui" line="5174"/>
         <source>For audio denoise(video).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -572,17 +572,22 @@ the subfolder and add them to the file list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5115"/>
+        <location filename="mainwindow.ui" line="4984"/>
+        <source>Open Waifu2x-Extension-GUI online wiki.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5118"/>
         <source>Compatibility test results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5325"/>
+        <location filename="mainwindow.ui" line="5328"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5121"/>
+        <location filename="mainwindow.ui" line="5124"/>
         <source>Essential, for all sorts of functions.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -968,7 +973,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5014"/>
+        <location filename="mainwindow.ui" line="5017"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1429,7 +1434,7 @@ automatically force the picture to be saved as PNG.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5051"/>
+        <location filename="mainwindow.ui" line="5054"/>
         <location filename="mainwindow.cpp" line="1163"/>
         <source>About</source>
         <translation type="unfinished"></translation>
@@ -1491,13 +1496,13 @@ automatically force the picture to be saved as PNG.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5072"/>
+        <location filename="mainwindow.ui" line="5075"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5066"/>
-        <location filename="mainwindow.ui" line="5105"/>
+        <location filename="mainwindow.ui" line="5069"/>
+        <location filename="mainwindow.ui" line="5108"/>
         <location filename="waifu2x.cpp" line="881"/>
         <source>Compatibility test</source>
         <translation type="unfinished"></translation>

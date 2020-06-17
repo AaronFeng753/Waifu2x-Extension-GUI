@@ -1200,19 +1200,19 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">★★ 寄付 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5072"/>
+        <location filename="mainwindow.ui" line="5075"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>互換性テストを実行して、コンピューターが互換性のあるエンジンを確認します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5066"/>
-        <location filename="mainwindow.ui" line="5105"/>
+        <location filename="mainwindow.ui" line="5069"/>
+        <location filename="mainwindow.ui" line="5108"/>
         <location filename="waifu2x.cpp" line="881"/>
         <source>Compatibility test</source>
         <translation>互換性テスト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5014"/>
+        <location filename="mainwindow.ui" line="5017"/>
         <source>Wiki</source>
         <translation>Wiki</translation>
     </message>
@@ -1236,7 +1236,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation>Readme</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5051"/>
+        <location filename="mainwindow.ui" line="5054"/>
         <location filename="mainwindow.cpp" line="1163"/>
         <source>About</source>
         <translation>について</translation>
@@ -1395,8 +1395,8 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5413"/>
-        <location filename="mainwindow.ui" line="5436"/>
+        <location filename="mainwindow.ui" line="5416"/>
+        <location filename="mainwindow.ui" line="5439"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>ビデオの処理用。</translation>
@@ -1530,7 +1530,7 @@ waifu2x-converterエンジンに互換性があることを確認してくださ
         <translation type="vanished">アルファチャネルのエンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5115"/>
+        <location filename="mainwindow.ui" line="5118"/>
         <source>Compatibility test results</source>
         <translation>互換性テストの結果</translation>
     </message>
@@ -1561,7 +1561,7 @@ Anime4k  [速度：★★★  画質：★]
 srmd-ncnn-vulkan  [速度：★☆  画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5171"/>
+        <location filename="mainwindow.ui" line="5174"/>
         <source>For audio denoise(video).</source>
         <translation>オーディオのノイズ除去（ビデオ）。</translation>
     </message>
@@ -1584,7 +1584,7 @@ Anime4k  [ 速度:★★★  画質:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5325"/>
+        <location filename="mainwindow.ui" line="5328"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(古いバージョン)</translation>
     </message>
@@ -1593,17 +1593,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5187"/>
-        <location filename="mainwindow.ui" line="5208"/>
-        <location filename="mainwindow.ui" line="5223"/>
-        <location filename="mainwindow.ui" line="5239"/>
-        <location filename="mainwindow.ui" line="5260"/>
-        <location filename="mainwindow.ui" line="5301"/>
-        <location filename="mainwindow.ui" line="5317"/>
-        <location filename="mainwindow.ui" line="5354"/>
-        <location filename="mainwindow.ui" line="5388"/>
-        <location filename="mainwindow.ui" line="5403"/>
-        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5190"/>
+        <location filename="mainwindow.ui" line="5211"/>
+        <location filename="mainwindow.ui" line="5226"/>
+        <location filename="mainwindow.ui" line="5242"/>
+        <location filename="mainwindow.ui" line="5263"/>
+        <location filename="mainwindow.ui" line="5304"/>
+        <location filename="mainwindow.ui" line="5320"/>
+        <location filename="mainwindow.ui" line="5357"/>
+        <location filename="mainwindow.ui" line="5391"/>
+        <location filename="mainwindow.ui" line="5406"/>
+        <location filename="mainwindow.ui" line="5449"/>
         <source>Image processing engine.</source>
         <translation>画像処理エンジン。</translation>
     </message>
@@ -1632,8 +1632,8 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5332"/>
-        <location filename="mainwindow.ui" line="5372"/>
+        <location filename="mainwindow.ui" line="5335"/>
+        <location filename="mainwindow.ui" line="5375"/>
         <source>For processing GIF.</source>
         <translation>GIFの処理用。</translation>
     </message>
@@ -1650,7 +1650,7 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5121"/>
+        <location filename="mainwindow.ui" line="5124"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>あらゆる種類の機能に不可欠です。</translation>
     </message>
@@ -2146,7 +2146,12 @@ automatically force the picture to be saved as PNG.
         <translation>JPGファイルを圧縮します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5149"/>
+        <location filename="mainwindow.ui" line="4984"/>
+        <source>Open Waifu2x-Extension-GUI online wiki.</source>
+        <translation>Waifu2x-Extension-GUIオンラインwikiを開きます。</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5152"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -2169,7 +2174,7 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5268"/>
+        <location filename="mainwindow.ui" line="5271"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan（最新バージョン）</translation>
     </message>
@@ -2315,12 +2320,12 @@ srmd-ncnn-vulkan  [ 速度:★☆  画質:★★★ ]
 waifu2x-caffe  [ 速度:★☆  画質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5294"/>
+        <location filename="mainwindow.ui" line="5297"/>
         <source>Engines:</source>
         <translation>エンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5429"/>
+        <location filename="mainwindow.ui" line="5432"/>
         <source>Plugins:</source>
         <translation>プラグイン：</translation>
     </message>

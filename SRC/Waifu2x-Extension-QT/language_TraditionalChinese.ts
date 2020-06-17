@@ -162,13 +162,13 @@ automatically force the picture to be saved as PNG.
         <translation type="vanished">★ 捐贈 ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5072"/>
+        <location filename="mainwindow.ui" line="5075"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>進行兼容性測試以了解您的電腦與所有引擎的兼容性.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5066"/>
-        <location filename="mainwindow.ui" line="5105"/>
+        <location filename="mainwindow.ui" line="5069"/>
+        <location filename="mainwindow.ui" line="5108"/>
         <location filename="waifu2x.cpp" line="881"/>
         <source>Compatibility test</source>
         <translation>兼容性測試</translation>
@@ -737,12 +737,12 @@ We recommend you use the default value(95)</source>
         <translation type="vanished">Alpha通道圖像引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5115"/>
+        <location filename="mainwindow.ui" line="5118"/>
         <source>Compatibility test results</source>
         <translation>兼容性測試結果</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5149"/>
+        <location filename="mainwindow.ui" line="5152"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -765,17 +765,17 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆ 畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5268"/>
+        <location filename="mainwindow.ui" line="5271"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan(最新版)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5294"/>
+        <location filename="mainwindow.ui" line="5297"/>
         <source>Engines:</source>
         <translation>引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5429"/>
+        <location filename="mainwindow.ui" line="5432"/>
         <source>Plugins:</source>
         <translation>外掛程式：</translation>
     </message>
@@ -794,7 +794,7 @@ Anime4k  [ 速度:★★★  畫質:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5325"/>
+        <location filename="mainwindow.ui" line="5328"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(舊版本)</translation>
     </message>
@@ -811,7 +811,7 @@ srmd-ncnn-vulkan  [ 速度:★★  畫質:★★★ ]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5121"/>
+        <location filename="mainwindow.ui" line="5124"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>至關重要，用於實現各種功能。</translation>
     </message>
@@ -1060,7 +1060,7 @@ Uncheck the [OLD Version] to enable [TTA].</source>
         <translation type="vanished">★★ 捐贈 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5014"/>
+        <location filename="mainwindow.ui" line="5017"/>
         <source>Wiki</source>
         <translation>使用教程</translation>
     </message>
@@ -1472,6 +1472,11 @@ Process mode]
 - [ 速度:★☆ 畫質:★★★ ]</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="4984"/>
+        <source>Open Waifu2x-Extension-GUI online wiki.</source>
+        <translation>打開Waifu2x-Extension-GUI的在線使用說明.</translation>
+    </message>
+    <message>
         <source>Realsr-ncnn-vulkan(beta)</source>
         <translation type="vanished">Realsr-ncnn-vulkan(實驗性功能)</translation>
     </message>
@@ -1638,23 +1643,23 @@ srmd-ncnn-vulkan [ 速度:★★ 畫質:★★★ ]
 waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5187"/>
-        <location filename="mainwindow.ui" line="5208"/>
-        <location filename="mainwindow.ui" line="5223"/>
-        <location filename="mainwindow.ui" line="5239"/>
-        <location filename="mainwindow.ui" line="5260"/>
-        <location filename="mainwindow.ui" line="5301"/>
-        <location filename="mainwindow.ui" line="5317"/>
-        <location filename="mainwindow.ui" line="5354"/>
-        <location filename="mainwindow.ui" line="5388"/>
-        <location filename="mainwindow.ui" line="5403"/>
-        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5190"/>
+        <location filename="mainwindow.ui" line="5211"/>
+        <location filename="mainwindow.ui" line="5226"/>
+        <location filename="mainwindow.ui" line="5242"/>
+        <location filename="mainwindow.ui" line="5263"/>
+        <location filename="mainwindow.ui" line="5304"/>
+        <location filename="mainwindow.ui" line="5320"/>
+        <location filename="mainwindow.ui" line="5357"/>
+        <location filename="mainwindow.ui" line="5391"/>
+        <location filename="mainwindow.ui" line="5406"/>
+        <location filename="mainwindow.ui" line="5449"/>
         <source>Image processing engine.</source>
         <translation>圖像處理引擎。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5413"/>
-        <location filename="mainwindow.ui" line="5436"/>
+        <location filename="mainwindow.ui" line="5416"/>
+        <location filename="mainwindow.ui" line="5439"/>
         <source>For processing Video.</source>
         <translation>用於處理視頻。</translation>
     </message>
@@ -1663,8 +1668,8 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5332"/>
-        <location filename="mainwindow.ui" line="5372"/>
+        <location filename="mainwindow.ui" line="5335"/>
+        <location filename="mainwindow.ui" line="5375"/>
         <source>For processing GIF.</source>
         <translation>用於處理GIF。</translation>
     </message>
@@ -1711,7 +1716,7 @@ Anime4k  [ 速度:★★★  畫質:★ ]
 srmd-ncnn-vulkan [ 速度:★☆  畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5171"/>
+        <location filename="mainwindow.ui" line="5174"/>
         <source>For audio denoise(video).</source>
         <translation>用於給音頻降噪(視頻).</translation>
     </message>
@@ -2149,7 +2154,7 @@ We recommend you use the default value(90)</source>
 我們建議您使用預設值(90)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5051"/>
+        <location filename="mainwindow.ui" line="5054"/>
         <location filename="mainwindow.cpp" line="1163"/>
         <source>About</source>
         <translation>關於</translation>

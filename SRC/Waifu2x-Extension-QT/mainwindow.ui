@@ -4980,6 +4980,9 @@ padding:10px;
            </item>
            <item row="0" column="5">
             <widget class="QPushButton" name="pushButton_wiki">
+             <property name="toolTip">
+              <string>Open Waifu2x-Extension-GUI online wiki.</string>
+             </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
 background-color: rgb(178, 58, 238);
