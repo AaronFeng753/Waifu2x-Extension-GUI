@@ -48,13 +48,19 @@ int MainWindow::CheckUpadte_Auto()
     //============
     QString Latest_Ver="";
     QString Current_Ver="";
-    if(isBetaVer)
+    QString checkupdate_cmd="";
+    switch(ui->comboBox_UpdateChannel->currentIndex())
     {
-        Current_Ver=LastStableVer;
-    }
-    else
-    {
-        Current_Ver=VERSION;
+        case 0:
+            Current_Ver=LastStableVer;
+            checkupdate_cmd="checkupdate";
+            break;
+        case 1:
+            Current_Ver=VERSION;
+            checkupdate_cmd="checkupdate_beta";
+            break;
+        default:
+            break;
     }
     //============================
     QString Github_UpdateInfo = Current_Path+"/Update_Info_Github.ini";
@@ -64,7 +70,7 @@ int MainWindow::CheckUpadte_Auto()
     //===========================
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess checkupdate;
-    checkupdate.start("\""+program+"\" \""+Current_Path+"\" checkupdate");
+    checkupdate.start("\""+program+"\" \""+Current_Path+"\" "+checkupdate_cmd);
     while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
     while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
     //========= 先检查github的文件是否下载成功 =================

@@ -4243,17 +4243,22 @@ increase the time and storage space required to process image.</string>
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_14">
-              <item row="2" column="3">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+              <item row="7" column="3">
+               <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
                 <property name="toolTip">
-                 <string>[Settings] will be automatically hidden when the software starts.</string>
+                 <string>Processing video in segments can greatly reduce the 
+hard disk space occupied by processing video. But it 
+will increase the time required to process video.</string>
                 </property>
                 <property name="text">
-                 <string>Always hide Settings</string>
+                 <string>Process video by segment</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="3" column="3">
+              <item row="4" column="3">
                <widget class="QCheckBox" name="checkBox_FileList_Interactive">
                 <property name="text">
                  <string>Interactive file list</string>
@@ -4263,20 +4268,17 @@ increase the time and storage space required to process image.</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="3">
-               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
+              <item row="3" column="3">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
                 <property name="toolTip">
-                 <string>Keep video cache after processing the video.</string>
+                 <string>[Settings] will be automatically hidden when the software starts.</string>
                 </property>
                 <property name="text">
-                 <string>Keep video cache</string>
-                </property>
-                <property name="checked">
-                 <bool>false</bool>
+                 <string>Always hide Settings</string>
                 </property>
                </widget>
               </item>
-              <item row="7" column="2" colspan="2">
+              <item row="8" column="2" colspan="2">
                <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
                 <property name="minimumSize">
                  <size>
@@ -4307,7 +4309,44 @@ increase the time and storage space required to process image.</string>
                 </item>
                </widget>
               </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_PromptWhenExit">
+                <property name="text">
+                 <string>Prompt when exit</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="3">
+               <widget class="QCheckBox" name="checkBox_NfSound">
+                <property name="toolTip">
+                 <string>Play Notification sound when all files in the list have been processed.</string>
+                </property>
+                <property name="text">
+                 <string>Notification sound</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
               <item row="8" column="0" colspan="2">
+               <widget class="QLabel" name="label_44">
+                <property name="toolTip">
+                 <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="text">
+                 <string>Aspect Ratio:
+(Custom resolution)</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0" colspan="2">
                <widget class="QLabel" name="label_21">
                 <property name="maximumSize">
                  <size>
@@ -4324,53 +4363,56 @@ the language for the language settings to fully take effect.</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_PromptWhenExit">
+              <item row="5" column="3">
+               <widget class="QCheckBox" name="checkBox_KeepVideoCache">
+                <property name="toolTip">
+                 <string>Keep video cache after processing the video.</string>
+                </property>
                 <property name="text">
-                 <string>Prompt when exit</string>
+                 <string>Keep video cache</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+              <item row="7" column="1">
+               <widget class="QSpinBox" name="spinBox_SegmentDuration">
                 <property name="toolTip">
-                 <string>Settings will be saved automatically when you close the software.</string>
+                 <string>When processing video in segments, the length of each video clip.
+This will determine how much hard disk space the program will occupy 
+when processing video in segments.</string>
+                </property>
+                <property name="suffix">
+                 <string notr="true">s</string>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>999999999</number>
+                </property>
+                <property name="value">
+                 <number>10</number>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_SegmentDuration">
+                <property name="toolTip">
+                 <string>When processing video in segments, the length of each video clip.
+This will determine how much hard disk space the program will occupy 
+when processing video in segments.</string>
                 </property>
                 <property name="text">
-                 <string>Auto save settings</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
+                 <string>Segment duration:</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
-                <property name="toolTip">
-                 <string>[Text browser] will be automatically hidden when the software starts.</string>
-                </property>
-                <property name="text">
-                 <string>Always hide Text Browser</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
-                <property name="toolTip">
-                 <string>When the file processing status changes, the file list scrolls automatically.</string>
-                </property>
-                <property name="text">
-                 <string>File list scrolls automatically</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="2" colspan="2">
+              <item row="9" column="2" colspan="2">
                <widget class="QComboBox" name="comboBox_language">
                 <property name="minimumSize">
                  <size>
@@ -4407,17 +4449,7 @@ the language for the language settings to fully take effect.</string>
                 </item>
                </widget>
               </item>
-              <item row="5" column="0">
-               <widget class="QLabel" name="label_39">
-                <property name="toolTip">
-                 <string>The number of retries when failed to processing a image (or frame).</string>
-                </property>
-                <property name="text">
-                 <string>Retry:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
+              <item row="2" column="3">
                <widget class="QCheckBox" name="checkBox_ShowInterPro">
                 <property name="toolTip">
                  <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
@@ -4430,51 +4462,44 @@ the language for the language settings to fully take effect.</string>
                 </property>
                </widget>
               </item>
-              <item row="6" column="0">
-               <widget class="QLabel" name="label_SegmentDuration">
+              <item row="2" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
                 <property name="toolTip">
-                 <string>When processing video in segments, the length of each video clip.
-This will determine how much hard disk space the program will occupy 
-when processing video in segments.</string>
+                 <string>Settings will be saved automatically when you close the software.</string>
                 </property>
                 <property name="text">
-                 <string>Segment duration:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_UpdatePopup">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="toolTip">
-                 <string>Automatically check for updates on startup.</string>
-                </property>
-                <property name="text">
-                 <string>Update popup</string>
+                 <string>Auto save settings</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="5" column="3">
-               <widget class="QCheckBox" name="checkBox_NfSound">
+              <item row="4" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
                 <property name="toolTip">
-                 <string>Play Notification sound when all files in the list have been processed.</string>
+                 <string>When adding a folder to the file list, scan the files in
+the subfolder and add them to the file list.</string>
                 </property>
                 <property name="text">
-                 <string>Notification sound</string>
+                 <string>Scan sub-folders</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="5" column="1">
+              <item row="3" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
+                <property name="toolTip">
+                 <string>[Text browser] will be automatically hidden when the software starts.</string>
+                </property>
+                <property name="text">
+                 <string>Always hide Text Browser</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
                <widget class="QSpinBox" name="spinBox_retry">
                 <property name="toolTip">
                  <string>The number of retries when failed to processing a image (or frame).</string>
@@ -4490,70 +4515,105 @@ when processing video in segments.</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_39">
                 <property name="toolTip">
-                 <string>When adding a folder to the file list, scan the files in
-the subfolder and add them to the file list.</string>
+                 <string>The number of retries when failed to processing a image (or frame).</string>
                 </property>
                 <property name="text">
-                 <string>Scan sub-folders</string>
+                 <string>Retry:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+                <property name="toolTip">
+                 <string>When the file processing status changes, the file list scrolls automatically.</string>
+                </property>
+                <property name="text">
+                 <string>File list scrolls automatically</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="6" column="3">
-               <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
+              <item row="0" column="0" colspan="2">
+               <widget class="QCheckBox" name="checkBox_UpdatePopup">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="toolTip">
-                 <string>Processing video in segments can greatly reduce the 
-hard disk space occupied by processing video. But it 
-will increase the time required to process video.</string>
+                 <string>A pop-up window will prompts when an update is detected.</string>
                 </property>
                 <property name="text">
-                 <string>Process video by segment</string>
+                 <string>Update popup</string>
                 </property>
                 <property name="checked">
                  <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="6" column="1">
-               <widget class="QSpinBox" name="spinBox_SegmentDuration">
-                <property name="toolTip">
-                 <string>When processing video in segments, the length of each video clip.
-This will determine how much hard disk space the program will occupy 
-when processing video in segments.</string>
+              <item row="0" column="2" colspan="2">
+               <widget class="QGroupBox" name="groupBox_UpdateChannel">
+                <property name="styleSheet">
+                 <string notr="true"/>
                 </property>
-                <property name="suffix">
-                 <string notr="true">s</string>
-                </property>
-                <property name="prefix">
-                 <string/>
-                </property>
-                <property name="minimum">
-                 <number>1</number>
-                </property>
-                <property name="maximum">
-                 <number>999999999</number>
-                </property>
-                <property name="value">
-                 <number>10</number>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0" colspan="2">
-               <widget class="QLabel" name="label_44">
-                <property name="toolTip">
-                 <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="text">
-                 <string>Aspect Ratio:
-(Custom resolution)</string>
+                <property name="title">
+                 <string>Update channel:</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="flat">
+                 <bool>true</bool>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_37">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>2</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QComboBox" name="comboBox_UpdateChannel">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Stable</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Beta</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="3">
+               <widget class="QCheckBox" name="checkBox_MinimizeToTaskbar">
+                <property name="text">
+                 <string>Minimize to taskbar</string>
                 </property>
                </widget>
               </item>
@@ -4974,7 +5034,7 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>Readme</string>
+              <string>Official website</string>
              </property>
             </widget>
            </item>

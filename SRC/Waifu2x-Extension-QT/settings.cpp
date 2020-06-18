@@ -89,6 +89,8 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
     //=================== 存储 杂项设置 =================================
+    configIniWrite->setValue("/settings/comboBox_UpdateChannel", ui->comboBox_UpdateChannel->currentIndex());
+    configIniWrite->setValue("/settings/checkBox_MinimizeToTaskbar", ui->checkBox_MinimizeToTaskbar->isChecked());
     configIniWrite->setValue("/settings/checkBox_custres_isAll", ui->checkBox_custres_isAll->isChecked());
     configIniWrite->setValue("/settings/SaveAsJPG", ui->checkBox_SaveAsJPG->isChecked());
     configIniWrite->setValue("/settings/CompressJPG", ui->checkBox_CompressJPG->isChecked());
@@ -205,6 +207,7 @@ int MainWindow::Settings_Read_Apply()
     QString settings_ini = Current_Path+"/settings.ini";
     if(!file_isFileExist(settings_ini))
     {
+        if(isBetaVer)ui->comboBox_UpdateChannel->setCurrentIndex(1);
         Settings_Save();
         Settings_Read_Apply();
         return 0;
@@ -216,6 +219,7 @@ int MainWindow::Settings_Read_Apply()
         QString Settings_VERSION = configIniRead_ver->value("/settings/VERSION").toString();
         if(Settings_VERSION!=VERSION)
         {
+            if(isBetaVer)ui->comboBox_UpdateChannel->setCurrentIndex(1);
             Settings_Save();
             Settings_Read_Apply();
             return 0;
@@ -293,6 +297,8 @@ int MainWindow::Settings_Read_Apply()
     ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
     //================== 加载 杂项设置 ==================================
+    ui->comboBox_UpdateChannel->setCurrentIndex(configIniRead->value("/settings/comboBox_UpdateChannel").toInt());
+    ui->checkBox_MinimizeToTaskbar->setChecked(configIniRead->value("/settings/checkBox_MinimizeToTaskbar").toBool());
     ui->checkBox_custres_isAll->setChecked(configIniRead->value("/settings/checkBox_custres_isAll").toBool());
     ui->checkBox_SaveAsJPG->setChecked(configIniRead->value("/settings/SaveAsJPG").toBool());
     ui->checkBox_CompressJPG->setChecked(configIniRead->value("/settings/CompressJPG").toBool());

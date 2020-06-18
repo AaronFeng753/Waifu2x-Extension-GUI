@@ -280,6 +280,20 @@ int MainWindow::Force_close()
     //==============
     return 0;*/
 }
+/*
+最小化
+*/
+void MainWindow::changeEvent(QEvent *e)
+{
+    if((e->type()==QEvent::WindowStateChange)&&this->isMinimized())
+    {
+        if(ui->checkBox_MinimizeToTaskbar->isChecked())
+        {
+            this->hide();
+        }
+        //QTimer::singleShot(0, this, SLOT(hide()));
+    }
+}
 
 void MainWindow::TimeSlot()
 {
@@ -753,12 +767,12 @@ void MainWindow::on_pushButton_ReadMe_clicked()
 {
     if(ui->comboBox_language->currentIndex()==1)
     {
-        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
-        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md"));
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/"));
+        QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/"));
     }
     else
     {
-        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md"));
+        QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/"));
     }
 }
 
