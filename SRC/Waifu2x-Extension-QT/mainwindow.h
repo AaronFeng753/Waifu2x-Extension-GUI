@@ -53,6 +53,8 @@
 #include <QTextCodec>
 #include <math.h>
 #include <QMutex>
+#include <QSystemTrayIcon>
+#include <QMenu>
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -66,13 +68,16 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+
     MainWindow(QWidget *parent = nullptr);
     //=======================
-    QString VERSION = "v2.46.03-beta";//软件版本号
+    QString VERSION = "v2.46.04-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
     QTranslator * translator;//界面翻译
+    //=======
+    QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
     //=======
     QString Current_Path = qApp->applicationDirPath();//当前路径
     //=======
@@ -353,13 +358,15 @@ public:
 
     bool isShowAnime4kWarning=true;
     //=========== 关闭窗口时执行的代码 ===============
-    void closeEvent(QCloseEvent* event);//关闭事件,包含所有关闭时执行的代码
+    void closeEvent(QCloseEvent* event);//关闭事件
+    //void Close_self();//包含所有关闭时执行的代码
     bool QProcess_stop=false;//所有QProcess停止标记
     int Auto_Save_Settings_Watchdog();//自动保存设置的看门狗
     QFuture<int> AutoUpdate;//监视自动检查更新线程
     QFuture<int> DownloadOnlineQRCode;//监视在线下载二维码线程
     QFuture<int> Waifu2xMain;//监视waifu2x主线程
     int Force_close();//调用cmd强制关闭自己
+    bool isAlreadyClosed=false;
     //================== 处理当前文件的进度 =========================
     long unsigned int TimeCost_CurrentFile =0;
     int TaskNumTotal_CurrentFile=0;
@@ -369,10 +376,24 @@ public:
     bool isStart_CurrentFile=false;
     //=============================================
     void Tip_FirstTimeStart();
+    //================== 托盘图标 =================
+    void Init_SystemTrayIcon();
+    QSystemTrayIcon *systemTray = new QSystemTrayIcon(this);
+    QMenu *pContextMenu = new QMenu(this);
+    QAction *minimumAct_SystemTrayIcon = new QAction(this);
+    QAction *restoreAct_SystemTrayIcon = new QAction(this);
+    QAction *quitAct_SystemTrayIcon = new QAction(this);
+    QAction *BackgroundModeAct_SystemTrayIcon = new QAction(this);
     //=============
     ~MainWindow();
 
 public slots:
+    void SystemTray_hide_self();
+    void SystemTray_showNormal_self();
+    void SystemTray_NewMessage(QString message);
+    void EnableBackgroundMode_SystemTray();
+    void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);
+
     void progressbar_setRange_min_max(int min, int max);//进度条设定min和max
     void progressbar_Add();//进度条进度+1
 
@@ -622,6 +643,8 @@ private slots:
     void on_checkBox_CompressJPG_stateChanged(int arg1);
 
 signals:
+    void Send_SystemTray_NewMessage(QString message);
+
     void Send_PrograssBar_Range_min_max(int, int);
     void Send_progressbar_Add();
 

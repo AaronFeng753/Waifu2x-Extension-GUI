@@ -391,6 +391,7 @@ void MainWindow::Waifu2x_Finished()
         AutoShutDown->setModal(false);
         AutoShutDown->show();
         emit Send_TextBrowser_NewMessage(tr("The computer will automatically shut down in 60 seconds!"));
+        emit Send_SystemTray_NewMessage(tr("The computer will automatically shut down in 60 seconds!"));
         //关机前自动保存设置
         if(ui->checkBox_AutoSaveSettings->isChecked())
         {
@@ -402,6 +403,7 @@ void MainWindow::Waifu2x_Finished()
     progressbar_SetToMax(Progressbar_MaxVal);
     //=============================================================
     emit Send_TextBrowser_NewMessage(tr("Process finished."));
+    emit Send_SystemTray_NewMessage(tr("Process finished."));
     //============================================================
     Waifu2x_Finished_manual();
 }
@@ -848,6 +850,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(SoX_OutputPath);
     //================
     emit Send_TextBrowser_NewMessage(tr("Compatibility test is complete!"));
+    emit Send_SystemTray_NewMessage(tr("Compatibility test is complete!"));
     emit Send_Waifu2x_Compatibility_Test_finished();
     return 0;
 }

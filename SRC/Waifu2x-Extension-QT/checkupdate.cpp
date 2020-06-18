@@ -139,7 +139,9 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(QString(tr("New version: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str));
+        QString update_msg_str = QString(tr("New version: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str);
+        emit Send_SystemTray_NewMessage(update_msg_str);
+        emit Send_TextBrowser_NewMessage(update_msg_str);
     }
     return 0;
 }

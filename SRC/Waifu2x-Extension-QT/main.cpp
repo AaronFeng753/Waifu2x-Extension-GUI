@@ -24,7 +24,8 @@
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);//高分辨率屏幕支持
-    QApplication a(argc, argv);
+    QApplication a(argc,argv);
+    a.setQuitOnLastWindowClosed(false);//隐藏无窗口时保持运行
     MainWindow *w = new MainWindow;
     w->show();
     return a.exec();
@@ -32,6 +33,14 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.46.04-beta:
+- 新特性:系统托盘(任务栏)图标.
+- 新特性:后台模式.
+- 新特性:系统托盘(任务栏)消息.
+- 性能优化.
+- 改进GUI.
+- 更新ImageMagick.
+- 修复一些由QT5自带的bug而引起的bug.
 v2.46.03-beta:
 - 更新FFmpeg.
 - 更新FFmpeg编码器列表.
@@ -61,7 +70,7 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20200606(release)
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
-- ImageMagick 7.0.10-19 Q16 x64(release)
+- ImageMagick 9ce08bd17d583829b4d510f17cf4e74461c58cb2
 - Anime4KCPP v2.1.0(release)
 - FFmpeg version 20200617-0b3bd00
 ---

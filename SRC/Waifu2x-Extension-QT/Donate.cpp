@@ -107,6 +107,7 @@ int MainWindow::Donate_Count()
         configIniWrite->setValue("/Donate/OpenCount_Current", 1);
         configIniWrite->setValue("/Donate/OpenCount_Max", 10);//间隔多少次,提示捐赠
         ui->tabWidget->setCurrentIndex(0);
+        emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
         return 0;
     }
 }

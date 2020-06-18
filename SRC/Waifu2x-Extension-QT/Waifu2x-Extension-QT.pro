@@ -39,6 +39,7 @@ SOURCES += \
     Current_File_Progress.cpp \
     CustomResolution.cpp \
     Donate.cpp \
+    SystemTrayIcon.cpp \
     checkupdate.cpp \
     files.cpp \
     gif.cpp \

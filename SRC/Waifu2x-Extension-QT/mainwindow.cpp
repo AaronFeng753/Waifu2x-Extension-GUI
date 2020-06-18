@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //===========================================
+    connect(this, SIGNAL(Send_SystemTray_NewMessage(QString)), this, SLOT(SystemTray_NewMessage(QString)));
+    //===
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
     connect(this, SIGNAL(Send_progressbar_Add()), this, SLOT(progressbar_Add()));
     //===
@@ -91,7 +93,7 @@ MainWindow::MainWindow(QWidget *parent)
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));
     //==================================================
-    Settings_Read_Apply();//读取与应用更新
+    Settings_Read_Apply();//读取与应用设置
     //=====================================
     Set_Font_fixed();//固定字体
     //=====================================
@@ -109,12 +111,17 @@ MainWindow::MainWindow(QWidget *parent)
     */
     if(file_isDirWritable(Current_Path)==false)
     {
-        QMessageBox Msg_Permission(QMessageBox::Question, QString(tr("Error")), QString(tr("It is detected that this software lacks the necessary permissions to run.\n\nPlease close this software and start this software again after giving this software administrator permission.\n\nOtherwise, this software may not work properly.")));
-        Msg_Permission.setIcon(QMessageBox::Warning);
-        QAbstractButton *pBtn_Permission = (QAbstractButton *)Msg_Permission.addButton(QString("OK"), QMessageBox::NoRole);
-        Msg_Permission.exec();
+        QMessageBox Msg(QMessageBox::Question, QString(tr("Error")), QString(tr("It is detected that this software lacks the necessary permissions to run.\n\nPlease close this software and start this software again after giving this software administrator permission.\n\nOtherwise, this software may not work properly.")));
+        Msg.setIcon(QMessageBox::Warning);
+        QAbstractButton *pBtn_Permission = (QAbstractButton *)Msg.addButton(QString("OK"), QMessageBox::NoRole);
+        Msg.exec();
     }
     //==============
+    Init_SystemTrayIcon();//初始化托盘图标
+    //==============
+    this->showNormal();
+    this->activateWindow();
+    this->setWindowState((this->windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
     this->adjustSize();
 }
 
@@ -125,6 +132,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    if(isAlreadyClosed)//解决QT退出时重复调用closeEvent的问题
+    {
+        event->accept();
+        return;
+    }
     //=============== 询问是否退出 =======================
     if(ui->checkBox_PromptWhenExit->isChecked())
     {
@@ -138,8 +150,14 @@ void MainWindow::closeEvent(QCloseEvent *event)
             event->ignore();
             return;
         }
+        if (Msg.clickedButton() == pYesBtn)isAlreadyClosed=true;
     }
     //=============================
+    systemTray->hide();
+    this->hide();
+    QApplication::setQuitOnLastWindowClosed(true);//無窗口時不再保持運行
+    QApplication::closeAllWindows();
+    //====
     bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->isChecked();
     if(AutoSaveSettings&&(!Settings_isReseted))
     {
@@ -155,6 +173,25 @@ void MainWindow::closeEvent(QCloseEvent *event)
         Force_close();
     }
 }
+/*
+void MainWindow::Close_self()
+{
+    //=============================
+    bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->isChecked();
+    if(AutoSaveSettings&&(!Settings_isReseted))
+    {
+        Settings_Save();
+        QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog);
+    }
+    else
+    {
+        QProcess_stop=true;
+        AutoUpdate.cancel();
+        DownloadOnlineQRCode.cancel();
+        Waifu2xMain.cancel();
+        Force_close();
+    }
+}*/
 
 int MainWindow::Auto_Save_Settings_Watchdog()
 {
@@ -178,6 +215,13 @@ int MainWindow::Force_close()
 {
     QProcess Close;
     //==============
+    Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
+    //==============
+    return 0;
+    /*
+    //==
     Close.start("taskkill /f /t /fi \"imagename eq convert_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
@@ -234,7 +278,7 @@ int MainWindow::Force_close()
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
     //==============
-    return 0;
+    return 0;*/
 }
 
 void MainWindow::TimeSlot()
@@ -1033,6 +1077,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         ui->retranslateUi(this);
         Table_FileCount_reload();
         Init_Table();
+        Init_SystemTrayIcon();
         Set_Font_fixed();
         //=========
         if(ui->checkBox_AlwaysHideSettings->isChecked())
