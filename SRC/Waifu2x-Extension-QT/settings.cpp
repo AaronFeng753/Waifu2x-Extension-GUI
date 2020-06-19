@@ -219,6 +219,8 @@ int MainWindow::Settings_Read_Apply()
         QString Settings_VERSION = configIniRead_ver->value("/settings/VERSION").toString();
         if(Settings_VERSION!=VERSION)
         {
+            isReadOldSettings=true;
+            QFile::rename(settings_ini,Current_Path+"/settings_old.ini");
             if(isBetaVer)ui->comboBox_UpdateChannel->setCurrentIndex(1);
             Settings_Save();
             Settings_Read_Apply();
@@ -229,175 +231,175 @@ int MainWindow::Settings_Read_Apply()
     QSettings *configIniRead = new QSettings(settings_ini, QSettings::IniFormat);
     configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
     //=================== 加载全局字体设置 =========================
-    ui->spinBox_GlobalFontSize->setValue(configIniRead->value("/settings/GlobalFontSize").toInt());
-    ui->fontComboBox_CustFont->setCurrentFont(configIniRead->value("/settings/CustFont").value<QFont>());
-    ui->checkBox_isCustFontEnable->setChecked(configIniRead->value("/settings/CustFont_isEnabled").toBool());
+    ui->spinBox_GlobalFontSize->setValue(Settings_Read_value("/settings/GlobalFontSize").toInt());
+    ui->fontComboBox_CustFont->setCurrentFont(Settings_Read_value("/settings/CustFont").value<QFont>());
+    ui->checkBox_isCustFontEnable->setChecked(Settings_Read_value("/settings/CustFont_isEnabled").toBool());
     Set_Font_fixed();
     //=======  加载放大值和降噪值  ======
-    ui->spinBox_ScaleRatio_image->setValue(configIniRead->value("/settings/ImageScaleRatio").toInt());
-    ui->spinBox_ScaleRatio_gif->setValue(configIniRead->value("/settings/GIFScaleRatio").toInt());
-    ui->spinBox_ScaleRatio_video->setValue(configIniRead->value("/settings/VideoScaleRatio").toInt());
+    ui->spinBox_ScaleRatio_image->setValue(Settings_Read_value("/settings/ImageScaleRatio").toInt());
+    ui->spinBox_ScaleRatio_gif->setValue(Settings_Read_value("/settings/GIFScaleRatio").toInt());
+    ui->spinBox_ScaleRatio_video->setValue(Settings_Read_value("/settings/VideoScaleRatio").toInt());
     //============= 加载自定义宽度和高度 ============================
-    ui->spinBox_CustRes_width->setValue(configIniRead->value("/settings/CustResWidth").toInt());
-    ui->spinBox_CustRes_height->setValue(configIniRead->value("/settings/CustResHeight").toInt());
-    ui->comboBox_AspectRatio_custRes->setCurrentIndex(configIniRead->value("/settings/CustResAspectRatioMode").toInt());
+    ui->spinBox_CustRes_width->setValue(Settings_Read_value("/settings/CustResWidth").toInt());
+    ui->spinBox_CustRes_height->setValue(Settings_Read_value("/settings/CustResHeight").toInt());
+    ui->comboBox_AspectRatio_custRes->setCurrentIndex(Settings_Read_value("/settings/CustResAspectRatioMode").toInt());
     //============ 加载 线程数量 ==================================
-    ui->spinBox_ThreadNum_image->setValue(configIniRead->value("/settings/ImageThreadNum").toInt());
-    ui->spinBox_ThreadNum_gif_internal->setValue(configIniRead->value("/settings/GIFThreadNumInternal").toInt());
-    ui->spinBox_ThreadNum_video_internal->setValue(configIniRead->value("/settings/VideoThreadNumInternal").toInt());
+    ui->spinBox_ThreadNum_image->setValue(Settings_Read_value("/settings/ImageThreadNum").toInt());
+    ui->spinBox_ThreadNum_gif_internal->setValue(Settings_Read_value("/settings/GIFThreadNumInternal").toInt());
+    ui->spinBox_ThreadNum_video_internal->setValue(Settings_Read_value("/settings/VideoThreadNumInternal").toInt());
     //================ 加载 引擎设置 ================================
     isShowAnime4kWarning=false;
-    ui->comboBox_Engine_Image->setCurrentIndex(configIniRead->value("/settings/ImageEngine").toInt());
-    ui->comboBox_Engine_GIF->setCurrentIndex(configIniRead->value("/settings/GIFEngine").toInt());
-    ui->comboBox_Engine_Video->setCurrentIndex(configIniRead->value("/settings/VideoEngine").toInt());
-    ui->comboBox_ImageStyle->setCurrentIndex(configIniRead->value("/settings/ImageStyle").toInt());
-    ui->comboBox_model_vulkan->setCurrentIndex(configIniRead->value("/settings/ModelVulkan").toInt());
-    ui->spinBox_TileSize->setValue(configIniRead->value("/settings/TileSize").toInt());
-    ui->spinBox_BlockSize_converter->setValue(configIniRead->value("/settings/BlockSizeConverter").toInt());
-    ui->checkBox_DisableGPU_converter->setChecked(configIniRead->value("/settings/DisableGPUConverter").toBool());
-    ui->checkBox_ForceOpenCL_converter->setChecked(configIniRead->value("/settings/ForceOpenCLConverter").toBool());
-    ui->checkBox_TTA_vulkan->setChecked(configIniRead->value("/settings/TTAVulkan").toBool());
-    ui->checkBox_TTA_converter->setChecked(configIniRead->value("/settings/TTAConverter").toBool());
-    ui->checkBox_TTA_srmd->setChecked(configIniRead->value("/settings/TTA_SRMD").toBool());
-    ui->spinBox_TileSize_srmd->setValue(configIniRead->value("/settings/TileSize_SRMD").toInt());
-    ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(configIniRead->value("/settings/Version_Waifu2xNCNNVulkan").toInt());
+    ui->comboBox_Engine_Image->setCurrentIndex(Settings_Read_value("/settings/ImageEngine").toInt());
+    ui->comboBox_Engine_GIF->setCurrentIndex(Settings_Read_value("/settings/GIFEngine").toInt());
+    ui->comboBox_Engine_Video->setCurrentIndex(Settings_Read_value("/settings/VideoEngine").toInt());
+    ui->comboBox_ImageStyle->setCurrentIndex(Settings_Read_value("/settings/ImageStyle").toInt());
+    ui->comboBox_model_vulkan->setCurrentIndex(Settings_Read_value("/settings/ModelVulkan").toInt());
+    ui->spinBox_TileSize->setValue(Settings_Read_value("/settings/TileSize").toInt());
+    ui->spinBox_BlockSize_converter->setValue(Settings_Read_value("/settings/BlockSizeConverter").toInt());
+    ui->checkBox_DisableGPU_converter->setChecked(Settings_Read_value("/settings/DisableGPUConverter").toBool());
+    ui->checkBox_ForceOpenCL_converter->setChecked(Settings_Read_value("/settings/ForceOpenCLConverter").toBool());
+    ui->checkBox_TTA_vulkan->setChecked(Settings_Read_value("/settings/TTAVulkan").toBool());
+    ui->checkBox_TTA_converter->setChecked(Settings_Read_value("/settings/TTAConverter").toBool());
+    ui->checkBox_TTA_srmd->setChecked(Settings_Read_value("/settings/TTA_SRMD").toBool());
+    ui->spinBox_TileSize_srmd->setValue(Settings_Read_value("/settings/TileSize_SRMD").toInt());
+    ui->comboBox_version_Waifu2xNCNNVulkan->setCurrentIndex(Settings_Read_value("/settings/Version_Waifu2xNCNNVulkan").toInt());
     //===
-    ui->checkBox_TTA_RealsrNCNNVulkan->setChecked(configIniRead->value("/settings/checkBox_TTA_RealsrNCNNVulkan").toBool());
-    ui->comboBox_Model_RealsrNCNNVulkan->setCurrentIndex(configIniRead->value("/settings/comboBox_Model_RealsrNCNNVulkan").toInt());
-    ui->spinBox_TileSize_RealsrNCNNVulkan->setValue(configIniRead->value("/settings/spinBox_TileSize_RealsrNCNNVulkan").toInt());
+    ui->checkBox_TTA_RealsrNCNNVulkan->setChecked(Settings_Read_value("/settings/checkBox_TTA_RealsrNCNNVulkan").toBool());
+    ui->comboBox_Model_RealsrNCNNVulkan->setCurrentIndex(Settings_Read_value("/settings/comboBox_Model_RealsrNCNNVulkan").toInt());
+    ui->spinBox_TileSize_RealsrNCNNVulkan->setValue(Settings_Read_value("/settings/spinBox_TileSize_RealsrNCNNVulkan").toInt());
     //===
-    ui->checkBox_TTA_Waifu2xCaffe->setChecked(configIniRead->value("/settings/TTA_Waifu2xCaffe").toBool());
-    ui->comboBox_Model_2D_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/Model_2D_Waifu2xCaffe").toInt());
-    ui->comboBox_Model_3D_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/Model_3D_Waifu2xCaffe").toInt());
-    ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(configIniRead->value("/settings/ProcessMode_Waifu2xCaffe").toInt());
-    ui->spinBox_BatchSize_Waifu2xCaffe->setValue(configIniRead->value("/settings/BatchSize_Waifu2xCaffe").toInt());
-    ui->spinBox_GPUID_Waifu2xCaffe->setValue(configIniRead->value("/settings/GPUID_Waifu2xCaffe").toInt());
-    ui->spinBox_SplitSize_Waifu2xCaffe->setValue(configIniRead->value("/settings/SplitSize_Waifu2xCaffe").toInt());
+    ui->checkBox_TTA_Waifu2xCaffe->setChecked(Settings_Read_value("/settings/TTA_Waifu2xCaffe").toBool());
+    ui->comboBox_Model_2D_Waifu2xCaffe->setCurrentIndex(Settings_Read_value("/settings/Model_2D_Waifu2xCaffe").toInt());
+    ui->comboBox_Model_3D_Waifu2xCaffe->setCurrentIndex(Settings_Read_value("/settings/Model_3D_Waifu2xCaffe").toInt());
+    ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(Settings_Read_value("/settings/ProcessMode_Waifu2xCaffe").toInt());
+    ui->spinBox_BatchSize_Waifu2xCaffe->setValue(Settings_Read_value("/settings/BatchSize_Waifu2xCaffe").toInt());
+    ui->spinBox_GPUID_Waifu2xCaffe->setValue(Settings_Read_value("/settings/GPUID_Waifu2xCaffe").toInt());
+    ui->spinBox_SplitSize_Waifu2xCaffe->setValue(Settings_Read_value("/settings/SplitSize_Waifu2xCaffe").toInt());
     //GPU ID List
     //Waifu2x-NCNN-Vulkan
-    Available_GPUID = configIniRead->value("/settings/Available_GPUID_Waifu2xNCNNVulkan").toStringList();
+    Available_GPUID = Settings_Read_value("/settings/Available_GPUID_Waifu2xNCNNVulkan").toStringList();
     Waifu2x_DetectGPU_finished();
-    ui->comboBox_GPUID->setCurrentIndex(configIniRead->value("/settings/CurrentGPUID_Waifu2xNCNNVulkan").toInt());
+    ui->comboBox_GPUID->setCurrentIndex(Settings_Read_value("/settings/CurrentGPUID_Waifu2xNCNNVulkan").toInt());
     on_comboBox_GPUID_currentIndexChanged(0);
     //Realsr_ncnn_vulkan
-    Available_GPUID_Realsr_ncnn_vulkan = configIniRead->value("/settings/Available_GPUID_Realsr_ncnn_vulkan").toStringList();
+    Available_GPUID_Realsr_ncnn_vulkan = Settings_Read_value("/settings/Available_GPUID_Realsr_ncnn_vulkan").toStringList();
     Realsr_ncnn_vulkan_DetectGPU_finished();
-    ui->comboBox_GPUID_RealsrNCNNVulkan->setCurrentIndex(configIniRead->value("/settings/comboBox_GPUID_RealsrNCNNVulkan").toInt());
+    ui->comboBox_GPUID_RealsrNCNNVulkan->setCurrentIndex(Settings_Read_value("/settings/comboBox_GPUID_RealsrNCNNVulkan").toInt());
     //Waifu2x-Converter
-    Available_ProcessorList_converter = configIniRead->value("/settings/Available_ProcessorList_converter").toStringList();
+    Available_ProcessorList_converter = Settings_Read_value("/settings/Available_ProcessorList_converter").toStringList();
     Waifu2x_DumpProcessorList_converter_finished();
-    ui->comboBox_TargetProcessor_converter->setCurrentIndex(configIniRead->value("/settings/comboBox_TargetProcessor_converter").toInt());
+    ui->comboBox_TargetProcessor_converter->setCurrentIndex(Settings_Read_value("/settings/comboBox_TargetProcessor_converter").toInt());
     on_comboBox_TargetProcessor_converter_currentIndexChanged(0);
     //SRMD-NCNN-Vulkan
-    Available_GPUID_srmd = configIniRead->value("/settings/Available_GPUID_srmd").toStringList();
+    Available_GPUID_srmd = Settings_Read_value("/settings/Available_GPUID_srmd").toStringList();
     SRMD_DetectGPU_finished();
-    ui->comboBox_GPUID_srmd->setCurrentIndex(configIniRead->value("/settings/comboBox_GPUID_srmd").toInt());
+    ui->comboBox_GPUID_srmd->setCurrentIndex(Settings_Read_value("/settings/comboBox_GPUID_srmd").toInt());
     on_comboBox_GPUID_srmd_currentIndexChanged(0);
     //================= 加载 扩展名 ===========================
-    ui->Ext_image->setText(configIniRead->value("/settings/ImageEXT").toString());
-    ui->Ext_video->setText(configIniRead->value("/settings/VideoEXT").toString());
+    ui->Ext_image->setText(Settings_Read_value("/settings/ImageEXT").toString());
+    ui->Ext_video->setText(Settings_Read_value("/settings/VideoEXT").toString());
     //================== 加载 杂项设置 ==================================
-    ui->comboBox_UpdateChannel->setCurrentIndex(configIniRead->value("/settings/comboBox_UpdateChannel").toInt());
-    ui->checkBox_MinimizeToTaskbar->setChecked(configIniRead->value("/settings/checkBox_MinimizeToTaskbar").toBool());
-    ui->checkBox_custres_isAll->setChecked(configIniRead->value("/settings/checkBox_custres_isAll").toBool());
-    ui->checkBox_SaveAsJPG->setChecked(configIniRead->value("/settings/SaveAsJPG").toBool());
-    ui->checkBox_CompressJPG->setChecked(configIniRead->value("/settings/CompressJPG").toBool());
-    ui->checkBox_DelOriginal->setChecked(configIniRead->value("/settings/DelOriginal").toBool());
-    ui->checkBox_Move2RecycleBin->setChecked(configIniRead->value("/settings/Move2RecycleBin").toBool());
-    ui->checkBox_OptGIF->setChecked(configIniRead->value("/settings/OptGIF").toBool());
-    ui->checkBox_NfSound->setChecked(configIniRead->value("/settings/NFSound").toBool());
-    ui->checkBox_ReProcFinFiles->setChecked(configIniRead->value("/settings/ReProFinFiles").toBool());
-    ui->checkBox_ShowInterPro->setChecked(configIniRead->value("/settings/ShowInterPro").toBool());
-    ui->checkBox_UpdatePopup->setChecked(configIniRead->value("/settings/UpdatePopup").toBool());
-    ui->checkBox_FileListAutoSlide->setChecked(configIniRead->value("/settings/FileListAutoScroll").toBool());
-    ui->checkBox_AutoSaveSettings->setChecked(configIniRead->value("/settings/AutoSaveSettings").toBool());
-    ui->checkBox_AlwaysHideSettings->setChecked(configIniRead->value("/settings/AlwaysHideSettings").toBool());
-    ui->checkBox_AlwaysHideTextBrowser->setChecked(configIniRead->value("/settings/AlwaysHideTextBrowser").toBool());
-    ui->spinBox_JPGCompressedQuality->setValue(configIniRead->value("/settings/JPGCompressedQuality").toInt());
-    ui->checkBox_ScanSubFolders->setChecked(configIniRead->value("/settings/ScanSubFolders").toBool());
-    ui->checkBox_FileList_Interactive->setChecked(configIniRead->value("/settings/InteractiveFileList").toBool());
-    ui->spinBox_retry->setValue(configIniRead->value("/settings/RetryTimes").toInt());
-    ui->checkBox_AutoDetectAlphaChannel->setChecked(configIniRead->value("/settings/AutoDetectAlphaChannel").toBool());
-    ui->checkBox_PromptWhenExit->setChecked(configIniRead->value("/settings/PromptWhenExit").toBool());
-    ui->checkBox_KeepVideoCache->setChecked(configIniRead->value("/settings/KeepVideoCache").toBool());
+    ui->comboBox_UpdateChannel->setCurrentIndex(Settings_Read_value("/settings/comboBox_UpdateChannel").toInt());
+    ui->checkBox_MinimizeToTaskbar->setChecked(Settings_Read_value("/settings/checkBox_MinimizeToTaskbar").toBool());
+    ui->checkBox_custres_isAll->setChecked(Settings_Read_value("/settings/checkBox_custres_isAll").toBool());
+    ui->checkBox_SaveAsJPG->setChecked(Settings_Read_value("/settings/SaveAsJPG").toBool());
+    ui->checkBox_CompressJPG->setChecked(Settings_Read_value("/settings/CompressJPG").toBool());
+    ui->checkBox_DelOriginal->setChecked(Settings_Read_value("/settings/DelOriginal").toBool());
+    ui->checkBox_Move2RecycleBin->setChecked(Settings_Read_value("/settings/Move2RecycleBin").toBool());
+    ui->checkBox_OptGIF->setChecked(Settings_Read_value("/settings/OptGIF").toBool());
+    ui->checkBox_NfSound->setChecked(Settings_Read_value("/settings/NFSound").toBool());
+    ui->checkBox_ReProcFinFiles->setChecked(Settings_Read_value("/settings/ReProFinFiles").toBool());
+    ui->checkBox_ShowInterPro->setChecked(Settings_Read_value("/settings/ShowInterPro").toBool());
+    ui->checkBox_UpdatePopup->setChecked(Settings_Read_value("/settings/UpdatePopup").toBool());
+    ui->checkBox_FileListAutoSlide->setChecked(Settings_Read_value("/settings/FileListAutoScroll").toBool());
+    ui->checkBox_AutoSaveSettings->setChecked(Settings_Read_value("/settings/AutoSaveSettings").toBool());
+    ui->checkBox_AlwaysHideSettings->setChecked(Settings_Read_value("/settings/AlwaysHideSettings").toBool());
+    ui->checkBox_AlwaysHideTextBrowser->setChecked(Settings_Read_value("/settings/AlwaysHideTextBrowser").toBool());
+    ui->spinBox_JPGCompressedQuality->setValue(Settings_Read_value("/settings/JPGCompressedQuality").toInt());
+    ui->checkBox_ScanSubFolders->setChecked(Settings_Read_value("/settings/ScanSubFolders").toBool());
+    ui->checkBox_FileList_Interactive->setChecked(Settings_Read_value("/settings/InteractiveFileList").toBool());
+    ui->spinBox_retry->setValue(Settings_Read_value("/settings/RetryTimes").toInt());
+    ui->checkBox_AutoDetectAlphaChannel->setChecked(Settings_Read_value("/settings/AutoDetectAlphaChannel").toBool());
+    ui->checkBox_PromptWhenExit->setChecked(Settings_Read_value("/settings/PromptWhenExit").toBool());
+    ui->checkBox_KeepVideoCache->setChecked(Settings_Read_value("/settings/KeepVideoCache").toBool());
     //===
-    ui->checkBox_ProcessVideoBySegment->setChecked(configIniRead->value("/settings/ProcessVideoBySegment").toBool());
-    ui->spinBox_SegmentDuration->setValue(configIniRead->value("/settings/SegmentDuration").toInt());
+    ui->checkBox_ProcessVideoBySegment->setChecked(Settings_Read_value("/settings/ProcessVideoBySegment").toBool());
+    ui->spinBox_SegmentDuration->setValue(Settings_Read_value("/settings/SegmentDuration").toInt());
     //=========
-    ui->checkBox_AudioDenoise->setChecked(configIniRead->value("/settings/AudioDenoise").toBool());
-    ui->doubleSpinBox_AudioDenoiseLevel->setValue(configIniRead->value("/settings/AudioDenoiseLevel").toDouble());
+    ui->checkBox_AudioDenoise->setChecked(Settings_Read_value("/settings/AudioDenoise").toBool());
+    ui->doubleSpinBox_AudioDenoiseLevel->setValue(Settings_Read_value("/settings/AudioDenoiseLevel").toDouble());
     //=========
-    ui->checkBox_PreProcessImage->setChecked(configIniRead->value("/settings/checkBox_PreProcessImage").toBool());
+    ui->checkBox_PreProcessImage->setChecked(Settings_Read_value("/settings/checkBox_PreProcessImage").toBool());
     //=================== 加载 textbrowser 设置 ==========================
-    ui->spinBox_textbrowser_fontsize->setValue(configIniRead->value("/settings/TextBrowserFontSize").toInt());
+    ui->spinBox_textbrowser_fontsize->setValue(Settings_Read_value("/settings/TextBrowserFontSize").toInt());
     //=================== 加载视频设置 ===========================
-    ui->checkBox_videoSettings_isEnabled->setChecked(configIniRead->value("/settings/VideoSettingsIsEnabled").toBool());
+    ui->checkBox_videoSettings_isEnabled->setChecked(Settings_Read_value("/settings/VideoSettingsIsEnabled").toBool());
     //===
-    ui->lineEdit_encoder_vid->setText(configIniRead->value("/settings/EncoderVideo").toString());
-    ui->lineEdit_encoder_audio->setText(configIniRead->value("/settings/EncoderAudio").toString());
-    ui->lineEdit_pixformat->setText(configIniRead->value("/settings/PixelFormat").toString());
-    ui->spinBox_bitrate_vid->setValue(configIniRead->value("/settings/BitrateVideo").toInt());
-    ui->spinBox_bitrate_audio->setValue(configIniRead->value("/settings/BitrateAudio").toInt());
-    ui->lineEdit_ExCommand_output->setText(configIniRead->value("/settings/ExtraCommandOutput").toString());
+    ui->lineEdit_encoder_vid->setText(Settings_Read_value("/settings/EncoderVideo").toString());
+    ui->lineEdit_encoder_audio->setText(Settings_Read_value("/settings/EncoderAudio").toString());
+    ui->lineEdit_pixformat->setText(Settings_Read_value("/settings/PixelFormat").toString());
+    ui->spinBox_bitrate_vid->setValue(Settings_Read_value("/settings/BitrateVideo").toInt());
+    ui->spinBox_bitrate_audio->setValue(Settings_Read_value("/settings/BitrateAudio").toInt());
+    ui->lineEdit_ExCommand_output->setText(Settings_Read_value("/settings/ExtraCommandOutput").toString());
     //===
-    ui->spinBox_bitrate_vid_2mp4->setValue(configIniRead->value("/settings/BitrateVideo2mp4").toInt());
-    ui->spinBox_bitrate_audio_2mp4->setValue(configIniRead->value("/settings/BitrateAudio2mp4").toInt());
-    ui->checkBox_vcodec_copy_2mp4->setChecked(configIniRead->value("/settings/vcodecCopy").toBool());
-    ui->checkBox_acodec_copy_2mp4->setChecked(configIniRead->value("/settings/acodecCopy").toBool());
-    ui->lineEdit_ExCommand_2mp4->setText(configIniRead->value("/settings/ExtraCommand2mp4").toString());
+    ui->spinBox_bitrate_vid_2mp4->setValue(Settings_Read_value("/settings/BitrateVideo2mp4").toInt());
+    ui->spinBox_bitrate_audio_2mp4->setValue(Settings_Read_value("/settings/BitrateAudio2mp4").toInt());
+    ui->checkBox_vcodec_copy_2mp4->setChecked(Settings_Read_value("/settings/vcodecCopy").toBool());
+    ui->checkBox_acodec_copy_2mp4->setChecked(Settings_Read_value("/settings/acodecCopy").toBool());
+    ui->lineEdit_ExCommand_2mp4->setText(Settings_Read_value("/settings/ExtraCommand2mp4").toString());
     //=============== 加载输出路径设置 ===========================
-    ui->lineEdit_outputPath->setText(configIniRead->value("/settings/OutPutPath").toString());
-    ui->checkBox_OutPath_isEnabled->setChecked(configIniRead->value("/settings/OutPutPathIsEnabled").toBool());
-    ui->checkBox_OutPath_KeepOriginalFileName->setChecked(configIniRead->value("/settings/checkBox_OutPath_KeepOriginalFileName").toBool());
-    ui->checkBox_OutPath_Overwrite->setChecked(configIniRead->value("/settings/checkBox_OutPath_Overwrite").toBool());
+    ui->lineEdit_outputPath->setText(Settings_Read_value("/settings/OutPutPath").toString());
+    ui->checkBox_OutPath_isEnabled->setChecked(Settings_Read_value("/settings/OutPutPathIsEnabled").toBool());
+    ui->checkBox_OutPath_KeepOriginalFileName->setChecked(Settings_Read_value("/settings/checkBox_OutPath_KeepOriginalFileName").toBool());
+    ui->checkBox_OutPath_Overwrite->setChecked(Settings_Read_value("/settings/checkBox_OutPath_Overwrite").toBool());
     //================== 加载Anime4k设置 ===================================
-    ui->checkBox_HDNMode_Anime4k->setChecked(configIniRead->value("/settings/checkBox_HDNMode_Anime4k").toBool());
-    ui->checkBox_FastMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_FastMode_Anime4K").toBool());
-    ui->checkBox_ACNet_Anime4K->setChecked(configIniRead->value("/settings/checkBox_ACNet_Anime4K").toBool());
-    ui->checkBox_GPUMode_Anime4K->setChecked(configIniRead->value("/settings/checkBox_GPUMode_Anime4K").toBool());
-    ui->spinBox_Passes_Anime4K->setValue(configIniRead->value("/settings/spinBox_Passes_Anime4K").toInt());
-    ui->spinBox_PushColorCount_Anime4K->setValue(configIniRead->value("/settings/spinBox_PushColorCount_Anime4K").toInt());
-    ui->doubleSpinBox_PushColorStrength_Anime4K->setValue(configIniRead->value("/settings/doubleSpinBox_PushColorStrength_Anime4K").toDouble());
-    ui->doubleSpinBox_PushGradientStrength_Anime4K->setValue(configIniRead->value("/settings/doubleSpinBox_PushGradientStrength_Anime4K").toDouble());
-    ui->checkBox_SpecifyGPU_Anime4k->setChecked(configIniRead->value("/settings/checkBox_SpecifyGPU_Anime4k").toBool());
-    ui->spinBox_PlatformID_Anime4k->setValue(configIniRead->value("/settings/spinBox_PlatformID_Anime4k").toInt());
-    ui->spinBox_DeviceID_Anime4k->setValue(configIniRead->value("/settings/spinBox_DeviceID_Anime4k").toInt());
+    ui->checkBox_HDNMode_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_HDNMode_Anime4k").toBool());
+    ui->checkBox_FastMode_Anime4K->setChecked(Settings_Read_value("/settings/checkBox_FastMode_Anime4K").toBool());
+    ui->checkBox_ACNet_Anime4K->setChecked(Settings_Read_value("/settings/checkBox_ACNet_Anime4K").toBool());
+    ui->checkBox_GPUMode_Anime4K->setChecked(Settings_Read_value("/settings/checkBox_GPUMode_Anime4K").toBool());
+    ui->spinBox_Passes_Anime4K->setValue(Settings_Read_value("/settings/spinBox_Passes_Anime4K").toInt());
+    ui->spinBox_PushColorCount_Anime4K->setValue(Settings_Read_value("/settings/spinBox_PushColorCount_Anime4K").toInt());
+    ui->doubleSpinBox_PushColorStrength_Anime4K->setValue(Settings_Read_value("/settings/doubleSpinBox_PushColorStrength_Anime4K").toDouble());
+    ui->doubleSpinBox_PushGradientStrength_Anime4K->setValue(Settings_Read_value("/settings/doubleSpinBox_PushGradientStrength_Anime4K").toDouble());
+    ui->checkBox_SpecifyGPU_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_SpecifyGPU_Anime4k").toBool());
+    ui->spinBox_PlatformID_Anime4k->setValue(Settings_Read_value("/settings/spinBox_PlatformID_Anime4k").toInt());
+    ui->spinBox_DeviceID_Anime4k->setValue(Settings_Read_value("/settings/spinBox_DeviceID_Anime4k").toInt());
     //Pre-Processing
-    ui->checkBox_EnablePreProcessing_Anime4k->setChecked(configIniRead->value("/settings/checkBox_EnablePreProcessing_Anime4k").toBool());
-    ui->checkBox_MedianBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MedianBlur_Pre_Anime4k").toBool());
-    ui->checkBox_MeanBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MeanBlur_Pre_Anime4k").toBool());
-    ui->checkBox_CASSharping_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_CASSharping_Pre_Anime4k").toBool());
-    ui->checkBox_GaussianBlurWeak_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlurWeak_Pre_Anime4k").toBool());
-    ui->checkBox_GaussianBlur_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlur_Pre_Anime4k").toBool());
-    ui->checkBox_BilateralFilter_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilter_Pre_Anime4k").toBool());
-    ui->checkBox_BilateralFilterFaster_Pre_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilterFaster_Pre_Anime4k").toBool());
+    ui->checkBox_EnablePreProcessing_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_EnablePreProcessing_Anime4k").toBool());
+    ui->checkBox_MedianBlur_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_MedianBlur_Pre_Anime4k").toBool());
+    ui->checkBox_MeanBlur_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_MeanBlur_Pre_Anime4k").toBool());
+    ui->checkBox_CASSharping_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_CASSharping_Pre_Anime4k").toBool());
+    ui->checkBox_GaussianBlurWeak_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_GaussianBlurWeak_Pre_Anime4k").toBool());
+    ui->checkBox_GaussianBlur_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_GaussianBlur_Pre_Anime4k").toBool());
+    ui->checkBox_BilateralFilter_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_BilateralFilter_Pre_Anime4k").toBool());
+    ui->checkBox_BilateralFilterFaster_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_BilateralFilterFaster_Pre_Anime4k").toBool());
     //Post-Processing
-    ui->checkBox_EnablePostProcessing_Anime4k->setChecked(configIniRead->value("/settings/checkBox_EnablePostProcessing_Anime4k").toBool());
-    ui->checkBox_MedianBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MedianBlur_Post_Anime4k").toBool());
-    ui->checkBox_MeanBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_MeanBlur_Post_Anime4k").toBool());
-    ui->checkBox_CASSharping_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_CASSharping_Post_Anime4k").toBool());
-    ui->checkBox_GaussianBlurWeak_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlurWeak_Post_Anime4k").toBool());
-    ui->checkBox_GaussianBlur_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_GaussianBlur_Post_Anime4k").toBool());
-    ui->checkBox_BilateralFilter_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilter_Post_Anime4k").toBool());
-    ui->checkBox_BilateralFilterFaster_Post_Anime4k->setChecked(configIniRead->value("/settings/checkBox_BilateralFilterFaster_Post_Anime4k").toBool());
+    ui->checkBox_EnablePostProcessing_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_EnablePostProcessing_Anime4k").toBool());
+    ui->checkBox_MedianBlur_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_MedianBlur_Post_Anime4k").toBool());
+    ui->checkBox_MeanBlur_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_MeanBlur_Post_Anime4k").toBool());
+    ui->checkBox_CASSharping_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_CASSharping_Post_Anime4k").toBool());
+    ui->checkBox_GaussianBlurWeak_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_GaussianBlurWeak_Post_Anime4k").toBool());
+    ui->checkBox_GaussianBlur_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_GaussianBlur_Post_Anime4k").toBool());
+    ui->checkBox_BilateralFilter_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_BilateralFilter_Post_Anime4k").toBool());
+    ui->checkBox_BilateralFilterFaster_Post_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_BilateralFilterFaster_Post_Anime4k").toBool());
     //===================== 加载兼容性测试结果 ============================
-    isCompatible_Waifu2x_NCNN_Vulkan_NEW = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW").toBool();
-    isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P").toBool();
-    isCompatible_Waifu2x_NCNN_Vulkan_OLD = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD").toBool();
-    isCompatible_Waifu2x_Converter = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Converter").toBool();
-    isCompatible_SRMD_NCNN_Vulkan = configIniRead->value("/settings/checkBox_isCompatible_SRMD_NCNN_Vulkan").toBool();
-    isCompatible_Anime4k_CPU = configIniRead->value("/settings/checkBox_isCompatible_Anime4k_CPU").toBool();
-    isCompatible_Anime4k_GPU = configIniRead->value("/settings/checkBox_isCompatible_Anime4k_GPU").toBool();
-    isCompatible_PythonExtension = configIniRead->value("/settings/checkBox_isCompatible_PythonExtension").toBool();
-    isCompatible_FFmpeg = configIniRead->value("/settings/checkBox_isCompatible_FFmpeg").toBool();
-    isCompatible_FFprobe = configIniRead->value("/settings/checkBox_isCompatible_FFprobe").toBool();
-    isCompatible_ImageMagick = configIniRead->value("/settings/checkBox_isCompatible_ImageMagick").toBool();
-    isCompatible_Gifsicle = configIniRead->value("/settings/checkBox_isCompatible_Gifsicle").toBool();
-    isCompatible_SoX = configIniRead->value("/settings/checkBox_isCompatible_SoX").toBool();
-    isCompatible_Waifu2x_Caffe_CPU = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Caffe_CPU").toBool();
-    isCompatible_Waifu2x_Caffe_GPU = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Caffe_GPU").toBool();
-    isCompatible_Waifu2x_Caffe_cuDNN = configIniRead->value("/settings/checkBox_isCompatible_Waifu2x_Caffe_cuDNN").toBool();
-    isCompatible_Realsr_NCNN_Vulkan = configIniRead->value("/settings/checkBox_isCompatible_Realsr_NCNN_Vulkan").toBool();
+    isCompatible_Waifu2x_NCNN_Vulkan_NEW = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW").toBool();
+    isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P").toBool();
+    isCompatible_Waifu2x_NCNN_Vulkan_OLD = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD").toBool();
+    isCompatible_Waifu2x_Converter = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_Converter").toBool();
+    isCompatible_SRMD_NCNN_Vulkan = Settings_Read_value("/settings/checkBox_isCompatible_SRMD_NCNN_Vulkan").toBool();
+    isCompatible_Anime4k_CPU = Settings_Read_value("/settings/checkBox_isCompatible_Anime4k_CPU").toBool();
+    isCompatible_Anime4k_GPU = Settings_Read_value("/settings/checkBox_isCompatible_Anime4k_GPU").toBool();
+    isCompatible_PythonExtension = Settings_Read_value("/settings/checkBox_isCompatible_PythonExtension").toBool();
+    isCompatible_FFmpeg = Settings_Read_value("/settings/checkBox_isCompatible_FFmpeg").toBool();
+    isCompatible_FFprobe = Settings_Read_value("/settings/checkBox_isCompatible_FFprobe").toBool();
+    isCompatible_ImageMagick = Settings_Read_value("/settings/checkBox_isCompatible_ImageMagick").toBool();
+    isCompatible_Gifsicle = Settings_Read_value("/settings/checkBox_isCompatible_Gifsicle").toBool();
+    isCompatible_SoX = Settings_Read_value("/settings/checkBox_isCompatible_SoX").toBool();
+    isCompatible_Waifu2x_Caffe_CPU = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_Caffe_CPU").toBool();
+    isCompatible_Waifu2x_Caffe_GPU = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_Caffe_GPU").toBool();
+    isCompatible_Waifu2x_Caffe_cuDNN = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_Caffe_cuDNN").toBool();
+    isCompatible_Realsr_NCNN_Vulkan = Settings_Read_value("/settings/checkBox_isCompatible_Realsr_NCNN_Vulkan").toBool();
     //===
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW);
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P);
@@ -417,7 +419,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
     ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
     //==================== 加载语言设置 =====================
-    ui->comboBox_language->setCurrentIndex(configIniRead->value("/settings/Language").toInt());
+    ui->comboBox_language->setCurrentIndex(Settings_Read_value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
     on_checkBox_SaveAsJPG_stateChanged(0);
@@ -441,9 +443,9 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_Engine_Video_currentIndexChanged(0);
     on_comboBox_ImageStyle_currentIndexChanged(0);
     on_comboBox_model_vulkan_currentIndexChanged(0);
-    ui->spinBox_DenoiseLevel_image->setValue(configIniRead->value("/settings/ImageDenoiseLevel").toInt());
-    ui->spinBox_DenoiseLevel_gif->setValue(configIniRead->value("/settings/GIFDenoiseLevel").toInt());
-    ui->spinBox_DenoiseLevel_video->setValue(configIniRead->value("/settings/VideoDenoiseLevel").toInt());
+    ui->spinBox_DenoiseLevel_image->setValue(Settings_Read_value("/settings/ImageDenoiseLevel").toInt());
+    ui->spinBox_DenoiseLevel_gif->setValue(Settings_Read_value("/settings/GIFDenoiseLevel").toInt());
+    ui->spinBox_DenoiseLevel_video->setValue(Settings_Read_value("/settings/VideoDenoiseLevel").toInt());
     //=====
     on_spinBox_textbrowser_fontsize_valueChanged(0);
     //===
@@ -455,8 +457,38 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_vcodec_copy_2mp4_stateChanged(1);
     on_checkBox_videoSettings_isEnabled_stateChanged(1);
     //==================================
+    isReadOldSettings=false;
+    QFile::remove(Current_Path+"/settings_old.ini");
+    Settings_Save();
+    //==================================
     return 0;
 }
+
+QVariant MainWindow::Settings_Read_value(QString Key)
+{
+    QString settings_ini_old = Current_Path+"/settings_old.ini";
+    QString settings_ini_new = Current_Path+"/settings.ini";
+    QSettings *configIniRead_new = new QSettings(settings_ini_new, QSettings::IniFormat);
+    configIniRead_new->setIniCodec(QTextCodec::codecForName("UTF-8"));
+    //====
+    if(isReadOldSettings&&QFile::exists(settings_ini_old))
+    {
+        QSettings *configIniRead_old = new QSettings(settings_ini_old, QSettings::IniFormat);
+        configIniRead_old->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        //====
+        if(configIniRead_old->value(Key)!=QVariant())
+        {
+            return configIniRead_old->value(Key);
+        }
+        else
+        {
+            return configIniRead_new->value(Key);
+        }
+    }
+    //====
+    return configIniRead_new->value(Key);
+}
+
 /*
 保存设置pushbutton
 保存设置,弹窗

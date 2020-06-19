@@ -385,12 +385,13 @@ void MainWindow::Set_Font_fixed()
     if(ui->checkBox_isCustFontEnable->isChecked())
     {
         font = ui->fontComboBox_CustFont->currentFont();
+        font.setPixelSize(ui->spinBox_GlobalFontSize->value());
     }
     else
     {
         font = qApp->font();
+        font.setPixelSize(15);
     }
-    font.setPixelSize(ui->spinBox_GlobalFontSize->value());
     qApp->setFont(font);
 }
 

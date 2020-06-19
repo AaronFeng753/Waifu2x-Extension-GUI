@@ -21,7 +21,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
 #include <QDragEnterEvent>
 #include <QMimeData>
 #include <QStandardItemModel>
@@ -72,7 +71,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.46.05-beta";//软件版本号
+    QString VERSION = "v2.46.06-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -333,6 +332,8 @@ public:
     //======================== 设置 ===========================================
     int Settings_Read_Apply();//读取与apply设置
     bool Settings_isReseted = false;//是否重置设置标记
+    QVariant Settings_Read_value(QString Key);
+    bool isReadOldSettings = false;
     //================================ Other =======================================
     int SystemShutDown_Countdown();//自动关机倒计时
     int SystemShutDown_isAutoShutDown();//判断之前是否执行过自动关机

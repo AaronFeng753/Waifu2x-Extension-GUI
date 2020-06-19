@@ -94,6 +94,9 @@ int MainWindow::Donate_Count()
     //=======  读取打开次数  ======
     int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
     int OpenCount_Max = configIniRead->value("/Donate/OpenCount_Max").toInt();
+    //===
+    if(OpenCount_Current<=0)OpenCount_Current=OpenCount_Max;
+    //===
     OpenCount_Current++;
     if(OpenCount_Current<OpenCount_Max)
     {
