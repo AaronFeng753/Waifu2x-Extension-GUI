@@ -71,7 +71,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.46.06-beta";//软件版本号
+    QString VERSION = "v2.46.07-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================

@@ -33,6 +33,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.46.07-beta:
+- 更新FFmpeg.
+- 重新编译启动器.
 v2.46.06-beta:
 - 新特性:更新后将保留原来的设置.
 - 修复bug:当未启用自定义字体设定时,自定义字体大小仍然能生效.
