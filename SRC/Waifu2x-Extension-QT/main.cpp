@@ -33,6 +33,11 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.46.08-beta:
+- 新特性:检测到更新后,显示当前更新来自哪个更新通道.
+- 直接从内置的ffmpeg读取编码器列表.
+- 改进GUI.
+- 在线更新QRCode时加入文件有效性校验.
 v2.46.07-beta:
 - 更新FFmpeg.
 - 重新编译启动器.

@@ -124,11 +124,3 @@ void MainWindow::SystemTray_showNormal_self()
     this->showNormal();
     pContextMenu->hide();
 }
-
-/*
-void MainWindow::SystemTray_close_self()
-{
-    QApplication::closeAllWindows();
-    this->hide();
-    MainWindow::close();
-}*/

@@ -34,13 +34,15 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
     while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
     //========= 先检查github的文件是否下载成功 =================
-    if(QFile::exists(Github_OnlineQRCode))
+    QFileInfo *Github_OnlineQRCode_QFileInfo = new QFileInfo(Github_OnlineQRCode);
+    if(QFile::exists(Github_OnlineQRCode)&&(Github_OnlineQRCode_QFileInfo->size()>1000))
     {
         emit Send_Donate_ReplaceQRCode(Github_OnlineQRCode);
         return 1;
     }
     //========= 再检查gitee的文件是否下载成功 =================
-    if(QFile::exists(Gitee_OnlineQRCode))
+    QFileInfo *Gitee_OnlineQRCode_QFileInfo = new QFileInfo(Gitee_OnlineQRCode);
+    if(QFile::exists(Gitee_OnlineQRCode)&&(Gitee_OnlineQRCode_QFileInfo->size()>1000))
     {
         emit Send_Donate_ReplaceQRCode(Gitee_OnlineQRCode);
         return 1;

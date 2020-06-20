@@ -173,25 +173,6 @@ void MainWindow::closeEvent(QCloseEvent *event)
         Force_close();
     }
 }
-/*
-void MainWindow::Close_self()
-{
-    //=============================
-    bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->isChecked();
-    if(AutoSaveSettings&&(!Settings_isReseted))
-    {
-        Settings_Save();
-        QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog);
-    }
-    else
-    {
-        QProcess_stop=true;
-        AutoUpdate.cancel();
-        DownloadOnlineQRCode.cancel();
-        Waifu2xMain.cancel();
-        Force_close();
-    }
-}*/
 
 int MainWindow::Auto_Save_Settings_Watchdog()
 {
@@ -1551,7 +1532,7 @@ void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
 
 void MainWindow::on_pushButton_encodersList_clicked()
 {
-    QDesktopServices::openUrl(QUrl("file:"+Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.txt"));
+    QDesktopServices::openUrl(QUrl("file:"+Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.bat"));
 }
 
 void MainWindow::Tip_FirstTimeStart()

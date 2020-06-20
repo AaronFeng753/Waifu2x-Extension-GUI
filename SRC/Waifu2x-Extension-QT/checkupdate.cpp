@@ -120,9 +120,11 @@ int MainWindow::CheckUpadte_Auto()
 */
 int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
 {
+    QString UpdateType=ui->comboBox_UpdateChannel->currentText();
+    //======
     if(ui->checkBox_UpdatePopup->isChecked())
     {
-        QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
+        QMessageBox Msg(QMessageBox::Question, QString(tr("New ")+UpdateType+tr(" update available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
         Msg.setIcon(QMessageBox::Information);
         if(ui->comboBox_language->currentIndex()==1)
         {
@@ -145,7 +147,7 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
     }
     else
     {
-        QString update_msg_str = QString(tr("New version: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str);
+        QString update_msg_str = QString(tr("New ")+UpdateType+tr(" update: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str);
         emit Send_SystemTray_NewMessage(update_msg_str);
         emit Send_TextBrowser_NewMessage(update_msg_str);
     }

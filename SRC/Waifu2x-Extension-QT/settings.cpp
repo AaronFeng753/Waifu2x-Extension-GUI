@@ -509,9 +509,17 @@ void MainWindow::on_pushButton_SaveSettings_clicked()
 */
 void MainWindow::on_pushButton_ResetSettings_clicked()
 {
+    QMessageBox Msg(QMessageBox::Question, QString(tr("Warning")), QString(tr("Do you really wanna RESET all the settings?")));
+    Msg.setIcon(QMessageBox::Warning);
+    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+    Msg.exec();
+    if (Msg.clickedButton() == pNoBtn)return;
+    //============
     QString settings_ini = Current_Path+"/settings.ini";
     QFile::remove(settings_ini);
     Settings_isReseted = true;
+    //============
     QMessageBox *MSG = new QMessageBox();
     MSG->setWindowTitle(tr("Notification"));
     MSG->setText(tr("The settings file has been reset, please restart the software manually for the default settings to take effect."));
