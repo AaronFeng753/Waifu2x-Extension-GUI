@@ -33,6 +33,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.46.08.1-beta:
+- 更新ImageMagick.
+- 更新waifu2x-ncnn-vulkan.
+- 更新ffmpeg.
 v2.46.08-beta:
 - 新特性:检测到更新后,显示当前更新来自哪个更新通道.
 - 直接从内置的ffmpeg读取编码器列表.
@@ -79,12 +83,12 @@ Integrated component:
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.2(release)
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan 20200606(release)
+- waifu2x-ncnn-vulkan 785328838a7e3c3429d4d4587ba0d00f50cb098f
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
-- ImageMagick 9ce08bd17d583829b4d510f17cf4e74461c58cb2
+- ImageMagick 7.0.10-20-portable-Q16-x64
 - Anime4KCPP v2.1.0(release)
-- FFmpeg version 20200617-0b3bd00
+- FFmpeg&FFprobe 20200620-29ea4e1-win64-static
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
