@@ -75,7 +75,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.46.09-beta";//软件版本号
+    QString VERSION = "v2.51.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -283,6 +283,7 @@ public:
     //============================== 多显卡 ==========================================
     int GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = 0;
     QMap<QString,QString> Waifu2x_NCNN_Vulkan_MultiGPU();
+    QMutex MultiGPU_QMutex_Waifu2xNCNNVulkan;
     QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan;
     void AddGPU_MultiGPU_Waifu2xNCNNVulkan(QString GPUID);
     //================================ progressbar ===================================
@@ -659,6 +660,8 @@ private slots:
     void on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_valueChanged(int arg1);
 
     void on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_clicked();
+
+    void on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1);
 
 signals:
     void Send_SystemTray_NewMessage(QString message);

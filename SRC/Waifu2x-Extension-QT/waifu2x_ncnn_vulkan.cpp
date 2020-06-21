@@ -2074,6 +2074,7 @@ Waifu2x_NCNN_Vulkan
 */
 QMap<QString,QString> MainWindow::Waifu2x_NCNN_Vulkan_MultiGPU()
 {
+    MultiGPU_QMutex_Waifu2xNCNNVulkan.lock();
     int MAX_GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count()-1;
     if(GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU>MAX_GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU)
     {
@@ -2105,6 +2106,7 @@ QMap<QString,QString> MainWindow::Waifu2x_NCNN_Vulkan_MultiGPU()
         GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU=0;
     }
     //======
+    MultiGPU_QMutex_Waifu2xNCNNVulkan.unlock();
     return GPUInfo;
 }
 
@@ -2186,4 +2188,16 @@ void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_clic
     }
 }
 
-
+void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
+    {
+        ui->spinBox_TileSize->setEnabled(0);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(1);
+    }
+    else
+    {
+        ui->spinBox_TileSize->setEnabled(1);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
+    }
+}

@@ -2331,9 +2331,9 @@ padding:10px;
                 </widget>
                </item>
                <item row="6" column="0" colspan="3">
-                <widget class="QGroupBox" name="groupBox_5">
+                <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan">
                  <property name="enabled">
-                  <bool>true</bool>
+                  <bool>false</bool>
                  </property>
                  <property name="maximumSize">
                   <size>

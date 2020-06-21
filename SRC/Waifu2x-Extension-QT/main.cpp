@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.46.09-beta:
+v2.51.01-beta:
 - 为waifu2x-ncnn-vulkan加入多gpu支持.
 v2.46.08.1-beta:
 - 更新ImageMagick.
