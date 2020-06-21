@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2145,13 +2145,6 @@ same time, you need to change [Image style] settings at [Home] tab.
 - [ Speed:★★  Image Quality:★★★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_31">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_26">
-                 <property name="text">
-                  <string>Model:</string>
-                 </property>
-                </widget>
-               </item>
                <item row="1" column="0">
                 <widget class="QLabel" name="label_9">
                  <property name="maximumSize">
@@ -2171,11 +2164,26 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
                  </property>
                 </widget>
                </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_47">
-                 <property name="text">
-                  <string>Version:</string>
+               <item row="3" column="1" colspan="2">
+                <widget class="QComboBox" name="comboBox_version_Waifu2xNCNNVulkan">
+                 <property name="currentIndex">
+                  <number>0</number>
                  </property>
+                 <item>
+                  <property name="text">
+                   <string>Latest(Only this version supports alpha channel)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>20200414(fp16p)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Old</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item row="0" column="1">
@@ -2196,46 +2204,6 @@ and it's much more slower than &quot;upconv_7&quot; model.</string>
                    <string>cunet(Only support 2D Anime)</string>
                   </property>
                  </item>
-                </widget>
-               </item>
-               <item row="5" column="0" colspan="3">
-                <widget class="QPushButton" name="pushButton_DetectGPU">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Detect available GPU ID</string>
-                 </property>
                 </widget>
                </item>
                <item row="4" column="0">
@@ -2283,29 +2251,28 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                  </property>
                 </widget>
                </item>
-               <item row="3" column="1" colspan="2">
-                <widget class="QComboBox" name="comboBox_version_Waifu2xNCNNVulkan">
-                 <property name="currentIndex">
-                  <number>0</number>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_47">
+                 <property name="text">
+                  <string>Version:</string>
                  </property>
-                 <item>
-                  <property name="text">
-                   <string>Latest(Only this version supports alpha channel)</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>20200414(fp16p)</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Old</string>
-                  </property>
-                 </item>
                 </widget>
                </item>
-               <item row="4" column="1" colspan="2">
+               <item row="4" column="2">
+                <widget class="QCheckBox" name="checkBox_MultiGPU_Waifu2xNCNNVulkan">
+                 <property name="text">
+                  <string>Enable Multi-GPU</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_26">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="1">
                 <widget class="QComboBox" name="comboBox_GPUID">
                  <property name="enabled">
                   <bool>true</bool>
@@ -2321,6 +2288,117 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                    <string notr="true">auto</string>
                   </property>
                  </item>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="3">
+                <widget class="QPushButton" name="pushButton_DetectGPU">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Detect available GPU ID</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="6" column="0" colspan="3">
+                <widget class="QGroupBox" name="groupBox_5">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>GPU Settings(Multi-GPU)</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_39">
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_64">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan">
+                    <property name="minimum">
+                     <number>32</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>100</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan">
+                    <property name="text">
+                     <string>Enable</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_65">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </item>
               </layout>

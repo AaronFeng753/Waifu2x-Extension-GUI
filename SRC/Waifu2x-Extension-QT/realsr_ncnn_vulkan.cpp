@@ -1851,7 +1851,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
     return 0;
 }
 /*
-Waifu2x_Caffe
+Realsr_NCNN_Vulkan
 读取配置生成配置string
 */
 QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()

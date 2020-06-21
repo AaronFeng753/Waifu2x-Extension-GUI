@@ -54,6 +54,10 @@
 #include <QMutex>
 #include <QSystemTrayIcon>
 #include <QMenu>
+#include <QMetaType>
+
+typedef QList<QMap<QString, QString>> QList_QMap_QStrQStr;
+Q_DECLARE_METATYPE(QList_QMap_QStrQStr)
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -71,7 +75,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.46.08.1-beta";//软件版本号
+    QString VERSION = "v2.46.09-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -172,6 +176,7 @@ public:
     int Waifu2x_NCNN_Vulkan_Video(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    QString Waifu2x_NCNN_Vulkan_ReadSettings();
     //===
     int Realsr_NCNN_Vulkan_Image(int rowNum);//Realsr放大图片线程
     //Realsr放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -236,7 +241,6 @@ public:
 
     int Waifu2x_DetectGPU();//检测可用gpu(for vulkan)
     QStringList Available_GPUID;//可用GPU ID列表
-    QString GPU_ID_STR="";//向vulkan命令行cmd插入的gpuid命令,如果auto则为空
 
     int Waifu2x_DumpProcessorList_converter();
     int Core_num = 0;
@@ -275,6 +279,12 @@ public:
     bool isCompatible_Waifu2x_Caffe_cuDNN=false;
 
     bool isCompatible_Realsr_NCNN_Vulkan=false;
+
+    //============================== 多显卡 ==========================================
+    int GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = 0;
+    QMap<QString,QString> Waifu2x_NCNN_Vulkan_MultiGPU();
+    QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan;
+    void AddGPU_MultiGPU_Waifu2xNCNNVulkan(QString GPUID);
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -504,8 +514,6 @@ private slots:
 
     void on_pushButton_DetectGPU_clicked();
 
-    void on_comboBox_GPUID_currentIndexChanged(int index);
-
     void on_pushButton_SaveSettings_clicked();
 
     void on_pushButton_ResetSettings_clicked();
@@ -643,6 +651,14 @@ private slots:
     void on_checkBox_ACNet_Anime4K_stateChanged(int arg1);
 
     void on_checkBox_CompressJPG_stateChanged(int arg1);
+
+    void on_checkBox_MultiGPU_Waifu2xNCNNVulkan_clicked();
+
+    void on_comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan_currentIndexChanged(int index);
+
+    void on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_valueChanged(int arg1);
+
+    void on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_clicked();
 
 signals:
     void Send_SystemTray_NewMessage(QString message);

@@ -257,7 +257,6 @@ bool MainWindow::CustRes_isContained(QString fullpath)
 
 QMap<QString, QString> MainWindow::CustRes_getResMap(QString fullpath)
 {
-    //QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
     for(int i=0; i<Custom_resolution_list.size(); i++)
     {
         QMap<QString, QString> map_res = Custom_resolution_list.at(i);
