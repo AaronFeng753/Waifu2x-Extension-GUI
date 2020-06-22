@@ -23,7 +23,6 @@
 int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
 {
     //============================= 读取设置 ================================
-    int TileSize = ui->spinBox_TileSize->value();
     bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     //======
@@ -93,9 +92,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path+"/realsr-ncnn-vulkan";
     QString program = Waifu2x_folder_path+"/realsr-ncnn-vulkan_waifu2xEX.exe";
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
     //==========
     int ScaleRatio_tmp=0;
     //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
@@ -618,7 +614,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_i
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
-    int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
@@ -646,9 +641,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_i
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path+"/realsr-ncnn-vulkan";
     QString program = Waifu2x_folder_path+"/realsr-ncnn-vulkan_waifu2xEX.exe";
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
     //=================
     //======
     int ScaleRatio_tmp=0;
@@ -1683,7 +1675,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //================
-    int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     //========================================================================
@@ -1713,9 +1704,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
     //========
     QString Waifu2x_folder_path = Current_Path+"/realsr-ncnn-vulkan";
     QString program = Waifu2x_folder_path+"/realsr-ncnn-vulkan_waifu2xEX.exe";
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
     //===========
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)

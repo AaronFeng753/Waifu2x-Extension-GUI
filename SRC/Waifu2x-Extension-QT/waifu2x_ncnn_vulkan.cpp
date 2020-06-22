@@ -95,26 +95,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
     //==========
-    QString model_path;
-    if(ui->comboBox_model_vulkan->currentIndex()==0)
-    {
-        if(ImageStyle==0)
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-        }
-        else
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
-        }
-    }
-    if(ui->comboBox_model_vulkan->currentIndex()==1)
-    {
-        model_path = Waifu2x_folder_path+"/models-cunet";
-    }
     int ScaleRatio_tmp=0;
     //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
     if((ScaleRatio%2)==0)
@@ -670,26 +651,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
-    //=================
-    QString model_path;
-    if(ui->comboBox_model_vulkan->currentIndex()==0)
-    {
-        if(ImageStyle==0)
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-        }
-        else
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
-        }
-    }
-    if(ui->comboBox_model_vulkan->currentIndex()==1)
-    {
-        model_path = Waifu2x_folder_path+"/models-cunet";
-    }
     //======
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -1763,26 +1724,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     //========
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
-    //===========
-    QString model_path;
-    if(ui->comboBox_model_vulkan->currentIndex()==0)
-    {
-        if(ImageStyle==0)
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-        }
-        else
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
-        }
-    }
-    if(ui->comboBox_model_vulkan->currentIndex()==1)
-    {
-        model_path = Waifu2x_folder_path+"/models-cunet";
-    }
     //=========
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -2140,6 +2081,10 @@ void MainWindow::AddGPU_MultiGPU_Waifu2xNCNNVulkan(QString GPUID)
 
 void MainWindow::on_comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan_currentIndexChanged(int index)
 {
+    if(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->count()==0)
+    {
+        return;
+    }
     QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex());
     ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setChecked(GPUInfo["isEnabled"] == "true");
     ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setValue(GPUInfo["TileSize"].toInt());

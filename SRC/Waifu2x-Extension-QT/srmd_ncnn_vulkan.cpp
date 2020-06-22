@@ -23,7 +23,6 @@
 int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
 {
     //============================= 读取设置 ================================
-    int TileSize = ui->spinBox_TileSize_srmd->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
     bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
@@ -94,12 +93,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
     //==========
-    QString model_path = Waifu2x_folder_path+"/models-srmd";
-    //=============
     int ScaleRatio_tmp=0;
     //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
     if((ScaleRatio%2)==0)
@@ -136,7 +130,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
         for(int i=2; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR_SRMD+TTA_cmd;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -620,7 +614,6 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
-    int TileSize = ui->spinBox_TileSize_srmd->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     bool TTA_isEnabled = ui->checkBox_TTA_srmd->isChecked();
@@ -649,11 +642,6 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
-    //=================
-    QString model_path = Waifu2x_folder_path+"/models-srmd";
     //======
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -691,7 +679,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
         for(int i=2; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR_SRMD+TTA_cmd;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -1694,7 +1682,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //================
-    int TileSize = ui->spinBox_TileSize_srmd->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool TTA_isEnabled = ui->checkBox_TTA_srmd->isChecked();
@@ -1726,11 +1713,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     //========
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
-    //===========
-    QString model_path = Waifu2x_folder_path+"/models-srmd";
     //=========
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -1766,7 +1748,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
         for(int i=2; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR_SRMD+TTA_cmd;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -1942,6 +1924,8 @@ void MainWindow::SRMD_DetectGPU_finished()
     ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //====
+    GPUIDs_List_MultiGPU_SrmdNcnnVulkan.clear();
+    ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->clear();
     ui->comboBox_GPUID_srmd->clear();
     ui->comboBox_GPUID_srmd->addItem("auto");
     if(!Available_GPUID_srmd.isEmpty())
@@ -1949,6 +1933,7 @@ void MainWindow::SRMD_DetectGPU_finished()
         for(int i=0; i<Available_GPUID_srmd.size(); i++)
         {
             ui->comboBox_GPUID_srmd->addItem(Available_GPUID_srmd.at(i));
+            AddGPU_MultiGPU_SrmdNcnnVulkan(Available_GPUID_srmd.at(i));
         }
     }
     //===
@@ -1956,16 +1941,179 @@ void MainWindow::SRMD_DetectGPU_finished()
     //===
 }
 
-void MainWindow::on_comboBox_GPUID_srmd_currentIndexChanged(int index)
+QString MainWindow::SrmdNcnnVulkan_ReadSettings()
 {
-    if(ui->comboBox_GPUID_srmd->currentText()!="auto")
+    QString SrmdNcnnVulkan_Settings_str = " ";
+    //TTA
+    if(ui->checkBox_TTA_srmd->isChecked())
     {
-        GPU_ID_STR_SRMD = " -g "+ui->comboBox_GPUID_srmd->currentText()+" ";
+        SrmdNcnnVulkan_Settings_str.append("-x ");
+    }
+    if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = SrmdNcnnVulkan_MultiGPU();
+        //GPU ID
+        SrmdNcnnVulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
+        //Tile Size
+        SrmdNcnnVulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
     }
     else
     {
-        GPU_ID_STR_SRMD="";
+        //==========单显卡==========
+        //GPU ID
+        if(ui->comboBox_GPUID_srmd->currentText()!="auto")
+        {
+            SrmdNcnnVulkan_Settings_str.append("-g "+ui->comboBox_GPUID_srmd->currentText()+" ");
+        }
+        //Tile Size
+        SrmdNcnnVulkan_Settings_str.append("-t "+QString::number(ui->spinBox_TileSize_srmd->value(),10)+" ");
+    }
+    //Model
+    QString SrmdNcnnVulkan_folder_path = Current_Path + "/srmd-ncnn-vulkan";
+    QString model_path = SrmdNcnnVulkan_folder_path+"/models-srmd";
+    SrmdNcnnVulkan_Settings_str.append("-m \""+model_path+"\" ");
+    SrmdNcnnVulkan_Settings_str.append("-j 1:1:1 ");
+    //=======================================
+    return SrmdNcnnVulkan_Settings_str;
+}
+
+/*
+SrmdNCNNVulkan_MultiGPU
+显卡切换
+*/
+QMap<QString,QString> MainWindow::SrmdNcnnVulkan_MultiGPU()
+{
+    MultiGPU_QMutex_SrmdNcnnVulkan.lock();
+    //====
+    int MAX_GPU_ID_SrmdNcnnVulkan = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()-1;
+    if(GPU_ID_SrmdNcnnVulkan_MultiGPU>MAX_GPU_ID_SrmdNcnnVulkan)
+    {
+        GPU_ID_SrmdNcnnVulkan_MultiGPU=0;
+    }
+    //======
+    QMap<QString,QString> GPUInfo;
+    do
+    {
+        GPUInfo = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(GPU_ID_SrmdNcnnVulkan_MultiGPU);
+        if(GPUInfo["isEnabled"] != "true")
+        {
+            GPU_ID_SrmdNcnnVulkan_MultiGPU++;
+            if(GPU_ID_SrmdNcnnVulkan_MultiGPU>MAX_GPU_ID_SrmdNcnnVulkan)
+            {
+                GPU_ID_SrmdNcnnVulkan_MultiGPU=0;
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+    while(true);
+    //======
+    GPU_ID_SrmdNcnnVulkan_MultiGPU++;
+    if(GPU_ID_SrmdNcnnVulkan_MultiGPU>MAX_GPU_ID_SrmdNcnnVulkan)
+    {
+        GPU_ID_SrmdNcnnVulkan_MultiGPU=0;
+    }
+    //======
+    MultiGPU_QMutex_SrmdNcnnVulkan.unlock();
+    return GPUInfo;
+}
+
+void MainWindow::AddGPU_MultiGPU_SrmdNcnnVulkan(QString GPUID)
+{
+    QMap<QString,QString> GPUInfo;
+    GPUInfo["ID"] = GPUID;
+    GPUInfo["isEnabled"] = "true";
+    GPUInfo["TileSize"] = "100";
+    GPUIDs_List_MultiGPU_SrmdNcnnVulkan.append(GPUInfo);
+    ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->addItem(GPUID);
+    ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->setCurrentIndex(0);
+}
+
+void MainWindow::on_checkBox_MultiGPU_SrmdNCNNVulkan_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
+    {
+        ui->spinBox_TileSize_srmd->setEnabled(0);
+        ui->groupBox_GPUSettings_MultiGPU_SrmdNCNNVulkan->setEnabled(1);
+    }
+    else
+    {
+        ui->spinBox_TileSize_srmd->setEnabled(1);
+        ui->groupBox_GPUSettings_MultiGPU_SrmdNCNNVulkan->setEnabled(0);
     }
 }
 
+void MainWindow::on_checkBox_MultiGPU_SrmdNCNNVulkan_clicked()
+{
+    if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
+    {
+        if(ui->comboBox_GPUID->count()<3)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Insufficient number of available GPUs."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_SrmdNCNNVulkan->setChecked(0);
+        }
+    }
+}
+
+void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan_clicked()
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex());
+    if(ui->checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan->isChecked())
+    {
+        GPUInfo["isEnabled"] = "true";
+    }
+    else
+    {
+        GPUInfo["isEnabled"] = "false";
+    }
+    GPUIDs_List_MultiGPU_SrmdNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex(),GPUInfo);
+    int enabledGPUs = 0;
+    for (int i=0; i<GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count(); i++)
+    {
+        QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(i);
+        if(GPUInfo["isEnabled"] == "true")
+        {
+            enabledGPUs++;
+        }
+    }
+    if(enabledGPUs<2)
+    {
+        QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex());
+        GPUInfo["isEnabled"] = "true";
+        GPUIDs_List_MultiGPU_SrmdNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex(),GPUInfo);
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan->setChecked(1);
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("At least 2 GPUs need to be enabled !!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
+}
+
+void MainWindow::on_comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->count()==0)
+    {
+        return;
+    }
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex());
+    ui->checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan->setChecked(GPUInfo["isEnabled"] == "true");
+    ui->spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan->setValue(GPUInfo["TileSize"].toInt());
+}
+
+void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan_valueChanged(int arg1)
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex());
+    GPUInfo["TileSize"] = QString::number(ui->spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan->value(),10);
+    GPUIDs_List_MultiGPU_SrmdNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex(),GPUInfo);
+}
 

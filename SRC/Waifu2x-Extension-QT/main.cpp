@@ -33,6 +33,11 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.51.02-beta:
+- 为srmd-ncnn-vulkan加入多gpu支持.
+- 性能优化.
+- 修复bug:重复检测waifu2x-ncnn-vulkan可用显卡时,软件会崩溃.
+- 其他改进(忘了还改啥了).
 v2.51.01-beta:
 - 为waifu2x-ncnn-vulkan加入多gpu支持.
 v2.46.08.1-beta:

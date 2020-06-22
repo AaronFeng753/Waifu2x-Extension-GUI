@@ -75,7 +75,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.51.01-beta";//软件版本号
+    QString VERSION = "v2.51.02-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -214,6 +214,7 @@ public:
     int SRMD_NCNN_Vulkan_Video(int rowNum);
     int SRMD_NCNN_Vulkan_Video_BySegment(int rowNum);
     int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    QString SrmdNcnnVulkan_ReadSettings();
     //=================================
     int Waifu2x_Caffe_Image(int rowNum);//Caffe放大图片线程
     //Caffe放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -281,11 +282,19 @@ public:
     bool isCompatible_Realsr_NCNN_Vulkan=false;
 
     //============================== 多显卡 ==========================================
+    //waifu2x-ncnn-vulkan
     int GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = 0;
     QMap<QString,QString> Waifu2x_NCNN_Vulkan_MultiGPU();
     QMutex MultiGPU_QMutex_Waifu2xNCNNVulkan;
     QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan;
     void AddGPU_MultiGPU_Waifu2xNCNNVulkan(QString GPUID);
+
+    //SRMD-ncnn-vulkan
+    int GPU_ID_SrmdNcnnVulkan_MultiGPU = 0;
+    QMap<QString,QString> SrmdNcnnVulkan_MultiGPU();
+    QMutex MultiGPU_QMutex_SrmdNcnnVulkan;
+    QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_SrmdNcnnVulkan;
+    void AddGPU_MultiGPU_SrmdNcnnVulkan(QString GPUID);
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -587,8 +596,6 @@ private slots:
 
     void on_pushButton_DetectGPUID_srmd_clicked();
 
-    void on_comboBox_GPUID_srmd_currentIndexChanged(int index);
-
     void on_checkBox_AudioDenoise_stateChanged(int arg1);
 
     void on_tabWidget_currentChanged(int index);
@@ -662,6 +669,16 @@ private slots:
     void on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_clicked();
 
     void on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1);
+
+    void on_checkBox_MultiGPU_SrmdNCNNVulkan_stateChanged(int arg1);
+
+    void on_checkBox_MultiGPU_SrmdNCNNVulkan_clicked();
+
+    void on_comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan_currentIndexChanged(int index);
+
+    void on_checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan_clicked();
+
+    void on_spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan_valueChanged(int arg1);
 
 signals:
     void Send_SystemTray_NewMessage(QString message);

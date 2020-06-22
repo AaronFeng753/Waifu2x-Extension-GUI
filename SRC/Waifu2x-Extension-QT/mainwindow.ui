@@ -2128,7 +2128,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2556,6 +2556,99 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
 - [ Speed:★☆  Image Quality:★★★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_36">
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_41">
+                 <property name="text">
+                  <string>GPU ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="3">
+                <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_SrmdNCNNVulkan">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>GPU Settings(Multi-GPU)</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_41">
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_68">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
+                    <property name="minimum">
+                     <number>32</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>100</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
+                    <property name="text">
+                     <string>Enable</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_69">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="comboBox_GPUID_srmd">
+                 <property name="toolTip">
+                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
+                 </property>
+                 <property name="currentText">
+                  <string notr="true">auto</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string notr="true">auto</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_40">
                  <property name="toolTip">
@@ -2568,10 +2661,16 @@ Smaller tile size means SRMD will use less GPU memory and run slower.</string>
                  </property>
                 </widget>
                </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_41">
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="checkBox_TTA_srmd">
+                 <property name="toolTip">
+                  <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                 </property>
                  <property name="text">
-                  <string>GPU ID:</string>
+                  <string notr="true">TTA</string>
                  </property>
                 </widget>
                </item>
@@ -2596,35 +2695,7 @@ Smaller tile size means SRMD will use less GPU memory and run slower.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QCheckBox" name="checkBox_TTA_srmd">
-                 <property name="toolTip">
-                  <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">TTA</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1" colspan="2">
-                <widget class="QComboBox" name="comboBox_GPUID_srmd">
-                 <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">auto</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">auto</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="3" column="0" colspan="3">
+               <item row="2" column="0" colspan="3">
                 <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
                  <property name="styleSheet">
                   <string notr="true">QPushButton{
@@ -2658,6 +2729,13 @@ padding:10px;
                  </property>
                  <property name="text">
                   <string>Detect available GPU ID</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="checkBox_MultiGPU_SrmdNCNNVulkan">
+                 <property name="text">
+                  <string>Enable Multi-GPU</string>
                  </property>
                 </widget>
                </item>

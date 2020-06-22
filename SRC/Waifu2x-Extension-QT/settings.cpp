@@ -85,10 +85,14 @@ int MainWindow::Settings_Save()
     //==
     configIniWrite->setValue("/settings/comboBox_GPUID_RealsrNCNNVulkan", ui->comboBox_GPUID_RealsrNCNNVulkan->currentIndex());
     configIniWrite->setValue("/settings/Available_GPUID_Realsr_ncnn_vulkan", Available_GPUID_Realsr_ncnn_vulkan);
+    //==
     configIniWrite->setValue("/settings/comboBox_TargetProcessor_converter", ui->comboBox_TargetProcessor_converter->currentIndex());
     configIniWrite->setValue("/settings/Available_ProcessorList_converter", Available_ProcessorList_converter);
+    //==
     configIniWrite->setValue("/settings/comboBox_GPUID_srmd", ui->comboBox_GPUID_srmd->currentIndex());
     configIniWrite->setValue("/settings/Available_GPUID_srmd", Available_GPUID_srmd);
+    configIniWrite->setValue("/settings/GPUIDs_List_MultiGPU_SrmdNcnnVulkan", QVariant::fromValue(GPUIDs_List_MultiGPU_SrmdNcnnVulkan));
+    configIniWrite->setValue("/settings/checkBox_MultiGPU_SrmdNCNNVulkan", ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked());
     //================== 存储 扩展名 =================================
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
@@ -283,6 +287,8 @@ int MainWindow::Settings_Read_Apply()
     //Waifu2x-NCNN-Vulkan
     Available_GPUID = Settings_Read_value("/settings/Available_GPUID_Waifu2xNCNNVulkan").toStringList();
     Waifu2x_DetectGPU_finished();
+    ui->comboBox_GPUID->setCurrentIndex(Settings_Read_value("/settings/CurrentGPUID_Waifu2xNCNNVulkan").toInt());
+    //读取多显卡设定
     GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan = Settings_Read_value("/settings/GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan").value<QList<QMap<QString, QString>> >();
     if(GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.isEmpty()==false)
     {
@@ -290,7 +296,6 @@ int MainWindow::Settings_Read_Apply()
         ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setChecked(GPUInfo_waifu2xNcnnVulkan["isEnabled"] == "true");
         ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setValue(GPUInfo_waifu2xNcnnVulkan["TileSize"].toInt());
     }
-    ui->comboBox_GPUID->setCurrentIndex(Settings_Read_value("/settings/CurrentGPUID_Waifu2xNCNNVulkan").toInt());
     ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(Settings_Read_value("/settings/checkBox_MultiGPU_Waifu2xNCNNVulkan").toBool());
     //Realsr_ncnn_vulkan
     Available_GPUID_Realsr_ncnn_vulkan = Settings_Read_value("/settings/Available_GPUID_Realsr_ncnn_vulkan").toStringList();
@@ -305,7 +310,15 @@ int MainWindow::Settings_Read_Apply()
     Available_GPUID_srmd = Settings_Read_value("/settings/Available_GPUID_srmd").toStringList();
     SRMD_DetectGPU_finished();
     ui->comboBox_GPUID_srmd->setCurrentIndex(Settings_Read_value("/settings/comboBox_GPUID_srmd").toInt());
-    on_comboBox_GPUID_srmd_currentIndexChanged(0);
+    //读取多显卡设定
+    GPUIDs_List_MultiGPU_SrmdNcnnVulkan = Settings_Read_value("/settings/GPUIDs_List_MultiGPU_SrmdNcnnVulkan").value<QList<QMap<QString, QString>> >();
+    if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.isEmpty()==false)
+    {
+        QMap<QString,QString> GPUInfo_SrmdNcnnVulkan = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex());
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan->setChecked(GPUInfo_SrmdNcnnVulkan["isEnabled"] == "true");
+        ui->spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan->setValue(GPUInfo_SrmdNcnnVulkan["TileSize"].toInt());
+    }
+    ui->checkBox_MultiGPU_SrmdNCNNVulkan->setChecked(Settings_Read_value("/settings/checkBox_MultiGPU_SrmdNCNNVulkan").toBool());
     //================= 加载 扩展名 ===========================
     ui->Ext_image->setText(Settings_Read_value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(Settings_Read_value("/settings/VideoEXT").toString());
