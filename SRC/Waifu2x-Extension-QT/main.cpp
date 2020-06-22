@@ -33,6 +33,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.51.04-beta:
+- 为Anime4k引擎和Waifu2x-Caffe引擎加入多gpu支持.至此所有引擎均支持多显卡了!!
+- ACNet算法支持指定显卡.
+- 修复bug:某些情况下会误删帧文件导致缺帧.
 v2.51.03-beta:
 - 为RealSR-ncnn-vulkan和waifu2x-converter加入多gpu支持.
 - 添加tooltip.

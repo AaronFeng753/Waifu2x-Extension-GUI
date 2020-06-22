@@ -1582,7 +1582,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         }
     }
     //========
-    QFile::remove(Frame_fileFullPath);
+    if(file_isFileExist(OutputPath)==true)QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
     mutex_SubThreadNumRunning.lock();

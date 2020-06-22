@@ -1591,7 +1591,7 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
         }
     }
     //========
-    QFile::remove(Frame_fileFullPath);
+    if(file_isFileExist(OutputPath)==true)QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
     mutex_SubThreadNumRunning.lock();
@@ -1708,15 +1708,25 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
     {
         Waifu2x_Caffe_Settings_str.append("-t 0 ");
     }
-    //GPU ID
-    if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
+    //显卡设定
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
     {
-        Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+        //多显卡
+        Waifu2x_Caffe_Settings_str.append(Waifu2xCaffe_GetGPUInfo()+" ");
     }
-    //Batch size
-    Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
-    //Split size
-    Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
+    else
+    {
+        //单个显卡
+        //GPU ID
+        if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
+        {
+            Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+        }
+        //Batch size
+        Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
+        //Split size
+        Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
+    }
     return Waifu2x_Caffe_Settings_str;
 }
 //判断是否启用了caffe引擎
@@ -1750,4 +1760,80 @@ void MainWindow::DeleteErrorLog_Waifu2xCaffe()
             }
         }
     }
+}
+
+void MainWindow::on_checkBox_EnableMultiGPU_Waifu2xCaffe_stateChanged(int arg1)
+{
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
+    {
+        ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setEnabled(1);
+        //===
+        ui->pushButton_SplitSize_Add_Waifu2xCaffe->setEnabled(0);
+        ui->pushButton_SplitSize_Minus_Waifu2xCaffe->setEnabled(0);
+        ui->spinBox_BatchSize_Waifu2xCaffe->setEnabled(0);
+        ui->spinBox_GPUID_Waifu2xCaffe->setEnabled(0);
+        ui->spinBox_SplitSize_Waifu2xCaffe->setEnabled(0);
+    }
+    else
+    {
+        ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setEnabled(0);
+        //===
+        ui->pushButton_SplitSize_Add_Waifu2xCaffe->setEnabled(1);
+        ui->pushButton_SplitSize_Minus_Waifu2xCaffe->setEnabled(1);
+        ui->spinBox_BatchSize_Waifu2xCaffe->setEnabled(1);
+        ui->spinBox_GPUID_Waifu2xCaffe->setEnabled(1);
+        ui->spinBox_SplitSize_Waifu2xCaffe->setEnabled(1);
+    }
+}
+
+void MainWindow::on_comboBox_ProcessMode_Waifu2xCaffe_currentIndexChanged(int index)
+{
+    if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()==0)
+    {
+        ui->checkBox_EnableMultiGPU_Waifu2xCaffe->setEnabled(0);
+        ui->checkBox_EnableMultiGPU_Waifu2xCaffe->setChecked(0);
+    }
+    else
+    {
+        ui->checkBox_EnableMultiGPU_Waifu2xCaffe->setEnabled(1);
+    }
+}
+//读取多显卡设定
+QString MainWindow::Waifu2xCaffe_GetGPUInfo()
+{
+    GetGPUInfo_QMutex_Waifu2xCaffe.lock();
+    //====
+    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().split(":");
+    GPU_List.removeDuplicates();
+    for (int i=0; i<GPU_List.count(); i++)
+    {
+        GPU_List.replace(i,GPU_List.at(i).trimmed());
+    }
+    GPU_List.removeAll("");
+    //====
+    int MAX_GPU_ID_Waifu2xCaffe = GPU_List.count()-1;
+    if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
+    {
+        GPU_ID_Waifu2xCaffe_GetGPUInfo=0;
+    }
+    //======
+    QString GPUInfo="";
+    QStringList GPUID_BatchSize_SplitSize = GPU_List.at(GPU_ID_Waifu2xCaffe_GetGPUInfo).split(",");
+    if(GPUID_BatchSize_SplitSize.count()==3)
+    {
+        GPUInfo = "--gpu "+GPUID_BatchSize_SplitSize.at(0).trimmed()+" -b "+GPUID_BatchSize_SplitSize.at(1).trimmed()+" -c "+GPUID_BatchSize_SplitSize.at(2).trimmed();
+    }
+    else
+    {
+        GPUInfo = "--gpu 0 -b 1 -c 64";
+    }
+    //======
+    GPU_ID_Waifu2xCaffe_GetGPUInfo++;
+    if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
+    {
+        GPU_ID_Waifu2xCaffe_GetGPUInfo=0;
+    }
+    //======
+    GetGPUInfo_QMutex_Waifu2xCaffe.unlock();
+    return GPUInfo;
 }

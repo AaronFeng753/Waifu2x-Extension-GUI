@@ -574,7 +574,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
         }
     }
     //=========
-    QFile::remove(Frame_fileFullPath);
+    if(file_isFileExist(OutputPath)==true)QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
     mutex_SubThreadNumRunning.lock();
@@ -1534,7 +1534,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
     }
     //=========
-    QFile::remove(Frame_fileFullPath);
+    if(file_isFileExist(OutputPath)==true)QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
     mutex_SubThreadNumRunning.lock();
@@ -1562,6 +1562,10 @@ QString MainWindow::Anime4k_ReadSettings()
         {
             Anime4k_Settings_str.append("-H ");
         }
+        if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
+        {
+            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
+        }
         return Anime4k_Settings_str;
     }
     //快速模式
@@ -1577,8 +1581,7 @@ QString MainWindow::Anime4k_ReadSettings()
     //指定GPU
     if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
     {
-        Anime4k_Settings_str.append("-h "+QString::number(ui->spinBox_PlatformID_Anime4k->value(),10)+" ");
-        Anime4k_Settings_str.append("-d "+QString::number(ui->spinBox_DeviceID_Anime4k->value(),10)+" ");
+        Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
     }
     //Passes
     Anime4k_Settings_str.append("-p "+QString::number(ui->spinBox_Passes_Anime4K->value(),10)+" ");
@@ -1677,6 +1680,45 @@ QString MainWindow::Anime4k_ReadSettings()
         }
     }
     return Anime4k_Settings_str;
+}
+
+QString MainWindow::Anime4k_GetGPUInfo()
+{
+    GetGPUInfo_QMutex_Anime4k.lock();
+    //====
+    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().split(":");
+    GPU_List.removeDuplicates();
+    for (int i=0; i<GPU_List.count(); i++)
+    {
+        GPU_List.replace(i,GPU_List.at(i).trimmed());
+    }
+    GPU_List.removeAll("");
+    //====
+    int MAX_GPU_ID_Anime4k = GPU_List.count()-1;
+    if(GPU_ID_Anime4k_GetGPUInfo>MAX_GPU_ID_Anime4k)
+    {
+        GPU_ID_Anime4k_GetGPUInfo=0;
+    }
+    //======
+    QString GPUInfo="";
+    QStringList PID_DID = GPU_List.at(GPU_ID_Anime4k_GetGPUInfo).split(",");
+    if(PID_DID.count()==2)
+    {
+        GPUInfo = "-h "+PID_DID.at(0).trimmed()+" -d "+PID_DID.at(1).trimmed();
+    }
+    else
+    {
+        GPUInfo = "-h 0 -d 0";
+    }
+    //======
+    GPU_ID_Anime4k_GetGPUInfo++;
+    if(GPU_ID_Anime4k_GetGPUInfo>MAX_GPU_ID_Anime4k)
+    {
+        GPU_ID_Anime4k_GetGPUInfo=0;
+    }
+    //======
+    GetGPUInfo_QMutex_Anime4k.unlock();
+    return GPUInfo;
 }
 
 void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()

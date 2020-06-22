@@ -169,8 +169,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/doubleSpinBox_PushColorStrength_Anime4K", ui->doubleSpinBox_PushColorStrength_Anime4K->value());
     configIniWrite->setValue("/settings/doubleSpinBox_PushGradientStrength_Anime4K", ui->doubleSpinBox_PushGradientStrength_Anime4K->value());
     configIniWrite->setValue("/settings/checkBox_SpecifyGPU_Anime4k", ui->checkBox_SpecifyGPU_Anime4k->isChecked());
-    configIniWrite->setValue("/settings/spinBox_PlatformID_Anime4k", ui->spinBox_PlatformID_Anime4k->value());
-    configIniWrite->setValue("/settings/spinBox_DeviceID_Anime4k", ui->spinBox_DeviceID_Anime4k->value());
+    configIniWrite->setValue("/settings/lineEdit_GPUs_Anime4k", ui->lineEdit_GPUs_Anime4k->text());
     //Pre-Processing
     configIniWrite->setValue("/settings/checkBox_EnablePreProcessing_Anime4k", ui->checkBox_EnablePreProcessing_Anime4k->isChecked());
     configIniWrite->setValue("/settings/checkBox_MedianBlur_Pre_Anime4k", ui->checkBox_MedianBlur_Pre_Anime4k->isChecked());
@@ -408,8 +407,7 @@ int MainWindow::Settings_Read_Apply()
     ui->doubleSpinBox_PushColorStrength_Anime4K->setValue(Settings_Read_value("/settings/doubleSpinBox_PushColorStrength_Anime4K").toDouble());
     ui->doubleSpinBox_PushGradientStrength_Anime4K->setValue(Settings_Read_value("/settings/doubleSpinBox_PushGradientStrength_Anime4K").toDouble());
     ui->checkBox_SpecifyGPU_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_SpecifyGPU_Anime4k").toBool());
-    ui->spinBox_PlatformID_Anime4k->setValue(Settings_Read_value("/settings/spinBox_PlatformID_Anime4k").toInt());
-    ui->spinBox_DeviceID_Anime4k->setValue(Settings_Read_value("/settings/spinBox_DeviceID_Anime4k").toInt());
+    ui->lineEdit_GPUs_Anime4k->setText(Settings_Read_value("/settings/lineEdit_GPUs_Anime4k").toString());
     //Pre-Processing
     ui->checkBox_EnablePreProcessing_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_EnablePreProcessing_Anime4k").toBool());
     ui->checkBox_MedianBlur_Pre_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_MedianBlur_Pre_Anime4k").toBool());

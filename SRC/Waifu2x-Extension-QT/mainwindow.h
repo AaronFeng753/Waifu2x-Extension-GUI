@@ -75,7 +75,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.51.03-beta";//软件版本号
+    QString VERSION = "v2.51.04-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -310,6 +310,16 @@ public:
     QMutex MultiGPU_QMutex_Waifu2xConverter;
     QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_Waifu2xConverter;
     void AddGPU_MultiGPU_Waifu2xConverter(QString GPUID);
+
+    //Anime4k
+    int GPU_ID_Anime4k_GetGPUInfo = 0;
+    QString Anime4k_GetGPUInfo();
+    QMutex GetGPUInfo_QMutex_Anime4k;
+
+    //Waifu2x-caffe
+    int GPU_ID_Waifu2xCaffe_GetGPUInfo = 0;
+    QString Waifu2xCaffe_GetGPUInfo();
+    QMutex GetGPUInfo_QMutex_Waifu2xCaffe;
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -714,6 +724,10 @@ private slots:
     void on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter_clicked();
 
     void on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter_valueChanged(int arg1);
+
+    void on_checkBox_EnableMultiGPU_Waifu2xCaffe_stateChanged(int arg1);
+
+    void on_comboBox_ProcessMode_Waifu2xCaffe_currentIndexChanged(int index);
 
 signals:
     void Send_SystemTray_NewMessage(QString message);
