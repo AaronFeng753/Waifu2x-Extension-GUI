@@ -102,7 +102,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         TTA_cmd = " -t 1 ";
     }
     //====
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
@@ -580,7 +580,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1555,7 +1555,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1628,7 +1628,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter()
     while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
     QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
     Core_num = waifu2x_stdOut.count("num_core");
-    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut+"\n-------------");
+    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut.trimmed()+"\n-------------");
     //====================================================================
     //               获取到列表后, 对列表内处理器执行测试确认是否真的可用
     //====================================================================
@@ -1676,6 +1676,9 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //===========================
+    GPUIDs_List_MultiGPU_Waifu2xConverter.clear();
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->clear();
+    //===
     ui->comboBox_TargetProcessor_converter->clear();
     ui->comboBox_TargetProcessor_converter->addItem("auto");
     if(!Available_ProcessorList_converter.isEmpty())
@@ -1683,6 +1686,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
         for(int i=0; i<Available_ProcessorList_converter.size(); i++)
         {
             ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
+            AddGPU_MultiGPU_Waifu2xConverter(Available_ProcessorList_converter.at(i));
         }
     }
     //=====
@@ -1701,4 +1705,188 @@ void MainWindow::on_comboBox_TargetProcessor_converter_currentIndexChanged(int i
     {
         Processor_converter_STR="";
     }
+}
+/*
+Waifu2x-Converter
+读取设定
+*/
+QString MainWindow::Waifu2xConverter_ReadSettings()
+{
+    QString Waifu2xConverter_Settings_str = " ";
+    //=====
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = Waifu2xConverter_MultiGPU();
+        //GPU ID
+        Waifu2xConverter_Settings_str.append("-p "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Waifu2xConverter_Settings_str.append("--block-size "+GPUInfo["TileSize"]+" ");
+    }
+    else
+    {
+        //==========单显卡==========
+        //Processor ID
+        if(ui->comboBox_TargetProcessor_converter->currentText()!="auto")
+        {
+            Waifu2xConverter_Settings_str.append("-p "+ui->comboBox_TargetProcessor_converter->currentText()+" ");
+        }
+        //block-size
+        Waifu2xConverter_Settings_str.append("--block-size "+QString::number(ui->spinBox_BlockSize_converter->value(), 10)+" ");
+    }
+    //model_path
+    QString model_path = Current_Path + "/waifu2x-converter/models_rgb";
+    Waifu2xConverter_Settings_str.append("--model-dir "+model_path+" ");
+    //Disable GPU
+    if(ui->checkBox_DisableGPU_converter->isChecked())Waifu2xConverter_Settings_str.append("--disable-gpu ");
+    //Force OpenCL
+    if(ui->checkBox_ForceOpenCL_converter->isChecked())Waifu2xConverter_Settings_str.append("--force-OpenCL ");
+    //TTA
+    if(ui->checkBox_TTA_converter->isChecked())
+    {
+        Waifu2xConverter_Settings_str.append("-t 1 ");
+    }
+    else
+    {
+        Waifu2xConverter_Settings_str.append("-t 0 ");
+    }
+    //=======================================
+    return Waifu2xConverter_Settings_str;
+}
+
+QMap<QString,QString> MainWindow::Waifu2xConverter_MultiGPU()
+{
+    MultiGPU_QMutex_Waifu2xConverter.lock();
+    //====
+    int MAX_GPU_ID_Waifu2xConverter = GPUIDs_List_MultiGPU_Waifu2xConverter.count()-1;
+    if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
+    {
+        GPU_ID_Waifu2xConverter_MultiGPU=0;
+    }
+    //======
+    QMap<QString,QString> GPUInfo;
+    do
+    {
+        GPUInfo = GPUIDs_List_MultiGPU_Waifu2xConverter.at(GPU_ID_Waifu2xConverter_MultiGPU);
+        if(GPUInfo["isEnabled"] != "true")
+        {
+            GPU_ID_Waifu2xConverter_MultiGPU++;
+            if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
+            {
+                GPU_ID_Waifu2xConverter_MultiGPU=0;
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+    while(true);
+    //======
+    GPU_ID_Waifu2xConverter_MultiGPU++;
+    if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
+    {
+        GPU_ID_Waifu2xConverter_MultiGPU=0;
+    }
+    //======
+    MultiGPU_QMutex_Waifu2xConverter.unlock();
+    return GPUInfo;
+}
+
+void MainWindow::AddGPU_MultiGPU_Waifu2xConverter(QString GPUID)
+{
+    QMap<QString,QString> GPUInfo;
+    GPUInfo["ID"] = GPUID;
+    GPUInfo["isEnabled"] = "true";
+    GPUInfo["TileSize"] = "300";
+    GPUIDs_List_MultiGPU_Waifu2xConverter.append(GPUInfo);
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->addItem(GPUID);
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->setCurrentIndex(0);
+}
+
+void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        ui->comboBox_TargetProcessor_converter->setEnabled(0);
+        ui->spinBox_BlockSize_converter->setEnabled(0);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xConverter->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_TargetProcessor_converter->setEnabled(1);
+        ui->spinBox_BlockSize_converter->setEnabled(1);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xConverter->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_clicked()
+{
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        if(GPUIDs_List_MultiGPU_Waifu2xConverter.count()<2)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Insufficient number of available Processors."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(0);
+        }
+    }
+}
+
+void MainWindow::on_comboBox_GPUIDs_MultiGPU_Waifu2xConverter_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->count()==0)
+    {
+        return;
+    }
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+    ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->setChecked(GPUInfo["isEnabled"] == "true");
+    ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter->setValue(GPUInfo["TileSize"].toInt());
+}
+
+void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter_clicked()
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+    if(ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        GPUInfo["isEnabled"] = "true";
+    }
+    else
+    {
+        GPUInfo["isEnabled"] = "false";
+    }
+    GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
+    int enabledGPUs = 0;
+    for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
+    {
+        QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
+        if(GPUInfo_tmp["isEnabled"] == "true")
+        {
+            enabledGPUs++;
+        }
+    }
+    if(enabledGPUs<2)
+    {
+        QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+        GPUInfo["isEnabled"] = "true";
+        GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->setChecked(1);
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("At least 2 Processors need to be enabled !!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
+}
+
+void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter_valueChanged(int arg1)
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+    GPUInfo["TileSize"] = QString::number(ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter->value(),10);
+    GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
 }

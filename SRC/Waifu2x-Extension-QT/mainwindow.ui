@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2128,7 +2128,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>5</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2263,7 +2263,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                  <property name="toolTip">
                   <string>1.You need at least 2 available GPUs.
 
-2.If you wanna get all GPUs running together, the number of threads must &gt;= the number of GPUs.</string>
+2.If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>
@@ -2432,18 +2433,90 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1">
-                <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
-                 <property name="text">
-                  <string>Disable GPU</string>
+               <item row="5" column="0" colspan="4">
+                <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_Waifu2xConverter">
+                 <property name="enabled">
+                  <bool>false</bool>
                  </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>Processor Settings(Multi-Processor)</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_44">
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_74">
+                    <property name="text">
+                     <string>Block size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter">
+                    <property name="minimum">
+                     <number>32</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>300</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter">
+                    <property name="text">
+                     <string>Enable</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_75">
+                    <property name="text">
+                     <string>Processor ID:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_Waifu2xConverter">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
                 </widget>
                </item>
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_53">
-                 <property name="text">
-                  <string>Target processor:</string>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
+                 <property name="enabled">
+                  <bool>true</bool>
                  </property>
+                 <property name="currentText">
+                  <string notr="true">auto</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string notr="true">auto</string>
+                  </property>
+                 </item>
                 </widget>
                </item>
                <item row="1" column="0">
@@ -2456,7 +2529,34 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                  </property>
                 </widget>
                </item>
-               <item row="1" column="2">
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_53">
+                 <property name="text">
+                  <string>Target processor:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="2">
+                <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
+                 <property name="text">
+                  <string>Disable GPU</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="2" colspan="2">
+                <widget class="QCheckBox" name="checkBox_MultiGPU_Waifu2xConverter">
+                 <property name="toolTip">
+                  <string>1.You need at least 2 available processors.
+
+2.If you wanna get all processors running together,
+the number of threads must &gt;= the number of processors.</string>
+                 </property>
+                 <property name="text">
+                  <string>Enable Multi-Processor</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="3">
                 <widget class="QCheckBox" name="checkBox_TTA_converter">
                  <property name="toolTip">
                   <string>TTA(Test-Time Augmentation):
@@ -2528,21 +2628,6 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                  <property name="value">
                   <number>300</number>
                  </property>
-                </widget>
-               </item>
-               <item row="2" column="1" colspan="3">
-                <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">auto</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">auto</string>
-                  </property>
-                 </item>
                 </widget>
                </item>
               </layout>
@@ -3202,7 +3287,8 @@ padding:10px;
                  <property name="toolTip">
                   <string>1.You need at least 2 available GPUs.
 
-2.If you wanna get all GPUs running together, the number of threads must &gt;= the number of GPUs.</string>
+2.If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>
@@ -3562,7 +3648,8 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                  <property name="toolTip">
                   <string>1.You need at least 2 available GPUs.
 
-2.If you wanna get all GPUs running together, the number of threads must &gt;= the number of GPUs.</string>
+2.If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>

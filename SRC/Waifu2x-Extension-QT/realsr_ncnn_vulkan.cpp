@@ -2041,11 +2041,13 @@ void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_stateChanged(int arg1)
 {
     if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
     {
+        ui->comboBox_GPUID_RealsrNCNNVulkan->setEnabled(0);
         ui->spinBox_TileSize_RealsrNCNNVulkan->setEnabled(0);
         ui->groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan->setEnabled(1);
     }
     else
     {
+        ui->comboBox_GPUID_RealsrNCNNVulkan->setEnabled(1);
         ui->spinBox_TileSize_RealsrNCNNVulkan->setEnabled(1);
         ui->groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan->setEnabled(0);
     }
@@ -2095,7 +2097,7 @@ void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan_click
     for (int i=0; i<GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count(); i++)
     {
         QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(i);
-        if(GPUInfo["isEnabled"] == "true")
+        if(GPUInfo_tmp["isEnabled"] == "true")
         {
             enabledGPUs++;
         }

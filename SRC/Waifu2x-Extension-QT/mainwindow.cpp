@@ -2132,3 +2132,5 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
+
+

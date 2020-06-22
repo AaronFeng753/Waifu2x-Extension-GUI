@@ -205,6 +205,7 @@ public:
     int Waifu2x_Converter_Video(int rowNum);
     int Waifu2x_Converter_Video_BySegment(int rowNum);
     int Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
+    QString Waifu2xConverter_ReadSettings();
     //===================================
     int SRMD_NCNN_Vulkan_Image(int rowNum);//SRMD放大图片线程
     //SRMD放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -302,6 +303,13 @@ public:
     QMutex MultiGPU_QMutex_RealsrNcnnVulkan;
     QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_RealsrNcnnVulkan;
     void AddGPU_MultiGPU_RealsrNcnnVulkan(QString GPUID);
+
+    //Waifu2xConverter
+    int GPU_ID_Waifu2xConverter_MultiGPU = 0;
+    QMap<QString,QString> Waifu2xConverter_MultiGPU();
+    QMutex MultiGPU_QMutex_Waifu2xConverter;
+    QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_Waifu2xConverter;
+    void AddGPU_MultiGPU_Waifu2xConverter(QString GPUID);
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -696,6 +704,16 @@ private slots:
     void on_checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan_clicked();
 
     void on_spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan_valueChanged(int arg1);
+
+    void on_checkBox_MultiGPU_Waifu2xConverter_clicked();
+
+    void on_checkBox_MultiGPU_Waifu2xConverter_stateChanged(int arg1);
+
+    void on_comboBox_GPUIDs_MultiGPU_Waifu2xConverter_currentIndexChanged(int index);
+
+    void on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter_clicked();
+
+    void on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter_valueChanged(int arg1);
 
 signals:
     void Send_SystemTray_NewMessage(QString message);

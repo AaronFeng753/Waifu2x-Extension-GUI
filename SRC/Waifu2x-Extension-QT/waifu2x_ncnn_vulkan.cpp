@@ -2113,7 +2113,7 @@ void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_clic
     for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count(); i++)
     {
         QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(i);
-        if(GPUInfo["isEnabled"] == "true")
+        if(GPUInfo_tmp["isEnabled"] == "true")
         {
             enabledGPUs++;
         }
@@ -2137,11 +2137,13 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1)
 {
     if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
     {
+        ui->comboBox_GPUID->setEnabled(0);
         ui->spinBox_TileSize->setEnabled(0);
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(1);
     }
     else
     {
+        ui->comboBox_GPUID->setEnabled(1);
         ui->spinBox_TileSize->setEnabled(1);
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
     }

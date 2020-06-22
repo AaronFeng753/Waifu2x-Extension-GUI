@@ -34,9 +34,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 v2.51.03-beta:
-- 为RealSR-ncnn-vulkan加入多gpu支持.
+- 为RealSR-ncnn-vulkan和waifu2x-converter加入多gpu支持.
 - 添加tooltip.
-- 修复bug:srmd-ncnn-vulkan引擎启用多显卡后,无法正常读取可用gpu数量
+- 修复bug:srmd-ncnn-vulkan引擎启用多显卡后,无法正常读取可用gpu数量.
+- 修复bug:无法正常识别当前启用的显卡数量而导致无法禁用单个显卡.
 v2.51.02-beta:
 - 为srmd-ncnn-vulkan加入多gpu支持.
 - 性能优化.

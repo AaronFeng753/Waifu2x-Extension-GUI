@@ -90,6 +90,8 @@ int MainWindow::Settings_Save()
     //==
     configIniWrite->setValue("/settings/comboBox_TargetProcessor_converter", ui->comboBox_TargetProcessor_converter->currentIndex());
     configIniWrite->setValue("/settings/Available_ProcessorList_converter", Available_ProcessorList_converter);
+    configIniWrite->setValue("/settings/GPUIDs_List_MultiGPU_Waifu2xConverter", QVariant::fromValue(GPUIDs_List_MultiGPU_Waifu2xConverter));
+    configIniWrite->setValue("/settings/checkBox_MultiGPU_Waifu2xConverter", ui->checkBox_MultiGPU_Waifu2xConverter->isChecked());
     //==
     configIniWrite->setValue("/settings/comboBox_GPUID_srmd", ui->comboBox_GPUID_srmd->currentIndex());
     configIniWrite->setValue("/settings/Available_GPUID_srmd", Available_GPUID_srmd);
@@ -317,6 +319,15 @@ int MainWindow::Settings_Read_Apply()
     Waifu2x_DumpProcessorList_converter_finished();
     ui->comboBox_TargetProcessor_converter->setCurrentIndex(Settings_Read_value("/settings/comboBox_TargetProcessor_converter").toInt());
     on_comboBox_TargetProcessor_converter_currentIndexChanged(0);
+    //读取多显卡设定
+    GPUIDs_List_MultiGPU_Waifu2xConverter = Settings_Read_value("/settings/GPUIDs_List_MultiGPU_Waifu2xConverter").value<QList<QMap<QString, QString>> >();
+    if(GPUIDs_List_MultiGPU_Waifu2xConverter.isEmpty()==false)
+    {
+        QMap<QString,QString> GPUInfo_Waifu2xConverter = GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->setChecked(GPUInfo_Waifu2xConverter["isEnabled"] == "true");
+        ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter->setValue(GPUInfo_Waifu2xConverter["TileSize"].toInt());
+    }
+    ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(Settings_Read_value("/settings/checkBox_MultiGPU_Waifu2xConverter").toBool());
     //SRMD-NCNN-Vulkan
     Available_GPUID_srmd = Settings_Read_value("/settings/Available_GPUID_srmd").toStringList();
     SRMD_DetectGPU_finished();
