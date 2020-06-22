@@ -41,7 +41,7 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 - #### 😍Full image style support: Multiple built-in algorithms, 2D anime or your daily photos & videos, this software can handle all of them.
 - #### ✅Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
 - 📊Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
-- 🚀🚀🚀Multi-GPU support.
+- 🚀🚀🚀Multi-GPU support: Multi-GPU support for ALL built-in engines.
 - 🛠Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
 - 🤖Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
 - 😉Easy-to-use graphical user interface.
