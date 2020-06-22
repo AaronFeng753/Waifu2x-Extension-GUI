@@ -1837,3 +1837,17 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
     GetGPUInfo_QMutex_Waifu2xCaffe.unlock();
     return GPUInfo;
 }
+
+void MainWindow::on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished()
+{
+    QString Format_str="0123456789:,";
+    QString GPUs_str = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().replace("：",":").replace("，",",");
+    for (int i=0; i<GPUs_str.length(); i++)
+    {
+        if(Format_str.contains(GPUs_str.at(i))==false)
+        {
+            GPUs_str.remove(GPUs_str.at(i));
+        }
+    }
+    ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setText(GPUs_str);
+}

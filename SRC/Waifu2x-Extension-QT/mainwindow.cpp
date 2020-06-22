@@ -1178,14 +1178,14 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
 void MainWindow::on_Ext_image_editingFinished()
 {
     QString ext_image_str = ui->Ext_image->text();
-    ext_image_str = ext_image_str.trimmed();
+    ext_image_str = ext_image_str.trimmed().replace("：",":");
     ui->Ext_image->setText(ext_image_str);
 }
 
 void MainWindow::on_Ext_video_editingFinished()
 {
     QString ext_video_str = ui->Ext_video->text();
-    ext_video_str = ext_video_str.trimmed();
+    ext_video_str = ext_video_str.trimmed().replace("：",":");
     ui->Ext_video->setText(ext_video_str);
 }
 
@@ -2028,7 +2028,7 @@ void MainWindow::on_checkBox_isCompatible_SoX_clicked()
 
 void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
 {
-    if(ui->checkBox_GPUMode_Anime4K->isChecked()&&ui->checkBox_ACNet_Anime4K->isChecked()==false)
+    if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(1);
     }
@@ -2092,7 +2092,7 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         ui->checkBox_HDNMode_Anime4k->setEnabled(1);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(0);
         ui->groupBox_PreProcessing_Anime4k->setEnabled(0);
-        ui->checkBox_FastMode_Anime4K->setEnabled(0);
+        //ui->checkBox_FastMode_Anime4K->setEnabled(0);
         //ui->checkBox_SpecifyGPU_Anime4k->setEnabled(0);
         ui->doubleSpinBox_PushColorStrength_Anime4K->setEnabled(0);
         ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(0);
@@ -2107,7 +2107,7 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(1);
         ui->groupBox_PreProcessing_Anime4k->setEnabled(1);
-        ui->checkBox_FastMode_Anime4K->setEnabled(1);
+        //ui->checkBox_FastMode_Anime4K->setEnabled(1);
         ui->doubleSpinBox_PushColorStrength_Anime4K->setEnabled(1);
         ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(1);
         ui->spinBox_Passes_Anime4K->setEnabled(1);

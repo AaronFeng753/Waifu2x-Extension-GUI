@@ -33,6 +33,12 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.51.05-beta:
+- 为Anime4k引擎的ACNet算法添加快速模式支持.
+- 更新Anime4k.
+- 对输入文本自动进行格式矫正.
+- 修复bug:UI冲突.
+- 修复bug:部分设定未存储.
 v2.51.04-beta:
 - 为Anime4k引擎和Waifu2x-Caffe引擎加入多gpu支持.至此所有引擎均支持多显卡了!!
 - ACNet算法支持指定显卡.

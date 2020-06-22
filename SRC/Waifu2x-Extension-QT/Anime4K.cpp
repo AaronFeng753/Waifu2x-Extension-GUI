@@ -1553,18 +1553,22 @@ QString MainWindow::Anime4k_ReadSettings()
     //ACNet
     if(ui->checkBox_ACNet_Anime4K->isChecked())
     {
-        Anime4k_Settings_str.append("-w ");
+        Anime4k_Settings_str.append("-w ");//启用acnet
         if(ui->checkBox_GPUMode_Anime4K->isChecked())
         {
-            Anime4k_Settings_str.append("-q ");
+            Anime4k_Settings_str.append("-q ");//启用显卡
         }
         if(ui->checkBox_HDNMode_Anime4k->isChecked())
         {
-            Anime4k_Settings_str.append("-H ");
+            Anime4k_Settings_str.append("-H ");//启用HDN
         }
         if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
         {
-            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
+            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");//指定显卡
+        }
+        if(ui->checkBox_FastMode_Anime4K->isChecked())
+        {
+            Anime4k_Settings_str.append("-f ");//快速模式
         }
         return Anime4k_Settings_str;
     }
@@ -1744,5 +1748,19 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
     MSG->show();
     //====
     ui->pushButton_ListGPUs_Anime4k->setText(tr("List GPUs"));
+}
+
+void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()
+{
+    QString Format_str="0123456789:,";
+    QString GPUs_str = ui->lineEdit_GPUs_Anime4k->text().trimmed().replace("：",":").replace("，",",");
+    for (int i=0; i<GPUs_str.length(); i++)
+    {
+        if(Format_str.contains(GPUs_str.at(i))==false)
+        {
+            GPUs_str.remove(GPUs_str.at(i));
+        }
+    }
+    ui->lineEdit_GPUs_Anime4k->setText(GPUs_str);
 }
 

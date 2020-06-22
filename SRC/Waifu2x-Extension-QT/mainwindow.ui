@@ -3562,6 +3562,10 @@ will be propagated through the network.</string>
                  <property name="enabled">
                   <bool>false</bool>
                  </property>
+                 <property name="toolTip">
+                  <string>You need to switch [Process mode] to
+[GPU] or [cuDNN] to enable Multi-GPU.</string>
+                 </property>
                  <property name="text">
                   <string>Multi-GPU:</string>
                  </property>

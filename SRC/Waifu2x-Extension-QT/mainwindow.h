@@ -75,7 +75,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.51.04-beta";//软件版本号
+    QString VERSION = "v2.51.05-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -728,6 +728,10 @@ private slots:
     void on_checkBox_EnableMultiGPU_Waifu2xCaffe_stateChanged(int arg1);
 
     void on_comboBox_ProcessMode_Waifu2xCaffe_currentIndexChanged(int index);
+
+    void on_lineEdit_GPUs_Anime4k_editingFinished();
+
+    void on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
 
 signals:
     void Send_SystemTray_NewMessage(QString message);
