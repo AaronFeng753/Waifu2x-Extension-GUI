@@ -75,7 +75,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.51.02-beta";//软件版本号
+    QString VERSION = "v2.51.03-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.45.18";
     //=======================
@@ -295,6 +295,13 @@ public:
     QMutex MultiGPU_QMutex_SrmdNcnnVulkan;
     QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_SrmdNcnnVulkan;
     void AddGPU_MultiGPU_SrmdNcnnVulkan(QString GPUID);
+
+    //RealsrNcnnVulkan
+    int GPU_ID_RealsrNcnnVulkan_MultiGPU = 0;
+    QMap<QString,QString> RealsrNcnnVulkan_MultiGPU();
+    QMutex MultiGPU_QMutex_RealsrNcnnVulkan;
+    QList<QMap<QString, QString>> GPUIDs_List_MultiGPU_RealsrNcnnVulkan;
+    void AddGPU_MultiGPU_RealsrNcnnVulkan(QString GPUID);
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值
@@ -679,6 +686,16 @@ private slots:
     void on_checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan_clicked();
 
     void on_spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan_valueChanged(int arg1);
+
+    void on_checkBox_MultiGPU_RealsrNcnnVulkan_stateChanged(int arg1);
+
+    void on_checkBox_MultiGPU_RealsrNcnnVulkan_clicked();
+
+    void on_comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan_currentIndexChanged(int index);
+
+    void on_checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan_clicked();
+
+    void on_spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan_valueChanged(int arg1);
 
 signals:
     void Send_SystemTray_NewMessage(QString message);

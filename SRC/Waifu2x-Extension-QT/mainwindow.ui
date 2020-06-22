@@ -1898,58 +1898,22 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
            <string>Engine</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="4">
-            <widget class="QComboBox" name="comboBox_Engine_GIF">
-             <property name="enabled">
-              <bool>true</bool>
+           <item row="1" column="0" colspan="8">
+            <widget class="Line" name="line_6">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
              </property>
-             <property name="toolTip">
-              <string>Select the engine for processing GIF. 
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
-             </property>
-             <property name="currentText">
-              <string notr="true">waifu2x-ncnn-vulkan</string>
-             </property>
-             <item>
-              <property name="text">
-               <string notr="true">waifu2x-ncnn-vulkan</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">waifu2x-converter</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">srmd-ncnn-vulkan</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">Anime4K</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">waifu2x-caffe</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string notr="true">realsr-ncnn-vulkan</string>
-              </property>
-             </item>
             </widget>
            </item>
-           <item row="0" column="3">
-            <widget class="QLabel" name="label_7">
+           <item row="0" column="2">
+            <widget class="Line" name="line_11">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_6">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
@@ -1957,10 +1921,17 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </size>
              </property>
              <property name="text">
-              <string>GIF:</string>
+              <string>Image:</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="5">
+            <widget class="Line" name="line_12">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
              </property>
             </widget>
            </item>
@@ -1977,13 +1948,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="1" column="0" colspan="8">
-            <widget class="Line" name="line_6">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
              </property>
             </widget>
            </item>
@@ -2035,6 +1999,22 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                <string notr="true">realsr-ncnn-vulkan</string>
               </property>
              </item>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_7">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>GIF:</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
             </widget>
            </item>
            <item row="0" column="1">
@@ -2095,40 +2075,60 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
              </item>
             </widget>
            </item>
-           <item row="0" column="5">
-            <widget class="Line" name="line_12">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+           <item row="0" column="4">
+            <widget class="QComboBox" name="comboBox_Engine_GIF">
+             <property name="enabled">
+              <bool>true</bool>
              </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_6">
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
+             <property name="toolTip">
+              <string>Select the engine for processing GIF. 
+
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </property>
-             <property name="text">
-              <string>Image:</string>
+             <property name="currentText">
+              <string notr="true">waifu2x-ncnn-vulkan</string>
              </property>
-             <property name="alignment">
-              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="Line" name="line_11">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
+             <item>
+              <property name="text">
+               <string notr="true">waifu2x-ncnn-vulkan</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">waifu2x-converter</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">srmd-ncnn-vulkan</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">Anime4K</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">waifu2x-caffe</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string notr="true">realsr-ncnn-vulkan</string>
+              </property>
+             </item>
             </widget>
            </item>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>2</number>
+              <number>5</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2260,6 +2260,11 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                </item>
                <item row="4" column="2">
                 <widget class="QCheckBox" name="checkBox_MultiGPU_Waifu2xNCNNVulkan">
+                 <property name="toolTip">
+                  <string>1.You need at least 2 available GPUs.
+
+2.If you wanna get all GPUs running together, the number of threads must &gt;= the number of GPUs.</string>
+                 </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>
                  </property>
@@ -2538,205 +2543,6 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                    <string notr="true">auto</string>
                   </property>
                  </item>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="tab_6">
-              <attribute name="title">
-               <string notr="true">SRMD-ncnn-vulkan</string>
-              </attribute>
-              <attribute name="toolTip">
-               <string>SRMD-NCNN-Vulkan:
-
-- Supports [2D Anime] and [3D Real-life] image style at the same time.
-
-- More suitable for processing [3D Real-life] images.
-
-- [ Speed:★☆  Image Quality:★★★ ]</string>
-              </attribute>
-              <layout class="QGridLayout" name="gridLayout_36">
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_41">
-                 <property name="text">
-                  <string>GPU ID:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0" colspan="3">
-                <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_SrmdNCNNVulkan">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>75</height>
-                  </size>
-                 </property>
-                 <property name="title">
-                  <string>GPU Settings(Multi-GPU)</string>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_41">
-                  <item row="0" column="3">
-                   <widget class="QLabel" name="label_68">
-                    <property name="text">
-                     <string>Tile size:</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="4">
-                   <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
-                    <property name="minimum">
-                     <number>32</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                    <property name="singleStep">
-                     <number>10</number>
-                    </property>
-                    <property name="value">
-                     <number>100</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="2">
-                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
-                    <property name="text">
-                     <string>Enable</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_69">
-                    <property name="text">
-                     <string>GPU ID:</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan">
-                    <property name="currentText">
-                     <string notr="true"/>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="1" column="1">
-                <widget class="QComboBox" name="comboBox_GPUID_srmd">
-                 <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">auto</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">auto</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_40">
-                 <property name="toolTip">
-                  <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means SRMD will use more GPU memory and run faster.
-Smaller tile size means SRMD will use less GPU memory and run slower.</string>
-                 </property>
-                 <property name="text">
-                  <string>Tile size:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QCheckBox" name="checkBox_TTA_srmd">
-                 <property name="toolTip">
-                  <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">TTA</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QSpinBox" name="spinBox_TileSize_srmd">
-                 <property name="toolTip">
-                  <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means SRMD will use more GPU memory and run faster.
-Smaller tile size means SRMD will use less GPU memory and run slower.</string>
-                 </property>
-                 <property name="minimum">
-                  <number>32</number>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                 <property name="singleStep">
-                  <number>10</number>
-                 </property>
-                 <property name="value">
-                  <number>100</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="3">
-                <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Detect available GPU ID</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QCheckBox" name="checkBox_MultiGPU_SrmdNCNNVulkan">
-                 <property name="text">
-                  <string>Enable Multi-GPU</string>
-                 </property>
                 </widget>
                </item>
               </layout>
@@ -3201,6 +3007,210 @@ Will improve image quality.</string>
                </item>
               </layout>
              </widget>
+             <widget class="QWidget" name="tab_6">
+              <attribute name="title">
+               <string notr="true">SRMD-ncnn-vulkan</string>
+              </attribute>
+              <attribute name="toolTip">
+               <string>SRMD-NCNN-Vulkan:
+
+- Supports [2D Anime] and [3D Real-life] image style at the same time.
+
+- More suitable for processing [3D Real-life] images.
+
+- [ Speed:★☆  Image Quality:★★★ ]</string>
+              </attribute>
+              <layout class="QGridLayout" name="gridLayout_36">
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_41">
+                 <property name="text">
+                  <string>GPU ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="5" column="0" colspan="3">
+                <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_SrmdNCNNVulkan">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>GPU Settings(Multi-GPU)</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_41">
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_68">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
+                    <property name="minimum">
+                     <number>32</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>100</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
+                    <property name="text">
+                     <string>Enable</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_69">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QComboBox" name="comboBox_GPUID_srmd">
+                 <property name="toolTip">
+                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
+                 </property>
+                 <property name="currentText">
+                  <string notr="true">auto</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string notr="true">auto</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_40">
+                 <property name="toolTip">
+                  <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means SRMD will use more GPU memory and run faster.
+Smaller tile size means SRMD will use less GPU memory and run slower.</string>
+                 </property>
+                 <property name="text">
+                  <string>Tile size:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="2">
+                <widget class="QCheckBox" name="checkBox_TTA_srmd">
+                 <property name="toolTip">
+                  <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">TTA</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QSpinBox" name="spinBox_TileSize_srmd">
+                 <property name="toolTip">
+                  <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means SRMD will use more GPU memory and run faster.
+Smaller tile size means SRMD will use less GPU memory and run slower.</string>
+                 </property>
+                 <property name="minimum">
+                  <number>32</number>
+                 </property>
+                 <property name="maximum">
+                  <number>999999999</number>
+                 </property>
+                 <property name="singleStep">
+                  <number>10</number>
+                 </property>
+                 <property name="value">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0" colspan="3">
+                <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Detect available GPU ID</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="2">
+                <widget class="QCheckBox" name="checkBox_MultiGPU_SrmdNCNNVulkan">
+                 <property name="toolTip">
+                  <string>1.You need at least 2 available GPUs.
+
+2.If you wanna get all GPUs running together, the number of threads must &gt;= the number of GPUs.</string>
+                 </property>
+                 <property name="text">
+                  <string>Enable Multi-GPU</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
              <widget class="QWidget" name="tab">
               <attribute name="title">
                <string notr="true">Waifu2x-Caffe</string>
@@ -3481,13 +3491,6 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</strin
 - [ Speed:☆  Image Quality:★★★ ]</string>
               </attribute>
               <layout class="QGridLayout" name="gridLayout_34">
-               <item row="2" column="0">
-                <widget class="QLabel" name="label_62">
-                 <property name="text">
-                  <string>GPU ID:</string>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0">
                 <widget class="QLabel" name="label_60">
                  <property name="text">
@@ -3495,7 +3498,149 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</strin
                  </property>
                 </widget>
                </item>
-               <item row="1" column="1" colspan="2">
+               <item row="0" column="1" colspan="2">
+                <widget class="QComboBox" name="comboBox_Model_RealsrNCNNVulkan">
+                 <item>
+                  <property name="text">
+                   <string>models-DF2K_JPEG(Supports denoise)</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>models-DF2K(Does NOT supports denoise)</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="0" column="3">
+                <widget class="QCheckBox" name="checkBox_TTA_RealsrNCNNVulkan">
+                 <property name="toolTip">
+                  <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">TTA</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0">
+                <widget class="QLabel" name="label_61">
+                 <property name="text">
+                  <string>Tile size:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QLabel" name="label_62">
+                 <property name="text">
+                  <string>GPU ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1">
+                <widget class="QComboBox" name="comboBox_GPUID_RealsrNCNNVulkan">
+                 <property name="enabled">
+                  <bool>true</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
+                 </property>
+                 <property name="currentText">
+                  <string notr="true">auto</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string notr="true">auto</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="2" column="2" colspan="2">
+                <widget class="QCheckBox" name="checkBox_MultiGPU_RealsrNcnnVulkan">
+                 <property name="toolTip">
+                  <string>1.You need at least 2 available GPUs.
+
+2.If you wanna get all GPUs running together, the number of threads must &gt;= the number of GPUs.</string>
+                 </property>
+                 <property name="text">
+                  <string>Enable Multi-GPU</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0" colspan="4">
+                <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>75</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>GPU Settings(Multi-GPU)</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_43">
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_72">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan">
+                    <property name="minimum">
+                     <number>32</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="singleStep">
+                     <number>10</number>
+                    </property>
+                    <property name="value">
+                     <number>100</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan">
+                    <property name="text">
+                     <string>Enable</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_73">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="1" column="1" colspan="3">
                 <widget class="QSpinBox" name="spinBox_TileSize_RealsrNCNNVulkan">
                  <property name="toolTip">
                   <string>Tile size: This value will affects GPU memory usage.
@@ -3516,59 +3661,7 @@ Smaller tile size means Realsr will use less GPU memory and run slower.</string>
                  </property>
                 </widget>
                </item>
-               <item row="0" column="2">
-                <widget class="QCheckBox" name="checkBox_TTA_RealsrNCNNVulkan">
-                 <property name="toolTip">
-                  <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">TTA</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_61">
-                 <property name="text">
-                  <string>Tile size:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QComboBox" name="comboBox_Model_RealsrNCNNVulkan">
-                 <item>
-                  <property name="text">
-                   <string>models-DF2K_JPEG(Supports denoise)</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>models-DF2K(Does NOT supports denoise)</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="2" column="1" colspan="2">
-                <widget class="QComboBox" name="comboBox_GPUID_RealsrNCNNVulkan">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">auto</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">auto</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="3" column="0" colspan="3">
+               <item row="3" column="0" colspan="4">
                 <widget class="QPushButton" name="pushButton_DetectGPU_RealsrNCNNVulkan">
                  <property name="enabled">
                   <bool>true</bool>

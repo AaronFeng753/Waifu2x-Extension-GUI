@@ -85,6 +85,8 @@ int MainWindow::Settings_Save()
     //==
     configIniWrite->setValue("/settings/comboBox_GPUID_RealsrNCNNVulkan", ui->comboBox_GPUID_RealsrNCNNVulkan->currentIndex());
     configIniWrite->setValue("/settings/Available_GPUID_Realsr_ncnn_vulkan", Available_GPUID_Realsr_ncnn_vulkan);
+    configIniWrite->setValue("/settings/GPUIDs_List_MultiGPU_RealsrNcnnVulkan", QVariant::fromValue(GPUIDs_List_MultiGPU_RealsrNcnnVulkan));
+    configIniWrite->setValue("/settings/checkBox_MultiGPU_RealsrNcnnVulkan", ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked());
     //==
     configIniWrite->setValue("/settings/comboBox_TargetProcessor_converter", ui->comboBox_TargetProcessor_converter->currentIndex());
     configIniWrite->setValue("/settings/Available_ProcessorList_converter", Available_ProcessorList_converter);
@@ -301,6 +303,15 @@ int MainWindow::Settings_Read_Apply()
     Available_GPUID_Realsr_ncnn_vulkan = Settings_Read_value("/settings/Available_GPUID_Realsr_ncnn_vulkan").toStringList();
     Realsr_ncnn_vulkan_DetectGPU_finished();
     ui->comboBox_GPUID_RealsrNCNNVulkan->setCurrentIndex(Settings_Read_value("/settings/comboBox_GPUID_RealsrNCNNVulkan").toInt());
+    //读取多显卡设定
+    GPUIDs_List_MultiGPU_RealsrNcnnVulkan = Settings_Read_value("/settings/GPUIDs_List_MultiGPU_RealsrNcnnVulkan").value<QList<QMap<QString, QString>> >();
+    if(GPUIDs_List_MultiGPU_RealsrNcnnVulkan.isEmpty()==false)
+    {
+        QMap<QString,QString> GPUInfo_RealsrNcnnVulkan = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex());
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan->setChecked(GPUInfo_RealsrNcnnVulkan["isEnabled"] == "true");
+        ui->spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan->setValue(GPUInfo_RealsrNcnnVulkan["TileSize"].toInt());
+    }
+    ui->checkBox_MultiGPU_RealsrNcnnVulkan->setChecked(Settings_Read_value("/settings/checkBox_MultiGPU_RealsrNcnnVulkan").toBool());
     //Waifu2x-Converter
     Available_ProcessorList_converter = Settings_Read_value("/settings/Available_ProcessorList_converter").toStringList();
     Waifu2x_DumpProcessorList_converter_finished();

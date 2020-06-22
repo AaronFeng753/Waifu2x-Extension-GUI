@@ -1845,15 +1845,30 @@ Realsr_NCNN_Vulkan
 QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
 {
     QString Realsr_NCNN_Vulkan_Settings_str = " ";
+    if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = RealsrNcnnVulkan_MultiGPU();
+        //GPU ID
+        Realsr_NCNN_Vulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Realsr_NCNN_Vulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
+    }
+    else
+    {
+        //==========单显卡==========
+        //GPU ID
+        if(ui->comboBox_GPUID_RealsrNCNNVulkan->currentText()!="auto")
+        {
+            Realsr_NCNN_Vulkan_Settings_str.append("-g "+ui->comboBox_GPUID_RealsrNCNNVulkan->currentText()+" ");
+        }
+        //Tile Size
+        Realsr_NCNN_Vulkan_Settings_str.append("-t "+QString::number(ui->spinBox_TileSize_RealsrNCNNVulkan->value(),10)+" ");
+    }
     //TTA
     if(ui->checkBox_TTA_RealsrNCNNVulkan->isChecked())
     {
         Realsr_NCNN_Vulkan_Settings_str.append("-x ");
-    }
-    //GPU ID
-    if(ui->comboBox_GPUID_RealsrNCNNVulkan->currentText()!="auto")
-    {
-        Realsr_NCNN_Vulkan_Settings_str.append("-g "+ui->comboBox_GPUID_RealsrNCNNVulkan->currentText()+" ");
     }
     //Model
     QString Waifu2x_folder_path = Current_Path+"/realsr-ncnn-vulkan";
@@ -1870,8 +1885,6 @@ QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
                 break;
             }
     }
-    //Tile Size
-    Realsr_NCNN_Vulkan_Settings_str.append("-t "+QString::number(ui->spinBox_TileSize_RealsrNCNNVulkan->value(),10)+" ");
     Realsr_NCNN_Vulkan_Settings_str.append("-j 1:1:1 ");
     //=======================================
     return Realsr_NCNN_Vulkan_Settings_str;
@@ -1954,6 +1967,9 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU_finished()
     ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //====
+    GPUIDs_List_MultiGPU_RealsrNcnnVulkan.clear();
+    ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->clear();
+    //===
     ui->comboBox_GPUID_RealsrNCNNVulkan->clear();
     ui->comboBox_GPUID_RealsrNCNNVulkan->addItem("auto");
     if(!Available_GPUID_Realsr_ncnn_vulkan.isEmpty())
@@ -1961,10 +1977,147 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU_finished()
         for(int i=0; i<Available_GPUID_Realsr_ncnn_vulkan.size(); i++)
         {
             ui->comboBox_GPUID_RealsrNCNNVulkan->addItem(Available_GPUID_Realsr_ncnn_vulkan.at(i));
+            AddGPU_MultiGPU_RealsrNcnnVulkan(Available_GPUID_Realsr_ncnn_vulkan.at(i));
         }
     }
     //====
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setText(tr("Detect available GPU ID"));
     //====
     return 0;
+}
+
+
+QMap<QString,QString> MainWindow::RealsrNcnnVulkan_MultiGPU()
+{
+    MultiGPU_QMutex_RealsrNcnnVulkan.lock();
+    //====
+    int MAX_GPU_ID_RealsrNcnnVulkan = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count()-1;
+    if(GPU_ID_RealsrNcnnVulkan_MultiGPU>MAX_GPU_ID_RealsrNcnnVulkan)
+    {
+        GPU_ID_RealsrNcnnVulkan_MultiGPU=0;
+    }
+    //======
+    QMap<QString,QString> GPUInfo;
+    do
+    {
+        GPUInfo = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(GPU_ID_RealsrNcnnVulkan_MultiGPU);
+        if(GPUInfo["isEnabled"] != "true")
+        {
+            GPU_ID_RealsrNcnnVulkan_MultiGPU++;
+            if(GPU_ID_RealsrNcnnVulkan_MultiGPU>MAX_GPU_ID_RealsrNcnnVulkan)
+            {
+                GPU_ID_RealsrNcnnVulkan_MultiGPU=0;
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+    while(true);
+    //======
+    GPU_ID_RealsrNcnnVulkan_MultiGPU++;
+    if(GPU_ID_RealsrNcnnVulkan_MultiGPU>MAX_GPU_ID_RealsrNcnnVulkan)
+    {
+        GPU_ID_RealsrNcnnVulkan_MultiGPU=0;
+    }
+    //======
+    MultiGPU_QMutex_RealsrNcnnVulkan.unlock();
+    return GPUInfo;
+}
+
+void MainWindow::AddGPU_MultiGPU_RealsrNcnnVulkan(QString GPUID)
+{
+    QMap<QString,QString> GPUInfo;
+    GPUInfo["ID"] = GPUID;
+    GPUInfo["isEnabled"] = "true";
+    GPUInfo["TileSize"] = "100";
+    GPUIDs_List_MultiGPU_RealsrNcnnVulkan.append(GPUInfo);
+    ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->addItem(GPUID);
+    ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->setCurrentIndex(0);
+}
+
+void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
+    {
+        ui->spinBox_TileSize_RealsrNCNNVulkan->setEnabled(0);
+        ui->groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan->setEnabled(1);
+    }
+    else
+    {
+        ui->spinBox_TileSize_RealsrNCNNVulkan->setEnabled(1);
+        ui->groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_clicked()
+{
+    if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
+    {
+        if(GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count()<2)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Insufficient number of available GPUs."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_RealsrNcnnVulkan->setChecked(0);
+        }
+    }
+}
+
+void MainWindow::on_comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->count()==0)
+    {
+        return;
+    }
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex());
+    ui->checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan->setChecked(GPUInfo["isEnabled"] == "true");
+    ui->spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan->setValue(GPUInfo["TileSize"].toInt());
+}
+
+void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan_clicked()
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex());
+    if(ui->checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan->isChecked())
+    {
+        GPUInfo["isEnabled"] = "true";
+    }
+    else
+    {
+        GPUInfo["isEnabled"] = "false";
+    }
+    GPUIDs_List_MultiGPU_RealsrNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex(),GPUInfo);
+    int enabledGPUs = 0;
+    for (int i=0; i<GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count(); i++)
+    {
+        QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(i);
+        if(GPUInfo["isEnabled"] == "true")
+        {
+            enabledGPUs++;
+        }
+    }
+    if(enabledGPUs<2)
+    {
+        QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex());
+        GPUInfo["isEnabled"] = "true";
+        GPUIDs_List_MultiGPU_RealsrNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex(),GPUInfo);
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan->setChecked(1);
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("At least 2 GPUs need to be enabled !!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
+}
+
+void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan_valueChanged(int arg1)
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex());
+    GPUInfo["TileSize"] = QString::number(ui->spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan->value(),10);
+    GPUIDs_List_MultiGPU_RealsrNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex(),GPUInfo);
 }

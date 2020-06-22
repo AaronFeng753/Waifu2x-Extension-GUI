@@ -2050,7 +2050,7 @@ void MainWindow::on_checkBox_MultiGPU_SrmdNCNNVulkan_clicked()
 {
     if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
     {
-        if(ui->comboBox_GPUID->count()<3)
+        if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()<2)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Error"));
