@@ -4,6 +4,21 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.51.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.51.17)
+#### Change log:
+- New feature: Add Multi-GPU support for all engines.
+- New feature: Add taskbar icon, support minimize to taskbar.
+- New feature: Background mode.
+- New feature: Multiple update channel (stable, beta).
+- New feature: The original settings will be retained after the update.
+- New feature: Add fast mode support for the ACNet algorithm of the Anime4k engine.
+- New feature: ACNet algorithm supports Specify GPUs.
+- New feature: Add overwrite switch.
+- Update ImageMagick, waifu2x-ncnn-vulkan, FFmpeg.
+- Performance optimization.
+- Fix multiple bugs.
+- [And many other improvements, click to view detailed change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.51.17_v2.45.18_Detailed_change_log.txt)
+---
 ## [v2.45.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.45.18)
 #### Change log:
 - New feature: Add HDN mode support to the Anime4k engine to improve image quality. (HDN can only be enabled after ACNet is enabled)
