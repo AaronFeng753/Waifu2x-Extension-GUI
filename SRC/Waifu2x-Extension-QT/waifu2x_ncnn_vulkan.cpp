@@ -23,8 +23,6 @@
 int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
-    int TileSize = ui->spinBox_TileSize->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
     bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
@@ -34,7 +32,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
     }
     bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     //将状态设定到处理中
@@ -621,11 +618,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
-    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
-    int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
@@ -1691,11 +1685,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //================
-    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
-    int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->isChecked();
     //========================================================================
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======

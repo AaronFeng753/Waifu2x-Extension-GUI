@@ -1112,13 +1112,7 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     }
     //不是PNG则开始转换
     QString file_path = file_getFolderPath(fileinfo);
-    QString OutPut_Path = "";
-    do
-    {
-        QString DateStr = QDateTime::currentDateTime().toString("hhmmss");
-        OutPut_Path = file_path + "/" + file_name + "_"+DateStr+"_"+file_ext+".png";//输出的png图片的完整路径
-    }
-    while(file_isFileExist(OutPut_Path));
+    QString OutPut_Path = file_path + "/" + file_name + "_W2xEX_"+file_ext+".png";//输出的png图片的完整路径
     //======
     QString program = Current_Path+"/convert_waifu2xEX.exe";
     QFile::remove(OutPut_Path);

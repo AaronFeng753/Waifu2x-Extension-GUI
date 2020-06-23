@@ -1803,13 +1803,8 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
 {
     GetGPUInfo_QMutex_Waifu2xCaffe.lock();
     //====
-    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().split(":");
+    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
     GPU_List.removeDuplicates();
-    for (int i=0; i<GPU_List.count(); i++)
-    {
-        GPU_List.replace(i,GPU_List.at(i).trimmed());
-    }
-    GPU_List.removeAll("");
     //====
     int MAX_GPU_ID_Waifu2xCaffe = GPU_List.count()-1;
     if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
@@ -1841,7 +1836,7 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
 void MainWindow::on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished()
 {
     QString Format_str="0123456789:,";
-    QString GPUs_str = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().replace("：",":").replace("，",",");
+    QString GPUs_str = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().replace("：",":").replace("，",",").remove(" ").remove("　");
     for (int i=0; i<GPUs_str.length(); i++)
     {
         if(Format_str.contains(GPUs_str.at(i))==false)

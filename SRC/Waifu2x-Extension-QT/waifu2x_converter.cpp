@@ -25,7 +25,6 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    int BlockSize = ui->spinBox_BlockSize_converter->value();
     bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     //======
@@ -35,9 +34,6 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     }
     //======
     bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
-    bool DisableGPU = ui->checkBox_DisableGPU_converter->isChecked();
-    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->isChecked();
-    bool TTA_isEnabled = ui->checkBox_TTA_converter->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -91,16 +87,6 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    QString DisableGPU_cmd ="";
-    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
-    QString ForceOpenCL_cmd ="";
-    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
-    //=======
-    QString TTA_cmd = " -t 0 ";
-    if(TTA_isEnabled)
-    {
-        TTA_cmd = " -t 1 ";
-    }
     //====
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     //========
@@ -542,10 +528,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    int BlockSize = ui->spinBox_BlockSize_converter->value();
-    bool DisableGPU = ui->checkBox_DisableGPU_converter->isChecked();
-    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->isChecked();
-    bool TTA_isEnabled = ui->checkBox_TTA_converter->isChecked();
     //========================================================================
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
@@ -553,10 +535,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    QString DisableGPU_cmd ="";
-    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
-    QString ForceOpenCL_cmd ="";
-    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -570,12 +548,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
             mutex_SubThreadNumRunning.unlock();
             return 0;
         }
-    }
-    //=======
-    QString TTA_cmd = " -t 0 ";
-    if(TTA_isEnabled)
-    {
-        TTA_cmd = " -t 1 ";
     }
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
@@ -1516,10 +1488,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    int BlockSize = ui->spinBox_BlockSize_converter->value();
-    bool DisableGPU = ui->checkBox_DisableGPU_converter->isChecked();
-    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->isChecked();
-    bool TTA_isEnabled = ui->checkBox_TTA_converter->isChecked();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
@@ -1528,10 +1496,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    QString DisableGPU_cmd ="";
-    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
-    QString ForceOpenCL_cmd ="";
-    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -1545,12 +1509,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
             mutex_SubThreadNumRunning.unlock();
             return 0;
         }
-    }
-    //=======
-    QString TTA_cmd = " -t 0 ";
-    if(TTA_isEnabled)
-    {
-        TTA_cmd = " -t 1 ";
     }
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
@@ -1736,7 +1694,7 @@ QString MainWindow::Waifu2xConverter_ReadSettings()
     }
     //model_path
     QString model_path = Current_Path + "/waifu2x-converter/models_rgb";
-    Waifu2xConverter_Settings_str.append("--model-dir "+model_path+" ");
+    Waifu2xConverter_Settings_str.append("--model-dir \""+model_path+"\" ");
     //Disable GPU
     if(ui->checkBox_DisableGPU_converter->isChecked())Waifu2xConverter_Settings_str.append("--disable-gpu ");
     //Force OpenCL

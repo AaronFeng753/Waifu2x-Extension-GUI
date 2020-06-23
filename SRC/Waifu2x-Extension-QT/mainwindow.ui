@@ -1103,8 +1103,9 @@ selection-background-color: rgb(178, 58, 238);
                <property name="toolTip">
                 <string>When the software is running with administrator rights, 
 you will not be able to drag and drop files into the window.
-Please unauthorize the software or reinstall the software 
-into a directory that can run normally without administrator rights.</string>
+
+If this happens, please unauthorize the software or reinstall the
+software into a directory that can run normally without administrator rights.</string>
                </property>
                <property name="styleSheet">
                 <string notr="true"/>
@@ -2264,7 +2265,9 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</string
                   <string>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.</string>
+the number of threads must &gt;= the number of GPUs.
+
+3.You need to [Detect available GPU ID] first.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>
@@ -2549,7 +2552,9 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                   <string>1.You need at least 2 available processors.
 
 2.If you wanna get all processors running together,
-the number of threads must &gt;= the number of processors.</string>
+the number of threads must &gt;= the number of processors.
+
+3.You need to [Dump processor list] first.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-Processor</string>
@@ -3286,7 +3291,9 @@ padding:10px;
                   <string>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.</string>
+the number of threads must &gt;= the number of GPUs.
+
+3.You need to [Detect available GPU ID] first.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>
@@ -3681,7 +3688,9 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                   <string>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.</string>
+the number of threads must &gt;= the number of GPUs.
+
+3.You need to [Detect available GPU ID] first.</string>
                  </property>
                  <property name="text">
                   <string>Enable Multi-GPU</string>

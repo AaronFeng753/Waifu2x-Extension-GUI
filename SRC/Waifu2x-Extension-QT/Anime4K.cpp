@@ -1690,13 +1690,8 @@ QString MainWindow::Anime4k_GetGPUInfo()
 {
     GetGPUInfo_QMutex_Anime4k.lock();
     //====
-    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().split(":");
+    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
     GPU_List.removeDuplicates();
-    for (int i=0; i<GPU_List.count(); i++)
-    {
-        GPU_List.replace(i,GPU_List.at(i).trimmed());
-    }
-    GPU_List.removeAll("");
     //====
     int MAX_GPU_ID_Anime4k = GPU_List.count()-1;
     if(GPU_ID_Anime4k_GetGPUInfo>MAX_GPU_ID_Anime4k)
@@ -1753,7 +1748,7 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
 void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()
 {
     QString Format_str="0123456789:,";
-    QString GPUs_str = ui->lineEdit_GPUs_Anime4k->text().trimmed().replace("：",":").replace("，",",");
+    QString GPUs_str = ui->lineEdit_GPUs_Anime4k->text().trimmed().replace("：",":").replace("，",",").remove(" ").remove("　");
     for (int i=0; i<GPUs_str.length(); i++)
     {
         if(Format_str.contains(GPUs_str.at(i))==false)

@@ -32,7 +32,16 @@ int main(int argc, char *argv[])
 }
 
 /*
-Change log:
+Brief change log:
+v2.51.17:
+----------------------------
+Detailed change log:
+v2.51.17:
+- 性能优化.
+- 添加与修改tooltip.
+- 改进输入本文矫正.
+- 修改预处理图片时的命名方式,防止产生垃圾缓存.
+- 修复bug:当安装路径包含特殊字符时,无法正常调用waifu2x-converter引擎.
 v2.51.05-beta:
 - 为Anime4k引擎的ACNet算法添加快速模式支持.
 - 更新Anime4k.
@@ -85,11 +94,11 @@ v2.46.03-beta:
 - 更新FFmpeg.
 - 更新FFmpeg编码器列表.
 v2.46.02-beta:
-- Add overwrite switch.
-- Add tooltip.
-- Performance optimization.
-- Use isChecked() to replace checkState().
-- Fix bug: Potential multi-thread bug when writing files.
+- 为输出到指定文件夹添加覆盖选项.
+- 添加tooltip.
+- 性能优化.
+- 使用isChecked()替换checkState().
+- 修复bug: 迁移文件时潜在的多线程错误.
 v2.46.01-beta:
 - 更新FFmpeg.
 - 添加tooltip.

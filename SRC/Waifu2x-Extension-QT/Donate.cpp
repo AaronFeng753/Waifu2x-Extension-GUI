@@ -19,7 +19,9 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+/*
+online update for QRCode at donate tab
+*/
 int MainWindow::Donate_DownloadOnlineQRCode()
 {
     //============================
@@ -110,7 +112,7 @@ int MainWindow::Donate_Count()
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 10);//间隔多少次,提示捐赠
+        configIniWrite->setValue("/Donate/OpenCount_Max", 5);//Reset Donate count
         ui->tabWidget->setCurrentIndex(0);
         emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
         return 0;

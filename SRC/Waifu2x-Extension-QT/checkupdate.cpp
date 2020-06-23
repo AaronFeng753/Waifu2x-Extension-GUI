@@ -124,7 +124,7 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
     //======
     if(ui->checkBox_UpdatePopup->isChecked())
     {
-        QMessageBox Msg(QMessageBox::Question, QString(tr("New ")+UpdateType+tr(" update available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
+        QMessageBox Msg(QMessageBox::Question, QString(tr("New ")+UpdateType+tr(" update available!")), QString(tr("New version: %1\n\nBrief change log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
         Msg.setIcon(QMessageBox::Information);
         if(ui->comboBox_language->currentIndex()==1)
         {

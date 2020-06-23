@@ -21,14 +21,6 @@
 #include "ui_mainwindow.h"
 
 /*
-python_ext_waifu2xEX.exe:
-get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
-get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
-get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
-*/
-//=======================================================================
-/*
 获取gif帧间隔时间
 */
 int MainWindow::Gif_getDuration(QString gifPath)

@@ -230,7 +230,6 @@ int MainWindow::CustRes_CancelCustRes()
 
 void MainWindow::CustRes_remove(QString fullpath)
 {
-    //QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
     for(int i=0; i<Custom_resolution_list.size(); i++)
     {
         QMap<QString, QString> map_res = Custom_resolution_list.at(i);
@@ -243,7 +242,6 @@ void MainWindow::CustRes_remove(QString fullpath)
 
 bool MainWindow::CustRes_isContained(QString fullpath)
 {
-    //QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
     for(int i=0; i<Custom_resolution_list.size(); i++)
     {
         QMap<QString, QString> map_res = Custom_resolution_list.at(i);

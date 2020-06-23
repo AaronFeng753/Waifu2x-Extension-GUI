@@ -1178,14 +1178,14 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
 void MainWindow::on_Ext_image_editingFinished()
 {
     QString ext_image_str = ui->Ext_image->text();
-    ext_image_str = ext_image_str.trimmed().replace("：",":");
+    ext_image_str = ext_image_str.trimmed().replace("：",":").remove(" ").remove("　");
     ui->Ext_image->setText(ext_image_str);
 }
 
 void MainWindow::on_Ext_video_editingFinished()
 {
     QString ext_video_str = ui->Ext_video->text();
-    ext_video_str = ext_video_str.trimmed().replace("：",":");
+    ext_video_str = ext_video_str.trimmed().replace("：",":").remove(" ").remove("　");
     ui->Ext_video->setText(ext_video_str);
 }
 

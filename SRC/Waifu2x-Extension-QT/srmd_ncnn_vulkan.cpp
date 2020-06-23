@@ -32,7 +32,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
         SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
     }
     bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
-    bool TTA_isEnabled = ui->checkBox_TTA_srmd->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     //将状态设定到处理中
@@ -616,7 +615,6 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_srmd->isChecked();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
@@ -1684,7 +1682,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     //================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_srmd->isChecked();
     //========================================================================
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
