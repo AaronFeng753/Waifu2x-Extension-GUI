@@ -99,6 +99,12 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
+# ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
+# [PayPal](https://www.paypal.me/aaronfeng753)
+### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用, 我也可以获得收入.
+![donate_new](/donate_new.jpg)
+#### 如果捐赠二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg)或者合法的连接国际网络后刷新页面.
+
 # [📄许可协议](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
 Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)许可协议.
@@ -148,9 +154,3 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - 感谢 [@Nova-Aurora](https://github.com/Nova-Aurora) 协助修复英文版README中的语法和拼写错误.
 - 感谢 [@CAFUCSteven](https://github.com/CAFUCSteven) 协助测试软件.
 - 感谢 [@Michael18751](https://github.com/Michael18751) 为提示音添加了淡出效果.
-
-# ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
-# [PayPal](https://www.paypal.me/aaronfeng753)
-### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用, 我也可以获得收入.
-![donate_new](/donate_new.jpg)
-#### 如果donate(捐赠)二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg)或者合法的连接国际网络后刷新页面.
