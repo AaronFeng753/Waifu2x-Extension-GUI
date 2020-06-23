@@ -8,6 +8,21 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.51.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.51.17)
+#### 更新日志:
+- 新特性:为所有引擎添加多显卡支持.
+- 新特性:添加任务栏图标,支持最小化到任务栏.
+- 新特性:后台模式.
+- 新特性:可选择更新通道(稳定版,测试版).
+- 新特性:更新后将保留原来的设置.
+- 新特性:为Anime4k引擎的ACNet算法添加快速模式支持.
+- 新特性:ACNet算法支持指定显卡.
+- 新特性:为输出到指定文件夹添加[直接覆盖]选项.
+- 更新ImageMagick,waifu2x-ncnn-vulkan,FFmpeg.
+- 性能优化.
+- 修复多处bug.
+- [以及其他诸多改进, 点击查看详细更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.51.17_v2.45.18_Detailed_change_log.txt)
+---
 ## [v2.45.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.45.18)
 #### 更新日志:
 - 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
