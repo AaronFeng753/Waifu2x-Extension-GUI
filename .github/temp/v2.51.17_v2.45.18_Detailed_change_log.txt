@@ -3,7 +3,7 @@ Only available in Chinese, you can use Google translate.
 v2.51.17:
 - 性能优化.
 - 添加与修改tooltip.
-- 改进输入本文矫正.
+- 改进输入文本自动矫正.
 - 修改预处理图片时的命名方式,防止产生垃圾缓存.
 - 修复bug:当安装路径包含特殊字符时,无法正常调用waifu2x-converter引擎.
 v2.51.05-beta:
