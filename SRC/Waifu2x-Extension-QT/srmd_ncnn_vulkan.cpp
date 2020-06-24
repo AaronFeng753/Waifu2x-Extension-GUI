@@ -94,25 +94,37 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     //==========
     int ScaleRatio_tmp=0;
-    //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
-    if((ScaleRatio%2)==0)
+    int Initial_ScaleRatio=0;
+    if(ScaleRatio>=2&&ScaleRatio<=4)
     {
-        ScaleRatio_tmp = ScaleRatio;
+        //当倍率为原生支持时
+        ScaleRatio_tmp=ScaleRatio;
+        Initial_ScaleRatio=ScaleRatio;
     }
     else
     {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //判断是否为2的幂数
-    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-    {
-        for(int i=1; true; i++)
+        //当倍率为非原生时
+        Initial_ScaleRatio=2;
+        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
+        if((ScaleRatio%2)==0)
         {
-            int pow_ =pow(2,i);
-            if(pow_>=ScaleRatio_tmp)
+            ScaleRatio_tmp = ScaleRatio;
+        }
+        else
+        {
+            ScaleRatio_tmp = ScaleRatio+1;
+        }
+        //判断是否为2的幂数
+        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+        {
+            for(int i=1; true; i++)
             {
-                ScaleRatio_tmp=pow_;
-                break;
+                int pow_ =pow(2,i);
+                if(pow_>=ScaleRatio_tmp)
+                {
+                    ScaleRatio_tmp=pow_;
+                    break;
+                }
             }
         }
     }
@@ -126,10 +138,13 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
         InputPath_tmp = SourceFile_fullPath;
         OutputPath_tmp ="";
         DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=2; i<=ScaleRatio_tmp; i*=2)
+        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            //==
+            emit Send_TextBrowser_NewMessage(cmd);//删除我!!!!!!!!!!!!!!!
+            //==
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -137,7 +152,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
-                    if(i>2)
+                    if(i>Initial_ScaleRatio)
                     {
                         QFile::remove(InputPath_tmp);
                     }
@@ -153,7 +168,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
                 if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
-                    if(i>2)
+                    if(i>Initial_ScaleRatio)
                     {
                         QFile::remove(InputPath_tmp);
                     }
@@ -169,7 +184,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
-                if(i>2)
+                if(i>Initial_ScaleRatio)
                 {
                     QFile::remove(InputPath_tmp);
                 }
@@ -177,7 +192,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
                 break;
             }
             //===============
-            if(i>2)
+            if(i>Initial_ScaleRatio)
             {
                 QFile::remove(InputPath_tmp);
                 DenoiseLevel_tmp = -1;
@@ -642,25 +657,37 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     //======
     int ScaleRatio_tmp=0;
-    if((ScaleRatio%2)==0)
+    int Initial_ScaleRatio=0;
+    if(ScaleRatio>=2&&ScaleRatio<=4)
     {
-        ScaleRatio_tmp = ScaleRatio;
+        //当倍率为原生支持时
+        ScaleRatio_tmp=ScaleRatio;
+        Initial_ScaleRatio=ScaleRatio;
     }
     else
     {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //======
-    //判断是否为2的幂数
-    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-    {
-        for(int i=1; true; i++)
+        //当倍率为非原生时
+        Initial_ScaleRatio=2;
+        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
+        if((ScaleRatio%2)==0)
         {
-            int pow_ =pow(2,i);
-            if(pow_>=ScaleRatio_tmp)
+            ScaleRatio_tmp = ScaleRatio;
+        }
+        else
+        {
+            ScaleRatio_tmp = ScaleRatio+1;
+        }
+        //判断是否为2的幂数
+        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+        {
+            for(int i=1; true; i++)
             {
-                ScaleRatio_tmp=pow_;
-                break;
+                int pow_ =pow(2,i);
+                if(pow_>=ScaleRatio_tmp)
+                {
+                    ScaleRatio_tmp=pow_;
+                    break;
+                }
             }
         }
     }
@@ -674,7 +701,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
         OutputPath_tmp ="";
         InputPath_tmp = Frame_fileFullPath;
         DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=2; i<=ScaleRatio_tmp; i*=2)
+        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
@@ -685,6 +712,10 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    if(i>Initial_ScaleRatio)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
                     mutex_SubThreadNumRunning.lock();
                     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
                     mutex_SubThreadNumRunning.unlock();
@@ -695,7 +726,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
                 if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
-                    if(i>2)
+                    if(i>Initial_ScaleRatio)
                     {
                         QFile::remove(InputPath_tmp);
                     }
@@ -710,7 +741,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
-                if(i>2)
+                if(i>Initial_ScaleRatio)
                 {
                     QFile::remove(InputPath_tmp);
                 }
@@ -718,7 +749,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
                 break;
             }
             //===============
-            if(i>2)
+            if(i>Initial_ScaleRatio)
             {
                 QFile::remove(InputPath_tmp);
                 DenoiseLevel_tmp = -1;
@@ -1712,25 +1743,37 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     //=========
     int ScaleRatio_tmp=0;
-    if((ScaleRatio%2)==0)
+    int Initial_ScaleRatio=0;
+    if(ScaleRatio>=2&&ScaleRatio<=4)
     {
-        ScaleRatio_tmp = ScaleRatio;
+        //当倍率为原生支持时
+        ScaleRatio_tmp=ScaleRatio;
+        Initial_ScaleRatio=ScaleRatio;
     }
     else
     {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //======
-    //判断是否为2的幂数
-    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-    {
-        for(int i=1; true; i++)
+        //当倍率为非原生时
+        Initial_ScaleRatio=2;
+        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
+        if((ScaleRatio%2)==0)
         {
-            int pow_ =pow(2,i);
-            if(pow_>=ScaleRatio_tmp)
+            ScaleRatio_tmp = ScaleRatio;
+        }
+        else
+        {
+            ScaleRatio_tmp = ScaleRatio+1;
+        }
+        //判断是否为2的幂数
+        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+        {
+            for(int i=1; true; i++)
             {
-                ScaleRatio_tmp=pow_;
-                break;
+                int pow_ =pow(2,i);
+                if(pow_>=ScaleRatio_tmp)
+                {
+                    ScaleRatio_tmp=pow_;
+                    break;
+                }
             }
         }
     }
@@ -1742,7 +1785,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
         QString InputPath_tmp = Frame_fileFullPath;
         OutputPath_tmp ="";
         int DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=2; i<=ScaleRatio_tmp; i*=2)
+        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
@@ -1753,6 +1796,10 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    if(i>Initial_ScaleRatio)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
                     mutex_SubThreadNumRunning.lock();
                     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
                     mutex_SubThreadNumRunning.unlock();
@@ -1763,7 +1810,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
                 if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
-                    if(i>2)
+                    if(i>Initial_ScaleRatio)
                     {
                         QFile::remove(InputPath_tmp);
                     }
@@ -1778,7 +1825,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
-                if(i>2)
+                if(i>Initial_ScaleRatio)
                 {
                     QFile::remove(InputPath_tmp);
                 }
@@ -1786,7 +1833,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
                 break;
             }
             //===============
-            if(i>2)
+            if(i>Initial_ScaleRatio)
             {
                 QFile::remove(InputPath_tmp);
                 DenoiseLevel_tmp = -1;

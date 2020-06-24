@@ -690,6 +690,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
                     mutex_SubThreadNumRunning.lock();
                     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
                     mutex_SubThreadNumRunning.unlock();
@@ -1758,6 +1762,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
                     mutex_SubThreadNumRunning.lock();
                     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
                     mutex_SubThreadNumRunning.unlock();

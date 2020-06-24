@@ -33,77 +33,11 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-v2.51.17:
 ----------------------------
 Detailed change log:
-v2.51.17:
-- 性能优化.
-- 添加与修改tooltip.
-- 改进输入本文矫正.
-- 修改预处理图片时的命名方式,防止产生垃圾缓存.
-- 修复bug:当安装路径包含特殊字符时,无法正常调用waifu2x-converter引擎.
-v2.51.05-beta:
-- 为Anime4k引擎的ACNet算法添加快速模式支持.
-- 更新Anime4k.
-- 对输入文本自动进行格式矫正.
-- 修复bug:UI冲突.
-- 修复bug:部分设定未存储.
-v2.51.04-beta:
-- 为Anime4k引擎和Waifu2x-Caffe引擎加入多gpu支持.至此所有引擎均支持多显卡了!!
-- ACNet算法支持指定显卡.
-- 修复bug:某些情况下会误删帧文件导致缺帧.
-v2.51.03-beta:
-- 为RealSR-ncnn-vulkan和waifu2x-converter加入多gpu支持.
-- 添加tooltip.
-- 修复bug:srmd-ncnn-vulkan引擎启用多显卡后,无法正常读取可用gpu数量.
-- 修复bug:无法正常识别当前启用的显卡数量而导致无法禁用单个显卡.
-v2.51.02-beta:
-- 为srmd-ncnn-vulkan加入多gpu支持.
-- 性能优化.
-- 修复bug:重复检测waifu2x-ncnn-vulkan可用显卡时,软件会崩溃.
-- 其他改进(忘了还改啥了).
-v2.51.01-beta:
-- 为waifu2x-ncnn-vulkan加入多gpu支持.
-v2.46.08.1-beta:
-- 更新ImageMagick.
-- 更新waifu2x-ncnn-vulkan.
-- 更新ffmpeg.
-v2.46.08-beta:
-- 新特性:检测到更新后,显示当前更新来自哪个更新通道.
-- 直接从内置的ffmpeg读取编码器列表.
-- 改进GUI.
-- 在线更新QRCode时加入文件有效性校验.
-v2.46.07-beta:
-- 更新FFmpeg.
-- 重新编译启动器.
-v2.46.06-beta:
-- 新特性:更新后将保留原来的设置.
-- 修复bug:当未启用自定义字体设定时,自定义字体大小仍然能生效.
-v2.46.05-beta:
-- 新特性:最小化到任务栏.
-- 新特性:可选择更新通道.
-v2.46.04-beta:
-- 新特性:系统托盘(任务栏)图标.
-- 新特性:后台模式.
-- 新特性:系统托盘(任务栏)消息.
-- 性能优化.
-- 改进GUI.
-- 更新ImageMagick.
-- 修复一些由QT5自带的bug而引起的bug.
-v2.46.03-beta:
-- 更新FFmpeg.
-- 更新FFmpeg编码器列表.
-v2.46.02-beta:
-- 为输出到指定文件夹添加覆盖选项.
-- 添加tooltip.
-- 性能优化.
-- 使用isChecked()替换checkState().
-- 修复bug: 迁移文件时潜在的多线程错误.
-v2.46.01-beta:
-- 更新FFmpeg.
-- 添加tooltip.
-- 更改默认设定.
-- 删除冗余代码.
+v2.52.01-beta:
+- 优化SRMD-ncnn-vulkan处理图像的流程,适配原生3x,4x放大.
+- 减少ncnn-vulkan系列引擎运行时可能产生的垃圾缓存.
 --------------------------------------------------------------------------
 To do:
 - 多gpu支持
