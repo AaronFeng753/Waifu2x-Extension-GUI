@@ -1767,6 +1767,7 @@ void MainWindow::on_checkBox_EnableMultiGPU_Waifu2xCaffe_stateChanged(int arg1)
     if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
     {
         ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setEnabled(1);
+        ui->pushButton_VerifyGPUsConfig_Waifu2xCaffe->setEnabled(1);
         //===
         ui->pushButton_SplitSize_Add_Waifu2xCaffe->setEnabled(0);
         ui->pushButton_SplitSize_Minus_Waifu2xCaffe->setEnabled(0);
@@ -1777,6 +1778,7 @@ void MainWindow::on_checkBox_EnableMultiGPU_Waifu2xCaffe_stateChanged(int arg1)
     else
     {
         ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setEnabled(0);
+        ui->pushButton_VerifyGPUsConfig_Waifu2xCaffe->setEnabled(0);
         //===
         ui->pushButton_SplitSize_Add_Waifu2xCaffe->setEnabled(1);
         ui->pushButton_SplitSize_Minus_Waifu2xCaffe->setEnabled(1);
@@ -1805,6 +1807,7 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
     //====
     QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
     GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
     //====
     int MAX_GPU_ID_Waifu2xCaffe = GPU_List.count()-1;
     if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
@@ -1845,4 +1848,30 @@ void MainWindow::on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished()
         }
     }
     ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setText(GPUs_str);
+}
+
+void MainWindow::on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked()
+{
+    on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
+    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
+    GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
+    //======
+    QString VerRes = "";
+    //======
+    for (int i=0; i<GPU_List.count(); i++)
+    {
+        QStringList GPUID_BatchSize_SplitSize = GPU_List.at(i).split(",");
+        if(GPUID_BatchSize_SplitSize.count()==3)
+            VerRes.append("GPU ["+QString::number(i,10)+"]: ID:["+GPUID_BatchSize_SplitSize.at(0).trimmed()+"]"+tr(" Batch Size:[")+GPUID_BatchSize_SplitSize.at(1).trimmed()+"]"+tr(" Split Size:[")+GPUID_BatchSize_SplitSize.at(2).trimmed()+"]\n\n");
+    }
+    //======
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("GPUs List according to your configuration"));
+    MSG->setText(VerRes);
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+    //======
+    emit Send_TextBrowser_NewMessage("\nWaifu2x-caffe GPUs List(user configuration):\n"+VerRes);
 }

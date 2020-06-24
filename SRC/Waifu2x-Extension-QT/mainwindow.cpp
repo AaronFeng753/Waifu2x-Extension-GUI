@@ -202,65 +202,6 @@ int MainWindow::Force_close()
     Close.waitForFinished(10000);
     //==============
     return 0;
-    /*
-    //==
-    Close.start("taskkill /f /t /fi \"imagename eq convert_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq ffmpeg_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq ffprobe_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq gifsicle_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq python_ext_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-converter-cpp_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq srmd-ncnn-vulkan_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq sox_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq Anime4K_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq realsr-ncnn-vulkan_waifu2xEX.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
-    Close.waitForStarted(10000);
-    Close.waitForFinished(10000);
-    //==============
-    return 0;*/
 }
 /*
 最小化
@@ -516,6 +457,8 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->comboBox_ImageStyle->setEnabled(0);
         ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
         ui->checkBox_PreProcessImage->setEnabled(0);
+        on_lineEdit_GPUs_Anime4k_editingFinished();
+        on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
@@ -1954,10 +1897,14 @@ void MainWindow::on_checkBox_SpecifyGPU_Anime4k_stateChanged(int arg1)
     if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
     {
         ui->lineEdit_GPUs_Anime4k->setEnabled(1);
+        ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
+        ui->pushButton_VerifyGPUsConfig_Anime4k->setEnabled(1);
     }
     else
     {
         ui->lineEdit_GPUs_Anime4k->setEnabled(0);
+        ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
+        ui->pushButton_VerifyGPUsConfig_Anime4k->setEnabled(0);
     }
 }
 
@@ -2092,12 +2039,9 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         ui->checkBox_HDNMode_Anime4k->setEnabled(1);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(0);
         ui->groupBox_PreProcessing_Anime4k->setEnabled(0);
-        //ui->checkBox_FastMode_Anime4K->setEnabled(0);
-        //ui->checkBox_SpecifyGPU_Anime4k->setEnabled(0);
         ui->doubleSpinBox_PushColorStrength_Anime4K->setEnabled(0);
         ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(0);
         ui->spinBox_Passes_Anime4K->setEnabled(0);
-        //ui->lineEdit_GPUs_Anime4k->setEnabled(0);
         ui->spinBox_PushColorCount_Anime4K->setEnabled(0);
     }
     else
@@ -2107,7 +2051,6 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         on_checkBox_SpecifyGPU_Anime4k_stateChanged(0);
         ui->groupBox_PostProcessing_Anime4k->setEnabled(1);
         ui->groupBox_PreProcessing_Anime4k->setEnabled(1);
-        //ui->checkBox_FastMode_Anime4K->setEnabled(1);
         ui->doubleSpinBox_PushColorStrength_Anime4K->setEnabled(1);
         ui->doubleSpinBox_PushGradientStrength_Anime4K->setEnabled(1);
         ui->spinBox_Passes_Anime4K->setEnabled(1);
@@ -2126,5 +2069,3 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
-
-

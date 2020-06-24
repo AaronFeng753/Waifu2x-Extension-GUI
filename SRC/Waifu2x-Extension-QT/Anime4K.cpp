@@ -1692,6 +1692,7 @@ QString MainWindow::Anime4k_GetGPUInfo()
     //====
     QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
     GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
     //====
     int MAX_GPU_ID_Anime4k = GPU_List.count()-1;
     if(GPU_ID_Anime4k_GetGPUInfo>MAX_GPU_ID_Anime4k)
@@ -1759,3 +1760,28 @@ void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()
     ui->lineEdit_GPUs_Anime4k->setText(GPUs_str);
 }
 
+void MainWindow::on_pushButton_VerifyGPUsConfig_Anime4k_clicked()
+{
+    on_lineEdit_GPUs_Anime4k_editingFinished();
+    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
+    GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
+    //======
+    QString VerRes = "";
+    //======
+    for (int i=0; i<GPU_List.count(); i++)
+    {
+        QStringList PID_DID = GPU_List.at(i).split(",");
+        if(PID_DID.count()==2)
+            VerRes.append("GPU ["+QString::number(i,10)+tr("]: Platform ID:[")+PID_DID.at(0).trimmed()+"]"+tr(" Device ID:[")+PID_DID.at(1).trimmed()+"]\n\n");
+    }
+    //======
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("GPUs List according to your configuration"));
+    MSG->setText(VerRes);
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+    //======
+    emit Send_TextBrowser_NewMessage("\nAnime4k GPUs List(user configuration):\n"+VerRes);
+}

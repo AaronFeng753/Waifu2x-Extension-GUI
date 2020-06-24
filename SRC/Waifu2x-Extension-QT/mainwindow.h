@@ -733,6 +733,10 @@ private slots:
 
     void on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
 
+    void on_pushButton_VerifyGPUsConfig_Anime4k_clicked();
+
+    void on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked();
+
 signals:
     void Send_SystemTray_NewMessage(QString message);
 
