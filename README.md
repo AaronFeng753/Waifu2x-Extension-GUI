@@ -147,6 +147,6 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 - Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 - Thanks to [@uimee](https://github.com/uimee) for 繁體中文 translation.
-- Thanks to [@Nova-Aurora](https://github.com/Nova-Aurora) for fix several errors in the English README.
+- Thanks to [@Nova-Aurora](https://github.com/Nova-Aurora) for fixing several errors in the English README.
 - Thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for assistance in testing the software.
 - Thanks to [@Michael18751](https://github.com/Michael18751) for edited the new notification sound with fadeout.
