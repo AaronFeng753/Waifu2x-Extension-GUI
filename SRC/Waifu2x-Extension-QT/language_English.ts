@@ -959,7 +959,7 @@ You can try using [Force Retry] to end the waifu2x process
 and restart it, and the entire [Scale and denoise] process 
 will not be interrupted and will continue.
 
-Only effective when using waifu2x-ncnn-vulkan or
+Only effective when using the waifu2x-ncnn-vulkan or
 waifu2x-converter engines.</oldsource>
         <translation type="unfinished"></translation>
     </message>
