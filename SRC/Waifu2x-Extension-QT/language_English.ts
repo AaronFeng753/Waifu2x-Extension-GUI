@@ -191,7 +191,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
     <message>
         <location filename="mainwindow.ui" line="236"/>
         <location filename="Donate.cpp" line="117"/>
-        <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
+        <source>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -380,9 +380,8 @@ same time, you need to change [Image style] settings at [Home] tab.
 
 - More suitable for processing [2D Anime] images.
 
-- When using [CPU Process mode], it&apos;s very slow, so we recommend you
-only using this engine when your PC is compatible with [GPU(or cuDNN) 
-Process mode]
+- When using [CPU Process mode], it&apos;s very slow, so only using this engine when your PC is compatible with [GPU(or cuDNN) 
+Process mode] is recommended
 
 - [ Speed:★☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
@@ -405,7 +404,7 @@ Process mode]
 
 - Best engine for processing [3D Real-life] images.
 
-- Much more slower then other engines.
+- Much more slower than other engines.
 
 - [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
@@ -960,8 +959,8 @@ You can try using [Force Retry] to end the waifu2x process
 and restart it, and the entire [Scale and denoise] process 
 will not be interrupted and will continue.
 
-Only effective when using waifu2x-ncnn-vulkan engine 
-and waifu2x-converter engine.</oldsource>
+Only effective when using waifu2x-ncnn-vulkan or
+waifu2x-converter engines.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
