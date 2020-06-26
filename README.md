@@ -28,7 +28,7 @@ Supported Languages: English, 简体中文, 日本語(機械翻訳), 繁體中�
 # [🌟Download Beta Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
 The beta build has a faster update cycle than the stable build, which allows you to experience the latest features of the software in advance.
 
-⚠Beta build are more unstable than the stable builds because the beta builds have not been fully tested before release.
+⚠Beta builds are more unstable than the stable builds because the beta builds have not been fully tested before release.
 
 Download the beta build at the releases page: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
 
