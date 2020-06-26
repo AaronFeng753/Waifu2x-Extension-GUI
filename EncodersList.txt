@@ -1,5 +1,11 @@
-Encoders List (ffmpeg 4.2.2)
+In the latest version, Encoders List has been moved to the local.
+Open the link below to download the latest version:
 
+https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+
+------------------------------------------------
+Encoders List (ffmpeg 4.2.3)
+------------------------------------------------
  V..... = Video
  A..... = Audio
  S..... = Subtitle
@@ -8,7 +14,7 @@ Encoders List (ffmpeg 4.2.2)
  ...X.. = Codec is experimental
  ....B. = Supports draw_horiz_band
  .....D = Supports direct rendering method 1
- ------
+------------------------------------------------
  V..... a64multi             Multicolor charset for Commodore 64 (codec a64_multi)
  V..... a64multi5            Multicolor charset for Commodore 64, extended with 5th color (colram) (codec a64_multi5)
  V..... alias_pix            Alias/Wavefront PIX image

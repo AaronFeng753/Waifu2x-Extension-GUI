@@ -1,10 +1,84 @@
 # 更新日志
 ---
-#### [English](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
+#### [📝English Change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
+
+#### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
-#### 全部历史版本安装包合集:
-- 腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
-- 百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
+#### 🗂全部历史版本安装包合集:
+- ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
+- ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
+---
+## [v2.51.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.51.17)
+#### 更新日志:
+- 新特性:为所有引擎添加多显卡支持.
+- 新特性:添加任务栏图标,支持最小化到任务栏.
+- 新特性:后台模式.
+- 新特性:可选择更新通道(稳定版,测试版).
+- 新特性:更新后将保留原来的设置.
+- 新特性:为Anime4k引擎的ACNet算法添加快速模式支持.
+- 新特性:ACNet算法支持指定显卡.
+- 新特性:为输出到指定文件夹添加[直接覆盖]选项.
+- 更新ImageMagick,waifu2x-ncnn-vulkan,FFmpeg.
+- 性能优化.
+- 修复多处bug.
+- [以及其他诸多改进, 点击查看详细更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.51.17_v2.45.18_Detailed_change_log.txt)
+---
+## [v2.45.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.45.18)
+#### 更新日志:
+- 新特性:为Anime4k引擎加入HDN模式支持,可改善画质.(启用ACNet后才能启用HDN)
+- 新特性:保留原文件名.(可选,默认禁用)
+- 更新Anime4K,ImageMagick,FFmpeg.
+- 为提示音添加淡出效果.(由 @Michael18751 编辑)
+- 性能优化.
+- 修复多处Bug.
+- 以及其他多项改进.
+---
+## [v2.44.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.44.18)
+#### 更新日志:
+- 新特性:为Anime4K引擎加入ACNet算法支持, ACNet可以在改善画质的同时实现高速处理.(您需要在Anime4k引擎设置中手动启用ACNet)
+- 更新 ImageMagick,waifu2x-ncnn-vulkan,SRMD-ncnn-Vulkan,realsr-ncnn-vulkan,Anime4K.
+- 优化性能,提高稳定性.
+- 修复多处Bug.
+- 以及其他多项改进.
+---
+## [v2.43.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.43.17)
+#### 更新日志:
+- 新特性:支持预处理图片以兼容更多图片格式.(附加设置,可选,默认禁用)
+- 更新Python extension,waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg,ImageMagick.
+- 改进自动检查更新流程.
+- 改进多线程调度机制.
+- 添加与修改tooltip.
+- 支持在线更新捐赠二维码.
+- 添加一些提示,修改一些文本,修正错字.
+- 性能优化.
+- 修复若干bug.
+- 其他改进.
+---
+## [v2.41.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.41.12)
+#### 更新日志:
+- #### 新特性:新增realsr-ncnn-vulkan引擎,大幅提升对3D写实风格图像的处理效果(感谢 @CAFUCSteven 协助测试软件).
+- 新特性:除Anime4k外的引擎均支持自动识别并处理Alpha通道图片.
+- 更新waifu2x-ncnn-vulkan引擎.
+- 更新srmd-ncnn-vulkan引擎.
+- 更新ImageMagick.
+- 优化启动器.
+- 优化检查更新的流程.
+- 调整对带有Alpha通道的图片的处理流程.
+- 修复若干bug.
+- 其他改进.
+---
+## [v2.31.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.31.14)
+#### 更新日志:
+- 新特性:新增waifu2x-caffe引擎(实验性功能)(感谢 @CAFUCSteven 协助测试软件).
+- 新特性:waifu2x-caffe引擎支持快速切换图像样式.
+- 新特性:支持切换处理带有Alpha通道的图片时使用的引擎.
+- 优化处理带有Alpha通道的图片的流程.
+- 调整兼容性测试界面.
+- 性能优化.
+- 更改默认设置.
+- 添加一些提示,修改一些文本,修正错字.
+- 修复多个bug.
+- 其他改进.
 ---
 ## [v2.21.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.21.12)
 #### 更新日志:

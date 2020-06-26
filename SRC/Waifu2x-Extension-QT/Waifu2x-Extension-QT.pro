@@ -38,12 +38,15 @@ SOURCES += \
     Anime4K.cpp \
     Current_File_Progress.cpp \
     CustomResolution.cpp \
+    Donate.cpp \
+    SystemTrayIcon.cpp \
     checkupdate.cpp \
     files.cpp \
     gif.cpp \
     main.cpp \
     mainwindow.cpp \
     progressBar.cpp \
+    realsr_ncnn_vulkan.cpp \
     settings.cpp \
     srmd_ncnn_vulkan.cpp \
     table.cpp \
@@ -73,6 +76,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    OtherPic.qrc \
     donate.qrc \
     icon.qrc
 

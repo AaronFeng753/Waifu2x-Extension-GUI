@@ -1,6 +1,80 @@
 # Change log
 ---
-#### [中文版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
+#### [📝中文版 更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
+
+#### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+---
+## [v2.51.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.51.17)
+#### Change log:
+- New feature: Add Multi-GPU support for all engines.
+- New feature: Add taskbar icon, support minimize to taskbar.
+- New feature: Background mode.
+- New feature: Multiple update channel (stable, beta).
+- New feature: The original settings will be retained after the update.
+- New feature: Add fast mode support for the ACNet algorithm of the Anime4k engine.
+- New feature: ACNet algorithm supports Specify GPUs.
+- New feature: Add overwrite switch.
+- Update ImageMagick, waifu2x-ncnn-vulkan, FFmpeg.
+- Performance optimization.
+- Fix multiple bugs.
+- [And many other improvements, click to view detailed change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.51.17_v2.45.18_Detailed_change_log.txt)
+---
+## [v2.45.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.45.18)
+#### Change log:
+- New feature: Add HDN mode support to the Anime4k engine to improve image quality. (HDN can only be enabled after ACNet is enabled)
+- New feature: Keep original file name. (optional, disabled by default)
+- Update Anime4K, ImageMagick, FFmpeg.
+- New notification sound with fadeout.(Edited by @Michael18751)
+- Performance optimization.
+- Fix multiple bugs.
+- And many other improvements.
+---
+## [v2.44.18](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.44.18)
+#### Change log:
+- New feature: Add ACNet algorithm support for Anime4K engine, ACNet can achieve high-speed processing while improving image quality.(You need to manually enable ACNet in the Anime4k engine settings)
+- Update ImageMagick, waifu2x-ncnn-vulkan, SRMD-ncnn-Vulkan, realsr-ncnn-vulkan, Anime4K.
+- Optimize performance and improve stability.
+- Fixed multiple bugs.
+- And many other improvements.
+---
+## [v2.43.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.43.17)
+#### Change log:
+- New feature: Pre-process Image. This will improve compatibility. (Additional settings, optional, disabled by default)
+- Update Python extension,waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg,ImageMagick.
+- Improve the process of checking for update.
+- Improve multi-thread scheduling mechanism.
+- Add and modify tooltip.
+- Support online update of donate QR code.
+- Add some tips, modify some text, correct typos.
+- Performance optimization.
+- Fix several bugs.
+- Other improvements.
+---
+## [v2.41.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.41.12)
+#### Change log:
+- #### New features: Add RealSR-ncnn-vulkan engine, greatly improving the ability to process 3D Real-life style images (thanks to @CAFUCSteven for assistance in testing software).
+- New feature: All engines (except Anime4k) now support automatic recognition and processing of Alpha channel pictures.
+- Update waifu2x-ncnn-vulkan engine.
+- Update srmd-ncnn-vulkan engine.
+- Update ImageMagick.
+- Optimize the launcher.
+- Optimize the process of checking for update.
+- Adjust the processing flow for pictures with Alpha channel.
+- Fixe several bugs.
+- Other improvements.
+---
+## [v2.31.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.31.14)
+#### Change log:
+- New feature: Add waifu2x-caffe engine (experimental function) (thanks to @CAFUCSteven for assistance in testing the software).
+- New feature: waifu2x-caffe engine supports quick switching of image styles.
+- New feature: Support for switching the engine used when processing images with Alpha channels.
+- Optimize the process of processing pictures with Alpha channel.
+- Adjust the compatibility test interface.
+- Performance optimization.
+- Change default settings.
+- Add some tips, modify some text, correct typos.
+- Fix multiple bugs.
+- Other improvements.
 ---
 ## [v2.21.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.21.12)
 #### Change log:

@@ -47,6 +47,21 @@ int MainWindow::CheckUpadte_Auto()
 {
     //============
     QString Latest_Ver="";
+    QString Current_Ver="";
+    QString checkupdate_cmd="";
+    switch(ui->comboBox_UpdateChannel->currentIndex())
+    {
+        case 0:
+            Current_Ver=LastStableVer;
+            checkupdate_cmd="checkupdate";
+            break;
+        case 1:
+            Current_Ver=VERSION;
+            checkupdate_cmd="checkupdate_beta";
+            break;
+        default:
+            break;
+    }
     //============================
     QString Github_UpdateInfo = Current_Path+"/Update_Info_Github.ini";
     QString Gitee_UpdateInfo = Current_Path+"/Update_Info_Gitee.ini";
@@ -55,7 +70,7 @@ int MainWindow::CheckUpadte_Auto()
     //===========================
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess checkupdate;
-    checkupdate.start("\""+program+"\" "+Current_Path+" checkupdate");
+    checkupdate.start("\""+program+"\" \""+Current_Path+"\" "+checkupdate_cmd);
     while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
     while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
     //========= 先检查github的文件是否下载成功 =================
@@ -66,7 +81,7 @@ int MainWindow::CheckUpadte_Auto()
         Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
         QString Change_log = configIniRead->value("/Change_log/log").toString();
         Latest_Ver = Latest_Ver.trimmed();
-        if(Latest_Ver!=VERSION&&Latest_Ver!="")
+        if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
         {
             emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
             //=====
@@ -83,7 +98,7 @@ int MainWindow::CheckUpadte_Auto()
         Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
         QString Change_log = configIniRead->value("/Change_log/log").toString();
         Latest_Ver = Latest_Ver.trimmed();
-        if(Latest_Ver!=VERSION&&Latest_Ver!="")
+        if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
         {
             emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
             //=====
@@ -105,34 +120,36 @@ int MainWindow::CheckUpadte_Auto()
 */
 int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
 {
-    if(ui->checkBox_UpdatePopup->checkState())
+    QString UpdateType=ui->comboBox_UpdateChannel->currentText();
+    //======
+    if(ui->checkBox_UpdatePopup->isChecked())
     {
+        QMessageBox Msg(QMessageBox::Question, QString(tr("New ")+UpdateType+tr(" update available!")), QString(tr("New version: %1\n\nBrief change log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
+        Msg.setIcon(QMessageBox::Information);
         if(ui->comboBox_language->currentIndex()==1)
         {
-            QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
-            Msg.setIcon(QMessageBox::Information);
             QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
             QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆境内)"), QMessageBox::YesRole);
             QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
             Msg.exec();
-            if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
-            if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases"));
+            if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));
+            if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));
             return 0;
         }
         else
         {
-            QMessageBox Msg(QMessageBox::Question, QString(tr("New version available!")), QString(tr("New version: %1\n\nChange log:\n%2\n\nDo you wanna update now???")).arg(update_str).arg(Change_log));
-            Msg.setIcon(QMessageBox::Information);
             QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
             QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
             Msg.exec();
-            if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest"));
+            if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));
             return 0;
         }
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(QString(tr("New version: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str));
+        QString update_msg_str = QString(tr("New ")+UpdateType+tr(" update: %1 is available! Click [Check update] button to download the latest version!")).arg(update_str);
+        emit Send_SystemTray_NewMessage(update_msg_str);
+        emit Send_TextBrowser_NewMessage(update_msg_str);
     }
     return 0;
 }

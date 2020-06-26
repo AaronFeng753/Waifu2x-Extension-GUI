@@ -64,7 +64,7 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
     Table_model_image->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_image->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
     Table_model_image->setItem(rowNum, 3, new QStandardItem(""));
-    if(ui->checkBox_FileListAutoSlide->checkState())
+    if(ui->checkBox_FileListAutoSlide->isChecked())
     {
         QAbstractItemModel *modessl = Table_model_image;
         QModelIndex indextemp = modessl->index(rowNum, 1);
@@ -88,7 +88,7 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
     Table_model_gif->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_gif->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
     Table_model_gif->setItem(rowNum, 3, new QStandardItem(""));
-    if(ui->checkBox_FileListAutoSlide->checkState())
+    if(ui->checkBox_FileListAutoSlide->isChecked())
     {
         QAbstractItemModel *modessl = Table_model_gif;
         QModelIndex indextemp = modessl->index(rowNum, 1);
@@ -112,7 +112,7 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
     Table_model_video->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_video->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
     Table_model_video->setItem(rowNum, 3, new QStandardItem(""));
-    if(ui->checkBox_FileListAutoSlide->checkState())
+    if(ui->checkBox_FileListAutoSlide->isChecked())
     {
         QAbstractItemModel *modessl = Table_model_video;
         QModelIndex indextemp = modessl->index(rowNum, 1);
@@ -130,7 +130,7 @@ void MainWindow::Table_image_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
 {
     ui->tableView_image->setUpdatesEnabled(false);
     Table_model_image->setItem(rowNum, 1, new QStandardItem(status));
-    if(ui->checkBox_FileListAutoSlide->checkState())
+    if(ui->checkBox_FileListAutoSlide->isChecked())
     {
         QAbstractItemModel *modessl = Table_model_image;
         QModelIndex indextemp = modessl->index(rowNum, 1);
@@ -143,7 +143,7 @@ void MainWindow::Table_gif_ChangeStatus_rowNumInt_statusQString(int rowNum, QStr
 {
     ui->tableView_gif->setUpdatesEnabled(false);
     Table_model_gif->setItem(rowNum, 1, new QStandardItem(status));
-    if(ui->checkBox_FileListAutoSlide->checkState())
+    if(ui->checkBox_FileListAutoSlide->isChecked())
     {
         QAbstractItemModel *modessl = Table_model_gif;
         QModelIndex indextemp = modessl->index(rowNum, 1);
@@ -156,7 +156,7 @@ void MainWindow::Table_video_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
 {
     ui->tableView_video->setUpdatesEnabled(false);
     Table_model_video->setItem(rowNum, 1, new QStandardItem(status));
-    if(ui->checkBox_FileListAutoSlide->checkState())
+    if(ui->checkBox_FileListAutoSlide->isChecked())
     {
         QAbstractItemModel *modessl = Table_model_video;
         QModelIndex indextemp = modessl->index(rowNum, 1);
@@ -213,10 +213,11 @@ void MainWindow::Table_video_CustRes_Cancel_rowNumInt(int rowNum)
 
 void MainWindow::Table_ChangeAllStatusToWaiting()
 {
+    QMutex_Table_ChangeAllStatusToWaiting.lock();
     ui->tableView_image->setUpdatesEnabled(false);
     ui->tableView_gif->setUpdatesEnabled(false);
     ui->tableView_video->setUpdatesEnabled(false);
-    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->checkState();
+    bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->isChecked();
     int rowNum = Table_model_image->rowCount();
     for (int i = 0; i < rowNum; i++)
     {
@@ -286,6 +287,7 @@ void MainWindow::Table_ChangeAllStatusToWaiting()
     ui->tableView_image->setUpdatesEnabled(true);
     ui->tableView_gif->setUpdatesEnabled(true);
     ui->tableView_video->setUpdatesEnabled(true);
+    QMutex_Table_ChangeAllStatusToWaiting.unlock();
 }
 
 void MainWindow::Table_Clear()
@@ -505,6 +507,14 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
     emit Send_TextBrowser_NewMessage(tr("File list saved successfully!"));
+    //===
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("File list saved successfully!"));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+    //===
     return 0;
 }
 
@@ -639,7 +649,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         Delay_msec_sleep(100);
     }
     //====================
-    if(!ui->checkBox_ReProcFinFiles->checkState())
+    if(!ui->checkBox_ReProcFinFiles->isChecked())
     {
         emit Send_MovToFinedList();
     }
@@ -713,6 +723,9 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
         Send_TextBrowser_NewMessage(tr("The file list saved last time is empty."));
         progressbar_clear();
     }
+    //===
+    ui->pushButton_ReadFileList->setText(tr("Read Files List"));
+    //===
     return 0;
 }
 

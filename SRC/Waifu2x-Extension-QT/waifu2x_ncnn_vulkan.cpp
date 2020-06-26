@@ -23,13 +23,15 @@
 int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
-    int TileSize = ui->spinBox_TileSize->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
-    bool CompressJPG = ui->checkBox_CompressJPG->checkState();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
+    //======
+    if(SaveAsJPG)
+    {
+        SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
+    }
+    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     //将状态设定到处理中
@@ -48,20 +50,23 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
+    //========= 转换到 PNG =========
+    QString SourceFile_fullPath_Original = SourceFile_fullPath;
+    SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
     //===============
     int ScaleRatio=1;
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
     int CustRes_width=0;
     //检查是是否有自定义分辨率
-    if(CustRes_isContained(SourceFile_fullPath))
+    if(CustRes_isContained(SourceFile_fullPath_Original))
     {
         CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath_Original);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath_Original,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
@@ -87,26 +92,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
     //==========
-    QString model_path;
-    if(ui->comboBox_model_vulkan->currentIndex()==0)
-    {
-        if(ImageStyle==0)
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-        }
-        else
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
-        }
-    }
-    if(ui->comboBox_model_vulkan->currentIndex()==1)
-    {
-        model_path = Waifu2x_folder_path+"/models-cunet";
-    }
     int ScaleRatio_tmp=0;
     //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
     if((ScaleRatio%2)==0)
@@ -134,7 +120,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         InputPath_tmp = SourceFile_fullPath;
@@ -143,7 +129,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         for(int i=2; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR+TTA_cmd;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -206,12 +192,18 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         else
         {
             QFile::remove(OutputPath_tmp);
+            if(retry==ui->spinBox_retry->value())break;
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
     }
     if(!file_isFileExist(OutputPath_tmp))
     {
+        if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+        {
+            QFile::remove(SourceFile_fullPath);
+            SourceFile_fullPath = SourceFile_fullPath_Original;
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -326,9 +318,14 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         }
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+    {
+        QFile::remove(SourceFile_fullPath);
+        SourceFile_fullPath = SourceFile_fullPath_Original;
+    }
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -345,11 +342,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -375,8 +372,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool OptGIF = ui->checkBox_OptGIF->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -427,15 +424,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     }
     //============================== 拆分 ==========================================
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    if(file_isDirExist(SplitFramesFolderPath))
-    {
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
-    }
-    else
-    {
-        file_mkDir(SplitFramesFolderPath);
-    }
     Gif_splitGif(SourceFile_fullPath,SplitFramesFolderPath);
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -465,7 +453,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //==========开始放大==========================
     int InterPro_total = 0;
     int InterPro_now = 0;
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         InterPro_total = Frame_fileName_list.size();
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
@@ -480,7 +468,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             InterPro_now++;
             emit Send_CurrentFileProgress_progressbar_Add();
@@ -591,7 +579,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -608,11 +596,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -630,11 +618,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
-    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
-    int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
     bool CustRes_isEnabled = false;
@@ -660,26 +645,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QProcess *Waifu2x = new QProcess();
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
-    //=================
-    QString model_path;
-    if(ui->comboBox_model_vulkan->currentIndex()==0)
-    {
-        if(ImageStyle==0)
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-        }
-        else
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
-        }
-    }
-    if(ui->comboBox_model_vulkan->currentIndex()==1)
-    {
-        model_path = Waifu2x_folder_path+"/models-cunet";
-    }
     //======
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -708,7 +673,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
     int DenoiseLevel_tmp = DenoiseLevel;
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         OutputPath_tmp ="";
@@ -717,7 +682,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
         for(int i=2; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR+TTA_cmd;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -725,6 +690,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
                     mutex_SubThreadNumRunning.lock();
                     *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
                     mutex_SubThreadNumRunning.unlock();
@@ -772,6 +741,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
         else
         {
             QFile::remove(OutputPath_tmp);
+            if(retry==ui->spinBox_retry->value())break;
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
@@ -830,7 +800,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1038,7 +1008,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -1053,7 +1023,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -1136,7 +1106,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1153,7 +1123,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1170,11 +1140,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1194,7 +1164,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1394,10 +1364,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //================================== 开始分段处理视频 =================================================
     int StartTime = 0;//起始时间(秒)
     int VideoDuration = video_get_duration(video_mp4_fullpath);
-    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration)
-    {
-        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
-    }
     bool isSplitComplete = false;
     bool isScaleComplete = false;
     /*
@@ -1405,6 +1371,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
                   开始之前先读取进度
     ============================================
     */
+    int OLD_SegmentDuration=-1;
+    bool read_OLD_SegmentDuration =false;
     if(file_isFileExist(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -1413,6 +1381,31 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         StartTime = configIniRead->value("/Progress/StartTime").toInt();
         isSplitComplete = configIniRead->value("/Progress/isSplitComplete").toBool();
         isScaleComplete = configIniRead->value("/Progress/isScaleComplete").toBool();
+        OLD_SegmentDuration = configIniRead->value("/Progress/OLDSegmentDuration").toInt();
+    }
+    if(OLD_SegmentDuration>0)
+    {
+        read_OLD_SegmentDuration = true;
+    }
+    /*
+    加载进度条
+    */
+    int SegmentDuration_tmp_progressbar = 0;
+    if(read_OLD_SegmentDuration)
+    {
+        SegmentDuration_tmp_progressbar = OLD_SegmentDuration;
+    }
+    else
+    {
+        SegmentDuration_tmp_progressbar = SegmentDuration;
+    }
+    if(ui->checkBox_ShowInterPro->isChecked()&&VideoDuration>SegmentDuration_tmp_progressbar)
+    {
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
+        if(StartTime>0)
+        {
+            emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(StartTime);
+        }
     }
     /*
     ============================================
@@ -1433,6 +1426,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         else
         {
             SegmentDuration_tmp = TimeLeft_tmp;
+        }
+        if(read_OLD_SegmentDuration)
+        {
+            SegmentDuration_tmp = OLD_SegmentDuration;
+            read_OLD_SegmentDuration=false;
         }
         /*==========================
                  拆分视频片段
@@ -1475,7 +1473,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             记录进度
             帧拆分成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false,SegmentDuration_tmp);
             //============================== 放大 =======================================
             //===========建立存储放大后frame的文件夹===========
             if(isSplitComplete==false)
@@ -1493,7 +1491,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             //==========开始放大==========================
             int InterPro_total = 0;
             int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->checkState())
+            if(ui->checkBox_ShowInterPro->isChecked())
             {
                 InterPro_total = Frame_fileName_list.size();
             }
@@ -1507,7 +1505,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             //===============
             for(int i = 0; i < Frame_fileName_list.size(); i++)
             {
-                if(ui->checkBox_ShowInterPro->checkState())
+                if(ui->checkBox_ShowInterPro->isChecked())
                 {
                     InterPro_now++;
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
@@ -1569,7 +1567,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             记录进度
             帧处理成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true,SegmentDuration_tmp);
         }
         /*==========================
             组装视频片段(由帧到视频)
@@ -1594,16 +1592,16 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             return 0;//如果启用stop位,则直接return
         }
         /*==========================
-        处理完当前片段,时间后移,记录起始时间
+              处理完当前片段
         ==========================*/
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(SegmentDuration_tmp);
         }
         StartTime+=SegmentDuration_tmp;
         isSplitComplete = false;
         isScaleComplete = false;
-        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false);
+        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1);
     }
     emit Send_CurrentFileProgress_Stop();
     //======================================================
@@ -1633,7 +1631,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1651,7 +1649,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1668,11 +1666,11 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1691,11 +1689,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //================
-    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
-    int TileSize = ui->spinBox_TileSize->value();
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool TTA_isEnabled = ui->checkBox_TTA_vulkan->checkState();
     //========================================================================
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //======
@@ -1724,26 +1719,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     //========
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //===========
-    QString TTA_cmd="";
-    if(TTA_isEnabled)TTA_cmd=" -x ";
-    //===========
-    QString model_path;
-    if(ui->comboBox_model_vulkan->currentIndex()==0)
-    {
-        if(ImageStyle==0)
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
-        }
-        else
-        {
-            model_path = Waifu2x_folder_path+"/models-upconv_7_photo";
-        }
-    }
-    if(ui->comboBox_model_vulkan->currentIndex()==1)
-    {
-        model_path = Waifu2x_folder_path+"/models-cunet";
-    }
     //=========
     int ScaleRatio_tmp=0;
     if((ScaleRatio%2)==0)
@@ -1770,7 +1745,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     }
     //===================
     QString OutputPath_tmp ="";
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         QString InputPath_tmp = Frame_fileFullPath;
@@ -1779,7 +1754,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
         for(int i=2; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -t " + QString::number(TileSize, 10) + " -m " + "\"" + model_path + "\"" + " -j " + "1:1:1"+GPU_ID_STR+TTA_cmd;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -1787,6 +1762,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
+                    if(i>2)
+                    {
+                        QFile::remove(InputPath_tmp);
+                    }
                     mutex_SubThreadNumRunning.lock();
                     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
                     mutex_SubThreadNumRunning.unlock();
@@ -1834,6 +1813,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
         else
         {
             QFile::remove(OutputPath_tmp);
+            if(retry==ui->spinBox_retry->value())break;
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
@@ -1886,11 +1866,16 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
 */
 void MainWindow::on_pushButton_DetectGPU_clicked()
 {
+    //====
+    ui->pushButton_DetectGPU->setText(tr("Detecting, please wait..."));
+    //====
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
+    ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(0);
     Available_GPUID.clear();
     QtConcurrent::run(this, &MainWindow::Waifu2x_DetectGPU);
 }
@@ -1900,7 +1885,7 @@ int MainWindow::Waifu2x_DetectGPU()
     emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
     //===============
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.png";
     QFile::remove(OutputPath);
     //==============
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
@@ -1914,7 +1899,7 @@ int MainWindow::Waifu2x_DetectGPU()
         QFile::remove(OutputPath);
         QProcess *Waifu2x = new QProcess();
         QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 50 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -t 32 -m " + "\"" + model_path + "\"" + " -j 1:1:1"+gpu_str;
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
@@ -1947,7 +1932,11 @@ int MainWindow::Waifu2x_DetectGPU_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
+    ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //====
+    GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.clear();
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->clear();
     ui->comboBox_GPUID->clear();
     ui->comboBox_GPUID->addItem("auto");
     if(!Available_GPUID.isEmpty())
@@ -1955,21 +1944,206 @@ int MainWindow::Waifu2x_DetectGPU_finished()
         for(int i=0; i<Available_GPUID.size(); i++)
         {
             ui->comboBox_GPUID->addItem(Available_GPUID.at(i));
+            AddGPU_MultiGPU_Waifu2xNCNNVulkan(Available_GPUID.at(i));
         }
     }
+    //====
+    ui->pushButton_DetectGPU->setText(tr("Detect available GPU ID"));
+    //====
     return 0;
 }
 
-
-
-void MainWindow::on_comboBox_GPUID_currentIndexChanged(int index)
+/*
+Waifu2x_NCNN_Vulkan
+读取配置生成配置string
+*/
+QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings()
 {
-    if(ui->comboBox_GPUID->currentText()!="auto")
+    QString Waifu2x_NCNN_Vulkan_Settings_str = " ";
+    //TTA
+    if(ui->checkBox_TTA_vulkan->isChecked())
     {
-        GPU_ID_STR = " -g "+ui->comboBox_GPUID->currentText()+" ";
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-x ");
+    }
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = Waifu2x_NCNN_Vulkan_MultiGPU();
+        //GPU ID
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
     }
     else
     {
-        GPU_ID_STR="";
+        //==========单显卡==========
+        //GPU ID
+        if(ui->comboBox_GPUID->currentText()!="auto")
+        {
+            Waifu2x_NCNN_Vulkan_Settings_str.append("-g "+ui->comboBox_GPUID->currentText()+" ");
+        }
+        //Tile Size
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-t "+QString::number(ui->spinBox_TileSize->value(),10)+" ");
+    }
+    //Model
+    int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
+    QString model_path="";
+    if(ui->comboBox_model_vulkan->currentIndex()==0)
+    {
+        if(ImageStyle==0)
+        {
+            model_path = Waifu2x_ncnn_vulkan_FolderPath+"/models-upconv_7_anime_style_art_rgb";
+        }
+        else
+        {
+            model_path = Waifu2x_ncnn_vulkan_FolderPath+"/models-upconv_7_photo";
+        }
+    }
+    if(ui->comboBox_model_vulkan->currentIndex()==1)
+    {
+        model_path = Waifu2x_ncnn_vulkan_FolderPath+"/models-cunet";
+    }
+    Waifu2x_NCNN_Vulkan_Settings_str.append("-m \""+model_path+"\" ");
+    Waifu2x_NCNN_Vulkan_Settings_str.append("-j 1:1:1 ");
+    //=======================================
+    return Waifu2x_NCNN_Vulkan_Settings_str;
+}
+/*
+Waifu2x_NCNN_Vulkan
+显卡切换
+*/
+QMap<QString,QString> MainWindow::Waifu2x_NCNN_Vulkan_MultiGPU()
+{
+    MultiGPU_QMutex_Waifu2xNCNNVulkan.lock();
+    int MAX_GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count()-1;
+    if(GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU>MAX_GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU)
+    {
+        GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU=0;
+    }
+    //======
+    QMap<QString,QString> GPUInfo;
+    do
+    {
+        GPUInfo = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU);
+        if(GPUInfo["isEnabled"] != "true")
+        {
+            GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU++;
+            if(GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU>MAX_GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU)
+            {
+                GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU=0;
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+    while(true);
+    //======
+    GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU++;
+    if(GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU>MAX_GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU)
+    {
+        GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU=0;
+    }
+    //======
+    MultiGPU_QMutex_Waifu2xNCNNVulkan.unlock();
+    return GPUInfo;
+}
+
+void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_clicked()
+{
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
+    {
+        if(GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count()<2)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Insufficient number of available GPUs."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(0);
+        }
+    }
+}
+
+void MainWindow::AddGPU_MultiGPU_Waifu2xNCNNVulkan(QString GPUID)
+{
+    QMap<QString,QString> GPUInfo;
+    GPUInfo["ID"] = GPUID;
+    GPUInfo["isEnabled"] = "true";
+    GPUInfo["TileSize"] = "100";
+    GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.append(GPUInfo);
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->addItem(GPUID);
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->setCurrentIndex(0);
+}
+
+void MainWindow::on_comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->count()==0)
+    {
+        return;
+    }
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex());
+    ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setChecked(GPUInfo["isEnabled"] == "true");
+    ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setValue(GPUInfo["TileSize"].toInt());
+}
+
+void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_valueChanged(int arg1)
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex());
+    GPUInfo["TileSize"] = QString::number(ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->value(),10);
+    GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex(),GPUInfo);
+}
+
+void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan_clicked()
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex());
+    if(ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->isChecked())
+    {
+        GPUInfo["isEnabled"] = "true";
+    }
+    else
+    {
+        GPUInfo["isEnabled"] = "false";
+    }
+    GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex(),GPUInfo);
+    int enabledGPUs = 0;
+    for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count(); i++)
+    {
+        QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(i);
+        if(GPUInfo_tmp["isEnabled"] == "true")
+        {
+            enabledGPUs++;
+        }
+    }
+    if(enabledGPUs<2)
+    {
+        QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex());
+        GPUInfo["isEnabled"] = "true";
+        GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan->currentIndex(),GPUInfo);
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan->setChecked(1);
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("At least 2 GPUs need to be enabled !!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
+}
+
+void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
+    {
+        ui->comboBox_GPUID->setEnabled(0);
+        ui->spinBox_TileSize->setEnabled(0);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_GPUID->setEnabled(1);
+        ui->spinBox_TileSize->setEnabled(1);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
     }
 }

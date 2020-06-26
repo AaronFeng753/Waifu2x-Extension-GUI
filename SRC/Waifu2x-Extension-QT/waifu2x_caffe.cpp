@@ -25,55 +25,15 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    if(ui->comboBox_Engine_Image->currentIndex()==1)
-    {
-        if(DenoiseLevel==0)
-        {
-            DenoiseLevel=-1;
-        }
-        else
-        {
-            DenoiseLevel-=1;
-        }
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==2)
-    {
-        if(DenoiseLevel==-1)
-        {
-            DenoiseLevel=0;
-        }
-        else
-        {
-            if(DenoiseLevel>=0&&DenoiseLevel<=2)
-            {
-                DenoiseLevel=1;
-            }
-            else
-            {
-                if(DenoiseLevel>=3&&DenoiseLevel<=6)
-                {
-                    DenoiseLevel=2;
-                }
-                else
-                {
-                    DenoiseLevel=3;
-                }
-            }
-        }
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==3)
-    {
-        DenoiseLevel=1;
-    }
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     //======
     if(SaveAsJPG)
     {
         SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
     }
     //=======
-    bool CompressJPG = ui->checkBox_CompressJPG->checkState();
+    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -90,18 +50,21 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
+    //========= 转换到 PNG =========
+    QString SourceFile_fullPath_Original = SourceFile_fullPath;
+    SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
     //=======================================================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
     int CustRes_width=0;
-    if(CustRes_isContained(SourceFile_fullPath))
+    if(CustRes_isContained(SourceFile_fullPath_Original))
     {
         CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath_Original);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath_Original,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
@@ -131,7 +94,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     else
     {
         int DenoiseLevel_tmp =0;
-        if(ui->comboBox_Model_Waifu2xCaffe->currentIndex()==0&&DenoiseLevel==0)
+        if((ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex()==0)&&(DenoiseLevel==0)&&(ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex()==0)&&(ui->comboBox_Engine_Image->currentIndex()==4))
         {
             DenoiseLevel_tmp=1;
         }
@@ -142,9 +105,9 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
     }
     //====
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + ImageProcessingModeCMD + Waifu2x_Caffe_ReadSettings();
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + ImageProcessingModeCMD + Waifu2x_Caffe_ReadSettings(true);
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -168,6 +131,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -175,6 +139,11 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     //========
     if(!file_isFileExist(OutPut_Path))
     {
+        if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+        {
+            QFile::remove(SourceFile_fullPath);
+            SourceFile_fullPath = SourceFile_fullPath_Original;
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -288,9 +257,14 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         }
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+    {
+        QFile::remove(SourceFile_fullPath);
+        SourceFile_fullPath = SourceFile_fullPath_Original;
+    }
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -307,11 +281,11 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -328,8 +302,8 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool OptGIF = ui->checkBox_OptGIF->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -380,15 +354,6 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     }
     //============================== 拆分 ==========================================
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    if(file_isDirExist(SplitFramesFolderPath))
-    {
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
-    }
-    else
-    {
-        file_mkDir(SplitFramesFolderPath);
-    }
     Gif_splitGif(SourceFile_fullPath,SplitFramesFolderPath);
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -416,7 +381,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
         file_mkDir(ScaledFramesFolderPath);
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -431,7 +396,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -539,7 +504,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -556,11 +521,11 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -585,25 +550,6 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
     QString program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    //====
-    QString ImageProcessingModeCMD = "";
-    if(DenoiseLevel==-1)
-    {
-        ImageProcessingModeCMD = " -m scale -s " + QString::number(ScaleRatio, 10)+" ";
-    }
-    else
-    {
-        int DenoiseLevel_tmp =0;
-        if(ui->comboBox_Model_Waifu2xCaffe->currentIndex()==0&&DenoiseLevel==0)
-        {
-            DenoiseLevel_tmp=1;
-        }
-        else
-        {
-            DenoiseLevel_tmp = DenoiseLevel;
-        }
-        ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
-    }
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -618,10 +564,29 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
             return 0;
         }
     }
-    //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    //====
+    QString ImageProcessingModeCMD = "";
+    if(DenoiseLevel==-1)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings();
+        ImageProcessingModeCMD = " -m scale -s " + QString::number(ScaleRatio, 10)+" ";
+    }
+    else
+    {
+        int DenoiseLevel_tmp =0;
+        if((ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex()==0)&&(DenoiseLevel==0)&&(ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex()==0))
+        {
+            DenoiseLevel_tmp=1;
+        }
+        else
+        {
+            DenoiseLevel_tmp = DenoiseLevel;
+        }
+        ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
+    }
+    //=======
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    {
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings(false);
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -642,6 +607,7 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -664,7 +630,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -872,7 +838,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -887,7 +853,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -970,7 +936,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -987,7 +953,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1004,11 +970,11 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1029,7 +995,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1229,10 +1195,6 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     //================================== 开始分段处理视频 =================================================
     int StartTime = 0;//起始时间(秒)
     int VideoDuration = video_get_duration(video_mp4_fullpath);
-    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration)
-    {
-        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
-    }
     bool isSplitComplete = false;
     bool isScaleComplete = false;
     /*
@@ -1240,6 +1202,8 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
                   开始之前先读取进度
     ============================================
     */
+    int OLD_SegmentDuration=-1;
+    bool read_OLD_SegmentDuration =false;
     if(file_isFileExist(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -1248,6 +1212,31 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         StartTime = configIniRead->value("/Progress/StartTime").toInt();
         isSplitComplete = configIniRead->value("/Progress/isSplitComplete").toBool();
         isScaleComplete = configIniRead->value("/Progress/isScaleComplete").toBool();
+        OLD_SegmentDuration = configIniRead->value("/Progress/OLDSegmentDuration").toInt();
+    }
+    if(OLD_SegmentDuration>0)
+    {
+        read_OLD_SegmentDuration = true;
+    }
+    /*
+    加载进度条
+    */
+    int SegmentDuration_tmp_progressbar = 0;
+    if(read_OLD_SegmentDuration)
+    {
+        SegmentDuration_tmp_progressbar = OLD_SegmentDuration;
+    }
+    else
+    {
+        SegmentDuration_tmp_progressbar = SegmentDuration;
+    }
+    if(ui->checkBox_ShowInterPro->isChecked()&&VideoDuration>SegmentDuration_tmp_progressbar)
+    {
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
+        if(StartTime>0)
+        {
+            emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(StartTime);
+        }
     }
     /*
     ============================================
@@ -1268,6 +1257,11 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         else
         {
             SegmentDuration_tmp = TimeLeft_tmp;
+        }
+        if(read_OLD_SegmentDuration)
+        {
+            SegmentDuration_tmp = OLD_SegmentDuration;
+            read_OLD_SegmentDuration=false;
         }
         /*==========================
                  拆分视频片段
@@ -1310,7 +1304,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             记录进度
             帧拆分成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false,SegmentDuration_tmp);
             //============================== 放大 =======================================
             //===========建立存储放大后frame的文件夹===========
             if(isSplitComplete==false)
@@ -1328,7 +1322,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             //==========开始放大==========================
             int InterPro_total = 0;
             int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->checkState())
+            if(ui->checkBox_ShowInterPro->isChecked())
             {
                 InterPro_total = Frame_fileName_list.size();
             }
@@ -1342,7 +1336,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             //===============
             for(int i = 0; i < Frame_fileName_list.size(); i++)
             {
-                if(ui->checkBox_ShowInterPro->checkState())
+                if(ui->checkBox_ShowInterPro->isChecked())
                 {
                     InterPro_now++;
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
@@ -1404,7 +1398,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             记录进度
             帧处理成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true,SegmentDuration_tmp);
         }
         /*==========================
             组装视频片段(由帧到视频)
@@ -1431,14 +1425,14 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         /*==========================
         处理完当前片段,时间后移,记录起始时间
         ==========================*/
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(SegmentDuration_tmp);
         }
         StartTime+=SegmentDuration_tmp;
         isSplitComplete = false;
         isScaleComplete = false;
-        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false);
+        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1);
     }
     emit Send_CurrentFileProgress_Stop();
     //======================================================
@@ -1468,7 +1462,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1486,7 +1480,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1503,11 +1497,11 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1534,25 +1528,6 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
     QString program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    //====
-    QString ImageProcessingModeCMD = "";
-    if(DenoiseLevel==-1)
-    {
-        ImageProcessingModeCMD = " -m scale -s " + QString::number(ScaleRatio, 10)+" ";
-    }
-    else
-    {
-        int DenoiseLevel_tmp =0;
-        if(ui->comboBox_Model_Waifu2xCaffe->currentIndex()==0&&DenoiseLevel==0)
-        {
-            DenoiseLevel_tmp=1;
-        }
-        else
-        {
-            DenoiseLevel_tmp = DenoiseLevel;
-        }
-        ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
-    }
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -1567,10 +1542,29 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
             return 0;
         }
     }
-    //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    //====
+    QString ImageProcessingModeCMD = "";
+    if(DenoiseLevel==-1)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings();
+        ImageProcessingModeCMD = " -m scale -s " + QString::number(ScaleRatio, 10)+" ";
+    }
+    else
+    {
+        int DenoiseLevel_tmp =0;
+        if((ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex()==0)&&(DenoiseLevel==0)&&(ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex()==0))
+        {
+            DenoiseLevel_tmp=1;
+        }
+        else
+        {
+            DenoiseLevel_tmp = DenoiseLevel;
+        }
+        ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
+    }
+    //=======
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    {
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings(false);
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1591,12 +1585,13 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
     }
     //========
-    QFile::remove(Frame_fileFullPath);
+    if(file_isFileExist(OutputPath)==true)QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
     mutex_SubThreadNumRunning.lock();
@@ -1609,7 +1604,7 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
 Waifu2x_Caffe
 读取配置生成配置string
 */
-QString MainWindow::Waifu2x_Caffe_ReadSettings()
+QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
 {
     QString Waifu2x_Caffe_Settings_str = " ";
     //处理模式
@@ -1633,46 +1628,79 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings()
     }
     //模型
     QString model_folder_path = Current_Path + "/waifu2x-caffe/models/";
-    switch(ui->comboBox_Model_Waifu2xCaffe->currentIndex())
+    int ImageStyle = 0;
+    if(isImage&&ui->comboBox_Engine_Image->currentIndex()!=4)
+    {
+        ImageStyle=1;
+    }
+    else
+    {
+        ImageStyle=ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex();
+    }
+    switch(ImageStyle)
     {
         case 0:
             {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"anime_style_art\" ");
+                switch(ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex())
+                {
+                    case 0:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"anime_style_art\" ");
+                            break;
+                        }
+                    case 1:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"anime_style_art_rgb\" ");
+                            break;
+                        }
+                    case 2:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"cunet\" ");
+                            break;
+                        }
+                    case 3:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"photo\" ");
+                            break;
+                        }
+                    case 4:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upconv_7_anime_style_art_rgb\" ");
+                            break;
+                        }
+                    case 5:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upconv_7_photo\" ");
+                            break;
+                        }
+                    case 6:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upresnet10\" ");
+                            break;
+                        }
+                }
                 break;
             }
         case 1:
             {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"anime_style_art_rgb\" ");
-                break;
-            }
-        case 2:
-            {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"cunet\" ");
-                break;
-            }
-        case 3:
-            {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"photo\" ");
-                break;
-            }
-        case 4:
-            {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upconv_7_anime_style_art_rgb\" ");
-                break;
-            }
-        case 5:
-            {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upconv_7_photo\" ");
-                break;
-            }
-        case 6:
-            {
-                Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upresnet10\" ");
+                switch(ui->comboBox_Model_3D_Waifu2xCaffe->currentIndex())
+                {
+                    case 0:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"upconv_7_photo\" ");
+                            break;
+                        }
+                    case 1:
+                        {
+                            Waifu2x_Caffe_Settings_str.append("--model_dir \""+model_folder_path+"photo\" ");
+                            break;
+                        }
+                }
                 break;
             }
     }
     //TTA
-    if(ui->checkBox_TTA_Waifu2xCaffe->checkState())
+    if(ui->checkBox_TTA_Waifu2xCaffe->isChecked())
     {
         Waifu2x_Caffe_Settings_str.append("-t 1 ");
     }
@@ -1680,11 +1708,170 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings()
     {
         Waifu2x_Caffe_Settings_str.append("-t 0 ");
     }
-    //GPU ID
-    Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
-    //Batch size
-    Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
-    //Split size
-    Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
+    //显卡设定
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
+    {
+        //多显卡
+        Waifu2x_Caffe_Settings_str.append(Waifu2xCaffe_GetGPUInfo()+" ");
+    }
+    else
+    {
+        //单个显卡
+        //GPU ID
+        if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
+        {
+            Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+        }
+        //Batch size
+        Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
+        //Split size
+        Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
+    }
     return Waifu2x_Caffe_Settings_str;
+}
+//判断是否启用了caffe引擎
+bool MainWindow::isWaifu2xCaffeEnabled()
+{
+    if(ui->comboBox_Engine_Image->currentIndex()!=4&&ui->comboBox_Engine_GIF->currentIndex()!=4&&ui->comboBox_Engine_Video->currentIndex()!=4)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+/*
+删除caffe引擎生成的错误日志
+*/
+void MainWindow::DeleteErrorLog_Waifu2xCaffe()
+{
+    QStringList FileNameList = file_getFileNames_in_Folder_nofilter(Current_Path);//读取合法的文件名
+    QString Full_Path_File = "";
+    if(!FileNameList.isEmpty())
+    {
+        for(int i = 0; i < FileNameList.size(); i++)
+        {
+            QString tmp = FileNameList.at(i);
+            Full_Path_File = Current_Path + "/" + tmp;
+            if(Full_Path_File.contains("error_log_"))
+            {
+                QFile::remove(Full_Path_File);
+            }
+        }
+    }
+}
+
+void MainWindow::on_checkBox_EnableMultiGPU_Waifu2xCaffe_stateChanged(int arg1)
+{
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
+    {
+        ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setEnabled(1);
+        ui->pushButton_VerifyGPUsConfig_Waifu2xCaffe->setEnabled(1);
+        //===
+        ui->pushButton_SplitSize_Add_Waifu2xCaffe->setEnabled(0);
+        ui->pushButton_SplitSize_Minus_Waifu2xCaffe->setEnabled(0);
+        ui->spinBox_BatchSize_Waifu2xCaffe->setEnabled(0);
+        ui->spinBox_GPUID_Waifu2xCaffe->setEnabled(0);
+        ui->spinBox_SplitSize_Waifu2xCaffe->setEnabled(0);
+    }
+    else
+    {
+        ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setEnabled(0);
+        ui->pushButton_VerifyGPUsConfig_Waifu2xCaffe->setEnabled(0);
+        //===
+        ui->pushButton_SplitSize_Add_Waifu2xCaffe->setEnabled(1);
+        ui->pushButton_SplitSize_Minus_Waifu2xCaffe->setEnabled(1);
+        ui->spinBox_BatchSize_Waifu2xCaffe->setEnabled(1);
+        ui->spinBox_GPUID_Waifu2xCaffe->setEnabled(1);
+        ui->spinBox_SplitSize_Waifu2xCaffe->setEnabled(1);
+    }
+}
+
+void MainWindow::on_comboBox_ProcessMode_Waifu2xCaffe_currentIndexChanged(int index)
+{
+    if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()==0)
+    {
+        ui->checkBox_EnableMultiGPU_Waifu2xCaffe->setEnabled(0);
+        ui->checkBox_EnableMultiGPU_Waifu2xCaffe->setChecked(0);
+    }
+    else
+    {
+        ui->checkBox_EnableMultiGPU_Waifu2xCaffe->setEnabled(1);
+    }
+}
+//读取多显卡设定
+QString MainWindow::Waifu2xCaffe_GetGPUInfo()
+{
+    GetGPUInfo_QMutex_Waifu2xCaffe.lock();
+    //====
+    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
+    GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
+    //====
+    int MAX_GPU_ID_Waifu2xCaffe = GPU_List.count()-1;
+    if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
+    {
+        GPU_ID_Waifu2xCaffe_GetGPUInfo=0;
+    }
+    //======
+    QString GPUInfo="";
+    QStringList GPUID_BatchSize_SplitSize = GPU_List.at(GPU_ID_Waifu2xCaffe_GetGPUInfo).split(",");
+    if(GPUID_BatchSize_SplitSize.count()==3)
+    {
+        GPUInfo = "--gpu "+GPUID_BatchSize_SplitSize.at(0).trimmed()+" -b "+GPUID_BatchSize_SplitSize.at(1).trimmed()+" -c "+GPUID_BatchSize_SplitSize.at(2).trimmed();
+    }
+    else
+    {
+        GPUInfo = "--gpu 0 -b 1 -c 64";
+    }
+    //======
+    GPU_ID_Waifu2xCaffe_GetGPUInfo++;
+    if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
+    {
+        GPU_ID_Waifu2xCaffe_GetGPUInfo=0;
+    }
+    //======
+    GetGPUInfo_QMutex_Waifu2xCaffe.unlock();
+    return GPUInfo;
+}
+
+void MainWindow::on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished()
+{
+    QString Format_str="0123456789:,";
+    QString GPUs_str = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().replace("：",":").replace("，",",").remove(" ").remove("　");
+    for (int i=0; i<GPUs_str.length(); i++)
+    {
+        if(Format_str.contains(GPUs_str.at(i))==false)
+        {
+            GPUs_str.remove(GPUs_str.at(i));
+        }
+    }
+    ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->setText(GPUs_str);
+}
+
+void MainWindow::on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked()
+{
+    on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
+    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
+    GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
+    //======
+    QString VerRes = "";
+    //======
+    for (int i=0; i<GPU_List.count(); i++)
+    {
+        QStringList GPUID_BatchSize_SplitSize = GPU_List.at(i).split(",");
+        if(GPUID_BatchSize_SplitSize.count()==3)
+            VerRes.append("GPU ["+QString::number(i,10)+"]: ID:["+GPUID_BatchSize_SplitSize.at(0).trimmed()+"]"+tr(" Batch Size:[")+GPUID_BatchSize_SplitSize.at(1).trimmed()+"]"+tr(" Split Size:[")+GPUID_BatchSize_SplitSize.at(2).trimmed()+"]\n\n");
+    }
+    //======
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("GPUs List according to your configuration"));
+    MSG->setText(VerRes);
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+    //======
+    emit Send_TextBrowser_NewMessage("\nWaifu2x-caffe GPUs List(user configuration):\n"+VerRes);
 }

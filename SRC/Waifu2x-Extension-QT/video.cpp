@@ -24,10 +24,7 @@
 */
 QString MainWindow::video_getClipsFolderNo()
 {
-    getClipsFolderNo_mutex.lock();
-    Delay_msec_sleep(1500);
     QString current_date =QDateTime::currentDateTime().toString("yyMMddhhmmss");
-    getClipsFolderNo_mutex.unlock();
     return current_date;
 }
 /*
@@ -37,13 +34,15 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
 {
     emit Send_TextBrowser_NewMessage(tr("Start assembling video with clips:[")+video_mp4_scaled_fullpath+"]");
     //=================
-    QString encoder_audio_cmd=" -c:a aac ";
+    QString encoder_audio_cmd="";
     QString bitrate_audio_cmd="";
     //=======
-    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    if(ui->checkBox_videoSettings_isEnabled->isChecked())
     {
-        encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
-        bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
+        if(ui->lineEdit_encoder_audio->text()!="")
+            encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
+        if(ui->spinBox_bitrate_audio->value()>0)
+            bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
     }
     //==============================
     QStringList VideoClips_Scan_list = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath);
@@ -100,7 +99,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     bool Del_DenoisedAudio = false;
     //=============== 音频降噪 ========================
-    if((ui->checkBox_AudioDenoise->checkState())&&file_isFileExist(AudioPath))
+    if((ui->checkBox_AudioDenoise->isChecked())&&file_isFileExist(AudioPath))
     {
         QString AudioPath_tmp = video_AudioDenoise(AudioPath);
         if(AudioPath_tmp!=AudioPath)
@@ -123,6 +122,19 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     AssembleVideo.start(CMD);
     while(!AssembleVideo.waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop) {}
+    //检查是否发生错误
+    if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    {
+        MultiLine_ErrorOutput_QMutex.lock();
+        emit Send_TextBrowser_NewMessage(tr("Error output for FFmpeg when processing:[")+video_mp4_scaled_fullpath+"]");
+        emit Send_TextBrowser_NewMessage("\n--------------------------------------");
+        //标准输出
+        emit Send_TextBrowser_NewMessage(AssembleVideo.readAllStandardOutput());
+        //错误输出
+        emit Send_TextBrowser_NewMessage(AssembleVideo.readAllStandardError());
+        emit Send_TextBrowser_NewMessage("\n--------------------------------------");
+        MultiLine_ErrorOutput_QMutex.unlock();
+    }
     QFile::remove(Path_FFMpegFileList);//删除文件列表
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);
@@ -180,6 +192,14 @@ void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
     video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" \""+AudioPath+"\"");
     while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
+    if(QFile::exists(AudioPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Successfully extracted audio from video: [")+VideoPath+"]");
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Failed to extract audio from video: [")+VideoPath+tr("] This video might be a silent video, so will continue to process this video."));
+    }
 }
 /*
 将视频转换为mp4
@@ -204,27 +224,27 @@ void MainWindow::video_2mp4(QString VideoPath)
         QString bitrate_audio_cmd = "";
         QString Extra_command = "";
         QString bitrate_OverAll = "";
-        if(ui->checkBox_videoSettings_isEnabled->checkState())
+        if(ui->checkBox_videoSettings_isEnabled->isChecked())
         {
             Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
-            if(ui->checkBox_vcodec_copy_2mp4->checkState())
+            if(ui->checkBox_vcodec_copy_2mp4->isChecked())
             {
                 vcodec_copy_cmd = " -vcodec copy ";
             }
             else
             {
-                bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
+                if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
             }
-            if(ui->checkBox_acodec_copy_2mp4->checkState())
+            if(ui->checkBox_acodec_copy_2mp4->isChecked())
             {
                 acodec_copy_cmd = " -acodec copy ";
             }
             else
             {
-                bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
+                if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
             }
         }
-        else
+        if((ui->checkBox_videoSettings_isEnabled->isChecked()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
         {
             QString BitRate = video_get_bitrate(VideoPath);
             if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
@@ -234,6 +254,11 @@ void MainWindow::video_2mp4(QString VideoPath)
         video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
         while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
+        //======
+        if(QFile::exists(video_mp4_fullpath))
+        {
+            emit Send_TextBrowser_NewMessage(tr("Successfully converted video: [")+VideoPath+tr("] to mp4"));
+        }
     }
 }
 
@@ -296,6 +321,8 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     sox 输入音频.wav -n noiseprof 噪音分析.prof
     sox 输入音频.wav 输出音频.wav noisered 噪音分析.prof 0.21
     */
+    emit Send_TextBrowser_NewMessage(tr("Starting to denoise audio.[")+OriginalAudioPath+"]");
+    //===========
     QFileInfo fileinfo(OriginalAudioPath);
     QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
@@ -317,6 +344,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     //================
     if(file_isFileExist(DenoisedAudio))
     {
+        emit Send_TextBrowser_NewMessage(tr("Successfully denoise audio.[")+OriginalAudioPath+"]");
         QFile::remove(DenoiseProfile);
         return DenoisedAudio;
     }
@@ -329,7 +357,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
 /*
 保存进度
 */
-void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete)
+void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration)
 {
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -337,6 +365,7 @@ void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguratio
     configIniWrite->setValue("/Progress/StartTime", StartTime);
     configIniWrite->setValue("/Progress/isSplitComplete", isSplitComplete);
     configIniWrite->setValue("/Progress/isScaleComplete", isScaleComplete);
+    configIniWrite->setValue("/Progress/OLDSegmentDuration", OLDSegmentDuration);
 }
 /*
 保存视频配置
@@ -504,27 +533,27 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         QString bitrate_audio_cmd = "";
         QString Extra_command = "";
         QString bitrate_OverAll = "";
-        if(ui->checkBox_videoSettings_isEnabled->checkState())
+        if(ui->checkBox_videoSettings_isEnabled->isChecked())
         {
             Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
-            if(ui->checkBox_vcodec_copy_2mp4->checkState())
+            if(ui->checkBox_vcodec_copy_2mp4->isChecked())
             {
                 vcodec_copy_cmd = " -vcodec copy ";
             }
             else
             {
-                bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
+                if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
             }
-            if(ui->checkBox_acodec_copy_2mp4->checkState())
+            if(ui->checkBox_acodec_copy_2mp4->isChecked())
             {
                 acodec_copy_cmd = " -acodec copy ";
             }
             else
             {
-                bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
+                if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
             }
         }
-        else
+        if((ui->checkBox_videoSettings_isEnabled->isChecked()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
         {
             QString BitRate = video_get_bitrate(VideoPath);
             if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
@@ -562,24 +591,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     emit Send_TextBrowser_NewMessage(tr("Start assembling video:[")+VideoPath+"]");
     bool Del_DenoisedAudio = false;
     //=================
-    QString encoder_video_cmd="";
     QString bitrate_video_cmd="";
-    //====
-    QString encoder_audio_cmd="";
-    QString bitrate_audio_cmd="";
-    //===
-    QString pixFormat_cmd=" -pix_fmt yuv420p ";
     //=======
-    QString Extra_Command_cmd="";
-    //=======
-    if(ui->checkBox_videoSettings_isEnabled->checkState())
+    if(ui->checkBox_videoSettings_isEnabled->isChecked()&&(ui->spinBox_bitrate_vid->value()>0))
     {
-        encoder_video_cmd=" -c:v "+ui->lineEdit_encoder_vid->text()+" ";
         bitrate_video_cmd=" -b:v "+QString::number(ui->spinBox_bitrate_vid->value(),10)+"k ";
-        encoder_audio_cmd=" -c:a "+ui->lineEdit_encoder_audio->text()+" ";
-        bitrate_audio_cmd=" -b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ";
-        pixFormat_cmd=" -pix_fmt "+ui->lineEdit_pixformat->text()+" ";
-        Extra_Command_cmd = ui->lineEdit_ExCommand_output->text().trimmed();
     }
     else
     {
@@ -591,7 +607,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     if(CustRes_isEnabled)
     {
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
-        if(ui->checkBox_videoSettings_isEnabled->checkState()==false)
+        if(ui->checkBox_videoSettings_isEnabled->isChecked()==false)
         {
             int small_res =0;
             if(CustRes_width<=CustRes_height)
@@ -646,7 +662,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         return 0;
     }
     //=============== 音频降噪 ========================
-    if((ui->checkBox_AudioDenoise->checkState())&&file_isFileExist(AudioPath))
+    if((ui->checkBox_AudioDenoise->isChecked())&&file_isFileExist(AudioPath))
     {
         QString AudioPath_tmp = video_AudioDenoise(AudioPath);
         if(AudioPath_tmp!=AudioPath)
@@ -659,11 +675,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString CMD = "";
     if(file_isFileExist(AudioPath))
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+"\""+video_mp4_scaled_fullpath+"\"";
     }
     else
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+"\""+video_mp4_scaled_fullpath+"\"";
     }
     QProcess images2video;
     images2video.start(CMD);
@@ -674,11 +690,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     {
         if(file_isFileExist(AudioPath))
         {
-            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -i \""+AudioPath+"\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+"\""+video_mp4_scaled_fullpath+"\"";
         }
         else
         {
-            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%00d.png\" -r "+fps+encoder_video_cmd+bitrate_video_cmd+pixFormat_cmd+resize_cmd+" "+Extra_Command_cmd+" \""+video_mp4_scaled_fullpath+"\"";
+            CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+"\""+video_mp4_scaled_fullpath+"\"";
         }
         QProcess images2video;
         images2video.start(CMD);
@@ -690,4 +706,51 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     //==============================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;
+}
+
+QString MainWindow::video_ReadSettings_OutputVid(QString AudioPath)
+{
+    QString OutputVideoSettings= " ";
+    //====
+    if(ui->checkBox_videoSettings_isEnabled->isChecked())
+    {
+        if(ui->lineEdit_encoder_vid->text()!="")
+        {
+            OutputVideoSettings.append("-c:v "+ui->lineEdit_encoder_vid->text()+" ");//图像编码器
+        }
+        //========
+        if(file_isFileExist(AudioPath))
+        {
+            if(ui->lineEdit_encoder_audio->text()!="")
+            {
+                OutputVideoSettings.append("-c:a "+ui->lineEdit_encoder_audio->text()+" ");//音频编码器
+            }
+            //=========
+            if(ui->spinBox_bitrate_audio->value()>0)
+            {
+                OutputVideoSettings.append("-b:a "+QString::number(ui->spinBox_bitrate_audio->value(),10)+"k ");//音频比特率
+            }
+        }
+        //=========
+        if(ui->lineEdit_pixformat->text()!="")
+        {
+            OutputVideoSettings.append("-pix_fmt "+ui->lineEdit_pixformat->text()+" ");//pixel format
+        }
+        else
+        {
+            OutputVideoSettings.append("-pix_fmt yuv420p ");//pixel format
+        }
+        //===========
+        if(ui->lineEdit_ExCommand_output->text()!="")
+        {
+            OutputVideoSettings.append(ui->lineEdit_ExCommand_output->text().trimmed()+" ");//附加指令
+        }
+    }
+    //=========
+    else
+    {
+        OutputVideoSettings.append("-pix_fmt yuv420p ");//pixel format
+    }
+    //=======
+    return OutputVideoSettings;
 }

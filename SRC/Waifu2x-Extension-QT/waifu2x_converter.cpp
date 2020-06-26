@@ -25,66 +25,15 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    if(ui->comboBox_Engine_Image->currentIndex()==0)
-    {
-        if(DenoiseLevel==-1)
-        {
-            DenoiseLevel=0;
-        }
-        else
-        {
-            if(DenoiseLevel==0)
-            {
-                DenoiseLevel=1;
-            }
-        }
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==2)
-    {
-        if(DenoiseLevel==-1)
-        {
-            DenoiseLevel=0;
-        }
-        else
-        {
-            if(DenoiseLevel>=0&&DenoiseLevel<=2)
-            {
-                DenoiseLevel=1;
-            }
-            else
-            {
-                if(DenoiseLevel>=3&&DenoiseLevel<=6)
-                {
-                    DenoiseLevel=2;
-                }
-                else
-                {
-                    DenoiseLevel=3;
-                }
-            }
-        }
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==3)
-    {
-        DenoiseLevel=1;
-    }
-    if(ui->comboBox_Engine_Image->currentIndex()==4)
-    {
-        DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    }
-    int BlockSize = ui->spinBox_BlockSize_converter->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     //======
     if(SaveAsJPG)
     {
         SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
     }
     //======
-    bool CompressJPG = ui->checkBox_CompressJPG->checkState();
-    bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
-    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
-    bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
+    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -101,18 +50,21 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         mutex_ThreadNumRunning.unlock();//线程数量统计-1s
         return 0;
     }
+    //========= 转换到 PNG =========
+    QString SourceFile_fullPath_Original = SourceFile_fullPath;
+    SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
     //=======================================================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
     int CustRes_width=0;
-    if(CustRes_isContained(SourceFile_fullPath))
+    if(CustRes_isContained(SourceFile_fullPath_Original))
     {
         CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath_Original);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath_Original,Res_map["height"].toInt(),Res_map["width"].toInt());
         if(ScaleRatio==0)
         {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
             status = "Failed";
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
@@ -135,20 +87,10 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
     QString model_path= Waifu2x_folder_path + "/models_rgb";
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    QString DisableGPU_cmd ="";
-    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
-    QString ForceOpenCL_cmd ="";
-    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
-    //=======
-    QString TTA_cmd = " -t 0 ";
-    if(TTA_isEnabled)
-    {
-        TTA_cmd = " -t 1 ";
-    }
     //====
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -172,6 +114,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -179,6 +122,11 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     //========
     if(!file_isFileExist(OutPut_Path))
     {
+        if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+        {
+            QFile::remove(SourceFile_fullPath);
+            SourceFile_fullPath = SourceFile_fullPath_Original;
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
         status = "Failed";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -292,9 +240,14 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         }
     }
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    if(SourceFile_fullPath_Original!=SourceFile_fullPath)
+    {
+        QFile::remove(SourceFile_fullPath);
+        SourceFile_fullPath = SourceFile_fullPath_Original;
+    }
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -311,11 +264,11 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -332,8 +285,8 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
-    bool OptGIF = ui->checkBox_OptGIF->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -384,15 +337,6 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //============================== 拆分 ==========================================
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    if(file_isDirExist(SplitFramesFolderPath))
-    {
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
-    }
-    else
-    {
-        file_mkDir(SplitFramesFolderPath);
-    }
     Gif_splitGif(SourceFile_fullPath,SplitFramesFolderPath);
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -420,7 +364,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         file_mkDir(ScaledFramesFolderPath);
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -435,7 +379,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -543,7 +487,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -560,11 +504,11 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -584,10 +528,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    int BlockSize = ui->spinBox_BlockSize_converter->value();
-    bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
-    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
-    bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
     //========================================================================
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
@@ -595,10 +535,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    QString DisableGPU_cmd ="";
-    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
-    QString ForceOpenCL_cmd ="";
-    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -614,15 +550,9 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
         }
     }
     //=======
-    QString TTA_cmd = " -t 0 ";
-    if(TTA_isEnabled)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
-        TTA_cmd = " -t 1 ";
-    }
-    //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
-    {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -643,6 +573,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -665,7 +596,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -873,7 +804,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->checkState())
+    if(ui->checkBox_ShowInterPro->isChecked())
     {
         emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     }
@@ -888,7 +819,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     //===============
     for(int i = 0; i < Frame_fileName_list.size(); i++)
     {
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add();
         }
@@ -971,7 +902,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -988,7 +919,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1005,11 +936,11 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1030,7 +961,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->checkState();
+    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1230,10 +1161,6 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     //================================== 开始分段处理视频 =================================================
     int StartTime = 0;//起始时间(秒)
     int VideoDuration = video_get_duration(video_mp4_fullpath);
-    if(ui->checkBox_ShowInterPro->checkState()&&VideoDuration>SegmentDuration)
-    {
-        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
-    }
     bool isSplitComplete = false;
     bool isScaleComplete = false;
     /*
@@ -1241,6 +1168,8 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                   开始之前先读取进度
     ============================================
     */
+    int OLD_SegmentDuration=-1;
+    bool read_OLD_SegmentDuration =false;
     if(file_isFileExist(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -1249,6 +1178,31 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         StartTime = configIniRead->value("/Progress/StartTime").toInt();
         isSplitComplete = configIniRead->value("/Progress/isSplitComplete").toBool();
         isScaleComplete = configIniRead->value("/Progress/isScaleComplete").toBool();
+        OLD_SegmentDuration = configIniRead->value("/Progress/OLDSegmentDuration").toInt();
+    }
+    if(OLD_SegmentDuration>0)
+    {
+        read_OLD_SegmentDuration = true;
+    }
+    /*
+    加载进度条
+    */
+    int SegmentDuration_tmp_progressbar = 0;
+    if(read_OLD_SegmentDuration)
+    {
+        SegmentDuration_tmp_progressbar = OLD_SegmentDuration;
+    }
+    else
+    {
+        SegmentDuration_tmp_progressbar = SegmentDuration;
+    }
+    if(ui->checkBox_ShowInterPro->isChecked()&&VideoDuration>SegmentDuration_tmp_progressbar)
+    {
+        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
+        if(StartTime>0)
+        {
+            emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(StartTime);
+        }
     }
     /*
     ============================================
@@ -1269,6 +1223,11 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         else
         {
             SegmentDuration_tmp = TimeLeft_tmp;
+        }
+        if(read_OLD_SegmentDuration)
+        {
+            SegmentDuration_tmp = OLD_SegmentDuration;
+            read_OLD_SegmentDuration=false;
         }
         /*==========================
                  拆分视频片段
@@ -1311,7 +1270,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             记录进度
             帧拆分成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false,SegmentDuration_tmp);
             //============================== 放大 =======================================
             //===========建立存储放大后frame的文件夹===========
             if(isSplitComplete==false)
@@ -1329,7 +1288,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             //==========开始放大==========================
             int InterPro_total = 0;
             int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->checkState())
+            if(ui->checkBox_ShowInterPro->isChecked())
             {
                 InterPro_total = Frame_fileName_list.size();
             }
@@ -1343,7 +1302,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             //===============
             for(int i = 0; i < Frame_fileName_list.size(); i++)
             {
-                if(ui->checkBox_ShowInterPro->checkState())
+                if(ui->checkBox_ShowInterPro->isChecked())
                 {
                     InterPro_now++;
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
@@ -1405,7 +1364,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             记录进度
             帧处理成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true,SegmentDuration_tmp);
         }
         /*==========================
             组装视频片段(由帧到视频)
@@ -1432,14 +1391,14 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         /*==========================
         处理完当前片段,时间后移,记录起始时间
         ==========================*/
-        if(ui->checkBox_ShowInterPro->checkState())
+        if(ui->checkBox_ShowInterPro->isChecked())
         {
             emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(SegmentDuration_tmp);
         }
         StartTime+=SegmentDuration_tmp;
         isSplitComplete = false;
         isScaleComplete = false;
-        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false);
+        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1);
     }
     emit Send_CurrentFileProgress_Stop();
     //======================================================
@@ -1469,7 +1428,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->checkState())
+    if(!ui->checkBox_KeepVideoCache->isChecked())
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1487,7 +1446,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     //============================= 删除原文件 & 更新filelist & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->checkState())
+        if(ui->checkBox_Move2RecycleBin->isChecked())
         {
             file_MoveToTrash(SourceFile_fullPath);
         }
@@ -1504,11 +1463,11 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     }
     //========== 移动到输出路径 =========
-    if(ui->checkBox_OutPath_isEnabled->checkState())
+    if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
         QFileInfo fileinfo_final(OutPutPath_Final);
         QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName);
+        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1529,10 +1488,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    int BlockSize = ui->spinBox_BlockSize_converter->value();
-    bool DisableGPU = ui->checkBox_DisableGPU_converter->checkState();
-    bool ForceOpenCL = ui->checkBox_ForceOpenCL_converter->checkState();
-    bool TTA_isEnabled = ui->checkBox_TTA_converter->checkState();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
@@ -1541,10 +1496,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    QString DisableGPU_cmd ="";
-    if(DisableGPU)DisableGPU_cmd =" --disable-gpu ";
-    QString ForceOpenCL_cmd ="";
-    if(ForceOpenCL)ForceOpenCL_cmd =" --force-OpenCL ";
     //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
@@ -1560,15 +1511,9 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         }
     }
     //=======
-    QString TTA_cmd = " -t 0 ";
-    if(TTA_isEnabled)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
-        TTA_cmd = " -t 1 ";
-    }
-    //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()); retry++)
-    {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + " --model-dir " + "\"" + model_path + "\" --block-size "+QString::number(BlockSize, 10)+DisableGPU_cmd+ForceOpenCL_cmd+Processor_converter_STR+TTA_cmd;
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1589,12 +1534,13 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         }
         else
         {
+            if(retry==ui->spinBox_retry->value())break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
     }
     //========
-    QFile::remove(Frame_fileFullPath);
+    if(file_isFileExist(OutputPath)==true)QFile::remove(Frame_fileFullPath);
     if(file_isFileExist(OutputPath)==false)*Frame_failed=true;
     //========
     mutex_SubThreadNumRunning.lock();
@@ -1611,11 +1557,16 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
 
 void MainWindow::on_pushButton_DumpProcessorList_converter_clicked()
 {
+    //=====
+    ui->pushButton_DumpProcessorList_converter->setText(tr("Loading, please wait..."));
+    //=====
     ui->pushButton_Start->setEnabled(0);
     ui->pushButton_DetectGPU->setEnabled(0);
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
+    ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(0);
     QtConcurrent::run(this, &MainWindow::Waifu2x_DumpProcessorList_converter);
 }
 
@@ -1635,7 +1586,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter()
     while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
     QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
     Core_num = waifu2x_stdOut.count("num_core");
-    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut+"\n-------------");
+    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut.trimmed()+"\n-------------");
     //====================================================================
     //               获取到列表后, 对列表内处理器执行测试确认是否真的可用
     //====================================================================
@@ -1644,7 +1595,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter()
     Available_ProcessorList_converter.clear();
     //========
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
-    QString OutputPath = Current_Path + "/Compatibility_Test/res.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.png";
     QFile::remove(OutputPath);
     //==============
     QString model_path= Waifu2x_folder_path + "/models_rgb";
@@ -1680,7 +1631,12 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
+    ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //===========================
+    GPUIDs_List_MultiGPU_Waifu2xConverter.clear();
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->clear();
+    //===
     ui->comboBox_TargetProcessor_converter->clear();
     ui->comboBox_TargetProcessor_converter->addItem("auto");
     if(!Available_ProcessorList_converter.isEmpty())
@@ -1688,8 +1644,12 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
         for(int i=0; i<Available_ProcessorList_converter.size(); i++)
         {
             ui->comboBox_TargetProcessor_converter->addItem(Available_ProcessorList_converter.at(i));
+            AddGPU_MultiGPU_Waifu2xConverter(Available_ProcessorList_converter.at(i));
         }
     }
+    //=====
+    ui->pushButton_DumpProcessorList_converter->setText(tr("Dump processor list"));
+    //=====
     return 0;
 }
 
@@ -1703,4 +1663,188 @@ void MainWindow::on_comboBox_TargetProcessor_converter_currentIndexChanged(int i
     {
         Processor_converter_STR="";
     }
+}
+/*
+Waifu2x-Converter
+读取设定
+*/
+QString MainWindow::Waifu2xConverter_ReadSettings()
+{
+    QString Waifu2xConverter_Settings_str = " ";
+    //=====
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = Waifu2xConverter_MultiGPU();
+        //GPU ID
+        Waifu2xConverter_Settings_str.append("-p "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Waifu2xConverter_Settings_str.append("--block-size "+GPUInfo["TileSize"]+" ");
+    }
+    else
+    {
+        //==========单显卡==========
+        //Processor ID
+        if(ui->comboBox_TargetProcessor_converter->currentText()!="auto")
+        {
+            Waifu2xConverter_Settings_str.append("-p "+ui->comboBox_TargetProcessor_converter->currentText()+" ");
+        }
+        //block-size
+        Waifu2xConverter_Settings_str.append("--block-size "+QString::number(ui->spinBox_BlockSize_converter->value(), 10)+" ");
+    }
+    //model_path
+    QString model_path = Current_Path + "/waifu2x-converter/models_rgb";
+    Waifu2xConverter_Settings_str.append("--model-dir \""+model_path+"\" ");
+    //Disable GPU
+    if(ui->checkBox_DisableGPU_converter->isChecked())Waifu2xConverter_Settings_str.append("--disable-gpu ");
+    //Force OpenCL
+    if(ui->checkBox_ForceOpenCL_converter->isChecked())Waifu2xConverter_Settings_str.append("--force-OpenCL ");
+    //TTA
+    if(ui->checkBox_TTA_converter->isChecked())
+    {
+        Waifu2xConverter_Settings_str.append("-t 1 ");
+    }
+    else
+    {
+        Waifu2xConverter_Settings_str.append("-t 0 ");
+    }
+    //=======================================
+    return Waifu2xConverter_Settings_str;
+}
+
+QMap<QString,QString> MainWindow::Waifu2xConverter_MultiGPU()
+{
+    MultiGPU_QMutex_Waifu2xConverter.lock();
+    //====
+    int MAX_GPU_ID_Waifu2xConverter = GPUIDs_List_MultiGPU_Waifu2xConverter.count()-1;
+    if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
+    {
+        GPU_ID_Waifu2xConverter_MultiGPU=0;
+    }
+    //======
+    QMap<QString,QString> GPUInfo;
+    do
+    {
+        GPUInfo = GPUIDs_List_MultiGPU_Waifu2xConverter.at(GPU_ID_Waifu2xConverter_MultiGPU);
+        if(GPUInfo["isEnabled"] != "true")
+        {
+            GPU_ID_Waifu2xConverter_MultiGPU++;
+            if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
+            {
+                GPU_ID_Waifu2xConverter_MultiGPU=0;
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+    while(true);
+    //======
+    GPU_ID_Waifu2xConverter_MultiGPU++;
+    if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
+    {
+        GPU_ID_Waifu2xConverter_MultiGPU=0;
+    }
+    //======
+    MultiGPU_QMutex_Waifu2xConverter.unlock();
+    return GPUInfo;
+}
+
+void MainWindow::AddGPU_MultiGPU_Waifu2xConverter(QString GPUID)
+{
+    QMap<QString,QString> GPUInfo;
+    GPUInfo["ID"] = GPUID;
+    GPUInfo["isEnabled"] = "true";
+    GPUInfo["TileSize"] = "300";
+    GPUIDs_List_MultiGPU_Waifu2xConverter.append(GPUInfo);
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->addItem(GPUID);
+    ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->setCurrentIndex(0);
+}
+
+void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        ui->comboBox_TargetProcessor_converter->setEnabled(0);
+        ui->spinBox_BlockSize_converter->setEnabled(0);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xConverter->setEnabled(1);
+    }
+    else
+    {
+        ui->comboBox_TargetProcessor_converter->setEnabled(1);
+        ui->spinBox_BlockSize_converter->setEnabled(1);
+        ui->groupBox_GPUSettings_MultiGPU_Waifu2xConverter->setEnabled(0);
+    }
+}
+
+void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_clicked()
+{
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        if(GPUIDs_List_MultiGPU_Waifu2xConverter.count()<2)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Error"));
+            MSG->setText(tr("Insufficient number of available Processors."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(0);
+        }
+    }
+}
+
+void MainWindow::on_comboBox_GPUIDs_MultiGPU_Waifu2xConverter_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->count()==0)
+    {
+        return;
+    }
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+    ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->setChecked(GPUInfo["isEnabled"] == "true");
+    ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter->setValue(GPUInfo["TileSize"].toInt());
+}
+
+void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter_clicked()
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+    if(ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        GPUInfo["isEnabled"] = "true";
+    }
+    else
+    {
+        GPUInfo["isEnabled"] = "false";
+    }
+    GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
+    int enabledGPUs = 0;
+    for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
+    {
+        QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
+        if(GPUInfo_tmp["isEnabled"] == "true")
+        {
+            enabledGPUs++;
+        }
+    }
+    if(enabledGPUs<2)
+    {
+        QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+        GPUInfo["isEnabled"] = "true";
+        GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
+        ui->checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter->setChecked(1);
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("At least 2 Processors need to be enabled !!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
+}
+
+void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter_valueChanged(int arg1)
+{
+    QMap<QString,QString> GPUInfo=GPUIDs_List_MultiGPU_Waifu2xConverter.at(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex());
+    GPUInfo["TileSize"] = QString::number(ui->spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter->value(),10);
+    GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
 }

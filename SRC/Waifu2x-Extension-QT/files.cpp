@@ -61,7 +61,7 @@ void MainWindow::Read_urls(QList<QUrl> urls)
     emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
     foreach(QUrl url, urls)
     {
-        if(ui->checkBox_ScanSubFolders->checkState())
+        if(ui->checkBox_ScanSubFolders->isChecked())
         {
             Add_File_Folder_IncludeSubFolder(url.toLocalFile());
         }
@@ -147,7 +147,7 @@ void MainWindow::Add_File_Folder(QString Full_Path)
     }
     else
     {
-        QStringList FileNameList = getFileNames(Full_Path);//读取合法的文件名
+        QStringList FileNameList = file_getFileNames_in_Folder_nofilter(Full_Path);//读取合法的文件名
         QString Full_Path_File = "";
         if(!FileNameList.isEmpty())
         {
@@ -204,19 +204,53 @@ void MainWindow::Add_File_Folder_IncludeSubFolder(QString Full_Path)
 */
 QStringList MainWindow::getFileNames_IncludeSubFolder(QString path)
 {
+    /*
     QDir dir(path);
     QStringList files = dir.entryList(QDir::Dirs | QDir::Files | QDir::Writable, QDir::Name);
     return files;
+    */
+    QDir dir(path);
+    QStringList files_old;
+    QStringList files_new;
+    while(true)
+    {
+        files_new = dir.entryList(QDir::Dirs | QDir::Files | QDir::Writable, QDir::Name);
+        if(files_new!=files_old)
+        {
+            files_old = files_new;
+            Delay_msec_sleep(100);
+        }
+        else
+        {
+            break;
+        }
+    }
+    return files_new;
 }
 /*
-读取文件夹下的文件名(不包括子文件夹
+扫描文件夹下文件名列表(无过滤
 */
-QStringList MainWindow::getFileNames(QString path)
+QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
 {
     QDir dir(path);
-    QStringList files = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
-    return files;
+    QStringList files_old;
+    QStringList files_new;
+    while(true)
+    {
+        files_new = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
+        if(files_new!=files_old)
+        {
+            files_old = files_new;
+            Delay_msec_sleep(100);
+        }
+        else
+        {
+            break;
+        }
+    }
+    return files_new;
 }
+
 /*
 向文件列表和table添加文件
 */
@@ -368,48 +402,7 @@ bool MainWindow::file_isFileExist(QString fullFilePath)
     return false;
 }
 //===================================================================================
-/*
-复制文件
-*/
-/*
-void MainWindow::file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist)
-{
-    toDir.replace("\\", "/");
-    QDir *createfile     = new QDir;
-    bool exist = createfile->exists(toDir);
-    if (exist)
-    {
-        if(coverFileIfExist)
-        {
-            createfile->remove(toDir);
-        }
-    }//end if
-    QFile::copy(sourceDir, toDir);
-}*/
-//=======================================================================================
-/*
-扫描文件夹下文件名列表(无过滤
-*/
-QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
-{
-    QDir dir(path);
-    QStringList files_old;
-    QStringList files_new;
-    while(true)
-    {
-        files_new = dir.entryList(QDir::Files | QDir::Writable, QDir::Name);
-        if(files_new!=files_old)
-        {
-            files_old = files_new;
-            Delay_sec_sleep(2);
-        }
-        else
-        {
-            break;
-        }
-    }
-    return files_new;
-}
+
 /*
 删除文件夹
 */
@@ -486,11 +479,23 @@ void MainWindow::file_MoveToTrash( QString file )
 /*
 移动文件
 */
-void MainWindow::file_MoveFile(QString Orginal,QString Target)
+void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFilePath)
 {
+    MoveFile_QMutex.lock();
     if(file_isFileExist(Orginal))
     {
-        if(file_isFileExist(Target))
+        //判断是否要保留文件名,若要保留,则替换掉原目标路径
+        if(ui->checkBox_OutPath_KeepOriginalFileName->isChecked())
+        {
+            QFileInfo fileinfo_source(SourceFilePath);
+            QString file_name = file_getBaseName(fileinfo_source.filePath());
+            QFileInfo fileinfo_Target(Target);
+            QString file_ext = fileinfo_Target.suffix();
+            QString file_path = file_getFolderPath(fileinfo_Target);
+            Target = file_path+"/"+file_name+"."+file_ext;
+        }
+        //判断输出路径是否有和目标文件重名的 以及 是否启用了直接覆盖
+        if(file_isFileExist(Target)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
         {
             while(true)
             {
@@ -504,6 +509,10 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
                 if(!file_isFileExist(Target))break;
             }
         }
+        if(ui->checkBox_OutPath_Overwrite->isChecked()==true)
+        {
+            QFile::remove(Target);
+        }
         if(QFile::rename(Orginal,Target)==false)
         {
             emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+Orginal+tr("] to [")+Target+"]");
@@ -513,6 +522,7 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target)
     {
         emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] does not exists."));
     }
+    MoveFile_QMutex.unlock();
 }
 /*
 获取文件夹路径(去除末尾的"/")

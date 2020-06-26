@@ -24,7 +24,7 @@ Apply自定义分辨率
 */
 int MainWindow::CustRes_SetCustRes()
 {
-    if(ui->checkBox_custres_isAll->checkState())
+    if(ui->checkBox_custres_isAll->isChecked())
     {
         int row_count_image = Table_image_get_rowNum();
         int row_count_gif = Table_gif_get_rowNum();
@@ -157,7 +157,7 @@ int MainWindow::CustRes_SetCustRes()
 */
 int MainWindow::CustRes_CancelCustRes()
 {
-    if(ui->checkBox_custres_isAll->checkState())
+    if(ui->checkBox_custres_isAll->isChecked())
     {
         int row_count_image = Table_image_get_rowNum();
         int row_count_gif = Table_gif_get_rowNum();
@@ -230,7 +230,6 @@ int MainWindow::CustRes_CancelCustRes()
 
 void MainWindow::CustRes_remove(QString fullpath)
 {
-    //QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
     for(int i=0; i<Custom_resolution_list.size(); i++)
     {
         QMap<QString, QString> map_res = Custom_resolution_list.at(i);
@@ -243,7 +242,6 @@ void MainWindow::CustRes_remove(QString fullpath)
 
 bool MainWindow::CustRes_isContained(QString fullpath)
 {
-    //QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
     for(int i=0; i<Custom_resolution_list.size(); i++)
     {
         QMap<QString, QString> map_res = Custom_resolution_list.at(i);
@@ -257,7 +255,6 @@ bool MainWindow::CustRes_isContained(QString fullpath)
 
 QMap<QString, QString> MainWindow::CustRes_getResMap(QString fullpath)
 {
-    //QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
     for(int i=0; i<Custom_resolution_list.size(); i++)
     {
         QMap<QString, QString> map_res = Custom_resolution_list.at(i);
@@ -318,17 +315,4 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     {
         return ScaleRatio_width;
     }
-}
-/*
-获取 屏幕分辨率值 并设定为 自定义分辨率 的默认值
-*/
-int MainWindow::CustRes_SetToScreenRes()
-{
-    QScreen *screen=QGuiApplication::primaryScreen ();
-    QRect mm=screen->availableGeometry() ;
-    int screen_width = mm.width();
-    int screen_height = mm.height();
-    ui->spinBox_CustRes_width->setValue(screen_width);
-    ui->spinBox_CustRes_height->setValue(screen_height);
-    return 0;
 }

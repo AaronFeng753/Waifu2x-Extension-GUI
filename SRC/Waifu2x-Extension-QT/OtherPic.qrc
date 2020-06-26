@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>OtherPic/AspectRatioStrategy.jpg</file>
+    </qresource>
+</RCC>
