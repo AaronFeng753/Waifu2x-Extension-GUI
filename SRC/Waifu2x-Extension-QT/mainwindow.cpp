@@ -747,7 +747,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 {
                     QMessageBox *MSG = new QMessageBox();
                     MSG->setWindowTitle(tr("Warning"));
-                    MSG->setText(tr("Anime4K engine does NOT supports Alpha Channel."));
+                    MSG->setText(tr("Anime4K engine does NOT support Alpha Channel."));
                     MSG->setIcon(QMessageBox::Warning);
                     MSG->setModal(false);
                     MSG->show();
