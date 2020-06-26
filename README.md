@@ -23,14 +23,14 @@ Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/
 
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
-Supported Language: English, 简体中文, 日本語(機械翻訳), 繁體中文.
+Supported Languages: English, 简体中文, 日本語(機械翻訳), 繁體中文.
 
 # [🌟Download Beta Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
 The beta build has a faster update cycle than the stable build, which allows you to experience the latest features of the software in advance.
 
-⚠Beta build is more unstable than the stable build because the beta build has not been fully tested before release.
+⚠Beta build are more unstable than the stable builds because the beta builds have not been fully tested before release.
 
-Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
+Download the beta build at the releases page: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
 
 # What is Waifu2x-Extension-GUI?
 
@@ -45,13 +45,13 @@ Download the beta build at releases page: https://github.com/AaronFeng753/Waifu2
 - 🛠Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
 - 🤖Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
 - 😉Easy-to-use graphical user interface.
-- 📨Continually maintenance and updates.
+- 📨Continual maintenance and updates.
 
 ```
-Built-in image processing algorithm:
+Built-in image processing algorithms:
 Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
-Built-in image processing engine:
+Built-in image processing engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
 ```
 
@@ -115,7 +115,7 @@ We respect your privacy, so the following is the privacy policy of this software
 ```
 1. This software won't upload anything to the internet, so we won't collect any data from you, we even don't have a server.
 
-2. This sofware will only connect to the internet when check for new update and update the QRCode on the Donate tab, which will download two .ini files and two .jpg files from GitHub and Gitee.(Gitee is a copycat version of GitHub in China mainland)
+2. This sofware will only connect to the internet when check for new update and update the QRCode on the Donate tab, which will download two .ini files and two .jpg files from GitHub and Gitee. (Gitee is a copycat version of GitHub in the Chinese mainland)
 
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
