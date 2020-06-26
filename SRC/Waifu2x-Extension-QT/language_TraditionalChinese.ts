@@ -1143,7 +1143,6 @@ when processing video in segments.</source>
         <translation>可交互文件列表</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="236"/>
         <location filename="Donate.cpp" line="117"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>請捐贈以支持開發者, 您的支持是我們更新軟件的動力, 謝謝您! (｡･∀･)ﾉﾞ</translation>
@@ -1318,6 +1317,11 @@ process at the same time when processing a video.</source>
 which will determine how many video files the software
 will process at the same time.</source>
         <translation>軟件處理視頻時的線程數量,這決定了軟件將同時處理多少個視頻.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="236"/>
+        <source>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</source>
+        <translation>請捐贈以支持開發者,您的支持是我們更新軟件的動力,謝謝您! (｡･∀･)ﾉﾞ</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="296"/>
@@ -1622,11 +1626,23 @@ same time, you need to change [Image style] settings at [Home] tab.
 
 - More suitable for processing [2D Anime] images.
 
+- When using [CPU Process mode], it&apos;s very slow, so only using this
+engine when your PC is compatible with [GPU(or cuDNN) Process mode]
+is recommended.
+
+- [ Speed:★☆  Image Quality:★★★ ]</source>
+        <oldsource>Waifu2x-Caffe:
+
+- Supports [2D Anime] and [3D Real-life] image style. But not at the
+same time, you need to change [Image style] settings at [Home] tab.
+
+- More suitable for processing [2D Anime] images.
+
 - When using [CPU Process mode], it&apos;s very slow, so we recommend you
 only using this engine when your PC is compatible with [GPU(or cuDNN) 
 Process mode]
 
-- [ Speed:★☆  Image Quality:★★★ ]</source>
+- [ Speed:★☆  Image Quality:★★★ ]</oldsource>
         <translation>Waifu2x-Caffe:
 
 - 支持 [2D 動漫] 和 [3D 寫實] 圖像樣式. 但是無法同時支持這兩種圖像樣式,
@@ -1716,9 +1732,18 @@ the number of threads must &gt;= the number of GPUs.</source>
 
 - Best engine for processing [3D Real-life] images.
 
-- Much more slower then other engines.
+- Much more slower than other engines.
 
 - [ Speed:☆  Image Quality:★★★ ]</source>
+        <oldsource>RealSR-NCNN-Vulkan:
+
+- Only support [3D Real-life] image style.
+
+- Best engine for processing [3D Real-life] images.
+
+- Much more slower then other engines.
+
+- [ Speed:☆  Image Quality:★★★ ]</oldsource>
         <translation>RealSR-NCNN-Vulkan:
 
 - 僅支持 [3D 寫實] 風格的圖像.
@@ -3300,18 +3325,18 @@ Do you wanna update now???</source>
         <translation>]  放大進度:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1776"/>
+        <location filename="Anime4K.cpp" line="1777"/>
         <source>]: Platform ID:[</source>
         <translation>]: 平台 ID:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1776"/>
+        <location filename="Anime4K.cpp" line="1777"/>
         <source> Device ID:[</source>
         <translation> 設備 ID:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1780"/>
-        <location filename="waifu2x_caffe.cpp" line="1870"/>
+        <location filename="Anime4K.cpp" line="1791"/>
+        <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation>根據您的設定生成的GPUs列表</translation>
     </message>
@@ -3652,7 +3677,8 @@ Or do not have sufficient permissions to write files to the output path, you mig
     </message>
     <message>
         <location filename="mainwindow.cpp" line="750"/>
-        <source>Anime4K engine does NOT supports Alpha Channel.</source>
+        <source>Anime4K engine does NOT support Alpha Channel.</source>
+        <oldsource>Anime4K engine does NOT supports Alpha Channel.</oldsource>
         <translation>Anime4K 引擎不支持處理Alpha通道.</translation>
     </message>
     <message>
@@ -4408,12 +4434,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>至少需要啟用2個GPU！</translation>
     </message>
     <message>
-        <location filename="waifu2x_caffe.cpp" line="1866"/>
+        <location filename="waifu2x_caffe.cpp" line="1867"/>
         <source> Batch Size:[</source>
         <translation> 批尺寸:[</translation>
     </message>
     <message>
-        <location filename="waifu2x_caffe.cpp" line="1866"/>
+        <location filename="waifu2x_caffe.cpp" line="1867"/>
         <source> Split Size:[</source>
         <translation> 分割尺寸:[</translation>
     </message>

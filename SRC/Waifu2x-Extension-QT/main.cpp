@@ -39,6 +39,10 @@ Brief change log:
 - 修复bug.
 ----------------------------
 Detailed change log:
+v2.52.02-beta:
+- 更新FFmpeg&FFprobe.
+- 改进Anime4k & waifu2x-caffe多显卡配置的验证.
+- 修复英文书写错误.
 v2.52.01-beta:
 - 新特性:为Anime4k&Waifu2x-caffe引擎添加验证显卡配置的按钮.
 - 优化SRMD-ncnn-vulkan处理图像的流程,适配原生3x,4x放大.
@@ -62,7 +66,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-21-portable-Q16-x64
 - Anime4KCPP v2.1.0(release)
-- FFmpeg&FFprobe 20200623-ce297b4-win64-static
+- FFmpeg&FFprobe 20200626-7447045-win64-static
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

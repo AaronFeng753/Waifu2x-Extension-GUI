@@ -168,7 +168,6 @@ display the window, double-click to maximize the window.</source>
         <translation>寄付する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="236"/>
         <location filename="Donate.cpp" line="117"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>開発者をサポートするために寄付してください。そうすれば、このソフトウェアの更なるアップデートをもたらすことができます、ありがとう！ (｡･∀･)ﾉﾞ</translation>
@@ -413,6 +412,11 @@ It is recommended to enable this option.</source>
         <location filename="mainwindow.ui" line="1685"/>
         <source>Automatically shut down the computer after processing all files in the list.</source>
         <translation>リスト内のすべてのファイルを処理した後、コンピューターを自動的にシャットダウンします。</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="236"/>
+        <source>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</source>
+        <translation>開発者をサポートするために寄付してください。そうすれば、このソフトウェアの更なるアップデートをもたらすことができます。ありがとう！ （｡・∀・）ﾉﾞ</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="296"/>
@@ -704,11 +708,23 @@ same time, you need to change [Image style] settings at [Home] tab.
 
 - More suitable for processing [2D Anime] images.
 
+- When using [CPU Process mode], it&apos;s very slow, so only using this
+engine when your PC is compatible with [GPU(or cuDNN) Process mode]
+is recommended.
+
+- [ Speed:★☆  Image Quality:★★★ ]</source>
+        <oldsource>Waifu2x-Caffe:
+
+- Supports [2D Anime] and [3D Real-life] image style. But not at the
+same time, you need to change [Image style] settings at [Home] tab.
+
+- More suitable for processing [2D Anime] images.
+
 - When using [CPU Process mode], it&apos;s very slow, so we recommend you
 only using this engine when your PC is compatible with [GPU(or cuDNN) 
 Process mode]
 
-- [ Speed:★☆  Image Quality:★★★ ]</source>
+- [ Speed:★☆  Image Quality:★★★ ]</oldsource>
         <translation>Waifu2x-Caffe：
 
 -[2Dアニメ]および[3Dリアルライフ]画像スタイルをサポート。 しかし、
@@ -734,9 +750,18 @@ PCが[GPU（またはcuDNN）と互換性がある場合にのみ、このエン
 
 - Best engine for processing [3D Real-life] images.
 
-- Much more slower then other engines.
+- Much more slower than other engines.
 
 - [ Speed:☆  Image Quality:★★★ ]</source>
+        <oldsource>RealSR-NCNN-Vulkan:
+
+- Only support [3D Real-life] image style.
+
+- Best engine for processing [3D Real-life] images.
+
+- Much more slower then other engines.
+
+- [ Speed:☆  Image Quality:★★★ ]</oldsource>
         <translation>RealSR-NCNN-Vulkan：
 
 -[3D Real-life]画像スタイルのみをサポートします。
@@ -2964,18 +2989,18 @@ by the software will be used.</source>
         <translation>]スケールの進捗：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1776"/>
+        <location filename="Anime4K.cpp" line="1777"/>
         <source>]: Platform ID:[</source>
         <translation>]： プラットフォーム ID：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1776"/>
+        <location filename="Anime4K.cpp" line="1777"/>
         <source> Device ID:[</source>
         <translation> デバイス ID：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1780"/>
-        <location filename="waifu2x_caffe.cpp" line="1870"/>
+        <location filename="Anime4K.cpp" line="1791"/>
+        <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation>構成に応じたGPUリスト</translation>
     </message>
@@ -3445,7 +3470,8 @@ Otherwise, this software may not work properly.</source>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="750"/>
-        <source>Anime4K engine does NOT supports Alpha Channel.</source>
+        <source>Anime4K engine does NOT support Alpha Channel.</source>
+        <oldsource>Anime4K engine does NOT supports Alpha Channel.</oldsource>
         <translation>Anime4Kエンジンはアルファチャネルをサポートしていません。</translation>
     </message>
     <message>
@@ -4340,12 +4366,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>少なくとも2つのGPUを有効にする必要があります!!</translation>
     </message>
     <message>
-        <location filename="waifu2x_caffe.cpp" line="1866"/>
+        <location filename="waifu2x_caffe.cpp" line="1867"/>
         <source> Batch Size:[</source>
         <translation> バッチサイズ：[</translation>
     </message>
     <message>
-        <location filename="waifu2x_caffe.cpp" line="1866"/>
+        <location filename="waifu2x_caffe.cpp" line="1867"/>
         <source> Split Size:[</source>
         <translation> 分割サイズ：[</translation>
     </message>

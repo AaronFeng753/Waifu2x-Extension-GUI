@@ -1773,7 +1773,18 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Anime4k_clicked()
     {
         QStringList PID_DID = GPU_List.at(i).split(",");
         if(PID_DID.count()==2)
+        {
             VerRes.append("GPU ["+QString::number(i,10)+tr("]: Platform ID:[")+PID_DID.at(0).trimmed()+"]"+tr(" Device ID:[")+PID_DID.at(1).trimmed()+"]\n\n");
+        }
+        else
+        {
+            VerRes.append("Error\n\n");
+        }
+    }
+    //=====
+    if(VerRes=="")
+    {
+        VerRes="Current configuration is wrong or empty.";
     }
     //======
     QMessageBox *MSG = new QMessageBox();

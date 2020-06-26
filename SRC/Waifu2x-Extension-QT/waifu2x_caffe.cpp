@@ -1863,7 +1863,18 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked()
     {
         QStringList GPUID_BatchSize_SplitSize = GPU_List.at(i).split(",");
         if(GPUID_BatchSize_SplitSize.count()==3)
+        {
             VerRes.append("GPU ["+QString::number(i,10)+"]: ID:["+GPUID_BatchSize_SplitSize.at(0).trimmed()+"]"+tr(" Batch Size:[")+GPUID_BatchSize_SplitSize.at(1).trimmed()+"]"+tr(" Split Size:[")+GPUID_BatchSize_SplitSize.at(2).trimmed()+"]\n\n");
+        }
+        else
+        {
+            VerRes.append("Error\n\n");
+        }
+    }
+    //=====
+    if(VerRes=="")
+    {
+        VerRes="Current configuration is wrong or empty.";
     }
     //======
     QMessageBox *MSG = new QMessageBox();

@@ -233,7 +233,7 @@ padding:10px;
            </font>
           </property>
           <property name="text">
-           <string>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</string>
+           <string>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -2129,7 +2129,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>4</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -3361,9 +3361,9 @@ same time, you need to change [Image style] settings at [Home] tab.
 
 - More suitable for processing [2D Anime] images.
 
-- When using [CPU Process mode], it's very slow, so we recommend you
-only using this engine when your PC is compatible with [GPU(or cuDNN) 
-Process mode]
+- When using [CPU Process mode], it's very slow, so only using this
+engine when your PC is compatible with [GPU(or cuDNN) Process mode]
+is recommended.
 
 - [ Speed:★☆  Image Quality:★★★ ]</string>
               </attribute>
@@ -3701,7 +3701,7 @@ padding:10px;
 
 - Best engine for processing [3D Real-life] images.
 
-- Much more slower then other engines.
+- Much more slower than other engines.
 
 - [ Speed:☆  Image Quality:★★★ ]</string>
               </attribute>

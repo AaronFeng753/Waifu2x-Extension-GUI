@@ -189,9 +189,8 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="236"/>
         <location filename="Donate.cpp" line="117"/>
-        <source>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</source>
+        <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -380,10 +379,23 @@ same time, you need to change [Image style] settings at [Home] tab.
 
 - More suitable for processing [2D Anime] images.
 
-- When using [CPU Process mode], it&apos;s very slow, so only using this engine when your PC is compatible with [GPU(or cuDNN) 
-Process mode] is recommended
+- When using [CPU Process mode], it&apos;s very slow, so only using this
+engine when your PC is compatible with [GPU(or cuDNN) Process mode]
+is recommended.
 
 - [ Speed:★☆  Image Quality:★★★ ]</source>
+        <oldsource>Waifu2x-Caffe:
+
+- Supports [2D Anime] and [3D Real-life] image style. But not at the
+same time, you need to change [Image style] settings at [Home] tab.
+
+- More suitable for processing [2D Anime] images.
+
+- When using [CPU Process mode], it&apos;s very slow, so we recommend you
+only using this engine when your PC is compatible with [GPU(or cuDNN) 
+Process mode]
+
+- [ Speed:★☆  Image Quality:★★★ ]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -407,6 +419,15 @@ Process mode] is recommended
 - Much more slower than other engines.
 
 - [ Speed:☆  Image Quality:★★★ ]</source>
+        <oldsource>RealSR-NCNN-Vulkan:
+
+- Only support [3D Real-life] image style.
+
+- Best engine for processing [3D Real-life] images.
+
+- Much more slower then other engines.
+
+- [ Speed:☆  Image Quality:★★★ ]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -516,6 +537,11 @@ Will improve image quality.</source>
         <source>You can specify multiple GPUs to fully 
 utilize the capabilities of your PC.
 (If there are multiple GPUs available.)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="236"/>
+        <source>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -959,8 +985,8 @@ You can try using [Force Retry] to end the waifu2x process
 and restart it, and the entire [Scale and denoise] process 
 will not be interrupted and will continue.
 
-Only effective when using the waifu2x-ncnn-vulkan or
-waifu2x-converter engines.</oldsource>
+Only effective when using waifu2x-ncnn-vulkan engine 
+and waifu2x-converter engine.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2293,18 +2319,18 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1776"/>
+        <location filename="Anime4K.cpp" line="1777"/>
         <source>]: Platform ID:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1776"/>
+        <location filename="Anime4K.cpp" line="1777"/>
         <source> Device ID:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1780"/>
-        <location filename="waifu2x_caffe.cpp" line="1870"/>
+        <location filename="Anime4K.cpp" line="1791"/>
+        <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2554,7 +2580,8 @@ Or do not have sufficient permissions to write files to the output path, you mig
     </message>
     <message>
         <location filename="mainwindow.cpp" line="750"/>
-        <source>Anime4K engine does NOT supports Alpha Channel.</source>
+        <source>Anime4K engine does NOT support Alpha Channel.</source>
+        <oldsource>Anime4K engine does NOT supports Alpha Channel.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3303,12 +3330,12 @@ display the window, double-click to maximize the window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x_caffe.cpp" line="1866"/>
+        <location filename="waifu2x_caffe.cpp" line="1867"/>
         <source> Batch Size:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x_caffe.cpp" line="1866"/>
+        <location filename="waifu2x_caffe.cpp" line="1867"/>
         <source> Split Size:[</source>
         <translation type="unfinished"></translation>
     </message>
