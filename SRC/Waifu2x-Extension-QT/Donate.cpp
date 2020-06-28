@@ -75,8 +75,7 @@ int MainWindow::Donate_Count()
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Donate/VERSION", VERSION);
-        configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 3);
+        configIniWrite->setValue("/Donate/OpenCount_Current", 3);
         return 0;
     }
     else
@@ -89,17 +88,19 @@ int MainWindow::Donate_Count()
             QFile::remove(donate_ini);
             QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
             configIniWrite->setValue("/Donate/VERSION", VERSION);
-            configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-            configIniWrite->setValue("/Donate/OpenCount_Max", 3);
+            configIniWrite->setValue("/Donate/OpenCount_Current", 3);
             return 0;
         }
     }
     QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
     //=======  读取打开次数  ======
     int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
-    int OpenCount_Max = configIniRead->value("/Donate/OpenCount_Max").toInt();
+    int OpenCount_Max = 5;
     //===
     if(OpenCount_Current<=0)OpenCount_Current=OpenCount_Max;
+    //===
+    QFile *donate_file = new QFile(donate_ini);
+    if(donate_file->isWritable()==false)OpenCount_Current=OpenCount_Max;
     //===
     OpenCount_Current++;
     if(OpenCount_Current<OpenCount_Max)
@@ -112,7 +113,6 @@ int MainWindow::Donate_Count()
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Donate/OpenCount_Current", 1);
-        configIniWrite->setValue("/Donate/OpenCount_Max", 5);//Reset Donate count
         ui->tabWidget->setCurrentIndex(0);
         emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
         return 0;

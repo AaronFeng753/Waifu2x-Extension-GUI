@@ -34,11 +34,15 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 新特性:为Anime4k&Waifu2x-caffe引擎添加验证显卡配置的按钮.
-- 更新ImageMagick,FFmpeg&FFprobe.
+- 更新ImageMagick,FFmpeg&FFprobe,waifu2x-caffe.
 - 性能优化.
 - 修复bug.
+- 其他改进.
 ----------------------------
 Detailed change log:
+v2.52.03-beta:
+- 更新ImageMagick,waifu2x-caffe.
+- 内置cuDNN.
 v2.52.02-beta:
 - 更新FFmpeg&FFprobe.
 - 改进Anime4k & waifu2x-caffe多显卡配置的验证.
@@ -53,18 +57,18 @@ v2.52.01-beta:
 - 修复bug:Anime4k&Waifu2x-caffe引擎在启用多GPU后,因为未正常读取显卡设定而导致负载无法平均分配.
 --------------------------------------------------------------------------
 To do:
-- 多gpu支持
 - pdf格式支持
+- Linux
 ---------------------------------------------------------------------------
 Integrated component:
 - gifsicle version 1.92(release)
 - SoX 14.4.2-win32(release)
-- waifu2x-caffe 1.2.0.2(release)
+- waifu2x-caffe 1.2.0.3
 - Waifu2x-converter e7de04d
 - waifu2x-ncnn-vulkan 785328838a7e3c3429d4d4587ba0d00f50cb098f
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
-- ImageMagick 7.0.10-21-portable-Q16-x64
+- ImageMagick 7.0.10-22-portable-Q16-x64
 - Anime4KCPP v2.1.0(release)
 - FFmpeg&FFprobe 20200626-7447045-win64-static
 ---
