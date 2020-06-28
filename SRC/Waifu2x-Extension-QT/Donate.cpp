@@ -70,10 +70,11 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
 
 int MainWindow::Donate_Count()
 {
-    QString donate_ini = Current_Path+"/donate.ini";
+    QString donate_ini = Current_Path+"/StartupStatistics_Waifu2xEX";
     if(!file_isFileExist(donate_ini))
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+        configIniWrite->setValue("/Description/.", "This file will store how many times you start this software, it's not for statistic, just for software to function normally, and won't be upload to the internet in any cases.");
         configIniWrite->setValue("/Donate/VERSION", VERSION);
         configIniWrite->setValue("/Donate/OpenCount_Current", 3);
         return 0;
@@ -87,6 +88,7 @@ int MainWindow::Donate_Count()
         {
             QFile::remove(donate_ini);
             QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
+            configIniWrite->setValue("/Description/.", "This file will store how many times you start this software, it's not for statistic, just for software to function normally, and won't be upload to the internet in any cases.");
             configIniWrite->setValue("/Donate/VERSION", VERSION);
             configIniWrite->setValue("/Donate/OpenCount_Current", 3);
             return 0;
@@ -99,8 +101,14 @@ int MainWindow::Donate_Count()
     //===
     if(OpenCount_Current<=0)OpenCount_Current=OpenCount_Max;
     //===
-    QFile *donate_file = new QFile(donate_ini);
-    if(donate_file->isWritable()==false)OpenCount_Current=OpenCount_Max;
+    int qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    int DonateTestNum =qrand()%1000;
+    QSettings *configIniWrite_Test = new QSettings(donate_ini, QSettings::IniFormat);
+    configIniWrite_Test->setValue("/Donate/Test", DonateTestNum);
+    if(configIniRead->value("/Donate/Test").toInt()!=DonateTestNum)
+    {
+        OpenCount_Current=OpenCount_Max;
+    }
     //===
     OpenCount_Current++;
     if(OpenCount_Current<OpenCount_Max)

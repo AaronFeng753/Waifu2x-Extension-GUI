@@ -132,6 +132,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
             {
+                //判断用户是否暂停处理
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
@@ -146,6 +147,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
                     mutex_ThreadNumRunning.unlock();
                     return 0;
                 }
+                //读取输出判断是否出错
                 QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
                 QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
                 if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
@@ -2131,3 +2133,5 @@ void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan_valueC
     GPUInfo["TileSize"] = QString::number(ui->spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan->value(),10);
     GPUIDs_List_MultiGPU_RealsrNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex(),GPUInfo);
 }
+
+

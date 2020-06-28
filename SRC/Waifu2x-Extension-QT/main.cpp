@@ -35,11 +35,15 @@ int main(int argc, char *argv[])
 Brief change log:
 - 新特性:为Anime4k&Waifu2x-caffe引擎添加验证显卡配置的按钮.
 - 更新ImageMagick,FFmpeg&FFprobe,waifu2x-caffe.
+- 内置cuDNN.
 - 性能优化.
 - 修复bug.
 - 其他改进.
 ----------------------------
 Detailed change log:
+v2.52.04-beta:
+- 修复bug:错误的弹出捐赠提醒.
+- 修复bug:测试时遗留下来的输出语句.
 v2.52.03-beta:
 - 更新ImageMagick,waifu2x-caffe.
 - 内置cuDNN.
