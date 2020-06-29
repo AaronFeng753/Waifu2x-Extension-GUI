@@ -45,8 +45,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="791"/>
-        <location filename="mainwindow.cpp" line="980"/>
-        <location filename="mainwindow.cpp" line="1033"/>
+        <location filename="mainwindow.cpp" line="983"/>
+        <location filename="mainwindow.cpp" line="1047"/>
         <source>Hide settings</source>
         <translation>隐藏设置</translation>
     </message>
@@ -102,12 +102,12 @@
         <translation type="vanished">一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5005"/>
+        <location filename="mainwindow.ui" line="5020"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>当文件的处理状态改变时,文件列表自动滑动.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5008"/>
+        <location filename="mainwindow.ui" line="5023"/>
         <source>File list scrolls automatically</source>
         <translation>自动滑动文件列表</translation>
     </message>
@@ -116,12 +116,12 @@
         <translation type="vanished">Alpha通道图像引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5397"/>
+        <location filename="mainwindow.ui" line="5412"/>
         <source>Report issue</source>
         <translation>反馈</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5440"/>
+        <location filename="mainwindow.ui" line="5455"/>
         <source>Check update</source>
         <translation>检查更新</translation>
     </message>
@@ -130,7 +130,7 @@
         <translation type="vanished">说明文档</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5318"/>
+        <location filename="mainwindow.ui" line="5333"/>
         <source>Save settings</source>
         <translation>保存设置</translation>
     </message>
@@ -144,24 +144,24 @@
         <translation type="vanished">★ 捐赠 ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5580"/>
+        <location filename="mainwindow.ui" line="5595"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>进行兼容性测试以了解您的电脑与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5574"/>
-        <location filename="mainwindow.ui" line="5613"/>
-        <location filename="waifu2x.cpp" line="884"/>
+        <location filename="mainwindow.ui" line="5589"/>
+        <location filename="mainwindow.ui" line="5628"/>
+        <location filename="waifu2x.cpp" line="918"/>
         <source>Compatibility test</source>
         <translation>兼容性测试</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5355"/>
+        <location filename="mainwindow.ui" line="5370"/>
         <source>Reset settings</source>
         <translation>重置设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1899"/>
+        <location filename="mainwindow.ui" line="1902"/>
         <source>Engine</source>
         <translation>引擎</translation>
     </message>
@@ -184,7 +184,7 @@
         <translation type="vanished">waifu2x-ncnn-vulkan</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2158"/>
+        <location filename="mainwindow.ui" line="2161"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.
@@ -199,12 +199,12 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
 (仅在使用waifu2x-ncnn-vulkan引擎时生效.)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2164"/>
-        <location filename="mainwindow.ui" line="2360"/>
-        <location filename="mainwindow.ui" line="3184"/>
-        <location filename="mainwindow.ui" line="3260"/>
-        <location filename="mainwindow.ui" line="3746"/>
-        <location filename="mainwindow.ui" line="3808"/>
+        <location filename="mainwindow.ui" line="2167"/>
+        <location filename="mainwindow.ui" line="2363"/>
+        <location filename="mainwindow.ui" line="3190"/>
+        <location filename="mainwindow.ui" line="3266"/>
+        <location filename="mainwindow.ui" line="3755"/>
+        <location filename="mainwindow.ui" line="3817"/>
         <source>Tile size:</source>
         <translation>块大小:</translation>
     </message>
@@ -213,31 +213,31 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation type="vanished">仅在使用waifu2x-ncnn-vulkan引擎时生效. 其他引擎仅支持&quot;2D动漫&quot;图形样式.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1711"/>
-        <location filename="mainwindow.ui" line="1795"/>
+        <location filename="mainwindow.ui" line="1714"/>
+        <location filename="mainwindow.ui" line="1798"/>
         <source>2D Anime</source>
         <translation>2D动漫</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1716"/>
-        <location filename="mainwindow.ui" line="1800"/>
+        <location filename="mainwindow.ui" line="1719"/>
+        <location filename="mainwindow.ui" line="1803"/>
         <source>3D Real-life</source>
         <translation>3D写实</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2213"/>
-        <location filename="mainwindow.ui" line="2290"/>
+        <location filename="mainwindow.ui" line="2216"/>
+        <location filename="mainwindow.ui" line="2293"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</source>
         <translation>选择在启用waifu2x-ncnn-vulkan引擎时所使用的GPU.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2216"/>
-        <location filename="mainwindow.ui" line="2396"/>
-        <location filename="mainwindow.ui" line="3162"/>
-        <location filename="mainwindow.ui" line="3220"/>
-        <location filename="mainwindow.ui" line="3569"/>
-        <location filename="mainwindow.ui" line="3753"/>
-        <location filename="mainwindow.ui" line="3844"/>
+        <location filename="mainwindow.ui" line="2219"/>
+        <location filename="mainwindow.ui" line="2399"/>
+        <location filename="mainwindow.ui" line="3168"/>
+        <location filename="mainwindow.ui" line="3226"/>
+        <location filename="mainwindow.ui" line="3575"/>
+        <location filename="mainwindow.ui" line="3762"/>
+        <location filename="mainwindow.ui" line="3853"/>
         <source>GPU ID:</source>
         <translation>GPU ID:</translation>
     </message>
@@ -246,18 +246,18 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation type="vanished">图像样式:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2338"/>
-        <location filename="mainwindow.ui" line="3331"/>
-        <location filename="mainwindow.ui" line="3918"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1992"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1984"/>
+        <location filename="mainwindow.ui" line="2341"/>
+        <location filename="mainwindow.ui" line="3337"/>
+        <location filename="mainwindow.ui" line="3927"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1994"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1981"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1951"/>
         <source>Detect available GPU ID</source>
         <translation>查询可用的GPU ID</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2014"/>
-        <location filename="mainwindow.ui" line="4055"/>
+        <location filename="mainwindow.ui" line="2017"/>
+        <location filename="mainwindow.ui" line="4064"/>
         <source>GIF:</source>
         <translation>GIF:</translation>
     </message>
@@ -305,9 +305,9 @@ Anime4k  [ 速度:★★★  画质:☆ ]
 几乎看不出区别.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1925"/>
-        <location filename="mainwindow.ui" line="4030"/>
-        <location filename="mainwindow.ui" line="4636"/>
+        <location filename="mainwindow.ui" line="1928"/>
+        <location filename="mainwindow.ui" line="4039"/>
+        <location filename="mainwindow.ui" line="4651"/>
         <source>Image:</source>
         <translation>图片:</translation>
     </message>
@@ -354,8 +354,8 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="874"/>
-        <location filename="mainwindow.cpp" line="1044"/>
-        <location filename="mainwindow.cpp" line="1360"/>
+        <location filename="mainwindow.cpp" line="1058"/>
+        <location filename="mainwindow.cpp" line="1379"/>
         <source>Hide Text Browser</source>
         <translation>隐藏文本框</translation>
     </message>
@@ -368,14 +368,14 @@ When this option is enabled, alpha channel (ransparent images)support will be lo
 启用本选项时, 将无法支持处理 alpha 通道 (透明图片).</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1733"/>
+        <location filename="mainwindow.ui" line="1736"/>
         <source>Move to Recycle Bin</source>
         <translation>移动到回收站</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1948"/>
-        <location filename="mainwindow.ui" line="3964"/>
-        <location filename="mainwindow.ui" line="4613"/>
+        <location filename="mainwindow.ui" line="1951"/>
+        <location filename="mainwindow.ui" line="3973"/>
+        <location filename="mainwindow.ui" line="4628"/>
         <source>Video:</source>
         <translation>视频:</translation>
     </message>
@@ -401,7 +401,7 @@ waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
 您可以运行兼容性测试以查看您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2237"/>
+        <location filename="mainwindow.ui" line="2240"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
@@ -413,8 +413,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsou
 更小的块大小意味着waifu2x将使用更多显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2280"/>
-        <location filename="mainwindow.ui" line="3712"/>
+        <location filename="mainwindow.ui" line="2283"/>
+        <location filename="mainwindow.ui" line="3721"/>
         <source>Model:</source>
         <translation>模型:</translation>
     </message>
@@ -431,13 +431,13 @@ Only &quot;upconv_7&quot; model supports image style switching.
         <translation type="vanished">waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2538"/>
+        <location filename="mainwindow.ui" line="2541"/>
         <source>Target processor:</source>
         <translation>处理器:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2430"/>
-        <location filename="mainwindow.ui" line="2620"/>
+        <location filename="mainwindow.ui" line="2433"/>
+        <location filename="mainwindow.ui" line="2623"/>
         <source>Block size: This value will affects GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</source>
@@ -449,7 +449,7 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</oldso
 更小的块大小意味着waifu2x将使用更多显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2545"/>
+        <location filename="mainwindow.ui" line="2548"/>
         <source>Disable GPU</source>
         <translation>禁用GPU</translation>
     </message>
@@ -486,23 +486,23 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
         <translation type="vanished">waifu2x-caffe(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2435"/>
-        <location filename="mainwindow.ui" line="2457"/>
+        <location filename="mainwindow.ui" line="2438"/>
+        <location filename="mainwindow.ui" line="2460"/>
         <source>Block size:</source>
         <translation>块大小:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2528"/>
+        <location filename="mainwindow.ui" line="2531"/>
         <source>Force to use OpenCL on Intel Platform.</source>
         <translation>强制在Intel平台上启用OpenCL.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2531"/>
+        <location filename="mainwindow.ui" line="2534"/>
         <source>Force OpenCL</source>
         <translation>强制启用OpenCL</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2613"/>
+        <location filename="mainwindow.ui" line="2616"/>
         <location filename="waifu2x_converter.cpp" line="1651"/>
         <source>Dump processor list</source>
         <translation>输出处理器列表</translation>
@@ -518,7 +518,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 (文件夹)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1632"/>
+        <location filename="mainwindow.ui" line="1635"/>
         <source>When this option is enabled, the output file 
 will be moved to the path you specified. 
 Otherwise, it will be saved in the same 
@@ -529,9 +529,9 @@ folder as the source file.</source>
 与源文件相同的文件夹中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1638"/>
-        <location filename="mainwindow.ui" line="4441"/>
-        <location filename="mainwindow.ui" line="4552"/>
+        <location filename="mainwindow.ui" line="1641"/>
+        <location filename="mainwindow.ui" line="4456"/>
+        <location filename="mainwindow.ui" line="4567"/>
         <source>Enabled</source>
         <translation>启用</translation>
     </message>
@@ -541,13 +541,13 @@ folder as the source file.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="484"/>
-        <source>In some cases, the waifu2x process can get stuck.
+        <source>In some cases, the Engine process can get stuck.
 
 When you find that the [Scale and denoise] progress has 
 not changed for a long time, it is recommended that you 
 perform a forced retry to remove the stuck.
 
-You can try using [Force Retry] to end the waifu2x process 
+You can try using [Force Retry] to end the Engine process 
 and restart it, and the entire [Scale and denoise] process 
 will not be interrupted and will continue.</source>
         <oldsource>In some cases, the waifu2x process can get stuck.
@@ -558,16 +558,13 @@ perform a forced retry to remove the stuck.
 
 You can try using [Force Retry] to end the waifu2x process 
 and restart it, and the entire [Scale and denoise] process 
-will not be interrupted and will continue.
-
-Only effective when using waifu2x-ncnn-vulkan engine 
-and waifu2x-converter engine.</oldsource>
-        <translation>在某些情况下，waifu2x进程可能会卡死。
+will not be interrupted and will continue.</oldsource>
+        <translation>在某些情况下，引擎进程可能会卡死。
 
 当您发现[放大和降噪]进度长时间没有变化时，
 建议您执行强制重试以消除卡住的情况。
 
-您可以尝试使用[强制重试]结束waifu2x进程
+您可以尝试使用[强制重试]结束引擎进程
 并重新启动它，并且整个[缩放和降噪]过程
 不会被中断，仍将继续。</translation>
     </message>
@@ -620,24 +617,24 @@ resolution in the Additional settings.</source>
         <translation>输出路径必须指向一个文件夹.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1623"/>
+        <location filename="mainwindow.ui" line="1626"/>
         <source>Keep original file name</source>
         <translation>保留原文件名</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1645"/>
+        <location filename="mainwindow.ui" line="1648"/>
         <source>When this option is enabled, the output file will
 replace the file with the same name as the output
 file that exists in the output path.</source>
         <translation>当启用本选项时,输出文件会直接替换掉输出路径内的同名文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1650"/>
+        <location filename="mainwindow.ui" line="1653"/>
         <source>Overwrite</source>
         <translation>直接覆盖</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1727"/>
+        <location filename="mainwindow.ui" line="1730"/>
         <source>Move original files to recycle bin 
 when [Delete original files] is enabled.
 (Only works when the recycle bin for the drive 
@@ -647,7 +644,7 @@ where the file is located is enabled)</source>
 (只有当文件所在盘符启用回收站时才有效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2033"/>
+        <location filename="mainwindow.ui" line="2036"/>
         <source>Select the engine for processing Image. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -670,7 +667,7 @@ Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]
 ★Anime4K引擎不支持处理Alpha通道.★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2139"/>
+        <location filename="mainwindow.ui" line="2142"/>
         <source>Waifu2x-NCNN-Vulkan:
 
 - Supports [2D Anime] and [3D Real-life] image style. But not at the
@@ -689,7 +686,7 @@ same time, you need to change [Image style] settings at [Home] tab.
 - [ 速度:★★  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2420"/>
+        <location filename="mainwindow.ui" line="2423"/>
         <source>Waifu2x-Converter:
 
 - Only supports [2D Anime] image style.
@@ -702,7 +699,7 @@ same time, you need to change [Image style] settings at [Home] tab.
 - [ 速度:★☆  画质:★★☆ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2552"/>
+        <location filename="mainwindow.ui" line="2555"/>
         <source>1.You need at least 2 available processors.
 
 2.If you wanna get all processors running together,
@@ -717,7 +714,7 @@ the number of threads must &gt;= the number of processors.
 3.您需要先 [输出处理器列表].</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2969"/>
+        <location filename="mainwindow.ui" line="2972"/>
         <source>You can specify multiple GPUs to fully 
 utilize the capabilities of your PC.
 (If there are multiple GPUs available.)</source>
@@ -725,12 +722,12 @@ utilize the capabilities of your PC.
 (如果有多个显卡可用的话.)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2974"/>
+        <location filename="mainwindow.ui" line="2977"/>
         <source>Specify GPUs</source>
         <translation>指定显卡</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3038"/>
+        <location filename="mainwindow.ui" line="3041"/>
         <source>Format: Platform ID,Device ID:
 
 Example: 0,0:0,1:1,0:
@@ -749,19 +746,19 @@ the number of threads must &gt;= the number of GPUs.</source>
 那么线程数量必须大于等于可用显卡数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3058"/>
-        <location filename="mainwindow.ui" line="3654"/>
+        <location filename="mainwindow.ui" line="3064"/>
+        <location filename="mainwindow.ui" line="3663"/>
         <source>Verify your GPUs configuration.</source>
         <translation>验证您的GPUs设定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3091"/>
-        <location filename="mainwindow.ui" line="3687"/>
+        <location filename="mainwindow.ui" line="3097"/>
+        <location filename="mainwindow.ui" line="3696"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3150"/>
+        <location filename="mainwindow.ui" line="3156"/>
         <source>SRMD-NCNN-Vulkan:
 
 - Supports [2D Anime] and [3D Real-life] image style at the same time.
@@ -778,7 +775,7 @@ the number of threads must &gt;= the number of GPUs.</source>
 - [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2645"/>
+        <location filename="mainwindow.ui" line="2648"/>
         <source>Anime4K:
 
 - Only supports [2D Anime] image style.
@@ -799,7 +796,7 @@ the number of threads must &gt;= the number of GPUs.</source>
 - [ 速度:★★★  画质:★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3357"/>
+        <location filename="mainwindow.ui" line="3363"/>
         <source>Waifu2x-Caffe:
 
 - Supports [2D Anime] and [3D Real-life] image style. But not at the
@@ -841,7 +838,7 @@ Process mode]
         <translation type="vanished">Realsr-ncnn-vulkan(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3698"/>
+        <location filename="mainwindow.ui" line="3707"/>
         <source>RealSR-NCNN-Vulkan:
 
 - Only support [3D Real-life] image style.
@@ -871,7 +868,7 @@ Process mode]
 - [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3864"/>
+        <location filename="mainwindow.ui" line="3873"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means Realsr will use more GPU memory and run faster.
 Smaller tile size means Realsr will use less GPU memory and run slower.</source>
@@ -880,22 +877,22 @@ Smaller tile size means Realsr will use less GPU memory and run slower.</source>
 更小的块大小意味着Realsr将使用更多显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3720"/>
+        <location filename="mainwindow.ui" line="3729"/>
         <source>models-DF2K_JPEG(Supports denoise)</source>
         <translation>models-DF2K_JPEG(支持降噪)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3725"/>
+        <location filename="mainwindow.ui" line="3734"/>
         <source>models-DF2K(Does NOT supports denoise)</source>
         <translation>models-DF2K(不支持降噪)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3763"/>
+        <location filename="mainwindow.ui" line="3772"/>
         <source>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</source>
         <translation>选择在启用 &quot;Realsr-ncnn-vulkan&quot; 引擎时使用的显卡.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2085"/>
+        <location filename="mainwindow.ui" line="2088"/>
         <source>Select the engine for processing GIF. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -914,7 +911,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1961"/>
+        <location filename="mainwindow.ui" line="1964"/>
         <source>Select the engine for processing Video. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -933,36 +930,36 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3992"/>
+        <location filename="mainwindow.ui" line="4001"/>
         <source>The number of threads that the software processes video frames,
 which will determine how many video frames the software will
 process at the same time when processing a video.</source>
         <translation>软件处理视频帧时将启用的线程数量,将决定软件处理一个视频时,将同时处理多少个帧画面.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3959"/>
+        <location filename="mainwindow.ui" line="3968"/>
         <source>The number of threads that the software processes video,
 which will determine how many video files the software
 will process at the same time.</source>
         <translation>软件处理视频时的线程数量,这决定了软件将同时处理多少个视频.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3971"/>
-        <location filename="mainwindow.ui" line="4019"/>
+        <location filename="mainwindow.ui" line="3980"/>
+        <location filename="mainwindow.ui" line="4028"/>
         <source>The number of threads that the software processes pictures,
 which will determine how many pictures the software will
 process at the same time.</source>
         <translation>软件处理图片时的线程数量,这决定了软件将同时处理多少个图片.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4050"/>
+        <location filename="mainwindow.ui" line="4059"/>
         <source>The number of threads that the software processes GIF,
 which will determine how many GIF files the software
 will process at the same time.</source>
         <translation>软件处理GIF时的线程数量,这决定了软件将同时处理多少个GIF.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4062"/>
+        <location filename="mainwindow.ui" line="4071"/>
         <source>The number of threads that the software processes GIF frames,
 which will determine how many GIF frames the software will
 process at the same time when processing a GIF.</source>
@@ -1033,7 +1030,7 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
         <translation type="vanished">旧版本</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2193"/>
+        <location filename="mainwindow.ui" line="2196"/>
         <source>We recommend you use the default &quot;upconv_7&quot; model.
 Only &quot;upconv_7&quot; model supports image style switching.
 &quot;cunet&quot; model only supports 2D anime image style, 
@@ -1044,8 +1041,8 @@ and it&apos;s much more slower than &quot;upconv_7&quot; model.</source>
 并且他比 &quot;upconv_7&quot; 模型处理速度慢得多.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1701"/>
-        <location filename="mainwindow.ui" line="1749"/>
+        <location filename="mainwindow.ui" line="1704"/>
+        <location filename="mainwindow.ui" line="1752"/>
         <source>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
@@ -1059,10 +1056,10 @@ Realsr-ncnn-vulkan 仅支持3D写实图像样式.
 SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2567"/>
-        <location filename="mainwindow.ui" line="3267"/>
-        <location filename="mainwindow.ui" line="3422"/>
-        <location filename="mainwindow.ui" line="3733"/>
+        <location filename="mainwindow.ui" line="2570"/>
+        <location filename="mainwindow.ui" line="3273"/>
+        <location filename="mainwindow.ui" line="3428"/>
+        <location filename="mainwindow.ui" line="3742"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -1092,13 +1089,13 @@ you can try to enable the older version of the engine.</source>
         <translation type="vanished">srmd-ncnn-vulkan</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3240"/>
+        <location filename="mainwindow.ui" line="3246"/>
         <source>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</source>
         <translation>选择在使用 &quot;srmd-ncnn-vulkan&quot; 引擎时要启用的GPU.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3255"/>
-        <location filename="mainwindow.ui" line="3280"/>
+        <location filename="mainwindow.ui" line="3261"/>
+        <location filename="mainwindow.ui" line="3286"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means SRMD will use more GPU memory and run faster.
 Smaller tile size means SRMD will use less GPU memory and run slower.</source>
@@ -1110,7 +1107,7 @@ Smaller tile size means SRMD will use less GPU memory and run slower.</oldsource
 更小的块大小意味着SRMD将使用更少的显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2223"/>
+        <location filename="mainwindow.ui" line="2226"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -1132,7 +1129,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">★★ 捐赠 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5522"/>
+        <location filename="mainwindow.ui" line="5537"/>
         <source>Wiki</source>
         <translation>使用教程</translation>
     </message>
@@ -1146,8 +1143,8 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation>PayPal</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4729"/>
-        <location filename="mainwindow.ui" line="4807"/>
+        <location filename="mainwindow.ui" line="4744"/>
+        <location filename="mainwindow.ui" line="4822"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1163,17 +1160,17 @@ when processing video in segments.</source>
         <translation type="vanished">一直隐藏路径设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4961"/>
+        <location filename="mainwindow.ui" line="4976"/>
         <source>Scan sub-folders</source>
         <translation>扫描子文件夹</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4797"/>
+        <location filename="mainwindow.ui" line="4812"/>
         <source>Interactive file list</source>
         <translation>可交互文件列表</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="117"/>
+        <location filename="Donate.cpp" line="125"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>请捐赠以支持开发者, 您的支持是我们更新软件的动力, 谢谢您! (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -1194,12 +1191,12 @@ into a directory that can run normally without administrator rights.</oldsource>
 新安装到可以在没有管理员权限的情况下也可以正常运行的目录中。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1755"/>
+        <location filename="mainwindow.ui" line="1758"/>
         <source>Image Style(waifu2x-ncnn-vulkan):</source>
         <translation>图像样式(waifu2x-ncnn-vulkan):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1820"/>
+        <location filename="mainwindow.ui" line="1823"/>
         <location filename="Current_File_Progress.cpp" line="28"/>
         <source>Current File:</source>
         <translation>当前文件:</translation>
@@ -1222,7 +1219,7 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 您可以通过运行兼容性测试来知悉哪些引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2205"/>
+        <location filename="mainwindow.ui" line="2208"/>
         <source>cunet(Only support 2D Anime)</source>
         <translation>cunet(仅支持2D动漫)</translation>
     </message>
@@ -1231,8 +1228,8 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
         <translation type="vanished">Waifu2x-Caffe(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3466"/>
-        <location filename="mainwindow.ui" line="3492"/>
+        <location filename="mainwindow.ui" line="3472"/>
+        <location filename="mainwindow.ui" line="3498"/>
         <source>Split size: This value will affects GPU memory usage.
 Larger Split size means waifu2x will use more GPU memory and run faster.
 Smaller Split size means waifu2x will use less GPU memory and run slower.</source>
@@ -1244,50 +1241,50 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</oldso
 更小的分割尺寸意味着waifu2x将使用更少的显存且运行更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3485"/>
+        <location filename="mainwindow.ui" line="3491"/>
         <source>Process mode:</source>
         <translation>处理模式:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3478"/>
+        <location filename="mainwindow.ui" line="3484"/>
         <source>2D Anime Model:</source>
         <translation>2D动漫模型:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3374"/>
+        <location filename="mainwindow.ui" line="3380"/>
         <source>Model for processing 2D Anime style image.</source>
         <translation>处理2D动漫风格图像时使用的模型.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3549"/>
+        <location filename="mainwindow.ui" line="3555"/>
         <source>Model for processing 3D Real-life style image.</source>
         <translation>处理3D写实风格图像时使用的引擎.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3556"/>
+        <location filename="mainwindow.ui" line="3562"/>
         <source>upconv_7_photo</source>
         <translation>upconv_7_photo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3561"/>
+        <location filename="mainwindow.ui" line="3567"/>
         <source>photo</source>
         <translation>photo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3471"/>
+        <location filename="mainwindow.ui" line="3477"/>
         <source>Split size:</source>
         <translation>分割尺寸:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3455"/>
-        <location filename="mainwindow.ui" line="3535"/>
+        <location filename="mainwindow.ui" line="3461"/>
+        <location filename="mainwindow.ui" line="3541"/>
         <source>The batch size defines the number of samples that 
 will be propagated through the network.</source>
         <translation>批尺寸定义了将通过网络传播的样本数量.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="558"/>
-        <location filename="mainwindow.ui" line="1833"/>
+        <location filename="mainwindow.ui" line="1836"/>
         <source>Finished/Total</source>
         <translation>已完成/总数</translation>
     </message>
@@ -1297,8 +1294,8 @@ will be propagated through the network.</source>
         <translation>列表中的文件数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1775"/>
-        <location filename="mainwindow.ui" line="1788"/>
+        <location filename="mainwindow.ui" line="1778"/>
+        <location filename="mainwindow.ui" line="1791"/>
         <source>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
@@ -1335,24 +1332,24 @@ Anime4K引擎不支持处理Alpha通道.</translation>
         <translation type="vanished">realsr-ncnn-vulkan(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2175"/>
+        <location filename="mainwindow.ui" line="2178"/>
         <source>Latest(Only this version supports alpha channel)</source>
         <translation>最新版(只有这个版本支持处理Alpha通道)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2180"/>
+        <location filename="mainwindow.ui" line="2183"/>
         <source>20200414(fp16p)</source>
         <translation>20200414(fp16p)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2185"/>
+        <location filename="mainwindow.ui" line="2188"/>
         <source>Old</source>
         <translation>旧版本</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2265"/>
-        <location filename="mainwindow.ui" line="3338"/>
-        <location filename="mainwindow.ui" line="3778"/>
+        <location filename="mainwindow.ui" line="2268"/>
+        <location filename="mainwindow.ui" line="3344"/>
+        <location filename="mainwindow.ui" line="3787"/>
         <source>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
@@ -1371,26 +1368,26 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
 3.您需要先[查询可用的GPU ID].</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2273"/>
-        <location filename="mainwindow.ui" line="3346"/>
-        <location filename="mainwindow.ui" line="3786"/>
+        <location filename="mainwindow.ui" line="2276"/>
+        <location filename="mainwindow.ui" line="3352"/>
+        <location filename="mainwindow.ui" line="3795"/>
         <source>Enable Multi-GPU</source>
         <translation>启用多显卡</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2354"/>
-        <location filename="mainwindow.ui" line="3178"/>
-        <location filename="mainwindow.ui" line="3802"/>
+        <location filename="mainwindow.ui" line="2357"/>
+        <location filename="mainwindow.ui" line="3184"/>
+        <location filename="mainwindow.ui" line="3811"/>
         <source>GPU Settings(Multi-GPU)</source>
         <translation>GPU设定(多显卡)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2451"/>
+        <location filename="mainwindow.ui" line="2454"/>
         <source>Processor Settings(Multi-Processor)</source>
         <translation>处理器设定(多处理器)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2493"/>
+        <location filename="mainwindow.ui" line="2496"/>
         <source>Processor ID:</source>
         <translation>处理器 ID:</translation>
     </message>
@@ -1405,50 +1402,50 @@ the number of threads must &gt;= the number of processors.</source>
 那么线程数量必须大于等于处理器数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2560"/>
+        <location filename="mainwindow.ui" line="2563"/>
         <source>Enable Multi-Processor</source>
         <translation>启用多处理器</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2986"/>
+        <location filename="mainwindow.ui" line="2989"/>
         <source>Enable ACNet.
 Will improve image quality.</source>
         <translation>启用ACNet以改善画质.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3000"/>
+        <location filename="mainwindow.ui" line="3003"/>
         <source>Enable HDN mode for ACNet.
 Will improve image quality.</source>
         <translation>启用ACNet算法的HDN模式.
 可改善画质.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3004"/>
+        <location filename="mainwindow.ui" line="3007"/>
         <source>HDN mode</source>
         <translation>HDN模式</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3459"/>
+        <location filename="mainwindow.ui" line="3465"/>
         <source>Batch size:</source>
         <translation>批尺寸:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3448"/>
+        <location filename="mainwindow.ui" line="3454"/>
         <source>3D Real-life Model:</source>
         <translation>3D写实模型:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3435"/>
+        <location filename="mainwindow.ui" line="3441"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-caffe&quot; engine.</source>
         <translation>选择启用“ waifu2x-caffe”引擎时要使用的GPU。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3607"/>
+        <location filename="mainwindow.ui" line="3613"/>
         <source>Decrease split size.</source>
         <translation>减少分割尺寸.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3525"/>
+        <location filename="mainwindow.ui" line="3531"/>
         <source>Increase split size.</source>
         <translation>增加分割尺寸.</translation>
     </message>
@@ -1458,18 +1455,18 @@ Will improve image quality.</source>
         <translation>请捐赠以支持开发者,您的支持是我们更新软件的动力,谢谢您! (｡･∀･)ﾉﾞ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3620"/>
+        <location filename="mainwindow.ui" line="3626"/>
         <source>You need to switch [Process mode] to
 [GPU] or [cuDNN] to enable Multi-GPU.</source>
         <translation>您需要将 [处理模式] 切换到 [GPU] 或者 [cuDNN] 以启用 多显卡.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3624"/>
+        <location filename="mainwindow.ui" line="3630"/>
         <source>Multi-GPU:</source>
         <translation>多显卡:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3634"/>
+        <location filename="mainwindow.ui" line="3640"/>
         <source>Format: GPU ID,Batch size,Split size:
 
 Example: 0,1,128:1,2,64:2,1,128:
@@ -1488,28 +1485,28 @@ the number of threads must &gt;= the number of GPUs.</source>
 那么线程数量必须大于等于可用显卡数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4167"/>
-        <location filename="mainwindow.ui" line="4275"/>
-        <location filename="mainwindow.ui" line="4357"/>
-        <location filename="mainwindow.ui" line="4404"/>
+        <location filename="mainwindow.ui" line="4176"/>
+        <location filename="mainwindow.ui" line="4287"/>
+        <location filename="mainwindow.ui" line="4372"/>
+        <location filename="mainwindow.ui" line="4419"/>
         <source>If you set it to 0, software will use auto settings.</source>
         <translation>如果您将本项设定到 0, 软件将自动生成设定参数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4186"/>
-        <location filename="mainwindow.ui" line="4320"/>
+        <location filename="mainwindow.ui" line="4195"/>
+        <location filename="mainwindow.ui" line="4332"/>
         <source>You can enter ffmpeg instructions here.</source>
         <translation>您可以在此处键入FFmpeg指令.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4196"/>
-        <location filename="mainwindow.ui" line="4241"/>
-        <location filename="mainwindow.ui" line="4258"/>
+        <location filename="mainwindow.ui" line="4208"/>
+        <location filename="mainwindow.ui" line="4253"/>
+        <location filename="mainwindow.ui" line="4270"/>
         <source>If you leave it empty, software will use auto settings.</source>
         <translation>如果您将本项留空,那么软件将自动生成设定参数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4695"/>
+        <location filename="mainwindow.ui" line="4710"/>
         <source>Convert every image to PNG before processing it.
 Enabling this option will improve compatibility. However, it will
 increase the time and storage space required to process image.</source>
@@ -1517,42 +1514,42 @@ increase the time and storage space required to process image.</source>
 启用本选项将改善兼容性. 但是这将增加处理图片时占用的时间和磁盘空间.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4700"/>
+        <location filename="mainwindow.ui" line="4715"/>
         <source>Pre-process Image</source>
         <translation>预处理图片</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5024"/>
+        <location filename="mainwindow.ui" line="5039"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation>当检测到更新时弹窗提示.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5042"/>
+        <location filename="mainwindow.ui" line="5057"/>
         <source>Update channel:</source>
         <translation>更新通道:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5053"/>
+        <location filename="mainwindow.ui" line="5068"/>
         <source>Stable</source>
         <translation>稳定版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5058"/>
+        <location filename="mainwindow.ui" line="5073"/>
         <source>Beta</source>
         <translation>测试版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4819"/>
+        <location filename="mainwindow.ui" line="4834"/>
         <source>Minimize to taskbar</source>
         <translation>最小化到任务栏</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5171"/>
+        <location filename="mainwindow.ui" line="5186"/>
         <source>Enable Custom Font Settings.</source>
         <translation>启用自定义字体设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5200"/>
+        <location filename="mainwindow.ui" line="5215"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.
 
@@ -1562,22 +1559,22 @@ automatically force the picture to be saved as PNG.
 ★Anime4K 引擎不支持处理Alpha通道.★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5219"/>
+        <location filename="mainwindow.ui" line="5234"/>
         <source>Compress JPG files.</source>
         <translation>压缩 JPG 文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5482"/>
+        <location filename="mainwindow.ui" line="5497"/>
         <source>Official website</source>
         <translation>访问官网</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5489"/>
+        <location filename="mainwindow.ui" line="5504"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation>打开Waifu2x-Extension-GUI的在线使用说明.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5657"/>
+        <location filename="mainwindow.ui" line="5672"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -1600,7 +1597,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5776"/>
+        <location filename="mainwindow.ui" line="5791"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan(最新版)</translation>
     </message>
@@ -1655,39 +1652,39 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 您可以运行兼容性测试以知悉您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4098"/>
+        <location filename="mainwindow.ui" line="4107"/>
         <source>Video settings</source>
         <translation>视频设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4161"/>
+        <location filename="mainwindow.ui" line="4170"/>
         <source>Output video</source>
         <translation>输出视频</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4314"/>
+        <location filename="mainwindow.ui" line="4326"/>
         <source>When convert video to mp4</source>
         <translation>当转换视频到mp4时</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4753"/>
-        <location filename="mainwindow.ui" line="4995"/>
+        <location filename="mainwindow.ui" line="4768"/>
+        <location filename="mainwindow.ui" line="5010"/>
         <source>The number of retries when failed to processing a image (or frame).</source>
         <translation>当处理一个图片(或帧)失败时重试的次数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4998"/>
+        <location filename="mainwindow.ui" line="5013"/>
         <source>Retry:</source>
         <translation>重试:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4957"/>
+        <location filename="mainwindow.ui" line="4972"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation>当向文件列表内添加文件夹时,扫描子文件夹内的文件并一同加入文件列表中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4894"/>
+        <location filename="mainwindow.ui" line="4909"/>
         <source>Keep video cache after processing the video.</source>
         <translation>处理完视频后保存缓存.</translation>
     </message>
@@ -1696,14 +1693,14 @@ the subfolder and add them to the file list.</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;压缩 &lt;span style=&quot; font-weight:600;&quot;&gt;JPG&lt;/span&gt; 图片, 近乎无损.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5240"/>
+        <location filename="mainwindow.ui" line="5255"/>
         <source>0(worst quality)~99
 We recommend you use the default value(95)</source>
         <translation>0(画质最差)~99
 我们建议您使用默认值(95)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5190"/>
+        <location filename="mainwindow.ui" line="5205"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;将放大后的图片保存为 &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;默认将图片保存为 &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; 格式.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1718,7 +1715,7 @@ waifu2x-converter引擎来处理图片并强制将图片另存为PNG。
 在启用此选项之前，请先确保waifu2x-converter引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5206"/>
+        <location filename="mainwindow.ui" line="5221"/>
         <source>Auto detect Alpha channel</source>
         <translation>自动检测Alpha通道</translation>
     </message>
@@ -1752,12 +1749,12 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 waifu2x-caffe  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5802"/>
+        <location filename="mainwindow.ui" line="5817"/>
         <source>Engines:</source>
         <translation>引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5937"/>
+        <location filename="mainwindow.ui" line="5952"/>
         <source>Plugins:</source>
         <translation>插件:</translation>
     </message>
@@ -1785,17 +1782,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
         <translation type="vanished">Anime4K</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2909"/>
+        <location filename="mainwindow.ui" line="2912"/>
         <source>Strength for pushing gradient,range 0 to 1,higher for sharper.</source>
         <translation>处理强度,范围为0~1,值越高画面越锐利.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2912"/>
+        <location filename="mainwindow.ui" line="2915"/>
         <source>Push gradient strength:</source>
         <translation>处理强度:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2840"/>
+        <location filename="mainwindow.ui" line="2843"/>
         <source>Passes for processing.</source>
         <translation>处理次数.</translation>
     </message>
@@ -1828,12 +1825,12 @@ Waifu2x-converter 和 Anime4k 仅支持2D动漫图像样式.
 SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1781"/>
+        <location filename="mainwindow.ui" line="1784"/>
         <source>Image Style(waifu2x-caffe):</source>
         <translation>图像样式(waifu2x-caffe):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1887"/>
+        <location filename="mainwindow.ui" line="1890"/>
         <source>Engine settings</source>
         <translation>引擎设置</translation>
     </message>
@@ -1846,8 +1843,8 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5921"/>
-        <location filename="mainwindow.ui" line="5944"/>
+        <location filename="mainwindow.ui" line="5936"/>
+        <location filename="mainwindow.ui" line="5959"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>用于处理视频.</translation>
@@ -1873,23 +1870,23 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">设备ID:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2843"/>
+        <location filename="mainwindow.ui" line="2846"/>
         <source>Passes:</source>
         <translation>处理次数:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3137"/>
-        <location filename="Anime4K.cpp" line="1746"/>
+        <location filename="mainwindow.ui" line="3143"/>
+        <location filename="Anime4K.cpp" line="1749"/>
         <source>List GPUs</source>
         <translation>列出GPU</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2863"/>
+        <location filename="mainwindow.ui" line="2866"/>
         <source>Limit the number of color pushes.</source>
         <translation>限制边缘细化次数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2866"/>
+        <location filename="mainwindow.ui" line="2869"/>
         <source>Push color count:</source>
         <translation>边缘细化次数:</translation>
     </message>
@@ -1898,12 +1895,12 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">指定GPU</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2886"/>
+        <location filename="mainwindow.ui" line="2889"/>
         <source>Strength for pushing color,range 0 to 1,higher for thinner.</source>
         <translation>边缘细化强度,范围为0~1,值越高细化强度越高.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2889"/>
+        <location filename="mainwindow.ui" line="2892"/>
         <source>Push color strength:</source>
         <translation>边缘细化强度:</translation>
     </message>
@@ -1923,10 +1920,10 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 您可以通过运行兼容性测试来知悉哪些引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4603"/>
-        <location filename="mainwindow.ui" line="4626"/>
-        <location filename="mainwindow.ui" line="4652"/>
-        <location filename="mainwindow.ui" line="4678"/>
+        <location filename="mainwindow.ui" line="4618"/>
+        <location filename="mainwindow.ui" line="4641"/>
+        <location filename="mainwindow.ui" line="4667"/>
+        <location filename="mainwindow.ui" line="4693"/>
         <source>When you find that the file format you want to process cannot 
 be added to the file list, you can add the file extension yourself 
 in the additional settings.
@@ -1943,7 +1940,7 @@ be processed successfully)</source>
 (无法保证一定能成功处理您自行添加的文件格式)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5623"/>
+        <location filename="mainwindow.ui" line="5638"/>
         <source>Compatibility test results</source>
         <translation>兼容性测试结果</translation>
     </message>
@@ -1974,7 +1971,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5679"/>
+        <location filename="mainwindow.ui" line="5694"/>
         <source>For audio denoise(video).</source>
         <translation>用于给音频降噪(视频).</translation>
     </message>
@@ -1997,7 +1994,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5833"/>
+        <location filename="mainwindow.ui" line="5848"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(旧版本)</translation>
     </message>
@@ -2006,17 +2003,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5695"/>
-        <location filename="mainwindow.ui" line="5716"/>
+        <location filename="mainwindow.ui" line="5710"/>
         <location filename="mainwindow.ui" line="5731"/>
-        <location filename="mainwindow.ui" line="5747"/>
-        <location filename="mainwindow.ui" line="5768"/>
-        <location filename="mainwindow.ui" line="5809"/>
-        <location filename="mainwindow.ui" line="5825"/>
-        <location filename="mainwindow.ui" line="5862"/>
-        <location filename="mainwindow.ui" line="5896"/>
+        <location filename="mainwindow.ui" line="5746"/>
+        <location filename="mainwindow.ui" line="5762"/>
+        <location filename="mainwindow.ui" line="5783"/>
+        <location filename="mainwindow.ui" line="5824"/>
+        <location filename="mainwindow.ui" line="5840"/>
+        <location filename="mainwindow.ui" line="5877"/>
         <location filename="mainwindow.ui" line="5911"/>
-        <location filename="mainwindow.ui" line="5954"/>
+        <location filename="mainwindow.ui" line="5926"/>
+        <location filename="mainwindow.ui" line="5969"/>
         <source>Image processing engine.</source>
         <translation>图像处理引擎。</translation>
     </message>
@@ -2045,8 +2042,8 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5840"/>
-        <location filename="mainwindow.ui" line="5880"/>
+        <location filename="mainwindow.ui" line="5855"/>
+        <location filename="mainwindow.ui" line="5895"/>
         <source>For processing GIF.</source>
         <translation>用于处理GIF。</translation>
     </message>
@@ -2063,7 +2060,7 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5629"/>
+        <location filename="mainwindow.ui" line="5644"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>至关重要，用于实现各种功能。</translation>
     </message>
@@ -2076,53 +2073,53 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">Waifu2x-ncnn-vulkan(新版本)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3014"/>
+        <location filename="mainwindow.ui" line="3017"/>
         <source>Faster but maybe low quality.</source>
         <translation>速度更快但是画质更低.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3017"/>
+        <location filename="mainwindow.ui" line="3020"/>
         <source>Fast mode</source>
         <translation>快速模式</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2667"/>
+        <location filename="mainwindow.ui" line="2670"/>
         <source>Pre-processing</source>
         <translation>预处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2718"/>
-        <location filename="mainwindow.ui" line="2799"/>
+        <location filename="mainwindow.ui" line="2721"/>
+        <location filename="mainwindow.ui" line="2802"/>
         <source>Bilateral filter</source>
         <translation>双边滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2711"/>
-        <location filename="mainwindow.ui" line="2792"/>
+        <location filename="mainwindow.ui" line="2714"/>
+        <location filename="mainwindow.ui" line="2795"/>
         <source>Gaussian blur</source>
         <translation>高斯模糊</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2694"/>
-        <location filename="mainwindow.ui" line="2809"/>
+        <location filename="mainwindow.ui" line="2697"/>
+        <location filename="mainwindow.ui" line="2812"/>
         <source>Gaussian blur weak</source>
         <translation>高斯模糊(弱)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2680"/>
-        <location filename="mainwindow.ui" line="2775"/>
+        <location filename="mainwindow.ui" line="2683"/>
+        <location filename="mainwindow.ui" line="2778"/>
         <source>Mean blur</source>
         <translation>均值滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2725"/>
-        <location filename="mainwindow.ui" line="2819"/>
+        <location filename="mainwindow.ui" line="2728"/>
+        <location filename="mainwindow.ui" line="2822"/>
         <source>Bilateral filter faster</source>
         <translation>快速双边滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2701"/>
-        <location filename="mainwindow.ui" line="2782"/>
+        <location filename="mainwindow.ui" line="2704"/>
+        <location filename="mainwindow.ui" line="2785"/>
         <source>CAS Sharpening</source>
         <translation>CAS自适应锐化</translation>
     </message>
@@ -2138,33 +2135,33 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2687"/>
-        <location filename="mainwindow.ui" line="2768"/>
+        <location filename="mainwindow.ui" line="2690"/>
+        <location filename="mainwindow.ui" line="2771"/>
         <source>Median blur</source>
         <translation>中值滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2732"/>
+        <location filename="mainwindow.ui" line="2735"/>
         <source>Enable Pre-processing</source>
         <translation>启用预处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2745"/>
+        <location filename="mainwindow.ui" line="2748"/>
         <source>Post-processing</source>
         <translation>后期处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2751"/>
+        <location filename="mainwindow.ui" line="2754"/>
         <source>Enable Post-processing</source>
         <translation>启用后期处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2935"/>
+        <location filename="mainwindow.ui" line="2938"/>
         <source>Enable GPU acceleration.</source>
         <translation>启用GPU加速.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2938"/>
+        <location filename="mainwindow.ui" line="2941"/>
         <source>GPU Mode</source>
         <translation>GPU模式</translation>
     </message>
@@ -2174,17 +2171,17 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation>通过PayPal向开发者捐赠.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4149"/>
+        <location filename="mainwindow.ui" line="4158"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4481"/>
+        <location filename="mainwindow.ui" line="4496"/>
         <source>Encoders List</source>
         <translation>编码器列表</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4435"/>
+        <location filename="mainwindow.ui" line="4450"/>
         <source>When this option is enabled, your customized parameters 
 will be used when processing the video. 
 Otherwise the parameters automatically configured 
@@ -2198,19 +2195,19 @@ by the software will be used.</source>
         <translation type="vanished">输出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4220"/>
-        <location filename="mainwindow.ui" line="4383"/>
+        <location filename="mainwindow.ui" line="4232"/>
+        <location filename="mainwindow.ui" line="4398"/>
         <source>Bitrate(video):</source>
         <translation>比特率(视频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4251"/>
+        <location filename="mainwindow.ui" line="4263"/>
         <source>Pixel format:</source>
         <translation>像素格式:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4268"/>
-        <location filename="mainwindow.ui" line="4330"/>
+        <location filename="mainwindow.ui" line="4280"/>
+        <location filename="mainwindow.ui" line="4345"/>
         <source>Extra command:</source>
         <translation>额外指令:</translation>
     </message>
@@ -2225,22 +2222,22 @@ by the software will be used.</source>
         <translation type="vanished">转换到mp4</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4337"/>
+        <location filename="mainwindow.ui" line="4352"/>
         <source>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</source>
         <translation>启用此功能后，ffmpeg会将原始视频的音频部分直接复制到mp4文件，可能会导致错误。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4347"/>
+        <location filename="mainwindow.ui" line="4362"/>
         <source>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</source>
         <translation>启用此功能后，ffmpeg会将原始视频的视频部分直接复制到mp4文件，可能会导致错误。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5027"/>
+        <location filename="mainwindow.ui" line="5042"/>
         <source>Update popup</source>
         <translation>更新弹窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4769"/>
+        <location filename="mainwindow.ui" line="4784"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
@@ -2256,17 +2253,17 @@ will increase the time required to process video.</source>
         <translation type="vanished">s</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4812"/>
+        <location filename="mainwindow.ui" line="4827"/>
         <source>Segment duration:</source>
         <translation>视频片段时长:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4884"/>
+        <location filename="mainwindow.ui" line="4899"/>
         <source>Prompt when exit</source>
         <translation>退出时弹窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4897"/>
+        <location filename="mainwindow.ui" line="4912"/>
         <source>Keep video cache</source>
         <translation>保存视频缓存</translation>
     </message>
@@ -2275,22 +2272,22 @@ will increase the time required to process video.</source>
         <translation type="vanished">实验性功能,可以减少处理视频时的硬盘空间占用量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4774"/>
+        <location filename="mainwindow.ui" line="4789"/>
         <source>Process video by segment</source>
         <translation>分段处理视频</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4504"/>
+        <location filename="mainwindow.ui" line="4519"/>
         <source>Audio denoise(for video)</source>
         <translation>音频降噪(视频)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4510"/>
+        <location filename="mainwindow.ui" line="4525"/>
         <source>Denoise level:</source>
         <translation>降噪等级:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4520"/>
+        <location filename="mainwindow.ui" line="4535"/>
         <source>How much noise should be removed is specified by amount-a 
 number between 0.01 and 1 with a default of 0.25. Higher 
 numbers will remove more noise but present a greater 
@@ -2307,31 +2304,31 @@ likelihood of removing wanted components of the audio signal.</source>
         <translation type="vanished">-vcodec copy</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4206"/>
+        <location filename="mainwindow.ui" line="4218"/>
         <source>Encoder(audio):</source>
         <translation>编码器(音频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4294"/>
-        <location filename="mainwindow.ui" line="4390"/>
+        <location filename="mainwindow.ui" line="4306"/>
+        <location filename="mainwindow.ui" line="4405"/>
         <source>Bitrate(audio):</source>
         <translation>比特率(音频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4227"/>
-        <location filename="mainwindow.ui" line="4234"/>
-        <location filename="mainwindow.ui" line="4376"/>
-        <location filename="mainwindow.ui" line="4397"/>
+        <location filename="mainwindow.ui" line="4239"/>
+        <location filename="mainwindow.ui" line="4246"/>
+        <location filename="mainwindow.ui" line="4391"/>
+        <location filename="mainwindow.ui" line="4412"/>
         <source>K</source>
         <translation>K</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4213"/>
+        <location filename="mainwindow.ui" line="4225"/>
         <source>Encoder(video):</source>
         <translation>编码器(视频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4116"/>
+        <location filename="mainwindow.ui" line="4125"/>
         <source>Reset video settings</source>
         <translation>重置视频设置</translation>
     </message>
@@ -2345,45 +2342,45 @@ image quality.</source>
         <translation type="vanished">可能会损失画质.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1674"/>
+        <location filename="mainwindow.ui" line="1677"/>
         <source>When there are finished files in the list, the finished files will be
  processed again when the processing process is started again.</source>
         <translation>当文件列表内有已处理完成的文件时, 
 已完成的文件将在下次开始时被重复处理.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5229"/>
+        <location filename="mainwindow.ui" line="5244"/>
         <source>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
 It is recommended to enable this option.</source>
         <translation>优化放大后的GIF会导致轻微的画质损失,但是可以压缩文件体积.
 推荐您启用该功能.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5233"/>
+        <location filename="mainwindow.ui" line="5248"/>
         <source>Optimize &quot;.gif&quot;</source>
         <translation>优化&quot;.gif&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5071"/>
+        <location filename="mainwindow.ui" line="5086"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation>自定义字体设置 (重启软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5077"/>
+        <location filename="mainwindow.ui" line="5092"/>
         <source>Custom font size:</source>
         <translation>自定义字体大小:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2386"/>
-        <location filename="mainwindow.ui" line="2483"/>
-        <location filename="mainwindow.ui" line="3210"/>
-        <location filename="mainwindow.ui" line="3834"/>
-        <location filename="mainwindow.ui" line="5174"/>
+        <location filename="mainwindow.ui" line="2389"/>
+        <location filename="mainwindow.ui" line="2486"/>
+        <location filename="mainwindow.ui" line="3216"/>
+        <location filename="mainwindow.ui" line="3843"/>
+        <location filename="mainwindow.ui" line="5189"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5087"/>
+        <location filename="mainwindow.ui" line="5102"/>
         <source>Custom font:</source>
         <translation>自定义字体:</translation>
     </message>
@@ -2392,12 +2389,12 @@ It is recommended to enable this option.</source>
         <translation type="vanished">语言:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4971"/>
+        <location filename="mainwindow.ui" line="4986"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation>[文本框] 将在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4974"/>
+        <location filename="mainwindow.ui" line="4989"/>
         <source>Always hide Text Browser</source>
         <translation>一直隐藏文本框</translation>
     </message>
@@ -2406,12 +2403,12 @@ It is recommended to enable this option.</source>
         <translation type="vanished">宋体</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5133"/>
+        <location filename="mainwindow.ui" line="5148"/>
         <source>Save Custom Font Settings</source>
         <translation>保存自定义字体设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5254"/>
+        <location filename="mainwindow.ui" line="5269"/>
         <source>Compressed &quot;.jpg&quot; image quality:</source>
         <translation>压缩后的 &quot;.jpg&quot; 图像质量:</translation>
     </message>
@@ -2422,14 +2419,14 @@ We recommend you use the default value(90)</source>
 我们建议您使用默认值(90)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5559"/>
-        <location filename="mainwindow.cpp" line="1148"/>
+        <location filename="mainwindow.ui" line="5574"/>
+        <location filename="mainwindow.cpp" line="1167"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4873"/>
-        <location filename="mainwindow.ui" line="4926"/>
+        <location filename="mainwindow.ui" line="4888"/>
+        <location filename="mainwindow.ui" line="4941"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>我们建议您在更改语言设置后重启软件 
@@ -2442,12 +2439,12 @@ the language for the language settings to fully take effect.</source>
 (重启本软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4907"/>
+        <location filename="mainwindow.ui" line="4922"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>当您关闭软件时将自动保存设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4910"/>
+        <location filename="mainwindow.ui" line="4925"/>
         <source>Auto save settings</source>
         <translation>自动保存设置</translation>
     </message>
@@ -2460,7 +2457,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4984"/>
+        <location filename="mainwindow.ui" line="4999"/>
         <source>Aspect Ratio:
 (Custom resolution)</source>
         <translation>纵横比:
@@ -2477,27 +2474,27 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4849"/>
+        <location filename="mainwindow.ui" line="4864"/>
         <source>Ignore Aspect Ratio</source>
         <translation>忽略纵横比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4854"/>
+        <location filename="mainwindow.ui" line="4869"/>
         <source>Keep Aspect Ratio</source>
         <translation>保持纵横比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4859"/>
+        <location filename="mainwindow.ui" line="4874"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation>保持纵横比(扩展)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4826"/>
+        <location filename="mainwindow.ui" line="4841"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[设置] 将会在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4829"/>
+        <location filename="mainwindow.ui" line="4844"/>
         <source>Always hide Settings</source>
         <translation>一直隐藏设置</translation>
     </message>
@@ -2506,12 +2503,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">捐赠:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4784"/>
+        <location filename="mainwindow.ui" line="4799"/>
         <source>Play Notification sound when all files in the list have been processed.</source>
         <translation>处理完列表内所有文件后播放提示音.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4787"/>
+        <location filename="mainwindow.ui" line="4802"/>
         <source>Notification sound</source>
         <translation>提示音</translation>
     </message>
@@ -2520,27 +2517,27 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">压缩JPG文件,近乎无损.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5222"/>
+        <location filename="mainwindow.ui" line="5237"/>
         <source>Compress &quot;.jpg&quot;</source>
         <translation>压缩&quot;.jpg&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1765"/>
+        <location filename="mainwindow.ui" line="1768"/>
         <source>Delete the original file after processing is complete.</source>
         <translation>处理完成后删除源文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1768"/>
+        <location filename="mainwindow.ui" line="1771"/>
         <source>Delete original files</source>
         <translation>删除源文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1685"/>
+        <location filename="mainwindow.ui" line="1688"/>
         <source>Automatically shut down the computer after processing all files in the list.</source>
         <translation>处理完列表内所有文件后自动关机.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1688"/>
+        <location filename="mainwindow.ui" line="1691"/>
         <source>Turn off computer when finished</source>
         <translation>处理完成后自动关机</translation>
     </message>
@@ -2549,7 +2546,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">将放大后的图片保存为&quot;.jpg&quot;.(图片默认保存为&quot;.png&quot;)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5193"/>
+        <location filename="mainwindow.ui" line="5208"/>
         <source>Save as &quot;.jpg&quot;</source>
         <translation>保存为&quot;.jpg&quot;</translation>
     </message>
@@ -2558,32 +2555,32 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">当再次开始处理文件列表时,列表内已处理完成的图片将会被再次处理.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1678"/>
+        <location filename="mainwindow.ui" line="1681"/>
         <source>Re-process finished files</source>
         <translation>重复处理已完成的文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4716"/>
+        <location filename="mainwindow.ui" line="4731"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation>在Textbrowser内输出视频和GIF的内部放大与降噪进度.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4719"/>
+        <location filename="mainwindow.ui" line="4734"/>
         <source>Show internal progress</source>
         <translation>显示内部进度</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4567"/>
+        <location filename="mainwindow.ui" line="4582"/>
         <source>Additional settings</source>
         <translation>附加设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4591"/>
+        <location filename="mainwindow.ui" line="4606"/>
         <source>Input file extensions</source>
         <translation>文件扩展名</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3944"/>
+        <location filename="mainwindow.ui" line="3953"/>
         <source>Number of threads</source>
         <translation>线程数量</translation>
     </message>
@@ -2711,17 +2708,17 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="312"/>
-        <location filename="mainwindow.ui" line="1862"/>
+        <location filename="mainwindow.ui" line="1865"/>
         <location filename="Current_File_Progress.cpp" line="34"/>
-        <location filename="mainwindow.cpp" line="449"/>
+        <location filename="mainwindow.cpp" line="452"/>
         <source>Time remaining:NULL</source>
         <translation>剩余时间:未知</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="538"/>
-        <location filename="mainwindow.ui" line="1852"/>
+        <location filename="mainwindow.ui" line="1855"/>
         <location filename="Current_File_Progress.cpp" line="35"/>
-        <location filename="mainwindow.cpp" line="447"/>
+        <location filename="mainwindow.cpp" line="450"/>
         <source>Time cost:NULL</source>
         <translation>耗时:未知</translation>
     </message>
@@ -2731,9 +2728,9 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="325"/>
-        <location filename="mainwindow.ui" line="1872"/>
+        <location filename="mainwindow.ui" line="1875"/>
         <location filename="Current_File_Progress.cpp" line="36"/>
-        <location filename="mainwindow.cpp" line="448"/>
+        <location filename="mainwindow.cpp" line="451"/>
         <source>ETA:NULL</source>
         <translation>预计完成时间:未知</translation>
     </message>
@@ -2816,14 +2813,16 @@ the language for the language settings to fully take effect.</source>
         <location filename="CustomResolution.cpp" line="97"/>
         <location filename="CustomResolution.cpp" line="168"/>
         <location filename="CustomResolution.cpp" line="200"/>
-        <location filename="mainwindow.cpp" line="115"/>
-        <location filename="mainwindow.cpp" line="352"/>
-        <location filename="mainwindow.cpp" line="377"/>
-        <location filename="mainwindow.cpp" line="394"/>
-        <location filename="mainwindow.cpp" line="1062"/>
-        <location filename="mainwindow.cpp" line="1289"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2071"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="2102"/>
+        <location filename="mainwindow.cpp" line="117"/>
+        <location filename="mainwindow.cpp" line="354"/>
+        <location filename="mainwindow.cpp" line="379"/>
+        <location filename="mainwindow.cpp" line="396"/>
+        <location filename="mainwindow.cpp" line="1020"/>
+        <location filename="mainwindow.cpp" line="1069"/>
+        <location filename="mainwindow.cpp" line="1081"/>
+        <location filename="mainwindow.cpp" line="1308"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2073"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2060"/>
         <source>Error</source>
@@ -2832,7 +2831,7 @@ the language for the language settings to fully take effect.</source>
     <message>
         <location filename="CustomResolution.cpp" line="98"/>
         <location filename="CustomResolution.cpp" line="201"/>
-        <location filename="mainwindow.cpp" line="514"/>
+        <location filename="mainwindow.cpp" line="517"/>
         <source>No items are currently selected.</source>
         <translation>当前未选中任何项目.</translation>
     </message>
@@ -2840,12 +2839,12 @@ the language for the language settings to fully take effect.</source>
         <location filename="CustomResolution.cpp" line="74"/>
         <location filename="CustomResolution.cpp" line="135"/>
         <location filename="files.cpp" line="99"/>
-        <location filename="mainwindow.cpp" line="513"/>
-        <location filename="mainwindow.cpp" line="749"/>
-        <location filename="mainwindow.cpp" line="1300"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2120"/>
+        <location filename="mainwindow.cpp" line="516"/>
+        <location filename="mainwindow.cpp" line="752"/>
+        <location filename="mainwindow.cpp" line="1319"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2122"/>
         <location filename="settings.cpp" line="560"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="2140"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
         <location filename="waifu2x_converter.cpp" line="1837"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2127"/>
         <source>Warning</source>
@@ -2881,7 +2880,7 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="files.cpp" line="100"/>
-        <location filename="mainwindow.cpp" line="1301"/>
+        <location filename="mainwindow.cpp" line="1320"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation>不支持当前文件格式,请输入可以支持的文件格式,或者自行添加文件扩展名.</translation>
     </message>
@@ -2918,17 +2917,17 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="SystemTrayIcon.cpp" line="113"/>
-        <location filename="mainwindow.cpp" line="144"/>
-        <location filename="mainwindow.cpp" line="636"/>
-        <location filename="mainwindow.cpp" line="1208"/>
-        <location filename="mainwindow.cpp" line="1523"/>
+        <location filename="mainwindow.cpp" line="146"/>
+        <location filename="mainwindow.cpp" line="639"/>
+        <location filename="mainwindow.cpp" line="1227"/>
+        <location filename="mainwindow.cpp" line="1542"/>
         <location filename="settings.cpp" line="548"/>
         <location filename="settings.cpp" line="572"/>
         <location filename="table.cpp" line="512"/>
-        <location filename="waifu2x.cpp" line="892"/>
-        <location filename="waifu2x.cpp" line="899"/>
-        <location filename="waifu2x.cpp" line="1055"/>
-        <location filename="waifu2x.cpp" line="1066"/>
+        <location filename="waifu2x.cpp" line="926"/>
+        <location filename="waifu2x.cpp" line="933"/>
+        <location filename="waifu2x.cpp" line="1089"/>
+        <location filename="waifu2x.cpp" line="1100"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
@@ -2997,7 +2996,7 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="checkupdate.cpp" line="141"/>
-        <location filename="mainwindow.cpp" line="146"/>
+        <location filename="mainwindow.cpp" line="148"/>
         <location filename="settings.cpp" line="562"/>
         <source>YES</source>
         <translation>是</translation>
@@ -3014,7 +3013,7 @@ Do you wanna update now???</source>
     <message>
         <location filename="checkupdate.cpp" line="133"/>
         <location filename="checkupdate.cpp" line="142"/>
-        <location filename="mainwindow.cpp" line="147"/>
+        <location filename="mainwindow.cpp" line="149"/>
         <location filename="settings.cpp" line="563"/>
         <source>NO</source>
         <translation>否</translation>
@@ -3037,89 +3036,89 @@ Do you wanna update now???</source>
     <message>
         <location filename="Anime4K.cpp" line="40"/>
         <location filename="Anime4K.cpp" line="63"/>
-        <location filename="Anime4K.cpp" line="124"/>
-        <location filename="Anime4K.cpp" line="163"/>
-        <location filename="Anime4K.cpp" line="233"/>
-        <location filename="Anime4K.cpp" line="292"/>
-        <location filename="Anime4K.cpp" line="322"/>
-        <location filename="Anime4K.cpp" line="339"/>
-        <location filename="Anime4K.cpp" line="406"/>
-        <location filename="Anime4K.cpp" line="426"/>
-        <location filename="Anime4K.cpp" line="444"/>
-        <location filename="Anime4K.cpp" line="475"/>
-        <location filename="Anime4K.cpp" line="539"/>
-        <location filename="Anime4K.cpp" line="606"/>
-        <location filename="Anime4K.cpp" line="763"/>
-        <location filename="Anime4K.cpp" line="779"/>
-        <location filename="Anime4K.cpp" line="849"/>
-        <location filename="Anime4K.cpp" line="868"/>
-        <location filename="Anime4K.cpp" line="891"/>
-        <location filename="Anime4K.cpp" line="971"/>
-        <location filename="Anime4K.cpp" line="1138"/>
-        <location filename="Anime4K.cpp" line="1253"/>
-        <location filename="Anime4K.cpp" line="1330"/>
-        <location filename="Anime4K.cpp" line="1348"/>
-        <location filename="Anime4K.cpp" line="1376"/>
-        <location filename="Anime4K.cpp" line="1414"/>
-        <location filename="Anime4K.cpp" line="1499"/>
+        <location filename="Anime4K.cpp" line="125"/>
+        <location filename="Anime4K.cpp" line="164"/>
+        <location filename="Anime4K.cpp" line="234"/>
+        <location filename="Anime4K.cpp" line="293"/>
+        <location filename="Anime4K.cpp" line="323"/>
+        <location filename="Anime4K.cpp" line="340"/>
+        <location filename="Anime4K.cpp" line="407"/>
+        <location filename="Anime4K.cpp" line="427"/>
+        <location filename="Anime4K.cpp" line="445"/>
+        <location filename="Anime4K.cpp" line="476"/>
+        <location filename="Anime4K.cpp" line="540"/>
+        <location filename="Anime4K.cpp" line="608"/>
+        <location filename="Anime4K.cpp" line="765"/>
+        <location filename="Anime4K.cpp" line="781"/>
+        <location filename="Anime4K.cpp" line="851"/>
+        <location filename="Anime4K.cpp" line="870"/>
+        <location filename="Anime4K.cpp" line="893"/>
+        <location filename="Anime4K.cpp" line="973"/>
+        <location filename="Anime4K.cpp" line="1140"/>
+        <location filename="Anime4K.cpp" line="1255"/>
+        <location filename="Anime4K.cpp" line="1332"/>
+        <location filename="Anime4K.cpp" line="1350"/>
+        <location filename="Anime4K.cpp" line="1378"/>
+        <location filename="Anime4K.cpp" line="1416"/>
+        <location filename="Anime4K.cpp" line="1501"/>
         <location filename="CustomResolution.cpp" line="279"/>
         <location filename="files.cpp" line="581"/>
         <location filename="files.cpp" line="599"/>
         <location filename="files.cpp" line="617"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="204"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="244"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="314"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="381"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="411"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="428"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="500"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="521"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="539"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="570"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="629"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="807"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="962"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="978"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1048"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1067"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1090"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1170"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1337"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1452"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1529"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1547"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1575"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1613"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1695"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="246"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="316"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="383"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="413"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="430"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="502"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="523"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="541"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="572"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="631"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="809"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="964"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="980"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1050"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1069"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1092"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1172"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1339"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1454"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1531"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1549"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1577"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1615"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1697"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="44"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="69"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="222"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="262"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="332"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="400"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="430"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="447"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="514"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="535"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="553"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="584"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="643"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="836"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="992"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1008"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1078"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1097"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1120"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1202"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1370"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1485"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1562"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1580"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1608"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1646"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1727"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="219"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="259"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="329"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="397"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="427"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="444"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="511"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="532"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="550"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="581"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="640"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="833"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="989"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1005"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1075"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1094"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1117"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1199"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1367"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1482"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1559"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1577"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1605"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1643"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1724"/>
         <location filename="video.cpp" line="661"/>
         <location filename="waifu2x_caffe.cpp" line="44"/>
         <location filename="waifu2x_caffe.cpp" line="67"/>
@@ -3207,17 +3206,17 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="40"/>
-        <location filename="Anime4K.cpp" line="292"/>
-        <location filename="Anime4K.cpp" line="606"/>
-        <location filename="Anime4K.cpp" line="971"/>
+        <location filename="Anime4K.cpp" line="293"/>
+        <location filename="Anime4K.cpp" line="608"/>
+        <location filename="Anime4K.cpp" line="973"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="381"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="807"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1170"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="383"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="809"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1172"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="44"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="400"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="836"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1202"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="397"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="833"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1199"/>
         <location filename="waifu2x_caffe.cpp" line="44"/>
         <location filename="waifu2x_caffe.cpp" line="315"/>
         <location filename="waifu2x_caffe.cpp" line="644"/>
@@ -3234,12 +3233,12 @@ Do you wanna update now???</source>
         <translation>]. 错误: 文件不存在.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="713"/>
-        <location filename="Anime4K.cpp" line="1096"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="914"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1295"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="944"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1328"/>
+        <location filename="Anime4K.cpp" line="715"/>
+        <location filename="Anime4K.cpp" line="1098"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="916"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1297"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="941"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1325"/>
         <location filename="waifu2x_caffe.cpp" line="752"/>
         <location filename="waifu2x_caffe.cpp" line="1136"/>
         <location filename="waifu2x_converter.cpp" line="718"/>
@@ -3250,12 +3249,12 @@ Do you wanna update now???</source>
         <translation>检测到之前的视频缓存并将继续处理之前的缓存. 如果您想重新开始处理此视频:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="713"/>
-        <location filename="Anime4K.cpp" line="1096"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="914"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1295"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="944"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1328"/>
+        <location filename="Anime4K.cpp" line="715"/>
+        <location filename="Anime4K.cpp" line="1098"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="916"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1297"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="941"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1325"/>
         <location filename="waifu2x_caffe.cpp" line="752"/>
         <location filename="waifu2x_caffe.cpp" line="1136"/>
         <location filename="waifu2x_converter.cpp" line="718"/>
@@ -3266,20 +3265,20 @@ Do you wanna update now???</source>
         <translation>], 请手动删除缓存.</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="728"/>
-        <location filename="Anime4K.cpp" line="1112"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="929"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1311"/>
+        <location filename="Anime4K.cpp" line="730"/>
+        <location filename="Anime4K.cpp" line="1114"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="931"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1313"/>
         <source>The previous video cache file was detected, but because you changed the settings about the video resolution, the previous cache will be deleted and processing of the video:[</source>
         <translation>检测到之前的视频缓存, 但是由于您更改了与视频分辨率相关的设置, 此视频的缓存将被删除:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="728"/>
-        <location filename="Anime4K.cpp" line="1112"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="929"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1311"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="959"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1344"/>
+        <location filename="Anime4K.cpp" line="730"/>
+        <location filename="Anime4K.cpp" line="1114"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="931"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1313"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="956"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1341"/>
         <location filename="waifu2x_caffe.cpp" line="767"/>
         <location filename="waifu2x_caffe.cpp" line="1152"/>
         <location filename="waifu2x_converter.cpp" line="733"/>
@@ -3290,12 +3289,12 @@ Do you wanna update now???</source>
         <translation>] 并将重新开始处理.</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="763"/>
-        <location filename="Anime4K.cpp" line="1138"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="962"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1337"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="992"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1370"/>
+        <location filename="Anime4K.cpp" line="765"/>
+        <location filename="Anime4K.cpp" line="1140"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="964"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1339"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="989"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1367"/>
         <location filename="waifu2x_caffe.cpp" line="800"/>
         <location filename="waifu2x_caffe.cpp" line="1178"/>
         <location filename="waifu2x_converter.cpp" line="766"/>
@@ -3306,12 +3305,12 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法将视频转换为mp4格式.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="779"/>
-        <location filename="Anime4K.cpp" line="1253"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="978"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1452"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1008"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1485"/>
+        <location filename="Anime4K.cpp" line="781"/>
+        <location filename="Anime4K.cpp" line="1255"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="980"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1454"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1005"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1482"/>
         <location filename="waifu2x_caffe.cpp" line="816"/>
         <location filename="waifu2x_caffe.cpp" line="1293"/>
         <location filename="waifu2x_converter.cpp" line="782"/>
@@ -3322,10 +3321,10 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法将视频拆分为图片.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1302"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="471"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1501"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1534"/>
+        <location filename="Anime4K.cpp" line="1304"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="473"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1503"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1531"/>
         <location filename="waifu2x_caffe.cpp" line="1342"/>
         <location filename="waifu2x_converter.cpp" line="1308"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="475"/>
@@ -3334,39 +3333,39 @@ Do you wanna update now???</source>
         <translation>文件名称:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1302"/>
+        <location filename="Anime4K.cpp" line="1304"/>
         <source>]  Scale progress:[</source>
         <translation>]  放大进度:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1777"/>
+        <location filename="Anime4K.cpp" line="1780"/>
         <source>]: Platform ID:[</source>
         <translation>]: 平台 ID:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1777"/>
+        <location filename="Anime4K.cpp" line="1780"/>
         <source> Device ID:[</source>
         <translation> 设备 ID:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1791"/>
+        <location filename="Anime4K.cpp" line="1794"/>
         <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation>根据您的设定生成的GPUs列表</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="849"/>
-        <location filename="Anime4K.cpp" line="868"/>
-        <location filename="Anime4K.cpp" line="1330"/>
-        <location filename="Anime4K.cpp" line="1348"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1048"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1067"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1529"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1547"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1078"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1097"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1562"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1580"/>
+        <location filename="Anime4K.cpp" line="851"/>
+        <location filename="Anime4K.cpp" line="870"/>
+        <location filename="Anime4K.cpp" line="1332"/>
+        <location filename="Anime4K.cpp" line="1350"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1050"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1069"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1531"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1549"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1075"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1094"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1559"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1577"/>
         <location filename="waifu2x_caffe.cpp" line="886"/>
         <location filename="waifu2x_caffe.cpp" line="905"/>
         <location filename="waifu2x_caffe.cpp" line="1370"/>
@@ -3383,12 +3382,12 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法放大所有帧.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="891"/>
-        <location filename="Anime4K.cpp" line="1376"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1090"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1575"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1120"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1608"/>
+        <location filename="Anime4K.cpp" line="893"/>
+        <location filename="Anime4K.cpp" line="1378"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1092"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1577"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1117"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1605"/>
         <location filename="waifu2x_caffe.cpp" line="928"/>
         <location filename="waifu2x_caffe.cpp" line="1416"/>
         <location filename="waifu2x_converter.cpp" line="894"/>
@@ -3399,9 +3398,9 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法将帧图片组装为视频.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1302"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1501"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1534"/>
+        <location filename="Anime4K.cpp" line="1304"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1503"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1531"/>
         <location filename="waifu2x_caffe.cpp" line="1342"/>
         <location filename="waifu2x_converter.cpp" line="1308"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1511"/>
@@ -3409,9 +3408,9 @@ Do you wanna update now???</source>
         <translation>] 时长进度:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1414"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1613"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1646"/>
+        <location filename="Anime4K.cpp" line="1416"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1615"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1643"/>
         <location filename="waifu2x_caffe.cpp" line="1454"/>
         <location filename="waifu2x_converter.cpp" line="1420"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1623"/>
@@ -3420,14 +3419,14 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="63"/>
-        <location filename="Anime4K.cpp" line="539"/>
-        <location filename="Anime4K.cpp" line="1499"/>
+        <location filename="Anime4K.cpp" line="540"/>
+        <location filename="Anime4K.cpp" line="1501"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="629"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1695"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="631"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1697"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="69"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="643"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1727"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="640"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1724"/>
         <location filename="waifu2x_caffe.cpp" line="67"/>
         <location filename="waifu2x_caffe.cpp" line="560"/>
         <location filename="waifu2x_caffe.cpp" line="1538"/>
@@ -3441,15 +3440,15 @@ Do you wanna update now???</source>
         <translation>]. 错误: [无法读取源文件的分辨率, 故无法将图片调整至自定义的分辨率.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="113"/>
-        <location filename="Anime4K.cpp" line="573"/>
-        <location filename="Anime4K.cpp" line="1533"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="193"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="739"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1804"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="211"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="767"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1851"/>
+        <location filename="Anime4K.cpp" line="114"/>
+        <location filename="Anime4K.cpp" line="575"/>
+        <location filename="Anime4K.cpp" line="1536"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="195"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="741"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1806"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="208"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="764"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1848"/>
         <location filename="waifu2x_caffe.cpp" line="136"/>
         <location filename="waifu2x_caffe.cpp" line="612"/>
         <location filename="waifu2x_caffe.cpp" line="1590"/>
@@ -3463,13 +3462,13 @@ Do you wanna update now???</source>
         <translation>自动重试,请稍等.</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1726"/>
-        <location filename="mainwindow.cpp" line="1089"/>
+        <location filename="Anime4K.cpp" line="1729"/>
+        <location filename="mainwindow.cpp" line="1108"/>
         <source>Loading...</source>
         <translation>加载中...</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1740"/>
+        <location filename="Anime4K.cpp" line="1743"/>
         <source>GPU List for Anime4K</source>
         <translation>Anime4K的GPU列表</translation>
     </message>
@@ -3478,14 +3477,14 @@ Do you wanna update now???</source>
         <translation type="vanished">重试</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="225"/>
-        <location filename="mainwindow.cpp" line="262"/>
+        <location filename="mainwindow.cpp" line="227"/>
+        <location filename="mainwindow.cpp" line="264"/>
         <source>Time cost:[</source>
         <translation>耗时:[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="247"/>
-        <location filename="mainwindow.cpp" line="282"/>
+        <location filename="mainwindow.cpp" line="249"/>
+        <location filename="mainwindow.cpp" line="284"/>
         <source>Time remaining:[</source>
         <translation>剩余时间:[</translation>
     </message>
@@ -3494,22 +3493,22 @@ Do you wanna update now???</source>
         <translation type="vanished">无法开始处理文件: 文件列表为空或者列表内无可供处理的文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="465"/>
+        <location filename="mainwindow.cpp" line="468"/>
         <source>Start processing files.</source>
         <translation>开始处理文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="477"/>
+        <location filename="mainwindow.cpp" line="480"/>
         <source>Trying to stop, please wait...</source>
         <translation>尝试停止, 请稍等...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="490"/>
+        <location filename="mainwindow.cpp" line="493"/>
         <source>Processing of files has stopped.</source>
         <translation>已停止处理文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="637"/>
+        <location filename="mainwindow.cpp" line="640"/>
         <source>It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status.</source>
         <translation>检测到软件上次运行时执行了自动关机. 上次的文件列表已在关机前自动保存. 您可以手动加载列表已查看文件处理状况.</translation>
     </message>
@@ -3518,23 +3517,23 @@ Do you wanna update now???</source>
         <translation type="vanished">谢谢您! :)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1290"/>
+        <location filename="mainwindow.cpp" line="1309"/>
         <source>Input path does not exist.</source>
         <translation>输入的路径不存在.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="716"/>
-        <location filename="mainwindow.cpp" line="717"/>
-        <location filename="mainwindow.cpp" line="763"/>
-        <location filename="mainwindow.cpp" line="764"/>
-        <location filename="mainwindow.cpp" line="798"/>
-        <location filename="mainwindow.cpp" line="799"/>
-        <location filename="mainwindow.cpp" line="834"/>
-        <location filename="mainwindow.cpp" line="835"/>
-        <location filename="mainwindow.cpp" line="868"/>
-        <location filename="mainwindow.cpp" line="869"/>
-        <location filename="mainwindow.cpp" line="904"/>
-        <location filename="mainwindow.cpp" line="905"/>
+        <location filename="mainwindow.cpp" line="719"/>
+        <location filename="mainwindow.cpp" line="720"/>
+        <location filename="mainwindow.cpp" line="766"/>
+        <location filename="mainwindow.cpp" line="767"/>
+        <location filename="mainwindow.cpp" line="801"/>
+        <location filename="mainwindow.cpp" line="802"/>
+        <location filename="mainwindow.cpp" line="837"/>
+        <location filename="mainwindow.cpp" line="838"/>
+        <location filename="mainwindow.cpp" line="871"/>
+        <location filename="mainwindow.cpp" line="872"/>
+        <location filename="mainwindow.cpp" line="907"/>
+        <location filename="mainwindow.cpp" line="908"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation>范围:-1(不降噪)~3</translation>
     </message>
@@ -3543,34 +3542,34 @@ Do you wanna update now???</source>
         <translation type="vanished">范围:0(不降噪)~2</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="725"/>
-        <location filename="mainwindow.cpp" line="726"/>
-        <location filename="mainwindow.cpp" line="807"/>
-        <location filename="mainwindow.cpp" line="808"/>
-        <location filename="mainwindow.cpp" line="877"/>
-        <location filename="mainwindow.cpp" line="878"/>
+        <location filename="mainwindow.cpp" line="728"/>
+        <location filename="mainwindow.cpp" line="729"/>
+        <location filename="mainwindow.cpp" line="810"/>
+        <location filename="mainwindow.cpp" line="811"/>
+        <location filename="mainwindow.cpp" line="880"/>
+        <location filename="mainwindow.cpp" line="881"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation>范围:0(不降噪)~3</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="743"/>
-        <location filename="mainwindow.cpp" line="744"/>
-        <location filename="mainwindow.cpp" line="825"/>
-        <location filename="mainwindow.cpp" line="826"/>
-        <location filename="mainwindow.cpp" line="886"/>
-        <location filename="mainwindow.cpp" line="887"/>
+        <location filename="mainwindow.cpp" line="746"/>
+        <location filename="mainwindow.cpp" line="747"/>
+        <location filename="mainwindow.cpp" line="828"/>
+        <location filename="mainwindow.cpp" line="829"/>
+        <location filename="mainwindow.cpp" line="889"/>
+        <location filename="mainwindow.cpp" line="890"/>
         <source>Anime4K engine does not support noise reduction.</source>
         <translation>Anime4K引擎不支持降噪.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="950"/>
+        <location filename="mainwindow.cpp" line="953"/>
         <source>Testing, please wait...</source>
         <translation>测试中, 请稍等...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="974"/>
-        <location filename="mainwindow.cpp" line="1027"/>
-        <location filename="mainwindow.cpp" line="1194"/>
+        <location filename="mainwindow.cpp" line="977"/>
+        <location filename="mainwindow.cpp" line="1041"/>
+        <location filename="mainwindow.cpp" line="1213"/>
         <source>Show settings</source>
         <translation>显示设置</translation>
     </message>
@@ -3579,33 +3578,33 @@ Do you wanna update now???</source>
         <translation type="vanished">显示输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="144"/>
+        <location filename="mainwindow.cpp" line="146"/>
         <source>Do you really wanna exit Waifu2x-Extension-GUI ?</source>
         <translation>您确认要退出 Waifu2x-Extension-GUI 吗 ?</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="353"/>
-        <location filename="mainwindow.cpp" line="358"/>
+        <location filename="mainwindow.cpp" line="355"/>
+        <location filename="mainwindow.cpp" line="360"/>
         <source>Output path is empty.</source>
         <translation>输出路径为空.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="383"/>
+        <location filename="mainwindow.cpp" line="385"/>
         <source>Invalid output path.</source>
         <translation>无效的输出路径.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="395"/>
+        <location filename="mainwindow.cpp" line="397"/>
         <source>Unable to start processing files: The file list is empty.</source>
         <translation>无法开始处理文件:文件列表为空.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="734"/>
-        <location filename="mainwindow.cpp" line="735"/>
-        <location filename="mainwindow.cpp" line="816"/>
-        <location filename="mainwindow.cpp" line="817"/>
-        <location filename="mainwindow.cpp" line="895"/>
-        <location filename="mainwindow.cpp" line="896"/>
+        <location filename="mainwindow.cpp" line="737"/>
+        <location filename="mainwindow.cpp" line="738"/>
+        <location filename="mainwindow.cpp" line="819"/>
+        <location filename="mainwindow.cpp" line="820"/>
+        <location filename="mainwindow.cpp" line="898"/>
+        <location filename="mainwindow.cpp" line="899"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation>范围:-1(不降噪)~10</translation>
     </message>
@@ -3614,27 +3613,26 @@ Do you wanna update now???</source>
         <translation type="vanished">显示路径设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1054"/>
         <source>Error: Language files cannot be loaded properly.</source>
-        <translation>错误: 找不到语言文件.</translation>
+        <translation type="vanished">错误: 找不到语言文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1063"/>
+        <location filename="mainwindow.cpp" line="1082"/>
         <source>File list is empty!</source>
         <translation>文件列表为空!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1078"/>
+        <location filename="mainwindow.cpp" line="1097"/>
         <source>Write to the file, please wait.</source>
         <translation>写入文件中,请稍等.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1112"/>
+        <location filename="mainwindow.cpp" line="1131"/>
         <source>Please wait while reading the file.</source>
         <translation>请稍等,读取文件中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1117"/>
+        <location filename="mainwindow.cpp" line="1136"/>
         <location filename="table.cpp" line="526"/>
         <source>Cannot find the saved Files List!</source>
         <translation>找不到已保存的文件列表!</translation>
@@ -3672,7 +3670,7 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">总数:%1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="115"/>
+        <location filename="mainwindow.cpp" line="117"/>
         <source>It is detected that this software lacks the necessary permissions to run.
 
 Please close this software and start this software again after giving this software administrator permission.
@@ -3685,7 +3683,7 @@ Otherwise, this software may not work properly.</source>
 否则, 本软件可能无法正常工作.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="378"/>
+        <location filename="mainwindow.cpp" line="380"/>
         <source>Invalid output path.
 
 Or do not have sufficient permissions to write files to the output path, you might need to grant administrator permissions to this software.</source>
@@ -3694,23 +3692,23 @@ Or do not have sufficient permissions to write files to the output path, you mig
 或者没有输出路径的写权限, 您可能需要授予本软件管理员权限.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="750"/>
+        <location filename="mainwindow.cpp" line="753"/>
         <source>Anime4K engine does NOT support Alpha Channel.</source>
         <oldsource>Anime4K engine does NOT supports Alpha Channel.</oldsource>
         <translation>Anime4K 引擎不支持处理Alpha通道.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="772"/>
-        <location filename="mainwindow.cpp" line="773"/>
-        <location filename="mainwindow.cpp" line="843"/>
-        <location filename="mainwindow.cpp" line="844"/>
-        <location filename="mainwindow.cpp" line="913"/>
-        <location filename="mainwindow.cpp" line="914"/>
+        <location filename="mainwindow.cpp" line="775"/>
+        <location filename="mainwindow.cpp" line="776"/>
+        <location filename="mainwindow.cpp" line="846"/>
+        <location filename="mainwindow.cpp" line="847"/>
+        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="917"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <translation>Realsr-ncnn-vulkan引擎将自动为图像降噪.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1209"/>
+        <location filename="mainwindow.cpp" line="1228"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
@@ -3719,65 +3717,75 @@ Restart the software to take effect.</source>
 重启本软件以生效.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1258"/>
+        <location filename="mainwindow.cpp" line="1277"/>
         <source>Select file</source>
         <oldsource>open file</oldsource>
         <translation>选择文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1258"/>
+        <location filename="mainwindow.cpp" line="1277"/>
         <source>All file(</source>
         <translation>所有文件(</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1039"/>
-        <location filename="mainwindow.cpp" line="1355"/>
-        <location filename="mainwindow.cpp" line="1369"/>
+        <location filename="mainwindow.cpp" line="1053"/>
+        <location filename="mainwindow.cpp" line="1374"/>
+        <location filename="mainwindow.cpp" line="1388"/>
         <source>Show Text Browser</source>
         <translation>显示文本框</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1509"/>
+        <location filename="mainwindow.cpp" line="1021"/>
+        <source>Language file is missing, please reinstall this program.</source>
+        <translation>语言文件丢失,请重新安装本程序.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1070"/>
+        <source>Language file cannot be loaded properly.</source>
+        <translation>无法加载语言文件.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1528"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- 正式开始使用本软件前请先阅读 Wiki.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1510"/>
+        <location filename="mainwindow.cpp" line="1529"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- 如果软件字体显示有问题, 您可以在附加设置内修改字体.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1511"/>
+        <location filename="mainwindow.cpp" line="1530"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1512"/>
+        <location filename="mainwindow.cpp" line="1531"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- 本软件免费开源, 并基于 GNU Affero General Public License v3.0 协议发行, 使用本软件的一切后果均由用户自己承担, 开发者不承担任何责任.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1513"/>
+        <location filename="mainwindow.cpp" line="1532"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- 如果您喜欢本软件, 请向开发者捐赠, 谢谢.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1516"/>
+        <location filename="mainwindow.cpp" line="1535"/>
         <source>!!! Tips !!!</source>
         <translation>!!! 必读 !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1524"/>
+        <location filename="mainwindow.cpp" line="1543"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>检测到这是您第一次启动本软件,因此将自动执行兼容性测试.请稍等片刻,然后查看测试结果.</translation>
     </message>
@@ -3814,7 +3822,7 @@ Restart the software to take effect.</source>
         <translation type="vanished">未检测到可用处理器!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1628"/>
+        <location filename="mainwindow.cpp" line="1653"/>
         <source>Force retry.</source>
         <translation>强制重试.</translation>
     </message>
@@ -3995,13 +4003,13 @@ Restart the software to take effect.</source>
         <translation type="vanished">是否与waifu2x-ncnn-vulkan(新版本)兼容: 否. [建议: 重装或者更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="508"/>
+        <location filename="waifu2x.cpp" line="512"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): Yes</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): Yes</oldsource>
         <translation>是否与waifu2x-ncnn-vulkan(旧版本)兼容: 是</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="513"/>
+        <location filename="waifu2x.cpp" line="517"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): No. [Advice: Re-install gpu driver or update it to the latest.]</oldsource>
         <translation>是否与waifu2x-ncnn-vulkan(旧版本)兼容: 否. [建议: 重装或者更新显卡驱动.]</translation>
@@ -4015,183 +4023,183 @@ Restart the software to take effect.</source>
         <translation type="vanished">是否与waifu2x-ncnn-vulkan(新版本(fp16p))兼容: 否. [建议: 重装或者更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="486"/>
+        <location filename="waifu2x.cpp" line="488"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Latest Version): Yes</source>
         <translation>是否与waifu2x-ncnn-vulkan(最新版)兼容: 是</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="491"/>
+        <location filename="waifu2x.cpp" line="493"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Latest Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否与waifu2x-ncnn-vulkan(最新版)兼容: 否. [建议: 重装或更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="530"/>
+        <location filename="waifu2x.cpp" line="536"/>
         <source>Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): Yes</source>
         <translation>是否与waifu2x-ncnn-vulkan(20200414(fp16p))兼容: 是</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="535"/>
+        <location filename="waifu2x.cpp" line="541"/>
         <source>Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否与waifu2x-ncnn-vulkan(20200414(fp16p))兼容: 否. [建议: 重装或更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="553"/>
+        <location filename="waifu2x.cpp" line="561"/>
         <source>Compatible with waifu2x-converter: Yes.</source>
         <translation>是否与waifu2x-converter兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="558"/>
+        <location filename="waifu2x.cpp" line="566"/>
         <source>Compatible with waifu2x-converter: No.</source>
         <oldsource>Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]</oldsource>
         <translation>是否与waifu2x-converter兼容: 否.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="575"/>
+        <location filename="waifu2x.cpp" line="585"/>
         <source>Compatible with Anime4k(CPU Mode): Yes.</source>
         <oldsource>Compatible with Anime4k: Yes.</oldsource>
         <translation>是否与Anime4k兼容(CPU模式): 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="580"/>
+        <location filename="waifu2x.cpp" line="590"/>
         <source>Compatible with Anime4k(CPU Mode): No.</source>
         <oldsource>Compatible with Anime4k: No.</oldsource>
         <translation>是否与Anime4k兼容(CPU模式): 否.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="596"/>
+        <location filename="waifu2x.cpp" line="608"/>
         <source>Compatible with Anime4k(GPU Mode): Yes.</source>
         <translation>是否与Anime4k(GPU 模式)兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="601"/>
+        <location filename="waifu2x.cpp" line="613"/>
         <source>Compatible with Anime4k(GPU Mode): No.</source>
         <translation>是否与Anime4k(GPU 模式)兼容: 否.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="618"/>
+        <location filename="waifu2x.cpp" line="632"/>
         <source>Compatible with srmd-ncnn-vulkan: Yes</source>
         <translation>是否与 srmd-ncnn-vulkan 兼容: 是</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="623"/>
+        <location filename="waifu2x.cpp" line="637"/>
         <source>Compatible with srmd-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否与 srmd-ncnn-vulkan 兼容: 否. [建议: 重装或更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="640"/>
+        <location filename="waifu2x.cpp" line="656"/>
         <source>Compatible with waifu2x-caffe(CPU): Yes.</source>
         <translation>是否与waifu2x-caffe(CPU)兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="645"/>
+        <location filename="waifu2x.cpp" line="661"/>
         <source>Compatible with waifu2x-caffe(CPU): No.</source>
         <translation>是否与waifu2x-caffe(CPU)兼容: 否.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="662"/>
+        <location filename="waifu2x.cpp" line="680"/>
         <source>Compatible with waifu2x-caffe(GPU): Yes.</source>
         <translation>是否与waifu2x-caffe(GPU)兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="667"/>
+        <location filename="waifu2x.cpp" line="685"/>
         <source>Compatible with waifu2x-caffe(GPU): No. [Advice: Install NVIDIA CUDA.]</source>
         <oldsource>Compatible with waifu2x-caffe(GPU): No.</oldsource>
         <translation>是否与waifu2x-caffe(GPU)兼容: 否. [建议: 安装 NVIDIA CUDA.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="684"/>
+        <location filename="waifu2x.cpp" line="704"/>
         <source>Compatible with waifu2x-caffe(cuDNN): Yes.</source>
         <translation>是否与waifu2x-caffe(cuDNN)兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="689"/>
+        <location filename="waifu2x.cpp" line="709"/>
         <source>Compatible with waifu2x-caffe(cuDNN): No. [Advice: Install NVIDIA CUDA and NVIDIA cuDNN.]</source>
         <oldsource>Compatible with waifu2x-caffe(cuDNN): No.</oldsource>
         <translation>是否与waifu2x-caffe(cuDNN)兼容: 否. [建议: 安装 NVIDIA CUDA 和 NVIDIA cuDNN.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="706"/>
+        <location filename="waifu2x.cpp" line="728"/>
         <source>Compatible with Realsr-ncnn-vulkan: Yes.</source>
         <translation>是否与Realsr-ncnn-vulkan兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="711"/>
+        <location filename="waifu2x.cpp" line="733"/>
         <source>Compatible with Realsr-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否与Realsr-ncnn-vulkan兼容: 否. [建议: 重装或更新显卡驱动.]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="727"/>
+        <location filename="waifu2x.cpp" line="751"/>
         <source>Compatible with Python extension: Yes.</source>
         <translation>是否与 Python extension 兼容: 是.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="732"/>
+        <location filename="waifu2x.cpp" line="756"/>
         <source>Compatible with Python extension: No.</source>
         <translation>是否与 Python extension 兼容: 否.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="748"/>
+        <location filename="waifu2x.cpp" line="774"/>
         <source>Compatible with FFmpeg: Yes.</source>
         <translation>是否与FFmpeg兼容：是。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="753"/>
+        <location filename="waifu2x.cpp" line="779"/>
         <source>Compatible with FFmpeg: No.</source>
         <translation>是否与FFmpeg兼容：否。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="772"/>
+        <location filename="waifu2x.cpp" line="800"/>
         <source>Compatible with FFprobe: Yes.</source>
         <translation>是否与FFprobe兼容：是。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="777"/>
+        <location filename="waifu2x.cpp" line="805"/>
         <source>Compatible with FFprobe: No.</source>
         <translation>是否与FFprobe兼容：否。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="793"/>
+        <location filename="waifu2x.cpp" line="823"/>
         <source>Compatible with ImageMagick: Yes.</source>
         <translation>是否与ImageMagick兼容：是。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="798"/>
+        <location filename="waifu2x.cpp" line="828"/>
         <source>Compatible with ImageMagick: No.</source>
         <translation>是否与ImageMagick兼容：否。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="818"/>
+        <location filename="waifu2x.cpp" line="850"/>
         <source>Compatible with Gifsicle: Yes.</source>
         <translation>是否与Gifsicle兼容：是。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="823"/>
+        <location filename="waifu2x.cpp" line="855"/>
         <source>Compatible with Gifsicle: No.</source>
         <translation>是否与Gifsicle兼容：否。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="842"/>
+        <location filename="waifu2x.cpp" line="876"/>
         <source>Compatible with SoX: Yes.</source>
         <translation>是否与SoX兼容：是。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="847"/>
+        <location filename="waifu2x.cpp" line="881"/>
         <source>Compatible with SoX: No.</source>
         <translation>是否与SoX兼容：否。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="852"/>
-        <location filename="waifu2x.cpp" line="853"/>
+        <location filename="waifu2x.cpp" line="886"/>
+        <location filename="waifu2x.cpp" line="887"/>
         <source>Compatibility test is complete!</source>
         <translation>兼容性测试已完成!</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1091"/>
+        <location filename="waifu2x.cpp" line="1125"/>
         <source>It is detected that the image [</source>
         <translation>检测到当前图片: [</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1091"/>
+        <location filename="waifu2x.cpp" line="1125"/>
         <source>] contains the Alpha channel, so the result image will be forcibly saved as PNG.</source>
         <translation>] 包含 Alpha 通道, 所以结果图片将会被强制保存为 PNG.</translation>
     </message>
@@ -4200,7 +4208,7 @@ Restart the software to take effect.</source>
         <translation type="vanished">根据兼容性测试结果，[自动检测Alpha通道]已自动启用。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="893"/>
+        <location filename="waifu2x.cpp" line="927"/>
         <source>One of the essential plugins is not compatible with your PC, the software may not work normally on your PC.
 
 You can try to re-install this software, this might solve the problem.</source>
@@ -4209,22 +4217,22 @@ You can try to re-install this software, this might solve the problem.</source>
 您可以尝试重新安装本软件，这可能会解决此问题。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="899"/>
+        <location filename="waifu2x.cpp" line="933"/>
         <source>Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?</source>
         <translation>您是否需要本软件根据兼容性测试结果为您自动调整引擎设置？</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="901"/>
+        <location filename="waifu2x.cpp" line="935"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="902"/>
+        <location filename="waifu2x.cpp" line="936"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1056"/>
+        <location filename="waifu2x.cpp" line="1090"/>
         <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
 
 First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
@@ -4245,7 +4253,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">提示:只要这三个引擎:[waifu2x-ncnn-vulkan, waifu2x-converter, srmd-ncnn-vulkan]之一与你的PC兼容, 您就可以使用本软件的所有功能.</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1067"/>
+        <location filename="waifu2x.cpp" line="1101"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation>兼容性测试已完成.请查看测试结果,并根据测试结果配置引擎设置.</translation>
     </message>
@@ -4254,22 +4262,22 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">兼容性测试已完成. 请查看文本框内的测试结果并根据其调整引擎设置.</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1910"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1903"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1912"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1900"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1870"/>
         <source>Detecting, please wait...</source>
         <translation>检测中, 请稍等...</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1925"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1918"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1927"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1915"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1885"/>
         <source>Detecting available GPU, please wait.</source>
         <translation>检测可用显卡中,请稍等.</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1959"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1952"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1961"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1949"/>
         <location filename="waifu2x_converter.cpp" line="1623"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1919"/>
         <source>Detection is complete!</source>
@@ -4285,16 +4293,16 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">检测到这是您第一次启动软件,所以将自动执行兼容性测试.请稍等片刻,然后在软件主界面底部的文本框内查看兼容性测试结果.</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1962"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1955"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1964"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1952"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1922"/>
         <source>No available GPU ID detected!</source>
         <translation>未检测到可用的GPU!</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="124"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="204"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="222"/>
+        <location filename="Anime4K.cpp" line="125"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="219"/>
         <location filename="waifu2x_caffe.cpp" line="147"/>
         <location filename="waifu2x_converter.cpp" line="130"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="207"/>
@@ -4302,9 +4310,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法放大图片.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="163"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="244"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="262"/>
+        <location filename="Anime4K.cpp" line="164"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="246"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="259"/>
         <location filename="waifu2x_caffe.cpp" line="186"/>
         <location filename="waifu2x_converter.cpp" line="169"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="247"/>
@@ -4312,9 +4320,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法将放大后的图片调整至自定义的分辨率]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="233"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="314"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="332"/>
+        <location filename="Anime4K.cpp" line="234"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="316"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="329"/>
         <location filename="waifu2x_caffe.cpp" line="256"/>
         <location filename="waifu2x_converter.cpp" line="239"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="317"/>
@@ -4322,9 +4330,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法将图片保存为 .jpg.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="322"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="411"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="430"/>
+        <location filename="Anime4K.cpp" line="323"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="413"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="427"/>
         <location filename="waifu2x_caffe.cpp" line="345"/>
         <location filename="waifu2x_converter.cpp" line="328"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="415"/>
@@ -4332,9 +4340,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法获取gif的帧延时.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="339"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="428"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="447"/>
+        <location filename="Anime4K.cpp" line="340"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="430"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="444"/>
         <location filename="waifu2x_caffe.cpp" line="362"/>
         <location filename="waifu2x_converter.cpp" line="345"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="432"/>
@@ -4342,9 +4350,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法拆分gif.]</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="471"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1501"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1534"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="473"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1503"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1531"/>
         <location filename="waifu2x_caffe.cpp" line="1342"/>
         <location filename="waifu2x_converter.cpp" line="1308"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="475"/>
@@ -4353,12 +4361,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]  放大与降噪进度:[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="406"/>
-        <location filename="Anime4K.cpp" line="426"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="500"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="521"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="514"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="535"/>
+        <location filename="Anime4K.cpp" line="407"/>
+        <location filename="Anime4K.cpp" line="427"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="502"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="523"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="511"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="532"/>
         <location filename="waifu2x_caffe.cpp" line="430"/>
         <location filename="waifu2x_caffe.cpp" line="450"/>
         <location filename="waifu2x_converter.cpp" line="413"/>
@@ -4369,9 +4377,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法放大当前帧.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="444"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="539"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="553"/>
+        <location filename="Anime4K.cpp" line="445"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="541"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="550"/>
         <location filename="waifu2x_caffe.cpp" line="468"/>
         <location filename="waifu2x_converter.cpp" line="451"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="543"/>
@@ -4379,9 +4387,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法组装gif.]</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="475"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="570"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="584"/>
+        <location filename="Anime4K.cpp" line="476"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="572"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="581"/>
         <location filename="waifu2x_caffe.cpp" line="499"/>
         <location filename="waifu2x_converter.cpp" line="482"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="574"/>
@@ -4389,8 +4397,8 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]. 错误: [无法优化gif.]</translation>
     </message>
     <message>
-        <location filename="srmd_ncnn_vulkan.cpp" line="959"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="1344"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="956"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="1341"/>
         <location filename="waifu2x_caffe.cpp" line="767"/>
         <location filename="waifu2x_caffe.cpp" line="1152"/>
         <location filename="waifu2x_converter.cpp" line="733"/>
@@ -4411,27 +4419,27 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>结束拆分GIF:[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="141"/>
+        <location filename="gif.cpp" line="87"/>
         <source>Start to assemble GIF:[</source>
         <translation>开始组装GIF:[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="173"/>
+        <location filename="gif.cpp" line="119"/>
         <source>Finish assembling GIF:[</source>
         <translation>结束组装GIF:[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="180"/>
+        <location filename="gif.cpp" line="126"/>
         <source>Starting to optimize GIF:[</source>
         <translation>开始优化GIF:[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="189"/>
+        <location filename="gif.cpp" line="135"/>
         <source>Finish optimizing GIF:[</source>
         <translation>完成优化GIF:[</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2258"/>
+        <location filename="mainwindow.ui" line="2261"/>
         <location filename="textBrowser.cpp" line="40"/>
         <source>Version:</source>
         <translation>版本:</translation>
@@ -4442,15 +4450,15 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>如果您喜欢本软件, 请捐赠以支持开发者, 谢谢您!</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2072"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="2103"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2074"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="2100"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2061"/>
         <source>Insufficient number of available GPUs.</source>
         <translation>可用显卡数量不足.</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2121"/>
-        <location filename="srmd_ncnn_vulkan.cpp" line="2141"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2123"/>
+        <location filename="srmd_ncnn_vulkan.cpp" line="2138"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2128"/>
         <source>At least 2 GPUs need to be enabled !!</source>
         <translation>最少要启用2个显卡 !!</translation>

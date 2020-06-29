@@ -47,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //===========================================
+    connect(this, SIGNAL(Send_SetEnable_pushButton_ForceRetry_self()), this, SLOT(SetEnable_pushButton_ForceRetry_self()));
+    //==
     connect(this, SIGNAL(Send_SystemTray_NewMessage(QString)), this, SLOT(SystemTray_NewMessage(QString)));
     //===
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
@@ -423,6 +425,7 @@ void MainWindow::on_pushButton_Start_clicked()
         TaskNumFinished=0;
         NewTaskFinished=false;
         ETA=0;
+        isForceRetryClicked=false;
         //============== 界面初始化 ======================
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Stop->setVisible(1);//启用stop button
@@ -596,7 +599,7 @@ bool MainWindow::SystemShutDown()
 {
     on_pushButton_SaveFileList_clicked();
     //================
-    QString AutoShutDown = Current_Path+"/AutoShutDown";
+    QString AutoShutDown = Current_Path+"/AutoShutDown_Waifu2xEX";
     QFile file(AutoShutDown);
     file.remove();
     if (file.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
@@ -627,11 +630,11 @@ bool MainWindow::SystemShutDown()
 */
 int MainWindow::SystemShutDown_isAutoShutDown()
 {
-    QString AutoShutDown = Current_Path+"/AutoShutDown";
+    QString AutoShutDown = Current_Path+"/AutoShutDown_Waifu2xEX";
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(file_isFileExist(AutoShutDown)&&file_isFileExist(Table_FileList_ini))
     {
-        QFile::remove(AutoShutDown);
+        QFile::remove(AutoShutDown);//删除之前生成的自动关机标记
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Notification"));
         MSG->setText(tr("It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status."));
@@ -987,30 +990,41 @@ void MainWindow::on_pushButton_HideSettings_clicked()
 void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 {
     QString qmFilename;
-    QString runPath = qApp->applicationDirPath();
     switch(ui->comboBox_language->currentIndex())
     {
         case 0:
             {
-                qmFilename = runPath + "/language_English.qm";
+                qmFilename = Current_Path + "/language_English.qm";
                 break;
             }
         case 1:
             {
-                qmFilename = runPath + "/language_Chinese.qm";
+                qmFilename = Current_Path + "/language_Chinese.qm";
                 break;
             }
         case 2:
             {
-                qmFilename = runPath + "/language_Japanese.qm";
+                qmFilename = Current_Path + "/language_Japanese.qm";
                 break;
             }
         case 3:
             {
-                qmFilename = runPath + "/language_TraditionalChinese.qm";
+                qmFilename = Current_Path + "/language_TraditionalChinese.qm";
                 break;
             }
     }
+    //判断文件是否存在
+    if(QFile::exists(qmFilename)==false)
+    {
+        QMessageBox *MSG_languageFile404 = new QMessageBox();
+        MSG_languageFile404->setWindowTitle(tr("Error"));
+        MSG_languageFile404->setText(tr("Language file is missing, please reinstall this program."));
+        MSG_languageFile404->setIcon(QMessageBox::Warning);
+        MSG_languageFile404->setModal(true);
+        MSG_languageFile404->show();
+        return;
+    }
+    //加载语言文件
     if (translator->load(qmFilename))
     {
         qApp->installTranslator(translator);
@@ -1051,7 +1065,12 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Error: Language files cannot be loaded properly."));
+        QMessageBox *MSG_Unable2LoadLanguageFiles = new QMessageBox();
+        MSG_Unable2LoadLanguageFiles->setWindowTitle(tr("Error"));
+        MSG_Unable2LoadLanguageFiles->setText(tr("Language file cannot be loaded properly."));
+        MSG_Unable2LoadLanguageFiles->setIcon(QMessageBox::Warning);
+        MSG_Unable2LoadLanguageFiles->setModal(true);
+        MSG_Unable2LoadLanguageFiles->show();
     }
 }
 void MainWindow::on_pushButton_SaveFileList_clicked()
@@ -1597,15 +1616,21 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     }
 }
 
+//强制重试
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
     ui->pushButton_ForceRetry->setEnabled(0);
+    //========
+    QtConcurrent::run(this, &MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k);//自动检查更新线程
     //========
     int tmp = ui->spinBox_retry->value();
     tmp++;
     ui->spinBox_retry->setValue(tmp);
     //========
     QProcess Close;
+    Close.start("taskkill /f /t /fi \"imagename eq Anime4K_waifu2xEX.exe\"");
+    Close.waitForStarted(10000);
+    Close.waitForFinished(10000);
     Close.start("taskkill /f /t /fi \"imagename eq waifu2x-ncnn-vulkan_waifu2xEX.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
@@ -1626,6 +1651,11 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     Close.waitForFinished(10000);
     //========
     emit Send_TextBrowser_NewMessage(tr("Force retry."));
+    return;
+}
+//激活强制重试按钮
+void MainWindow::SetEnable_pushButton_ForceRetry_self()
+{
     ui->pushButton_ForceRetry->setEnabled(1);
     return;
 }

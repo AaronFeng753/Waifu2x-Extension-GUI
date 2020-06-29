@@ -37,11 +37,16 @@ Brief change log:
 - 更新ImageMagick,FFmpeg&FFprobe,waifu2x-caffe.
 - 内置cuDNN.
 - 性能优化.
-- 修复bug.
-- 其他改进.
+- 修复多处bug.
+- 其他多项改进.
 ----------------------------
 Detailed change log:
 v2.52.04-beta:
+- 优化读取语言文件的流程.
+- 更换兼容性测试时使用的GIF和视频.
+- 为Anime4k引擎适配强制重试.
+- 为LineEdit添加清空按钮.
+- 修改部分tooltip.
 - 修复bug:错误的弹出捐赠提醒.
 - 修复bug:测试时遗留下来的输出语句.
 v2.52.03-beta:
@@ -62,7 +67,7 @@ v2.52.01-beta:
 --------------------------------------------------------------------------
 To do:
 - pdf格式支持
-- Linux
+- 移植到Linux
 ---------------------------------------------------------------------------
 Integrated component:
 - gifsicle version 1.92(release)

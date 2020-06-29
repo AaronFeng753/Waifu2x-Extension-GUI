@@ -470,7 +470,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
     QString OutputPath = Current_Path + "/Compatibility_Test/res.png";
     QFile::remove(OutputPath);
-    //==============
+    //==========================================
+    //         waifu2x-ncnn-vulkan 最新版
+    //==========================================
     QString Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
@@ -492,7 +494,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_NCNN_Vulkan_NEW=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //     waifu2x-ncnn-vulkan 自己编译的老版本
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan-old";
     program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
@@ -514,7 +518,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_NCNN_Vulkan_OLD=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //     waifu2x-ncnn-vulkan 20200414(fp16p)
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/waifu2x-ncnn-vulkan";
     program = Waifu2x_folder_path + "/waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
@@ -536,12 +542,14 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            waifu2x-converter
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
     program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
     model_path= Waifu2x_folder_path + "/models_rgb";
     QString Denoise_cmd = " --noise-level 1 ";
-    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2" + Denoise_cmd + " --model-dir " + "\"" + model_path + "\"";
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio 2" + Denoise_cmd + " --block-size 32 --model-dir " + "\"" + model_path + "\"";
     QProcess *Waifu2x_converter = new QProcess();
     Waifu2x_converter->start(cmd);
     if(Waifu2x_converter->waitForStarted(30000))
@@ -559,7 +567,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_Converter=false;
     }
     QFile::remove(OutputPath);
-    //===============
+    //==========================================
+    //            Anime4k(CPU Mode)
+    //==========================================
     Current_Path = qApp->applicationDirPath();
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
@@ -581,7 +591,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Anime4k_CPU=false;
     }
     QFile::remove(OutputPath);
-    //===============
+    //==========================================
+    //            Anime4k(GPU Mode)
+    //==========================================
     Current_Path = qApp->applicationDirPath();
     program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2 -q";
@@ -602,7 +614,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Anime4k_GPU=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            SRMD-ncnn-vulkan
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models-srmd";
@@ -624,7 +638,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_SRMD_NCNN_Vulkan=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            Waifu2x-Caffe(CPU)
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/waifu2x-caffe";
     program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
@@ -646,7 +662,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_Caffe_CPU=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            Waifu2x-Caffe(GPU)
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/waifu2x-caffe";
     program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
@@ -668,7 +686,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_Caffe_GPU=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            Waifu2x-Caffe(cuDNN)
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/waifu2x-caffe";
     program = Waifu2x_folder_path + "/waifu2x-caffe_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models/upconv_7_anime_style_art_rgb";
@@ -690,7 +710,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Waifu2x_Caffe_cuDNN=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            RealSR-ncnn-vulkan
+    //==========================================
     Waifu2x_folder_path = Current_Path + "/realsr-ncnn-vulkan";
     program = Waifu2x_folder_path + "/realsr-ncnn-vulkan_waifu2xEX.exe";
     model_path = Waifu2x_folder_path+"/models-DF2K_JPEG";
@@ -712,7 +734,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Realsr_NCNN_Vulkan=false;
     }
     QFile::remove(OutputPath);
-    //================
+    //==========================================
+    //            Python 扩展
+    //==========================================
     QString PythonExt_ProgramPath = Current_Path + "/python_ext_waifu2xEX.exe";
     QString PythonExt_VideoFilePath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
     QProcess PythonExt_QProcess;
@@ -732,7 +756,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         emit Send_TextBrowser_NewMessage(tr("Compatible with Python extension: No."));
         isCompatible_PythonExtension=false;
     }
-    //================
+    //==========================================
+    //                  FFmpeg
+    //==========================================
     QString ffmpeg_VideoPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
     QString ffmpeg_AudioPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video_audio.wav";
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
@@ -754,7 +780,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_FFmpeg=false;
     }
     QFile::remove(ffmpeg_AudioPath);
-    //================
+    //==========================================
+    //                 FFprobe
+    //==========================================
     QString FFprobe_VideoPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *FFprobe_Get_Duration_process = new QProcess();
@@ -777,7 +805,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         emit Send_TextBrowser_NewMessage(tr("Compatible with FFprobe: No."));
         isCompatible_FFprobe=false;
     }
-    //================
+    //==========================================
+    //                 ImageMagick
+    //==========================================
     QString convert_InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
     QString convert_OutputPath = Current_Path + "/Compatibility_Test/convert_res.bmp";
     QString convert_program = Current_Path+"/convert_waifu2xEX.exe";
@@ -799,7 +829,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_ImageMagick=false;
     }
     QFile::remove(convert_OutputPath);
-    //================
+    //==========================================
+    //                 Gifsicle
+    //==========================================
     QString Gifsicle_InputPath = Current_Path + "/Compatibility_Test/CompatibilityTest_GIF.gif";
     QString Gifsicle_OutputPath = Current_Path + "/Compatibility_Test/CompatibilityTest_GIF_RES.gif";
     QFile::remove(Gifsicle_OutputPath);
@@ -824,7 +856,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_Gifsicle=false;
     }
     QFile::remove(Gifsicle_OutputPath);
-    //================
+    //==========================================
+    //                 SoX
+    //==========================================
     QString SoX_InputPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Sound.wav";
     QString SoX_OutputPath = Current_Path + "/Compatibility_Test/TestTemp_DenoiseProfile.dp";
     QFile::remove(SoX_OutputPath);
@@ -1128,4 +1162,3 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     //======
     return OutPut_Path;
 }
-

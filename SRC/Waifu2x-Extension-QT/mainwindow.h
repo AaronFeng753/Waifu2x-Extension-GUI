@@ -380,6 +380,11 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    bool isForceRetryClicked=false;
+    QMutex isForceRetryClicked_QMutex;
+    void DelTrash_ForceRetry_Anime4k(QString OutPut_Path);
+    void isForceRetryClicked_SetTrue_Block_Anime4k();
+
     int SystemShutDown_Countdown();//自动关机倒计时
     int SystemShutDown_isAutoShutDown();//判断之前是否执行过自动关机
     //阻塞延时(安全
@@ -435,6 +440,8 @@ public:
     ~MainWindow();
 
 public slots:
+    void SetEnable_pushButton_ForceRetry_self();
+
     void SystemTray_hide_self();
     void SystemTray_showNormal_self();
     void SystemTray_NewMessage(QString message);
@@ -738,6 +745,8 @@ private slots:
     void on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked();
 
 signals:
+    void Send_SetEnable_pushButton_ForceRetry_self();
+
     void Send_SystemTray_NewMessage(QString message);
 
     void Send_PrograssBar_Range_min_max(int, int);

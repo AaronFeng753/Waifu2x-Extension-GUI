@@ -32,7 +32,7 @@ int MainWindow::Settings_Save()
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
     //================= 添加警告 =========================
-    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    configIniWrite->setValue("/Warning/.", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this file and restart the program.");
     //==================== 存储版本识别 ==================================
     configIniWrite->setValue("/settings/VERSION", VERSION);
     //=======  存储放大值和降噪值  =================================

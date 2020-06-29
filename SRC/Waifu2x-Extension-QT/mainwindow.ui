@@ -481,13 +481,13 @@ padding:10px;
               <bool>true</bool>
              </property>
              <property name="toolTip">
-              <string>In some cases, the waifu2x process can get stuck.
+              <string>In some cases, the Engine process can get stuck.
 
 When you find that the [Scale and denoise] progress has 
 not changed for a long time, it is recommended that you 
 perform a forced retry to remove the stuck.
 
-You can try using [Force Retry] to end the waifu2x process 
+You can try using [Force Retry] to end the Engine process 
 and restart it, and the entire [Scale and denoise] process 
 will not be interrupted and will continue.</string>
              </property>
@@ -1615,6 +1615,9 @@ padding:10px;
                 <property name="text">
                  <string notr="true"/>
                 </property>
+                <property name="clearButtonEnabled">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item row="3" column="0">
@@ -2129,7 +2132,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>0</number>
+              <number>2</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -3047,6 +3050,9 @@ the number of threads must &gt;= the number of GPUs.</string>
                    <property name="text">
                     <string notr="true">0,0:</string>
                    </property>
+                   <property name="clearButtonEnabled">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item>
@@ -3643,6 +3649,9 @@ the number of threads must &gt;= the number of GPUs.</string>
                  <property name="text">
                   <string notr="true">0,1,128:</string>
                  </property>
+                 <property name="clearButtonEnabled">
+                  <bool>true</bool>
+                 </property>
                 </widget>
                </item>
                <item row="9" column="5">
@@ -4188,6 +4197,9 @@ padding:10px;
                   <property name="text">
                    <string notr="true"/>
                   </property>
+                  <property name="clearButtonEnabled">
+                   <bool>true</bool>
+                  </property>
                  </widget>
                 </item>
                 <item row="3" column="1" colspan="2">
@@ -4321,6 +4333,9 @@ padding:10px;
                   </property>
                   <property name="text">
                    <string notr="true"/>
+                  </property>
+                  <property name="clearButtonEnabled">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>

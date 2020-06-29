@@ -102,7 +102,8 @@ int MainWindow::Anime4k_Image(int rowNum)
                 return 0;
             }
         }
-        if(file_isFileExist(OutPut_Path))
+        DelTrash_ForceRetry_Anime4k(OutPut_Path);//删除强制关闭导致生成的垃圾缓存文件
+        if(file_isFileExist(OutPut_Path))//判断是否成功输出目标文件
         {
             break;
         }
@@ -562,6 +563,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
                 return 0;
             }
         }
+        DelTrash_ForceRetry_Anime4k(OutputPath);//删除强制关闭导致生成的垃圾缓存文件
         if(file_isFileExist(OutputPath))
         {
             break;
@@ -1522,6 +1524,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
                 return 0;
             }
         }
+        DelTrash_ForceRetry_Anime4k(OutputPath);//删除强制关闭导致生成的垃圾缓存文件
         if(file_isFileExist(OutputPath))
         {
             break;
@@ -1796,3 +1799,41 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Anime4k_clicked()
     //======
     emit Send_TextBrowser_NewMessage("\nAnime4k GPUs List(user configuration):\n"+VerRes);
 }
+
+/*
+删除强制重试时生成的垃圾缓存文件
+*/
+void MainWindow::DelTrash_ForceRetry_Anime4k(QString OutPut_Path)
+{
+    if(isForceRetryClicked)//判断是否触发强制重试,若触发,直接删除垃圾缓存
+    {
+        QFile::remove(OutPut_Path);
+        isForceRetryClicked_QMutex.lock();
+        isForceRetryClicked=false;
+        isForceRetryClicked_QMutex.unlock();
+    }
+    return;
+}
+//阻断其他线程重置是否强制重试的标记,并检测anime4k是否正在运行
+void MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k()
+{
+    isForceRetryClicked_QMutex.lock();
+    isForceRetryClicked=true;
+    Delay_sec_sleep(5);
+    QProcess Get_tasklist;
+    do
+    {
+        Get_tasklist.start("tasklist");
+        while(!Get_tasklist.waitForStarted(100)) {}
+        while(!Get_tasklist.waitForFinished(100)) {}
+        if(Get_tasklist.readAllStandardOutput().contains("Anime4K_waifu2xEX.exe")==false)
+        {
+            break;
+        }
+        Delay_sec_sleep(1);
+    }
+    while(true);
+    isForceRetryClicked_QMutex.unlock();
+    emit Send_SetEnable_pushButton_ForceRetry_self();
+}
+

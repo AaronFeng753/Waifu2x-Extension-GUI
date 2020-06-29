@@ -69,7 +69,7 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
     while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
     while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
     QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
-    if(Frame_fileName_list.isEmpty())
+    if(Frame_fileName_list.isEmpty())//如果拆分失败,尝试win7兼容指令
     {
         QString cmd = "\"" + program + "\"" + " -coalesce " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%%0"+QString::number(FrameDigits,10)+"d.png\"";
         QProcess *SplitGIF=new QProcess();
@@ -78,60 +78,6 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
         while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
     }
     emit Send_TextBrowser_NewMessage(tr("Finish splitting GIF:[")+gifPath+"]");
-    /*
-    emit Send_TextBrowser_NewMessage(tr("Start splitting GIF:[")+gifPath+"]");
-    int FrameDigits = Gif_getFrameDigits(gifPath);
-
-    //删除并新建帧文件夹
-    file_DelDir(SplitFramesFolderPath);
-    file_mkDir(SplitFramesFolderPath);
-    //先尝试用ffmpeg拆分gif
-    QString program = Current_Path+"/ffmpeg_waifu2xEX.exe";
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%0"+QString::number(FrameDigits,10)+"d.png\"";
-    QProcess *SplitGIF=new QProcess();
-    SplitGIF->start(cmd);
-    while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
-    while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
-    QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
-    if(Frame_fileName_list.isEmpty())
-    {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%%0"+QString::number(FrameDigits,10)+"d.png\"";
-        QProcess *SplitGIF=new QProcess();
-        SplitGIF->start(cmd);
-        while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
-        while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
-    }
-    //判断ffmpeg是否正常拆分了gif,若否则调用convert
-    Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
-    //获取gif帧数
-    QMovie movie(gifPath);
-    int FrameNum=movie.frameCount();
-    //如果帧数对不上则调用convert
-    if(Frame_fileName_list.count()!=FrameNum)
-    {
-
-        //删除并新建帧文件夹
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
-        //开始用convert处理
-        QString program = Current_Path+"/convert_waifu2xEX.exe";
-        QString cmd = "\"" + program + "\"" + " -coalesce " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%0"+QString::number(FrameDigits,10)+"d.png\"";
-        QProcess *SplitGIF=new QProcess();
-        SplitGIF->start(cmd);
-        while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
-        while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
-        QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
-        if(Frame_fileName_list.isEmpty())
-        {
-            QString cmd = "\"" + program + "\"" + " -coalesce " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%%0"+QString::number(FrameDigits,10)+"d.png\"";
-            QProcess *SplitGIF=new QProcess();
-            SplitGIF->start(cmd);
-            while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
-            while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
-        }
-    }
-    emit Send_TextBrowser_NewMessage(tr("Finish splitting GIF:[")+gifPath+"]");
-    */
 }
 /*
 组装gif
