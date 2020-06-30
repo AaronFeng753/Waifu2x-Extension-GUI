@@ -43,6 +43,8 @@ Brief change log:
 Detailed change log:
 v2.52.05-beta:
 - 更新Anime4k.
+- 修改tooltip.
+- 在文本框的启动信息中标识当前版本状态.
 v2.52.04-beta:
 - 更新FFmpeg&FFprobe.
 - 优化读取语言文件的流程.

@@ -36,8 +36,18 @@ void MainWindow::TextBrowser_NewMessage(QString message)
 */
 void MainWindow::TextBrowser_StartMes()
 {
+    QString CurrentVerState="";
+    if(isBetaVer)
+    {
+        CurrentVerState=tr("[Beta]");
+    }
+    else
+    {
+        CurrentVerState=tr("[Stable]");
+    }
+    //====
     ui->textBrowser->append("Waifu2x-Extension-GUI by Aaron Feng");
-    ui->textBrowser->append(tr("Version:")+" "+VERSION);
+    ui->textBrowser->append(tr("Version:")+" "+VERSION+" "+CurrentVerState);
     ui->textBrowser->append("Github: https://github.com/AaronFeng753/Waifu2x-Extension-GUI");
     if(ui->comboBox_language->currentIndex()==1)ui->textBrowser->append("码云: https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI");
     ui->textBrowser->append(tr("If you like this software, please donate to support the developer, thank you!"));

@@ -2132,7 +2132,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
              <property name="currentIndex">
-              <number>2</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2652,6 +2652,12 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
 - More suitable for image with not too bad quality.
 
 - Does NOT supports alpha channel.
+
+- You can enable [ACNet] algorithm to improve image quality.
+
+- Although [GPU Mode] is not enabled by default, in most cases,
+enabling [GPU Mode] can greatly increase the processing speed. 
+(Please make sure your PC is compatible with [GPU Mode] first)
 
 - [ Speed:★★★  Image Quality:★ ]</string>
               </attribute>
