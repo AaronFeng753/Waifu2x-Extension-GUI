@@ -34,14 +34,17 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 新特性:为Anime4k&Waifu2x-caffe引擎添加验证显卡配置的按钮.
-- 更新ImageMagick,FFmpeg&FFprobe,waifu2x-caffe.
+- 更新ImageMagick,FFmpeg&FFprobe,waifu2x-caffe,Anime4k.
 - 内置cuDNN.
 - 性能优化.
 - 修复多处bug.
 - 其他多项改进.
 ----------------------------
 Detailed change log:
+v2.52.05-beta:
+- 更新Anime4k.
 v2.52.04-beta:
+- 更新FFmpeg&FFprobe.
 - 优化读取语言文件的流程.
 - 更换兼容性测试时使用的GIF和视频.
 - 为Anime4k引擎适配强制重试.
@@ -78,8 +81,8 @@ Integrated component:
 - SRMD-ncnn-Vulkan 20200606(release)
 - realsr-ncnn-vulkan 20200606(release)
 - ImageMagick 7.0.10-22-portable-Q16-x64
-- Anime4KCPP v2.1.0(release)
-- FFmpeg&FFprobe 20200626-7447045-win64-static
+- Anime4KCPP v2.2.1
+- FFmpeg&FFprobe 20200628-4cfcfb3-win64-static
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
