@@ -4,6 +4,16 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.52.16](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.52.16)
+#### Change log:
+- New feature: Add buttons to verify GPUs configuration for Anime4k & Waifu2x-caffe engine.
+- Optimize SRMD-ncnn-vulkan engine to improve performance.
+- Update ImageMagick, FFmpeg&FFprobe, waifu2x-caffe, Anime4k.
+- Built-in cuDNN.
+- Performance optimization.
+- Fix multiple bugs.
+- [And many other improvements, click to view detailed change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.52.16_v2.51.17_Detailed_change_log.txt)
+---
 ## [v2.51.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.51.17)
 #### Change log:
 - New feature: Add Multi-GPU support for all engines.
