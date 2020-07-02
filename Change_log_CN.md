@@ -8,6 +8,16 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.52.16](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.52.16)
+#### 更新日志:
+- 新特性:为Anime4k & Waifu2x-caffe引擎添加验证显卡配置的按钮.
+- 优化SRMD-ncnn-vulkan处理图像的流程,提高性能.
+- 更新ImageMagick,FFmpeg&FFprobe,waifu2x-caffe,Anime4k.
+- 内置cuDNN.
+- 性能优化.
+- 修复多处bug.
+- [以及其他诸多改进, 点击查看详细更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.52.16_v2.51.17_Detailed_change_log.txt)
+---
 ## [v2.51.17](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.51.17)
 #### 更新日志:
 - 新特性:为所有引擎添加多显卡支持.
