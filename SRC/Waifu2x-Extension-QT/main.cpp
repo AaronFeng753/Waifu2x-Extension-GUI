@@ -41,6 +41,8 @@ Brief change log:
 - 其他多项改进.
 ----------------------------
 Detailed change log:
+v2.52.16:
+- 改了下版本號.
 v2.52.05-beta:
 - 更新Anime4k.
 - 修改tooltip.
