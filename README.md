@@ -21,6 +21,8 @@ Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/
 
 📁Mirror(sourceforge): https://sourceforge.net/projects/waifu2x-extension-gui/files/
 
+### [📖 Wiki](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki/English-Catalog)
+
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
 Supported Languages: English, 简体中文, 日本語(機械翻訳), 繁體中文.
