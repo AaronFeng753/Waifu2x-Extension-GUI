@@ -4,11 +4,6 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="mainwindow.ui" line="586"/>
-        <source>Files List (You can drag and drop files or folders into here)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="mainwindow.ui" line="677"/>
         <source>Remove item</source>
         <translation type="unfinished"></translation>
@@ -27,7 +22,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="1123"/>
-        <location filename="files.cpp" line="88"/>
+        <location filename="files.cpp" line="90"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation type="unfinished"></translation>
@@ -44,7 +39,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="837"/>
-        <source>Add File</source>
+        <source>Add Files</source>
+        <oldsource>Add File</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -222,7 +218,8 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="804"/>
-        <source>Browse and add file.</source>
+        <source>Browse and add files.</source>
+        <oldsource>Browse and add file.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -529,6 +526,11 @@ utilize the capabilities of your PC.
     <message>
         <location filename="mainwindow.ui" line="236"/>
         <source>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="586"/>
+        <source>Files List</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -875,7 +877,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     <message>
         <location filename="mainwindow.ui" line="874"/>
         <location filename="mainwindow.cpp" line="1058"/>
-        <location filename="mainwindow.cpp" line="1379"/>
+        <location filename="mainwindow.cpp" line="1350"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1851,7 +1853,6 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="1020"/>
         <location filename="mainwindow.cpp" line="1069"/>
         <location filename="mainwindow.cpp" line="1081"/>
-        <location filename="mainwindow.cpp" line="1308"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2073"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
@@ -1869,10 +1870,9 @@ the language for the language settings to fully take effect.</source>
     <message>
         <location filename="CustomResolution.cpp" line="74"/>
         <location filename="CustomResolution.cpp" line="135"/>
-        <location filename="files.cpp" line="99"/>
+        <location filename="files.cpp" line="101"/>
         <location filename="mainwindow.cpp" line="516"/>
         <location filename="mainwindow.cpp" line="752"/>
-        <location filename="mainwindow.cpp" line="1319"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2122"/>
         <location filename="settings.cpp" line="560"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
@@ -1899,46 +1899,47 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="48"/>
         <location filename="files.cpp" line="49"/>
+        <location filename="files.cpp" line="50"/>
+        <location filename="mainwindow.cpp" line="1306"/>
+        <location filename="mainwindow.cpp" line="1307"/>
         <source>Adding files, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="89"/>
+        <location filename="files.cpp" line="91"/>
         <source>Add file complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="100"/>
-        <location filename="mainwindow.cpp" line="1320"/>
+        <location filename="files.cpp" line="102"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="518"/>
+        <location filename="files.cpp" line="520"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="518"/>
+        <location filename="files.cpp" line="520"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="523"/>
+        <location filename="files.cpp" line="525"/>
         <source>Error! Original file [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="523"/>
+        <location filename="files.cpp" line="525"/>
         <source>] does not exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="581"/>
-        <location filename="files.cpp" line="599"/>
-        <location filename="files.cpp" line="617"/>
+        <location filename="files.cpp" line="583"/>
+        <location filename="files.cpp" line="601"/>
+        <location filename="files.cpp" line="619"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1947,7 +1948,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="639"/>
         <location filename="mainwindow.cpp" line="1227"/>
-        <location filename="mainwindow.cpp" line="1542"/>
+        <location filename="mainwindow.cpp" line="1513"/>
         <location filename="settings.cpp" line="548"/>
         <location filename="settings.cpp" line="572"/>
         <location filename="table.cpp" line="512"/>
@@ -2048,9 +2049,9 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1416"/>
         <location filename="Anime4K.cpp" line="1501"/>
         <location filename="CustomResolution.cpp" line="279"/>
-        <location filename="files.cpp" line="581"/>
-        <location filename="files.cpp" line="599"/>
-        <location filename="files.cpp" line="617"/>
+        <location filename="files.cpp" line="583"/>
+        <location filename="files.cpp" line="601"/>
+        <location filename="files.cpp" line="619"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
@@ -2522,13 +2523,13 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1543"/>
-        <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
+        <location filename="mainwindow.cpp" line="1282"/>
+        <source>Select files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1309"/>
-        <source>Input path does not exist.</source>
+        <location filename="mainwindow.cpp" line="1514"/>
+        <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2650,55 +2651,49 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
-        <source>Select file</source>
-        <oldsource>open file</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.cpp" line="1277"/>
+        <location filename="mainwindow.cpp" line="1282"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1053"/>
-        <location filename="mainwindow.cpp" line="1374"/>
-        <location filename="mainwindow.cpp" line="1388"/>
+        <location filename="mainwindow.cpp" line="1345"/>
+        <location filename="mainwindow.cpp" line="1359"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1528"/>
+        <location filename="mainwindow.cpp" line="1499"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1529"/>
+        <location filename="mainwindow.cpp" line="1500"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1530"/>
+        <location filename="mainwindow.cpp" line="1501"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1531"/>
+        <location filename="mainwindow.cpp" line="1502"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1532"/>
+        <location filename="mainwindow.cpp" line="1503"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1535"/>
+        <location filename="mainwindow.cpp" line="1506"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2728,7 +2723,7 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1653"/>
+        <location filename="mainwindow.cpp" line="1624"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>

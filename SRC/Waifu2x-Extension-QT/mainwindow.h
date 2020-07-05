@@ -75,8 +75,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.52.16";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.53.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.52.16";
     //=======================
     QTranslator * translator;//界面翻译
@@ -90,6 +90,8 @@ public:
     void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
     void Read_urls(QList<QUrl> urls);
+
+    void Read_Input_paths_BrowserFile(QStringList Input_path_List);
 
     bool AddNew_gif=false;//判断是否有新增文件-gif
     bool AddNew_image=false;//判断是否有新增文件-图片
@@ -743,6 +745,12 @@ private slots:
     void on_pushButton_VerifyGPUsConfig_Anime4k_clicked();
 
     void on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked();
+
+    void on_tableView_image_doubleClicked(const QModelIndex &index);
+
+    void on_tableView_gif_doubleClicked(const QModelIndex &index);
+
+    void on_tableView_video_doubleClicked(const QModelIndex &index);
 
 signals:
     void Send_SetEnable_pushButton_ForceRetry_self();

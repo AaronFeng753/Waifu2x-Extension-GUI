@@ -583,7 +583,7 @@ padding:10px;
            </size>
           </property>
           <property name="title">
-           <string>Files List (You can drag and drop files or folders into here)</string>
+           <string>Files List</string>
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="1" column="1">
@@ -801,7 +801,7 @@ padding:10px;
               </size>
              </property>
              <property name="toolTip">
-              <string>Browse and add file.</string>
+              <string>Browse and add files.</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
@@ -834,7 +834,7 @@ padding:10px;
 }</string>
              </property>
              <property name="text">
-              <string>Add File</string>
+              <string>Add Files</string>
              </property>
             </widget>
            </item>

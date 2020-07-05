@@ -44,6 +44,7 @@ void MainWindow::dropEvent(QDropEvent *event)
     ui->groupBox_FileList->setEnabled(0);
     ui->groupBox_InputExt->setEnabled(0);
     ui->pushButton_Start->setEnabled(0);
+    ui->checkBox_ScanSubFolders->setEnabled(0);
     this->setAcceptDrops(0);
     ui->label_DropFile->setText(tr("Adding files, please wait."));
     emit Send_TextBrowser_NewMessage(tr("Adding files, please wait."));
@@ -84,6 +85,7 @@ void MainWindow::Read_urls_finfished()
     ui->groupBox_FileList->setEnabled(1);
     ui->pushButton_Start->setEnabled(1);
     ui->groupBox_InputExt->setEnabled(1);
+    ui->checkBox_ScanSubFolders->setEnabled(1);
     this->setAcceptDrops(1);
     ui->label_DropFile->setText(tr("Drag and drop files or folders here\n(Image, GIF and Video)"));
     emit Send_TextBrowser_NewMessage(tr("Add file complete."));

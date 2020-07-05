@@ -63,9 +63,8 @@ folder as the source file.</source>
         <translation>有効</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="586"/>
         <source>Files List (You can drag and drop files or folders into here)</source>
-        <translation>ファイルリスト(ファイルやフォルダをドラッグドロップできます)</translation>
+        <translation type="vanished">ファイルリスト(ファイルやフォルダをドラッグドロップできます)</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="751"/>
@@ -144,7 +143,7 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1123"/>
-        <location filename="files.cpp" line="88"/>
+        <location filename="files.cpp" line="90"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation>ここにファイルまたはフォルダをドラッグ アンド ドロップします
@@ -158,7 +157,7 @@ display the window, double-click to maximize the window.</source>
     <message>
         <location filename="mainwindow.ui" line="874"/>
         <location filename="mainwindow.cpp" line="1058"/>
-        <location filename="mainwindow.cpp" line="1379"/>
+        <location filename="mainwindow.cpp" line="1350"/>
         <source>Hide Text Browser</source>
         <translation>テキスト ブラウザを非表示にする</translation>
     </message>
@@ -174,7 +173,8 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="837"/>
-        <source>Add File</source>
+        <source>Add Files</source>
+        <oldsource>Add File</oldsource>
         <translation>ファイルを追加</translation>
     </message>
     <message>
@@ -425,6 +425,11 @@ It is recommended to enable this option.</source>
         <translation>一時停止</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="586"/>
+        <source>Files List</source>
+        <translation>ファイルリスト</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="598"/>
         <source>Remove all the files in the File list.</source>
         <translation>ファイルリストからすべてのファイルを削除します。</translation>
@@ -436,7 +441,8 @@ It is recommended to enable this option.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="804"/>
-        <source>Browse and add file.</source>
+        <source>Browse and add files.</source>
+        <oldsource>Browse and add file.</oldsource>
         <translation>ファイルを参照して追加します。</translation>
     </message>
     <message>
@@ -2740,9 +2746,9 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1416"/>
         <location filename="Anime4K.cpp" line="1501"/>
         <location filename="CustomResolution.cpp" line="279"/>
-        <location filename="files.cpp" line="581"/>
-        <location filename="files.cpp" line="599"/>
-        <location filename="files.cpp" line="617"/>
+        <location filename="files.cpp" line="583"/>
+        <location filename="files.cpp" line="601"/>
+        <location filename="files.cpp" line="619"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
@@ -3166,7 +3172,6 @@ by the software will be used.</source>
         <location filename="mainwindow.cpp" line="1020"/>
         <location filename="mainwindow.cpp" line="1069"/>
         <location filename="mainwindow.cpp" line="1081"/>
-        <location filename="mainwindow.cpp" line="1308"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2073"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
@@ -3183,10 +3188,9 @@ by the software will be used.</source>
     <message>
         <location filename="CustomResolution.cpp" line="74"/>
         <location filename="CustomResolution.cpp" line="135"/>
-        <location filename="files.cpp" line="99"/>
+        <location filename="files.cpp" line="101"/>
         <location filename="mainwindow.cpp" line="516"/>
         <location filename="mainwindow.cpp" line="752"/>
-        <location filename="mainwindow.cpp" line="1319"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2122"/>
         <location filename="settings.cpp" line="560"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
@@ -3295,46 +3299,47 @@ Do you wanna update now???</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="48"/>
         <location filename="files.cpp" line="49"/>
+        <location filename="files.cpp" line="50"/>
+        <location filename="mainwindow.cpp" line="1306"/>
+        <location filename="mainwindow.cpp" line="1307"/>
         <source>Adding files, please wait.</source>
         <translation>ファイルを追加しています。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="89"/>
+        <location filename="files.cpp" line="91"/>
         <source>Add file complete.</source>
         <translation>ファイルの追加が完了しました。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="100"/>
-        <location filename="mainwindow.cpp" line="1320"/>
+        <location filename="files.cpp" line="102"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation>ファイル形式はサポートされていません。サポートされているファイル形式を入力するか、自分でファイル拡張子を追加してください。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="518"/>
+        <location filename="files.cpp" line="520"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="518"/>
+        <location filename="files.cpp" line="520"/>
         <source>] to [</source>
         <translation>]から[</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="523"/>
+        <location filename="files.cpp" line="525"/>
         <source>Error! Original file [</source>
         <translation>エラー！ 元のファイル[</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="523"/>
+        <location filename="files.cpp" line="525"/>
         <source>] does not exists.</source>
         <translation>]存在しません。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="581"/>
-        <location filename="files.cpp" line="599"/>
-        <location filename="files.cpp" line="617"/>
+        <location filename="files.cpp" line="583"/>
+        <location filename="files.cpp" line="601"/>
+        <location filename="files.cpp" line="619"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation>]. エラー: [権限が不足しています。管理者権限が必要です。]</translation>
     </message>
@@ -3347,7 +3352,7 @@ Do you wanna update now???</source>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="639"/>
         <location filename="mainwindow.cpp" line="1227"/>
-        <location filename="mainwindow.cpp" line="1542"/>
+        <location filename="mainwindow.cpp" line="1513"/>
         <location filename="settings.cpp" line="548"/>
         <location filename="settings.cpp" line="572"/>
         <location filename="table.cpp" line="512"/>
@@ -3444,9 +3449,8 @@ Restart the software to take effect.</source>
         <translation type="vanished">ありがとうございました！ :)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1309"/>
         <source>Input path does not exist.</source>
-        <translation>入力パスが存在しません。</translation>
+        <translation type="vanished">入力パスが存在しません。</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="719"/>
@@ -3597,64 +3601,68 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">合計：%1</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
         <source>Select file</source>
-        <translation>ファイルを選択</translation>
+        <translation type="vanished">ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
+        <location filename="mainwindow.cpp" line="1282"/>
         <source>All file(</source>
         <translation>すべてのファイル（</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1053"/>
-        <location filename="mainwindow.cpp" line="1374"/>
-        <location filename="mainwindow.cpp" line="1388"/>
+        <location filename="mainwindow.cpp" line="1345"/>
+        <location filename="mainwindow.cpp" line="1359"/>
         <source>Show Text Browser</source>
         <translation>テキストブラウザを表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1528"/>
+        <location filename="mainwindow.cpp" line="1282"/>
+        <source>Select files</source>
+        <translation>ファイルを選択</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1499"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- ソフトウェアを使用する前にWikiをお読みください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1529"/>
+        <location filename="mainwindow.cpp" line="1500"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- ソフトウェアのフォント表示に問題がある場合は、追加設定でフォントを変更できます。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1530"/>
+        <location filename="mainwindow.cpp" line="1501"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- このソフトウェアはフリーソフトウェアです。このソフトウェアを販売している人を見つけた場合は、販売者に報告してください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1531"/>
+        <location filename="mainwindow.cpp" line="1502"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- このソフトウェアは無料でオープンソースであり、GNU Affero General Public License v3.0の下でライセンスされています。 このソフトウェアを使用した結果はすべてユーザーが負担し、開発者は一切の責任を負いません。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1532"/>
+        <location filename="mainwindow.cpp" line="1503"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- このソフトウェアが気に入ったら、開発者に寄付してください、ありがとう。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1535"/>
+        <location filename="mainwindow.cpp" line="1506"/>
         <source>!!! Tips !!!</source>
         <translation>!!! プロンプト !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1543"/>
+        <location filename="mainwindow.cpp" line="1514"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>ソフトウェアを初めて起動したことが検出されたため、互換性テストが自動的に実行されます。 しばらく待ってから、テスト結果を確認してください。</translation>
     </message>
@@ -3708,7 +3716,7 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">利用可能なプロセッサが検出されません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1653"/>
+        <location filename="mainwindow.cpp" line="1624"/>
         <source>Force retry.</source>
         <translation>強制的に再試行します。</translation>
     </message>

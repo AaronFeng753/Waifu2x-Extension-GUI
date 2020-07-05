@@ -783,3 +783,23 @@ void MainWindow::on_tableView_video_clicked(const QModelIndex &index)
     ui->tableView_gif->clearSelection();
 }
 
+void MainWindow::on_tableView_image_doubleClicked(const QModelIndex &index)
+{
+    if(curRow_image==-1)return;
+    QModelIndex a;
+    on_tableView_image_clicked(a);
+}
+
+void MainWindow::on_tableView_gif_doubleClicked(const QModelIndex &index)
+{
+    if(curRow_gif==-1)return;
+    QModelIndex a;
+    on_tableView_gif_clicked(a);
+}
+
+void MainWindow::on_tableView_video_doubleClicked(const QModelIndex &index)
+{
+    if(curRow_video==-1)return;
+    QModelIndex a;
+    on_tableView_video_clicked(a);
+}

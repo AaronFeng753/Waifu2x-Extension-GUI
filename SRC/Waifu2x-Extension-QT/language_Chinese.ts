@@ -27,13 +27,12 @@
 (文件或文件夹)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="586"/>
         <source>Files List (You can drag and drop files or folders into here)</source>
-        <translation>文件列表 (您可以拖拽文件或文件夹到此处)</translation>
+        <translation type="vanished">文件列表 (您可以拖拽文件或文件夹到此处)</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1123"/>
-        <location filename="files.cpp" line="88"/>
+        <location filename="files.cpp" line="90"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation>将文件或文件夹拖拽并投放到此处
@@ -355,7 +354,7 @@ display the window, double-click to maximize the window.</source>
     <message>
         <location filename="mainwindow.ui" line="874"/>
         <location filename="mainwindow.cpp" line="1058"/>
-        <location filename="mainwindow.cpp" line="1379"/>
+        <location filename="mainwindow.cpp" line="1350"/>
         <source>Hide Text Browser</source>
         <translation>隐藏文本框</translation>
     </message>
@@ -574,6 +573,11 @@ will not be interrupted and will continue.</oldsource>
         <translation>强制重试</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="586"/>
+        <source>Files List</source>
+        <translation>文件列表</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="598"/>
         <source>Remove all the files in the File list.</source>
         <translation>移除文件列表中的所有文件.</translation>
@@ -585,7 +589,8 @@ will not be interrupted and will continue.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="804"/>
-        <source>Browse and add file.</source>
+        <source>Browse and add files.</source>
+        <oldsource>Browse and add file.</oldsource>
         <translation>浏览并添加文件.</translation>
     </message>
     <message>
@@ -1835,7 +1840,8 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
     </message>
     <message>
         <location filename="mainwindow.ui" line="837"/>
-        <source>Add File</source>
+        <source>Add Files</source>
+        <oldsource>Add File</oldsource>
         <translation>添加文件</translation>
     </message>
     <message>
@@ -2852,7 +2858,6 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="1020"/>
         <location filename="mainwindow.cpp" line="1069"/>
         <location filename="mainwindow.cpp" line="1081"/>
-        <location filename="mainwindow.cpp" line="1308"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2073"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
@@ -2870,10 +2875,9 @@ the language for the language settings to fully take effect.</source>
     <message>
         <location filename="CustomResolution.cpp" line="74"/>
         <location filename="CustomResolution.cpp" line="135"/>
-        <location filename="files.cpp" line="99"/>
+        <location filename="files.cpp" line="101"/>
         <location filename="mainwindow.cpp" line="516"/>
         <location filename="mainwindow.cpp" line="752"/>
-        <location filename="mainwindow.cpp" line="1319"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2122"/>
         <location filename="settings.cpp" line="560"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
@@ -2900,46 +2904,47 @@ the language for the language settings to fully take effect.</source>
         <translation>]  [ 无法获取源文件的分辨率. ]</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="48"/>
         <location filename="files.cpp" line="49"/>
+        <location filename="files.cpp" line="50"/>
+        <location filename="mainwindow.cpp" line="1306"/>
+        <location filename="mainwindow.cpp" line="1307"/>
         <source>Adding files, please wait.</source>
         <translation>添加文件中,请稍等.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="89"/>
+        <location filename="files.cpp" line="91"/>
         <source>Add file complete.</source>
         <translation>已成功添加文件.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="100"/>
-        <location filename="mainwindow.cpp" line="1320"/>
+        <location filename="files.cpp" line="102"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation>不支持当前文件格式,请输入可以支持的文件格式,或者自行添加文件扩展名.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="518"/>
+        <location filename="files.cpp" line="520"/>
         <source>Error! Failed to move [</source>
         <translation>错误! 无法移动 [</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="518"/>
+        <location filename="files.cpp" line="520"/>
         <source>] to [</source>
         <translation>] 到 [</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="523"/>
+        <location filename="files.cpp" line="525"/>
         <source>Error! Original file [</source>
         <translation>错误! 源文件 [</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="523"/>
+        <location filename="files.cpp" line="525"/>
         <source>] does not exists.</source>
         <translation>] 不存在.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="581"/>
-        <location filename="files.cpp" line="599"/>
-        <location filename="files.cpp" line="617"/>
+        <location filename="files.cpp" line="583"/>
+        <location filename="files.cpp" line="601"/>
+        <location filename="files.cpp" line="619"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation>]. 错误: [权限不足, 需要管理员权限.]</translation>
     </message>
@@ -2952,7 +2957,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="639"/>
         <location filename="mainwindow.cpp" line="1227"/>
-        <location filename="mainwindow.cpp" line="1542"/>
+        <location filename="mainwindow.cpp" line="1513"/>
         <location filename="settings.cpp" line="548"/>
         <location filename="settings.cpp" line="572"/>
         <location filename="table.cpp" line="512"/>
@@ -3094,9 +3099,9 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1416"/>
         <location filename="Anime4K.cpp" line="1501"/>
         <location filename="CustomResolution.cpp" line="279"/>
-        <location filename="files.cpp" line="581"/>
-        <location filename="files.cpp" line="599"/>
-        <location filename="files.cpp" line="617"/>
+        <location filename="files.cpp" line="583"/>
+        <location filename="files.cpp" line="601"/>
+        <location filename="files.cpp" line="619"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
@@ -3549,9 +3554,8 @@ Do you wanna update now???</source>
         <translation type="vanished">谢谢您! :)</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1309"/>
         <source>Input path does not exist.</source>
-        <translation>输入的路径不存在.</translation>
+        <translation type="vanished">输入的路径不存在.</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="719"/>
@@ -3749,20 +3753,19 @@ Restart the software to take effect.</source>
 重启本软件以生效.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
         <source>Select file</source>
         <oldsource>open file</oldsource>
-        <translation>选择文件</translation>
+        <translation type="vanished">选择文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1277"/>
+        <location filename="mainwindow.cpp" line="1282"/>
         <source>All file(</source>
         <translation>所有文件(</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1053"/>
-        <location filename="mainwindow.cpp" line="1374"/>
-        <location filename="mainwindow.cpp" line="1388"/>
+        <location filename="mainwindow.cpp" line="1345"/>
+        <location filename="mainwindow.cpp" line="1359"/>
         <source>Show Text Browser</source>
         <translation>显示文本框</translation>
     </message>
@@ -3777,47 +3780,52 @@ Restart the software to take effect.</source>
         <translation>无法加载语言文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1528"/>
+        <location filename="mainwindow.cpp" line="1282"/>
+        <source>Select files</source>
+        <translation>选择文件</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1499"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- 正式开始使用本软件前请先阅读 Wiki.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1529"/>
+        <location filename="mainwindow.cpp" line="1500"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- 如果软件字体显示有问题, 您可以在附加设置内修改字体.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1530"/>
+        <location filename="mainwindow.cpp" line="1501"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1531"/>
+        <location filename="mainwindow.cpp" line="1502"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- 本软件免费开源, 并基于 GNU Affero General Public License v3.0 协议发行, 使用本软件的一切后果均由用户自己承担, 开发者不承担任何责任.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1532"/>
+        <location filename="mainwindow.cpp" line="1503"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- 如果您喜欢本软件, 请向开发者捐赠, 谢谢.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1535"/>
+        <location filename="mainwindow.cpp" line="1506"/>
         <source>!!! Tips !!!</source>
         <translation>!!! 必读 !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1543"/>
+        <location filename="mainwindow.cpp" line="1514"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>检测到这是您第一次启动本软件,因此将自动执行兼容性测试.请稍等片刻,然后查看测试结果.</translation>
     </message>
@@ -3854,7 +3862,7 @@ Restart the software to take effect.</source>
         <translation type="vanished">未检测到可用处理器!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1653"/>
+        <location filename="mainwindow.cpp" line="1624"/>
         <source>Force retry.</source>
         <translation>强制重试.</translation>
     </message>

@@ -1233,18 +1233,23 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
     //==========
     return;
 }
-
+/*
+==================================================================================================
+                                      浏览与添加文本
+==================================================================================================
+*/
 void MainWindow::on_pushButton_BrowserFile_clicked()
 {
     QString Last_browsed_path = Current_Path+"/Last_browsed_path_waifu2xEX.ini";
-    //========
+    //======== 生成 扩展名过滤 字符串 =========
     QStringList nameFilters;
     nameFilters.append("*.gif");
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
     for(int i = 0; i < nameFilters_image.size(); ++i)
     {
-        QString tmp = nameFilters_image.at(i);
+        QString tmp = nameFilters_image.at(i).trimmed();
+        if(tmp=="")continue;
         tmp = "*." + tmp;
         nameFilters.append(tmp);
     }
@@ -1252,14 +1257,15 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     QStringList nameFilters_video = Ext_video_str.split(":");
     for(int i = 0; i < nameFilters_video.size(); ++i)
     {
-        QString tmp = nameFilters_video.at(i);
+        QString tmp = nameFilters_video.at(i).trimmed();
+        if(tmp=="")continue;
         tmp = "*." + tmp;
         nameFilters.append(tmp);
     }
     QString nameFilters_QString = "";
     for(int i = 0; i < nameFilters.size(); ++i)
     {
-        QString tmp = nameFilters.at(i);
+        QString tmp = nameFilters.at(i).trimmed();
         nameFilters_QString = nameFilters_QString +" "+ tmp;
     }
     //=====================================================
@@ -1273,86 +1279,51 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
         if(!QFile::exists(BrowserStartPath))BrowserStartPath = "";
     }
     //===========================================================
-    QString Input_path = "";
-    Input_path = QFileDialog::getOpenFileName(this, tr("Select file"), BrowserStartPath,  tr("All file(")+nameFilters_QString+")");
-    Input_path = Input_path.trimmed();
-    if(Input_path=="")return;
-    //=====
-    Input_path = Input_path.replace("\\","/");
-    Input_path = Input_path.replace("\\\\","/");
-    Input_path = Input_path.replace("//","/");
-    if(Input_path.right(1)=="/")
+    QStringList Input_path_List = QFileDialog::getOpenFileNames(this, tr("Select files"), BrowserStartPath,  tr("All file(")+nameFilters_QString+")");
+    if(Input_path_List.isEmpty())
     {
-        Input_path = Input_path.left(Input_path.length() - 1);
-    }
-    //=======================
-    if(QFile::exists(Input_path))
-    {
-        //================== 记住上一次浏览的文件夹 =======================
-        QFile::remove(Last_browsed_path);
-        QSettings *configIniWrite = new QSettings(Last_browsed_path, QSettings::IniFormat);
-        configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
-        configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
-        QFileInfo lastPath(Input_path);
-        QString folder_lastPath = file_getFolderPath(lastPath);
-        configIniWrite->setValue("/Path", folder_lastPath);
-        //===============================================================
-        AddNew_gif=false;
-        AddNew_image=false;
-        AddNew_video=false;
-        Add_File_Folder(Input_path);
-    }
-    else
-    {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Error"));
-        MSG->setText(tr("Input path does not exist."));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
-        MSG->show();
         return;
     }
-    //=========================
-    if(AddNew_gif==false&&AddNew_image==false&&AddNew_video==false)
-    {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Warning"));
-        MSG->setText(tr("The file format is not supported, please enter supported file format, or add more file extensions yourself."));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
-        MSG->show();
-    }
-    else
-    {
-        if(AddNew_image)
-        {
-            ui->label_DropFile->setVisible(0);//隐藏文件投放label
-            ui->tableView_image->setVisible(1);
-            ui->pushButton_ClearList->setVisible(1);
-            ui->pushButton_RemoveItem->setVisible(1);
-        }
-        if(AddNew_gif)
-        {
-            ui->label_DropFile->setVisible(0);//隐藏文件投放label
-            ui->tableView_gif->setVisible(1);
-            ui->pushButton_ClearList->setVisible(1);
-            ui->pushButton_RemoveItem->setVisible(1);
-        }
-        if(AddNew_video)
-        {
-            ui->label_DropFile->setVisible(0);//隐藏文件投放label
-            ui->tableView_video->setVisible(1);
-            ui->pushButton_ClearList->setVisible(1);
-            ui->pushButton_RemoveItem->setVisible(1);
-        }
-    }
-    ui->tableView_gif->scrollToBottom();
-    ui->tableView_image->scrollToBottom();
-    ui->tableView_video->scrollToBottom();
-    AddNew_image=false;
+    //================== 记住上一次浏览的文件夹 =======================
+    QFile::remove(Last_browsed_path);
+    QSettings *configIniWrite = new QSettings(Last_browsed_path, QSettings::IniFormat);
+    configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
+    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    QFileInfo lastPath(Input_path_List.at(0));
+    QString folder_lastPath = file_getFolderPath(lastPath);
+    configIniWrite->setValue("/Path", folder_lastPath);
+    //===============================================================
+    AddNew_gif=false;
     AddNew_image=false;
     AddNew_video=false;
-    Table_FileCount_reload();
+    //================== 界面管制 ========================
+    ui->groupBox_Setting->setEnabled(0);
+    ui->groupBox_FileList->setEnabled(0);
+    ui->groupBox_InputExt->setEnabled(0);
+    ui->pushButton_Start->setEnabled(0);
+    ui->checkBox_ScanSubFolders->setEnabled(0);
+    this->setAcceptDrops(0);
+    ui->label_DropFile->setText(tr("Adding files, please wait."));
+    emit Send_TextBrowser_NewMessage(tr("Adding files, please wait."));
+    //===================================================
+    QtConcurrent::run(this, &MainWindow::Read_Input_paths_BrowserFile, Input_path_List);
+}
+/*
+读取 路径与添加文件
+*/
+void MainWindow::Read_Input_paths_BrowserFile(QStringList Input_path_List)
+{
+    Progressbar_MaxVal = Input_path_List.size();
+    Progressbar_CurrentVal = 0;
+    emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
+    foreach(QString Input_path, Input_path_List)
+    {
+        Input_path=Input_path.trimmed();
+        if(QFile::exists(Input_path)==false)continue;
+        Add_File_Folder(Input_path);
+        emit Send_progressbar_Add();
+    }
+    emit Send_Read_urls_finfished();
 }
 /*
 打开wiki
@@ -2099,3 +2070,4 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
+
