@@ -101,12 +101,12 @@
         <translation type="vanished">一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5026"/>
+        <location filename="mainwindow.ui" line="4967"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>当文件的处理状态改变时,文件列表自动滑动.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5029"/>
+        <location filename="mainwindow.ui" line="4970"/>
         <source>File list scrolls automatically</source>
         <translation>自动滑动文件列表</translation>
     </message>
@@ -115,12 +115,12 @@
         <translation type="vanished">Alpha通道图像引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5418"/>
+        <location filename="mainwindow.ui" line="5440"/>
         <source>Report issue</source>
         <translation>反馈</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5461"/>
+        <location filename="mainwindow.ui" line="5483"/>
         <source>Check update</source>
         <translation>检查更新</translation>
     </message>
@@ -129,7 +129,7 @@
         <translation type="vanished">说明文档</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5339"/>
+        <location filename="mainwindow.ui" line="5361"/>
         <source>Save settings</source>
         <translation>保存设置</translation>
     </message>
@@ -143,19 +143,19 @@
         <translation type="vanished">★ 捐赠 ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5601"/>
+        <location filename="mainwindow.ui" line="5623"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>进行兼容性测试以了解您的电脑与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5595"/>
-        <location filename="mainwindow.ui" line="5634"/>
+        <location filename="mainwindow.ui" line="5617"/>
+        <location filename="mainwindow.ui" line="5656"/>
         <location filename="waifu2x.cpp" line="918"/>
         <source>Compatibility test</source>
         <translation>兼容性测试</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5376"/>
+        <location filename="mainwindow.ui" line="5398"/>
         <source>Reset settings</source>
         <translation>重置设置</translation>
     </message>
@@ -354,7 +354,7 @@ display the window, double-click to maximize the window.</source>
     <message>
         <location filename="mainwindow.ui" line="874"/>
         <location filename="mainwindow.cpp" line="1058"/>
-        <location filename="mainwindow.cpp" line="1350"/>
+        <location filename="mainwindow.cpp" line="1355"/>
         <source>Hide Text Browser</source>
         <translation>隐藏文本框</translation>
     </message>
@@ -1166,7 +1166,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">★★ 捐赠 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5543"/>
+        <location filename="mainwindow.ui" line="5565"/>
         <source>Wiki</source>
         <translation>使用教程</translation>
     </message>
@@ -1180,8 +1180,8 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation>PayPal</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4750"/>
-        <location filename="mainwindow.ui" line="4828"/>
+        <location filename="mainwindow.ui" line="5061"/>
+        <location filename="mainwindow.ui" line="5183"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1197,17 +1197,37 @@ when processing video in segments.</source>
         <translation type="vanished">一直隐藏路径设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4982"/>
+        <location filename="mainwindow.ui" line="5089"/>
         <source>Scan sub-folders</source>
         <translation>扫描子文件夹</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4818"/>
+        <location filename="mainwindow.ui" line="4987"/>
         <source>Interactive file list</source>
         <translation>可交互文件列表</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="125"/>
+        <location filename="Donate.cpp" line="41"/>
+        <source>Starting to download QRCode image(for [Donate] tab) from Github.</source>
+        <translation>开始从Github下载二维码图片(用于[捐赠]标签页).</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="45"/>
+        <source>Finished to download QRCode image from Github.</source>
+        <translation>结束从Github下载二维码图片.</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="56"/>
+        <source>Starting to download QRCode image(for [Donate] tab) from Gitee.</source>
+        <translation>开始从码云下载二维码图片(用于[捐赠]标签页).</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="60"/>
+        <source>Finished to download QRCode image from Gitee.</source>
+        <translation>结束从码云下载二维码图片.</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="142"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>请捐赠以支持开发者, 您的支持是我们更新软件的动力, 谢谢您! (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -1556,37 +1576,37 @@ increase the time and storage space required to process image.</source>
         <translation>预处理图片</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5045"/>
+        <location filename="mainwindow.ui" line="5120"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation>当检测到更新时弹窗提示.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5063"/>
+        <location filename="mainwindow.ui" line="5018"/>
         <source>Update channel:</source>
         <translation>更新通道:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5074"/>
+        <location filename="mainwindow.ui" line="5029"/>
         <source>Stable</source>
         <translation>稳定版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5079"/>
+        <location filename="mainwindow.ui" line="5034"/>
         <source>Beta</source>
         <translation>测试版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4840"/>
+        <location filename="mainwindow.ui" line="4980"/>
         <source>Minimize to taskbar</source>
         <translation>最小化到任务栏</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5192"/>
+        <location filename="mainwindow.ui" line="4831"/>
         <source>Enable Custom Font Settings.</source>
         <translation>启用自定义字体设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5221"/>
+        <location filename="mainwindow.ui" line="4880"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.
 
@@ -1596,22 +1616,42 @@ automatically force the picture to be saved as PNG.
 ★Anime4K 引擎不支持处理Alpha通道.★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5240"/>
+        <location filename="mainwindow.ui" line="4863"/>
         <source>Compress JPG files.</source>
         <translation>压缩 JPG 文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5503"/>
+        <location filename="mainwindow.ui" line="5282"/>
+        <source>Enable this will stop download anything from Communist China website Gitee.
+
+If you are in China, due to government banned raw.githubusercontent.com,
+enable this will affect auto update.
+
+For detailed information, please read privacy policy.</source>
+        <translation>启用本选项后将停止从中国大陆网站码云下载任何数据.
+
+如果您在中国大陆,由于政府封禁了raw.githubusercontent.com,
+启用本选项将影响自动检查更新.
+
+更多详细信息,请查看隐私政策.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5290"/>
+        <source>Ban Gitee</source>
+        <translation>禁止连接码云</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5525"/>
         <source>Official website</source>
         <translation>访问官网</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5510"/>
+        <location filename="mainwindow.ui" line="5532"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation>打开Waifu2x-Extension-GUI的在线使用说明.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5678"/>
+        <location filename="mainwindow.ui" line="5700"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -1634,7 +1674,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5797"/>
+        <location filename="mainwindow.ui" line="5819"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan(最新版)</translation>
     </message>
@@ -1704,24 +1744,24 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
         <translation>当转换视频到mp4时</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4774"/>
-        <location filename="mainwindow.ui" line="5016"/>
+        <location filename="mainwindow.ui" line="4997"/>
+        <location filename="mainwindow.ui" line="5241"/>
         <source>The number of retries when failed to processing a image (or frame).</source>
         <translation>当处理一个图片(或帧)失败时重试的次数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5019"/>
+        <location filename="mainwindow.ui" line="5244"/>
         <source>Retry:</source>
         <translation>重试:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4978"/>
+        <location filename="mainwindow.ui" line="5085"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation>当向文件列表内添加文件夹时,扫描子文件夹内的文件并一同加入文件列表中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4915"/>
+        <location filename="mainwindow.ui" line="5208"/>
         <source>Keep video cache after processing the video.</source>
         <translation>处理完视频后保存缓存.</translation>
     </message>
@@ -1730,14 +1770,14 @@ the subfolder and add them to the file list.</source>
         <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;压缩 &lt;span style=&quot; font-weight:600;&quot;&gt;JPG&lt;/span&gt; 图片, 近乎无损.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5261"/>
+        <location filename="mainwindow.ui" line="4896"/>
         <source>0(worst quality)~99
 We recommend you use the default value(95)</source>
         <translation>0(画质最差)~99
 我们建议您使用默认值(95)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5211"/>
+        <location filename="mainwindow.ui" line="4850"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;将放大后的图片保存为 &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;默认将图片保存为 &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; 格式.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -1752,7 +1792,7 @@ waifu2x-converter引擎来处理图片并强制将图片另存为PNG。
 在启用此选项之前，请先确保waifu2x-converter引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5227"/>
+        <location filename="mainwindow.ui" line="4886"/>
         <source>Auto detect Alpha channel</source>
         <translation>自动检测Alpha通道</translation>
     </message>
@@ -1786,12 +1826,12 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 waifu2x-caffe  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5823"/>
+        <location filename="mainwindow.ui" line="5845"/>
         <source>Engines:</source>
         <translation>引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5958"/>
+        <location filename="mainwindow.ui" line="5980"/>
         <source>Plugins:</source>
         <translation>插件:</translation>
     </message>
@@ -1881,8 +1921,8 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5942"/>
-        <location filename="mainwindow.ui" line="5965"/>
+        <location filename="mainwindow.ui" line="5964"/>
+        <location filename="mainwindow.ui" line="5987"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>用于处理视频.</translation>
@@ -1978,7 +2018,7 @@ be processed successfully)</source>
 (无法保证一定能成功处理您自行添加的文件格式)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5644"/>
+        <location filename="mainwindow.ui" line="5666"/>
         <source>Compatibility test results</source>
         <translation>兼容性测试结果</translation>
     </message>
@@ -2009,7 +2049,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5700"/>
+        <location filename="mainwindow.ui" line="5722"/>
         <source>For audio denoise(video).</source>
         <translation>用于给音频降噪(视频).</translation>
     </message>
@@ -2032,7 +2072,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5854"/>
+        <location filename="mainwindow.ui" line="5876"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(旧版本)</translation>
     </message>
@@ -2041,17 +2081,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5716"/>
-        <location filename="mainwindow.ui" line="5737"/>
-        <location filename="mainwindow.ui" line="5752"/>
-        <location filename="mainwindow.ui" line="5768"/>
-        <location filename="mainwindow.ui" line="5789"/>
-        <location filename="mainwindow.ui" line="5830"/>
-        <location filename="mainwindow.ui" line="5846"/>
-        <location filename="mainwindow.ui" line="5883"/>
-        <location filename="mainwindow.ui" line="5917"/>
-        <location filename="mainwindow.ui" line="5932"/>
-        <location filename="mainwindow.ui" line="5975"/>
+        <location filename="mainwindow.ui" line="5738"/>
+        <location filename="mainwindow.ui" line="5759"/>
+        <location filename="mainwindow.ui" line="5774"/>
+        <location filename="mainwindow.ui" line="5790"/>
+        <location filename="mainwindow.ui" line="5811"/>
+        <location filename="mainwindow.ui" line="5852"/>
+        <location filename="mainwindow.ui" line="5868"/>
+        <location filename="mainwindow.ui" line="5905"/>
+        <location filename="mainwindow.ui" line="5939"/>
+        <location filename="mainwindow.ui" line="5954"/>
+        <location filename="mainwindow.ui" line="5997"/>
         <source>Image processing engine.</source>
         <translation>图像处理引擎。</translation>
     </message>
@@ -2080,8 +2120,8 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5861"/>
-        <location filename="mainwindow.ui" line="5901"/>
+        <location filename="mainwindow.ui" line="5883"/>
+        <location filename="mainwindow.ui" line="5923"/>
         <source>For processing GIF.</source>
         <translation>用于处理GIF。</translation>
     </message>
@@ -2098,7 +2138,7 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5650"/>
+        <location filename="mainwindow.ui" line="5672"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>至关重要，用于实现各种功能。</translation>
     </message>
@@ -2270,12 +2310,12 @@ by the software will be used.</source>
         <translation>启用此功能后，ffmpeg会将原始视频的视频部分直接复制到mp4文件，可能会导致错误。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5048"/>
+        <location filename="mainwindow.ui" line="5123"/>
         <source>Update popup</source>
         <translation>更新弹窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4790"/>
+        <location filename="mainwindow.ui" line="5099"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
@@ -2291,17 +2331,17 @@ will increase the time required to process video.</source>
         <translation type="vanished">s</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4833"/>
+        <location filename="mainwindow.ui" line="5188"/>
         <source>Segment duration:</source>
         <translation>视频片段时长:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4905"/>
+        <location filename="mainwindow.ui" line="5160"/>
         <source>Prompt when exit</source>
         <translation>退出时弹窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4918"/>
+        <location filename="mainwindow.ui" line="5211"/>
         <source>Keep video cache</source>
         <translation>保存视频缓存</translation>
     </message>
@@ -2310,7 +2350,7 @@ will increase the time required to process video.</source>
         <translation type="vanished">实验性功能,可以减少处理视频时的硬盘空间占用量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4795"/>
+        <location filename="mainwindow.ui" line="5104"/>
         <source>Process video by segment</source>
         <translation>分段处理视频</translation>
     </message>
@@ -2387,24 +2427,24 @@ image quality.</source>
 已完成的文件将在下次开始时被重复处理.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5250"/>
+        <location filename="mainwindow.ui" line="4910"/>
         <source>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
 It is recommended to enable this option.</source>
         <translation>优化放大后的GIF会导致轻微的画质损失,但是可以压缩文件体积.
 推荐您启用该功能.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5254"/>
+        <location filename="mainwindow.ui" line="4914"/>
         <source>Optimize &quot;.gif&quot;</source>
         <translation>优化&quot;.gif&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5092"/>
+        <location filename="mainwindow.ui" line="4731"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation>自定义字体设置 (重启软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5098"/>
+        <location filename="mainwindow.ui" line="4737"/>
         <source>Custom font size:</source>
         <translation>自定义字体大小:</translation>
     </message>
@@ -2413,12 +2453,12 @@ It is recommended to enable this option.</source>
         <location filename="mainwindow.ui" line="2486"/>
         <location filename="mainwindow.ui" line="3222"/>
         <location filename="mainwindow.ui" line="3849"/>
-        <location filename="mainwindow.ui" line="5195"/>
+        <location filename="mainwindow.ui" line="4834"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5108"/>
+        <location filename="mainwindow.ui" line="4747"/>
         <source>Custom font:</source>
         <translation>自定义字体:</translation>
     </message>
@@ -2427,12 +2467,12 @@ It is recommended to enable this option.</source>
         <translation type="vanished">语言:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4992"/>
+        <location filename="mainwindow.ui" line="5221"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation>[文本框] 将在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4995"/>
+        <location filename="mainwindow.ui" line="5224"/>
         <source>Always hide Text Browser</source>
         <translation>一直隐藏文本框</translation>
     </message>
@@ -2441,12 +2481,12 @@ It is recommended to enable this option.</source>
         <translation type="vanished">宋体</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5154"/>
+        <location filename="mainwindow.ui" line="4793"/>
         <source>Save Custom Font Settings</source>
         <translation>保存自定义字体设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5275"/>
+        <location filename="mainwindow.ui" line="4873"/>
         <source>Compressed &quot;.jpg&quot; image quality:</source>
         <translation>压缩后的 &quot;.jpg&quot; 图像质量:</translation>
     </message>
@@ -2457,14 +2497,14 @@ We recommend you use the default value(90)</source>
 我们建议您使用默认值(90)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5580"/>
-        <location filename="mainwindow.cpp" line="1167"/>
+        <location filename="mainwindow.ui" line="5602"/>
+        <location filename="mainwindow.cpp" line="1172"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4894"/>
-        <location filename="mainwindow.ui" line="4947"/>
+        <location filename="mainwindow.ui" line="4936"/>
+        <location filename="mainwindow.ui" line="5050"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>我们建议您在更改语言设置后重启软件 
@@ -2477,12 +2517,12 @@ the language for the language settings to fully take effect.</source>
 (重启本软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4928"/>
+        <location filename="mainwindow.ui" line="5170"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>当您关闭软件时将自动保存设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4931"/>
+        <location filename="mainwindow.ui" line="5173"/>
         <source>Auto save settings</source>
         <translation>自动保存设置</translation>
     </message>
@@ -2495,7 +2535,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5005"/>
+        <location filename="mainwindow.ui" line="5149"/>
         <source>Aspect Ratio:
 (Custom resolution)</source>
         <translation>纵横比:
@@ -2512,27 +2552,27 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4870"/>
+        <location filename="mainwindow.ui" line="5264"/>
         <source>Ignore Aspect Ratio</source>
         <translation>忽略纵横比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4875"/>
+        <location filename="mainwindow.ui" line="5269"/>
         <source>Keep Aspect Ratio</source>
         <translation>保持纵横比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4880"/>
+        <location filename="mainwindow.ui" line="5274"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation>保持纵横比(扩展)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4847"/>
+        <location filename="mainwindow.ui" line="5231"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[设置] 将会在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4850"/>
+        <location filename="mainwindow.ui" line="5234"/>
         <source>Always hide Settings</source>
         <translation>一直隐藏设置</translation>
     </message>
@@ -2541,12 +2581,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">捐赠:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4805"/>
+        <location filename="mainwindow.ui" line="5195"/>
         <source>Play Notification sound when all files in the list have been processed.</source>
         <translation>处理完列表内所有文件后播放提示音.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4808"/>
+        <location filename="mainwindow.ui" line="5198"/>
         <source>Notification sound</source>
         <translation>提示音</translation>
     </message>
@@ -2555,7 +2595,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">压缩JPG文件,近乎无损.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5243"/>
+        <location filename="mainwindow.ui" line="4866"/>
         <source>Compress &quot;.jpg&quot;</source>
         <translation>压缩&quot;.jpg&quot;</translation>
     </message>
@@ -2584,7 +2624,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">将放大后的图片保存为&quot;.jpg&quot;.(图片默认保存为&quot;.png&quot;)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5214"/>
+        <location filename="mainwindow.ui" line="4853"/>
         <source>Save as &quot;.jpg&quot;</source>
         <translation>保存为&quot;.jpg&quot;</translation>
     </message>
@@ -2598,12 +2638,12 @@ the language for the language settings to fully take effect.</source>
         <translation>重复处理已完成的文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4737"/>
+        <location filename="mainwindow.ui" line="5133"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation>在Textbrowser内输出视频和GIF的内部放大与降噪进度.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4740"/>
+        <location filename="mainwindow.ui" line="5136"/>
         <source>Show internal progress</source>
         <translation>显示内部进度</translation>
     </message>
@@ -2858,6 +2898,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="1020"/>
         <location filename="mainwindow.cpp" line="1069"/>
         <location filename="mainwindow.cpp" line="1081"/>
+        <location filename="mainwindow.cpp" line="1137"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2073"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
@@ -2879,7 +2920,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="516"/>
         <location filename="mainwindow.cpp" line="752"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2122"/>
-        <location filename="settings.cpp" line="560"/>
+        <location filename="settings.cpp" line="562"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
         <location filename="waifu2x_converter.cpp" line="1837"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2127"/>
@@ -2906,8 +2947,8 @@ the language for the language settings to fully take effect.</source>
     <message>
         <location filename="files.cpp" line="49"/>
         <location filename="files.cpp" line="50"/>
-        <location filename="mainwindow.cpp" line="1306"/>
-        <location filename="mainwindow.cpp" line="1307"/>
+        <location filename="mainwindow.cpp" line="1311"/>
+        <location filename="mainwindow.cpp" line="1312"/>
         <source>Adding files, please wait.</source>
         <translation>添加文件中,请稍等.</translation>
     </message>
@@ -2956,10 +2997,10 @@ the language for the language settings to fully take effect.</source>
         <location filename="SystemTrayIcon.cpp" line="113"/>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="639"/>
-        <location filename="mainwindow.cpp" line="1227"/>
-        <location filename="mainwindow.cpp" line="1513"/>
-        <location filename="settings.cpp" line="548"/>
-        <location filename="settings.cpp" line="572"/>
+        <location filename="mainwindow.cpp" line="1232"/>
+        <location filename="mainwindow.cpp" line="1518"/>
+        <location filename="settings.cpp" line="550"/>
+        <location filename="settings.cpp" line="574"/>
         <location filename="table.cpp" line="512"/>
         <location filename="waifu2x.cpp" line="926"/>
         <location filename="waifu2x.cpp" line="933"/>
@@ -2987,7 +3028,7 @@ Do you wanna update now???</source>
 您想现在更新吗???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="112"/>
+        <location filename="checkupdate.cpp" line="128"/>
         <source>Unable to check for updates automatically! Please check your network or check for updates manually.</source>
         <translation>无法自动检查更新!请检查您的网络或者手动检查更新.</translation>
     </message>
@@ -3006,18 +3047,38 @@ Do you wanna update now???</source>
 您想现在更新吗???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="127"/>
-        <location filename="checkupdate.cpp" line="150"/>
+        <location filename="checkupdate.cpp" line="78"/>
+        <source>Starting to download update information(for auto-check update) from Github.</source>
+        <translation>开始从Github下载更新信息(用于自动检查更新).</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="82"/>
+        <source>Finished to download update information from Github.</source>
+        <translation>结束从Github下载更新信息.</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="103"/>
+        <source>Starting to download update information(for auto-check update) from Gitee.</source>
+        <translation>开始从码云下载更新信息(用于自动检查更新).</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="107"/>
+        <source>Finished to download update information from Gitee.</source>
+        <translation>结束从码云下载更新信息.</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="143"/>
+        <location filename="checkupdate.cpp" line="166"/>
         <source>New </source>
         <translation>检测到 </translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="127"/>
+        <location filename="checkupdate.cpp" line="143"/>
         <source> update available!</source>
         <translation> 更新!</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="127"/>
+        <location filename="checkupdate.cpp" line="143"/>
         <source>New version: %1
 
 Brief change log:
@@ -3032,14 +3093,14 @@ Do you wanna update now???</source>
 您想要现在更新吗???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="141"/>
+        <location filename="checkupdate.cpp" line="157"/>
         <location filename="mainwindow.cpp" line="148"/>
-        <location filename="settings.cpp" line="562"/>
+        <location filename="settings.cpp" line="564"/>
         <source>YES</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="150"/>
+        <location filename="checkupdate.cpp" line="166"/>
         <source> update: %1 is available! Click [Check update] button to download the latest version!</source>
         <translation> 更新: %1 ! 点击 [检查更新] 按钮以下载最新版!</translation>
     </message>
@@ -3048,25 +3109,25 @@ Do you wanna update now???</source>
         <translation type="vanished">新版本: %1 已经发布! 点击 [检查更新] 按钮以下载最新版本!</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="133"/>
-        <location filename="checkupdate.cpp" line="142"/>
+        <location filename="checkupdate.cpp" line="149"/>
+        <location filename="checkupdate.cpp" line="158"/>
         <location filename="mainwindow.cpp" line="149"/>
-        <location filename="settings.cpp" line="563"/>
+        <location filename="settings.cpp" line="565"/>
         <source>NO</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="549"/>
+        <location filename="settings.cpp" line="551"/>
         <source>Settings saved successfully!</source>
         <translation>成功保存设置参数!</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="560"/>
+        <location filename="settings.cpp" line="562"/>
         <source>Do you really wanna RESET all the settings?</source>
         <translation>您确定要重置所有设定吗？</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="573"/>
+        <location filename="settings.cpp" line="575"/>
         <source>The settings file has been reset, please restart the software manually for the default settings to take effect.</source>
         <translation>设置配置文件已重置,请手动重启软件以应用默认设置.</translation>
     </message>
@@ -3605,7 +3666,7 @@ Do you wanna update now???</source>
     <message>
         <location filename="mainwindow.cpp" line="977"/>
         <location filename="mainwindow.cpp" line="1041"/>
-        <location filename="mainwindow.cpp" line="1213"/>
+        <location filename="mainwindow.cpp" line="1218"/>
         <source>Show settings</source>
         <translation>显示设置</translation>
     </message>
@@ -3668,7 +3729,7 @@ Do you wanna update now???</source>
         <translation>请稍等,读取文件中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1136"/>
+        <location filename="mainwindow.cpp" line="1138"/>
         <location filename="table.cpp" line="526"/>
         <source>Cannot find the saved Files List!</source>
         <translation>找不到已保存的文件列表!</translation>
@@ -3744,7 +3805,7 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation>Realsr-ncnn-vulkan引擎将自动为图像降噪.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1228"/>
+        <location filename="mainwindow.cpp" line="1233"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
@@ -3758,14 +3819,14 @@ Restart the software to take effect.</source>
         <translation type="vanished">选择文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1282"/>
+        <location filename="mainwindow.cpp" line="1287"/>
         <source>All file(</source>
         <translation>所有文件(</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1053"/>
-        <location filename="mainwindow.cpp" line="1345"/>
-        <location filename="mainwindow.cpp" line="1359"/>
+        <location filename="mainwindow.cpp" line="1350"/>
+        <location filename="mainwindow.cpp" line="1364"/>
         <source>Show Text Browser</source>
         <translation>显示文本框</translation>
     </message>
@@ -3780,52 +3841,52 @@ Restart the software to take effect.</source>
         <translation>无法加载语言文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1282"/>
+        <location filename="mainwindow.cpp" line="1287"/>
         <source>Select files</source>
         <translation>选择文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1499"/>
+        <location filename="mainwindow.cpp" line="1504"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- 正式开始使用本软件前请先阅读 Wiki.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1500"/>
+        <location filename="mainwindow.cpp" line="1505"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- 如果软件字体显示有问题, 您可以在附加设置内修改字体.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1501"/>
+        <location filename="mainwindow.cpp" line="1506"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1502"/>
+        <location filename="mainwindow.cpp" line="1507"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- 本软件免费开源, 并基于 GNU Affero General Public License v3.0 协议发行, 使用本软件的一切后果均由用户自己承担, 开发者不承担任何责任.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1503"/>
+        <location filename="mainwindow.cpp" line="1508"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- 如果您喜欢本软件, 请向开发者捐赠, 谢谢.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1506"/>
+        <location filename="mainwindow.cpp" line="1511"/>
         <source>!!! Tips !!!</source>
         <translation>!!! 必读 !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1514"/>
+        <location filename="mainwindow.cpp" line="1519"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>检测到这是您第一次启动本软件,因此将自动执行兼容性测试.请稍等片刻,然后查看测试结果.</translation>
     </message>
@@ -3862,7 +3923,7 @@ Restart the software to take effect.</source>
         <translation type="vanished">未检测到可用处理器!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1624"/>
+        <location filename="mainwindow.cpp" line="1629"/>
         <source>Force retry.</source>
         <translation>强制重试.</translation>
     </message>

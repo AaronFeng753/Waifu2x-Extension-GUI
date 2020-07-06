@@ -24,30 +24,47 @@ online update for QRCode at donate tab
 */
 int MainWindow::Donate_DownloadOnlineQRCode()
 {
+    bool isGiteeBanned = ui->checkBox_BanGitee->isChecked();
     //============================
-    QString Github_OnlineQRCode = Current_Path+"/Online_Donate_QRCode_Github.jpg";
-    QString Gitee_OnlineQRCode = Current_Path+"/Online_Donate_QRCode_Gitee.jpg";
-    QFile::remove(Github_OnlineQRCode);
-    QFile::remove(Gitee_OnlineQRCode);
+    QString Github_OnlineQRCode_online = "https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/Online_Donate_QRCode.jpg";
+    QString Gitee_OnlineQRCode_online = "https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Online_Donate_QRCode.jpg";
+    //=
+    QString Github_OnlineQRCode_local = Current_Path+"/Online_Donate_QRCode_Github.jpg";
+    QString Gitee_OnlineQRCode_local = Current_Path+"/Online_Donate_QRCode_Gitee.jpg";
+    //=
+    QFile::remove(Github_OnlineQRCode_local);
+    QFile::remove(Gitee_OnlineQRCode_local);
     //===========================
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess DownloadOnlineQRCode;
-    DownloadOnlineQRCode.start("\""+program+"\" \""+Current_Path+"\" DownloadDonateQRCode");
+    //==================== 从Github下载文件 ========================
+    emit Send_TextBrowser_NewMessage(tr("Starting to download QRCode image(for [Donate] tab) from Github."));
+    DownloadOnlineQRCode.start("\""+program+"\" \""+Github_OnlineQRCode_online+"\" download2 \""+Github_OnlineQRCode_local+"\"");
     while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
     while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
-    //========= 先检查github的文件是否下载成功 =================
-    QFileInfo *Github_OnlineQRCode_QFileInfo = new QFileInfo(Github_OnlineQRCode);
-    if(QFile::exists(Github_OnlineQRCode)&&(Github_OnlineQRCode_QFileInfo->size()>1000))
+    emit Send_TextBrowser_NewMessage(tr("Finished to download QRCode image from Github."));
+    //========= 检查github的文件是否下载成功 =================
+    QFileInfo *Github_OnlineQRCode_QFileInfo = new QFileInfo(Github_OnlineQRCode_local);
+    if(QFile::exists(Github_OnlineQRCode_local)&&(Github_OnlineQRCode_QFileInfo->size()>1000))
     {
-        emit Send_Donate_ReplaceQRCode(Github_OnlineQRCode);
+        emit Send_Donate_ReplaceQRCode(Github_OnlineQRCode_local);
         return 1;
     }
-    //========= 再检查gitee的文件是否下载成功 =================
-    QFileInfo *Gitee_OnlineQRCode_QFileInfo = new QFileInfo(Gitee_OnlineQRCode);
-    if(QFile::exists(Gitee_OnlineQRCode)&&(Gitee_OnlineQRCode_QFileInfo->size()>1000))
+    //==================== 从码云下载文件 ========================
+    if(isGiteeBanned==false)
     {
-        emit Send_Donate_ReplaceQRCode(Gitee_OnlineQRCode);
-        return 1;
+        emit Send_TextBrowser_NewMessage(tr("Starting to download QRCode image(for [Donate] tab) from Gitee."));
+        DownloadOnlineQRCode.start("\""+program+"\" \""+Gitee_OnlineQRCode_online+"\" download2 \""+Gitee_OnlineQRCode_local+"\"");
+        while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
+        while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
+        emit Send_TextBrowser_NewMessage(tr("Finished to download QRCode image from Gitee."));
+        //========= 检查gitee的文件是否下载成功 =================
+        QFileInfo *Gitee_OnlineQRCode_QFileInfo = new QFileInfo(Gitee_OnlineQRCode_local);
+        if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>1000)&&!isGiteeBanned)
+        {
+            emit Send_Donate_ReplaceQRCode(Gitee_OnlineQRCode_local);
+            return 1;
+        }
     }
     emit Send_Donate_ReplaceQRCode("");//下载失败,直接跳转
     return 0;

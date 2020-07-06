@@ -1133,7 +1133,12 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
     }
     else
     {
-        Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
+        QMessageBox *MSG_FileList404 = new QMessageBox();
+        MSG_FileList404->setWindowTitle(tr("Error"));
+        MSG_FileList404->setText(tr("Cannot find the saved Files List!"));
+        MSG_FileList404->setIcon(QMessageBox::Warning);
+        MSG_FileList404->setModal(true);
+        MSG_FileList404->show();
     }
 }
 
