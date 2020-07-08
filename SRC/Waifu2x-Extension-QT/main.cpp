@@ -35,11 +35,14 @@ int main(int argc, char *argv[])
 Brief change log:
 - 新特性:[添加文件]按钮支持选中并添加多个文件.
 - 新特性:加入[禁止Gitee]选项,启用本选项将禁止本软件从码云下载文件.
-- 更新ImageMagick,Python扩展.
+- 更新RealSR-ncnn-vulkan,Waifu2x-ncnn-vulkan,ImageMagick,Python扩展.
 - 性能优化.
 - 修复多个bug.
 ----------------------------
 Detailed change log:
+v2.53.03-beta:
+- 更新Waifu2x-ncnn-vulkan.
+- 更新RealSR-ncnn-vulkan.
 v2.53.02-beta:
 - 新特性:加入[禁止Gitee]选项,启用本选项将禁止本软件从码云下载文件.(可能影响自动检查更新)
 - 性能优化,减少对python扩展的多余调用.
@@ -65,9 +68,9 @@ Integrated component:
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.3
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan 785328838a7e3c3429d4d4587ba0d00f50cb098f
+- waifu2x-ncnn-vulkan 3172fc3f73be8e0a7d1c73cc7e6c8ec92783f27d
 - SRMD-ncnn-Vulkan 20200606(release)
-- realsr-ncnn-vulkan 20200606(release)
+- realsr-ncnn-vulkan cdda5aa4c5c3f6c9628c043bab4fb863b3ec9ec4
 - ImageMagick 7.0.10-23 Q16 x64 2020-07-04
 - Anime4KCPP v2.2.1
 - FFmpeg&FFprobe 20200628-4cfcfb3-win64-static
