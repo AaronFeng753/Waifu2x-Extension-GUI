@@ -8,6 +8,15 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.53.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.53.14)
+#### 更新日志:
+- 新特性:[添加文件]按钮支持选中并添加多个文件.
+- 新特性:加入[禁止连接码云]选项,启用本选项将禁止本软件从码云下载文件.
+- 更新RealSR-ncnn-vulkan,Waifu2x-ncnn-vulkan,ImageMagick,Python扩展.
+- 性能优化,减少网络流量消耗和对外部程序的调用.
+- 修复多个bug.
+- [以及其他诸多改进, 点击查看详细更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.53.14_v2.52.16_Detailed_change_log.txt)
+---
 ## [v2.52.16](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.52.16)
 #### 更新日志:
 - 新特性:为Anime4k & Waifu2x-caffe引擎添加验证显卡配置的按钮.
