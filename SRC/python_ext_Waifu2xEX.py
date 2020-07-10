@@ -9,70 +9,24 @@ from bs4 import BeautifulSoup
 
 argv_list = sys.argv
 
-inputpath = argv_list[1].strip('"').strip('\\').strip(' ')
-opt = argv_list[2]
+opt0 = argv_list[1].strip('"').strip('\\').strip(' ')
+opt1 = argv_list[2]
 
-def DownloadDonateQRCode():
+def downloadFile():
+	
+	DownloadLink = argv_list[1].strip('"').strip(' ')
+	DownloadFilePath = argv_list[3].strip('"').strip('\\').strip(' ')
+	
 	headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'}
 	
 	try:
-		Github_request=requests.get('https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/Online_Donate_QRCode.jpg',headers=headers)
-		Github_filename = inputpath+'/Online_Donate_QRCode_Github.jpg'
-		with open(Github_filename,'wb+') as f:
-			f.write(Github_request.content)
+		Download_request=requests.get(DownloadLink,headers=headers)
+		Download_filename = DownloadFilePath
+		with open(Download_filename,'wb+') as f:
+			f.write(Download_request.content)
 			
 	except BaseException:
 		print('failed')	
-	
-	try:
-		Gitee_request=requests.get('https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Online_Donate_QRCode.jpg',headers=headers)
-		Gitee_filename = inputpath+'/Online_Donate_QRCode_Gitee.jpg'
-		with open(Gitee_filename,'wb+') as f:
-			f.write(Gitee_request.content)
-	except BaseException:
-		print('failed')
-
-def checkUpdate():
-	headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'}
-	
-	try:
-		Github_request=requests.get('https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/Update_Info.ini',headers=headers)
-		Github_filename = inputpath+'/Update_Info_Github.ini'
-		with open(Github_filename,'wb+') as f:
-			f.write(Github_request.content)
-			
-	except BaseException:
-		print('failed')	
-	
-	try:
-		Gitee_request=requests.get('https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Update_Info.ini',headers=headers)
-		Gitee_filename = inputpath+'/Update_Info_Gitee.ini'
-		with open(Gitee_filename,'wb+') as f:
-			f.write(Gitee_request.content)
-	except BaseException:
-		print('failed')
-
-def checkUpdate_beta():
-	headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'}
-	
-	try:
-		Github_request=requests.get('https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/Update_Info_Beta.ini',headers=headers)
-		Github_filename = inputpath+'/Update_Info_Github.ini'
-		with open(Github_filename,'wb+') as f:
-			f.write(Github_request.content)
-			
-	except BaseException:
-		print('failed')	
-	
-	try:
-		Gitee_request=requests.get('https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Update_Info_Beta.ini',headers=headers)
-		Gitee_filename = inputpath+'/Update_Info_Gitee.ini'
-		with open(Gitee_filename,'wb+') as f:
-			f.write(Gitee_request.content)
-	except BaseException:
-		print('failed')
-		
-	
 
 def getDuration(FILENAME):
 	try:
@@ -93,23 +47,19 @@ def getDuration(FILENAME):
 		print(0)
 
 def getVideoInfo():
-	cap = cv2.VideoCapture(inputpath)
-	if opt=="fps":
+	cap = cv2.VideoCapture(opt0)
+	if opt1=="fps":
 		fps = cap.get(cv2.CAP_PROP_FPS)
 		print(fps)
-	elif opt=="countframe":
+	elif opt1=="countframe":
 		frame_counter = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 		print(frame_counter)
 
-if opt=="fps":
+if opt1=="fps":
 	getVideoInfo()
-elif opt=="countframe":
+elif opt1=="countframe":
 	getVideoInfo()
-elif opt=="duration":
-	getDuration(inputpath)
-elif opt=="checkupdate":
-	checkUpdate()
-elif opt=="DownloadDonateQRCode":
-	DownloadDonateQRCode()
-elif opt=="checkupdate_beta":
-	checkUpdate_beta()
+elif opt1=="duration":
+	getDuration(opt0)
+elif opt1=="download2":
+	downloadFile()
