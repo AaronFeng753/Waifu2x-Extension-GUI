@@ -93,7 +93,7 @@ int MainWindow::Donate_Count()
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Description/.", "This file will store how many times you start this software, it's not for statistic, just for software to function normally, and won't be upload to the internet in any cases.");
         configIniWrite->setValue("/Donate/VERSION", VERSION);
-        configIniWrite->setValue("/Donate/OpenCount_Current", 3);
+        configIniWrite->setValue("/Donate/OpenCount_Current", 4);
         return 0;
     }
     else
@@ -107,7 +107,7 @@ int MainWindow::Donate_Count()
             QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
             configIniWrite->setValue("/Description/.", "This file will store how many times you start this software, it's not for statistic, just for software to function normally, and won't be upload to the internet in any cases.");
             configIniWrite->setValue("/Donate/VERSION", VERSION);
-            configIniWrite->setValue("/Donate/OpenCount_Current", 3);
+            configIniWrite->setValue("/Donate/OpenCount_Current", 4);
             return 0;
         }
     }

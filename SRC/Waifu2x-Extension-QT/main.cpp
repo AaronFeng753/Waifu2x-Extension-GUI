@@ -34,12 +34,14 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 新特性:[添加文件]按钮支持选中并添加多个文件.
-- 新特性:加入[禁止Gitee]选项,启用本选项将禁止本软件从码云下载文件.
+- 新特性:加入[禁止连接码云]选项,启用本选项将禁止本软件从码云下载文件.
 - 更新RealSR-ncnn-vulkan,Waifu2x-ncnn-vulkan,ImageMagick,Python扩展.
-- 性能优化.
+- 性能优化,减少网络流量消耗和对外部程序的调用.
 - 修复多个bug.
 ----------------------------
 Detailed change log:
+v2.53.14:
+- 修改版本信息.
 v2.53.03-beta:
 - 更新Waifu2x-ncnn-vulkan.
 - 更新RealSR-ncnn-vulkan.
