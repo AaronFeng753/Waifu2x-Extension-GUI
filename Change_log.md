@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.53.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.53.14)
+#### Change log:
+- New feature: [Add File] button now supports selecting and adding multiple files.
+- New feature: Add [Ban Gitee] option, enabling this option will prevent the software from downloading files from Gitee.
+- Update RealSR-ncnn-vulkan, Waifu2x-ncnn-vulkan, ImageMagick, Python extension.
+- Performance optimization, reduce network traffic consumption and calls to external programs.
+- Fix multiple bugs.
+- [And many other improvements, click to view detailed change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.53.14_v2.52.16_Detailed_change_log.txt)
+---
 ## [v2.52.16](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.52.16)
 #### Change log:
 - New feature: Add buttons to verify GPUs configuration for Anime4k & Waifu2x-caffe engine.
