@@ -78,8 +78,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString Path_FFMpegFileList = "";
     do
     {
-        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-        int random = qrand()%1000;
+        int random = QRandomGenerator::global()->bounded(1,1000);
         Path_FFMpegFileList = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_fileList_"+QString::number(random,10)+"_Waifu2xEX.txt";
     }
     while(file_isFileExist(Path_FFMpegFileList));
@@ -282,8 +281,7 @@ int MainWindow::video_get_duration(QString videoPath)
     QString video_dir = file_getFolderPath(videoPath);
     do
     {
-        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-        int random = qrand()%1000;
+        int random = QRandomGenerator::global()->bounded(1,1000);
         Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(file_isFileExist(Path_video_info_ini));
@@ -458,8 +456,7 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     QString video_dir = file_getFolderPath(videoPath);
     do
     {
-        qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-        int random = qrand()%1000;
+        int random = QRandomGenerator::global()->bounded(1,1000);
         Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(file_isFileExist(Path_video_info_ini));

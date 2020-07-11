@@ -118,8 +118,7 @@ int MainWindow::Donate_Count()
     //===
     if(OpenCount_Current<=0)OpenCount_Current=OpenCount_Max;
     //===
-    int qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    int DonateTestNum =qrand()%1000;
+    int DonateTestNum = QRandomGenerator::global()->bounded(1,1000);
     QSettings *configIniWrite_Test = new QSettings(donate_ini, QSettings::IniFormat);
     configIniWrite_Test->setValue("/Donate/Test", DonateTestNum);
     if(configIniRead->value("/Donate/Test").toInt()!=DonateTestNum)

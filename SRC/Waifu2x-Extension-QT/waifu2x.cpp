@@ -932,8 +932,8 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     //========== 提示是否需要自动调整引擎设定 ==========
     QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?")));
     Msg.setIcon(QMessageBox::Information);
-    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("Yes")), QMessageBox::YesRole);
-    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("No")), QMessageBox::NoRole);
+    QAbstractButton *pYesBtn = Msg.addButton(QString(tr("Yes")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = Msg.addButton(QString(tr("No")), QMessageBox::NoRole);
     Msg.exec();
     if (Msg.clickedButton() == pYesBtn)
     {

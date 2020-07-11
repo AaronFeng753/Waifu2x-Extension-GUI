@@ -52,7 +52,7 @@ void MainWindow::Init_SystemTrayIcon()
     //===
     connect(minimumAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_hide_self()));
     connect(restoreAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showNormal_self()));
-    connect(quitAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(close()));
+    connect(quitAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(close()),Qt::UniqueConnection);
     connect(BackgroundModeAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(EnableBackgroundMode_SystemTray()));
     //初始化菜单选项
     pContextMenu->setToolTipsVisible(1);
@@ -124,3 +124,5 @@ void MainWindow::SystemTray_showNormal_self()
     this->showNormal();
     pContextMenu->hide();
 }
+
+

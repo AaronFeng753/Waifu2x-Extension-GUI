@@ -501,8 +501,7 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFile
         {
             while(true)
             {
-                qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-                int random = qrand()%10000;
+                int random = QRandomGenerator::global()->bounded(1,10000);
                 QFileInfo fileinfo_tmp(Target);
                 QString file_name = file_getBaseName(fileinfo_tmp.filePath());
                 QString file_ext = fileinfo_tmp.suffix();

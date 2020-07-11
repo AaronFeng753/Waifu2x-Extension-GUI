@@ -655,7 +655,7 @@ utilize the capabilities of your PC.
 (If there are multiple GPUs available.)</source>
         <translation>複数のGPUを指定して、PCの機能を
 最大限に活用できます。
-（利用可能なGPUが複数ある場合）。</translation>
+（利用可能なGPUが複数ある場合）</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2983"/>
@@ -2621,7 +2621,7 @@ We recommend you use the default value(95)</source>
         <location filename="mainwindow.ui" line="4850"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>スケーリングした画像を「.jpg」という名前で保存します。
-画像はデフォルトで「.png」形式で保存されます。</translation>
+画像はデフォルトで「.png」形式で保存されます</translation>
     </message>
     <message>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.

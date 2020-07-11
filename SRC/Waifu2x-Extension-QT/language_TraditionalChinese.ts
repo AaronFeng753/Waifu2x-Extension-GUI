@@ -1684,7 +1684,7 @@ Will improve image quality.</source>
         <location filename="mainwindow.ui" line="3070"/>
         <location filename="mainwindow.ui" line="3669"/>
         <source>Verify your GPUs configuration.</source>
-        <translation>驗證您的GPUs設定</translation>
+        <translation>驗證您的GPUs設定.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3103"/>

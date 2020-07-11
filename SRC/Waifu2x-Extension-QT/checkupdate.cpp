@@ -59,7 +59,7 @@ int MainWindow::CheckUpadte_Auto()
             Gitee_UpdateInfo_online = "https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Update_Info.ini";
             break;
         case 1:
-            Current_Ver=VERSION;
+            Current_Ver=LastBetaVer;
             Github_UpdateInfo_online = "https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/Update_Info_Beta.ini";
             Gitee_UpdateInfo_online = "https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Update_Info_Beta.ini";
             break;
@@ -144,9 +144,9 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
         Msg.setIcon(QMessageBox::Information);
         if(ui->comboBox_language->currentIndex()==1)
         {
-            QAbstractButton *pYesBtn_Github = (QAbstractButton *)Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
-            QAbstractButton *pYesBtn_Gitee = (QAbstractButton *)Msg.addButton(QString("前往码云Gitee下载(中国大陆)"), QMessageBox::YesRole);
-            QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+            QAbstractButton *pYesBtn_Github = Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
+            QAbstractButton *pYesBtn_Gitee = Msg.addButton(QString("前往码云Gitee下载(中国大陆)"), QMessageBox::YesRole);
+            Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
             Msg.exec();
             if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));
             if (Msg.clickedButton() == pYesBtn_Gitee)QDesktopServices::openUrl(QUrl("https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));
@@ -154,8 +154,8 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
         }
         else
         {
-            QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-            QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+            QAbstractButton *pYesBtn = Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+            Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
             Msg.exec();
             if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));
             return 0;

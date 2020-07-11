@@ -787,7 +787,7 @@ the number of threads must &gt;= the number of GPUs.</source>
         <location filename="mainwindow.ui" line="3070"/>
         <location filename="mainwindow.ui" line="3669"/>
         <source>Verify your GPUs configuration.</source>
-        <translation>验证您的GPUs设定</translation>
+        <translation>验证您的GPUs设定.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3103"/>

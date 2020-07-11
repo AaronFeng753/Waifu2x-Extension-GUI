@@ -116,7 +116,7 @@ MainWindow::MainWindow(QWidget *parent)
     {
         QMessageBox Msg(QMessageBox::Question, QString(tr("Error")), QString(tr("It is detected that this software lacks the necessary permissions to run.\n\nPlease close this software and start this software again after giving this software administrator permission.\n\nOtherwise, this software may not work properly.")));
         Msg.setIcon(QMessageBox::Warning);
-        QAbstractButton *pBtn_Permission = (QAbstractButton *)Msg.addButton(QString("OK"), QMessageBox::NoRole);
+        Msg.addButton(QString("OK"), QMessageBox::NoRole);
         Msg.exec();
     }
     //==============
@@ -145,8 +145,8 @@ void MainWindow::closeEvent(QCloseEvent *event)
     {
         QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you really wanna exit Waifu2x-Extension-GUI ?")));
         Msg.setIcon(QMessageBox::Question);
-        QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-        QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+        QAbstractButton *pYesBtn = Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+        QAbstractButton *pNoBtn = Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
         Msg.exec();
         if (Msg.clickedButton() == pNoBtn)
         {
@@ -1488,10 +1488,10 @@ void MainWindow::Tip_FirstTimeStart()
         */
         QMessageBox Msg(QMessageBox::Question, QString("Choose your language"), QString("Choose your language.\n\n选择您的语言。\n\n言語を選んでください。"));
         Msg.setIcon(QMessageBox::Information);
-        QAbstractButton *pYesBtn_English = (QAbstractButton *)Msg.addButton(QString("English"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_Chinese = (QAbstractButton *)Msg.addButton(QString("简体中文"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_Japanese = (QAbstractButton *)Msg.addButton(QString("日本語(機械翻訳)"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_TraditionalChinese = (QAbstractButton *)Msg.addButton(QString("繁體中文(由uimee翻譯)"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_English = Msg.addButton(QString("English"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_Chinese = Msg.addButton(QString("简体中文"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_Japanese = Msg.addButton(QString("日本語(機械翻訳)"), QMessageBox::YesRole);
+        QAbstractButton *pYesBtn_TraditionalChinese = Msg.addButton(QString("繁體中文(由uimee翻譯)"), QMessageBox::YesRole);
         Msg.exec();
         if (Msg.clickedButton() == pYesBtn_English)ui->comboBox_language->setCurrentIndex(0);
         if (Msg.clickedButton() == pYesBtn_Chinese)ui->comboBox_language->setCurrentIndex(1);

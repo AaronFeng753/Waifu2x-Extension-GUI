@@ -561,8 +561,8 @@ void MainWindow::on_pushButton_ResetSettings_clicked()
 {
     QMessageBox Msg(QMessageBox::Question, QString(tr("Warning")), QString(tr("Do you really wanna RESET all the settings?")));
     Msg.setIcon(QMessageBox::Warning);
-    QAbstractButton *pYesBtn = (QAbstractButton *)Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
-    QAbstractButton *pNoBtn = (QAbstractButton *)Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
+    Msg.addButton(QString(tr("YES")), QMessageBox::YesRole);
+    QAbstractButton *pNoBtn = Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
     Msg.exec();
     if (Msg.clickedButton() == pNoBtn)return;
     //============
