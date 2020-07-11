@@ -34,10 +34,14 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 更新QT版本至5.15.0,并使用新版QT重新编译.
+- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan.
 - 性能优化.
 - 修复bug.
 ----------------------------
 Detailed change log:
+v2.54.02-beta:
+- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan.
+- 添加tooltip.
 v2.54.01-beta:
 - 更新QT版本至5.15.0,并使用新版QT重新编译.
 - 内置QT-5.15.0的许可协议文件.
@@ -56,9 +60,9 @@ Integrated component:
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.3
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan 3172fc3f73be8e0a7d1c73cc7e6c8ec92783f27d
-- SRMD-ncnn-Vulkan 20200606(release)
-- realsr-ncnn-vulkan cdda5aa4c5c3f6c9628c043bab4fb863b3ec9ec4
+- waifu2x-ncnn-vulkan 54b2b3df1384a7c13bfec431b806cf152f227e91
+- SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
+- realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-23 Q16 x64 2020-07-04
 - Anime4KCPP v2.2.1
 - FFmpeg&FFprobe 20200628-4cfcfb3-win64-static

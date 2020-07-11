@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1166</width>
+    <width>1176</width>
     <height>747</height>
    </rect>
   </property>
@@ -2672,6 +2672,9 @@ enabling [GPU Mode] can greatly increase the processing speed.
                      <height>16777215</height>
                     </size>
                    </property>
+                   <property name="toolTip">
+                    <string/>
+                   </property>
                    <property name="title">
                     <string>Pre-processing</string>
                    </property>
@@ -2737,6 +2740,9 @@ enabling [GPU Mode] can greatly increase the processing speed.
                     </item>
                     <item row="0" column="0" colspan="3">
                      <widget class="QCheckBox" name="checkBox_EnablePreProcessing_Anime4k">
+                      <property name="toolTip">
+                       <string>Apply filters to image before process it.</string>
+                      </property>
                       <property name="text">
                        <string>Enable Pre-processing</string>
                       </property>
@@ -2750,12 +2756,18 @@ enabling [GPU Mode] can greatly increase the processing speed.
                  </item>
                  <item>
                   <widget class="QGroupBox" name="groupBox_PostProcessing_Anime4k">
+                   <property name="toolTip">
+                    <string/>
+                   </property>
                    <property name="title">
                     <string>Post-processing</string>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_24">
                     <item row="0" column="0" colspan="3">
                      <widget class="QCheckBox" name="checkBox_EnablePostProcessing_Anime4k">
+                      <property name="toolTip">
+                       <string>Add filters to the image after processing it.</string>
+                      </property>
                       <property name="text">
                        <string>Enable Post-processing</string>
                       </property>
