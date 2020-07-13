@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.54.02-beta";//软件版本号
+    QString VERSION = "v2.54.03-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.53.14";
-    QString LastBetaVer = "v2.54.02-beta";
+    QString LastBetaVer = "v2.54.03-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -413,6 +413,8 @@ public:
     bool isSettingsHide=false;//是否隐藏主页的设置groupbox
 
     bool isShowAnime4kWarning=true;
+
+    void ConnectivityTest_RawGithubusercontentCom();
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件
     //void Close_self();//包含所有关闭时执行的代码
@@ -444,6 +446,8 @@ public:
     ~MainWindow();
 
 public slots:
+    void Unable2Connect_RawGithubusercontentCom();
+
     void SetEnable_pushButton_ForceRetry_self();
 
     void SystemTray_hide_self();
@@ -754,7 +758,11 @@ private slots:
 
     void on_tableView_video_doubleClicked(const QModelIndex &index);
 
+    void on_checkBox_BanGitee_clicked();
+
 signals:
+    void Send_Unable2Connect_RawGithubusercontentCom();
+
     void Send_SetEnable_pushButton_ForceRetry_self();
 
     void Send_SystemTray_NewMessage(QString message);

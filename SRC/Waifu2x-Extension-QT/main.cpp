@@ -39,6 +39,9 @@ Brief change log:
 - 修复bug.
 ----------------------------
 Detailed change log:
+v2.54.03-beta:
+- 在启用[禁止连接码云]后,自动在后台检测是否可以连接raw.githubusercontent.com.
+- 更新FFmpeg&FFprobe.
 v2.54.02-beta:
 - 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan.
 - 添加tooltip.
@@ -65,7 +68,7 @@ Integrated component:
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-23 Q16 x64 2020-07-04
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200628-4cfcfb3-win64-static
+- FFmpeg&FFprobe 20200713-7772666-win64-static
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

@@ -47,10 +47,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //===========================================
+    connect(this, SIGNAL(Send_Unable2Connect_RawGithubusercontentCom()), this, SLOT(Unable2Connect_RawGithubusercontentCom()));
     connect(this, SIGNAL(Send_SetEnable_pushButton_ForceRetry_self()), this, SLOT(SetEnable_pushButton_ForceRetry_self()));
-    //==
     connect(this, SIGNAL(Send_SystemTray_NewMessage(QString)), this, SLOT(SystemTray_NewMessage(QString)));
-    //===
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
     connect(this, SIGNAL(Send_progressbar_Add()), this, SLOT(progressbar_Add()));
     //===
@@ -2076,3 +2075,47 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
     }
 }
 
+/*
+判断与github的链接状态以告知用户是否可以禁用gitee
+*/
+void MainWindow::on_checkBox_BanGitee_clicked()
+{
+    if(ui->checkBox_BanGitee->isChecked())
+    {
+        QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
+    }
+}
+
+void MainWindow::ConnectivityTest_RawGithubusercontentCom()
+{
+    QString OnlineAddress="https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/ConnectivityTest_githubusercontent.txt";
+    QString LocalAddress=Current_Path+"/ConnectivityTest_Waifu2xEX.txt";
+    QFile::remove(LocalAddress);
+    //===
+    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
+    QProcess checkupdate;
+    emit Send_TextBrowser_NewMessage(tr("Start testing if your PC can connect to raw.githubusercontent.com."));
+    checkupdate.start("\""+program+"\" \""+OnlineAddress+"\" download2 \""+LocalAddress+"\"");
+    while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
+    while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
+    if(QFile::exists(LocalAddress))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Detection complete, your PC can connect to raw.githubusercontent.com."));
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Detection complete, your PC cannot connect to raw.githubusercontent.com."));
+        emit Send_Unable2Connect_RawGithubusercontentCom();
+    }
+    QFile::remove(LocalAddress);
+}
+
+void MainWindow::Unable2Connect_RawGithubusercontentCom()
+{
+    QMessageBox *MSG_2 = new QMessageBox();
+    MSG_2->setWindowTitle(tr("Notification"));
+    MSG_2->setText(tr("It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee]."));
+    MSG_2->setIcon(QMessageBox::Information);
+    MSG_2->setModal(false);
+    MSG_2->show();
+}
