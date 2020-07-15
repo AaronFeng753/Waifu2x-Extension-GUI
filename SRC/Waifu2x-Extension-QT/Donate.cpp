@@ -38,32 +38,42 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess DownloadOnlineQRCode;
     //==================== 从Github下载文件 ========================
-    emit Send_TextBrowser_NewMessage(tr("Starting to download QRCode image(for [Donate] tab) from Github."));
+    emit Send_TextBrowser_NewMessage(tr("Starting to download QR Code image(for [Donate] tab) from Github."));
     DownloadOnlineQRCode.start("\""+program+"\" \""+Github_OnlineQRCode_online+"\" download2 \""+Github_OnlineQRCode_local+"\"");
     while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
     while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
-    emit Send_TextBrowser_NewMessage(tr("Finished to download QRCode image from Github."));
     //========= 检查github的文件是否下载成功 =================
     QFileInfo *Github_OnlineQRCode_QFileInfo = new QFileInfo(Github_OnlineQRCode_local);
     if(QFile::exists(Github_OnlineQRCode_local)&&(Github_OnlineQRCode_QFileInfo->size()>1000))
     {
+        emit Send_TextBrowser_NewMessage(tr("Successfully downloaded QR Code image from Github."));
+        //==
         emit Send_Donate_ReplaceQRCode(Github_OnlineQRCode_local);
         return 1;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Unable to download QR Code image from Github."));
     }
     //==================== 从码云下载文件 ========================
     if(isGiteeBanned==false)
     {
-        emit Send_TextBrowser_NewMessage(tr("Starting to download QRCode image(for [Donate] tab) from Gitee."));
+        emit Send_TextBrowser_NewMessage(tr("Starting to download QR Code image(for [Donate] tab) from Gitee."));
         DownloadOnlineQRCode.start("\""+program+"\" \""+Gitee_OnlineQRCode_online+"\" download2 \""+Gitee_OnlineQRCode_local+"\"");
         while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
         while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
-        emit Send_TextBrowser_NewMessage(tr("Finished to download QRCode image from Gitee."));
         //========= 检查gitee的文件是否下载成功 =================
         QFileInfo *Gitee_OnlineQRCode_QFileInfo = new QFileInfo(Gitee_OnlineQRCode_local);
-        if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>1000)&&!isGiteeBanned)
+        if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>1000))
         {
+            emit Send_TextBrowser_NewMessage(tr("Successfully downloaded QR Code image from Gitee."));
+            //==
             emit Send_Donate_ReplaceQRCode(Gitee_OnlineQRCode_local);
             return 1;
+        }
+        else
+        {
+            emit Send_TextBrowser_NewMessage(tr("Unable to download QR Code image from Gitee."));
         }
     }
     emit Send_Donate_ReplaceQRCode("");//下载失败,直接跳转
@@ -114,11 +124,11 @@ int MainWindow::Donate_Count()
     QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
     //=======  读取打开次数  ======
     int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
-    int OpenCount_Max = 5;
+    int OpenCount_Max = QRandomGenerator::global()->bounded(3,10);
     //===
     if(OpenCount_Current<=0)OpenCount_Current=OpenCount_Max;
     //===
-    int DonateTestNum = QRandomGenerator::global()->bounded(1,1000);
+    int DonateTestNum = QRandomGenerator::global()->bounded(1,10000);
     QSettings *configIniWrite_Test = new QSettings(donate_ini, QSettings::IniFormat);
     configIniWrite_Test->setValue("/Donate/Test", DonateTestNum);
     if(configIniRead->value("/Donate/Test").toInt()!=DonateTestNum)

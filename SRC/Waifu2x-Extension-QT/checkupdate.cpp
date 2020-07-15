@@ -29,7 +29,7 @@ check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
 #include "ui_mainwindow.h"
 
 /*
-手动检查更新:直接打开latest release
+手动检查更新:直接打开release页面
 */
 void MainWindow::on_pushButton_CheckUpdate_clicked()
 {
@@ -79,10 +79,11 @@ int MainWindow::CheckUpadte_Auto()
     checkupdate.start("\""+program+"\" \""+Github_UpdateInfo_online+"\" download2 \""+Github_UpdateInfo_local+"\"");
     while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
     while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
-    emit Send_TextBrowser_NewMessage(tr("Finished to download update information from Github."));
     //========= 检查github的文件是否下载成功 =================
     if(QFile::exists(Github_UpdateInfo_local))
     {
+        emit Send_TextBrowser_NewMessage(tr("Successfully downloaded update information from Github."));
+        //==
         QSettings *configIniRead = new QSettings(Github_UpdateInfo_local, QSettings::IniFormat);
         configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
         Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
@@ -97,6 +98,10 @@ int MainWindow::CheckUpadte_Auto()
             return 0;
         }
     }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Unable to download update information from Github."));
+    }
     //============= 从码云下载更新信息 ==============
     if(isGiteeBanned==false)
     {
@@ -104,10 +109,11 @@ int MainWindow::CheckUpadte_Auto()
         checkupdate.start("\""+program+"\" \""+Gitee_UpdateInfo_online+"\" download2 \""+Gitee_UpdateInfo_local+"\"");
         while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
         while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
-        emit Send_TextBrowser_NewMessage(tr("Finished to download update information from Gitee."));
         //========= 检查gitee的文件是否下载成功 =================
         if(QFile::exists(Gitee_UpdateInfo_local))
         {
+            emit Send_TextBrowser_NewMessage(tr("Successfully downloaded update information from Gitee."));
+            //==
             QSettings *configIniRead = new QSettings(Gitee_UpdateInfo_local, QSettings::IniFormat);
             configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
             Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
@@ -122,10 +128,14 @@ int MainWindow::CheckUpadte_Auto()
                 return 0;
             }
         }
+        else
+        {
+            emit Send_TextBrowser_NewMessage(tr("Unable to download update information from Gitee."));
+        }
     }
     if(Latest_Ver=="")
     {
-        emit Send_TextBrowser_NewMessage(tr("Unable to check for updates automatically! Please check your network or check for updates manually."));
+        emit Send_TextBrowser_NewMessage(tr("Unable to check for updates! Please check your network or check for updates manually."));
     }
     QFile::remove(Github_UpdateInfo_local);
     QFile::remove(Gitee_UpdateInfo_local);

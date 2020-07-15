@@ -374,7 +374,7 @@ int MainWindow::Table_Save_Current_Table_Filelist()
     //=================
     QSettings *configIniWrite = new QSettings(Table_FileList_ini, QSettings::IniFormat);
     //================= 添加警告 =========================
-    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this file and restart the program.");
     //================= 存储table_image =========================
     configIniWrite->setValue("/table_image/rowCount", Table_model_image->rowCount());
     for(int i=0; i<Table_model_image->rowCount(); i++)

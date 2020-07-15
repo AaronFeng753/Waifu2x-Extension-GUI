@@ -34,14 +34,24 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 更新QT版本至5.15.0,并使用新版QT重新编译.
-- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan.
+- 当检测到自定义分辨率包含奇数时,自动为视频修正自定义分辨率.
+- 在启用[禁止连接码云]后,自动在后台检测是否可以连接raw.githubusercontent.com.
+- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg&FFprobe.
 - 性能优化.
-- 修复bug.
+- 修复多个bug.
 ----------------------------
 Detailed change log:
-v2.54.03-beta:
+v2.54.13:
 - 在启用[禁止连接码云]后,自动在后台检测是否可以连接raw.githubusercontent.com.
+- 当检测到自定义分辨率包含奇数时,自动为视频修正自定义分辨率.
 - 更新FFmpeg&FFprobe.
+- 成功暂停以及兼容性测试完成时播放提示音.
+- 检查更新&在线更新捐赠标签页二维码图片时,显示是否下载成功.
+- 添加修复Anime4k&waifu2x-converter兼容性问题的建议.
+- 性能优化.
+- 更新本地隐私政策文件.
+- 修改添加部分注释,改善代码可读性.
+- 修復bug:UI衝突.
 v2.54.02-beta:
 - 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan.
 - 添加tooltip.

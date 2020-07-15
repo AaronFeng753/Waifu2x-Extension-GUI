@@ -22,10 +22,8 @@
 
 /*
 托盘的实现参考了来自简书的文章:
-
 <<Qt5 程序系统托盘>>--小Q_wang
-
-https://www.jianshu.com/p/a000044f1f4a?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+https://www.jianshu.com/p/a000044f1f4a
 */
 
 /*

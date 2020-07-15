@@ -233,7 +233,7 @@ int MainWindow::Anime4k_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
         }
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {
         QFile::remove(SourceFile_fullPath);
@@ -477,7 +477,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     }
     //============================== 删除缓存文件 ====================================================
     file_DelDir(SplitFramesFolderPath);
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -505,7 +505,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -900,7 +900,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->isChecked())
+    if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -914,7 +914,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     {
         DelOriginal=false;
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -942,7 +942,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1423,7 +1423,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->isChecked())
+    if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1438,7 +1438,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     {
         DelOriginal=false;
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -1466,7 +1466,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1725,8 +1725,6 @@ QString MainWindow::Anime4k_GetGPUInfo()
 
 void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
 {
-    ui->pushButton_ListGPUs_Anime4k->setText(tr("Loading..."));
-    //====
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     QString cmd = "\"" + program + "\" -l";
@@ -1744,8 +1742,6 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
     MSG->setIcon(QMessageBox::Information);
     MSG->setModal(true);
     MSG->show();
-    //====
-    ui->pushButton_ListGPUs_Anime4k->setText(tr("List GPUs"));
 }
 
 void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()

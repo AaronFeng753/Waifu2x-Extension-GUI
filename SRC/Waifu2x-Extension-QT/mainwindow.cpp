@@ -490,6 +490,7 @@ void MainWindow::Wait_waifu2x_stop()
         {
             waifu2x_STOP_confirm = false;
             emit TextBrowser_NewMessage(tr("Processing of files has stopped."));
+            QtConcurrent::run(this, &MainWindow::Play_NFSound);//成功暂停,播放提示音
             break;
         }
         Delay_msec_sleep(300);
@@ -663,7 +664,15 @@ void MainWindow::Delay_msec_sleep(int time)
 */
 void MainWindow::Play_NFSound()
 {
+    if(ui->checkBox_NfSound->isChecked()==false)return;
+    //====
     QString NFSound = Current_Path+"/NotificationSound_waifu2xExtension.mp3";
+    if(QFile::exists(NFSound)==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error! Notification sound file is missing!"));
+        return;
+    }
+    //====
     QMediaPlayer *player = new QMediaPlayer;
     player->setMedia(QUrl::fromLocalFile(NFSound));
     player->play();
@@ -1292,7 +1301,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     QFile::remove(Last_browsed_path);
     QSettings *configIniWrite = new QSettings(Last_browsed_path, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
-    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this file and restart the program.");
     QFileInfo lastPath(Input_path_List.at(0));
     QString folder_lastPath = file_getFolderPath(lastPath);
     configIniWrite->setValue("/Path", folder_lastPath);
@@ -2082,12 +2091,18 @@ void MainWindow::on_checkBox_BanGitee_clicked()
 {
     if(ui->checkBox_BanGitee->isChecked())
     {
-        QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
+        if(isConnectivityTest_RawGithubusercontentCom_Running==false)
+        {
+            QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
+        }
     }
 }
 
 void MainWindow::ConnectivityTest_RawGithubusercontentCom()
 {
+    QMutex_ConnectivityTest_RawGithubusercontentCom.lock();
+    isConnectivityTest_RawGithubusercontentCom_Running=true;
+    //===
     QString OnlineAddress="https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/ConnectivityTest_githubusercontent.txt";
     QString LocalAddress=Current_Path+"/ConnectivityTest_Waifu2xEX.txt";
     QFile::remove(LocalAddress);
@@ -2108,6 +2123,9 @@ void MainWindow::ConnectivityTest_RawGithubusercontentCom()
         emit Send_Unable2Connect_RawGithubusercontentCom();
     }
     QFile::remove(LocalAddress);
+    //===
+    isConnectivityTest_RawGithubusercontentCom_Running=false;
+    QMutex_ConnectivityTest_RawGithubusercontentCom.unlock();
 }
 
 void MainWindow::Unable2Connect_RawGithubusercontentCom()

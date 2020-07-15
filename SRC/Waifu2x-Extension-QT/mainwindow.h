@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.54.03-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.53.14";
-    QString LastBetaVer = "v2.54.03-beta";
+    QString VERSION = "v2.54.13";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.54.13";
+    QString LastBetaVer = "v2.54.13";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -414,7 +414,9 @@ public:
 
     bool isShowAnime4kWarning=true;
 
-    void ConnectivityTest_RawGithubusercontentCom();
+    void ConnectivityTest_RawGithubusercontentCom();//检查是否可以连接github
+    bool isConnectivityTest_RawGithubusercontentCom_Running=false;
+    QMutex QMutex_ConnectivityTest_RawGithubusercontentCom;
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件
     //void Close_self();//包含所有关闭时执行的代码

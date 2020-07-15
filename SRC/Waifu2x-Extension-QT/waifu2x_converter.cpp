@@ -239,7 +239,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
         }
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {
         QFile::remove(SourceFile_fullPath);
@@ -484,7 +484,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //============================== 删除缓存文件 ====================================================
     file_DelDir(SplitFramesFolderPath);
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -512,7 +512,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -902,7 +902,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->isChecked())
+    if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -916,7 +916,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     {
         DelOriginal=false;
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -944,7 +944,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1428,7 +1428,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->isChecked())
+    if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1443,7 +1443,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     {
         DelOriginal=false;
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -1471,7 +1471,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1631,7 +1631,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
-    ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
+    on_checkBox_SpecifyGPU_Anime4k_stateChanged(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //===========================
     GPUIDs_List_MultiGPU_Waifu2xConverter.clear();

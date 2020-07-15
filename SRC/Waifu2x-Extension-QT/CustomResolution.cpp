@@ -29,6 +29,7 @@ int MainWindow::CustRes_SetCustRes()
         int row_count_image = Table_image_get_rowNum();
         int row_count_gif = Table_gif_get_rowNum();
         int row_count_video = Table_video_get_rowNum();
+        //====
         if((row_count_image+row_count_gif+row_count_video)==0)
         {
             QMessageBox *CustRes_NoItem = new QMessageBox();
@@ -66,25 +67,36 @@ int MainWindow::CustRes_SetCustRes()
             Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
         }
         //========
+        if(row_count_video==0)//如果列表里没视频,直接return
+        {
+            return 0;
+        }
+        //读取自定义分辨率设定
+        int CustRes_width_video=ui->spinBox_CustRes_width->value();
+        int CustRes_height_video=ui->spinBox_CustRes_height->value();
+        //判断自定义分辨率是否包含奇数
+        if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Warning"));
+            MSG->setText(tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd.\n\nTherefore, the custom resolution for video has been automatically corrected by this software."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(false);
+            MSG->show();
+            //自动校正分辨率
+            if(CustRes_height_video%2!=0)CustRes_height_video++;
+            if(CustRes_width_video%2!=0)CustRes_width_video++;
+        }
+        //开始apply自定义分辨率设定
         for(int i=0; i<row_count_video; i++)
         {
-            if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
-            {
-                QMessageBox *MSG = new QMessageBox();
-                MSG->setWindowTitle(tr("Warning"));
-                MSG->setText(tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd."));
-                MSG->setIcon(QMessageBox::Warning);
-                MSG->setModal(false);
-                MSG->show();
-                return 0;
-            }
             QMap<QString,QString> res_map;
             //读取文件信息
             QString SourceFile_fullPath = Table_model_video->item(i,2)->text();
             CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
             res_map["fullpath"] = SourceFile_fullPath;
-            res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
-            res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+            res_map["height"] = QString::number(CustRes_height_video,10);
+            res_map["width"] = QString::number(CustRes_width_video,10);
             Custom_resolution_list.append(res_map);
             Table_video_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
         }
@@ -129,23 +141,30 @@ int MainWindow::CustRes_SetCustRes()
     }
     if(curRow_video >= 0)
     {
+        //读取自定义分辨率设定
+        int CustRes_width_video=ui->spinBox_CustRes_width->value();
+        int CustRes_height_video=ui->spinBox_CustRes_height->value();
+        //判断自定义分辨率是否包含奇数
         if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Warning"));
-            MSG->setText(tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd."));
+            MSG->setText(tr("When setting a custom resolution for a video, neither the height value nor the width value can be odd.\n\nTherefore, the custom resolution for video has been automatically corrected by this software."));
             MSG->setIcon(QMessageBox::Warning);
             MSG->setModal(false);
             MSG->show();
-            return 0;
+            //自动校正分辨率
+            if(CustRes_height_video%2!=0)CustRes_height_video++;
+            if(CustRes_width_video%2!=0)CustRes_width_video++;
         }
+        //====
         QMap<QString,QString> res_map;
         //读取文件信息
         QString SourceFile_fullPath = Table_model_video->item(curRow_video,2)->text();
         CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
         res_map["fullpath"] = SourceFile_fullPath;
-        res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
-        res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+        res_map["height"] = QString::number(CustRes_height_video,10);
+        res_map["width"] = QString::number(CustRes_width_video,10);
         Custom_resolution_list.append(res_map);
         Table_video_CustRes_rowNumInt_HeightQString_WidthQString(curRow_video,res_map["height"],res_map["width"]);
         return 0;

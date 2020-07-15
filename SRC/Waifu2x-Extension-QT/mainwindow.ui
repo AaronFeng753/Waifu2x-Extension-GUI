@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -5204,7 +5204,7 @@ when processing video in segments.</string>
               <item row="7" column="4">
                <widget class="QCheckBox" name="checkBox_NfSound">
                 <property name="toolTip">
-                 <string>Play Notification sound when all files in the list have been processed.</string>
+                 <string>Play Notification sound.</string>
                 </property>
                 <property name="text">
                  <string>Notification sound</string>

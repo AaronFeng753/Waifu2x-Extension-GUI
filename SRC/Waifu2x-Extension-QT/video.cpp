@@ -373,7 +373,7 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
     //================= 添加警告 =========================
-    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this article and restart the program.");
+    configIniWrite->setValue("/Warning/EN", "Do not modify this file! It may cause the program to crash! If problems occur after the modification, delete this file and restart the program.");
     //==================== 存储视频信息 ==================================
     configIniWrite->setValue("/VideoConfiguration/ScaleRatio", ScaleRatio);
     configIniWrite->setValue("/VideoConfiguration/DenoiseLevel", DenoiseLevel);

@@ -377,10 +377,7 @@ int MainWindow::Waifu2xMainThread()
 void MainWindow::Waifu2x_Finished()
 {
     //=================== 提示音 =================================
-    if(ui->checkBox_NfSound->isChecked())
-    {
-        QtConcurrent::run(this, &MainWindow::Play_NFSound);
-    }
+    QtConcurrent::run(this, &MainWindow::Play_NFSound);
     //===================== 关机 ==============================
     if(ui->checkBox_AutoTurnOFF->isChecked())
     {
@@ -563,7 +560,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: No. [Advice: Install or reinstall OpenCL runtime.]"));
         isCompatible_Waifu2x_Converter=false;
     }
     QFile::remove(OutputPath);
@@ -587,7 +584,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(CPU Mode): No."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(CPU Mode): No. [Advice: Install or reinstall OpenCL runtime.]"));
         isCompatible_Anime4k_CPU=false;
     }
     QFile::remove(OutputPath);
@@ -610,7 +607,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     else
     {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(GPU Mode): No."));
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(GPU Mode): No. [Advice: Install or reinstall OpenCL runtime.]"));
         isCompatible_Anime4k_GPU=false;
     }
     QFile::remove(OutputPath);
@@ -917,6 +914,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_compatibilityTest->setText(tr("Compatibility test"));
     ui->tabWidget->setCurrentIndex(5);
+    QtConcurrent::run(this, &MainWindow::Play_NFSound);//兼容性测试完成,播放提示音
     /*
     判断是否有必要部件不兼容,如果有则弹出提示
     */

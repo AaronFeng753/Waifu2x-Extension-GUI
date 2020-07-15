@@ -316,7 +316,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
         }
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {
         QFile::remove(SourceFile_fullPath);
@@ -574,7 +574,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     }
     //============================== 删除缓存文件 ====================================================
     file_DelDir(SplitFramesFolderPath);
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -602,7 +602,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1100,7 +1100,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->isChecked())
+    if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1114,7 +1114,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     {
         DelOriginal=false;
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -1142,7 +1142,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
@@ -1623,7 +1623,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
-    if(!ui->checkBox_KeepVideoCache->isChecked())
+    if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
@@ -1638,7 +1638,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     {
         DelOriginal=false;
     }
-    //============================= 删除原文件 & 更新filelist & 更新table status ============================
+    //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
         if(ui->checkBox_Move2RecycleBin->isChecked())
@@ -1666,14 +1666,18 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //=========================== 更新filelist ==============================
+    //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1s
     return 0;
 }
-
-
+/*
+===============================
+Realsr_NCNN_Vulkan_Video_scale
+负责 视频帧画面放大与后期调整
+===============================
+*/
 int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
 {
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
@@ -1818,6 +1822,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
     //============================ 调整大小 ====================================================
     if(ScaleRatio_tmp != ScaleRatio&&!CustRes_isEnabled)
     {
+        //只有当实际的放大倍率与用户设定放大倍率不相等时进行大小调整,如果启用自定义分辨率,则留给ffmpeg调整
         QImage qimage_original;
         qimage_original.load(Frame_fileFullPath);
         int New_height=0;
@@ -1850,7 +1855,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
 }
 /*
 Realsr_NCNN_Vulkan
-读取配置生成配置string
+读取配置生成配置QString
 */
 QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
 {
@@ -1905,7 +1910,9 @@ QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
                     Realsr NCNN Vulkan 检测可用GPU
 =================================================================================
 */
-
+/*
+点击检测gpu按键时:
+*/
 void MainWindow::on_pushButton_DetectGPU_RealsrNCNNVulkan_clicked()
 {
     //====
@@ -1921,7 +1928,9 @@ void MainWindow::on_pushButton_DetectGPU_RealsrNCNNVulkan_clicked()
     Available_GPUID_Realsr_ncnn_vulkan.clear();
     QtConcurrent::run(this, &MainWindow::Realsr_ncnn_vulkan_DetectGPU);
 }
-
+/*
+检测可用GPU ID中:
+*/
 int MainWindow::Realsr_ncnn_vulkan_DetectGPU()
 {
     emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
@@ -1966,7 +1975,9 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU()
     emit Send_Realsr_ncnn_vulkan_DetectGPU_finished();
     return 0;
 }
-
+/*
+检测完成,向可用gpu列表和多显卡列表内填充数据:
+*/
 int MainWindow::Realsr_ncnn_vulkan_DetectGPU_finished()
 {
     ui->pushButton_Start->setEnabled(1);
@@ -1974,7 +1985,7 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU_finished()
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
     ui->pushButton_DumpProcessorList_converter->setEnabled(1);
-    ui->pushButton_ListGPUs_Anime4k->setEnabled(1);
+    on_checkBox_SpecifyGPU_Anime4k_stateChanged(1);
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setEnabled(1);
     //====
     GPUIDs_List_MultiGPU_RealsrNcnnVulkan.clear();
@@ -1995,8 +2006,11 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU_finished()
     //====
     return 0;
 }
-
-
+/*
+RealsrNcnnVulkan_MultiGPU
+向Realsr_NCNN_Vulkan_ReadSettings()提交显卡信息.
+通过 轮流提交显卡信息+多线程 一起实现多显卡
+*/
 QMap<QString,QString> MainWindow::RealsrNcnnVulkan_MultiGPU()
 {
     MultiGPU_QMutex_RealsrNcnnVulkan.lock();
@@ -2035,7 +2049,9 @@ QMap<QString,QString> MainWindow::RealsrNcnnVulkan_MultiGPU()
     MultiGPU_QMutex_RealsrNcnnVulkan.unlock();
     return GPUInfo;
 }
-
+/*
+向多显卡的显卡信息列表中添加显卡信息
+*/
 void MainWindow::AddGPU_MultiGPU_RealsrNcnnVulkan(QString GPUID)
 {
     QMap<QString,QString> GPUInfo;

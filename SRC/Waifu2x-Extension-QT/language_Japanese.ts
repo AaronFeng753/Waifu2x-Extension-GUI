@@ -93,8 +93,8 @@ folder as the source file.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="791"/>
-        <location filename="mainwindow.cpp" line="982"/>
-        <location filename="mainwindow.cpp" line="1046"/>
+        <location filename="mainwindow.cpp" line="991"/>
+        <location filename="mainwindow.cpp" line="1055"/>
         <source>Hide settings</source>
         <translation>設定を非表示にする</translation>
     </message>
@@ -103,41 +103,41 @@ folder as the source file.</source>
         <translation type="vanished">最小 化</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="42"/>
+        <location filename="SystemTrayIcon.cpp" line="40"/>
         <source>Hide</source>
         <translation>隠す</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="43"/>
+        <location filename="SystemTrayIcon.cpp" line="41"/>
         <source>Use the middle mouse button to click the
 taskbar icon to quickly hide the window.</source>
         <translation>マウスの中央ボタンを使用してタスクバーアイコンを
 クリックし、ウィンドウをすばやく非表示にします。</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="45"/>
+        <location filename="SystemTrayIcon.cpp" line="43"/>
         <source>Show</source>
         <translation>メインウィンドウを表示</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="46"/>
+        <location filename="SystemTrayIcon.cpp" line="44"/>
         <source>Use the left mouse button to click the taskbar icon to quickly
 display the window, double-click to maximize the window.</source>
         <translation>マウスの左ボタンを使用してタスクバーアイコンをクリックし、ウィンドウ
 をすばやく表示します。ダブルクリックしてウィンドウを最大化します。</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="48"/>
+        <location filename="SystemTrayIcon.cpp" line="46"/>
         <source>Exit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="50"/>
+        <location filename="SystemTrayIcon.cpp" line="48"/>
         <source>Background mode</source>
         <translation>バックグラウンドモード</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="51"/>
+        <location filename="SystemTrayIcon.cpp" line="49"/>
         <source>Set the number of threads to &quot;1&quot; to reduce background resource usage.</source>
         <translation>スレッド数を「1」に設定して、バックグラウンドリソースの使用量を減らします。</translation>
     </message>
@@ -156,8 +156,8 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="874"/>
-        <location filename="mainwindow.cpp" line="1057"/>
-        <location filename="mainwindow.cpp" line="1354"/>
+        <location filename="mainwindow.cpp" line="1066"/>
+        <location filename="mainwindow.cpp" line="1363"/>
         <source>Hide Text Browser</source>
         <translation>テキスト ブラウザを非表示にする</translation>
     </message>
@@ -168,26 +168,46 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="Donate.cpp" line="41"/>
-        <source>Starting to download QRCode image(for [Donate] tab) from Github.</source>
+        <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
+        <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation>GithubからQRCode画像（[寄付]タブ用）のダウンロードを開始しました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="45"/>
+        <location filename="Donate.cpp" line="49"/>
+        <source>Successfully downloaded QR Code image from Github.</source>
+        <translation>GithubからQRコード画像を正常にダウンロードしました。</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="61"/>
+        <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
+        <translation>GiteeからQRコード画像（[寄付]タブ用）のダウンロードを開始しました。</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="69"/>
+        <source>Successfully downloaded QR Code image from Gitee.</source>
+        <translation>GiteeからQRコード画像を正常にダウンロードしました。</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="76"/>
+        <source>Unable to download QR Code image from Gitee.</source>
+        <translation>GiteeからQRコード画像をダウンロードできません。</translation>
+    </message>
+    <message>
         <source>Finished to download QRCode image from Github.</source>
-        <translation>GithubからQRCode画像のダウンロードが完了しました。</translation>
+        <translation type="vanished">GithubからQRCode画像のダウンロードが完了しました。</translation>
     </message>
     <message>
         <location filename="Donate.cpp" line="56"/>
-        <source>Starting to download QRCode image(for [Donate] tab) from Gitee.</source>
-        <translation>GiteeからQRCode画像（[寄付]タブ用）のダウンロードを開始します。</translation>
+        <source>Unable to download QR Code image from Github.</source>
+        <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
+        <translation>GithubからQRコード画像をダウンロードできません。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="60"/>
         <source>Finished to download QRCode image from Gitee.</source>
-        <translation>GiteeからQRCode画像のダウンロードが完了しました。</translation>
+        <translation type="vanished">GiteeからQRCode画像のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="141"/>
+        <location filename="Donate.cpp" line="151"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>開発者をサポートするために寄付してください。そうすれば、このソフトウェアの更なるアップデートをもたらすことができます、ありがとう！ (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -394,9 +414,8 @@ It is recommended to enable this option.</source>
         <translation>「.jpg」を圧縮</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5207"/>
         <source>Play Notification sound when all files in the list have been processed.</source>
-        <translation>リスト内のすべてのファイルが処理されたときに通知音を再生します。</translation>
+        <translation type="vanished">リスト内のすべてのファイルが処理されたときに通知音を再生します。</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5210"/>
@@ -1258,7 +1277,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsou
         <location filename="mainwindow.ui" line="2341"/>
         <location filename="mainwindow.ui" line="3355"/>
         <location filename="mainwindow.ui" line="3945"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1994"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2005"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1981"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1951"/>
         <source>Detect available GPU ID</source>
@@ -1399,7 +1418,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
     <message>
         <location filename="mainwindow.ui" line="5629"/>
         <location filename="mainwindow.ui" line="5668"/>
-        <location filename="waifu2x.cpp" line="918"/>
+        <location filename="waifu2x.cpp" line="915"/>
         <source>Compatibility test</source>
         <translation>互換性テスト</translation>
     </message>
@@ -1428,7 +1447,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5614"/>
-        <location filename="mainwindow.cpp" line="1171"/>
+        <location filename="mainwindow.cpp" line="1180"/>
         <source>About</source>
         <translation>について</translation>
     </message>
@@ -1613,7 +1632,6 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3161"/>
-        <location filename="Anime4K.cpp" line="1748"/>
         <source>List GPUs</source>
         <translation>GPUの一覧表示</translation>
     </message>
@@ -1673,6 +1691,11 @@ be processed successfully)</source>
 
 （追加したファイル形式が、
 正常に処理される）</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="5207"/>
+        <source>Play Notification sound.</source>
+        <translation>通知音を再生します。</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5276"/>
@@ -2795,7 +2818,7 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1377"/>
         <location filename="Anime4K.cpp" line="1415"/>
         <location filename="Anime4K.cpp" line="1500"/>
-        <location filename="CustomResolution.cpp" line="279"/>
+        <location filename="CustomResolution.cpp" line="298"/>
         <location filename="files.cpp" line="582"/>
         <location filename="files.cpp" line="600"/>
         <location filename="files.cpp" line="618"/>
@@ -2825,7 +2848,7 @@ by the software will be used.</source>
         <location filename="realsr_ncnn_vulkan.cpp" line="1549"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1577"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1615"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1697"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1701"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="44"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="69"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="219"/>
@@ -3072,17 +3095,17 @@ by the software will be used.</source>
         <translation>]スケールの進捗：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1779"/>
+        <location filename="Anime4K.cpp" line="1775"/>
         <source>]: Platform ID:[</source>
         <translation>]： プラットフォーム ID：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1779"/>
+        <location filename="Anime4K.cpp" line="1775"/>
         <source> Device ID:[</source>
         <translation> デバイス ID：[</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1793"/>
+        <location filename="Anime4K.cpp" line="1789"/>
         <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation>構成に応じたGPUリスト</translation>
@@ -3157,7 +3180,7 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1500"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="631"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1697"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1701"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="69"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="640"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1724"/>
@@ -3179,7 +3202,7 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1535"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="195"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="741"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1806"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1810"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="208"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="764"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1848"/>
@@ -3196,13 +3219,12 @@ by the software will be used.</source>
         <translation>自動再試行、お待ちください。</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1728"/>
-        <location filename="mainwindow.cpp" line="1107"/>
+        <location filename="mainwindow.cpp" line="1116"/>
         <source>Loading...</source>
         <translation>加载中...</translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1742"/>
+        <location filename="Anime4K.cpp" line="1740"/>
         <source>GPU List for Anime4K</source>
         <translation>Anime4KのGPUリスト</translation>
     </message>
@@ -3211,19 +3233,19 @@ by the software will be used.</source>
         <translation type="vanished">リトライ</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="35"/>
-        <location filename="CustomResolution.cpp" line="97"/>
-        <location filename="CustomResolution.cpp" line="168"/>
-        <location filename="CustomResolution.cpp" line="200"/>
+        <location filename="CustomResolution.cpp" line="36"/>
+        <location filename="CustomResolution.cpp" line="109"/>
+        <location filename="CustomResolution.cpp" line="187"/>
+        <location filename="CustomResolution.cpp" line="219"/>
         <location filename="mainwindow.cpp" line="116"/>
         <location filename="mainwindow.cpp" line="353"/>
         <location filename="mainwindow.cpp" line="378"/>
         <location filename="mainwindow.cpp" line="395"/>
-        <location filename="mainwindow.cpp" line="1019"/>
-        <location filename="mainwindow.cpp" line="1068"/>
-        <location filename="mainwindow.cpp" line="1080"/>
-        <location filename="mainwindow.cpp" line="1136"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2073"/>
+        <location filename="mainwindow.cpp" line="1028"/>
+        <location filename="mainwindow.cpp" line="1077"/>
+        <location filename="mainwindow.cpp" line="1089"/>
+        <location filename="mainwindow.cpp" line="1145"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2089"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2060"/>
@@ -3231,18 +3253,18 @@ by the software will be used.</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="36"/>
-        <location filename="CustomResolution.cpp" line="169"/>
+        <location filename="CustomResolution.cpp" line="37"/>
+        <location filename="CustomResolution.cpp" line="188"/>
         <source>No items are in the list.</source>
         <translation>リストにアイテムはありません。</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="74"/>
-        <location filename="CustomResolution.cpp" line="135"/>
+        <location filename="CustomResolution.cpp" line="81"/>
+        <location filename="CustomResolution.cpp" line="151"/>
         <location filename="files.cpp" line="101"/>
-        <location filename="mainwindow.cpp" line="515"/>
-        <location filename="mainwindow.cpp" line="751"/>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2122"/>
+        <location filename="mainwindow.cpp" line="516"/>
+        <location filename="mainwindow.cpp" line="760"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2138"/>
         <location filename="settings.cpp" line="562"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
         <location filename="waifu2x_converter.cpp" line="1837"/>
@@ -3251,20 +3273,28 @@ by the software will be used.</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="75"/>
-        <location filename="CustomResolution.cpp" line="136"/>
-        <source>When setting a custom resolution for a video, neither the height value nor the width value can be odd.</source>
-        <translation>ビデオにカスタム解像度を設定する場合、高さの値も幅の値も奇数にすることはできません。</translation>
+        <location filename="CustomResolution.cpp" line="82"/>
+        <location filename="CustomResolution.cpp" line="152"/>
+        <source>When setting a custom resolution for a video, neither the height value nor the width value can be odd.
+
+Therefore, the custom resolution for video has been automatically corrected by this software.</source>
+        <translation>ビデオのカスタム解像度を設定する場合、高さの値も幅の値も奇数にすることはできません。
+
+したがって、ビデオのカスタム解像度は、このソフトウェアによって自動的に修正されました。</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="98"/>
-        <location filename="CustomResolution.cpp" line="201"/>
-        <location filename="mainwindow.cpp" line="516"/>
+        <source>When setting a custom resolution for a video, neither the height value nor the width value can be odd.</source>
+        <translation type="vanished">ビデオにカスタム解像度を設定する場合、高さの値も幅の値も奇数にすることはできません。</translation>
+    </message>
+    <message>
+        <location filename="CustomResolution.cpp" line="110"/>
+        <location filename="CustomResolution.cpp" line="220"/>
+        <location filename="mainwindow.cpp" line="517"/>
         <source>No items are currently selected.</source>
         <translation>現在選択されているアイテムはありません。</translation>
     </message>
     <message>
-        <location filename="CustomResolution.cpp" line="279"/>
+        <location filename="CustomResolution.cpp" line="298"/>
         <source>]  [ Unable to get source image resolution. ]</source>
         <translation>] [ソース画像の解像度を取得できません。 ]</translation>
     </message>
@@ -3281,9 +3311,8 @@ Do you wanna update now???</source>
 今すぐ更新しますか???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="128"/>
         <source>Unable to check for updates automatically! Please check your network or check for updates manually.</source>
-        <translation>更新を自動的に確認できません！ ネットワークを確認するか、更新を手動で確認してください。</translation>
+        <translation type="vanished">更新を自動的に確認できません！ ネットワークを確認するか、更新を手動で確認してください。</translation>
     </message>
     <message>
         <source>New version: %1
@@ -3305,33 +3334,56 @@ Do you wanna update now???</source>
         <translation>Githubからアップデート情報（オートチェックアップデート用）のダウンロードを開始しました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="82"/>
         <source>Finished to download update information from Github.</source>
-        <translation>Githubから更新情報のダウンロードが完了しました。</translation>
+        <translation type="vanished">Githubから更新情報のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="103"/>
+        <location filename="checkupdate.cpp" line="108"/>
         <source>Starting to download update information(for auto-check update) from Gitee.</source>
         <translation>Giteeから更新情報（自動チェック更新用）のダウンロードを開始します。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="107"/>
         <source>Finished to download update information from Gitee.</source>
-        <translation>Giteeから更新情報のダウンロードが完了しました。</translation>
+        <translation type="vanished">Giteeから更新情報のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="143"/>
-        <location filename="checkupdate.cpp" line="166"/>
+        <location filename="checkupdate.cpp" line="85"/>
+        <source>Successfully downloaded update information from Github.</source>
+        <translation>Githubから更新情報を正常にダウンロードしました。</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="103"/>
+        <source>Unable to download update information from Github.</source>
+        <translation>Githubから更新情報をダウンロードできません。</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="115"/>
+        <source>Successfully downloaded update information from Gitee.</source>
+        <translation>Giteeから更新情報を正常にダウンロードしました。</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="133"/>
+        <source>Unable to download update information from Gitee.</source>
+        <translation>Giteeから更新情報をダウンロードできません。</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="138"/>
+        <source>Unable to check for updates! Please check your network or check for updates manually.</source>
+        <translation>アップデートを確認できません！ ネットワークを確認するか、手動で更新を確認してください。</translation>
+    </message>
+    <message>
+        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="176"/>
         <source>New </source>
         <translation>新しい </translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="143"/>
+        <location filename="checkupdate.cpp" line="153"/>
         <source> update available!</source>
         <translation> 更新が利用可能です！</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="143"/>
+        <location filename="checkupdate.cpp" line="153"/>
         <source>New version: %1
 
 Brief change log:
@@ -3346,14 +3398,14 @@ Do you wanna update now???</source>
 今すぐ更新しますか???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="157"/>
+        <location filename="checkupdate.cpp" line="167"/>
         <location filename="mainwindow.cpp" line="147"/>
         <location filename="settings.cpp" line="564"/>
         <source>YES</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="166"/>
+        <location filename="checkupdate.cpp" line="176"/>
         <source> update: %1 is available! Click [Check update] button to download the latest version!</source>
         <translation> 更新: %1 が利用可能です！ [アップデート確認]ボタンをクリックして最新版をダウンロードしてください！</translation>
     </message>
@@ -3362,8 +3414,8 @@ Do you wanna update now???</source>
         <translation type="vanished">新しいバージョン: %1 が利用可能です！ [更新状況を確認して]ボタンをクリックして最新版をダウンロード！</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="149"/>
-        <location filename="checkupdate.cpp" line="158"/>
+        <location filename="checkupdate.cpp" line="159"/>
+        <location filename="checkupdate.cpp" line="168"/>
         <location filename="mainwindow.cpp" line="148"/>
         <location filename="settings.cpp" line="565"/>
         <source>NO</source>
@@ -3372,8 +3424,8 @@ Do you wanna update now???</source>
     <message>
         <location filename="files.cpp" line="49"/>
         <location filename="files.cpp" line="50"/>
-        <location filename="mainwindow.cpp" line="1310"/>
-        <location filename="mainwindow.cpp" line="1311"/>
+        <location filename="mainwindow.cpp" line="1319"/>
+        <location filename="mainwindow.cpp" line="1320"/>
         <source>Adding files, please wait.</source>
         <translation>ファイルを追加しています。しばらくお待ちください。</translation>
     </message>
@@ -3419,19 +3471,19 @@ Do you wanna update now???</source>
         <translation type="vanished">]は存在しません。</translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="113"/>
+        <location filename="SystemTrayIcon.cpp" line="111"/>
         <location filename="mainwindow.cpp" line="145"/>
-        <location filename="mainwindow.cpp" line="638"/>
-        <location filename="mainwindow.cpp" line="1231"/>
-        <location filename="mainwindow.cpp" line="1517"/>
-        <location filename="mainwindow.cpp" line="2116"/>
+        <location filename="mainwindow.cpp" line="639"/>
+        <location filename="mainwindow.cpp" line="1240"/>
+        <location filename="mainwindow.cpp" line="1526"/>
+        <location filename="mainwindow.cpp" line="2134"/>
         <location filename="settings.cpp" line="550"/>
         <location filename="settings.cpp" line="574"/>
         <location filename="table.cpp" line="512"/>
-        <location filename="waifu2x.cpp" line="926"/>
-        <location filename="waifu2x.cpp" line="933"/>
-        <location filename="waifu2x.cpp" line="1089"/>
-        <location filename="waifu2x.cpp" line="1100"/>
+        <location filename="waifu2x.cpp" line="924"/>
+        <location filename="waifu2x.cpp" line="931"/>
+        <location filename="waifu2x.cpp" line="1087"/>
+        <location filename="waifu2x.cpp" line="1098"/>
         <source>Notification</source>
         <translation>お知らせ</translation>
     </message>
@@ -3493,22 +3545,27 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation>ファイルの処理が停止しました。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="639"/>
+        <location filename="mainwindow.cpp" line="640"/>
         <source>It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status.</source>
         <translation>プログラムが最後に実行されたときにコンピューターの自動シャットダウンを実行したことが検出されました。 最後のファイルリストは、シャットダウン前に自動的に保存されました。 ファイルリストを手動でロードして、ファイル処理ステータスを表示できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1020"/>
+        <location filename="mainwindow.cpp" line="672"/>
+        <source>Error! Notification sound file is missing!</source>
+        <translation>エラー！ 通知音ファイルがありません！</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="1029"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation>言語ファイルがありません。このプログラムを再インストールしてください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1069"/>
+        <location filename="mainwindow.cpp" line="1078"/>
         <source>Language file cannot be loaded properly.</source>
         <translation>言語ファイルを正しく読み込めません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1232"/>
+        <location filename="mainwindow.cpp" line="1241"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
@@ -3517,22 +3574,22 @@ Restart the software to take effect.</source>
 ソフトウェアを再起動して有効にします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2097"/>
+        <location filename="mainwindow.cpp" line="2112"/>
         <source>Start testing if your PC can connect to raw.githubusercontent.com.</source>
         <translation>PCがraw.githubusercontent.comに接続できるかどうかテストを開始します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2103"/>
+        <location filename="mainwindow.cpp" line="2118"/>
         <source>Detection complete, your PC can connect to raw.githubusercontent.com.</source>
         <translation>検出が完了すると、PCはraw.githubusercontent.comに接続できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2107"/>
+        <location filename="mainwindow.cpp" line="2122"/>
         <source>Detection complete, your PC cannot connect to raw.githubusercontent.com.</source>
         <translation>検出が完了しました。PCはraw.githubusercontent.comに接続できません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2117"/>
+        <location filename="mainwindow.cpp" line="2135"/>
         <source>It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
         <translation>現在raw.githubusercontent.comに接続できないことが検出されたため、[Ban Gitee]を有効にすると、ソフトウェアがアップデートを自動的にチェックするようになります。 [Ban Gitee]は無効にすることをお勧めします。</translation>
     </message>
@@ -3545,18 +3602,18 @@ Restart the software to take effect.</source>
         <translation type="vanished">入力パスが存在しません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="718"/>
-        <location filename="mainwindow.cpp" line="719"/>
-        <location filename="mainwindow.cpp" line="765"/>
-        <location filename="mainwindow.cpp" line="766"/>
-        <location filename="mainwindow.cpp" line="800"/>
-        <location filename="mainwindow.cpp" line="801"/>
-        <location filename="mainwindow.cpp" line="836"/>
-        <location filename="mainwindow.cpp" line="837"/>
-        <location filename="mainwindow.cpp" line="870"/>
-        <location filename="mainwindow.cpp" line="871"/>
-        <location filename="mainwindow.cpp" line="906"/>
-        <location filename="mainwindow.cpp" line="907"/>
+        <location filename="mainwindow.cpp" line="727"/>
+        <location filename="mainwindow.cpp" line="728"/>
+        <location filename="mainwindow.cpp" line="774"/>
+        <location filename="mainwindow.cpp" line="775"/>
+        <location filename="mainwindow.cpp" line="809"/>
+        <location filename="mainwindow.cpp" line="810"/>
+        <location filename="mainwindow.cpp" line="845"/>
+        <location filename="mainwindow.cpp" line="846"/>
+        <location filename="mainwindow.cpp" line="879"/>
+        <location filename="mainwindow.cpp" line="880"/>
+        <location filename="mainwindow.cpp" line="915"/>
+        <location filename="mainwindow.cpp" line="916"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation>範囲：-1（ノイズリダクションなし）〜3</translation>
     </message>
@@ -3574,60 +3631,60 @@ Otherwise, this software may not work properly.</source>
 そうしないと、このソフトウェアが正しく動作しない可能性があります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="727"/>
-        <location filename="mainwindow.cpp" line="728"/>
-        <location filename="mainwindow.cpp" line="809"/>
-        <location filename="mainwindow.cpp" line="810"/>
-        <location filename="mainwindow.cpp" line="879"/>
-        <location filename="mainwindow.cpp" line="880"/>
-        <source>Range:0(No noise reduction)~3</source>
-        <translation>範囲：0（ノイズリダクションなし）〜3</translation>
-    </message>
-    <message>
         <location filename="mainwindow.cpp" line="736"/>
         <location filename="mainwindow.cpp" line="737"/>
         <location filename="mainwindow.cpp" line="818"/>
         <location filename="mainwindow.cpp" line="819"/>
-        <location filename="mainwindow.cpp" line="897"/>
-        <location filename="mainwindow.cpp" line="898"/>
-        <source>Range:-1(No noise reduction)~10</source>
-        <translation>範囲：-1（ノイズリダクションなし）~10</translation>
+        <location filename="mainwindow.cpp" line="888"/>
+        <location filename="mainwindow.cpp" line="889"/>
+        <source>Range:0(No noise reduction)~3</source>
+        <translation>範囲：0（ノイズリダクションなし）〜3</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="745"/>
         <location filename="mainwindow.cpp" line="746"/>
         <location filename="mainwindow.cpp" line="827"/>
         <location filename="mainwindow.cpp" line="828"/>
-        <location filename="mainwindow.cpp" line="888"/>
-        <location filename="mainwindow.cpp" line="889"/>
+        <location filename="mainwindow.cpp" line="906"/>
+        <location filename="mainwindow.cpp" line="907"/>
+        <source>Range:-1(No noise reduction)~10</source>
+        <translation>範囲：-1（ノイズリダクションなし）~10</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="754"/>
+        <location filename="mainwindow.cpp" line="755"/>
+        <location filename="mainwindow.cpp" line="836"/>
+        <location filename="mainwindow.cpp" line="837"/>
+        <location filename="mainwindow.cpp" line="897"/>
+        <location filename="mainwindow.cpp" line="898"/>
         <source>Anime4K engine does not support noise reduction.</source>
         <translation>Anime4Kエンジンはノイズリダクションをサポートしていません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="752"/>
+        <location filename="mainwindow.cpp" line="761"/>
         <source>Anime4K engine does NOT support Alpha Channel.</source>
         <oldsource>Anime4K engine does NOT supports Alpha Channel.</oldsource>
         <translation>Anime4Kエンジンはアルファチャネルをサポートしていません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="774"/>
-        <location filename="mainwindow.cpp" line="775"/>
-        <location filename="mainwindow.cpp" line="845"/>
-        <location filename="mainwindow.cpp" line="846"/>
-        <location filename="mainwindow.cpp" line="915"/>
-        <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="783"/>
+        <location filename="mainwindow.cpp" line="784"/>
+        <location filename="mainwindow.cpp" line="854"/>
+        <location filename="mainwindow.cpp" line="855"/>
+        <location filename="mainwindow.cpp" line="924"/>
+        <location filename="mainwindow.cpp" line="925"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <translation>Realsr-ncnn-vulkanエンジンは自動的にノイズを除去します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="952"/>
+        <location filename="mainwindow.cpp" line="961"/>
         <source>Testing, please wait...</source>
         <translation>テストしています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="976"/>
-        <location filename="mainwindow.cpp" line="1040"/>
-        <location filename="mainwindow.cpp" line="1217"/>
+        <location filename="mainwindow.cpp" line="985"/>
+        <location filename="mainwindow.cpp" line="1049"/>
+        <location filename="mainwindow.cpp" line="1226"/>
         <source>Show settings</source>
         <translation>設定を表示</translation>
     </message>
@@ -3640,22 +3697,22 @@ Otherwise, this software may not work properly.</source>
         <translation type="vanished">エラー：言語ファイルを正しくロードできません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1081"/>
+        <location filename="mainwindow.cpp" line="1090"/>
         <source>File list is empty!</source>
         <translation>ファイルリストが空です！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1096"/>
+        <location filename="mainwindow.cpp" line="1105"/>
         <source>Write to the file, please wait.</source>
         <translation>ファイルに書き込みます。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1130"/>
+        <location filename="mainwindow.cpp" line="1139"/>
         <source>Please wait while reading the file.</source>
         <translation>ファイルの読み取り中にお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1137"/>
+        <location filename="mainwindow.cpp" line="1146"/>
         <location filename="table.cpp" line="526"/>
         <source>Cannot find the saved Files List!</source>
         <translation>保存されたファイルリストが見つかりません！</translation>
@@ -3697,64 +3754,64 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1286"/>
+        <location filename="mainwindow.cpp" line="1295"/>
         <source>All file(</source>
         <translation>すべてのファイル（</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1052"/>
-        <location filename="mainwindow.cpp" line="1349"/>
-        <location filename="mainwindow.cpp" line="1363"/>
+        <location filename="mainwindow.cpp" line="1061"/>
+        <location filename="mainwindow.cpp" line="1358"/>
+        <location filename="mainwindow.cpp" line="1372"/>
         <source>Show Text Browser</source>
         <translation>テキストブラウザを表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1286"/>
+        <location filename="mainwindow.cpp" line="1295"/>
         <source>Select files</source>
         <translation>ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1503"/>
+        <location filename="mainwindow.cpp" line="1512"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- ソフトウェアを使用する前にWikiをお読みください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1504"/>
+        <location filename="mainwindow.cpp" line="1513"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- ソフトウェアのフォント表示に問題がある場合は、追加設定でフォントを変更できます。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1505"/>
+        <location filename="mainwindow.cpp" line="1514"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- このソフトウェアはフリーソフトウェアです。このソフトウェアを販売している人を見つけた場合は、販売者に報告してください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1506"/>
+        <location filename="mainwindow.cpp" line="1515"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- このソフトウェアは無料でオープンソースであり、GNU Affero General Public License v3.0の下でライセンスされています。 このソフトウェアを使用した結果はすべてユーザーが負担し、開発者は一切の責任を負いません。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1507"/>
+        <location filename="mainwindow.cpp" line="1516"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- このソフトウェアが気に入ったら、開発者に寄付してください、ありがとう。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1510"/>
+        <location filename="mainwindow.cpp" line="1519"/>
         <source>!!! Tips !!!</source>
         <translation>!!! プロンプト !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1518"/>
+        <location filename="mainwindow.cpp" line="1527"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>ソフトウェアを初めて起動したことが検出されたため、互換性テストが自動的に実行されます。 しばらく待ってから、テスト結果を確認してください。</translation>
     </message>
@@ -3792,7 +3849,7 @@ If you like the software, please donate to support the developers to ensure the 
         <translation>少なくとも2つのプロセッサを有効にする必要があります!!</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1961"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1970"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1949"/>
         <location filename="waifu2x_converter.cpp" line="1623"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1919"/>
@@ -3808,7 +3865,7 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">利用可能なプロセッサが検出されません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1628"/>
+        <location filename="mainwindow.cpp" line="1637"/>
         <source>Force retry.</source>
         <translation>強制的に再試行します。</translation>
     </message>
@@ -4027,25 +4084,25 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">]にはアルファチャネルが含まれているため、自動的にwaifu2x-caffeエンジンを使用して現在の画像を処理し、強制的にPNGとして保存します。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="388"/>
+        <location filename="waifu2x.cpp" line="385"/>
         <source>Warning!</source>
         <translation>警告！</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="389"/>
-        <location filename="waifu2x.cpp" line="393"/>
-        <location filename="waifu2x.cpp" line="394"/>
+        <location filename="waifu2x.cpp" line="386"/>
+        <location filename="waifu2x.cpp" line="390"/>
+        <location filename="waifu2x.cpp" line="391"/>
         <source>The computer will automatically shut down in 60 seconds!</source>
         <translation>コンピューターは60秒で自動的にシャットダウンします！</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="405"/>
-        <location filename="waifu2x.cpp" line="406"/>
+        <location filename="waifu2x.cpp" line="402"/>
+        <location filename="waifu2x.cpp" line="403"/>
         <source>Process finished.</source>
         <translation>プロセスが終了しました。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="468"/>
+        <location filename="waifu2x.cpp" line="465"/>
         <source>Compatibility test is ongoing, please wait.</source>
         <translation>互換性テストが進行中です。しばらくお待ちください。</translation>
     </message>
@@ -4060,13 +4117,13 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">waifu2x-ncnn-vulkan(新しいバージョン)との互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="512"/>
+        <location filename="waifu2x.cpp" line="509"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): Yes</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): Yes</oldsource>
         <translation>waifu2x-ncnn-vulkan（旧バージョン）との互換性：はい</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="517"/>
+        <location filename="waifu2x.cpp" line="514"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): No. [Advice: Re-install gpu driver or update it to the latest.]</oldsource>
         <translation>waifu2x-ncnn-vulkan（旧バージョン）との互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
@@ -4080,183 +4137,184 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">waifu2x-ncnn-vulkan（新しいバージョン（fp16p））との互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="488"/>
+        <location filename="waifu2x.cpp" line="485"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Latest Version): Yes</source>
         <translation>waifu2x-ncnn-vulkan（最新バージョン）と互換性あり：はい</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="493"/>
+        <location filename="waifu2x.cpp" line="490"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Latest Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>waifu2x-ncnn-vulkan（最新バージョン）と互換性があります：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新に更新してください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="536"/>
+        <location filename="waifu2x.cpp" line="533"/>
         <source>Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): Yes</source>
         <translation>waifu2x-ncnn-vulkan（20200414（fp16p））と互換性あり：はい</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="541"/>
+        <location filename="waifu2x.cpp" line="538"/>
         <source>Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>waifu2x-ncnn-vulkan（20200414（fp16p））との互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="561"/>
+        <location filename="waifu2x.cpp" line="558"/>
         <source>Compatible with waifu2x-converter: Yes.</source>
         <translation>waifu2x-converterとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="566"/>
-        <source>Compatible with waifu2x-converter: No.</source>
-        <oldsource>Compatible with waifu2x-converter: No. [Advice: Buy a new computer.]</oldsource>
-        <translation>waifu2x-converterとの互換性：いいえ。</translation>
+        <location filename="waifu2x.cpp" line="563"/>
+        <source>Compatible with waifu2x-converter: No. [Advice: Install or reinstall OpenCL runtime.]</source>
+        <oldsource>Compatible with waifu2x-converter: No.</oldsource>
+        <translation>waifu2x-converterとの互換性：いいえ。 [アドバイス：OpenCLランタイムをインストールまたは再インストールしてください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="585"/>
+        <location filename="waifu2x.cpp" line="582"/>
         <source>Compatible with Anime4k(CPU Mode): Yes.</source>
         <oldsource>Compatible with Anime4k: Yes.</oldsource>
         <translation>Anime4kとの互換性（CPUモード）：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="590"/>
-        <source>Compatible with Anime4k(CPU Mode): No.</source>
-        <oldsource>Compatible with Anime4k: No.</oldsource>
-        <translation>Anime4kとの互換性（CPUモード）：いいえ。</translation>
+        <location filename="waifu2x.cpp" line="587"/>
+        <source>Compatible with Anime4k(CPU Mode): No. [Advice: Install or reinstall OpenCL runtime.]</source>
+        <oldsource>Compatible with Anime4k(CPU Mode): No.</oldsource>
+        <translation>Anime4kとの互換性（CPUモード）：いいえ。 [アドバイス：OpenCLランタイムをインストールまたは再インストールしてください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="608"/>
+        <location filename="waifu2x.cpp" line="605"/>
         <source>Compatible with Anime4k(GPU Mode): Yes.</source>
         <translation>Anime4k（GPUモード）との互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="613"/>
-        <source>Compatible with Anime4k(GPU Mode): No.</source>
-        <translation>Anime4k（GPUモード）との互換性：いいえ。</translation>
+        <location filename="waifu2x.cpp" line="610"/>
+        <source>Compatible with Anime4k(GPU Mode): No. [Advice: Install or reinstall OpenCL runtime.]</source>
+        <oldsource>Compatible with Anime4k(GPU Mode): No.</oldsource>
+        <translation>Anime4k（GPUモード）との互換性：いいえ。 [アドバイス：OpenCLランタイムをインストールまたは再インストールしてください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="632"/>
+        <location filename="waifu2x.cpp" line="629"/>
         <source>Compatible with srmd-ncnn-vulkan: Yes</source>
         <translation>srmd-ncnn-vulkanとの互換性：はい</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="637"/>
+        <location filename="waifu2x.cpp" line="634"/>
         <source>Compatible with srmd-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>srmd-ncnn-vulkanとの互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="656"/>
+        <location filename="waifu2x.cpp" line="653"/>
         <source>Compatible with waifu2x-caffe(CPU): Yes.</source>
         <translation>waifu2x-caffe（CPU）との互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="661"/>
+        <location filename="waifu2x.cpp" line="658"/>
         <source>Compatible with waifu2x-caffe(CPU): No.</source>
         <translation>waifu2x-caffe（CPU）との互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="680"/>
+        <location filename="waifu2x.cpp" line="677"/>
         <source>Compatible with waifu2x-caffe(GPU): Yes.</source>
         <translation>waifu2x-caffe（GPU）との互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="682"/>
         <source>Compatible with waifu2x-caffe(GPU): No. [Advice: Install NVIDIA CUDA.]</source>
         <oldsource>Compatible with waifu2x-caffe(GPU): No.</oldsource>
         <translation>waifu2x-caffe（GPU）との互換性：いいえ。[アドバイス：NVIDIA CUDAをインストールしてください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="704"/>
+        <location filename="waifu2x.cpp" line="701"/>
         <source>Compatible with waifu2x-caffe(cuDNN): Yes.</source>
         <translation>waifu2x-caffe（cuDNN）との互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="709"/>
+        <location filename="waifu2x.cpp" line="706"/>
         <source>Compatible with waifu2x-caffe(cuDNN): No. [Advice: Install NVIDIA CUDA and NVIDIA cuDNN.]</source>
         <oldsource>Compatible with waifu2x-caffe(cuDNN): No.</oldsource>
         <translation>waifu2x-caffe（cuDNN）との互換性：いいえ。[アドバイス：NVIDIA CUDAとNVIDIA cuDNNをインストールしてください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="728"/>
+        <location filename="waifu2x.cpp" line="725"/>
         <source>Compatible with Realsr-ncnn-vulkan: Yes.</source>
         <translation>Realsr-ncnn-vulkanとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="733"/>
+        <location filename="waifu2x.cpp" line="730"/>
         <source>Compatible with Realsr-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>Realsr-ncnn-vulkanとの互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新に更新してください。]</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="751"/>
+        <location filename="waifu2x.cpp" line="748"/>
         <source>Compatible with Python extension: Yes.</source>
         <translation>Python extension との互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="756"/>
+        <location filename="waifu2x.cpp" line="753"/>
         <source>Compatible with Python extension: No.</source>
         <translation>Python extension との互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="774"/>
+        <location filename="waifu2x.cpp" line="771"/>
         <source>Compatible with FFmpeg: Yes.</source>
         <translation>FFmpegとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="779"/>
+        <location filename="waifu2x.cpp" line="776"/>
         <source>Compatible with FFmpeg: No.</source>
         <translation>FFmpegとの互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="800"/>
+        <location filename="waifu2x.cpp" line="797"/>
         <source>Compatible with FFprobe: Yes.</source>
         <translation>FFprobeとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="805"/>
+        <location filename="waifu2x.cpp" line="802"/>
         <source>Compatible with FFprobe: No.</source>
         <translation>FFprobeとの互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="823"/>
+        <location filename="waifu2x.cpp" line="820"/>
         <source>Compatible with ImageMagick: Yes.</source>
         <translation>ImageMagickとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="828"/>
+        <location filename="waifu2x.cpp" line="825"/>
         <source>Compatible with ImageMagick: No.</source>
         <translation>ImageMagickとの互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="850"/>
+        <location filename="waifu2x.cpp" line="847"/>
         <source>Compatible with Gifsicle: Yes.</source>
         <translation>Gifsicleとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="855"/>
+        <location filename="waifu2x.cpp" line="852"/>
         <source>Compatible with Gifsicle: No.</source>
         <translation>Gifsicleとの互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="876"/>
+        <location filename="waifu2x.cpp" line="873"/>
         <source>Compatible with SoX: Yes.</source>
         <translation>SoXとの互換性：はい。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="881"/>
+        <location filename="waifu2x.cpp" line="878"/>
         <source>Compatible with SoX: No.</source>
         <translation>SoXとの互換性：いいえ。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="886"/>
-        <location filename="waifu2x.cpp" line="887"/>
+        <location filename="waifu2x.cpp" line="883"/>
+        <location filename="waifu2x.cpp" line="884"/>
         <source>Compatibility test is complete!</source>
         <translation>互換性テストが完了しました！</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1125"/>
+        <location filename="waifu2x.cpp" line="1123"/>
         <source>It is detected that the image [</source>
         <translation>画像[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1125"/>
+        <location filename="waifu2x.cpp" line="1123"/>
         <source>] contains the Alpha channel, so the result image will be forcibly saved as PNG.</source>
         <translation>]にアルファチャネルが含まれていることが検出されたため、結果の画像は強制的にPNGとして保存されます。</translation>
     </message>
@@ -4265,7 +4323,7 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">[アルファチャネルの自動検出]は、互換性テストの結果に基づいて自動的に有効になりました。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="927"/>
+        <location filename="waifu2x.cpp" line="925"/>
         <source>One of the essential plugins is not compatible with your PC, the software may not work normally on your PC.
 
 You can try to re-install this software, this might solve the problem.</source>
@@ -4274,22 +4332,22 @@ You can try to re-install this software, this might solve the problem.</source>
 このソフトウェアを再インストールしてみてください。これで問題が解決する可能性があります。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="933"/>
+        <location filename="waifu2x.cpp" line="931"/>
         <source>Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?</source>
         <translation>互換性テストの結果に基づいて、エンジン設定を自動的に調整するソフトウェアが必要ですか？</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="935"/>
+        <location filename="waifu2x.cpp" line="933"/>
         <source>Yes</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="936"/>
+        <location filename="waifu2x.cpp" line="934"/>
         <source>No</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1090"/>
+        <location filename="waifu2x.cpp" line="1088"/>
         <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
 
 First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
@@ -4310,7 +4368,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">ヒント：これらのエンジンのいずれか：[waifu2x-ncnn-vulkan、waifu2x-converter、srmd-ncnn-vulkan]がコンピューターと互換性がある場合、このソフトウェアのすべての機能を使用できます。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1101"/>
+        <location filename="waifu2x.cpp" line="1099"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation>互換性テストが完了しました。 テスト結果を確認し、テスト結果に基づいてエンジン設定を構成してください。</translation>
     </message>
@@ -4319,21 +4377,21 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">互換性テストが完了しました。 テキストボックスでテスト結果を確認し、テスト結果に基づいてエンジン設定を構成してください。</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1912"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1919"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1900"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1870"/>
         <source>Detecting, please wait...</source>
         <translation>確認しています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1927"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1936"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1915"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1885"/>
         <source>Detecting available GPU, please wait.</source>
         <translation>利用可能なGPUを検出しています。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="1964"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="1973"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1952"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1922"/>
         <source>No available GPU ID detected!</source>
@@ -4500,14 +4558,14 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>このソフトウェアが気に入ったら、開発者をサポートするために寄付してください、ありがとう！</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2074"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2090"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2100"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2061"/>
         <source>Insufficient number of available GPUs.</source>
         <translation>利用可能なGPUの数が不十分です。</translation>
     </message>
     <message>
-        <location filename="realsr_ncnn_vulkan.cpp" line="2123"/>
+        <location filename="realsr_ncnn_vulkan.cpp" line="2139"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2138"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2128"/>
         <source>At least 2 GPUs need to be enabled !!</source>
