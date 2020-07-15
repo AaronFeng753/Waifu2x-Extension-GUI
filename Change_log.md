@@ -4,6 +4,16 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.54.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.54.13)
+#### Change log:
+- Update QT to 5.15.0 than recompile the program.
+- When it is detected that the custom resolution contains an odd number, the custom resolution will be automatically corrected for the video.
+- After enabling [Ban Gitee], automatically detect whether raw.githubusercontent.com can be connected.
+- Update waifu2x-ncnn-vulkan, srmd-ncnn-vulkan, realsr-ncnn-vulkan, FFmpeg & FFprobe.
+- Performance optimization.
+- Fix multiple bugs.
+- [And many other improvements, click to view detailed change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.54.13_v2.53.14_Detailed_change_log.txt)
+---
 ## [v2.53.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.53.14)
 #### Change log:
 - New feature: [Add File] button now supports selecting and adding multiple files.
