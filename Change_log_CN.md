@@ -8,6 +8,16 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.54.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.54.13)
+#### 更新日志:
+- 更新QT版本至5.15.0,并使用新版QT重新编译.
+- 当检测到自定义分辨率包含奇数时,自动为视频修正自定义分辨率.
+- 在启用[禁止连接码云]后,自动在后台检测是否可以连接raw.githubusercontent.com.
+- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg&FFprobe.
+- 性能优化.
+- 修复多个bug.
+- [以及其他诸多改进, 点击查看详细更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/temp/v2.54.13_v2.53.14_Detailed_change_log.txt)
+---
 ## [v2.53.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.53.14)
 #### 更新日志:
 - 新特性:[添加文件]按钮支持选中并添加多个文件.
