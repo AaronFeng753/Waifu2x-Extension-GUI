@@ -33,40 +33,17 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- 更新QT版本至5.15.0,并使用新版QT重新编译.
-- 当检测到自定义分辨率包含奇数时,自动为视频修正自定义分辨率.
-- 在启用[禁止连接码云]后,自动在后台检测是否可以连接raw.githubusercontent.com.
-- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan,FFmpeg&FFprobe.
+- 更新FFmpeg&FFprobe.
 - 性能优化.
-- 修复多个bug.
 ----------------------------
 Detailed change log:
-v2.54.13:
-- 在启用[禁止连接码云]后,自动在后台检测是否可以连接raw.githubusercontent.com.
-- 当检测到自定义分辨率包含奇数时,自动为视频修正自定义分辨率.
+v2.55.01-beta:
 - 更新FFmpeg&FFprobe.
-- 成功暂停以及兼容性测试完成时播放提示音.
-- 检查更新&在线更新捐赠标签页二维码图片时,显示是否下载成功.
-- 添加修复Anime4k&waifu2x-converter兼容性问题的建议.
-- 性能优化.
-- 更新本地隐私政策文件.
-- 修改添加部分注释,改善代码可读性.
-- 修復bug:UI衝突.
-v2.54.02-beta:
-- 更新waifu2x-ncnn-vulkan,srmd-ncnn-vulkan,realsr-ncnn-vulkan.
-- 添加tooltip.
-v2.54.01-beta:
-- 更新QT版本至5.15.0,并使用新版QT重新编译.
-- 内置QT-5.15.0的许可协议文件.
-- 删除无用变量.
-- 使用QRandomGenerator代替qsrand和qrand.
-- 改进检查更新的流程.
-- 完善翻译文档.
-- 修复bug:在任务栏图标的右键菜单中,点击退出,并点击弹窗中的[否]选项将导致弹窗重复弹出多次.
+- Anime4k引擎的[列出gpu]改为多线程执行,避免进入未响应状态.
 --------------------------------------------------------------------------
 To do:
-- pdf格式支持
-- 移植到Linux
+- ncnn-vulkan和converter的多显卡,加入个显示当前多显卡配置信息的按钮.
+- 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:
 - gifsicle version 1.92(release)
@@ -78,7 +55,7 @@ Integrated component:
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-23 Q16 x64 2020-07-04
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200713-7772666-win64-static
+- FFmpeg&FFprobe 20200715-a54b367-win64-static
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

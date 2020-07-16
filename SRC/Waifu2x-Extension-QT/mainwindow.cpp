@@ -47,6 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //===========================================
+    connect(this, SIGNAL(Send_ListGPUs_Anime4k_Finished(QString)), this, SLOT(ListGPUs_Anime4k_Finished(QString)));
     connect(this, SIGNAL(Send_Unable2Connect_RawGithubusercontentCom()), this, SLOT(Unable2Connect_RawGithubusercontentCom()));
     connect(this, SIGNAL(Send_SetEnable_pushButton_ForceRetry_self()), this, SLOT(SetEnable_pushButton_ForceRetry_self()));
     connect(this, SIGNAL(Send_SystemTray_NewMessage(QString)), this, SLOT(SystemTray_NewMessage(QString)));

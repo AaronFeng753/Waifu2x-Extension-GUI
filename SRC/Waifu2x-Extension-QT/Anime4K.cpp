@@ -1722,8 +1722,18 @@ QString MainWindow::Anime4k_GetGPUInfo()
     GetGPUInfo_QMutex_Anime4k.unlock();
     return GPUInfo;
 }
-
+/*
+列出可用的GPUs
+*/
 void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
+{
+    ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
+    ui->pushButton_ListGPUs_Anime4k->setText(tr("Loading"));
+    //===
+    QtConcurrent::run(this, &MainWindow::ListGPUs_Anime4k);
+}
+
+void MainWindow::ListGPUs_Anime4k()
 {
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
@@ -1732,9 +1742,15 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
     Waifu2x->start(cmd);
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop) {}
+    //===
     QString OutputString = Waifu2x->readAllStandardOutput().trimmed();
-    //====
-    emit Send_TextBrowser_NewMessage("\n"+OutputString);
+    //===
+    emit Send_ListGPUs_Anime4k_Finished(OutputString);
+}
+
+void MainWindow::ListGPUs_Anime4k_Finished(QString OutputString)
+{
+    emit Send_TextBrowser_NewMessage("\n"+tr("GPU List for Anime4K")+":\n"+OutputString);
     //====
     QMessageBox *MSG = new QMessageBox();
     MSG->setWindowTitle(tr("GPU List for Anime4K"));
@@ -1742,6 +1758,9 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
     MSG->setIcon(QMessageBox::Information);
     MSG->setModal(true);
     MSG->show();
+    //====
+    on_checkBox_SpecifyGPU_Anime4k_stateChanged(1);
+    ui->pushButton_ListGPUs_Anime4k->setText(tr("List GPUs"));
 }
 
 void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()

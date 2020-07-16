@@ -15,8 +15,8 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="791"/>
-        <location filename="mainwindow.cpp" line="991"/>
-        <location filename="mainwindow.cpp" line="1055"/>
+        <location filename="mainwindow.cpp" line="992"/>
+        <location filename="mainwindow.cpp" line="1056"/>
         <source>Hide settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -372,6 +372,7 @@ same time, you need to change [Image style] settings at [Home] tab.
     </message>
     <message>
         <location filename="mainwindow.ui" line="3161"/>
+        <location filename="Anime4K.cpp" line="1763"/>
         <source>List GPUs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -917,8 +918,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     </message>
     <message>
         <location filename="mainwindow.ui" line="874"/>
-        <location filename="mainwindow.cpp" line="1066"/>
-        <location filename="mainwindow.cpp" line="1363"/>
+        <location filename="mainwindow.cpp" line="1067"/>
+        <location filename="mainwindow.cpp" line="1364"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1662,7 +1663,7 @@ For detailed information, please read privacy policy.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5614"/>
-        <location filename="mainwindow.cpp" line="1180"/>
+        <location filename="mainwindow.cpp" line="1181"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1798,7 +1799,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.ui" line="538"/>
         <location filename="mainwindow.ui" line="1855"/>
         <location filename="Current_File_Progress.cpp" line="35"/>
-        <location filename="mainwindow.cpp" line="449"/>
+        <location filename="mainwindow.cpp" line="450"/>
         <source>Time cost:NULL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1806,7 +1807,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.ui" line="325"/>
         <location filename="mainwindow.ui" line="1875"/>
         <location filename="Current_File_Progress.cpp" line="36"/>
-        <location filename="mainwindow.cpp" line="450"/>
+        <location filename="mainwindow.cpp" line="451"/>
         <source>ETA:NULL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1824,7 +1825,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.ui" line="312"/>
         <location filename="mainwindow.ui" line="1865"/>
         <location filename="Current_File_Progress.cpp" line="34"/>
-        <location filename="mainwindow.cpp" line="451"/>
+        <location filename="mainwindow.cpp" line="452"/>
         <source>Time remaining:NULL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1902,14 +1903,14 @@ the language for the language settings to fully take effect.</source>
         <location filename="CustomResolution.cpp" line="109"/>
         <location filename="CustomResolution.cpp" line="187"/>
         <location filename="CustomResolution.cpp" line="219"/>
-        <location filename="mainwindow.cpp" line="116"/>
-        <location filename="mainwindow.cpp" line="353"/>
-        <location filename="mainwindow.cpp" line="378"/>
-        <location filename="mainwindow.cpp" line="395"/>
-        <location filename="mainwindow.cpp" line="1028"/>
-        <location filename="mainwindow.cpp" line="1077"/>
-        <location filename="mainwindow.cpp" line="1089"/>
-        <location filename="mainwindow.cpp" line="1145"/>
+        <location filename="mainwindow.cpp" line="117"/>
+        <location filename="mainwindow.cpp" line="354"/>
+        <location filename="mainwindow.cpp" line="379"/>
+        <location filename="mainwindow.cpp" line="396"/>
+        <location filename="mainwindow.cpp" line="1029"/>
+        <location filename="mainwindow.cpp" line="1078"/>
+        <location filename="mainwindow.cpp" line="1090"/>
+        <location filename="mainwindow.cpp" line="1146"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2089"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
@@ -1928,7 +1929,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
     <message>
         <location filename="CustomResolution.cpp" line="110"/>
         <location filename="CustomResolution.cpp" line="220"/>
-        <location filename="mainwindow.cpp" line="517"/>
+        <location filename="mainwindow.cpp" line="518"/>
         <source>No items are currently selected.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1936,8 +1937,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="CustomResolution.cpp" line="81"/>
         <location filename="CustomResolution.cpp" line="151"/>
         <location filename="files.cpp" line="101"/>
-        <location filename="mainwindow.cpp" line="516"/>
-        <location filename="mainwindow.cpp" line="760"/>
+        <location filename="mainwindow.cpp" line="517"/>
+        <location filename="mainwindow.cpp" line="761"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2138"/>
         <location filename="settings.cpp" line="562"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2137"/>
@@ -1960,8 +1961,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
     <message>
         <location filename="files.cpp" line="49"/>
         <location filename="files.cpp" line="50"/>
-        <location filename="mainwindow.cpp" line="1319"/>
         <location filename="mainwindow.cpp" line="1320"/>
+        <location filename="mainwindow.cpp" line="1321"/>
         <source>Adding files, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2004,11 +2005,11 @@ Therefore, the custom resolution for video has been automatically corrected by t
     </message>
     <message>
         <location filename="SystemTrayIcon.cpp" line="111"/>
-        <location filename="mainwindow.cpp" line="145"/>
-        <location filename="mainwindow.cpp" line="639"/>
-        <location filename="mainwindow.cpp" line="1240"/>
-        <location filename="mainwindow.cpp" line="1526"/>
-        <location filename="mainwindow.cpp" line="2134"/>
+        <location filename="mainwindow.cpp" line="146"/>
+        <location filename="mainwindow.cpp" line="640"/>
+        <location filename="mainwindow.cpp" line="1241"/>
+        <location filename="mainwindow.cpp" line="1527"/>
+        <location filename="mainwindow.cpp" line="2135"/>
         <location filename="settings.cpp" line="550"/>
         <location filename="settings.cpp" line="574"/>
         <location filename="table.cpp" line="512"/>
@@ -2077,7 +2078,7 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="checkupdate.cpp" line="167"/>
-        <location filename="mainwindow.cpp" line="147"/>
+        <location filename="mainwindow.cpp" line="148"/>
         <location filename="settings.cpp" line="564"/>
         <source>YES</source>
         <translation type="unfinished"></translation>
@@ -2090,7 +2091,7 @@ Do you wanna update now???</source>
     <message>
         <location filename="checkupdate.cpp" line="159"/>
         <location filename="checkupdate.cpp" line="168"/>
-        <location filename="mainwindow.cpp" line="148"/>
+        <location filename="mainwindow.cpp" line="149"/>
         <location filename="settings.cpp" line="565"/>
         <source>NO</source>
         <translation type="unfinished"></translation>
@@ -2415,17 +2416,22 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1775"/>
+        <location filename="Anime4K.cpp" line="1731"/>
+        <source>Loading</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Anime4K.cpp" line="1794"/>
         <source>]: Platform ID:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1775"/>
+        <location filename="Anime4K.cpp" line="1794"/>
         <source> Device ID:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1789"/>
+        <location filename="Anime4K.cpp" line="1808"/>
         <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation type="unfinished"></translation>
@@ -2539,90 +2545,91 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1116"/>
+        <location filename="mainwindow.cpp" line="1117"/>
         <source>Loading...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Anime4K.cpp" line="1740"/>
+        <location filename="Anime4K.cpp" line="1753"/>
+        <location filename="Anime4K.cpp" line="1756"/>
         <source>GPU List for Anime4K</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="145"/>
+        <location filename="mainwindow.cpp" line="146"/>
         <source>Do you really wanna exit Waifu2x-Extension-GUI ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="226"/>
-        <location filename="mainwindow.cpp" line="263"/>
+        <location filename="mainwindow.cpp" line="227"/>
+        <location filename="mainwindow.cpp" line="264"/>
         <source>Time cost:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="248"/>
-        <location filename="mainwindow.cpp" line="283"/>
+        <location filename="mainwindow.cpp" line="249"/>
+        <location filename="mainwindow.cpp" line="284"/>
         <source>Time remaining:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="354"/>
-        <location filename="mainwindow.cpp" line="359"/>
+        <location filename="mainwindow.cpp" line="355"/>
+        <location filename="mainwindow.cpp" line="360"/>
         <source>Output path is empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="384"/>
+        <location filename="mainwindow.cpp" line="385"/>
         <source>Invalid output path.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="396"/>
+        <location filename="mainwindow.cpp" line="397"/>
         <source>Unable to start processing files: The file list is empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="467"/>
+        <location filename="mainwindow.cpp" line="468"/>
         <source>Start processing files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="479"/>
+        <location filename="mainwindow.cpp" line="480"/>
         <source>Trying to stop, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="492"/>
+        <location filename="mainwindow.cpp" line="493"/>
         <source>Processing of files has stopped.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="640"/>
+        <location filename="mainwindow.cpp" line="641"/>
         <source>It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1029"/>
+        <location filename="mainwindow.cpp" line="1030"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1078"/>
+        <location filename="mainwindow.cpp" line="1079"/>
         <source>Language file cannot be loaded properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1295"/>
+        <location filename="mainwindow.cpp" line="1296"/>
         <source>Select files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1527"/>
+        <location filename="mainwindow.cpp" line="1528"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="116"/>
+        <location filename="mainwindow.cpp" line="117"/>
         <source>It is detected that this software lacks the necessary permissions to run.
 
 Please close this software and start this software again after giving this software administrator permission.
@@ -2631,183 +2638,183 @@ Otherwise, this software may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="379"/>
+        <location filename="mainwindow.cpp" line="380"/>
         <source>Invalid output path.
 
 Or do not have sufficient permissions to write files to the output path, you might need to grant administrator permissions to this software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="672"/>
+        <location filename="mainwindow.cpp" line="673"/>
         <source>Error! Notification sound file is missing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="727"/>
         <location filename="mainwindow.cpp" line="728"/>
-        <location filename="mainwindow.cpp" line="774"/>
+        <location filename="mainwindow.cpp" line="729"/>
         <location filename="mainwindow.cpp" line="775"/>
-        <location filename="mainwindow.cpp" line="809"/>
+        <location filename="mainwindow.cpp" line="776"/>
         <location filename="mainwindow.cpp" line="810"/>
-        <location filename="mainwindow.cpp" line="845"/>
+        <location filename="mainwindow.cpp" line="811"/>
         <location filename="mainwindow.cpp" line="846"/>
-        <location filename="mainwindow.cpp" line="879"/>
+        <location filename="mainwindow.cpp" line="847"/>
         <location filename="mainwindow.cpp" line="880"/>
-        <location filename="mainwindow.cpp" line="915"/>
+        <location filename="mainwindow.cpp" line="881"/>
         <location filename="mainwindow.cpp" line="916"/>
+        <location filename="mainwindow.cpp" line="917"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="736"/>
         <location filename="mainwindow.cpp" line="737"/>
-        <location filename="mainwindow.cpp" line="818"/>
+        <location filename="mainwindow.cpp" line="738"/>
         <location filename="mainwindow.cpp" line="819"/>
-        <location filename="mainwindow.cpp" line="888"/>
+        <location filename="mainwindow.cpp" line="820"/>
         <location filename="mainwindow.cpp" line="889"/>
+        <location filename="mainwindow.cpp" line="890"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="745"/>
         <location filename="mainwindow.cpp" line="746"/>
-        <location filename="mainwindow.cpp" line="827"/>
+        <location filename="mainwindow.cpp" line="747"/>
         <location filename="mainwindow.cpp" line="828"/>
-        <location filename="mainwindow.cpp" line="906"/>
+        <location filename="mainwindow.cpp" line="829"/>
         <location filename="mainwindow.cpp" line="907"/>
+        <location filename="mainwindow.cpp" line="908"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="754"/>
         <location filename="mainwindow.cpp" line="755"/>
-        <location filename="mainwindow.cpp" line="836"/>
+        <location filename="mainwindow.cpp" line="756"/>
         <location filename="mainwindow.cpp" line="837"/>
-        <location filename="mainwindow.cpp" line="897"/>
+        <location filename="mainwindow.cpp" line="838"/>
         <location filename="mainwindow.cpp" line="898"/>
+        <location filename="mainwindow.cpp" line="899"/>
         <source>Anime4K engine does not support noise reduction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="761"/>
+        <location filename="mainwindow.cpp" line="762"/>
         <source>Anime4K engine does NOT support Alpha Channel.</source>
         <oldsource>Anime4K engine does NOT supports Alpha Channel.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="783"/>
         <location filename="mainwindow.cpp" line="784"/>
-        <location filename="mainwindow.cpp" line="854"/>
+        <location filename="mainwindow.cpp" line="785"/>
         <location filename="mainwindow.cpp" line="855"/>
-        <location filename="mainwindow.cpp" line="924"/>
+        <location filename="mainwindow.cpp" line="856"/>
         <location filename="mainwindow.cpp" line="925"/>
+        <location filename="mainwindow.cpp" line="926"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="961"/>
+        <location filename="mainwindow.cpp" line="962"/>
         <source>Testing, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="985"/>
-        <location filename="mainwindow.cpp" line="1049"/>
-        <location filename="mainwindow.cpp" line="1226"/>
+        <location filename="mainwindow.cpp" line="986"/>
+        <location filename="mainwindow.cpp" line="1050"/>
+        <location filename="mainwindow.cpp" line="1227"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1090"/>
+        <location filename="mainwindow.cpp" line="1091"/>
         <source>File list is empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1105"/>
+        <location filename="mainwindow.cpp" line="1106"/>
         <source>Write to the file, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1139"/>
+        <location filename="mainwindow.cpp" line="1140"/>
         <source>Please wait while reading the file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1146"/>
+        <location filename="mainwindow.cpp" line="1147"/>
         <location filename="table.cpp" line="526"/>
         <source>Cannot find the saved Files List!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1241"/>
+        <location filename="mainwindow.cpp" line="1242"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1295"/>
+        <location filename="mainwindow.cpp" line="1296"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2112"/>
+        <location filename="mainwindow.cpp" line="2113"/>
         <source>Start testing if your PC can connect to raw.githubusercontent.com.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2118"/>
+        <location filename="mainwindow.cpp" line="2119"/>
         <source>Detection complete, your PC can connect to raw.githubusercontent.com.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2122"/>
+        <location filename="mainwindow.cpp" line="2123"/>
         <source>Detection complete, your PC cannot connect to raw.githubusercontent.com.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2135"/>
+        <location filename="mainwindow.cpp" line="2136"/>
         <source>It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1061"/>
-        <location filename="mainwindow.cpp" line="1358"/>
-        <location filename="mainwindow.cpp" line="1372"/>
+        <location filename="mainwindow.cpp" line="1062"/>
+        <location filename="mainwindow.cpp" line="1359"/>
+        <location filename="mainwindow.cpp" line="1373"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1512"/>
+        <location filename="mainwindow.cpp" line="1513"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1513"/>
+        <location filename="mainwindow.cpp" line="1514"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1514"/>
+        <location filename="mainwindow.cpp" line="1515"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1515"/>
+        <location filename="mainwindow.cpp" line="1516"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1516"/>
+        <location filename="mainwindow.cpp" line="1517"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1519"/>
+        <location filename="mainwindow.cpp" line="1520"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2837,7 +2844,7 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1637"/>
+        <location filename="mainwindow.cpp" line="1638"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>

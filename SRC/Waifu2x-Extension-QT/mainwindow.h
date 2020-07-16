@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.54.13";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.55.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.54.13";
-    QString LastBetaVer = "v2.54.13";
+    QString LastBetaVer = "v2.55.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -259,6 +259,8 @@ public:
 
     int Realsr_ncnn_vulkan_DetectGPU();//检测可用gpu(for realsr)
     QStringList Available_GPUID_Realsr_ncnn_vulkan;//可用GPU ID列表
+
+    void ListGPUs_Anime4k();//列出可用显卡 Anime4k
 
     bool Imgae_hasAlphaChannel(int rowNum);
 
@@ -448,6 +450,8 @@ public:
     ~MainWindow();
 
 public slots:
+    void ListGPUs_Anime4k_Finished(QString OutputString);
+
     void Unable2Connect_RawGithubusercontentCom();
 
     void SetEnable_pushButton_ForceRetry_self();
@@ -763,6 +767,8 @@ private slots:
     void on_checkBox_BanGitee_clicked();
 
 signals:
+    void Send_ListGPUs_Anime4k_Finished(QString OutputString);
+
     void Send_Unable2Connect_RawGithubusercontentCom();
 
     void Send_SetEnable_pushButton_ForceRetry_self();
