@@ -2147,3 +2147,28 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1)
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
     }
 }
+
+void MainWindow::on_pushButton_ShowMultiGPUSettings_Waifu2xNCNNVulkan_clicked()
+{
+    int Max_GPU_ID = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count();
+    QString MultiGPUSettings_str="";
+    for(int GPU_ID=0; GPU_ID<Max_GPU_ID; GPU_ID++)
+    {
+        QMap<QString,QString> GPUInfo = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.at(GPU_ID);
+        if(GPUInfo["isEnabled"] != "true")
+        {
+            continue;
+        }
+        else
+        {
+            MultiGPUSettings_str.append("GPU ID:["+GPUInfo["ID"]+"] | "+tr("Tile size:")+"["+GPUInfo["TileSize"]+"]\n\n");
+        }
+    }
+    //=========
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Current Multi-GPU settings"));
+    MSG->setText(MultiGPUSettings_str);
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+}

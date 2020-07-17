@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2131,8 +2131,11 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
            </item>
            <item row="2" column="0" colspan="8">
             <widget class="QTabWidget" name="tabWidget_Engines">
+             <property name="toolTip">
+              <string/>
+             </property>
              <property name="currentIndex">
-              <number>2</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2383,16 +2386,6 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="2">
-                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan">
-                    <property name="text">
-                     <string>Enable</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_65">
                     <property name="text">
@@ -2407,6 +2400,56 @@ padding:10px;
                    <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan">
                     <property name="currentText">
                      <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xNCNNVulkan">
+                    <property name="text">
+                     <string>Enable</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QPushButton" name="pushButton_ShowMultiGPUSettings_Waifu2xNCNNVulkan">
+                    <property name="toolTip">
+                     <string>Show current Multi-GPU settings.</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Show GPUs Settings</string>
                     </property>
                    </widget>
                   </item>
@@ -2454,13 +2497,13 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                   <string>Processor Settings(Multi-Processor)</string>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_44">
-                  <item row="0" column="3">
-                   <widget class="QLabel" name="label_74">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_75">
                     <property name="text">
-                     <string>Block size:</string>
+                     <string>Processor ID:</string>
                     </property>
                     <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                     </property>
                    </widget>
                   </item>
@@ -2480,6 +2523,16 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                     </property>
                    </widget>
                   </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_74">
+                    <property name="text">
+                     <string>Block size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="2">
                    <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter">
                     <property name="text">
@@ -2490,20 +2543,50 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_75">
-                    <property name="text">
-                     <string>Processor ID:</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="1">
                    <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_Waifu2xConverter">
                     <property name="currentText">
                      <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QPushButton" name="pushButton_ShowMultiGPUSettings_Waifu2xConverter">
+                    <property name="toolTip">
+                     <string>Show current Multi-GPU settings.</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Show GPUs Settings</string>
                     </property>
                    </widget>
                   </item>
@@ -3202,16 +3285,6 @@ padding:10px;
                   <string>GPU Settings(Multi-GPU)</string>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_41">
-                  <item row="0" column="3">
-                   <widget class="QLabel" name="label_68">
-                    <property name="text">
-                     <string>Tile size:</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="4">
                    <widget class="QSpinBox" name="spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
                     <property name="minimum">
@@ -3238,6 +3311,23 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
+                  <item row="0" column="3">
+                   <widget class="QLabel" name="label_68">
+                    <property name="text">
+                     <string>Tile size:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="0">
                    <widget class="QLabel" name="label_69">
                     <property name="text">
@@ -3248,10 +3338,43 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan">
-                    <property name="currentText">
-                     <string notr="true"/>
+                  <item row="0" column="5">
+                   <widget class="QPushButton" name="pushButton_ShowMultiGPUSettings_SrmdNCNNVulkan">
+                    <property name="toolTip">
+                     <string>Show current Multi-GPU settings.</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string>Show GPUs Settings</string>
                     </property>
                    </widget>
                   </item>
@@ -3829,6 +3952,23 @@ the number of threads must &gt;= the number of GPUs.
                   <string>GPU Settings(Multi-GPU)</string>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_43">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_73">
+                    <property name="text">
+                     <string>GPU ID:</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan">
+                    <property name="currentText">
+                     <string notr="true"/>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="3">
                    <widget class="QLabel" name="label_72">
                     <property name="text">
@@ -3865,20 +4005,43 @@ the number of threads must &gt;= the number of GPUs.
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="0">
-                   <widget class="QLabel" name="label_73">
+                  <item row="0" column="5">
+                   <widget class="QPushButton" name="pushButton_ShowMultiGPUSettings_RealsrNcnnVulkan">
+                    <property name="toolTip">
+                     <string>Show current Multi-GPU settings.</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                    </property>
                     <property name="text">
-                     <string>GPU ID:</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="1">
-                   <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan">
-                    <property name="currentText">
-                     <string notr="true"/>
+                     <string>Show GPUs Settings</string>
                     </property>
                    </widget>
                   </item>

@@ -44,7 +44,7 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
     //========= 检查github的文件是否下载成功 =================
     QFileInfo *Github_OnlineQRCode_QFileInfo = new QFileInfo(Github_OnlineQRCode_local);
-    if(QFile::exists(Github_OnlineQRCode_local)&&(Github_OnlineQRCode_QFileInfo->size()>1000))
+    if(QFile::exists(Github_OnlineQRCode_local)&&(Github_OnlineQRCode_QFileInfo->size()>100000))
     {
         emit Send_TextBrowser_NewMessage(tr("Successfully downloaded QR Code image from Github."));
         //==
@@ -64,7 +64,7 @@ int MainWindow::Donate_DownloadOnlineQRCode()
         while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
         //========= 检查gitee的文件是否下载成功 =================
         QFileInfo *Gitee_OnlineQRCode_QFileInfo = new QFileInfo(Gitee_OnlineQRCode_local);
-        if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>1000))
+        if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>100000))
         {
             emit Send_TextBrowser_NewMessage(tr("Successfully downloaded QR Code image from Gitee."));
             //==

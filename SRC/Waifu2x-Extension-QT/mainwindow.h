@@ -766,6 +766,14 @@ private slots:
 
     void on_checkBox_BanGitee_clicked();
 
+    void on_pushButton_ShowMultiGPUSettings_Waifu2xNCNNVulkan_clicked();
+
+    void on_pushButton_ShowMultiGPUSettings_Waifu2xConverter_clicked();
+
+    void on_pushButton_ShowMultiGPUSettings_SrmdNCNNVulkan_clicked();
+
+    void on_pushButton_ShowMultiGPUSettings_RealsrNcnnVulkan_clicked();
+
 signals:
     void Send_ListGPUs_Anime4k_Finished(QString OutputString);
 
