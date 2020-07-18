@@ -696,7 +696,6 @@ same time, you need to change [Image style] settings at [Home] tab.
     </message>
     <message>
         <location filename="mainwindow.ui" line="2419"/>
-        <location filename="mainwindow.ui" line="2556"/>
         <location filename="mainwindow.ui" line="3344"/>
         <location filename="mainwindow.ui" line="4011"/>
         <source>Show current Multi-GPU settings.</source>
@@ -704,7 +703,6 @@ same time, you need to change [Image style] settings at [Home] tab.
     </message>
     <message>
         <location filename="mainwindow.ui" line="2452"/>
-        <location filename="mainwindow.ui" line="2589"/>
         <location filename="mainwindow.ui" line="3377"/>
         <location filename="mainwindow.ui" line="4044"/>
         <source>Show GPUs Settings</source>
@@ -722,6 +720,16 @@ same time, you need to change [Image style] settings at [Home] tab.
 - 仅支持 [2D动漫] 图像样式.
 
 - [ 速度:★☆  画质:★★☆ ]</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2556"/>
+        <source>Show current Multi-Processor settings.</source>
+        <translation>显示多处理器设定.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2589"/>
+        <source>Show Processor Settings</source>
+        <translation>显示处理器设定</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2638"/>
@@ -1495,6 +1503,7 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2503"/>
+        <location filename="waifu2x_converter.cpp" line="1865"/>
         <source>Processor ID:</source>
         <translation>处理器 ID:</translation>
     </message>
@@ -4022,6 +4031,15 @@ Restart the software to take effect.</source>
         <location filename="waifu2x_converter.cpp" line="1579"/>
         <source>Detecting available Processor, please wait.</source>
         <translation>检测可用处理器中,请稍等.</translation>
+    </message>
+    <message>
+        <location filename="waifu2x_converter.cpp" line="1589"/>
+        <source>
+Waifu2x-converter processor list:
+</source>
+        <translation>
+Waifu2x-converter处理器列表:
+</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="1789"/>

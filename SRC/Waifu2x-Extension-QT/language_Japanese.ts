@@ -631,7 +631,6 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2419"/>
-        <location filename="mainwindow.ui" line="2556"/>
         <location filename="mainwindow.ui" line="3344"/>
         <location filename="mainwindow.ui" line="4011"/>
         <source>Show current Multi-GPU settings.</source>
@@ -639,7 +638,6 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2452"/>
-        <location filename="mainwindow.ui" line="2589"/>
         <location filename="mainwindow.ui" line="3377"/>
         <location filename="mainwindow.ui" line="4044"/>
         <source>Show GPUs Settings</source>
@@ -665,6 +663,7 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2503"/>
+        <location filename="waifu2x_converter.cpp" line="1865"/>
         <source>Processor ID:</source>
         <translation>プロセッサーID：</translation>
     </message>
@@ -2321,6 +2320,16 @@ Will improve image quality.</source>
         <translation>分割サイズを増やします。</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="2556"/>
+        <source>Show current Multi-Processor settings.</source>
+        <translation>現在のマルチプロセッサ設定を表示します。</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2589"/>
+        <source>Show Processor Settings</source>
+        <translation>プロセッサ設定を表示</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="2638"/>
         <source>1.You need at least 2 available processors.
 
@@ -3859,6 +3868,15 @@ If you like the software, please donate to support the developers to ensure the 
         <location filename="waifu2x_converter.cpp" line="1579"/>
         <source>Detecting available Processor, please wait.</source>
         <translation>使用可能なプロセッサを検出しています。お待ちください。</translation>
+    </message>
+    <message>
+        <location filename="waifu2x_converter.cpp" line="1589"/>
+        <source>
+Waifu2x-converter processor list:
+</source>
+        <translation>
+Waifu2x-converterプロセッサリスト:
+</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="1593"/>

@@ -1586,7 +1586,7 @@ int MainWindow::Waifu2x_DumpProcessorList_converter()
     while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
     QString waifu2x_stdOut = Waifu2x->readAllStandardOutput();
     Core_num = waifu2x_stdOut.count("num_core");
-    emit Send_TextBrowser_NewMessage("\n-------------\n"+waifu2x_stdOut.trimmed()+"\n-------------");
+    emit Send_TextBrowser_NewMessage(tr("\nWaifu2x-converter processor list:\n")+waifu2x_stdOut.trimmed());
     //====================================================================
     //               获取到列表后, 对列表内处理器执行测试确认是否真的可用
     //====================================================================
@@ -1862,7 +1862,7 @@ void MainWindow::on_pushButton_ShowMultiGPUSettings_Waifu2xConverter_clicked()
         }
         else
         {
-            MultiGPUSettings_str.append("GPU ID:["+GPUInfo["ID"]+"] | "+tr("Block size:")+"["+GPUInfo["TileSize"]+"]\n\n");
+            MultiGPUSettings_str.append(tr("Processor ID:")+"["+GPUInfo["ID"]+"] | "+tr("Block size:")+"["+GPUInfo["TileSize"]+"]\n\n");
         }
     }
     //=========

@@ -529,6 +529,7 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2503"/>
+        <location filename="waifu2x_converter.cpp" line="1865"/>
         <source>Processor ID:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -567,7 +568,6 @@ utilize the capabilities of your PC.
     </message>
     <message>
         <location filename="mainwindow.ui" line="2419"/>
-        <location filename="mainwindow.ui" line="2556"/>
         <location filename="mainwindow.ui" line="3344"/>
         <location filename="mainwindow.ui" line="4011"/>
         <source>Show current Multi-GPU settings.</source>
@@ -575,10 +575,19 @@ utilize the capabilities of your PC.
     </message>
     <message>
         <location filename="mainwindow.ui" line="2452"/>
-        <location filename="mainwindow.ui" line="2589"/>
         <location filename="mainwindow.ui" line="3377"/>
         <location filename="mainwindow.ui" line="4044"/>
         <source>Show GPUs Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2556"/>
+        <source>Show current Multi-Processor settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2589"/>
+        <source>Show Processor Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2846,6 +2855,13 @@ Restart the software to take effect.</source>
     <message>
         <location filename="waifu2x_converter.cpp" line="1579"/>
         <source>Detecting available Processor, please wait.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="waifu2x_converter.cpp" line="1589"/>
+        <source>
+Waifu2x-converter processor list:
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

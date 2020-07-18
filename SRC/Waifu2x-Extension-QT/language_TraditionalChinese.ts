@@ -131,6 +131,16 @@ automatically force the picture to be saved as PNG.
         <translation>壓縮 JPG 文件.</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="2556"/>
+        <source>Show current Multi-Processor settings.</source>
+        <translation>顯示多處理器設定.</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2589"/>
+        <source>Show Processor Settings</source>
+        <translation>顯示處理器設定</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="5457"/>
         <source>Enable this will stop download anything from Communist China website Gitee.
 
@@ -1544,7 +1554,6 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2419"/>
-        <location filename="mainwindow.ui" line="2556"/>
         <location filename="mainwindow.ui" line="3344"/>
         <location filename="mainwindow.ui" line="4011"/>
         <source>Show current Multi-GPU settings.</source>
@@ -1552,7 +1561,6 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2452"/>
-        <location filename="mainwindow.ui" line="2589"/>
         <location filename="mainwindow.ui" line="3377"/>
         <location filename="mainwindow.ui" line="4044"/>
         <source>Show GPUs Settings</source>
@@ -1578,6 +1586,7 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2503"/>
+        <location filename="waifu2x_converter.cpp" line="1865"/>
         <source>Processor ID:</source>
         <translation>處理器ID：</translation>
     </message>
@@ -4004,6 +4013,15 @@ Restart the software to take effect.</source>
         <location filename="waifu2x_converter.cpp" line="1579"/>
         <source>Detecting available Processor, please wait.</source>
         <translation>檢測可用處理器中,請稍等.</translation>
+    </message>
+    <message>
+        <location filename="waifu2x_converter.cpp" line="1589"/>
+        <source>
+Waifu2x-converter processor list:
+</source>
+        <translation>
+Waifu2x-converter處理器列表:
+</translation>
     </message>
     <message>
         <location filename="waifu2x_converter.cpp" line="1789"/>

@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="iconSize">
        <size>
@@ -2135,7 +2135,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               <string/>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">
@@ -2553,7 +2553,7 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                   <item row="0" column="5">
                    <widget class="QPushButton" name="pushButton_ShowMultiGPUSettings_Waifu2xConverter">
                     <property name="toolTip">
-                     <string>Show current Multi-GPU settings.</string>
+                     <string>Show current Multi-Processor settings.</string>
                     </property>
                     <property name="styleSheet">
                      <string notr="true">QPushButton{
@@ -2586,7 +2586,7 @@ padding:10px;
 }</string>
                     </property>
                     <property name="text">
-                     <string>Show GPUs Settings</string>
+                     <string>Show Processor Settings</string>
                     </property>
                    </widget>
                   </item>

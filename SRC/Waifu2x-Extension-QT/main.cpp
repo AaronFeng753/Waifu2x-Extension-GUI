@@ -33,8 +33,10 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
+- 新特性:为所有引擎加入显示当前多显卡设定的按钮.
 - 更新FFmpeg&FFprobe.
 - 性能优化.
+- 修复bug.
 ----------------------------
 Detailed change log:
 v2.55.01-beta:
@@ -43,6 +45,9 @@ v2.55.01-beta:
 - Anime4k引擎的[列出gpu]改为多线程执行,避免进入未响应状态.
 --------------------------------------------------------------------------
 To do:
+- 把download2单独写成个函数.
+- 加入一个tools标签页
+- 借助ImageMagick convert,实现拆分大图片,导入文件列表,放大,然后组装.
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:
@@ -55,7 +60,7 @@ Integrated component:
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-23 Q16 x64 2020-07-04
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200715-a54b367-win64-static
+- FFmpeg&FFprobe 20200716-d11cc74-win64-static
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
