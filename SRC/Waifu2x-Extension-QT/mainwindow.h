@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.55.01-beta";//软件版本号
+    QString VERSION = "v2.55.02-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.54.13";
-    QString LastBetaVer = "v2.55.01-beta";
+    QString LastBetaVer = "v2.55.02-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -109,8 +109,6 @@ public:
 
     bool file_isDirExist(QString SourceFile_fullPath);//判断文件夹是否存在
     void file_mkDir(QString SourceFile_fullPath);//创建文件夹
-    bool file_isFileExist(QString fullFilePath);//判断文件是否存在
-    //void file_copyFile(QString sourceDir, QString toDir, bool coverFileIfExist);//复制文件
     QStringList file_getFileNames_in_Folder_nofilter(QString path);//读取文件夹内文件列表并返回(无过滤器)
     bool file_DelDir(const QString &path);//删除文件夹(无论是否为空,强制删除)
     QString file_getBaseName(QString path);//获取basename
@@ -419,6 +417,8 @@ public:
     void ConnectivityTest_RawGithubusercontentCom();//检查是否可以连接github
     bool isConnectivityTest_RawGithubusercontentCom_Running=false;
     QMutex QMutex_ConnectivityTest_RawGithubusercontentCom;
+
+    bool DownloadTo(QString OnlineLink,QString LocalPath);
     //=========== 关闭窗口时执行的代码 ===============
     void closeEvent(QCloseEvent* event);//关闭事件
     //void Close_self();//包含所有关闭时执行的代码

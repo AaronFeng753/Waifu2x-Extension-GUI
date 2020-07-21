@@ -16,15 +16,6 @@
 
     My Github homepage: https://github.com/AaronFeng753
 */
-
-/*
-python_ext_waifu2xEX.exe:
-get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
-get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
-get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
-*/
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -73,12 +64,8 @@ int MainWindow::CheckUpadte_Auto()
     QFile::remove(Github_UpdateInfo_local);
     QFile::remove(Gitee_UpdateInfo_local);
     //============= 从Github下载更新信息 ==============
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
-    QProcess checkupdate;
     emit Send_TextBrowser_NewMessage(tr("Starting to download update information(for auto-check update) from Github."));
-    checkupdate.start("\""+program+"\" \""+Github_UpdateInfo_online+"\" download2 \""+Github_UpdateInfo_local+"\"");
-    while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
-    while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
+    DownloadTo(Github_UpdateInfo_online,Github_UpdateInfo_local);
     //========= 检查github的文件是否下载成功 =================
     if(QFile::exists(Github_UpdateInfo_local))
     {
@@ -106,9 +93,7 @@ int MainWindow::CheckUpadte_Auto()
     if(isGiteeBanned==false)
     {
         emit Send_TextBrowser_NewMessage(tr("Starting to download update information(for auto-check update) from Gitee."));
-        checkupdate.start("\""+program+"\" \""+Gitee_UpdateInfo_online+"\" download2 \""+Gitee_UpdateInfo_local+"\"");
-        while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
-        while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
+        DownloadTo(Gitee_UpdateInfo_online,Gitee_UpdateInfo_local);
         //========= 检查gitee的文件是否下载成功 =================
         if(QFile::exists(Gitee_UpdateInfo_local))
         {

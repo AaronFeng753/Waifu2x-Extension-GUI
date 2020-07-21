@@ -34,14 +34,9 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     //=
     QFile::remove(Github_OnlineQRCode_local);
     QFile::remove(Gitee_OnlineQRCode_local);
-    //===========================
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
-    QProcess DownloadOnlineQRCode;
     //==================== 从Github下载文件 ========================
     emit Send_TextBrowser_NewMessage(tr("Starting to download QR Code image(for [Donate] tab) from Github."));
-    DownloadOnlineQRCode.start("\""+program+"\" \""+Github_OnlineQRCode_online+"\" download2 \""+Github_OnlineQRCode_local+"\"");
-    while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
-    while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
+    DownloadTo(Github_OnlineQRCode_online,Github_OnlineQRCode_local);
     //========= 检查github的文件是否下载成功 =================
     QFileInfo *Github_OnlineQRCode_QFileInfo = new QFileInfo(Github_OnlineQRCode_local);
     if(QFile::exists(Github_OnlineQRCode_local)&&(Github_OnlineQRCode_QFileInfo->size()>100000))
@@ -59,9 +54,7 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     if(isGiteeBanned==false)
     {
         emit Send_TextBrowser_NewMessage(tr("Starting to download QR Code image(for [Donate] tab) from Gitee."));
-        DownloadOnlineQRCode.start("\""+program+"\" \""+Gitee_OnlineQRCode_online+"\" download2 \""+Gitee_OnlineQRCode_local+"\"");
-        while(!DownloadOnlineQRCode.waitForStarted(500)&&!QProcess_stop) {}
-        while(!DownloadOnlineQRCode.waitForFinished(500)&&!QProcess_stop) {}
+        DownloadTo(Gitee_OnlineQRCode_online,Gitee_OnlineQRCode_local);
         //========= 检查gitee的文件是否下载成功 =================
         QFileInfo *Gitee_OnlineQRCode_QFileInfo = new QFileInfo(Gitee_OnlineQRCode_local);
         if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>100000))
@@ -98,7 +91,7 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
 int MainWindow::Donate_Count()
 {
     QString donate_ini = Current_Path+"/StartupStatistics_Waifu2xEX";
-    if(!file_isFileExist(donate_ini))
+    if(!QFile::exists(donate_ini))
     {
         QSettings *configIniWrite = new QSettings(donate_ini, QSettings::IniFormat);
         configIniWrite->setValue("/Description/.", "This file will store how many times you start this software, it's not for statistic, just for software to function normally, and won't be upload to the internet in any cases.");

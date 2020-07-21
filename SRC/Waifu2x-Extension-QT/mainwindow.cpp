@@ -180,7 +180,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 int MainWindow::Auto_Save_Settings_Watchdog()
 {
     QString settings_ini = Current_Path+"/settings.ini";
-    while(!file_isFileExist(settings_ini))
+    while(!QFile::exists(settings_ini))
     {
         Delay_msec_sleep(250);
     }
@@ -633,7 +633,7 @@ int MainWindow::SystemShutDown_isAutoShutDown()
 {
     QString AutoShutDown = Current_Path+"/AutoShutDown_Waifu2xEX";
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
-    if(file_isFileExist(AutoShutDown)&&file_isFileExist(Table_FileList_ini))
+    if(QFile::exists(AutoShutDown)&&QFile::exists(Table_FileList_ini))
     {
         QFile::remove(AutoShutDown);//删除之前生成的自动关机标记
         QMessageBox *MSG = new QMessageBox();
@@ -1111,7 +1111,7 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
 void MainWindow::on_pushButton_ReadFileList_clicked()
 {
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
-    if(file_isFileExist(Table_FileList_ini))
+    if(QFile::exists(Table_FileList_ini))
     {
         //===
         ui->pushButton_ReadFileList->setText(tr("Loading..."));
@@ -1168,7 +1168,7 @@ void MainWindow::on_Ext_video_editingFinished()
 void MainWindow::on_checkBox_AutoSaveSettings_clicked()
 {
     QString settings_ini = Current_Path+"/settings.ini";
-    if(file_isFileExist(settings_ini))
+    if(QFile::exists(settings_ini))
     {
         QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
         configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->isChecked());
@@ -1486,7 +1486,7 @@ void MainWindow::on_pushButton_encodersList_clicked()
 void MainWindow::Tip_FirstTimeStart()
 {
     QString FirstTimeStart = Current_Path+"/FirstTimeStart";
-    if(file_isFileExist(FirstTimeStart))
+    if(QFile::exists(FirstTimeStart))
     {
         return;
     }
@@ -2083,58 +2083,4 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
     {
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
-}
-
-/*
-判断与github的链接状态以告知用户是否可以禁用gitee
-*/
-void MainWindow::on_checkBox_BanGitee_clicked()
-{
-    if(ui->checkBox_BanGitee->isChecked())
-    {
-        if(isConnectivityTest_RawGithubusercontentCom_Running==false)
-        {
-            QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
-        }
-    }
-}
-
-void MainWindow::ConnectivityTest_RawGithubusercontentCom()
-{
-    QMutex_ConnectivityTest_RawGithubusercontentCom.lock();
-    isConnectivityTest_RawGithubusercontentCom_Running=true;
-    //===
-    QString OnlineAddress="https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/ConnectivityTest_githubusercontent.txt";
-    QString LocalAddress=Current_Path+"/ConnectivityTest_Waifu2xEX.txt";
-    QFile::remove(LocalAddress);
-    //===
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
-    QProcess checkupdate;
-    emit Send_TextBrowser_NewMessage(tr("Start testing if your PC can connect to raw.githubusercontent.com."));
-    checkupdate.start("\""+program+"\" \""+OnlineAddress+"\" download2 \""+LocalAddress+"\"");
-    while(!checkupdate.waitForStarted(500)&&!QProcess_stop) {}
-    while(!checkupdate.waitForFinished(500)&&!QProcess_stop) {}
-    if(QFile::exists(LocalAddress))
-    {
-        emit Send_TextBrowser_NewMessage(tr("Detection complete, your PC can connect to raw.githubusercontent.com."));
-    }
-    else
-    {
-        emit Send_TextBrowser_NewMessage(tr("Detection complete, your PC cannot connect to raw.githubusercontent.com."));
-        emit Send_Unable2Connect_RawGithubusercontentCom();
-    }
-    QFile::remove(LocalAddress);
-    //===
-    isConnectivityTest_RawGithubusercontentCom_Running=false;
-    QMutex_ConnectivityTest_RawGithubusercontentCom.unlock();
-}
-
-void MainWindow::Unable2Connect_RawGithubusercontentCom()
-{
-    QMessageBox *MSG_2 = new QMessageBox();
-    MSG_2->setWindowTitle(tr("Notification"));
-    MSG_2->setText(tr("It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee]."));
-    MSG_2->setIcon(QMessageBox::Information);
-    MSG_2->setModal(false);
-    MSG_2->show();
 }

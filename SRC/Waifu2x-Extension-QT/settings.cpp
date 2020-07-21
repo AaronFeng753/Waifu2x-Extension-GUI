@@ -219,7 +219,7 @@ int MainWindow::Settings_Save()
 int MainWindow::Settings_Read_Apply()
 {
     QString settings_ini = Current_Path+"/settings.ini";
-    if(!file_isFileExist(settings_ini))
+    if(!QFile::exists(settings_ini))
     {
         if(isBetaVer)ui->comboBox_UpdateChannel->setCurrentIndex(1);
         Settings_Save();

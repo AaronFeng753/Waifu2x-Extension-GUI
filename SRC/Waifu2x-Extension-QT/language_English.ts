@@ -185,39 +185,39 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="41"/>
+        <location filename="Donate.cpp" line="38"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="49"/>
+        <location filename="Donate.cpp" line="44"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="61"/>
+        <location filename="Donate.cpp" line="56"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="69"/>
+        <location filename="Donate.cpp" line="62"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="76"/>
+        <location filename="Donate.cpp" line="69"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="56"/>
+        <location filename="Donate.cpp" line="51"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="151"/>
+        <location filename="Donate.cpp" line="144"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2006,39 +2006,39 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="519"/>
+        <location filename="files.cpp" line="504"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="519"/>
+        <location filename="files.cpp" line="504"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="524"/>
+        <location filename="files.cpp" line="509"/>
         <source>Error! Original file [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="524"/>
+        <location filename="files.cpp" line="509"/>
         <source>] does not exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="582"/>
-        <location filename="files.cpp" line="600"/>
-        <location filename="files.cpp" line="618"/>
+        <location filename="files.cpp" line="567"/>
+        <location filename="files.cpp" line="585"/>
+        <location filename="files.cpp" line="603"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="SystemTrayIcon.cpp" line="111"/>
+        <location filename="Web_Activities.cpp" line="81"/>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="640"/>
         <location filename="mainwindow.cpp" line="1241"/>
         <location filename="mainwindow.cpp" line="1527"/>
-        <location filename="mainwindow.cpp" line="2135"/>
         <location filename="settings.cpp" line="550"/>
         <location filename="settings.cpp" line="574"/>
         <location filename="table.cpp" line="512"/>
@@ -2050,53 +2050,53 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="78"/>
+        <location filename="checkupdate.cpp" line="67"/>
         <source>Starting to download update information(for auto-check update) from Github.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="108"/>
+        <location filename="checkupdate.cpp" line="95"/>
         <source>Starting to download update information(for auto-check update) from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="85"/>
+        <location filename="checkupdate.cpp" line="72"/>
         <source>Successfully downloaded update information from Github.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="103"/>
+        <location filename="checkupdate.cpp" line="90"/>
         <source>Unable to download update information from Github.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="115"/>
+        <location filename="checkupdate.cpp" line="100"/>
         <source>Successfully downloaded update information from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="133"/>
+        <location filename="checkupdate.cpp" line="118"/>
         <source>Unable to download update information from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="138"/>
+        <location filename="checkupdate.cpp" line="123"/>
         <source>Unable to check for updates! Please check your network or check for updates manually.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
-        <location filename="checkupdate.cpp" line="176"/>
+        <location filename="checkupdate.cpp" line="138"/>
+        <location filename="checkupdate.cpp" line="161"/>
         <source>New </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="138"/>
         <source> update available!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="138"/>
         <source>New version: %1
 
 Brief change log:
@@ -2106,20 +2106,20 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="167"/>
+        <location filename="checkupdate.cpp" line="152"/>
         <location filename="mainwindow.cpp" line="148"/>
         <location filename="settings.cpp" line="564"/>
         <source>YES</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="176"/>
+        <location filename="checkupdate.cpp" line="161"/>
         <source> update: %1 is available! Click [Check update] button to download the latest version!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="159"/>
-        <location filename="checkupdate.cpp" line="168"/>
+        <location filename="checkupdate.cpp" line="144"/>
+        <location filename="checkupdate.cpp" line="153"/>
         <location filename="mainwindow.cpp" line="149"/>
         <location filename="settings.cpp" line="565"/>
         <source>NO</source>
@@ -2169,9 +2169,9 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1415"/>
         <location filename="Anime4K.cpp" line="1500"/>
         <location filename="CustomResolution.cpp" line="298"/>
-        <location filename="files.cpp" line="582"/>
-        <location filename="files.cpp" line="600"/>
-        <location filename="files.cpp" line="618"/>
+        <location filename="files.cpp" line="567"/>
+        <location filename="files.cpp" line="585"/>
+        <location filename="files.cpp" line="603"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
@@ -2460,9 +2460,20 @@ Do you wanna update now???</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="1804"/>
+        <source>Current configuration is wrong or empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="Anime4K.cpp" line="1808"/>
         <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Anime4K.cpp" line="1814"/>
+        <source>
+Anime4k GPUs List(user configuration):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2786,22 +2797,22 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2113"/>
+        <location filename="Web_Activities.cpp" line="59"/>
         <source>Start testing if your PC can connect to raw.githubusercontent.com.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2119"/>
+        <location filename="Web_Activities.cpp" line="63"/>
         <source>Detection complete, your PC can connect to raw.githubusercontent.com.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2123"/>
+        <location filename="Web_Activities.cpp" line="67"/>
         <source>Detection complete, your PC cannot connect to raw.githubusercontent.com.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2136"/>
+        <location filename="Web_Activities.cpp" line="82"/>
         <source>It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
         <translation type="unfinished"></translation>
     </message>

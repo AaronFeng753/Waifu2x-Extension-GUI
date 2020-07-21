@@ -480,7 +480,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_vulkan->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(Latest Version): Yes"));
         isCompatible_Waifu2x_NCNN_Vulkan_NEW=true;
@@ -504,7 +504,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_vulkan_old->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(Old Version): Yes"));
         isCompatible_Waifu2x_NCNN_Vulkan_OLD=true;
@@ -528,7 +528,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_vulkan_fp16p->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): Yes"));
         isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P=true;
@@ -553,7 +553,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_converter->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-converter: Yes."));
         isCompatible_Waifu2x_Converter=true;
@@ -577,7 +577,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_anime4k->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(CPU Mode): Yes."));
         isCompatible_Anime4k_CPU=true;
@@ -600,7 +600,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_anime4k_gpu->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Anime4k(GPU Mode): Yes."));
         isCompatible_Anime4k_GPU=true;
@@ -624,7 +624,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!SRMD_NCNN_VULKAN->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with srmd-ncnn-vulkan: Yes"));
         isCompatible_SRMD_NCNN_Vulkan=true;
@@ -648,7 +648,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_Caffe_CPU_qprocess->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(CPU): Yes."));
         isCompatible_Waifu2x_Caffe_CPU=true;
@@ -672,7 +672,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_Caffe_GPU_qprocess->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(GPU): Yes."));
         isCompatible_Waifu2x_Caffe_GPU=true;
@@ -696,7 +696,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!Waifu2x_Caffe_cuDNN_qprocess->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with waifu2x-caffe(cuDNN): Yes."));
         isCompatible_Waifu2x_Caffe_cuDNN=true;
@@ -720,7 +720,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!realsr_ncnn_vulkan_qprocess->waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(OutputPath))
+    if(QFile::exists(OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Realsr-ncnn-vulkan: Yes."));
         isCompatible_Realsr_NCNN_Vulkan=true;
@@ -766,7 +766,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!ffmpeg_QProcess.waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(ffmpeg_AudioPath))
+    if(QFile::exists(ffmpeg_AudioPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with FFmpeg: Yes."));
         isCompatible_FFmpeg=true;
@@ -815,7 +815,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!convert_QProcess.waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(file_isFileExist(convert_OutputPath))
+    if(QFile::exists(convert_OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with ImageMagick: Yes."));
         isCompatible_ImageMagick=true;
@@ -842,7 +842,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
         while(!Gifsicle_CompressGIF->waitForFinished(100)&&!QProcess_stop) {}
     }
     //===
-    if(file_isFileExist(Gifsicle_OutputPath))
+    if(QFile::exists(Gifsicle_OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with Gifsicle: Yes."));
         isCompatible_Gifsicle=true;
@@ -868,7 +868,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
         while(!SoX_QProcess.waitForFinished(100)&&!QProcess_stop) {}
     }
     //===
-    if(file_isFileExist(SoX_OutputPath))
+    if(QFile::exists(SoX_OutputPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with SoX: Yes."));
         isCompatible_SoX=true;
@@ -1153,7 +1153,7 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     while(!Convert2PNG.waitForStarted(100)&&!QProcess_stop) {}
     while(!Convert2PNG.waitForFinished(100)&&!QProcess_stop) {}
     //======
-    if(file_isFileExist(OutPut_Path)==false)
+    if(QFile::exists(OutPut_Path)==false)
     {
         return ImagePath;
     }

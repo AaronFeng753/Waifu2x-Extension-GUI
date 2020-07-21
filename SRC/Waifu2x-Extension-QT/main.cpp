@@ -34,18 +34,23 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 新特性:为所有引擎加入显示当前多显卡设定的按钮.
-- 更新FFmpeg&FFprobe.
+- 更新FFmpeg&FFprobe,ImageMagick.
 - 性能优化.
+- 完善多语言支持.
 - 修复bug.
 ----------------------------
 Detailed change log:
+v2.55.02-beta:
+- 更新FFmpeg&FFprobe,ImageMagick.
+- 性能优化.
+- 完善多语言支持.
+- 改进代码结构,精简代码量,添加注释.
 v2.55.01-beta:
 - 新特性:为所有引擎加入显示当前多显卡设定的按钮.
 - 更新FFmpeg&FFprobe.
 - Anime4k引擎的[列出gpu]改为多线程执行,避免进入未响应状态.
 --------------------------------------------------------------------------
 To do:
-- 把download2单独写成个函数.
 - 加入一个tools标签页
 - 借助ImageMagick convert,实现拆分大图片,导入文件列表,放大,然后组装.
 - 移植到Linux.

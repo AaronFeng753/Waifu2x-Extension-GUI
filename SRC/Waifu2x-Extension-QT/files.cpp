@@ -374,11 +374,7 @@ bool MainWindow::Deduplicate_filelist(QString SourceFile_fullPath)
 bool MainWindow::file_isDirExist(QString SourceFile_fullPath)
 {
     QDir dir(SourceFile_fullPath);
-    if(dir.exists())
-    {
-        return true;
-    }
-    return false;
+    return dir.exists();
 }
 /*
 创建文件夹
@@ -391,18 +387,7 @@ void MainWindow::file_mkDir(QString SourceFile_fullPath)
         dir.mkdir(SourceFile_fullPath);
     }
 }
-/*
-判断文件是否存在
-*/
-bool MainWindow::file_isFileExist(QString fullFilePath)
-{
-    QFile file(fullFilePath);
-    if(file.exists())
-    {
-        return true;
-    }
-    return false;
-}
+
 //===================================================================================
 
 /*
@@ -484,7 +469,7 @@ void MainWindow::file_MoveToTrash( QString file )
 void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFilePath)
 {
     MoveFile_QMutex.lock();
-    if(file_isFileExist(Orginal))
+    if(QFile::exists(Orginal))
     {
         //判断是否要保留文件名,若要保留,则替换掉原目标路径
         if(ui->checkBox_OutPath_KeepOriginalFileName->isChecked())
@@ -497,7 +482,7 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFile
             Target = file_path+"/"+file_name+"."+file_ext;
         }
         //判断输出路径是否有和目标文件重名的 以及 是否启用了直接覆盖
-        if(file_isFileExist(Target)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
+        if(QFile::exists(Target)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
         {
             while(true)
             {
@@ -507,7 +492,7 @@ void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFile
                 QString file_ext = fileinfo_tmp.suffix();
                 QString file_path = file_getFolderPath(fileinfo_tmp);
                 Target = file_path+"/"+file_name+"_"+QString::number(random,10)+"."+file_ext;
-                if(!file_isFileExist(Target))break;
+                if(!QFile::exists(Target))break;
             }
         }
         if(ui->checkBox_OutPath_Overwrite->isChecked()==true)
@@ -554,7 +539,7 @@ bool MainWindow::file_isDirWritable(QString DirPath)
         QTextStream stream(&file_TestTemp);
         stream << "0000";
     }
-    if(file_isFileExist(TestTemp))
+    if(QFile::exists(TestTemp))
     {
         file_TestTemp.remove();
         return true;

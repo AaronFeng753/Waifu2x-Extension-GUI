@@ -39,7 +39,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     //得到原文件路径
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
-    if(!file_isFileExist(SourceFile_fullPath))//判断源文件是否存在
+    if(!QFile::exists(SourceFile_fullPath))//判断源文件是否存在
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
@@ -185,7 +185,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
             InputPath_tmp = OutputPath_tmp;
         }
         //========= 检测是否成功,是否需要重试 ============
-        if(file_isFileExist(OutputPath_tmp)&&!waifu2x_qprocess_failed)
+        if(QFile::exists(OutputPath_tmp)&&!waifu2x_qprocess_failed)
         {
             break;
         }
@@ -197,7 +197,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
             Delay_sec_sleep(5);
         }
     }
-    if(!file_isFileExist(OutputPath_tmp))
+    if(!QFile::exists(OutputPath_tmp))
     {
         if(SourceFile_fullPath_Original!=SourceFile_fullPath)
         {
@@ -242,7 +242,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
             qimageW_adj.write(qimage_adj_scaled);
         }
         QFile::remove(OutputPath_tmp);
-        if(!file_isFileExist(OutPut_Path))
+        if(!QFile::exists(OutPut_Path))
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
             status = "Failed";
@@ -307,7 +307,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
             QString strError = qimageW.errorString();
             emit TextBrowser_NewMessage(strError);
         }
-        if(file_isFileExist(OutPut_Path_jpg))
+        if(QFile::exists(OutPut_Path_jpg))
         {
             QFile::remove(OutPut_Path);
             OutPutPath_Final = OutPut_Path_jpg;
@@ -380,7 +380,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     QString status = "Processing";
     emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = Table_model_gif->item(rowNum,2)->text();
-    if(!file_isFileExist(SourceFile_fullPath))
+    if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
@@ -538,7 +538,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
         ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n.gif";
     }
     Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width);
-    if(!file_isFileExist(ResGIFPath))
+    if(!QFile::exists(ResGIFPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
         status = "Failed";
@@ -564,7 +564,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
             ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
         }
         Gif_compressGif(ResGIFPath,ResGIFPath_compressed);
-        if(file_isFileExist(ResGIFPath_compressed))
+        if(QFile::exists(ResGIFPath_compressed))
         {
             QFile::remove(ResGIFPath);
             OutPutPath_Final = ResGIFPath_compressed;
@@ -734,7 +734,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
             }
             InputPath_tmp = OutputPath_tmp;
         }
-        if(file_isFileExist(OutputPath_tmp)&&!waifu2x_qprocess_failed)
+        if(QFile::exists(OutputPath_tmp)&&!waifu2x_qprocess_failed)
         {
             break;
         }
@@ -746,7 +746,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
             Delay_sec_sleep(5);
         }
     }
-    if(file_isFileExist(OutputPath_tmp)==false)
+    if(QFile::exists(OutputPath_tmp)==false)
     {
         *Frame_failed=true;
         mutex_SubThreadNumRunning.lock();
@@ -809,7 +809,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
-    if(!file_isFileExist(SourceFile_fullPath))
+    if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
@@ -853,7 +853,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //   检测之前的视频配置文件
     //==========================
     QString VideoConfiguration_fullPath = file_path+"/VideoConfiguration_"+file_name+"_"+file_ext+"_Waifu2xEX.ini";
-    if(file_isFileExist(VideoConfiguration_fullPath))
+    if(QFile::exists(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
         configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -914,7 +914,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     //=======================
     //   检测缓存是否存在
     //=======================
-    if(file_isFileExist(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&file_isDirExist(ScaledFramesFolderPath)&&file_isFileExist(VideoConfiguration_fullPath))
+    if(QFile::exists(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&file_isDirExist(ScaledFramesFolderPath)&&QFile::exists(VideoConfiguration_fullPath))
     {
         if(!isVideoConfigChanged)
         {
@@ -965,7 +965,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         }
         QFile::remove(AudioPath);
         video_video2images(SourceFile_fullPath,SplitFramesFolderPath,AudioPath);
-        if(!file_isFileExist(video_mp4_fullpath))//检查是否成功生成mp4
+        if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
             status = "Failed";
@@ -1093,7 +1093,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     }
     QFile::remove(video_mp4_scaled_fullpath);
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath,CustRes_isEnabled,CustRes_height,CustRes_width);
-    if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
+    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
         status = "Failed";
@@ -1174,7 +1174,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     QString status = "Processing";
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
-    if(!file_isFileExist(SourceFile_fullPath))
+    if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
         status = "Failed";
@@ -1228,7 +1228,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //   检测之前的视频配置文件
     //==========================
     QString VideoConfiguration_fullPath = file_path+"/VideoConfiguration_"+file_name+"_"+file_ext+"_Waifu2xEX.ini";
-    if(file_isFileExist(VideoConfiguration_fullPath))
+    if(QFile::exists(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
         configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -1297,7 +1297,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //=======================
     //   检测缓存是否存在
     //=======================
-    if(file_isFileExist(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&file_isFileExist(AudioPath))
+    if(QFile::exists(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&QFile::exists(AudioPath))
     {
         if(!isVideoConfigChanged)
         {
@@ -1342,7 +1342,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     if(!isCacheExists)
     {
         video_2mp4(SourceFile_fullPath);
-        if(!file_isFileExist(video_mp4_fullpath))//检查是否成功生成mp4
+        if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
             status = "Failed";
@@ -1373,7 +1373,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     */
     int OLD_SegmentDuration=-1;
     bool read_OLD_SegmentDuration =false;
-    if(file_isFileExist(VideoConfiguration_fullPath))
+    if(QFile::exists(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
         configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -1580,7 +1580,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width);
-        if(!file_isFileExist(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
+        if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
             status = "Failed";
@@ -1618,7 +1618,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     QFile::remove(video_mp4_scaled_fullpath);
     video_AssembleVideoClips(VideoClipsFolderPath,VideoClipsFolderName,video_mp4_scaled_fullpath,AudioPath);
-    if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble video clips.]"));
         status = "Failed";
@@ -1806,7 +1806,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
             }
             InputPath_tmp = OutputPath_tmp;
         }
-        if(file_isFileExist(OutputPath_tmp)&&!waifu2x_qprocess_failed)
+        if(QFile::exists(OutputPath_tmp)&&!waifu2x_qprocess_failed)
         {
             break;
         }
@@ -1818,7 +1818,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
             Delay_sec_sleep(5);
         }
     }
-    if(file_isFileExist(OutputPath_tmp)==false)
+    if(QFile::exists(OutputPath_tmp)==false)
     {
         *Frame_failed=true;
         mutex_SubThreadNumRunning.lock();
@@ -1903,7 +1903,7 @@ int MainWindow::Waifu2x_DetectGPU()
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-        if(file_isFileExist(OutputPath))
+        if(QFile::exists(OutputPath))
         {
             Available_GPUID.append(QString::number(GPU_ID,10));
             GPU_ID++;

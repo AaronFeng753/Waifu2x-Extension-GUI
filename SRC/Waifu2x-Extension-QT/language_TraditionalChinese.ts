@@ -1174,28 +1174,28 @@ when processing video in segments.</source>
         <translation>可交互文件列表</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="41"/>
+        <location filename="Donate.cpp" line="38"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation>開始從Github下載二維碼圖片(用於[捐贈]標籤頁).</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="49"/>
+        <location filename="Donate.cpp" line="44"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation>成功從Github下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="61"/>
+        <location filename="Donate.cpp" line="56"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation>開始從碼雲下載二維碼圖片(用於[捐贈]頁面).</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="69"/>
+        <location filename="Donate.cpp" line="62"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation>成功從碼雲下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="76"/>
+        <location filename="Donate.cpp" line="69"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation>無法從碼雲下載二維碼圖片.</translation>
     </message>
@@ -1204,7 +1204,7 @@ when processing video in segments.</source>
         <translation type="vanished">結束從Github下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="56"/>
+        <location filename="Donate.cpp" line="51"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation>無法從Github下載二維碼圖片.</translation>
@@ -1214,7 +1214,7 @@ when processing video in segments.</source>
         <translation type="vanished">結束從碼雲下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="151"/>
+        <location filename="Donate.cpp" line="144"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>請捐贈以支持開發者, 您的支持是我們更新軟件的動力, 謝謝您! (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -3020,29 +3020,29 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation>不支持當前文件格式,請輸入可以支持的文件格式,或者自行添加文件擴展名.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="519"/>
+        <location filename="files.cpp" line="504"/>
         <source>Error! Failed to move [</source>
         <translation>錯誤! 無法移動 [</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="519"/>
+        <location filename="files.cpp" line="504"/>
         <source>] to [</source>
         <translation>] 到 [</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="524"/>
+        <location filename="files.cpp" line="509"/>
         <source>Error! Original file [</source>
         <translation>錯誤! 源文件 [</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="524"/>
+        <location filename="files.cpp" line="509"/>
         <source>] does not exists.</source>
         <translation>] 不存在.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="582"/>
-        <location filename="files.cpp" line="600"/>
-        <location filename="files.cpp" line="618"/>
+        <location filename="files.cpp" line="567"/>
+        <location filename="files.cpp" line="585"/>
+        <location filename="files.cpp" line="603"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation>]. 錯誤: [權限不足, 需要管理員權限.]</translation>
     </message>
@@ -3052,11 +3052,11 @@ Therefore, the custom resolution for video has been automatically corrected by t
     </message>
     <message>
         <location filename="SystemTrayIcon.cpp" line="111"/>
+        <location filename="Web_Activities.cpp" line="81"/>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="640"/>
         <location filename="mainwindow.cpp" line="1241"/>
         <location filename="mainwindow.cpp" line="1527"/>
-        <location filename="mainwindow.cpp" line="2135"/>
         <location filename="settings.cpp" line="550"/>
         <location filename="settings.cpp" line="574"/>
         <location filename="table.cpp" line="512"/>
@@ -3104,7 +3104,7 @@ Do you wanna update now???</source>
 您想現在更新嗎???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="78"/>
+        <location filename="checkupdate.cpp" line="67"/>
         <source>Starting to download update information(for auto-check update) from Github.</source>
         <translation>開始從Github下載更新信息(用於自動檢查更新).</translation>
     </message>
@@ -3113,7 +3113,7 @@ Do you wanna update now???</source>
         <translation type="vanished">結束從Github下載更新信息.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="108"/>
+        <location filename="checkupdate.cpp" line="95"/>
         <source>Starting to download update information(for auto-check update) from Gitee.</source>
         <translation>開始從碼雲下載更新信息(用於自動檢查更新).</translation>
     </message>
@@ -3122,43 +3122,43 @@ Do you wanna update now???</source>
         <translation type="vanished">結束從碼雲下載更新信息.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="85"/>
+        <location filename="checkupdate.cpp" line="72"/>
         <source>Successfully downloaded update information from Github.</source>
         <translation>成功從Github下載更新信息.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="103"/>
+        <location filename="checkupdate.cpp" line="90"/>
         <source>Unable to download update information from Github.</source>
         <translation>無法從Github下載更新信息.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="115"/>
+        <location filename="checkupdate.cpp" line="100"/>
         <source>Successfully downloaded update information from Gitee.</source>
         <translation>成功從碼雲下載更新信息.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="133"/>
+        <location filename="checkupdate.cpp" line="118"/>
         <source>Unable to download update information from Gitee.</source>
         <translation>無法從碼雲下載更新信息.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="138"/>
+        <location filename="checkupdate.cpp" line="123"/>
         <source>Unable to check for updates! Please check your network or check for updates manually.</source>
         <translation>無法檢查更新!請檢查您的網絡狀況或手動檢查更新.</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
-        <location filename="checkupdate.cpp" line="176"/>
+        <location filename="checkupdate.cpp" line="138"/>
+        <location filename="checkupdate.cpp" line="161"/>
         <source>New </source>
         <translation>檢測到 </translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="138"/>
         <source> update available!</source>
         <translation> 更新!</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="138"/>
         <source>New version: %1
 
 Brief change log:
@@ -3173,14 +3173,14 @@ Do you wanna update now???</source>
 您想要現在更新嗎???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="167"/>
+        <location filename="checkupdate.cpp" line="152"/>
         <location filename="mainwindow.cpp" line="148"/>
         <location filename="settings.cpp" line="564"/>
         <source>YES</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="176"/>
+        <location filename="checkupdate.cpp" line="161"/>
         <source> update: %1 is available! Click [Check update] button to download the latest version!</source>
         <translation> 更新: %1 ! 點擊 [檢查更新] 按鈕以下載最新版!</translation>
     </message>
@@ -3189,8 +3189,8 @@ Do you wanna update now???</source>
         <translation type="vanished">新版本: %1 已經發布! 點擊 [檢查更新] 按鈕以下載最新版本!</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="159"/>
-        <location filename="checkupdate.cpp" line="168"/>
+        <location filename="checkupdate.cpp" line="144"/>
+        <location filename="checkupdate.cpp" line="153"/>
         <location filename="mainwindow.cpp" line="149"/>
         <location filename="settings.cpp" line="565"/>
         <source>NO</source>
@@ -3240,9 +3240,9 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1415"/>
         <location filename="Anime4K.cpp" line="1500"/>
         <location filename="CustomResolution.cpp" line="298"/>
-        <location filename="files.cpp" line="582"/>
-        <location filename="files.cpp" line="600"/>
-        <location filename="files.cpp" line="618"/>
+        <location filename="files.cpp" line="567"/>
+        <location filename="files.cpp" line="585"/>
+        <location filename="files.cpp" line="603"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
@@ -3531,10 +3531,22 @@ Do you wanna update now???</source>
         <translation> 設備 ID:[</translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="1804"/>
+        <source>Current configuration is wrong or empty.</source>
+        <translation>當前配置錯誤或者為空.</translation>
+    </message>
+    <message>
         <location filename="Anime4K.cpp" line="1808"/>
         <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation>根據您的設定生成的GPUs列表</translation>
+    </message>
+    <message>
+        <location filename="Anime4K.cpp" line="1814"/>
+        <source>
+Anime4k GPUs List(user configuration):</source>
+        <translation>
+Anime4k 顯卡列表(用戶配置):</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="850"/>
@@ -3977,22 +3989,22 @@ Restart the software to take effect.</source>
         <translation>檢測到這是您第一次啟動本軟件,因此將自動執行兼容性測試.請稍等片刻,然後查看測試結果.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2113"/>
+        <location filename="Web_Activities.cpp" line="59"/>
         <source>Start testing if your PC can connect to raw.githubusercontent.com.</source>
         <translation>開始檢測您的PC是否可以連接raw.githubusercontent.com.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2119"/>
+        <location filename="Web_Activities.cpp" line="63"/>
         <source>Detection complete, your PC can connect to raw.githubusercontent.com.</source>
         <translation>檢測完成,您的PC可以連接raw.githubusercontent.com.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2123"/>
+        <location filename="Web_Activities.cpp" line="67"/>
         <source>Detection complete, your PC cannot connect to raw.githubusercontent.com.</source>
         <translation>檢測完成,您的PC無法連接raw.githubusercontent.com.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2136"/>
+        <location filename="Web_Activities.cpp" line="82"/>
         <source>It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
         <translation>檢測到您當前無法連接raw.githubusercontent.com,故啟用[禁止連接碼雲]將影響本軟件自動檢查更新.建議您禁用[禁止連接碼雲].</translation>
     </message>

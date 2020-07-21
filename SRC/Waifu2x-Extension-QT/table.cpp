@@ -486,7 +486,7 @@ int MainWindow::Table_Save_Current_Table_Filelist()
 int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
 {
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
-    while(!file_isFileExist(Table_FileList_ini))
+    while(!QFile::exists(Table_FileList_ini))
     {
         Delay_msec_sleep(100);
     }
@@ -521,7 +521,7 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
 int MainWindow::Table_Read_Saved_Table_Filelist()
 {
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
-    if(!file_isFileExist(Table_FileList_ini))
+    if(!QFile::exists(Table_FileList_ini))
     {
         emit Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
         emit Send_Table_Read_Saved_Table_Filelist_Finished();
@@ -675,7 +675,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
-    if(!file_isFileExist(Table_FileList_ini))
+    if(!QFile::exists(Table_FileList_ini))
     {
         return 0;
     }

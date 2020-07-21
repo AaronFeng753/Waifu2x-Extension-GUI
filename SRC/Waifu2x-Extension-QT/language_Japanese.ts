@@ -167,28 +167,28 @@ display the window, double-click to maximize the window.</source>
         <translation>寄付する</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="41"/>
+        <location filename="Donate.cpp" line="38"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation>GithubからQRCode画像（[寄付]タブ用）のダウンロードを開始しました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="49"/>
+        <location filename="Donate.cpp" line="44"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation>GithubからQRコード画像を正常にダウンロードしました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="61"/>
+        <location filename="Donate.cpp" line="56"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation>GiteeからQRコード画像（[寄付]タブ用）のダウンロードを開始しました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="69"/>
+        <location filename="Donate.cpp" line="62"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation>GiteeからQRコード画像を正常にダウンロードしました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="76"/>
+        <location filename="Donate.cpp" line="69"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation>GiteeからQRコード画像をダウンロードできません。</translation>
     </message>
@@ -197,7 +197,7 @@ display the window, double-click to maximize the window.</source>
         <translation type="vanished">GithubからQRCode画像のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="56"/>
+        <location filename="Donate.cpp" line="51"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation>GithubからQRコード画像をダウンロードできません。</translation>
@@ -207,7 +207,7 @@ display the window, double-click to maximize the window.</source>
         <translation type="vanished">GiteeからQRCode画像のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="151"/>
+        <location filename="Donate.cpp" line="144"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>開発者をサポートするために寄付してください。そうすれば、このソフトウェアの更なるアップデートをもたらすことができます、ありがとう！ (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -2849,9 +2849,9 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1415"/>
         <location filename="Anime4K.cpp" line="1500"/>
         <location filename="CustomResolution.cpp" line="298"/>
-        <location filename="files.cpp" line="582"/>
-        <location filename="files.cpp" line="600"/>
-        <location filename="files.cpp" line="618"/>
+        <location filename="files.cpp" line="567"/>
+        <location filename="files.cpp" line="585"/>
+        <location filename="files.cpp" line="603"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="44"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="69"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="206"/>
@@ -3140,10 +3140,22 @@ by the software will be used.</source>
         <translation> デバイス ID：[</translation>
     </message>
     <message>
+        <location filename="Anime4K.cpp" line="1804"/>
+        <source>Current configuration is wrong or empty.</source>
+        <translation>現在の構成が間違っているか空です。</translation>
+    </message>
+    <message>
         <location filename="Anime4K.cpp" line="1808"/>
         <location filename="waifu2x_caffe.cpp" line="1881"/>
         <source>GPUs List according to your configuration</source>
         <translation>構成に応じたGPUリスト</translation>
+    </message>
+    <message>
+        <location filename="Anime4K.cpp" line="1814"/>
+        <source>
+Anime4k GPUs List(user configuration):</source>
+        <translation>
+Anime4k GPUリスト（ユーザー構成）：</translation>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="850"/>
@@ -3365,7 +3377,7 @@ Do you wanna update now???</source>
 今すぐ更新しますか？</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="78"/>
+        <location filename="checkupdate.cpp" line="67"/>
         <source>Starting to download update information(for auto-check update) from Github.</source>
         <translation>Githubからアップデート情報（オートチェックアップデート用）のダウンロードを開始しました。</translation>
     </message>
@@ -3374,7 +3386,7 @@ Do you wanna update now???</source>
         <translation type="vanished">Githubから更新情報のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="108"/>
+        <location filename="checkupdate.cpp" line="95"/>
         <source>Starting to download update information(for auto-check update) from Gitee.</source>
         <translation>Giteeから更新情報（自動チェック更新用）のダウンロードを開始します。</translation>
     </message>
@@ -3383,43 +3395,43 @@ Do you wanna update now???</source>
         <translation type="vanished">Giteeから更新情報のダウンロードが完了しました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="85"/>
+        <location filename="checkupdate.cpp" line="72"/>
         <source>Successfully downloaded update information from Github.</source>
         <translation>Githubから更新情報を正常にダウンロードしました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="103"/>
+        <location filename="checkupdate.cpp" line="90"/>
         <source>Unable to download update information from Github.</source>
         <translation>Githubから更新情報をダウンロードできません。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="115"/>
+        <location filename="checkupdate.cpp" line="100"/>
         <source>Successfully downloaded update information from Gitee.</source>
         <translation>Giteeから更新情報を正常にダウンロードしました。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="133"/>
+        <location filename="checkupdate.cpp" line="118"/>
         <source>Unable to download update information from Gitee.</source>
         <translation>Giteeから更新情報をダウンロードできません。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="138"/>
+        <location filename="checkupdate.cpp" line="123"/>
         <source>Unable to check for updates! Please check your network or check for updates manually.</source>
         <translation>アップデートを確認できません！ ネットワークを確認するか、手動で更新を確認してください。</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
-        <location filename="checkupdate.cpp" line="176"/>
+        <location filename="checkupdate.cpp" line="138"/>
+        <location filename="checkupdate.cpp" line="161"/>
         <source>New </source>
         <translation>新しい </translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="138"/>
         <source> update available!</source>
         <translation> 更新が利用可能です！</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="153"/>
+        <location filename="checkupdate.cpp" line="138"/>
         <source>New version: %1
 
 Brief change log:
@@ -3434,14 +3446,14 @@ Do you wanna update now???</source>
 今すぐ更新しますか???</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="167"/>
+        <location filename="checkupdate.cpp" line="152"/>
         <location filename="mainwindow.cpp" line="148"/>
         <location filename="settings.cpp" line="564"/>
         <source>YES</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="176"/>
+        <location filename="checkupdate.cpp" line="161"/>
         <source> update: %1 is available! Click [Check update] button to download the latest version!</source>
         <translation> 更新: %1 が利用可能です！ [アップデート確認]ボタンをクリックして最新版をダウンロードしてください！</translation>
     </message>
@@ -3450,8 +3462,8 @@ Do you wanna update now???</source>
         <translation type="vanished">新しいバージョン: %1 が利用可能です！ [更新状況を確認して]ボタンをクリックして最新版をダウンロード！</translation>
     </message>
     <message>
-        <location filename="checkupdate.cpp" line="159"/>
-        <location filename="checkupdate.cpp" line="168"/>
+        <location filename="checkupdate.cpp" line="144"/>
+        <location filename="checkupdate.cpp" line="153"/>
         <location filename="mainwindow.cpp" line="149"/>
         <location filename="settings.cpp" line="565"/>
         <source>NO</source>
@@ -3476,29 +3488,29 @@ Do you wanna update now???</source>
         <translation>ファイル形式はサポートされていません。サポートされているファイル形式を入力するか、自分でファイル拡張子を追加してください。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="519"/>
+        <location filename="files.cpp" line="504"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="519"/>
+        <location filename="files.cpp" line="504"/>
         <source>] to [</source>
         <translation>]から[</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="524"/>
+        <location filename="files.cpp" line="509"/>
         <source>Error! Original file [</source>
         <translation>エラー！ 元のファイル[</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="524"/>
+        <location filename="files.cpp" line="509"/>
         <source>] does not exists.</source>
         <translation>]存在しません。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="582"/>
-        <location filename="files.cpp" line="600"/>
-        <location filename="files.cpp" line="618"/>
+        <location filename="files.cpp" line="567"/>
+        <location filename="files.cpp" line="585"/>
+        <location filename="files.cpp" line="603"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation>]. エラー: [権限が不足しています。管理者権限が必要です。]</translation>
     </message>
@@ -3508,11 +3520,11 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="SystemTrayIcon.cpp" line="111"/>
+        <location filename="Web_Activities.cpp" line="81"/>
         <location filename="mainwindow.cpp" line="146"/>
         <location filename="mainwindow.cpp" line="640"/>
         <location filename="mainwindow.cpp" line="1241"/>
         <location filename="mainwindow.cpp" line="1527"/>
-        <location filename="mainwindow.cpp" line="2135"/>
         <location filename="settings.cpp" line="550"/>
         <location filename="settings.cpp" line="574"/>
         <location filename="table.cpp" line="512"/>
@@ -3610,22 +3622,22 @@ Restart the software to take effect.</source>
 ソフトウェアを再起動して有効にします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2113"/>
+        <location filename="Web_Activities.cpp" line="59"/>
         <source>Start testing if your PC can connect to raw.githubusercontent.com.</source>
         <translation>PCがraw.githubusercontent.comに接続できるかどうかテストを開始します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2119"/>
+        <location filename="Web_Activities.cpp" line="63"/>
         <source>Detection complete, your PC can connect to raw.githubusercontent.com.</source>
         <translation>検出が完了すると、PCはraw.githubusercontent.comに接続できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2123"/>
+        <location filename="Web_Activities.cpp" line="67"/>
         <source>Detection complete, your PC cannot connect to raw.githubusercontent.com.</source>
         <translation>検出が完了しました。PCはraw.githubusercontent.comに接続できません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2136"/>
+        <location filename="Web_Activities.cpp" line="82"/>
         <source>It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
         <translation>現在raw.githubusercontent.comに接続できないことが検出されたため、[Ban Gitee]を有効にすると、ソフトウェアがアップデートを自動的にチェックするようになります。 [Ban Gitee]は無効にすることをお勧めします。</translation>
     </message>

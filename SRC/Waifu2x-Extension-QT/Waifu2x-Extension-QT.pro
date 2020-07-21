@@ -40,6 +40,7 @@ SOURCES += \
     CustomResolution.cpp \
     Donate.cpp \
     SystemTrayIcon.cpp \
+    Web_Activities.cpp \
     checkupdate.cpp \
     files.cpp \
     gif.cpp \

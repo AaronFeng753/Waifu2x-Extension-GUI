@@ -58,7 +58,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     {
         QString VideoClip_FullPath_tmp = VideoClipsFolderPath+"/"+QString::number(VideoNameNo,10)+".mp4";
         QString VideoClip_IncompletePath_tmp = VideoClipsFolderName+"/"+QString::number(VideoNameNo,10)+".mp4";
-        if(file_isFileExist(VideoClip_FullPath_tmp))
+        if(QFile::exists(VideoClip_FullPath_tmp))
         {
             VideoClips_fileName_list.append(VideoClip_IncompletePath_tmp);
         }
@@ -81,7 +81,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
         int random = QRandomGenerator::global()->bounded(1,1000);
         Path_FFMpegFileList = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_fileList_"+QString::number(random,10)+"_Waifu2xEX.txt";
     }
-    while(file_isFileExist(Path_FFMpegFileList));
+    while(QFile::exists(Path_FFMpegFileList));
     //=========
     QFile FFMpegFileList(Path_FFMpegFileList);
     FFMpegFileList.remove();
@@ -98,7 +98,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     bool Del_DenoisedAudio = false;
     //=============== 音频降噪 ========================
-    if((ui->checkBox_AudioDenoise->isChecked())&&file_isFileExist(AudioPath))
+    if((ui->checkBox_AudioDenoise->isChecked())&&QFile::exists(AudioPath))
     {
         QString AudioPath_tmp = video_AudioDenoise(AudioPath);
         if(AudioPath_tmp!=AudioPath)
@@ -109,7 +109,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     }
     //================= 开始处理 =============================
     QString CMD = "";
-    if(file_isFileExist(AudioPath))
+    if(QFile::exists(AudioPath))
     {
         CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\" -c:v copy "+encoder_audio_cmd+bitrate_audio_cmd+" \""+video_mp4_scaled_fullpath+"\"";
     }
@@ -122,7 +122,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     while(!AssembleVideo.waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop) {}
     //检查是否发生错误
-    if(!file_isFileExist(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
         MultiLine_ErrorOutput_QMutex.lock();
         emit Send_TextBrowser_NewMessage(tr("Error output for FFmpeg when processing:[")+video_mp4_scaled_fullpath+"]");
@@ -284,7 +284,7 @@ int MainWindow::video_get_duration(QString videoPath)
         int random = QRandomGenerator::global()->bounded(1,1000);
         Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
-    while(file_isFileExist(Path_video_info_ini));
+    while(QFile::exists(Path_video_info_ini));
     //=========
     QFile video_info_ini(Path_video_info_ini);
     video_info_ini.remove();
@@ -340,7 +340,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     while(!vid.waitForStarted(100)&&!QProcess_stop) {}
     while(!vid.waitForFinished(100)&&!QProcess_stop) {}
     //================
-    if(file_isFileExist(DenoisedAudio))
+    if(QFile::exists(DenoisedAudio))
     {
         emit Send_TextBrowser_NewMessage(tr("Successfully denoise audio.[")+OriginalAudioPath+"]");
         QFile::remove(DenoiseProfile);
@@ -459,7 +459,7 @@ QString MainWindow::video_get_bitrate(QString videoPath)
         int random = QRandomGenerator::global()->bounded(1,1000);
         Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
-    while(file_isFileExist(Path_video_info_ini));
+    while(QFile::exists(Path_video_info_ini));
     //=========
     QFile video_info_ini(Path_video_info_ini);
     video_info_ini.remove();
@@ -659,7 +659,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         return 0;
     }
     //=============== 音频降噪 ========================
-    if((ui->checkBox_AudioDenoise->isChecked())&&file_isFileExist(AudioPath))
+    if((ui->checkBox_AudioDenoise->isChecked())&&QFile::exists(AudioPath))
     {
         QString AudioPath_tmp = video_AudioDenoise(AudioPath);
         if(AudioPath_tmp!=AudioPath)
@@ -670,7 +670,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     //================= 开始处理 =============================
     QString CMD = "";
-    if(file_isFileExist(AudioPath))
+    if(QFile::exists(AudioPath))
     {
         CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+"\""+video_mp4_scaled_fullpath+"\"";
     }
@@ -683,9 +683,9 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
     while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
     //============== 尝试在Win7下可能兼容的指令 ================================
-    if(!file_isFileExist(video_mp4_scaled_fullpath))
+    if(!QFile::exists(video_mp4_scaled_fullpath))
     {
-        if(file_isFileExist(AudioPath))
+        if(QFile::exists(AudioPath))
         {
             CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -i \""+ScaledFrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\" -i \""+AudioPath+"\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+"\""+video_mp4_scaled_fullpath+"\"";
         }
@@ -716,7 +716,7 @@ QString MainWindow::video_ReadSettings_OutputVid(QString AudioPath)
             OutputVideoSettings.append("-c:v "+ui->lineEdit_encoder_vid->text()+" ");//图像编码器
         }
         //========
-        if(file_isFileExist(AudioPath))
+        if(QFile::exists(AudioPath))
         {
             if(ui->lineEdit_encoder_audio->text()!="")
             {
