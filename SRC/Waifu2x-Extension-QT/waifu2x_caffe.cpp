@@ -1115,6 +1115,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         //============ 修正文件夹名称 =============
         QString VideoClipsFolderPath_old = configIniRead->value("/VideoConfiguration/VideoClipsFolderPath").toString();
         QString VideoClipsFolderName_old = configIniRead->value("/VideoConfiguration/VideoClipsFolderName").toString();
+        file_mkDir(VideoClipsFolderPath_old);
         if(file_isDirExist(VideoClipsFolderPath_old)==true)
         {
             VideoClipsFolderPath = VideoClipsFolderPath_old;
@@ -1128,7 +1129,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     //=======================
     //   检测缓存是否存在
     //=======================
-    if(QFile::exists(video_mp4_fullpath)&&file_isDirExist(SplitFramesFolderPath)&&QFile::exists(AudioPath))
+    if(file_isDirExist(SplitFramesFolderPath))
     {
         if(!isVideoConfigChanged)
         {
@@ -1170,7 +1171,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     /*====================================
                 将视频转换为MP4
     ======================================*/
-    if(!isCacheExists)
+    if(!QFile::exists(video_mp4_fullpath))
     {
         video_2mp4(SourceFile_fullPath);
         if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
@@ -1188,7 +1189,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     /*====================================
                   提取音频
     ======================================*/
-    if(!isCacheExists)
+    if(!QFile::exists(AudioPath))
     {
         video_get_audio(video_mp4_fullpath,AudioPath);
     }

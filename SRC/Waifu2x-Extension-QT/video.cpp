@@ -389,13 +389,7 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     configIniWrite->setValue("/Progress/isSplitComplete", false);
     configIniWrite->setValue("/Progress/isScaleComplete", false);
 }
-/*
-python_ext_waifu2xEX.exe:
-get video fps : [python_ext_waifu2xEX.exe videoFilePath fps]
-get video frame number : [python_ext_waifu2xEX.exe videoFilePath countframe]
-get gif duration : [python_ext_waifu2xEX.exe videoFilePath countframedigits]
-check update :[python_ext_waifu2xEX.exe Current_Path checkupdate]
-*/
+
 QString MainWindow::video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath)
 {
     QStringList flist = file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath);

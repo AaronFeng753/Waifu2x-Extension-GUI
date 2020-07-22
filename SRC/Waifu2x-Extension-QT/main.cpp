@@ -37,14 +37,16 @@ Brief change log:
 - 更新FFmpeg&FFprobe,ImageMagick.
 - 性能优化.
 - 完善多语言支持.
-- 修复bug.
+- 修复多个bug.
 ----------------------------
 Detailed change log:
-v2.55.02-beta:
+v2.55.12:
 - 更新FFmpeg&FFprobe,ImageMagick.
 - 性能优化.
 - 完善多语言支持.
 - 改进代码结构,精简代码量,添加注释.
+- 修复bug:当视频没有声音时,如果启用[分段处理视频]则无法读取缓存.(感谢@jerryliang122的反馈)
+- 修复bug:启用[分段处理视频]后,如果在第一个分段未处理完前暂停,会造成缓存路径错误.
 v2.55.01-beta:
 - 新特性:为所有引擎加入显示当前多显卡设定的按钮.
 - 更新FFmpeg&FFprobe.
@@ -63,9 +65,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 54b2b3df1384a7c13bfec431b806cf152f227e91
 - SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
-- ImageMagick 7.0.10-23 Q16 x64 2020-07-04
+- ImageMagick 7.0.10-24 Q16 x64
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200716-d11cc74-win64-static
+- FFmpeg&FFprobe git-2020-07-20-43a08d9
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
