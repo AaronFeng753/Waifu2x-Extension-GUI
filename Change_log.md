@@ -4,6 +4,14 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.55.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.55.12)
+#### Change log:
+- New feature: Add buttons to show the current multi-gpu settings for all engines.
+- Update FFmpeg&FFprobe, ImageMagick.
+- Performance optimization.
+- Improve multi-language support.
+- Fix multiple bugs.
+---
 ## [v2.54.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.54.13)
 #### Change log:
 - Update QT to 5.15.0 than recompile the program.
