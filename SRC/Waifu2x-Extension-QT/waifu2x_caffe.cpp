@@ -242,7 +242,6 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         else
         {
             // 获取错误信息
-            QImageWriter::ImageWriterError error = qimageW.error();
             QString strError = qimageW.errorString();
             emit TextBrowser_NewMessage(strError);
         }

@@ -667,7 +667,7 @@ void MainWindow::Play_NFSound()
 {
     if(ui->checkBox_NfSound->isChecked()==false)return;
     //====
-    QString NFSound = Current_Path+"/NotificationSound_waifu2xExtension.mp3";
+    QString NFSound = Current_Path+"/NFSound_Waifu2xEX.mp3";
     if(QFile::exists(NFSound)==false)
     {
         emit Send_TextBrowser_NewMessage(tr("Error! Notification sound file is missing!"));

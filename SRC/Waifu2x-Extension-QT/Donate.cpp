@@ -117,7 +117,7 @@ int MainWindow::Donate_Count()
     QSettings *configIniRead = new QSettings(donate_ini, QSettings::IniFormat);
     //=======  读取打开次数  ======
     int OpenCount_Current = configIniRead->value("/Donate/OpenCount_Current").toInt();
-    int OpenCount_Max = QRandomGenerator::global()->bounded(3,10);
+    int OpenCount_Max = QRandomGenerator::global()->bounded(3,6);
     //===
     if(OpenCount_Current<=0)OpenCount_Current=OpenCount_Max;
     //===
