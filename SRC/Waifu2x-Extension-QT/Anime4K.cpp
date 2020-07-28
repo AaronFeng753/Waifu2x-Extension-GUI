@@ -1812,7 +1812,7 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Anime4k_clicked()
     MSG->setModal(true);
     MSG->show();
     //======
-    emit Send_TextBrowser_NewMessage(tr("\nAnime4k GPUs List(user configuration):")+VerRes);
+    emit Send_TextBrowser_NewMessage(tr("\nAnime4k GPUs List(user configuration):\n")+VerRes);
 }
 
 /*

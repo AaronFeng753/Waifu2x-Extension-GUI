@@ -168,8 +168,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
     video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+" \""+FrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
-    QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(FrameFolderPath);
-    if(Frame_fileName_list.isEmpty())
+    if(file_isDirEmpty(FrameFolderPath))
     {
         video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+" \""+FrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\"");
         while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
@@ -393,8 +392,6 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
 QString MainWindow::video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath)
 {
     QStringList flist = file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath);
-    flist.removeAll("..");
-    flist.removeAll(".");
     QString Full_Path_File = "";
     if(!flist.isEmpty())
     {
@@ -561,8 +558,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+FrameFolderPath+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
-    QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(FrameFolderPath);
-    if(Frame_fileName_list.isEmpty())
+    if(file_isDirEmpty(FrameFolderPath))
     {
         video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+FrameFolderPath+"/%%0"+QString::number(FrameNumDigits,10)+"d.png\"");
         while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}

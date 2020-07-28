@@ -33,12 +33,19 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- 更新FFmpeg&FFprobe,Python扩展.
+- 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan.
 - 性能优化.
 ----------------------------
 Detailed change log:
+v2.55.22-beta:
+- 改进协助用户调整引擎设定时的策略.
+- 增加错误警告.
+- 性能优化.
+- 修复文字排版错误.
+- 修复bug:无法正常检测文件夹是否为空.
+v2.55.21-beta:
 - 为Python扩展更新user agent,更新python版本并重新编译.
-- 更新FFmpeg&FFprobe,Python扩展.
+- 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan.
 - 删除无用变量.
 - 简化提示音文件的名称.
 --------------------------------------------------------------------------
@@ -50,7 +57,7 @@ Integrated component:
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.3
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan 54b2b3df1384a7c13bfec431b806cf152f227e91
+- waifu2x-ncnn-vulkan a0e5087f57a9660eae2afec3fe9c5156d8db05aa
 - SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-24 Q16 x64

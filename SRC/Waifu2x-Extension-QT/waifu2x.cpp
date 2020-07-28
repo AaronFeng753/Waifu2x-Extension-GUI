@@ -1028,31 +1028,6 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             on_comboBox_Engine_Video_currentIndexChanged(0);
             return 0;
         }
-        //======================= 检查Waifu2x_Caffe_CPU的兼容性 ===================
-        if(isCompatible_Waifu2x_Caffe_CPU)
-        {
-            ui->comboBox_Engine_Image->setCurrentIndex(4);
-            ui->comboBox_Engine_GIF->setCurrentIndex(4);
-            ui->comboBox_Engine_Video->setCurrentIndex(4);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            //====
-            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(0);
-            return 0;
-        }
-        //======================= 检查Realsr_NCNN_Vulkan的兼容性 ===================
-        if(isCompatible_Realsr_NCNN_Vulkan)
-        {
-            ui->comboBox_Engine_Image->setCurrentIndex(5);
-            ui->comboBox_Engine_GIF->setCurrentIndex(5);
-            ui->comboBox_Engine_Video->setCurrentIndex(5);
-            on_comboBox_Engine_Image_currentIndexChanged(0);
-            on_comboBox_Engine_GIF_currentIndexChanged(0);
-            on_comboBox_Engine_Video_currentIndexChanged(0);
-            //====
-            return 0;
-        }
         //======================= 检查Anime4K的兼容性 ===================
         if(isCompatible_Anime4k_GPU==true)
         {
@@ -1080,6 +1055,31 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             //=====
             ui->checkBox_GPUMode_Anime4K->setChecked(0);
             on_checkBox_GPUMode_Anime4K_stateChanged(0);
+            return 0;
+        }
+        //======================= 检查Waifu2x_Caffe_CPU的兼容性 ===================
+        if(isCompatible_Waifu2x_Caffe_CPU)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(4);
+            ui->comboBox_Engine_GIF->setCurrentIndex(4);
+            ui->comboBox_Engine_Video->setCurrentIndex(4);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->comboBox_ProcessMode_Waifu2xCaffe->setCurrentIndex(0);
+            return 0;
+        }
+        //======================= 检查Realsr_NCNN_Vulkan的兼容性 ===================
+        if(isCompatible_Realsr_NCNN_Vulkan)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(5);
+            ui->comboBox_Engine_GIF->setCurrentIndex(5);
+            ui->comboBox_Engine_Video->setCurrentIndex(5);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
             return 0;
         }
         //啥引擎都不兼容,提示用户自行修复兼容性问题
@@ -1135,7 +1135,6 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
 QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
 {
     QFileInfo fileinfo(ImagePath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
     QString file_ext = fileinfo.suffix();
     //判断是否已经是PNG
     if((file_ext.trimmed().toLower()=="png")||(ui->checkBox_PreProcessImage->isChecked()==false))
@@ -1143,8 +1142,9 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
         return ImagePath;
     }
     //不是PNG则开始转换
-    QString file_path = file_getFolderPath(fileinfo);
-    QString OutPut_Path = file_path + "/" + file_name + "_W2xEX_"+file_ext+".png";//输出的png图片的完整路径
+    QString file_name = file_getBaseName(ImagePath);
+    QString file_Folder = file_getFolderPath(fileinfo);
+    QString OutPut_Path = file_Folder + "/" + file_name + "_W2xEX_"+file_ext+".png";//输出的png图片的完整路径
     //======
     QString program = Current_Path+"/convert_waifu2xEX.exe";
     QFile::remove(OutPut_Path);
@@ -1155,6 +1155,7 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     //======
     if(QFile::exists(OutPut_Path)==false)
     {
+        emit Send_TextBrowser_NewMessage(tr("Error: Can\'t convert [")+ImagePath+tr("] to PNG. The pre-process will be skipped and try to process the original image directly."));
         return ImagePath;
     }
     //======

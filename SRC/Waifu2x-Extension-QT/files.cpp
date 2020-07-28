@@ -250,6 +250,8 @@ QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
             break;
         }
     }
+    files_new.removeAll("..");
+    files_new.removeAll(".");
     return files_new;
 }
 
@@ -387,6 +389,15 @@ void MainWindow::file_mkDir(QString SourceFile_fullPath)
         dir.mkdir(SourceFile_fullPath);
     }
 }
+/*
+文件夹是为空
+*/
+bool MainWindow::file_isDirEmpty(QString FolderPath)
+{
+    QDir dir(FolderPath);
+    return dir.isEmpty();
+}
+
 
 //===================================================================================
 

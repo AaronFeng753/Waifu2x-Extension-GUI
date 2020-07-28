@@ -68,8 +68,7 @@ void MainWindow::Gif_splitGif(QString gifPath,QString SplitFramesFolderPath)
     SplitGIF->start(cmd);
     while(!SplitGIF->waitForStarted(100)&&!QProcess_stop) {}
     while(!SplitGIF->waitForFinished(100)&&!QProcess_stop) {}
-    QStringList Frame_fileName_list= file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
-    if(Frame_fileName_list.isEmpty())//如果拆分失败,尝试win7兼容指令
+    if(file_isDirEmpty(SplitFramesFolderPath))//如果拆分失败,尝试win7兼容指令
     {
         QString cmd = "\"" + program + "\"" + " -coalesce " + "\"" + gifPath + "\"" + " " + "\"" + SplitFramesFolderPath + "/%%0"+QString::number(FrameDigits,10)+"d.png\"";
         QProcess *SplitGIF=new QProcess();

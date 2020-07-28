@@ -50,6 +50,6 @@ void MainWindow::TextBrowser_StartMes()
     ui->textBrowser->append(tr("Version:")+" "+VERSION+" "+CurrentVerState);
     ui->textBrowser->append("Github: https://github.com/AaronFeng753/Waifu2x-Extension-GUI");
     if(ui->comboBox_language->currentIndex()==1)ui->textBrowser->append("码云: https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI");
-    ui->textBrowser->append(tr("If you like this software, please donate to support the developer, thank you!"));
+    ui->textBrowser->append(tr("Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ"));
     ui->textBrowser->moveCursor(QTextCursor::End);
 }

@@ -6058,7 +6058,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               <string>For processing GIF.</string>
              </property>
              <property name="text">
-              <string notr="true">ImageMagick(convert)</string>
+              <string notr="true">ImageMagick</string>
              </property>
             </widget>
            </item>
