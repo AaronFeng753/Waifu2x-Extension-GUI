@@ -36,12 +36,9 @@ bool MainWindow::DownloadTo(QString OnlineLink,QString LocalPath)
 */
 void MainWindow::on_checkBox_BanGitee_clicked()
 {
-    if(ui->checkBox_BanGitee->isChecked())
+    if(ui->checkBox_BanGitee->isChecked()&&isConnectivityTest_RawGithubusercontentCom_Running==false)
     {
-        if(isConnectivityTest_RawGithubusercontentCom_Running==false)
-        {
-            QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
-        }
+        QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
     }
 }
 /*

@@ -37,6 +37,10 @@ Brief change log:
 - 性能优化.
 ----------------------------
 Detailed change log:
+v2.55.23-beta:
+- 更新waifu2x-ncnn-vulkan.
+- 更新FFmpeg&FFprobe.
+- 性能优化.
 v2.55.22-beta:
 - 改进协助用户调整引擎设定时的策略.
 - 增加错误警告.
@@ -57,12 +61,12 @@ Integrated component:
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.3
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan a0e5087f57a9660eae2afec3fe9c5156d8db05aa
+- waifu2x-ncnn-vulkan 8b5c1cdfcde4b6da5127d60b11a1242ddc65bbb8
 - SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-24 Q16 x64
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200724-21442a8-win64
+- FFmpeg&FFprobe 20200729-cbb6ba2-win64
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

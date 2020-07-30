@@ -542,13 +542,13 @@ bool MainWindow::file_isDirWritable(QString DirPath)
     {
         DirPath = DirPath.left(DirPath.length() - 1);
     }
-    QString TestTemp = DirPath+"/TestTemp_Waifu2xExGUI.tmp";
+    QString TestTemp = DirPath+"/RWTest_W2xEX.tmp";
     QFile file_TestTemp(TestTemp);
     file_TestTemp.remove();
     if (file_TestTemp.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
     {
         QTextStream stream(&file_TestTemp);
-        stream << "0000";
+        stream << "W2xEX";
     }
     if(QFile::exists(TestTemp))
     {

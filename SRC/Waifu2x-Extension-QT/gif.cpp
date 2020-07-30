@@ -47,8 +47,7 @@ int MainWindow::Gif_getDuration(QString gifPath)
 int MainWindow::Gif_getFrameDigits(QString gifPath)
 {
     QMovie movie(gifPath);
-    int FrameCount=movie.frameCount();
-    FrameCount = 1+(int)log10(FrameCount);//获取frame位数
+    int FrameCount=1+(int)log10(movie.frameCount());//获取frame位数
     return FrameCount;
 }
 /*
