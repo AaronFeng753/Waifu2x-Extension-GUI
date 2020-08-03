@@ -33,10 +33,14 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan.
+- 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan,ImageMagick.
 - 性能优化.
 ----------------------------
 Detailed change log:
+v2.55.24:
+- 更新FFmpeg&FFprobe.
+- 更新ImageMagick.
+- 测试稳定后,更新版本信息.
 v2.55.23-beta:
 - 更新waifu2x-ncnn-vulkan.
 - 更新FFmpeg&FFprobe.
@@ -64,9 +68,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 8b5c1cdfcde4b6da5127d60b11a1242ddc65bbb8
 - SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
-- ImageMagick 7.0.10-24 Q16 x64
+- ImageMagick 7.0.10-25-portable-Q16-x64
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200729-cbb6ba2-win64
+- FFmpeg&FFprobe 20200730-134a48a-win64
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
