@@ -4,6 +4,12 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.55.24](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.55.24)
+#### Change log:
+- Update FFmpeg & FFprobe, Python extension, waifu2x-ncnn-vulkan, ImageMagick.
+- Performance optimization.
+- Other improvements.
+---
 ## [v2.55.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.55.12)
 #### Change log:
 - New feature: Add buttons to show the current multi-gpu settings for all engines.
