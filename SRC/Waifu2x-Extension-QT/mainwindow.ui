@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <property name="iconSize">
        <size>
@@ -955,6 +955,9 @@ padding:10px;
                  <height>0</height>
                 </size>
                </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ActionsContextMenu</enum>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QTableView{
 selection-background-color: rgb(52, 152, 219);
@@ -1010,6 +1013,9 @@ selection-background-color: rgb(52, 152, 219);
                  <height>0</height>
                 </size>
                </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ActionsContextMenu</enum>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QTableView{
 selection-background-color: rgb(26, 188, 156);
@@ -1054,6 +1060,9 @@ selection-background-color: rgb(26, 188, 156);
                  <width>0</width>
                  <height>0</height>
                 </size>
+               </property>
+               <property name="contextMenuPolicy">
+                <enum>Qt::ActionsContextMenu</enum>
                </property>
                <property name="styleSheet">
                 <string notr="true">QTableView{
@@ -1609,6 +1618,9 @@ padding:10px;
              <layout class="QGridLayout" name="gridLayout_23">
               <item row="0" column="0" colspan="4">
                <widget class="QLineEdit" name="lineEdit_outputPath">
+                <property name="contextMenuPolicy">
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
                 <property name="toolTip">
                  <string>Output path must be a Folder.</string>
                 </property>

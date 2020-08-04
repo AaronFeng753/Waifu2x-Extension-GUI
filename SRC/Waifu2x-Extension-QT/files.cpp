@@ -375,6 +375,8 @@ bool MainWindow::Deduplicate_filelist(QString SourceFile_fullPath)
 */
 bool MainWindow::file_isDirExist(QString SourceFile_fullPath)
 {
+    SourceFile_fullPath = SourceFile_fullPath.trimmed();
+    if(SourceFile_fullPath=="")return false;
     QDir dir(SourceFile_fullPath);
     return dir.exists();
 }
@@ -614,6 +616,63 @@ bool MainWindow::file_isFilesFolderWritable_row_video(int rowNum)
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Insufficient permissions, administrator permissions is needed.]"));
         QString status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        return false;
+    }
+}
+
+bool MainWindow::file_OpenFolder(QString FolderPath)
+{
+    if(file_isDirExist(FolderPath))
+    {
+        FolderPath= FolderPath.replace("/","\\");
+        QProcess::execute("explorer \""+FolderPath+"\"");
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool MainWindow::file_OpenFilesFolder(QString FilePath)
+{
+    if(QFile::exists(FilePath))
+    {
+        QFileInfo finfo = QFileInfo(FilePath);
+        return file_OpenFolder(file_getFolderPath(finfo));
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool MainWindow::file_OpenFile(QString FilePath)
+{
+    if(QFile::exists(FilePath))
+    {
+        if(QDesktopServices::openUrl(QUrl("file:"+FilePath,QUrl::TolerantMode))==false)
+        {
+            file_OpenFile_QMutex.lock();
+            QFileInfo finfo = QFileInfo(FilePath);
+            QString FileName =file_getBaseName(finfo.filePath())+"."+finfo.suffix();
+            QString OpenFile_cmd_commands = "@echo off\n start \"\" \""+FilePath+"\"\n exit";
+            QString Bat_path = Current_Path+"/OpenFileBat_W2xEX.bat";
+            QFile OpenFile_cmdFile(Bat_path);
+            OpenFile_cmdFile.remove();
+            if (OpenFile_cmdFile.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+            {
+                QTextStream stream(&OpenFile_cmdFile);
+                stream << OpenFile_cmd_commands;
+            }
+            OpenFile_cmdFile.close();
+            QDesktopServices::openUrl(QUrl("file:"+Bat_path));
+            file_OpenFile_QMutex.unlock();
+        }
+        return true;
+    }
+    else
+    {
         return false;
     }
 }

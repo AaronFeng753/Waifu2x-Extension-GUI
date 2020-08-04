@@ -33,29 +33,16 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan,ImageMagick.
-- 性能优化.
+- 为[文件列表]添加右键菜单选项:[打开选中文件]和[打开选中文件的文件夹]
+- 为[输出路径]添加右键菜单以打开输出路径文件夹.
+- 修复多个bug.
 ----------------------------
 Detailed change log:
-v2.55.24:
-- 更新FFmpeg&FFprobe.
-- 更新ImageMagick.
-- 测试稳定后,更新版本信息.
-v2.55.23-beta:
-- 更新waifu2x-ncnn-vulkan.
-- 更新FFmpeg&FFprobe.
-- 性能优化.
-v2.55.22-beta:
-- 改进协助用户调整引擎设定时的策略.
-- 增加错误警告.
-- 性能优化.
-- 修复文字排版错误.
-- 修复bug:无法正常检测文件夹是否为空.
-v2.55.21-beta:
-- 为Python扩展更新user agent,更新python版本并重新编译.
-- 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan.
-- 删除无用变量.
-- 简化提示音文件的名称.
+v2.55.31-beta:
+- 为[文件列表]添加右键菜单选项:[打开选中文件]和[打开选中文件的文件夹]
+- 为[输出路径]添加右键菜单以打开输出路径文件夹.
+- 修复bug:如果将程序放在外部存储设备中,会无法显示编码器列表.
+- 修复bug:特殊情况下无法判断文件夹是否存在.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.

@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.55.24";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.55.31-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.55.24";
-    QString LastBetaVer = "v2.55.24";
+    QString LastBetaVer = "v2.55.31-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -127,6 +127,10 @@ public:
     bool file_isFilesFolderWritable_row_video(int rowNum);
     bool file_isFilesFolderWritable_row_gif(int rowNum);
 
+    bool file_OpenFolder(QString FolderPath);//调用系统资源管理器打开文件夹.
+    bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
+    bool file_OpenFile(QString FilePath);
+    QMutex file_OpenFile_QMutex;
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
@@ -446,10 +450,22 @@ public:
     QAction *restoreAct_SystemTrayIcon = new QAction(this);
     QAction *quitAct_SystemTrayIcon = new QAction(this);
     QAction *BackgroundModeAct_SystemTrayIcon = new QAction(this);
+    //================= 输出路径 lineEdit 的右键菜单 ==============
+    void Init_ActionsMenu_lineEdit_outputPath();
+    QAction *OpenFolder_lineEdit_outputPath = new QAction(this);
+    //================= 文件列表的右键菜单 ====================
+    void Init_ActionsMenu_FilesList();
+    QAction *OpenFile = new QAction(this);
+    QAction *OpenFilesFolder = new QAction(this);
     //=============
     ~MainWindow();
 
 public slots:
+    void OpenSelectedFilesFolder_FilesList();
+    void OpenSelectedFile_FilesList();
+
+    void OpenOutputFolder();
+
     void ListGPUs_Anime4k_Finished(QString OutputString);
 
     void Unable2Connect_RawGithubusercontentCom();

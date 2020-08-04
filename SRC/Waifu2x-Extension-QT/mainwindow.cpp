@@ -53,27 +53,20 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_SystemTray_NewMessage(QString)), this, SLOT(SystemTray_NewMessage(QString)));
     connect(this, SIGNAL(Send_PrograssBar_Range_min_max(int, int)), this, SLOT(progressbar_setRange_min_max(int, int)));
     connect(this, SIGNAL(Send_progressbar_Add()), this, SLOT(progressbar_Add()));
-    //===
     connect(this, SIGNAL(Send_Table_image_ChangeStatus_rowNumInt_statusQString(int, QString)), this, SLOT(Table_image_ChangeStatus_rowNumInt_statusQString(int, QString)));
     connect(this, SIGNAL(Send_Table_gif_ChangeStatus_rowNumInt_statusQString(int, QString)), this, SLOT(Table_gif_ChangeStatus_rowNumInt_statusQString(int, QString)));
     connect(this, SIGNAL(Send_Table_video_ChangeStatus_rowNumInt_statusQString(int, QString)), this, SLOT(Table_video_ChangeStatus_rowNumInt_statusQString(int, QString)));
-    //===
     connect(this, SIGNAL(Send_Table_FileCount_reload()), this, SLOT(Table_FileCount_reload()));
-    //===
     connect(this, SIGNAL(Send_Table_image_insert_fileName_fullPath(QString,QString)), this, SLOT(Table_image_insert_fileName_fullPath(QString,QString)));
     connect(this, SIGNAL(Send_Table_gif_insert_fileName_fullPath(QString,QString)), this, SLOT(Table_gif_insert_fileName_fullPath(QString,QString)));
     connect(this, SIGNAL(Send_Table_video_insert_fileName_fullPath(QString,QString)), this, SLOT(Table_video_insert_fileName_fullPath(QString,QString)));
-    //===
     connect(this, SIGNAL(Send_Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
     connect(this, SIGNAL(Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
     connect(this, SIGNAL(Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
-    //===
     connect(this, SIGNAL(Send_Table_Read_Saved_Table_Filelist_Finished()), this, SLOT(Table_Read_Saved_Table_Filelist_Finished()));
     connect(this, SIGNAL(Send_Table_Save_Current_Table_Filelist_Finished()), this, SLOT(Table_Save_Current_Table_Filelist_Finished()));
-    //===
     connect(this, SIGNAL(Send_Waifu2x_Finished()), this, SLOT(Waifu2x_Finished()));
     connect(this, SIGNAL(Send_Waifu2x_Finished_manual()), this, SLOT(Waifu2x_Finished_manual()));
-    //===
     connect(this, SIGNAL(Send_TextBrowser_NewMessage(QString)), this, SLOT(TextBrowser_NewMessage(QString)));
     connect(this, SIGNAL(Send_Waifu2x_Compatibility_Test_finished()), this, SLOT(Waifu2x_Compatibility_Test_finished()));
     connect(this, SIGNAL(Send_Waifu2x_DetectGPU_finished()), this, SLOT(Waifu2x_DetectGPU_finished()));
@@ -87,7 +80,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
     connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)));
     connect(this, SIGNAL(Send_Donate_ReplaceQRCode(QString)), this, SLOT(Donate_ReplaceQRCode(QString)));
-    //================== 处理当前文件的进度 =========================
     connect(this, SIGNAL(Send_CurrentFileProgress_Start(QString,int)), this, SLOT(CurrentFileProgress_Start(QString,int)));
     connect(this, SIGNAL(Send_CurrentFileProgress_Stop()), this, SLOT(CurrentFileProgress_Stop()));
     connect(this, SIGNAL(Send_CurrentFileProgress_progressbar_Add()), this, SLOT(CurrentFileProgress_progressbar_Add()));
@@ -121,6 +113,8 @@ MainWindow::MainWindow(QWidget *parent)
     }
     //==============
     Init_SystemTrayIcon();//初始化托盘图标
+    Init_ActionsMenu_lineEdit_outputPath();//初始化 输出路径 lineEDIT的右键菜单
+    Init_ActionsMenu_FilesList();
     //==============
     this->showNormal();
     this->activateWindow();
@@ -1480,7 +1474,7 @@ void MainWindow::on_checkBox_acodec_copy_2mp4_stateChanged(int arg1)
 
 void MainWindow::on_pushButton_encodersList_clicked()
 {
-    QDesktopServices::openUrl(QUrl("file:"+Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.bat"));
+    file_OpenFile(Current_Path+"/FFmpeg_Encoders_List_waifu2xEX.bat");
 }
 
 void MainWindow::Tip_FirstTimeStart()
@@ -2084,3 +2078,93 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
+
+void MainWindow::Init_ActionsMenu_lineEdit_outputPath()
+{
+    OpenFolder_lineEdit_outputPath->setText(tr("Open output path"));
+    connect(OpenFolder_lineEdit_outputPath, SIGNAL(triggered()), this, SLOT(OpenOutputFolder()));
+    ui->lineEdit_outputPath->addAction(OpenFolder_lineEdit_outputPath);
+}
+
+void MainWindow::OpenOutputFolder()
+{
+    QString OutPutPath=ui->lineEdit_outputPath->text();
+    if(file_OpenFolder(OutPutPath)==false)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("Output path doesn\'t exists!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+    }
+}
+
+void MainWindow::Init_ActionsMenu_FilesList()
+{
+    OpenFile->setText(tr("Open selected file"));
+    connect(OpenFile, SIGNAL(triggered()), this, SLOT(OpenSelectedFile_FilesList()));
+    ui->tableView_image->addAction(OpenFile);
+    ui->tableView_gif->addAction(OpenFile);
+    ui->tableView_video->addAction(OpenFile);
+    //===
+    OpenFilesFolder->setText(tr("Open the folder of the selected file"));
+    connect(OpenFilesFolder, SIGNAL(triggered()), this, SLOT(OpenSelectedFilesFolder_FilesList()));
+    ui->tableView_image->addAction(OpenFilesFolder);
+    ui->tableView_gif->addAction(OpenFilesFolder);
+    ui->tableView_video->addAction(OpenFilesFolder);
+}
+
+void MainWindow::OpenSelectedFile_FilesList()
+{
+    if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
+    {
+        return;
+    }
+    //==========================
+    if(curRow_image >= 0)
+    {
+        file_OpenFile(Table_model_image->item(curRow_image,2)->text());
+        return;
+    }
+    //============================================================
+    if(curRow_video >= 0)
+    {
+        file_OpenFile(Table_model_video->item(curRow_video,2)->text());
+        return;
+    }
+    //============================================================
+    if(curRow_gif >= 0)
+    {
+        file_OpenFile(Table_model_gif->item(curRow_gif,2)->text());
+        return;
+    }
+}
+
+void MainWindow::OpenSelectedFilesFolder_FilesList()
+{
+    if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
+    {
+        return;
+    }
+    //==========================
+    if(curRow_image >= 0)
+    {
+        file_OpenFilesFolder(Table_model_image->item(curRow_image,2)->text());
+        return;
+    }
+    //============================================================
+    if(curRow_video >= 0)
+    {
+        file_OpenFilesFolder(Table_model_video->item(curRow_video,2)->text());
+        return;
+    }
+    //============================================================
+    if(curRow_gif >= 0)
+    {
+        file_OpenFilesFolder(Table_model_gif->item(curRow_gif,2)->text());
+        return;
+    }
+}
+
+

@@ -20,7 +20,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
-online update for QRCode at donate tab
+online update for QR Code at donate tab
 */
 int MainWindow::Donate_DownloadOnlineQRCode()
 {
@@ -78,13 +78,11 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
     if(QRCodePath=="")
     {
         Donate_Count();
-        return;
     }
     else
     {
         ui->label_DonateQRCode->setStyleSheet("image: url("+QRCodePath+");");
         Donate_Count();
-        return;
     }
 }
 
