@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.55.31-beta";//软件版本号
+    QString VERSION = "v2.55.32-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.55.24";
-    QString LastBetaVer = "v2.55.31-beta";
+    QString LastBetaVer = "v2.55.32-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -276,20 +276,16 @@ public:
     bool isCompatible_Waifu2x_Converter=false;
     bool isCompatible_Anime4k_CPU=false;
     bool isCompatible_Anime4k_GPU=false;
-
     bool isCompatible_PythonExtension=false;
     bool isCompatible_FFmpeg=false;
     bool isCompatible_FFprobe=false;
     bool isCompatible_ImageMagick=false;
     bool isCompatible_Gifsicle=false;
     bool isCompatible_SoX=false;
-
     bool isCompatible_Waifu2x_Caffe_CPU=false;
     bool isCompatible_Waifu2x_Caffe_GPU=false;
     bool isCompatible_Waifu2x_Caffe_cuDNN=false;
-
     bool isCompatible_Realsr_NCNN_Vulkan=false;
-
     //============================== 多显卡 ==========================================
     //waifu2x-ncnn-vulkan
     int GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = 0;
@@ -457,6 +453,7 @@ public:
     void Init_ActionsMenu_FilesList();
     QAction *OpenFile = new QAction(this);
     QAction *OpenFilesFolder = new QAction(this);
+    void OpenSelectedFile_FailedWarning_FilesList();
     //=============
     ~MainWindow();
 

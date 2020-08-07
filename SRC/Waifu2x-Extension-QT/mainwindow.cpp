@@ -2124,19 +2124,28 @@ void MainWindow::OpenSelectedFile_FilesList()
     //==========================
     if(curRow_image >= 0)
     {
-        file_OpenFile(Table_model_image->item(curRow_image,2)->text());
+        if(file_OpenFile(Table_model_image->item(curRow_image,2)->text())==false)
+        {
+            OpenSelectedFile_FailedWarning_FilesList();
+        }
         return;
     }
     //============================================================
     if(curRow_video >= 0)
     {
-        file_OpenFile(Table_model_video->item(curRow_video,2)->text());
+        if(file_OpenFile(Table_model_video->item(curRow_video,2)->text())==false)
+        {
+            OpenSelectedFile_FailedWarning_FilesList();
+        }
         return;
     }
     //============================================================
     if(curRow_gif >= 0)
     {
-        file_OpenFile(Table_model_gif->item(curRow_gif,2)->text());
+        if(file_OpenFile(Table_model_gif->item(curRow_gif,2)->text())==false)
+        {
+            OpenSelectedFile_FailedWarning_FilesList();
+        }
         return;
     }
 }
@@ -2150,21 +2159,39 @@ void MainWindow::OpenSelectedFilesFolder_FilesList()
     //==========================
     if(curRow_image >= 0)
     {
-        file_OpenFilesFolder(Table_model_image->item(curRow_image,2)->text());
+        if(file_OpenFilesFolder(Table_model_image->item(curRow_image,2)->text())==false)
+        {
+            OpenSelectedFile_FailedWarning_FilesList();
+        }
         return;
     }
     //============================================================
     if(curRow_video >= 0)
     {
-        file_OpenFilesFolder(Table_model_video->item(curRow_video,2)->text());
+        if(file_OpenFilesFolder(Table_model_video->item(curRow_video,2)->text())==false)
+        {
+            OpenSelectedFile_FailedWarning_FilesList();
+        }
         return;
     }
     //============================================================
     if(curRow_gif >= 0)
     {
-        file_OpenFilesFolder(Table_model_gif->item(curRow_gif,2)->text());
+        if(file_OpenFilesFolder(Table_model_gif->item(curRow_gif,2)->text())==false)
+        {
+            OpenSelectedFile_FailedWarning_FilesList();
+        }
         return;
     }
 }
 
+void MainWindow::OpenSelectedFile_FailedWarning_FilesList()
+{
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Error"));
+    MSG->setText(tr("Target file(folder) doesn\'t exists!"));
+    MSG->setIcon(QMessageBox::Warning);
+    MSG->setModal(false);
+    MSG->show();
+}
 

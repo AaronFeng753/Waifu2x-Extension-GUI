@@ -655,7 +655,6 @@ bool MainWindow::file_OpenFile(QString FilePath)
         {
             file_OpenFile_QMutex.lock();
             QFileInfo finfo = QFileInfo(FilePath);
-            QString FileName =file_getBaseName(finfo.filePath())+"."+finfo.suffix();
             QString OpenFile_cmd_commands = "@echo off\n start \"\" \""+FilePath+"\"\n exit";
             QString Bat_path = Current_Path+"/OpenFileBat_W2xEX.bat";
             QFile OpenFile_cmdFile(Bat_path);
