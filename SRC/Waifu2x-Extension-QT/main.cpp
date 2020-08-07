@@ -40,6 +40,7 @@ Brief change log:
 - 更新FFmpeg&FFprobe.
 - 更新&适配新版Anime4KCPP(v2.3.0).
 - 修复多个bug.
+- 其他改进.
 ----------------------------
 Detailed change log:
 v2.56.01-beta:
@@ -48,6 +49,7 @@ v2.56.01-beta:
 - 更新FFmpeg&FFprobe.
 - 更新&适配新版Anime4KCPP(v2.3.0).
 - 为[文件列表]添加右键菜单选项:[从列表移除所选文件]
+- 改进文件列表的右键菜单.
 - 修复bug:修复文件列表右键菜单的逻辑bug.
 v2.55.32-beta:
 - 更新FFmpeg&FFprobe.

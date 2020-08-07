@@ -2103,6 +2103,17 @@ void MainWindow::OpenSelectedFile_FilesList()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
+        ui->tableView_image->clearSelection();
+        ui->tableView_gif->clearSelection();
+        ui->tableView_video->clearSelection();
+        //=====
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("No items are currently selected."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+        //====
         return;
     }
     //==========================
@@ -2138,6 +2149,17 @@ void MainWindow::OpenSelectedFilesFolder_FilesList()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
+        ui->tableView_image->clearSelection();
+        ui->tableView_gif->clearSelection();
+        ui->tableView_video->clearSelection();
+        //=====
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Warning"));
+        MSG->setText(tr("No items are currently selected."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+        //====
         return;
     }
     //==========================
