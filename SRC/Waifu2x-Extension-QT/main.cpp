@@ -62,7 +62,7 @@ Integrated component:
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-25-portable-Q16-x64
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200730-134a48a-win64
+- FFmpeg&FFprobe 20200806-2c35797-win64
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */
