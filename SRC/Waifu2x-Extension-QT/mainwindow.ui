@@ -2052,9 +2052,7 @@ waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
 Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]
-
-★Anime4K engine does NOT supports alpha channel.★</string>
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
              </property>
              <property name="currentText">
               <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -2745,8 +2743,6 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
 - Only supports [2D Anime] image style.
 
 - More suitable for image with not too bad quality.
-
-- Does NOT supports alpha channel.
 
 - You can enable [ACNet] algorithm to improve image quality.
 

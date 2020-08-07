@@ -29,6 +29,11 @@ int MainWindow::Anime4k_Image(int rowNum)
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
+    bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
+    if(PreserveAlphaChannel)
+    {
+        SaveAsJPG = false;//如果含有alpha通道则不另存为jpg
+    }
     bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -78,11 +83,21 @@ int MainWindow::Anime4k_Image(int rowNum)
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+file_ext+".png";
+    //======
+    QString HDNDenoiseLevel="";
+    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
+    {
+        int HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_image->value();
+        if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
+        {
+            HDNDenoiseLevel = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+        }
+    }
     //============================== 放大 =======================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     //====
-    QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
+    QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(PreserveAlphaChannel);
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
@@ -524,6 +539,16 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
+    //======
+    QString HDNDenoiseLevel="";
+    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
+    {
+        int HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_gif->value();
+        if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
+        {
+            HDNDenoiseLevel = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+        }
+    }
     //========================================================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
@@ -544,7 +569,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
         }
     }
     //=======
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
+    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(false);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
@@ -1486,6 +1511,16 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
+    //======
+    QString HDNDenoiseLevel="";
+    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
+    {
+        int HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_video->value();
+        if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
+        {
+            HDNDenoiseLevel = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+        }
+    }
     //========================================================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
@@ -1506,7 +1541,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
     }
     //=======
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) +Anime4k_ReadSettings();
+    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(false);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
     {
@@ -1550,9 +1585,14 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
 Anime4k
 读取配置生成配置string
 */
-QString MainWindow::Anime4k_ReadSettings()
+QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
 {
     QString Anime4k_Settings_str = " ";
+    //保留透明通道
+    if(PreserveAlphaChannel)
+    {
+        Anime4k_Settings_str.append("-A ");//保留透明通道
+    }
     //ACNet
     if(ui->checkBox_ACNet_Anime4K->isChecked())
     {
@@ -1850,5 +1890,63 @@ void MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k()
     while(true);
     isForceRetryClicked_QMutex.unlock();
     emit Send_SetEnable_pushButton_ForceRetry_self();
+}
+
+void MainWindow::DenoiseLevelSpinboxSetting_Anime4k()
+{
+    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
+    {
+        if(ui->comboBox_Engine_Image->currentIndex()==3)
+        {
+            ui->spinBox_DenoiseLevel_image->setRange(1,3);
+            ui->spinBox_DenoiseLevel_image->setValue(1);
+            ui->spinBox_DenoiseLevel_image->setEnabled(1);
+            ui->spinBox_DenoiseLevel_image->setToolTip(tr("Range:1~3"));
+            ui->label_ImageDenoiseLevel->setToolTip(tr("Range:1~3"));
+        }
+        if(ui->comboBox_Engine_GIF->currentIndex()==3)
+        {
+            ui->spinBox_DenoiseLevel_gif->setRange(1,3);
+            ui->spinBox_DenoiseLevel_gif->setValue(1);
+            ui->spinBox_DenoiseLevel_gif->setEnabled(1);
+            ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Range:1~3"));
+            ui->label_GIFDenoiseLevel->setToolTip(tr("Range:1~3"));
+        }
+        if(ui->comboBox_Engine_Video->currentIndex()==2)
+        {
+            ui->spinBox_DenoiseLevel_video->setRange(1,3);
+            ui->spinBox_DenoiseLevel_video->setValue(1);
+            ui->spinBox_DenoiseLevel_video->setEnabled(1);
+            ui->spinBox_DenoiseLevel_video->setToolTip(tr("Range:1~3"));
+            ui->label_VideoDenoiseLevel->setToolTip(tr("Range:1~3"));
+        }
+    }
+    else
+    {
+        if(ui->comboBox_Engine_Image->currentIndex()==3)
+        {
+            ui->spinBox_DenoiseLevel_image->setRange(-1,0);
+            ui->spinBox_DenoiseLevel_image->setValue(-1);
+            ui->spinBox_DenoiseLevel_image->setEnabled(0);
+            ui->spinBox_DenoiseLevel_image->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
+            ui->label_ImageDenoiseLevel->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
+        }
+        if(ui->comboBox_Engine_GIF->currentIndex()==3)
+        {
+            ui->spinBox_DenoiseLevel_gif->setRange(-1,0);
+            ui->spinBox_DenoiseLevel_gif->setValue(-1);
+            ui->spinBox_DenoiseLevel_gif->setEnabled(0);
+            ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
+            ui->label_GIFDenoiseLevel->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
+        }
+        if(ui->comboBox_Engine_Video->currentIndex()==2)
+        {
+            ui->spinBox_DenoiseLevel_video->setRange(-1,0);
+            ui->spinBox_DenoiseLevel_video->setValue(-1);
+            ui->spinBox_DenoiseLevel_video->setEnabled(0);
+            ui->spinBox_DenoiseLevel_video->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
+            ui->label_VideoDenoiseLevel->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
+        }
+    }
 }
 

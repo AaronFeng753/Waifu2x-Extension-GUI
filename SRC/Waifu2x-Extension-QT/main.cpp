@@ -33,11 +33,22 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- 为[文件列表]添加右键菜单选项:[打开选中文件]和[打开选中文件的文件夹]
+- Anime4k引擎在启用HDN后可支持调节降噪等级.
+- 为Anime4k引擎添加自动检测Alpha通道的支持.(新版Anime4k引擎支持保留Alpha通道)
+- 为[文件列表]添加右键菜单选项:[打开选中文件],[从列表移除所选文件]和[打开选中文件的文件夹]
 - 为[输出路径]添加右键菜单以打开输出路径文件夹.
+- 更新FFmpeg&FFprobe.
+- 更新&适配新版Anime4KCPP(v2.3.0).
 - 修复多个bug.
 ----------------------------
 Detailed change log:
+v2.56.01-beta:
+- Anime4k引擎在启用HDN后可支持调节降噪等级.
+- 为Anime4k引擎添加自动检测Alpha通道的支持.(新版Anime4k引擎支持保留Alpha通道)
+- 更新FFmpeg&FFprobe.
+- 更新&适配新版Anime4KCPP(v2.3.0).
+- 为[文件列表]添加右键菜单选项:[从列表移除所选文件]
+- 修复bug:修复文件列表右键菜单的逻辑bug.
 v2.55.32-beta:
 - 更新FFmpeg&FFprobe.
 - 补全多语言翻译.
@@ -62,7 +73,7 @@ Integrated component:
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-25-portable-Q16-x64
 - Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200806-2c35797-win64
+- FFmpeg&FFprobe 20200807-fab00b0-win64
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

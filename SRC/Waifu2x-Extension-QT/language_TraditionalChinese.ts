@@ -2950,7 +2950,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="1084"/>
         <location filename="mainwindow.cpp" line="1140"/>
         <location filename="mainwindow.cpp" line="2095"/>
-        <location filename="mainwindow.cpp" line="2191"/>
+        <location filename="mainwindow.cpp" line="2197"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2086"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2099"/>
         <location filename="waifu2x_converter.cpp" line="1788"/>
@@ -4016,7 +4016,12 @@ Restart the software to take effect.</source>
         <translation>打開選中文件所在文件夾</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2192"/>
+        <location filename="mainwindow.cpp" line="2117"/>
+        <source>Remove selected file from list</source>
+        <translation>從列表中移除所選文件</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="2198"/>
         <source>Target file(folder) doesn&apos;t exists!</source>
         <translation>目標文件(文件夾)不存在!</translation>
     </message>

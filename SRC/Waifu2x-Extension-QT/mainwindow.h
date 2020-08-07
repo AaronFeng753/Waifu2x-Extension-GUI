@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.55.32-beta";//软件版本号
+    QString VERSION = "v2.56.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.55.24";
-    QString LastBetaVer = "v2.55.32-beta";
+    QString LastBetaVer = "v2.56.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -201,7 +201,8 @@ public:
     int Anime4k_Video(int rowNum);
     int Anime4k_Video_BySegment(int rowNum);
     int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
-    QString Anime4k_ReadSettings();
+    QString Anime4k_ReadSettings(bool PreserveAlphaChannel);
+    void DenoiseLevelSpinboxSetting_Anime4k();
     //=================================
     int Waifu2x_Converter_Image(int rowNum);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -453,6 +454,7 @@ public:
     void Init_ActionsMenu_FilesList();
     QAction *OpenFile = new QAction(this);
     QAction *OpenFilesFolder = new QAction(this);
+    QAction *RemoveFile_FilesList = new QAction(this);
     void OpenSelectedFile_FailedWarning_FilesList();
     //=============
     ~MainWindow();
@@ -786,6 +788,8 @@ private slots:
     void on_pushButton_ShowMultiGPUSettings_SrmdNCNNVulkan_clicked();
 
     void on_pushButton_ShowMultiGPUSettings_RealsrNcnnVulkan_clicked();
+
+    void on_checkBox_HDNMode_Anime4k_stateChanged(int arg1);
 
 signals:
     void Send_ListGPUs_Anime4k_Finished(QString OutputString);

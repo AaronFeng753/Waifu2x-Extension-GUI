@@ -743,22 +743,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
             }
         case 3:
             {
-                ui->spinBox_DenoiseLevel_image->setRange(-1,0);
-                ui->spinBox_DenoiseLevel_image->setValue(-1);
-                ui->spinBox_DenoiseLevel_image->setEnabled(0);
-                ui->spinBox_DenoiseLevel_image->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                ui->label_ImageDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                //=======
-                if(isShowAnime4kWarning)
-                {
-                    QMessageBox *MSG = new QMessageBox();
-                    MSG->setWindowTitle(tr("Warning"));
-                    MSG->setText(tr("Anime4K engine does NOT support Alpha Channel."));
-                    MSG->setIcon(QMessageBox::Warning);
-                    MSG->setModal(false);
-                    MSG->show();
-                }
-                //=======
+                DenoiseLevelSpinboxSetting_Anime4k();
                 break;
             }
         case 4:
@@ -825,11 +810,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
             }
         case 3:
             {
-                ui->spinBox_DenoiseLevel_gif->setRange(-1,0);
-                ui->spinBox_DenoiseLevel_gif->setValue(-1);
-                ui->spinBox_DenoiseLevel_gif->setEnabled(0);
-                ui->spinBox_DenoiseLevel_gif->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                ui->label_GIFDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                DenoiseLevelSpinboxSetting_Anime4k();
                 break;
             }
         case 4:
@@ -886,11 +867,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
             }
         case 2:
             {
-                ui->spinBox_DenoiseLevel_video->setRange(-1,0);
-                ui->spinBox_DenoiseLevel_video->setValue(-1);
-                ui->spinBox_DenoiseLevel_video->setEnabled(0);
-                ui->spinBox_DenoiseLevel_video->setToolTip(tr("Anime4K engine does not support noise reduction."));
-                ui->label_VideoDenoiseLevel->setToolTip(tr("Anime4K engine does not support noise reduction."));
+                DenoiseLevelSpinboxSetting_Anime4k();
                 break;
             }
         case 3:
@@ -2065,6 +2042,7 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         ui->spinBox_Passes_Anime4K->setEnabled(1);
         ui->spinBox_PushColorCount_Anime4K->setEnabled(1);
     }
+    DenoiseLevelSpinboxSetting_Anime4k();
 }
 
 void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
@@ -2113,6 +2091,12 @@ void MainWindow::Init_ActionsMenu_FilesList()
     ui->tableView_image->addAction(OpenFilesFolder);
     ui->tableView_gif->addAction(OpenFilesFolder);
     ui->tableView_video->addAction(OpenFilesFolder);
+    //===
+    RemoveFile_FilesList->setText(tr("Remove selected file from list"));
+    connect(RemoveFile_FilesList, SIGNAL(triggered()), this, SLOT(on_pushButton_RemoveItem_clicked()));
+    ui->tableView_image->addAction(RemoveFile_FilesList);
+    ui->tableView_gif->addAction(RemoveFile_FilesList);
+    ui->tableView_video->addAction(RemoveFile_FilesList);
 }
 
 void MainWindow::OpenSelectedFile_FilesList()
@@ -2195,3 +2179,8 @@ void MainWindow::OpenSelectedFile_FailedWarning_FilesList()
     MSG->show();
 }
 
+
+void MainWindow::on_checkBox_HDNMode_Anime4k_stateChanged(int arg1)
+{
+    DenoiseLevelSpinboxSetting_Anime4k();
+}

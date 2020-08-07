@@ -636,15 +636,8 @@ bool MainWindow::file_OpenFolder(QString FolderPath)
 
 bool MainWindow::file_OpenFilesFolder(QString FilePath)
 {
-    if(QFile::exists(FilePath))
-    {
-        QFileInfo finfo = QFileInfo(FilePath);
-        return file_OpenFolder(file_getFolderPath(finfo));
-    }
-    else
-    {
-        return false;
-    }
+    QFileInfo finfo = QFileInfo(FilePath);
+    return file_OpenFolder(file_getFolderPath(finfo));
 }
 
 bool MainWindow::file_OpenFile(QString FilePath)
