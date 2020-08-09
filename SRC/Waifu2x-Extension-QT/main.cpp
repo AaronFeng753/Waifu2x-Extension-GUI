@@ -43,6 +43,8 @@ Brief change log:
 - 其他改进.
 ----------------------------
 Detailed change log:
+v2.56.12:
+- 测试稳定后更改版本信息.
 v2.56.01-beta:
 - Anime4k引擎在启用HDN后可支持调节降噪等级.
 - 为Anime4k引擎添加自动检测Alpha通道的支持.(新版Anime4k引擎支持保留Alpha通道)
