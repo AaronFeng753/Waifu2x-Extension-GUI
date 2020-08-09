@@ -686,6 +686,7 @@ void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
         ui->checkBox_CompressJPG->setChecked(0);
         ui->checkBox_CompressJPG->setEnabled(0);
         ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
+        ui->checkBox_AutoDetectAlphaChannel->setChecked(1);
         ui->spinBox_JPGCompressedQuality->setEnabled(0);
     }
 }
