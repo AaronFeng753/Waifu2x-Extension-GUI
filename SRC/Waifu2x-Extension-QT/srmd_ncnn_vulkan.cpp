@@ -47,14 +47,14 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //========= 转换到 PNG =========
     QString SourceFile_fullPath_Original = SourceFile_fullPath;
     SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
     //===============
-    int ScaleRatio=1;
+    int ScaleRatio=2;
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
     int CustRes_width=0;
@@ -72,7 +72,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;
         }
         CustRes_height=Res_map["height"].toInt();
@@ -262,7 +262,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;
         }
         OutPutPath_Final = OutPut_Path;
@@ -364,7 +364,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
     //=========================== 更新线程数量统计==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -399,7 +399,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -430,7 +430,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //============================== 拆分 ==========================================
@@ -447,7 +447,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //===========建立存储放大后frame的文件夹===========
@@ -492,7 +492,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         mutex_SubThreadNumRunning.lock();
@@ -514,7 +514,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -535,7 +535,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -553,7 +553,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = ResGIFPath;
@@ -613,7 +613,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     //=========================== 更新运行中线程数量 ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -835,7 +835,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -991,7 +991,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1007,7 +1007,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1056,7 +1056,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         mutex_SubThreadNumRunning.lock();
@@ -1077,7 +1077,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1096,7 +1096,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -1119,7 +1119,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -1169,7 +1169,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -1201,7 +1201,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -1370,7 +1370,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1485,7 +1485,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                     emit Send_progressbar_Add();
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
             }
@@ -1541,7 +1541,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
                 mutex_SubThreadNumRunning.lock();
@@ -1562,7 +1562,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                     emit Send_progressbar_Add();
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
             }
@@ -1580,7 +1580,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                 emit Send_progressbar_Add();
                 mutex_ThreadNumRunning.lock();
                 ThreadNumRunning--;
-                mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                mutex_ThreadNumRunning.unlock();//线程数量统计-1
                 return 0;//如果启用stop位,则直接return
             }
             /*
@@ -1608,7 +1608,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         /*==========================
@@ -1646,7 +1646,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -1697,7 +1697,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
     //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 

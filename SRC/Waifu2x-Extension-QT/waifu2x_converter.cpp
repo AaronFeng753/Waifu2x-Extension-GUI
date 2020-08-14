@@ -47,7 +47,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //========= 转换到 PNG =========
@@ -70,7 +70,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;
         }
         CustRes_height=Res_map["height"].toInt();
@@ -172,7 +172,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;
         }
         OutPutPath_Final = OutPut_Path;
@@ -274,7 +274,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     //=========================== 更新线程数量统计==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -300,7 +300,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -331,7 +331,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //============================== 拆分 ==========================================
@@ -348,7 +348,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //===========建立存储放大后frame的文件夹===========
@@ -394,7 +394,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         mutex_SubThreadNumRunning.lock();
@@ -416,7 +416,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -436,7 +436,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -454,7 +454,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = ResGIFPath;
@@ -514,7 +514,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -612,7 +612,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -768,7 +768,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -784,7 +784,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -833,7 +833,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         mutex_SubThreadNumRunning.lock();
@@ -854,7 +854,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -873,7 +873,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -896,7 +896,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -946,7 +946,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -978,7 +978,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -1147,7 +1147,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1262,7 +1262,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                     emit Send_progressbar_Add();
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
             }
@@ -1318,7 +1318,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
                 mutex_SubThreadNumRunning.lock();
@@ -1339,7 +1339,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                     emit Send_progressbar_Add();
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
             }
@@ -1357,7 +1357,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                 emit Send_progressbar_Add();
                 mutex_ThreadNumRunning.lock();
                 ThreadNumRunning--;
-                mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+                mutex_ThreadNumRunning.unlock();//线程数量统计-1
                 return 0;//如果启用stop位,则直接return
             }
             /*
@@ -1385,7 +1385,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         /*==========================
@@ -1423,7 +1423,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -1474,7 +1474,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     //===========================  ==============================
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1s
+    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 

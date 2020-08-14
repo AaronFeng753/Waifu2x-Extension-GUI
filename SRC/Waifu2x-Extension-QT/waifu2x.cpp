@@ -1117,10 +1117,15 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     if(ui->checkBox_AutoDetectAlphaChannel->isChecked()==false)return false;
     //======
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
+    if(QFile::exists(SourceFile_fullPath)==false)return false;
+    //======
     QImage img(SourceFile_fullPath);
     if(img.hasAlphaChannel())
     {
-        emit Send_TextBrowser_NewMessage(tr("It is detected that the image [")+SourceFile_fullPath+tr("] contains the Alpha channel, so the result image will be forcibly saved as PNG."));
+        if(ui->checkBox_SaveAsJPG->isChecked())
+        {
+            emit Send_TextBrowser_NewMessage(tr("It is detected that the image [")+SourceFile_fullPath+tr("] contains the Alpha channel, so the result image will be forcibly saved as PNG."));
+        }
         return true;
     }
     else

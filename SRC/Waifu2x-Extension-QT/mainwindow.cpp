@@ -210,7 +210,6 @@ void MainWindow::changeEvent(QEvent *e)
         {
             this->hide();
         }
-        //QTimer::singleShot(0, this, SLOT(hide()));
     }
 }
 
@@ -1578,7 +1577,7 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
 {
     ui->pushButton_ForceRetry->setEnabled(0);
     //========
-    QtConcurrent::run(this, &MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k);//自动检查更新线程
+    QtConcurrent::run(this, &MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k);//block a4k引擎线程 防止无效图片污染缓存
     //========
     int tmp = ui->spinBox_retry->value();
     tmp++;

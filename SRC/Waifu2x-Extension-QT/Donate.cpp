@@ -42,7 +42,6 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     if(QFile::exists(Github_OnlineQRCode_local)&&(Github_OnlineQRCode_QFileInfo->size()>100000))
     {
         emit Send_TextBrowser_NewMessage(tr("Successfully downloaded QR Code image from Github."));
-        //==
         emit Send_Donate_ReplaceQRCode(Github_OnlineQRCode_local);
         return 1;
     }
@@ -60,7 +59,6 @@ int MainWindow::Donate_DownloadOnlineQRCode()
         if(QFile::exists(Gitee_OnlineQRCode_local)&&(Gitee_OnlineQRCode_QFileInfo->size()>100000))
         {
             emit Send_TextBrowser_NewMessage(tr("Successfully downloaded QR Code image from Gitee."));
-            //==
             emit Send_Donate_ReplaceQRCode(Gitee_OnlineQRCode_local);
             return 1;
         }

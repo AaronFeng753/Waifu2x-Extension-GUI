@@ -57,10 +57,11 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     for (int VideoNameNo = 1; VideoNameNo<=VideoClipsNum; VideoNameNo++)
     {
         QString VideoClip_FullPath_tmp = VideoClipsFolderPath+"/"+QString::number(VideoNameNo,10)+".mp4";
-        QString VideoClip_IncompletePath_tmp = VideoClipsFolderName+"/"+QString::number(VideoNameNo,10)+".mp4";
+        //QString VideoClip_IncompletePath_tmp = VideoClipsFolderName+"/"+QString::number(VideoNameNo,10)+".mp4";
         if(QFile::exists(VideoClip_FullPath_tmp))
         {
-            VideoClips_fileName_list.append(VideoClip_IncompletePath_tmp);
+            //VideoClips_fileName_list.append(VideoClip_IncompletePath_tmp);
+            VideoClips_fileName_list.append(VideoClip_FullPath_tmp);
         }
     }
     /*

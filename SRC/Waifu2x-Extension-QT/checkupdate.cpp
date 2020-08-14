@@ -82,8 +82,8 @@ int MainWindow::CheckUpadte_Auto()
             //=====
             QFile::remove(Github_UpdateInfo_local);
             QFile::remove(Gitee_UpdateInfo_local);
-            return 0;
         }
+        return 0;
     }
     else
     {
@@ -110,8 +110,8 @@ int MainWindow::CheckUpadte_Auto()
                 //=====
                 QFile::remove(Github_UpdateInfo_local);
                 QFile::remove(Gitee_UpdateInfo_local);
-                return 0;
             }
+            return 0;
         }
         else
         {
@@ -140,7 +140,7 @@ int MainWindow::CheckUpadte_NewUpdate(QString update_str,QString Change_log)
         if(ui->comboBox_language->currentIndex()==1)
         {
             QAbstractButton *pYesBtn_Github = Msg.addButton(QString("前往Github下载"), QMessageBox::YesRole);
-            QAbstractButton *pYesBtn_Gitee = Msg.addButton(QString("前往码云Gitee下载(中国大陆)"), QMessageBox::YesRole);
+            QAbstractButton *pYesBtn_Gitee = Msg.addButton(QString("前往码云下载"), QMessageBox::YesRole);
             Msg.addButton(QString(tr("NO")), QMessageBox::NoRole);
             Msg.exec();
             if (Msg.clickedButton() == pYesBtn_Github)QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/"+update_str.trimmed()));

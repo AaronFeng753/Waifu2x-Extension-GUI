@@ -33,36 +33,18 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- Anime4k引擎在启用HDN后可支持调节降噪等级.
-- 为Anime4k引擎添加自动检测Alpha通道的支持.(新版Anime4k引擎支持保留Alpha通道)
-- 为[文件列表]添加右键菜单选项:[打开选中文件],[从列表移除所选文件]和[打开选中文件的文件夹]
-- 为[输出路径]添加右键菜单以打开输出路径文件夹.
-- 更新FFmpeg&FFprobe,Anime4K.
+- 性能优化.
 - 修复多个bug.
-- 其他改进.
 ----------------------------
 Detailed change log:
-v2.56.12:
-- 修复一处可能导致Anime4k引擎无法正常处理图片的设置逻辑冲突.
-- 测试稳定后更改版本信息.
-v2.56.01-beta:
-- Anime4k引擎在启用HDN后可支持调节降噪等级.
-- 为Anime4k引擎添加自动检测Alpha通道的支持.(新版Anime4k引擎支持保留Alpha通道)
-- 更新FFmpeg&FFprobe.
-- 更新&适配新版Anime4KCPP(v2.3.0).
-- 为[文件列表]添加右键菜单选项:[从列表移除所选文件]
-- 改进文件列表的右键菜单.
-- 修复bug:修复文件列表右键菜单的逻辑bug.
-v2.55.32-beta:
-- 更新FFmpeg&FFprobe.
-- 补全多语言翻译.
-- 为文件列表的右键菜单项添加错误提示.
-- 删除多余的代码.
-v2.55.31-beta:
-- 为[文件列表]添加右键菜单选项:[打开选中文件]和[打开选中文件的文件夹]
-- 为[输出路径]添加右键菜单以打开输出路径文件夹.
-- 修复bug:如果将程序放在外部存储设备中,会无法显示编码器列表.
-- 修复bug:特殊情况下无法判断文件夹是否存在.
+v2.56.21-beta:
+- 适配新版FFmpeg.
+- 修正注释中的错误.
+- 性能优化.
+- 更新FFmpeg&FFprobe,ImageMagick.
+- 修复bug:当未检测到更新时会重复下载更新文件.
+- 修复bug:极少数情况下无法正确修正放大倍数的bug.
+- 修复bug:即便未勾选保存为jpg,在检测到透明通道后依旧会提示用户将强制保存为png.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
@@ -75,9 +57,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 8b5c1cdfcde4b6da5127d60b11a1242ddc65bbb8
 - SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
-- ImageMagick 7.0.10-25-portable-Q16-x64
-- Anime4KCPP v2.2.1
-- FFmpeg&FFprobe 20200807-fab00b0-win64
+- ImageMagick 7.0.10-27 Q16 x64 2020-08-10
+- Anime4KCPP v2.3.0
+- FFmpeg&FFprobe 20200812-bb59bdb
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

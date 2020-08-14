@@ -54,8 +54,7 @@ void MainWindow::ConnectivityTest_RawGithubusercontentCom()
     QFile::remove(LocalAddress);
     //===
     emit Send_TextBrowser_NewMessage(tr("Start testing if your PC can connect to raw.githubusercontent.com."));
-    DownloadTo(OnlineAddress,LocalAddress);
-    if(QFile::exists(LocalAddress))
+    if(DownloadTo(OnlineAddress,LocalAddress)==true)
     {
         emit Send_TextBrowser_NewMessage(tr("Detection complete, your PC can connect to raw.githubusercontent.com."));
     }
