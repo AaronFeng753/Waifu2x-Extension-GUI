@@ -8,6 +8,16 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.56.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.12)
+#### 更新日志:
+- Anime4k引擎在启用HDN后可支持调节降噪等级.
+- 为Anime4k引擎添加自动检测Alpha通道的支持.(新版Anime4k引擎支持保留Alpha通道)
+- 为[文件列表]添加右键菜单选项:[打开选中文件],[从列表移除所选文件]和[打开选中文件的文件夹]
+- 为[输出路径]添加右键菜单以打开输出路径文件夹.
+- 更新FFmpeg&FFprobe,Anime4K.
+- 修复多个bug.
+- 其他改进.
+---
 ## [v2.55.24](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.55.24)
 #### 更新日志:
 - 更新FFmpeg&FFprobe,Python扩展,waifu2x-ncnn-vulkan,ImageMagick.

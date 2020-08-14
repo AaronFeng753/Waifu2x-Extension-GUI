@@ -4,6 +4,16 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.12)
+#### Change log:
+- Anime4k engine can support adjusting the noise reduction level after enabling [HDN mode].
+- Add support for automatic detection of Alpha channel for Anime4k engine. (The new version of Anime4k engine supports processing Alpha channel)
+- Add right-click menu options for [Files List]: [Open selected file], [Open the folder of the selected file] and [Remove selected file from list]
+- Add a right-click menu for [Output Path] to open the output path folder.
+- Update FFmpeg & FFprobe, Anime4K.
+- Fix multiple bugs.
+- Other improvements.
+---
 ## [v2.55.24](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.55.24)
 #### Change log:
 - Update FFmpeg & FFprobe, Python extension, waifu2x-ncnn-vulkan, ImageMagick.
