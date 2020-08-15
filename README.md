@@ -131,6 +131,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - ImageMagick: http://www.imagemagick.org/
 - NCNN: https://github.com/Tencent/ncnn
+- NirCmd: https://www.nirsoft.net/utils/nircmd.html
 - NSIS: https://nsis.sourceforge.io/
 - OpenCV: https://opencv.org/
 - Pillow: https://python-pillow.org/
