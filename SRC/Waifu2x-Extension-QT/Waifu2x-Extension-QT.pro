@@ -39,6 +39,8 @@ SOURCES += \
     Current_File_Progress.cpp \
     CustomResolution.cpp \
     Donate.cpp \
+    Finish_Action.cpp \
+    Right-click_Menu.cpp \
     SystemTrayIcon.cpp \
     Web_Activities.cpp \
     checkupdate.cpp \

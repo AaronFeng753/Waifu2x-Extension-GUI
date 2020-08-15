@@ -93,6 +93,7 @@ MainWindow::MainWindow(QWidget *parent)
     Set_Font_fixed();//固定字体
     //=====================================
     QtConcurrent::run(this, &MainWindow::DeleteErrorLog_Waifu2xCaffe);//删除Waifu2xCaffe生成的错误日志
+    QtConcurrent::run(this, &MainWindow::Del_TempBatFile);//删除bat文件缓存
     AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     DownloadOnlineQRCode = QtConcurrent::run(this, &MainWindow::Donate_DownloadOnlineQRCode);//在线更新捐赠二维码
     SystemShutDown_isAutoShutDown();//上次是否自动关机
@@ -574,70 +575,6 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
     return 0;
 }
 
-
-//====== 自动关机===================================================================================
-/*
-60s倒计时
-*/
-int MainWindow::SystemShutDown_Countdown()
-{
-    Delay_sec_sleep(60);
-    emit Send_SystemShutDown();
-    return 0;
-}
-/*
-关机
-保存列表,生成关机标志,关机
-*/
-bool MainWindow::SystemShutDown()
-{
-    on_pushButton_SaveFileList_clicked();
-    //================
-    QString AutoShutDown = Current_Path+"/AutoShutDown_Waifu2xEX";
-    QFile file(AutoShutDown);
-    file.remove();
-    if (file.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
-    {
-        QTextStream stream(&file);
-        stream << "Don't delete this file!!";
-    }
-    //================
-    HANDLE hToken;
-    TOKEN_PRIVILEGES tkp;
-    //获取进程标志
-    if (!OpenProcessToken(GetCurrentProcess(), TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken))
-        return false;
-    //获取关机特权的LUID
-    LookupPrivilegeValue(NULL, SE_SHUTDOWN_NAME,    &tkp.Privileges[0].Luid);
-    tkp.PrivilegeCount = 1;
-    tkp.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
-    //获取这个进程的关机特权
-    AdjustTokenPrivileges(hToken, false, &tkp, 0, (PTOKEN_PRIVILEGES)NULL, 0);
-    if (GetLastError() != ERROR_SUCCESS) return false;
-    // 强制关闭计算机
-    if ( !ExitWindowsEx(EWX_SHUTDOWN | EWX_FORCE, 0))
-        return false;
-    return true;
-}
-/*
-判断上次软件启动后是否执行了自动关机
-*/
-int MainWindow::SystemShutDown_isAutoShutDown()
-{
-    QString AutoShutDown = Current_Path+"/AutoShutDown_Waifu2xEX";
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
-    if(QFile::exists(AutoShutDown)&&QFile::exists(Table_FileList_ini))
-    {
-        QFile::remove(AutoShutDown);//删除之前生成的自动关机标记
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Notification"));
-        MSG->setText(tr("It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status."));
-        MSG->setIcon(QMessageBox::Information);
-        MSG->setModal(true);
-        MSG->show();
-    }
-    return 0;
-}
 //==========================================================
 /*
 ============= 安全的阻塞延时 =====================
@@ -2057,152 +1994,33 @@ void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
     }
 }
 
-void MainWindow::Init_ActionsMenu_lineEdit_outputPath()
-{
-    OpenFolder_lineEdit_outputPath->setText(tr("Open output path"));
-    connect(OpenFolder_lineEdit_outputPath, SIGNAL(triggered()), this, SLOT(OpenOutputFolder()));
-    ui->lineEdit_outputPath->addAction(OpenFolder_lineEdit_outputPath);
-}
-
-void MainWindow::OpenOutputFolder()
-{
-    QString OutPutPath=ui->lineEdit_outputPath->text();
-    if(file_OpenFolder(OutPutPath)==false)
-    {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Error"));
-        MSG->setText(tr("Output path doesn\'t exists!"));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
-        MSG->show();
-    }
-}
-
-void MainWindow::Init_ActionsMenu_FilesList()
-{
-    OpenFile->setText(tr("Open selected file"));
-    connect(OpenFile, SIGNAL(triggered()), this, SLOT(OpenSelectedFile_FilesList()));
-    ui->tableView_image->addAction(OpenFile);
-    ui->tableView_gif->addAction(OpenFile);
-    ui->tableView_video->addAction(OpenFile);
-    //===
-    OpenFilesFolder->setText(tr("Open the folder of the selected file"));
-    connect(OpenFilesFolder, SIGNAL(triggered()), this, SLOT(OpenSelectedFilesFolder_FilesList()));
-    ui->tableView_image->addAction(OpenFilesFolder);
-    ui->tableView_gif->addAction(OpenFilesFolder);
-    ui->tableView_video->addAction(OpenFilesFolder);
-    //===
-    RemoveFile_FilesList->setText(tr("Remove selected file from list"));
-    connect(RemoveFile_FilesList, SIGNAL(triggered()), this, SLOT(on_pushButton_RemoveItem_clicked()));
-    ui->tableView_image->addAction(RemoveFile_FilesList);
-    ui->tableView_gif->addAction(RemoveFile_FilesList);
-    ui->tableView_video->addAction(RemoveFile_FilesList);
-}
-
-void MainWindow::OpenSelectedFile_FilesList()
-{
-    if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
-    {
-        ui->tableView_image->clearSelection();
-        ui->tableView_gif->clearSelection();
-        ui->tableView_video->clearSelection();
-        //=====
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Warning"));
-        MSG->setText(tr("No items are currently selected."));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(true);
-        MSG->show();
-        //====
-        return;
-    }
-    //==========================
-    if(curRow_image >= 0)
-    {
-        if(file_OpenFile(Table_model_image->item(curRow_image,2)->text())==false)
-        {
-            OpenSelectedFile_FailedWarning_FilesList();
-        }
-        return;
-    }
-    //============================================================
-    if(curRow_video >= 0)
-    {
-        if(file_OpenFile(Table_model_video->item(curRow_video,2)->text())==false)
-        {
-            OpenSelectedFile_FailedWarning_FilesList();
-        }
-        return;
-    }
-    //============================================================
-    if(curRow_gif >= 0)
-    {
-        if(file_OpenFile(Table_model_gif->item(curRow_gif,2)->text())==false)
-        {
-            OpenSelectedFile_FailedWarning_FilesList();
-        }
-        return;
-    }
-}
-
-void MainWindow::OpenSelectedFilesFolder_FilesList()
-{
-    if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
-    {
-        ui->tableView_image->clearSelection();
-        ui->tableView_gif->clearSelection();
-        ui->tableView_video->clearSelection();
-        //=====
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Warning"));
-        MSG->setText(tr("No items are currently selected."));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(true);
-        MSG->show();
-        //====
-        return;
-    }
-    //==========================
-    if(curRow_image >= 0)
-    {
-        if(file_OpenFilesFolder(Table_model_image->item(curRow_image,2)->text())==false)
-        {
-            OpenSelectedFile_FailedWarning_FilesList();
-        }
-        return;
-    }
-    //============================================================
-    if(curRow_video >= 0)
-    {
-        if(file_OpenFilesFolder(Table_model_video->item(curRow_video,2)->text())==false)
-        {
-            OpenSelectedFile_FailedWarning_FilesList();
-        }
-        return;
-    }
-    //============================================================
-    if(curRow_gif >= 0)
-    {
-        if(file_OpenFilesFolder(Table_model_gif->item(curRow_gif,2)->text())==false)
-        {
-            OpenSelectedFile_FailedWarning_FilesList();
-        }
-        return;
-    }
-}
-
-void MainWindow::OpenSelectedFile_FailedWarning_FilesList()
-{
-    QMessageBox *MSG = new QMessageBox();
-    MSG->setWindowTitle(tr("Error"));
-    MSG->setText(tr("Target file(folder) doesn\'t exists!"));
-    MSG->setIcon(QMessageBox::Warning);
-    MSG->setModal(false);
-    MSG->show();
-}
-
-
 void MainWindow::on_checkBox_HDNMode_Anime4k_stateChanged(int arg1)
 {
     DenoiseLevelSpinboxSetting_Anime4k();
+}
+
+void MainWindow::ExecuteCMD_batFile(QString cmd_str)
+{
+    ExecuteCMD_batFile_QMutex.lock();
+    QString cmd_commands = "@echo off\n "+cmd_str+"\n exit";
+    Delay_msec_sleep(100);//延时防止文件名称碰撞
+    file_mkDir(Current_Path+"/batFiles_tmp");
+    QString Bat_path = Current_Path+"/batFiles_tmp/W2xEX_"+QDateTime::currentDateTime().toString("dhhmmsszzz")+".bat";
+    //========
+    QFile OpenFile_cmdFile(Bat_path);
+    OpenFile_cmdFile.remove();
+    if (OpenFile_cmdFile.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&OpenFile_cmdFile);
+        stream << cmd_commands;
+    }
+    OpenFile_cmdFile.close();
+    QDesktopServices::openUrl(QUrl("file:"+Bat_path));
+    //========
+    ExecuteCMD_batFile_QMutex.unlock();
+}
+
+void MainWindow::Del_TempBatFile()
+{
+    file_DelDir(Current_Path+"/batFiles_tmp");
 }

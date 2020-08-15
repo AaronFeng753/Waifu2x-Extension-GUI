@@ -33,10 +33,14 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
+- 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
 - 性能优化.
 - 修复多个bug.
 ----------------------------
 Detailed change log:
+v2.56.31-beta:
+- 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
+- 整理代码结构.
 v2.56.21-beta:
 - 适配新版FFmpeg.
 - 修正注释中的错误.
@@ -59,7 +63,8 @@ Integrated component:
 - realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
 - ImageMagick 7.0.10-27 Q16 x64 2020-08-10
 - Anime4KCPP v2.3.0
-- FFmpeg&FFprobe 20200812-bb59bdb
+- FFmpeg&FFprobe 20200814-a762fd2
+- NirCmd v2.86
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 */

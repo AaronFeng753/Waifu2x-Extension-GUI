@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.21-beta";//软件版本号
+    QString VERSION = "v2.56.31-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.56.12";
-    QString LastBetaVer = "v2.56.21-beta";
+    QString LastBetaVer = "v2.56.31-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -130,7 +130,6 @@ public:
     bool file_OpenFolder(QString FolderPath);//调用系统资源管理器打开文件夹.
     bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
     bool file_OpenFile(QString FilePath);
-    QMutex file_OpenFile_QMutex;
     //=================================  Table =================================
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
@@ -390,6 +389,7 @@ public:
     void DelTrash_ForceRetry_Anime4k(QString OutPut_Path);
     void isForceRetryClicked_SetTrue_Block_Anime4k();
 
+    void AutoFinishAction_Message();
     int SystemShutDown_Countdown();//自动关机倒计时
     int SystemShutDown_isAutoShutDown();//判断之前是否执行过自动关机
     //阻塞延时(安全
@@ -456,6 +456,10 @@ public:
     QAction *OpenFilesFolder = new QAction(this);
     QAction *RemoveFile_FilesList = new QAction(this);
     void OpenSelectedFile_FailedWarning_FilesList();
+    //=================== 生成bat文件来执行cmd命令 ===========
+    void ExecuteCMD_batFile(QString cmd_str);
+    QMutex ExecuteCMD_batFile_QMutex;
+    void Del_TempBatFile();
     //=============
     ~MainWindow();
 

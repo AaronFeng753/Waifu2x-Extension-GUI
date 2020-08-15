@@ -646,20 +646,7 @@ bool MainWindow::file_OpenFile(QString FilePath)
     {
         if(QDesktopServices::openUrl(QUrl("file:"+FilePath,QUrl::TolerantMode))==false)
         {
-            file_OpenFile_QMutex.lock();
-            QFileInfo finfo = QFileInfo(FilePath);
-            QString OpenFile_cmd_commands = "@echo off\n start \"\" \""+FilePath+"\"\n exit";
-            QString Bat_path = Current_Path+"/OpenFileBat_W2xEX.bat";
-            QFile OpenFile_cmdFile(Bat_path);
-            OpenFile_cmdFile.remove();
-            if (OpenFile_cmdFile.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
-            {
-                QTextStream stream(&OpenFile_cmdFile);
-                stream << OpenFile_cmd_commands;
-            }
-            OpenFile_cmdFile.close();
-            QDesktopServices::openUrl(QUrl("file:"+Bat_path));
-            file_OpenFile_QMutex.unlock();
+            ExecuteCMD_batFile("start \"\" \""+FilePath+"\"");
         }
         return true;
     }

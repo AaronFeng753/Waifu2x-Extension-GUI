@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1176</width>
-    <height>747</height>
+    <height>748</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -1694,16 +1694,6 @@ file that exists in the output path.</string>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" colspan="2">
-               <widget class="QCheckBox" name="checkBox_AutoTurnOFF">
-                <property name="toolTip">
-                 <string>Automatically shut down the computer after processing all files in the list.</string>
-                </property>
-                <property name="text">
-                 <string>Turn off computer when finished</string>
-                </property>
-               </widget>
-              </item>
               <item row="3" column="1" colspan="2">
                <widget class="QComboBox" name="comboBox_ImageStyle">
                 <property name="minimumSize">
@@ -1813,6 +1803,39 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                 <item>
                  <property name="text">
                   <string>3D Real-life</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QComboBox" name="comboBox_FinishAction">
+                <property name="toolTip">
+                 <string>Select the action to be executed automatically
+after processing all files in the file list.</string>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Do nothing(when finished)</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Shut down</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sleep</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Hibernate</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Restart</string>
                  </property>
                 </item>
                </widget>
