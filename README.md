@@ -38,7 +38,7 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 
 ### ✨Key features:
 - #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
-- #### 😍Full image style support: Multiple built-in algorithms, 2D anime or your daily photos & videos, this software can handle all of them.
+- #### 😍Full image style support: Multiple built-in algorithms, 2D anime, or your daily photos & videos, this software can handle all of them.
 - #### ✅Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
 - 📊Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
 - 🚀🚀🚀Multi-GPU support: Multi-GPU support for ALL built-in engines.
@@ -115,9 +115,9 @@ We respect your privacy, so the following is the privacy policy of this software
 ```
 1. This software won't upload anything to the internet, so we won't collect any data from you, we even don't have a server.
 
-2. This sofware will only connect to the internet when check for new update and update the QRCode on the Donate tab, which 
-will download two .ini files and two .jpg files from GitHub and Gitee. (Gitee is a copycat version of GitHub in the 
-People's Republic of China, you can stop download anything from Gitee by enable [Ban Gitee] in [Additional settings])
+2. This software will only connect to the internet when checking for new updates and update the QRCode on the Donate tab, which
+will download two .ini files and two .jpg files from GitHub and Gitee. (Gitee is a copycat version of GitHub in The
+People's Republic of China, you can stop download anything from Gitee by enabling [Ban Gitee] in [Additional settings])
 
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
@@ -152,4 +152,4 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Thanks to [@uimee](https://github.com/uimee) for 繁體中文 translation.
 - Thanks to [@Nova-Aurora](https://github.com/Nova-Aurora) for fixing several errors in the English README.
 - Thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for assistance in testing the software.
-- Thanks to [@Michael18751](https://github.com/Michael18751) for edited the new notification sound with fadeout.
+- Thanks to [@Michael18751](https://github.com/Michael18751) for adding a fadeout effect to the notification sound.
