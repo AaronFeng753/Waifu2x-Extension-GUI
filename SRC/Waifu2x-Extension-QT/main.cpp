@@ -34,10 +34,14 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
+- 适配新版FFmpeg.
+- 更新FFmpeg&FFprobe,ImageMagick.
 - 性能优化.
 - 修复多个bug.
 ----------------------------
 Detailed change log:
+v2.56.32:
+- 经测试稳定后,更改版本号.
 v2.56.31-beta:
 - 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
 - 整理代码结构.
