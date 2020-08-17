@@ -8,6 +8,14 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.56.32](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.32)
+#### 更新日志:
+- 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
+- 适配新版FFmpeg.
+- 更新FFmpeg&FFprobe,ImageMagick.
+- 性能优化.
+- 修复多个bug.
+---
 ## [v2.56.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.12)
 #### 更新日志:
 - Anime4k引擎在启用HDN后可支持调节降噪等级.
