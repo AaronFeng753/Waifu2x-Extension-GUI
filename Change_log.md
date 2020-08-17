@@ -4,6 +4,14 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.32](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.32)
+#### Change log:
+- Add more actions (shut down, sleep, hibernate, restart) that can be performed after processing all the files. (Thanks to @Michael18751 for the suggestion)
+- Adapt to the new version of FFmpeg.
+- Update FFmpeg&FFprobe, ImageMagick.
+- Performance optimization.
+- Fix multiple bugs.
+---
 ## [v2.56.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.12)
 #### Change log:
 - Anime4k engine can support adjusting the noise reduction level after enabling [HDN mode].
