@@ -33,26 +33,13 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
-- 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
-- 适配新版FFmpeg.
-- 更新FFmpeg&FFprobe,ImageMagick.
-- 性能优化.
-- 修复多个bug.
+- 更新NCNN-Vulkan系列引擎.
 ----------------------------
 Detailed change log:
-v2.56.32:
-- 经测试稳定后,更改版本号.
-v2.56.31-beta:
-- 添加更多处理完文件后可执行的动作(关机,睡眠,休眠,重启).(感谢 @Michael18751 的建议)
-- 整理代码结构.
-v2.56.21-beta:
-- 适配新版FFmpeg.
-- 修正注释中的错误.
-- 性能优化.
-- 更新FFmpeg&FFprobe,ImageMagick.
-- 修复bug:当未检测到更新时会重复下载更新文件.
-- 修复bug:极少数情况下无法正确修正放大倍数的bug.
-- 修复bug:即便未勾选保存为jpg,在检测到透明通道后依旧会提示用户将强制保存为png.
+v2.56.33-beta:
+- 更新waifu2x-ncnn-vulkan.
+- 更新SRMD-ncnn-Vulkan.
+- 更新realsr-ncnn-vulkan.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
@@ -62,9 +49,9 @@ Integrated component:
 - SoX 14.4.2-win32(release)
 - waifu2x-caffe 1.2.0.3
 - Waifu2x-converter e7de04d
-- waifu2x-ncnn-vulkan 8b5c1cdfcde4b6da5127d60b11a1242ddc65bbb8
-- SRMD-ncnn-Vulkan 04f93f628b12db5f24d5e46b6433fac728093305
-- realsr-ncnn-vulkan fcaae13be5a9edf1f7e49035074c89eb75ec242b
+- waifu2x-ncnn-vulkan 20200818
+- SRMD-ncnn-Vulkan 20200818
+- realsr-ncnn-vulkan 20200818
 - ImageMagick 7.0.10-27 Q16 x64 2020-08-10
 - Anime4KCPP v2.3.0
 - FFmpeg&FFprobe 20200814-a762fd2
