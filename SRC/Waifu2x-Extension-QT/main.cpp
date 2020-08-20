@@ -33,9 +33,14 @@ int main(int argc, char *argv[])
 
 /*
 Brief change log:
+- 根据视频时长,自动判断是否需要启用分段处理.
 - 更新NCNN-Vulkan系列引擎.
+- 修复bug.
 ----------------------------
 Detailed change log:
+v2.56.34-beta:
+- 根据视频时长,自动判断是否需要启用分段处理.
+- 修复bug:无法处理时长过短的视频(少于1秒钟).
 v2.56.33-beta:
 - 更新waifu2x-ncnn-vulkan.
 - 更新SRMD-ncnn-Vulkan.

@@ -20,6 +20,17 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+根据视频时长,判断是否需要分段处理
+*/
+
+bool MainWindow::video_isNeedProcessBySegment(int rowNum)
+{
+    if(ui->checkBox_ProcessVideoBySegment->isChecked()==false)return false;//如果没启用分段处理,直接返回false
+    QString VideoFile = Table_model_video->item(rowNum,2)->text();
+    return (video_get_duration(VideoFile)>ui->spinBox_SegmentDuration->value());//如果视频时长大于用户设定的分段时长,则启用分段处理
+}
+
+/*
 生成视频片段文件夹编号
 */
 QString MainWindow::video_getClipsFolderNo()

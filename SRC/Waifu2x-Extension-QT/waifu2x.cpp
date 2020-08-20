@@ -275,13 +275,14 @@ int MainWindow::Waifu2xMainThread()
                 emit Send_progressbar_Add();
                 continue;
             }
+            //============= 获取时长, 判断是否需要分段处理 =================
             //=========
             switch(VideoEngine)
             {
                 case 0:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
+                        if(video_isNeedProcessBySegment(i))
                         {
                             Waifu2x_NCNN_Vulkan_Video_BySegment(i);
                         }
@@ -295,7 +296,7 @@ int MainWindow::Waifu2xMainThread()
                 case 1:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
+                        if(video_isNeedProcessBySegment(i))
                         {
                             Waifu2x_Converter_Video_BySegment(i);
                         }
@@ -309,7 +310,7 @@ int MainWindow::Waifu2xMainThread()
                 case 2:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
+                        if(video_isNeedProcessBySegment(i))
                         {
                             Anime4k_Video_BySegment(i);
                         }
@@ -323,7 +324,7 @@ int MainWindow::Waifu2xMainThread()
                 case 3:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
+                        if(video_isNeedProcessBySegment(i))
                         {
                             SRMD_NCNN_Vulkan_Video_BySegment(i);
                         }
@@ -337,7 +338,7 @@ int MainWindow::Waifu2xMainThread()
                 case 4:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
+                        if(video_isNeedProcessBySegment(i))
                         {
                             Waifu2x_Caffe_Video_BySegment(i);
                         }
@@ -351,7 +352,7 @@ int MainWindow::Waifu2xMainThread()
                 case 5:
                     {
                         ThreadNumRunning=1;
-                        if(ui->checkBox_ProcessVideoBySegment->isChecked())
+                        if(video_isNeedProcessBySegment(i))
                         {
                             Realsr_NCNN_Vulkan_Video_BySegment(i);
                         }

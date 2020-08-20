@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.33-beta";//软件版本号
+    QString VERSION = "v2.56.34-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.56.32";
-    QString LastBetaVer = "v2.56.33-beta";
+    QString LastBetaVer = "v2.56.34-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -367,6 +367,8 @@ public:
     //生成视频片段文件夹编号
     QString video_getClipsFolderNo();
     QMutex MultiLine_ErrorOutput_QMutex;
+
+    bool video_isNeedProcessBySegment(int rowNum);//根据视频时长,判断是否需要分段处理
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
