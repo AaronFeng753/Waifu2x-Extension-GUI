@@ -177,8 +177,6 @@ void MainWindow::Add_File_Folder_IncludeSubFolder(QString Full_Path)
     else
     {
         QStringList FileNameList = getFileNames_IncludeSubFolder(Full_Path);//读取合法的文件名
-        FileNameList.removeAll("..");
-        FileNameList.removeAll(".");
         QString Full_Path_File = "";
         if(!FileNameList.isEmpty())
         {
@@ -206,11 +204,6 @@ void MainWindow::Add_File_Folder_IncludeSubFolder(QString Full_Path)
 */
 QStringList MainWindow::getFileNames_IncludeSubFolder(QString path)
 {
-    /*
-    QDir dir(path);
-    QStringList files = dir.entryList(QDir::Dirs | QDir::Files | QDir::Writable, QDir::Name);
-    return files;
-    */
     QDir dir(path);
     QStringList files_old;
     QStringList files_new;
@@ -227,6 +220,8 @@ QStringList MainWindow::getFileNames_IncludeSubFolder(QString path)
             break;
         }
     }
+    files_new.removeAll("..");
+    files_new.removeAll(".");
     return files_new;
 }
 /*
@@ -399,9 +394,6 @@ bool MainWindow::file_isDirEmpty(QString FolderPath)
     QDir dir(FolderPath);
     return dir.isEmpty();
 }
-
-
-//===================================================================================
 
 /*
 删除文件夹

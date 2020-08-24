@@ -38,6 +38,9 @@ Brief change log:
 - 修复bug.
 ----------------------------
 Detailed change log:
+v2.56.35:
+- 更新FFmpeg&FFprobe.
+- 当自动禁用分段处理时,在文本框输出提示信息.
 v2.56.34-beta:
 - 根据视频时长,自动判断是否需要启用分段处理.
 - 修复bug:无法处理时长过短的视频(少于1秒钟).
@@ -59,7 +62,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200818
 - ImageMagick 7.0.10-27 Q16 x64 2020-08-10
 - Anime4KCPP v2.3.0
-- FFmpeg&FFprobe 20200814-a762fd2
+- FFmpeg&FFprobe 20200824-3477feb
 - NirCmd v2.86
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
