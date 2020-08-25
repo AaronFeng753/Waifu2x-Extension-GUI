@@ -421,6 +421,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ETA=0;
         isForceRetryClicked=false;
         //============== 界面初始化 ======================
+        RemoveFile_FilesList->setEnabled(0);
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Stop->setVisible(1);//启用stop button
         ui->pushButton_Start->setVisible(0);//禁用start button

@@ -35,12 +35,14 @@ int main(int argc, char *argv[])
 Brief change log:
 - 根据视频时长,自动判断是否需要启用分段处理.
 - 更新NCNN-Vulkan系列引擎.
-- 修复bug.
+- 更新FFmpeg&FFprobe.
+- 修复多个bug.
 ----------------------------
 Detailed change log:
 v2.56.35:
 - 更新FFmpeg&FFprobe.
 - 当自动禁用分段处理时,在文本框输出提示信息.
+- 修复bug:在处理文件时依旧可以移除文件列表内文件,可能造成软件崩溃.
 v2.56.34-beta:
 - 根据视频时长,自动判断是否需要启用分段处理.
 - 修复bug:无法处理时长过短的视频(少于1秒钟).

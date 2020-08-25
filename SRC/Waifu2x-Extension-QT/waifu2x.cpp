@@ -404,6 +404,7 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
+    RemoveFile_FilesList->setEnabled(1);
     this->setAcceptDrops(1);
     ui->pushButton_Stop->setVisible(0);
     ui->pushButton_Start->setVisible(1);
