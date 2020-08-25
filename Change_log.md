@@ -4,6 +4,13 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.35](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.35)
+#### Change log:
+- According to the length of the video, automatically determine whether to enable segmentation processing.
+- Update the NCNN-Vulkan series engines.
+- Update FFmpeg&FFprobe.
+- Fix multiple bugs.
+---
 ## [v2.56.32](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.32)
 #### Change log:
 - Add more actions (shut down, sleep, hibernate, restart) that can be performed after processing all the files. (Thanks to @Michael18751 for the suggestion)
