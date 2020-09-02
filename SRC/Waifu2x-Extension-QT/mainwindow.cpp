@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->groupBox_CurrentFile->setVisible(0);//隐藏当前文件进度
     ui->pushButton_Stop->setVisible(0);
     ui->pushButton_ForceRetry->setVisible(0);
+    ui->progressBar_CompatibilityTest->setVisible(0);
     //=================== 初始隐藏所有table和按钮 ======================
     ui->tableView_image->setVisible(0);
     ui->tableView_gif->setVisible(0);
@@ -47,6 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //===========================================
+    connect(this, SIGNAL(Send_Add_progressBar_CompatibilityTest()), this, SLOT(Add_progressBar_CompatibilityTest()));
     connect(this, SIGNAL(Send_ListGPUs_Anime4k_Finished(QString)), this, SLOT(ListGPUs_Anime4k_Finished(QString)));
     connect(this, SIGNAL(Send_Unable2Connect_RawGithubusercontentCom()), this, SLOT(Unable2Connect_RawGithubusercontentCom()));
     connect(this, SIGNAL(Send_SetEnable_pushButton_ForceRetry_self()), this, SLOT(SetEnable_pushButton_ForceRetry_self()));
@@ -860,18 +862,6 @@ void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
     ui->textBrowser->moveCursor(QTextCursor::End);
 }
 
-void MainWindow::on_pushButton_compatibilityTest_clicked()
-{
-    ui->tab_Home->setEnabled(0);
-    ui->tab_EngineSettings->setEnabled(0);
-    ui->tab_VideoSettings->setEnabled(0);
-    ui->tab_AdditionalSettings->setEnabled(0);
-    ui->pushButton_compatibilityTest->setEnabled(0);
-    ui->tabWidget->setCurrentIndex(5);
-    ui->pushButton_compatibilityTest->setText(tr("Testing, please wait..."));
-    QtConcurrent::run(this, &MainWindow::Waifu2x_Compatibility_Test);
-}
-
 void MainWindow::on_pushButton_CustRes_apply_clicked()
 {
     ui->pushButton_CustRes_apply->setEnabled(0);
@@ -1163,7 +1153,7 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
 */
 void MainWindow::on_pushButton_BrowserFile_clicked()
 {
-    QString Last_browsed_path = Current_Path+"/Last_browsed_path_waifu2xEX.ini";
+    QString Last_browsed_path = Current_Path+"/LastBrowsedPath_W2xEX.ini";
     //======== 生成 扩展名过滤 字符串 =========
     QStringList nameFilters;
     nameFilters.append("*.gif");

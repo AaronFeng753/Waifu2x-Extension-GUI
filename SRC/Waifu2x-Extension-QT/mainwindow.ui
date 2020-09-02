@@ -5084,9 +5084,7 @@ padding:10px;
                <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
                 <property name="toolTip">
                  <string>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.
-
-★Anime4K engine does NOT supports alpha channel.★</string>
+automatically force the picture to be saved as PNG.</string>
                 </property>
                 <property name="text">
                  <string>Auto detect Alpha channel</string>
@@ -5823,46 +5821,6 @@ padding:10px;
         <string>Compatibility test</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_32">
-        <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_compatibilityTest">
-          <property name="toolTip">
-           <string>Run a compatibility test to see which engines your computer is compatible with.</string>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton{
-	background-color: rgb(92, 172, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(99, 184, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(79, 148,205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-          </property>
-          <property name="text">
-           <string>Compatibility test</string>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="0">
          <widget class="QGroupBox" name="groupBox_CompatibilityTestRes">
           <property name="enabled">
@@ -6208,6 +6166,62 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="pushButton_compatibilityTest">
+          <property name="toolTip">
+           <string>Run a compatibility test to see which engines your computer is compatible with.</string>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton{
+	background-color: rgb(92, 172, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(99, 184, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(79, 148,205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+          </property>
+          <property name="text">
+           <string>Compatibility test</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QProgressBar" name="progressBar_CompatibilityTest">
+          <property name="maximum">
+           <number>17</number>
+          </property>
+          <property name="value">
+           <number>0</number>
+          </property>
+          <property name="invertedAppearance">
+           <bool>false</bool>
+          </property>
+          <property name="textDirection">
+           <enum>QProgressBar::TopToBottom</enum>
+          </property>
          </widget>
         </item>
        </layout>

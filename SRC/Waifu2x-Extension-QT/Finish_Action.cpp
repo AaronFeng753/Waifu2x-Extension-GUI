@@ -105,7 +105,6 @@ int MainWindow::SystemShutDown_isAutoShutDown()
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(QFile::exists(AutoShutDown)&&QFile::exists(Table_FileList_ini))
     {
-        QFile::remove(AutoShutDown);//删除之前生成的自动关机标记
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Notification"));
         MSG->setText(tr("It was detected that the program executed an automatic shutdown of the computer when it was last run. The last File List was automatically saved before the shutdown. You can manually load the File List to view the file processing status."));
@@ -113,6 +112,7 @@ int MainWindow::SystemShutDown_isAutoShutDown()
         MSG->setModal(true);
         MSG->show();
     }
+    QFile::remove(AutoShutDown);//删除之前生成的自动关机标记
     return 0;
 }
 

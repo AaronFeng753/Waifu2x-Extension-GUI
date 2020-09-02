@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.35";//软件版本号
+    QString VERSION = "v2.56.41";//软件版本号
     bool isBetaVer = false;
-    QString LastStableVer = "v2.56.35";
-    QString LastBetaVer = "v2.56.35";
+    QString LastStableVer = "v2.56.41";
+    QString LastBetaVer = "v2.56.41";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -245,8 +245,6 @@ public:
     QMutex mutex_ThreadNumRunning;//监管总线程数量的mutex
     QMutex mutex_SubThreadNumRunning;//监管内部线程数量的mutex
 
-    int Waifu2x_Compatibility_Test();//引擎兼容性检测
-
     int Waifu2x_DetectGPU();//检测可用gpu(for vulkan)
     QStringList Available_GPUID;//可用GPU ID列表
 
@@ -268,6 +266,11 @@ public:
 
     QString Imgae_Convert2PNG(QString ImagePath);
 
+    int Waifu2x_Compatibility_Test();//引擎兼容性检测
+    //初始化 -兼容性测试进度条
+    void Init_progressBar_CompatibilityTest();
+    //兼容性测试完成后的操作 -兼容性测试进度条
+    void Finish_progressBar_CompatibilityTest();
     //兼容性检测
     bool isCompatible_Waifu2x_NCNN_Vulkan_OLD=false;
     bool isCompatible_Waifu2x_NCNN_Vulkan_NEW=false;
@@ -466,6 +469,8 @@ public:
     ~MainWindow();
 
 public slots:
+    void Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条
+
     void OpenSelectedFilesFolder_FilesList();
     void OpenSelectedFile_FilesList();
 
@@ -798,6 +803,8 @@ private slots:
     void on_checkBox_HDNMode_Anime4k_stateChanged(int arg1);
 
 signals:
+    void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条
+
     void Send_ListGPUs_Anime4k_Finished(QString OutputString);
 
     void Send_Unable2Connect_RawGithubusercontentCom();

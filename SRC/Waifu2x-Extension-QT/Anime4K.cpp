@@ -16,10 +16,8 @@
 
     My Github homepage: https://github.com/AaronFeng753
 */
-
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 /*
 处理图片
 */
