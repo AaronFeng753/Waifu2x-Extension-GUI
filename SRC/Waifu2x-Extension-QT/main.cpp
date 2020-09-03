@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 /*
 Brief change log:
 - 新特性:为兼容性测试增加进度条.
+- 更新FFmpeg&FFprobe.
 - 更正错误的描述.
 - 补全多语言翻译.
 - 修复bug.
@@ -41,6 +42,7 @@ Brief change log:
 Detailed change log:
 v2.56.41:
 - 新特性:为兼容性测试增加进度条.
+- 更新FFmpeg&FFprobe.
 - 修正错误的tooltip.
 - 修复bug:特殊情况下未删除上次的关机标记.
 - 补全多语言翻译.
@@ -59,7 +61,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200818
 - ImageMagick 7.0.10-27 Q16 x64 2020-08-10
 - Anime4KCPP v2.3.0
-- FFmpeg&FFprobe 20200824-3477feb
+- FFmpeg&FFprobe 20200831-4a11a6f
 - NirCmd v2.86
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
