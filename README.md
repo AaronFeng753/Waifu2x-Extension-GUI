@@ -19,8 +19,6 @@ Download Latest portable package for `Windows x64` PCs with `Intel/AMD/Nvidia` G
 
 Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-### [📖 Wiki](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki/English-Catalog)
-
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
 Supported Languages: English, 简体中文, 日本語(機械翻訳), 繁體中文.
