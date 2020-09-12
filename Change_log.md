@@ -4,6 +4,14 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.41)
+#### Change log:
+- New feature: Add a progress bar for compatibility test.
+- Update FFmpeg&FFprobe.
+- Fix typo.
+- Complete multilingual translation.
+- Fix bug.
+---
 ## [v2.56.35](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.35)
 #### Change log:
 - According to the length of the video, automatically determine whether to enable segmentation processing.

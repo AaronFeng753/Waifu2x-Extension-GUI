@@ -8,6 +8,14 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.56.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.41)
+#### 更新日志:
+- 新特性:为兼容性测试增加进度条.
+- 更新FFmpeg&FFprobe.
+- 更正错误的描述.
+- 补全多语言翻译.
+- 修复bug.
+---
 ## [v2.56.35](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.35)
 #### 更新日志:
 - 根据视频时长,自动判断是否需要启用分段处理.
