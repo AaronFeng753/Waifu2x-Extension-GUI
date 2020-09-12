@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.41";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.56.45-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.56.41";
-    QString LastBetaVer = "v2.56.41";
+    QString LastBetaVer = "v2.56.45-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -461,6 +461,11 @@ public:
     QAction *OpenFilesFolder = new QAction(this);
     QAction *RemoveFile_FilesList = new QAction(this);
     void OpenSelectedFile_FailedWarning_FilesList();
+    //================ 移除条目 按钮的右键菜单=======================
+    void Init_ActionsMenu_pushButton_RemoveItem();
+    QAction *RemoveALL_image = new QAction(this);
+    QAction *RemoveALL_gif = new QAction(this);
+    QAction *RemoveALL_video = new QAction(this);
     //=================== 生成bat文件来执行cmd命令 ===========
     void ExecuteCMD_batFile(QString cmd_str);
     QMutex ExecuteCMD_batFile_QMutex;
@@ -469,6 +474,10 @@ public:
     ~MainWindow();
 
 public slots:
+    void RemoveALL_image_slot();
+    void RemoveALL_gif_slot();
+    void RemoveALL_video_slot();
+
     void Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条
 
     void OpenSelectedFilesFolder_FilesList();
@@ -553,14 +562,11 @@ public slots:
     void Donate_ReplaceQRCode(QString QRCodePath);
 
 private slots:
-
     void on_pushButton_Start_clicked();
-
 
     void on_pushButton_Stop_clicked();
 
     int on_pushButton_RemoveItem_clicked();
-
 
     void on_checkBox_SaveAsJPG_stateChanged(int arg1);
 
@@ -581,12 +587,6 @@ private slots:
     void on_spinBox_textbrowser_fontsize_valueChanged(int arg1);
 
     void on_pushButton_compatibilityTest_clicked();
-
-    void on_tableView_image_clicked(const QModelIndex &index);
-
-    void on_tableView_gif_clicked(const QModelIndex &index);
-
-    void on_tableView_video_clicked(const QModelIndex &index);
 
     void on_pushButton_CustRes_apply_clicked();
 
@@ -801,6 +801,12 @@ private slots:
     void on_pushButton_ShowMultiGPUSettings_RealsrNcnnVulkan_clicked();
 
     void on_checkBox_HDNMode_Anime4k_stateChanged(int arg1);
+
+    void on_tableView_image_pressed(const QModelIndex &index);
+
+    void on_tableView_gif_pressed(const QModelIndex &index);
+
+    void on_tableView_video_pressed(const QModelIndex &index);
 
 signals:
     void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条

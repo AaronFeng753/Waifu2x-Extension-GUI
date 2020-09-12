@@ -32,21 +32,14 @@ int main(int argc, char *argv[])
 }
 
 /*
-Brief change log:
-- 新特性:为兼容性测试增加进度条.
-- 更新FFmpeg&FFprobe.
-- 更正错误的描述.
-- 补全多语言翻译.
-- 修复bug.
-----------------------------
-Detailed change log:
-v2.56.41:
-- 新特性:为兼容性测试增加进度条.
-- 更新FFmpeg&FFprobe.
-- 修正错误的tooltip.
-- 修复bug:特殊情况下未删除上次的关机标记.
-- 补全多语言翻译.
-- 整理代码结构.
+v2.56.45-beta:
+- 为[移除条目]按钮添加右键菜单.
+- 改进文件列表的易用性.
+- 性能优化.
+- 更新waifu2x-caffe,ImageMagick.
+- 改进waifu2x-caffe引擎,Anime4k引擎的兼容性.
+- 自动调整引擎设置后跳转到主页.
+- 修复bug:鼠标右键无法选中文件列表内的文件.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
@@ -54,12 +47,12 @@ To do:
 Integrated component:
 - gifsicle version 1.92(release)
 - SoX 14.4.2-win32(release)
-- waifu2x-caffe 1.2.0.3
+- waifu2x-caffe 1.2.0.4
 - Waifu2x-converter e7de04d
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-27 Q16 x64 2020-08-10
+- ImageMagick 7.0.10-29 Q16 x64
 - Anime4KCPP v2.3.0
 - FFmpeg&FFprobe 20200831-4a11a6f
 - NirCmd v2.86

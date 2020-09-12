@@ -118,6 +118,7 @@ MainWindow::MainWindow(QWidget *parent)
     Init_SystemTrayIcon();//初始化托盘图标
     Init_ActionsMenu_lineEdit_outputPath();//初始化 输出路径 lineEDIT的右键菜单
     Init_ActionsMenu_FilesList();
+    Init_ActionsMenu_pushButton_RemoveItem();
     //==============
     this->showNormal();
     this->activateWindow();
@@ -565,12 +566,7 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
     }
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
-        Table_Clear();
-        Custom_resolution_list.clear();
-        ui->label_DropFile->setVisible(1);
-        ui->pushButton_ClearList->setVisible(0);
-        ui->pushButton_RemoveItem->setVisible(0);
-        ui->label_FileCount->setVisible(0);
+        on_pushButton_ClearList_clicked();
     }
     Table_FileCount_reload();
     //============

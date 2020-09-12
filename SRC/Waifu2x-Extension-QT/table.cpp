@@ -729,77 +729,51 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     return 0;
 }
 
-void MainWindow::on_tableView_image_clicked(const QModelIndex &index)
-{
-    int curRow_image_new = ui->tableView_image->currentIndex().row();
-    if(curRow_image_new == curRow_image)
-    {
-        curRow_image = -1;
-        ui->tableView_image->clearSelection();
-    }
-    else
-    {
-        curRow_image = curRow_image_new;
-    }
-    curRow_gif = -1;
-    curRow_video = -1;
-    ui->tableView_gif->clearSelection();
-    ui->tableView_video->clearSelection();
-}
-
-void MainWindow::on_tableView_gif_clicked(const QModelIndex &index)
-{
-    curRow_image = -1;
-    int curRow_gif_new = ui->tableView_gif->currentIndex().row();
-    if(curRow_gif_new == curRow_gif)
-    {
-        curRow_gif = -1;
-        ui->tableView_gif->clearSelection();
-    }
-    else
-    {
-        curRow_gif = curRow_gif_new;
-    }
-    curRow_video = -1;
-    ui->tableView_image->clearSelection();
-    ui->tableView_video->clearSelection();
-}
-
-void MainWindow::on_tableView_video_clicked(const QModelIndex &index)
-{
-    curRow_image = -1;
-    curRow_gif = -1;
-    int curRow_video_new = ui->tableView_video->currentIndex().row();
-    if(curRow_video_new == curRow_video)
-    {
-        curRow_video = -1;
-        ui->tableView_video->clearSelection();
-    }
-    else
-    {
-        curRow_video = curRow_video_new;
-    }
-    ui->tableView_image->clearSelection();
-    ui->tableView_gif->clearSelection();
-}
-
 void MainWindow::on_tableView_image_doubleClicked(const QModelIndex &index)
 {
     if(curRow_image==-1)return;
     QModelIndex a;
-    on_tableView_image_clicked(a);
+    on_tableView_image_pressed(a);
 }
 
 void MainWindow::on_tableView_gif_doubleClicked(const QModelIndex &index)
 {
     if(curRow_gif==-1)return;
     QModelIndex a;
-    on_tableView_gif_clicked(a);
+    on_tableView_gif_pressed(a);
 }
 
 void MainWindow::on_tableView_video_doubleClicked(const QModelIndex &index)
 {
     if(curRow_video==-1)return;
     QModelIndex a;
-    on_tableView_video_clicked(a);
+    on_tableView_video_pressed(a);
+}
+
+
+void MainWindow::on_tableView_image_pressed(const QModelIndex &index)
+{
+    curRow_image = ui->tableView_image->currentIndex().row();
+    curRow_gif = -1;
+    curRow_video = -1;
+    ui->tableView_gif->clearSelection();
+    ui->tableView_video->clearSelection();
+}
+
+void MainWindow::on_tableView_gif_pressed(const QModelIndex &index)
+{
+    curRow_gif = ui->tableView_gif->currentIndex().row();
+    curRow_image = -1;
+    curRow_video = -1;
+    ui->tableView_image->clearSelection();
+    ui->tableView_video->clearSelection();
+}
+
+void MainWindow::on_tableView_video_pressed(const QModelIndex &index)
+{
+    curRow_video = ui->tableView_video->currentIndex().row();
+    curRow_image = -1;
+    curRow_gif = -1;
+    ui->tableView_image->clearSelection();
+    ui->tableView_gif->clearSelection();
 }

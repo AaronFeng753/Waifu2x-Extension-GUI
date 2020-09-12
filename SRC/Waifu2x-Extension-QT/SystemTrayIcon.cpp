@@ -21,7 +21,7 @@
 #include "ui_mainwindow.h"
 
 /*
-托盘的实现参考了来自简书的文章:
+托盘图标的实现参考了来自简书的文章:
 <<Qt5 程序系统托盘>>--小Q_wang
 https://www.jianshu.com/p/a000044f1f4a
 */
