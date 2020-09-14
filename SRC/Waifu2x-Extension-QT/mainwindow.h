@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.45-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.56.41";
-    QString LastBetaVer = "v2.56.45-beta";
+    QString VERSION = "v2.56.46";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.56.46";
+    QString LastBetaVer = "v2.56.46";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -470,6 +470,10 @@ public:
     void ExecuteCMD_batFile(QString cmd_str);
     QMutex ExecuteCMD_batFile_QMutex;
     void Del_TempBatFile();
+    //=====================================================
+    void comboBox_UpdateChannel_setCurrentIndex_self(int index);
+    QMutex comboBox_UpdateChannel_setCurrentIndex_self_QMutex;
+    bool isClicked_comboBox_UpdateChannel=true;
     //=============
     ~MainWindow();
 
@@ -807,6 +811,8 @@ private slots:
     void on_tableView_gif_pressed(const QModelIndex &index);
 
     void on_tableView_video_pressed(const QModelIndex &index);
+
+    void on_comboBox_UpdateChannel_currentIndexChanged(int index);
 
 signals:
     void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条

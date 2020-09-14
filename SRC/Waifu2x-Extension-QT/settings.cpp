@@ -221,7 +221,7 @@ int MainWindow::Settings_Read_Apply()
     QString settings_ini = Current_Path+"/settings.ini";
     if(!QFile::exists(settings_ini))
     {
-        if(isBetaVer)ui->comboBox_UpdateChannel->setCurrentIndex(1);
+        if(isBetaVer)comboBox_UpdateChannel_setCurrentIndex_self(1);
         Settings_Save();
         Settings_Read_Apply();
         return 0;
@@ -235,7 +235,7 @@ int MainWindow::Settings_Read_Apply()
         {
             isReadOldSettings=true;
             QFile::rename(settings_ini,Current_Path+"/settings_old.ini");
-            if(isBetaVer)ui->comboBox_UpdateChannel->setCurrentIndex(1);
+            if(isBetaVer)comboBox_UpdateChannel_setCurrentIndex_self(1);
             Settings_Save();
             Settings_Read_Apply();
             return 0;
@@ -350,7 +350,7 @@ int MainWindow::Settings_Read_Apply()
     ui->Ext_video->setText(Settings_Read_value("/settings/VideoEXT").toString());
     //================== 加载 杂项设置 ==================================
     ui->checkBox_BanGitee->setChecked(Settings_Read_value("/settings/checkBox_BanGitee").toBool());
-    ui->comboBox_UpdateChannel->setCurrentIndex(Settings_Read_value("/settings/comboBox_UpdateChannel").toInt());
+    comboBox_UpdateChannel_setCurrentIndex_self(Settings_Read_value("/settings/comboBox_UpdateChannel").toInt());
     ui->checkBox_MinimizeToTaskbar->setChecked(Settings_Read_value("/settings/checkBox_MinimizeToTaskbar").toBool());
     ui->checkBox_custres_isAll->setChecked(Settings_Read_value("/settings/checkBox_custres_isAll").toBool());
     ui->checkBox_SaveAsJPG->setChecked(Settings_Read_value("/settings/SaveAsJPG").toBool());

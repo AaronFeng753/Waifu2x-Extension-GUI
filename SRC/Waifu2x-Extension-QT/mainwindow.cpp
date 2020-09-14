@@ -2011,3 +2011,20 @@ void MainWindow::Del_TempBatFile()
 {
     file_DelDir(Current_Path+"/batFiles_tmp");
 }
+
+void MainWindow::comboBox_UpdateChannel_setCurrentIndex_self(int index)
+{
+    comboBox_UpdateChannel_setCurrentIndex_self_QMutex.lock();
+    isClicked_comboBox_UpdateChannel=false;
+    ui->comboBox_UpdateChannel->setCurrentIndex(index);
+    isClicked_comboBox_UpdateChannel=true;
+    comboBox_UpdateChannel_setCurrentIndex_self_QMutex.unlock();
+}
+
+void MainWindow::on_comboBox_UpdateChannel_currentIndexChanged(int index)
+{
+    if(isClicked_comboBox_UpdateChannel)
+    {
+        AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
+    }
+}
