@@ -32,16 +32,9 @@ int main(int argc, char *argv[])
 }
 
 /*
-v2.56.46:
-- 在切换更新通道后自动检查更新.
-v2.56.45-beta:
-- 为[移除条目]按钮添加右键菜单.
-- 改进文件列表的易用性.
-- 性能优化.
-- 更新waifu2x-caffe,ImageMagick.
-- 改进waifu2x-caffe引擎,Anime4k引擎的兼容性.
-- 自动调整引擎设置后跳转到主页.
-- 修复bug:鼠标右键无法选中文件列表内的文件.
+v2.56.47-beta:
+- 更新FFmpeg&FFprobe.
+- 修复bug:检查更新后没有删除更新信息文件.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
@@ -56,7 +49,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200818
 - ImageMagick 7.0.10-29 Q16 x64
 - Anime4KCPP v2.3.0
-- FFmpeg&FFprobe 20200831-4a11a6f
+- FFmpeg&FFprobe 2020-09-16-git-c79f07cc0c
 - NirCmd v2.86
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/

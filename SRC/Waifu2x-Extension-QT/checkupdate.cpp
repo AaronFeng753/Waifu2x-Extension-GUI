@@ -79,10 +79,9 @@ int MainWindow::CheckUpadte_Auto()
         if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
         {
             emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
-            //=====
-            QFile::remove(Github_UpdateInfo_local);
-            QFile::remove(Gitee_UpdateInfo_local);
         }
+        QFile::remove(Github_UpdateInfo_local);
+        QFile::remove(Gitee_UpdateInfo_local);
         return 0;
     }
     else
@@ -107,10 +106,9 @@ int MainWindow::CheckUpadte_Auto()
             if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
             {
                 emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
-                //=====
-                QFile::remove(Github_UpdateInfo_local);
-                QFile::remove(Gitee_UpdateInfo_local);
             }
+            QFile::remove(Github_UpdateInfo_local);
+            QFile::remove(Gitee_UpdateInfo_local);
             return 0;
         }
         else
