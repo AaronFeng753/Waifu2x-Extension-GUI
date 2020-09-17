@@ -8,6 +8,17 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.56.46](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.46)
+#### 更新日志:
+- 在切换更新通道后自动检查更新.
+- 为[移除条目]按钮添加右键菜单.
+- 改善文件列表的易用性.
+- 性能优化.
+- 更新waifu2x-caffe,ImageMagick.
+- 增强waifu2x-caffe引擎,Anime4k引擎的兼容性.
+- 自动调整引擎设置后跳转到主页.
+- 修复bug:鼠标右键无法选中文件列表内的文件.
+---
 ## [v2.56.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.41)
 #### 更新日志:
 - 新特性:为兼容性测试增加进度条.

@@ -4,6 +4,17 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.46](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.46)
+#### Change log:
+- Automatically check for updates after switching update channels.
+- Add a right-click menu for the [Remove Item] button.
+- Improve Files List.
+- Performance optimization.
+- Update waifu2x-caffe, ImageMagick.
+- Enhance the compatibility of waifu2x-caffe engine and Anime4k engine.
+- Jump to the homepage after automatically adjusting engine settings.
+- Fix bug: the right mouse button cannot select the file in the Files List.
+---
 ## [v2.56.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.41)
 #### Change log:
 - New feature: Add a progress bar for compatibility test.
