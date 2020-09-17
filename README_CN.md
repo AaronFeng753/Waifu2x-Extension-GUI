@@ -131,6 +131,8 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - FFmpeg: https://ffmpeg.org/
+- FFmpeg Builds - gyan.dev: https://www.gyan.dev/ffmpeg/builds/
+- FFmpeg Builds - Zeranoe: https://ffmpeg.zeranoe.com/builds/
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - ImageMagick: http://www.imagemagick.org/
 - NCNN: https://github.com/Tencent/ncnn
