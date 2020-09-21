@@ -82,7 +82,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -5522,11 +5522,14 @@ when processing video in segments.</string>
               </item>
               <item row="10" column="4">
                <widget class="QCheckBox" name="checkBox_ReplaceOriginalFile">
+                <property name="contextMenuPolicy">
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
                 <property name="toolTip">
-                 <string>After processing the file, directly replace the
-original file with the result file.
+                 <string>After processing the file, directly replace
+the original file with the result file.
 
-WARNING: The original file will be permanently DELETED.</string>
+WARNING: The original file will be DELETED.</string>
                 </property>
                 <property name="text">
                  <string>Replace original file</string>

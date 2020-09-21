@@ -47,6 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_ClearList->setVisible(0);
     ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
+    //==============
+    Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第一次初始化[替换原文件]的右键菜单(需要在载入设定前设置为checkable
     //===========================================
     connect(this, SIGNAL(Send_Add_progressBar_CompatibilityTest()), this, SLOT(Add_progressBar_CompatibilityTest()));
     connect(this, SIGNAL(Send_ListGPUs_Anime4k_Finished(QString)), this, SLOT(ListGPUs_Anime4k_Finished(QString)));
@@ -119,6 +121,7 @@ MainWindow::MainWindow(QWidget *parent)
     Init_ActionsMenu_lineEdit_outputPath();//初始化 输出路径 lineEDIT的右键菜单
     Init_ActionsMenu_FilesList();
     Init_ActionsMenu_pushButton_RemoveItem();
+    Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第二次初始化[替换原文件]的右键菜单(载入语言设置
     //==============
     this->showNormal();
     this->activateWindow();
@@ -2070,9 +2073,25 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
     QString file_ext = fileinfo_output_fullpath.suffix();//获取输出文件的后辍
     QString file_path = file_getFolderPath(fileinfo_original_fullpath);//获取源文件的文件路径
     //=================
-    QString Target_fullpath=file_path+"/"+file_name+"."+file_ext;
+    QString Target_fullpath="";
+    if(checkQAction_AddSuffix->isChecked())
+    {
+        Target_fullpath=file_path+"/"+file_name+"_W2xEX."+file_ext;
+    }
+    else
+    {
+        Target_fullpath=file_path+"/"+file_name+"."+file_ext;
+    }
     //=================
-    QFile::remove(original_fullpath);
+    if(checkQAction_MoveToRecycleBin->isChecked())
+    {
+        file_MoveToTrash(original_fullpath);
+    }
+    else
+    {
+        QFile::remove(original_fullpath);
+    }
+    //=================
     if(QFile::rename(output_fullpath,Target_fullpath)==false)
     {
         emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+output_fullpath+tr("] to [")+Target_fullpath+"]");

@@ -32,9 +32,10 @@ int main(int argc, char *argv[])
 }
 
 /*
-v2.56.51:
+v2.56.51-beta:
 - 新特性:可启用[替换原文件]以直接用处理后的文件替换原文件.(附加设置,可选,默认禁用)
 - 性能优化.
+- 更新FFmpeg&FFprobe,ImageMagick.
 v2.56.47-beta:
 - 更新FFmpeg&FFprobe.
 - 修复bug:检查更新后没有删除更新信息文件.
