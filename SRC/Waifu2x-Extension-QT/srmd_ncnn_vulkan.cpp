@@ -24,7 +24,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
 {
     //============================= 读取设置 ================================
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     //======
     if(SaveAsJPG)
@@ -336,13 +336,16 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum)
     }
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->isChecked())
+        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            file_MoveToTrash(SourceFile_fullPath);
-        }
-        else
-        {
-            QFile::remove(SourceFile_fullPath);
+            if(ui->checkBox_Move2RecycleBin->isChecked())
+            {
+                file_MoveToTrash(SourceFile_fullPath);
+            }
+            else
+            {
+                QFile::remove(SourceFile_fullPath);
+            }
         }
         status = "Finished, original file deleted";
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -383,7 +386,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
@@ -585,13 +588,16 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->isChecked())
+        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            file_MoveToTrash(SourceFile_fullPath);
-        }
-        else
-        {
-            QFile::remove(SourceFile_fullPath);
+            if(ui->checkBox_Move2RecycleBin->isChecked())
+            {
+                file_MoveToTrash(SourceFile_fullPath);
+            }
+            else
+            {
+                QFile::remove(SourceFile_fullPath);
+            }
         }
         status = "Finished, original file deleted";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -818,7 +824,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1141,13 +1147,16 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->isChecked())
+        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            file_MoveToTrash(SourceFile_fullPath);
-        }
-        else
-        {
-            QFile::remove(SourceFile_fullPath);
+            if(ui->checkBox_Move2RecycleBin->isChecked())
+            {
+                file_MoveToTrash(SourceFile_fullPath);
+            }
+            else
+            {
+                QFile::remove(SourceFile_fullPath);
+            }
         }
         status = "Finished, original file deleted";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -1183,7 +1192,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    bool DelOriginal = ui->checkBox_DelOriginal->isChecked();
+    bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
     int Sub_video_ThreadNumRunning = 0;
@@ -1669,13 +1678,16 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
-        if(ui->checkBox_Move2RecycleBin->isChecked())
+        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            file_MoveToTrash(SourceFile_fullPath);
-        }
-        else
-        {
-            QFile::remove(SourceFile_fullPath);
+            if(ui->checkBox_Move2RecycleBin->isChecked())
+            {
+                file_MoveToTrash(SourceFile_fullPath);
+            }
+            else
+            {
+                QFile::remove(SourceFile_fullPath);
+            }
         }
         status = "Finished, original file deleted";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);

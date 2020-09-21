@@ -460,6 +460,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->checkBox_PreProcessImage->setEnabled(0);
         on_lineEdit_GPUs_Anime4k_editingFinished();
         on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
+        ui->checkBox_ReplaceOriginalFile->setEnabled(0);
         //==========
         TimeCost=0;
         TimeCostTimer->start(1000);
@@ -1443,10 +1444,13 @@ void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
     if(ui->checkBox_DelOriginal->isChecked())
     {
         ui->checkBox_Move2RecycleBin->setEnabled(1);
+        ui->checkBox_ReplaceOriginalFile->setEnabled(0);
+        ui->checkBox_ReplaceOriginalFile->setChecked(0);
     }
     else
     {
         ui->checkBox_Move2RecycleBin->setEnabled(0);
+        checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     }
 }
 /*
@@ -1488,11 +1492,14 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     {
         ui->lineEdit_outputPath->setEnabled(1);
         ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(1);
+        ui->checkBox_ReplaceOriginalFile->setEnabled(0);
+        ui->checkBox_ReplaceOriginalFile->setChecked(0);
     }
     else
     {
         ui->lineEdit_outputPath->setEnabled(0);
         ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(0);
+        checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     }
 }
 
@@ -2027,4 +2034,48 @@ void MainWindow::on_comboBox_UpdateChannel_currentIndexChanged(int index)
     {
         AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     }
+}
+
+void MainWindow::on_checkBox_ReplaceOriginalFile_stateChanged(int arg1)
+{
+    if(ui->checkBox_ReplaceOriginalFile->isChecked())
+    {
+        ui->groupBox_OutPut->setEnabled(0);
+        ui->checkBox_OutPath_isEnabled->setChecked(0);
+        ui->checkBox_DelOriginal->setEnabled(0);
+    }
+    else
+    {
+        ui->groupBox_OutPut->setEnabled(1);
+        ui->checkBox_DelOriginal->setEnabled(1);
+    }
+}
+
+void MainWindow::checkBox_ReplaceOriginalFile_setEnabled_True_Self()
+{
+    if(ui->checkBox_DelOriginal->isChecked()==false && ui->checkBox_OutPath_isEnabled->isChecked()==false)
+    {
+        ui->checkBox_ReplaceOriginalFile->setEnabled(1);
+    }
+}
+
+bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fullpath)
+{
+    //检查是否启用替换源文件,以及输出文件是否存在
+    if(ui->checkBox_ReplaceOriginalFile->isChecked()==false || QFile::exists(output_fullpath)==false)return false;
+    //=================
+    QFileInfo fileinfo_original_fullpath(original_fullpath);
+    QFileInfo fileinfo_output_fullpath(output_fullpath);
+    QString file_name = file_getBaseName(fileinfo_original_fullpath.filePath());//获取源文件的文件名
+    QString file_ext = fileinfo_output_fullpath.suffix();//获取输出文件的后辍
+    QString file_path = file_getFolderPath(fileinfo_original_fullpath);//获取源文件的文件路径
+    //=================
+    QString Target_fullpath=file_path+"/"+file_name+"."+file_ext;
+    //=================
+    QFile::remove(original_fullpath);
+    if(QFile::rename(output_fullpath,Target_fullpath)==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+output_fullpath+tr("] to [")+Target_fullpath+"]");
+    }
+    return true;
 }

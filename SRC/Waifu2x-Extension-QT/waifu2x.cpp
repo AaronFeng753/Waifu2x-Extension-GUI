@@ -408,7 +408,11 @@ void MainWindow::Waifu2x_Finished_manual()
     this->setAcceptDrops(1);
     ui->pushButton_Stop->setVisible(0);
     ui->pushButton_Start->setVisible(1);
-    ui->groupBox_OutPut->setEnabled(1);
+    if(ui->checkBox_ReplaceOriginalFile->isChecked()==false)
+    {
+        ui->groupBox_OutPut->setEnabled(1);
+        ui->checkBox_DelOriginal->setEnabled(1);
+    }
     ui->pushButton_ClearList->setEnabled(1);
     ui->pushButton_RemoveItem->setEnabled(1);
     ui->groupBox_Engine->setEnabled(1);
@@ -417,7 +421,6 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->checkBox_SaveAsJPG->setEnabled(1);
     on_checkBox_SaveAsJPG_stateChanged(0);
     on_checkBox_CompressJPG_stateChanged(0);
-    ui->checkBox_DelOriginal->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_CustRes_cancel->setEnabled(1);
@@ -444,6 +447,7 @@ void MainWindow::Waifu2x_Finished_manual()
     }
     emit Send_CurrentFileProgress_Stop();
     ui->checkBox_PreProcessImage->setEnabled(1);
+    checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

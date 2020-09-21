@@ -474,6 +474,9 @@ public:
     void comboBox_UpdateChannel_setCurrentIndex_self(int index);
     QMutex comboBox_UpdateChannel_setCurrentIndex_self_QMutex;
     bool isClicked_comboBox_UpdateChannel=true;
+    //===================== 直接替换源文件 =====================
+    void checkBox_ReplaceOriginalFile_setEnabled_True_Self();
+    bool ReplaceOriginalFile(QString original_fullpath,QString output_fullpath);
     //=============
     ~MainWindow();
 
@@ -813,6 +816,8 @@ private slots:
     void on_tableView_video_pressed(const QModelIndex &index);
 
     void on_comboBox_UpdateChannel_currentIndexChanged(int index);
+
+    void on_checkBox_ReplaceOriginalFile_stateChanged(int arg1);
 
 signals:
     void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条
