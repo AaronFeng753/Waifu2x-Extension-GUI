@@ -51,9 +51,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-29 Q16 x64
+- ImageMagick 7.0.10-30
 - Anime4KCPP v2.3.0
-- FFmpeg&FFprobe 2020-09-16-git-c79f07cc0c
+- FFmpeg&FFprobe 2020-09-20-git-ef29e5bf42
 - NirCmd v2.86
 ---
 Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
