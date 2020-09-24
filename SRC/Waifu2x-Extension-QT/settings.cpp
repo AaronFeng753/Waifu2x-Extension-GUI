@@ -225,6 +225,7 @@ int MainWindow::Settings_Read_Apply()
     QString settings_ini = Current_Path+"/settings.ini";
     if(!QFile::exists(settings_ini))
     {
+        checkQAction_MoveToRecycleBin->setChecked(1);
         if(isBetaVer)comboBox_UpdateChannel_setCurrentIndex_self(1);
         Settings_Save();
         Settings_Read_Apply();
