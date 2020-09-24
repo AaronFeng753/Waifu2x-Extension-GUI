@@ -4,6 +4,13 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.52](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.52)
+#### Change log:
+- New feature: Now you can enable [Replace original file] to directly replace the original file with the processed file. (Additional settings, optional, disabled by default)
+- Performance optimization.
+- Update FFmpeg&FFprobe, ImageMagick.
+- Fix bugs.
+---
 ## [v2.56.46](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.46)
 #### Change log:
 - Automatically check for updates after switching update channels.
