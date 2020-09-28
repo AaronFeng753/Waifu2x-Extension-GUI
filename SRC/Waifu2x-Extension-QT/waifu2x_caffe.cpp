@@ -285,9 +285,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        QFileInfo fileinfo_final(OutPutPath_Final);
-        QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
+        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -528,9 +526,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        QFileInfo fileinfo_final(OutPutPath_Final);
-        QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
+        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -980,9 +976,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        QFileInfo fileinfo_final(OutPutPath_Final);
-        QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
+        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -1511,9 +1505,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        QFileInfo fileinfo_final(OutPutPath_Final);
-        QString Final_fileName = fileinfo_final.fileName();
-        file_MoveFile(OutPutPath_Final,OutPutFolder_main+"/"+Final_fileName,SourceFile_fullPath);
+        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();

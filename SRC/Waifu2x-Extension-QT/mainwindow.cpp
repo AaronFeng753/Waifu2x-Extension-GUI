@@ -1495,6 +1495,8 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     {
         ui->lineEdit_outputPath->setEnabled(1);
         ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(1);
+        ui->checkBox_KeepParentFolder->setEnabled(1);
+        ui->checkBox_OutPath_Overwrite->setEnabled(1);
         ui->checkBox_ReplaceOriginalFile->setEnabled(0);
         ui->checkBox_ReplaceOriginalFile->setChecked(0);
     }
@@ -1502,6 +1504,8 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
     {
         ui->lineEdit_outputPath->setEnabled(0);
         ui->checkBox_OutPath_KeepOriginalFileName->setEnabled(0);
+        ui->checkBox_KeepParentFolder->setEnabled(0);
+        ui->checkBox_OutPath_Overwrite->setEnabled(0);
         checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     }
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1190</width>
-    <height>748</height>
+    <height>771</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1619,7 +1619,7 @@ padding:10px;
               <string>Output path(Folder):</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_23">
-              <item row="0" column="0" colspan="4">
+              <item row="0" column="0" colspan="3">
                <widget class="QLineEdit" name="lineEdit_outputPath">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
@@ -1635,41 +1635,70 @@ padding:10px;
                 </property>
                </widget>
               </item>
-              <item row="3" column="0">
-               <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
-                <property name="text">
-                 <string>Keep original file name</string>
+              <item row="1" column="0" rowspan="3" colspan="3">
+               <widget class="QScrollArea" name="scrollArea_outputPathSettings">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(255, 255, 255);</string>
                 </property>
-               </widget>
-              </item>
-              <item row="1" column="0" colspan="2">
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
-                  <property name="toolTip">
-                   <string>When this option is enabled, the output file 
+                <property name="widgetResizable">
+                 <bool>true</bool>
+                </property>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>237</width>
+                   <height>95</height>
+                  </rect>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_37">
+                  <item row="0" column="0">
+                   <layout class="QHBoxLayout" name="horizontalLayout_5">
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
+                      <property name="toolTip">
+                       <string>When this option is enabled, the output file 
 will be moved to the path you specified. 
 Otherwise, it will be saved in the same 
 folder as the source file.</string>
-                  </property>
-                  <property name="text">
-                   <string>Enabled</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
-                  <property name="toolTip">
-                   <string>When this option is enabled, the output file will
+                      </property>
+                      <property name="text">
+                       <string>Enabled</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
+                      <property name="toolTip">
+                       <string>When this option is enabled, the output file will
 replace the file with the same name as the output
 file that exists in the output path.</string>
-                  </property>
-                  <property name="text">
-                   <string>Overwrite</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+                      </property>
+                      <property name="text">
+                       <string>Overwrite</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
+                    <property name="text">
+                     <string>Keep original file name</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QCheckBox" name="checkBox_KeepParentFolder">
+                    <property name="text">
+                     <string>Keep parent folder</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </widget>
               </item>
              </layout>
             </widget>

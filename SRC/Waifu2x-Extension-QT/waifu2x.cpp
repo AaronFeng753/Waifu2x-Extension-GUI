@@ -489,7 +489,6 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
         return false;
     }
 }
-
 /*
 判断图片格式并转换
 */
@@ -521,4 +520,73 @@ QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
     }
     //======
     return OutPut_Path;
+}
+/*
+移动文件到输出路径
+*/
+void MainWindow::MoveFileToOutputPath(QString Orginal,QString SourceFilePath)
+{
+    MoveFile_QMutex.lock();
+    if(QFile::exists(Orginal)==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] does not exists."));
+        MoveFile_QMutex.unlock();
+        return;
+    }
+    QString Target_fullpPath="";
+    QString Target_fileName="";
+    QString Target_folder="";
+    //确定文件名
+    if(ui->checkBox_OutPath_KeepOriginalFileName->isChecked())
+    {
+        QFileInfo fileinfo_source(SourceFilePath);
+        QString file_name = file_getBaseName(fileinfo_source.filePath());
+        QFileInfo fileinfo_Orginal(Orginal);
+        QString file_ext = fileinfo_Orginal.suffix();
+        Target_fileName=file_name+"."+file_ext;
+    }
+    else
+    {
+        QFileInfo fileinfo_Orginal(Orginal);
+        Target_fileName = fileinfo_Orginal.fileName();
+    }
+    //确定输出文件夹
+    if(ui->checkBox_KeepParentFolder->isChecked())
+    {
+        QFileInfo fileinfo_SourceFilePath(SourceFilePath);
+        QString folder_path_SourceFilePath = file_getFolderPath(fileinfo_SourceFilePath);
+        QStringList folder_path_SourceFilePath_QStringList = folder_path_SourceFilePath.split("/");
+        QString ParentFolderName = folder_path_SourceFilePath_QStringList.last();
+        Target_folder = OutPutFolder_main+"/"+ParentFolderName;
+        file_mkDir(Target_folder);
+    }
+    else
+    {
+        Target_folder=OutPutFolder_main;
+    }
+    //组装生成完整路径
+    Target_fullpPath = Target_folder+"/"+Target_fileName;
+    //判断输出路径是否有和目标文件重名的 以及 是否启用了直接覆盖
+    if(QFile::exists(Target_fullpPath)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
+    {
+        while(true)
+        {
+            int random = QRandomGenerator::global()->bounded(1,10000);
+            QFileInfo fileinfo_tmp(Target_fullpPath);
+            QString file_name = file_getBaseName(fileinfo_tmp.filePath());
+            QString file_ext = fileinfo_tmp.suffix();
+            QString file_path = file_getFolderPath(fileinfo_tmp);
+            Target_fullpPath = file_path+"/"+file_name+"_"+QString::number(random,10)+"."+file_ext;
+            if(!QFile::exists(Target_fullpPath))break;
+        }
+    }
+    if(ui->checkBox_OutPath_Overwrite->isChecked()==true)
+    {
+        QFile::remove(Target_fullpPath);
+    }
+    if(QFile::rename(Orginal,Target_fullpPath)==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+Orginal+tr("] to [")+Target_fullpPath+"]");
+    }
+    MoveFile_QMutex.unlock();
 }

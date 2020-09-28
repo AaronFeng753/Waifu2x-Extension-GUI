@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.52";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.56.61-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.56.52";
-    QString LastBetaVer = "v2.56.52";
+    QString LastBetaVer = "v2.56.61-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -115,7 +115,7 @@ public:
 
     void file_MoveToTrash( QString file );//移动到回收站
 
-    void file_MoveFile(QString Orginal,QString Target,QString SourceFilePath);//移动文件
+    void MoveFileToOutputPath(QString Orginal,QString SourceFilePath);//移动文件
     QMutex MoveFile_QMutex;
 
     QString file_getFolderPath(QFileInfo fileInfo);//获取文件夹路径(去除末尾的"/")

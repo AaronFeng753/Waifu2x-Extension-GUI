@@ -468,53 +468,7 @@ void MainWindow::file_MoveToTrash( QString file )
         return;
     }
 }
-/*
-移动文件
-*/
-void MainWindow::file_MoveFile(QString Orginal,QString Target,QString SourceFilePath)
-{
-    MoveFile_QMutex.lock();
-    if(QFile::exists(Orginal))
-    {
-        //判断是否要保留文件名,若要保留,则替换掉原目标路径
-        if(ui->checkBox_OutPath_KeepOriginalFileName->isChecked())
-        {
-            QFileInfo fileinfo_source(SourceFilePath);
-            QString file_name = file_getBaseName(fileinfo_source.filePath());
-            QFileInfo fileinfo_Target(Target);
-            QString file_ext = fileinfo_Target.suffix();
-            QString file_path = file_getFolderPath(fileinfo_Target);
-            Target = file_path+"/"+file_name+"."+file_ext;
-        }
-        //判断输出路径是否有和目标文件重名的 以及 是否启用了直接覆盖
-        if(QFile::exists(Target)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
-        {
-            while(true)
-            {
-                int random = QRandomGenerator::global()->bounded(1,10000);
-                QFileInfo fileinfo_tmp(Target);
-                QString file_name = file_getBaseName(fileinfo_tmp.filePath());
-                QString file_ext = fileinfo_tmp.suffix();
-                QString file_path = file_getFolderPath(fileinfo_tmp);
-                Target = file_path+"/"+file_name+"_"+QString::number(random,10)+"."+file_ext;
-                if(!QFile::exists(Target))break;
-            }
-        }
-        if(ui->checkBox_OutPath_Overwrite->isChecked()==true)
-        {
-            QFile::remove(Target);
-        }
-        if(QFile::rename(Orginal,Target)==false)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+Orginal+tr("] to [")+Target+"]");
-        }
-    }
-    else
-    {
-        emit Send_TextBrowser_NewMessage(tr("Error! Original file [")+Orginal+tr("] does not exists."));
-    }
-    MoveFile_QMutex.unlock();
-}
+
 /*
 获取文件夹路径(去除末尾的"/")
 */
