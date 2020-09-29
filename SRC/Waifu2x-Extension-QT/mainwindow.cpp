@@ -958,11 +958,13 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         if(ui->checkBox_AlwaysHideTextBrowser->isChecked())
         {
             ui->textBrowser->setVisible(0);
+            ui->groupBox_textBrowserSettings->setVisible(0);
             ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
         }
         else
         {
             ui->textBrowser->setVisible(1);
+            ui->groupBox_textBrowserSettings->setVisible(1);
             ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
         }
         //=========
@@ -1085,7 +1087,7 @@ void MainWindow::on_pushButton_about_clicked()
     QString line5 = "GNU Affero General Public License v3.0\n\n";
     QString line6 = "Copyright (C) 2020 Aaron Feng. All rights reserved.\n\n";
     QString line7 = "The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.\n\n";
-    QString line8 = "Icons made by : Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/";
+    QString line8 = "Icons made by : Freepik & Roundicons From Flaticon(https://www.flaticon.com/)";
     MSG->setText(line1+line2+line3+line4+line5+line6+line7+line8);
     QImage img(":/new/prefix1/icon/icon_main.png");
     QImage img_scaled = img.scaled(50,50,Qt::KeepAspectRatio,Qt::SmoothTransformation);
@@ -1133,18 +1135,13 @@ void MainWindow::on_pushButton_Save_GlobalFontSize_clicked()
     QString settings_ini = Current_Path+"/settings.ini";
     QSettings *configIniWrite = new QSettings(settings_ini, QSettings::IniFormat);
     configIniWrite->setValue("/settings/GlobalFontSize", ui->spinBox_GlobalFontSize->value());
-    //==========
-    if(ui->checkBox_isCustFontEnable->isChecked())
-    {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Notification"));
-        MSG->setText(tr("Custom Font Settings saved successfully.\n\nRestart the software to take effect."));
-        MSG->setIcon(QMessageBox::Information);
-        MSG->setModal(true);
-        MSG->show();
-    }
-    //==========
-    return;
+    //=========
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("Notification"));
+    MSG->setText(tr("Custom Font Settings saved successfully.\n\nRestart the software to take effect."));
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
 }
 /*
 ==================================================================================================
@@ -1255,11 +1252,13 @@ void MainWindow::on_pushButton_HideTextBro_clicked()
     if(ui->textBrowser->isVisible())
     {
         ui->textBrowser->setVisible(0);
+        ui->groupBox_textBrowserSettings->setVisible(0);
         ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
     }
     else
     {
         ui->textBrowser->setVisible(1);
+        ui->groupBox_textBrowserSettings->setVisible(1);
         ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
     }
 }
@@ -1269,6 +1268,7 @@ void MainWindow::on_checkBox_AlwaysHideTextBrowser_stateChanged(int arg1)
     if(ui->checkBox_AlwaysHideTextBrowser->isChecked())
     {
         ui->textBrowser->setVisible(0);
+        ui->groupBox_textBrowserSettings->setVisible(0);
         ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
     }
 }
@@ -2101,4 +2101,20 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
         emit Send_TextBrowser_NewMessage(tr("Error! Failed to move [")+output_fullpath+tr("] to [")+Target_fullpath+"]");
     }
     return true;
+}
+
+void MainWindow::on_checkBox_isCustFontEnable_stateChanged(int arg1)
+{
+    if(ui->checkBox_isCustFontEnable->isChecked())
+    {
+        ui->pushButton_Save_GlobalFontSize->setEnabled(1);
+        ui->spinBox_GlobalFontSize->setEnabled(1);
+        ui->fontComboBox_CustFont->setEnabled(1);
+    }
+    else
+    {
+        ui->pushButton_Save_GlobalFontSize->setEnabled(0);
+        ui->spinBox_GlobalFontSize->setEnabled(0);
+        ui->fontComboBox_CustFont->setEnabled(0);
+    }
 }

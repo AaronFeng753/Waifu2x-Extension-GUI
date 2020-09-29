@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.61-beta";//软件版本号
+    QString VERSION = "v2.56.68-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.56.52";
-    QString LastBetaVer = "v2.56.61-beta";
+    QString LastBetaVer = "v2.56.68-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -460,6 +460,9 @@ public:
     QAction *OpenFile = new QAction(this);
     QAction *OpenFilesFolder = new QAction(this);
     QAction *RemoveFile_FilesList = new QAction(this);
+    bool EnableApply2All_CustRes=true;
+    QAction *Apply_CustRes = new QAction(this);
+    QAction *Cancel_CustRes = new QAction(this);
     void OpenSelectedFile_FailedWarning_FilesList();
     //================ 移除条目 按钮的右键菜单=======================
     void Init_ActionsMenu_pushButton_RemoveItem();
@@ -484,6 +487,9 @@ public:
     ~MainWindow();
 
 public slots:
+    void Apply_CustRes_FilesList();
+    void Cancel_CustRes_FilesList();
+
     void RemoveALL_image_slot();
     void RemoveALL_gif_slot();
     void RemoveALL_video_slot();
@@ -821,6 +827,8 @@ private slots:
     void on_comboBox_UpdateChannel_currentIndexChanged(int index);
 
     void on_checkBox_ReplaceOriginalFile_stateChanged(int arg1);
+
+    void on_checkBox_isCustFontEnable_stateChanged(int arg1);
 
 signals:
     void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条

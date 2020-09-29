@@ -6,6 +6,9 @@
         <file>icon/EngineSettings.png</file>
         <file>icon/VideoSettings.png</file>
         <file>icon/CompatibilityTest.png</file>
-        <file>icon/donateTabIcon.png</file>
+        <file>icon/pause-button.png</file>
+        <file>icon/refresh.png</file>
+        <file>icon/donateTabIcon_1.png</file>
+        <file>icon/paypal.png</file>
     </qresource>
 </RCC>

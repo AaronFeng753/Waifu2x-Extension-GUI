@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1190</width>
-    <height>771</height>
+    <height>774</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -64,7 +64,89 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
+    <item row="1" column="1">
+     <widget class="QGroupBox" name="groupBox_textBrowserSettings">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_40">
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <item>
+          <widget class="QLabel" name="label_TextBroFontSize">
+           <property name="toolTip">
+            <string>Change the font size of the text browser.</string>
+           </property>
+           <property name="text">
+            <string>Font size:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
+           <property name="toolTip">
+            <string>Change the font size of the text browser.</string>
+           </property>
+           <property name="minimum">
+            <number>1</number>
+           </property>
+           <property name="value">
+            <number>9</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="pushButton_clear_textbrowser">
+         <property name="toolTip">
+          <string>Clear text browser.</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	background-color: rgb(0, 140, 158);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+	background-color: rgb(0, 190, 211);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+	background-color: rgb(0, 108, 120);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+         </property>
+         <property name="text">
+          <string>Clear</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>15</width>
+           <height>15</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
      <widget class="QTabWidget" name="tabWidget">
       <property name="minimumSize">
        <size>
@@ -108,13 +190,38 @@ height:35
       <widget class="QWidget" name="tab_Donate">
        <attribute name="icon">
         <iconset resource="icon.qrc">
-         <normaloff>:/new/prefix1/icon/donateTabIcon.png</normaloff>:/new/prefix1/icon/donateTabIcon.png</iconset>
+         <normaloff>:/new/prefix1/icon/donateTabIcon_1.png</normaloff>:/new/prefix1/icon/donateTabIcon_1.png</iconset>
        </attribute>
        <attribute name="title">
         <string>Donate</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_22">
-        <item row="1" column="0">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_DonateText">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>22</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+            <underline>false</underline>
+            <strikeout>false</strikeout>
+           </font>
+          </property>
+          <property name="text">
+           <string>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
          <widget class="QLabel" name="label_DonateQRCode">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -159,7 +266,7 @@ height:35
           </property>
          </widget>
         </item>
-        <item row="2" column="0">
+        <item row="3" column="0">
          <widget class="QPushButton" name="pushButton_PayPal">
           <property name="minimumSize">
            <size>
@@ -211,32 +318,17 @@ padding:10px;
 }</string>
           </property>
           <property name="text">
-           <string>PayPal</string>
+           <string notr="true">PayPal</string>
           </property>
-         </widget>
-        </item>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label_DonateText">
-          <property name="maximumSize">
+          <property name="icon">
+           <iconset resource="icon.qrc">
+            <normaloff>:/new/prefix1/icon/paypal.png</normaloff>:/new/prefix1/icon/paypal.png</iconset>
+          </property>
+          <property name="iconSize">
            <size>
-            <width>16777215</width>
-            <height>22</height>
+            <width>38</width>
+            <height>38</height>
            </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-            <underline>false</underline>
-            <strikeout>false</strikeout>
-           </font>
-          </property>
-          <property name="text">
-           <string>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -280,109 +372,6 @@ padding:10px;
            <string/>
           </property>
           <layout class="QGridLayout" name="gridLayout_11">
-           <item row="0" column="1">
-            <widget class="QProgressBar" name="progressBar">
-             <property name="value">
-              <number>0</number>
-             </property>
-             <property name="format">
-              <string notr="true">%p%</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="9">
-            <widget class="QLabel" name="label_TextBroFontSize">
-             <property name="toolTip">
-              <string>Change the font size of the text browser.</string>
-             </property>
-             <property name="text">
-              <string>Font size:</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="3">
-            <widget class="QLabel" name="label_TimeRemain">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="text">
-              <string>Time remaining:NULL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
-            <widget class="QLabel" name="label_ETA">
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="text">
-              <string>ETA:NULL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="6">
-            <widget class="QPushButton" name="pushButton_Stop">
-             <property name="maximumSize">
-              <size>
-               <width>70</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-	background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Pause</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="5">
             <widget class="QPushButton" name="pushButton_Start">
              <property name="minimumSize">
@@ -393,12 +382,12 @@ padding:10px;
              </property>
              <property name="maximumSize">
               <size>
-               <width>70</width>
+               <width>16777215</width>
                <height>16777215</height>
               </size>
              </property>
              <property name="toolTip">
-              <string>The result images will stay in the same folder of source images.</string>
+              <string/>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
@@ -433,45 +422,70 @@ padding:10px;
              <property name="text">
               <string>Start</string>
              </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/new/prefix1/icon/icon_main.png</normaloff>:/new/prefix1/icon/icon_main.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
             </widget>
            </item>
-           <item row="0" column="11">
-            <widget class="QPushButton" name="pushButton_clear_textbrowser">
-             <property name="toolTip">
-              <string>Clear text browser.</string>
+           <item row="0" column="1">
+            <widget class="QProgressBar" name="progressBar">
+             <property name="value">
+              <number>0</number>
              </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{
-	background-color: rgb(0, 140, 158);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-	background-color: rgb(0, 190, 211);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-	background-color: rgb(0, 108, 120);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
+             <property name="format">
+              <string notr="true">%p%</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QLabel" name="label_ETA">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
              </property>
              <property name="text">
-              <string>Clear</string>
+              <string>ETA:NULL</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_progressBar_filenum">
+             <property name="toolTip">
+              <string>Finished/Total</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Plain</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="text">
+              <string notr="true">0/0</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QLabel" name="label_TimeCost">
+             <property name="frameShape">
+              <enum>QFrame::Box</enum>
+             </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
+             <property name="text">
+              <string>Time cost:NULL</string>
              </property>
             </widget>
            </item>
@@ -524,10 +538,87 @@ padding:10px;
              <property name="text">
               <string>Force retry</string>
              </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/new/prefix1/icon/refresh.png</normaloff>:/new/prefix1/icon/refresh.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
             </widget>
            </item>
-           <item row="0" column="2">
-            <widget class="QLabel" name="label_TimeCost">
+           <item row="0" column="6">
+            <widget class="QPushButton" name="pushButton_Stop">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+	background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+             </property>
+             <property name="text">
+              <string>Pause</string>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/new/prefix1/icon/pause-button.png</normaloff>:/new/prefix1/icon/pause-button.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QLabel" name="label_TimeRemain">
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -535,39 +626,7 @@ padding:10px;
               <number>1</number>
              </property>
              <property name="text">
-              <string>Time cost:NULL</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="10">
-            <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
-             <property name="toolTip">
-              <string>Change the font size of the text browser.</string>
-             </property>
-             <property name="minimum">
-              <number>1</number>
-             </property>
-             <property name="value">
-              <number>9</number>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label_progressBar_filenum">
-             <property name="toolTip">
-              <string>Finished/Total</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Plain</enum>
-             </property>
-             <property name="lineWidth">
-              <number>1</number>
-             </property>
-             <property name="text">
-              <string notr="true">0/0</string>
+              <string>Time remaining:NULL</string>
              </property>
             </widget>
            </item>
@@ -1618,9 +1677,15 @@ padding:10px;
              <property name="title">
               <string>Output path(Folder):</string>
              </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
              <layout class="QGridLayout" name="gridLayout_23">
               <item row="0" column="0" colspan="3">
                <widget class="QLineEdit" name="lineEdit_outputPath">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -1670,6 +1735,9 @@ folder as the source file.</string>
                     </item>
                     <item>
                      <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
+                      <property name="enabled">
+                       <bool>false</bool>
+                      </property>
                       <property name="toolTip">
                        <string>When this option is enabled, the output file will
 replace the file with the same name as the output
@@ -1684,6 +1752,9 @@ file that exists in the output path.</string>
                   </item>
                   <item row="1" column="0">
                    <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Keep original file name</string>
                     </property>
@@ -1691,6 +1762,9 @@ file that exists in the output path.</string>
                   </item>
                   <item row="2" column="0">
                    <widget class="QCheckBox" name="checkBox_KeepParentFolder">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
                     <property name="text">
                      <string>Keep parent folder</string>
                     </property>
@@ -4991,6 +5065,9 @@ increase the time and storage space required to process image.</string>
               </item>
               <item row="2" column="0" colspan="2">
                <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -5034,6 +5111,9 @@ padding:10px;
               </item>
               <item row="1" column="1" colspan="3">
                <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="currentText">
                  <string notr="true">宋体</string>
                 </property>
@@ -5046,6 +5126,9 @@ padding:10px;
               </item>
               <item row="0" column="1" colspan="3">
                <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
@@ -6267,7 +6350,7 @@ padding:10px;
 }</string>
           </property>
           <property name="text">
-           <string>Compatibility test</string>
+           <string>Start compatibility test</string>
           </property>
          </widget>
         </item>

@@ -569,16 +569,19 @@ void MainWindow::MoveFileToOutputPath(QString Orginal,QString SourceFilePath)
     //判断输出路径是否有和目标文件重名的 以及 是否启用了直接覆盖
     if(QFile::exists(Target_fullpPath)&&(ui->checkBox_OutPath_Overwrite->isChecked()==false))
     {
+        int suffix_int = 1;
+        QString Target_fullpPath_tmp = "";
         while(true)
         {
-            int random = QRandomGenerator::global()->bounded(1,10000);
             QFileInfo fileinfo_tmp(Target_fullpPath);
             QString file_name = file_getBaseName(fileinfo_tmp.filePath());
             QString file_ext = fileinfo_tmp.suffix();
             QString file_path = file_getFolderPath(fileinfo_tmp);
-            Target_fullpPath = file_path+"/"+file_name+"_"+QString::number(random,10)+"."+file_ext;
-            if(!QFile::exists(Target_fullpPath))break;
+            Target_fullpPath_tmp = file_path+"/"+file_name+"_"+QString::number(suffix_int,10)+"."+file_ext;
+            if(!QFile::exists(Target_fullpPath_tmp))break;
+            suffix_int++;
         }
+        Target_fullpPath = Target_fullpPath_tmp;
     }
     if(ui->checkBox_OutPath_Overwrite->isChecked()==true)
     {

@@ -155,8 +155,31 @@ void MainWindow::Init_ActionsMenu_FilesList()
     ui->tableView_image->addAction(RemoveFile_FilesList);
     ui->tableView_gif->addAction(RemoveFile_FilesList);
     ui->tableView_video->addAction(RemoveFile_FilesList);
+    //===
+    Apply_CustRes->setText(tr("Apply(Custom resolution)"));
+    connect(Apply_CustRes, SIGNAL(triggered()), this, SLOT(Apply_CustRes_FilesList()));
+    ui->tableView_image->addAction(Apply_CustRes);
+    ui->tableView_gif->addAction(Apply_CustRes);
+    ui->tableView_video->addAction(Apply_CustRes);
+    //===
+    Cancel_CustRes->setText(tr("Cancel(Custom resolution)"));
+    connect(Cancel_CustRes, SIGNAL(triggered()), this, SLOT(Cancel_CustRes_FilesList()));
+    ui->tableView_image->addAction(Cancel_CustRes);
+    ui->tableView_gif->addAction(Cancel_CustRes);
+    ui->tableView_video->addAction(Cancel_CustRes);
 }
-
+void MainWindow::Apply_CustRes_FilesList()
+{
+    EnableApply2All_CustRes=false;
+    on_pushButton_CustRes_apply_clicked();
+    EnableApply2All_CustRes=true;
+}
+void MainWindow::Cancel_CustRes_FilesList()
+{
+    EnableApply2All_CustRes=false;
+    on_pushButton_CustRes_cancel_clicked();
+    EnableApply2All_CustRes=true;
+}
 void MainWindow::OpenSelectedFile_FilesList()
 {
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
