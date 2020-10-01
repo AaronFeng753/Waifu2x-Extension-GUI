@@ -34,7 +34,7 @@
 
 前往Releases页面下载测试版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
 
-[点击访问Gitee(码云,中国大陆)的releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
+[➡点击访问Gitee(码云,中国大陆)的Releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
 # Waifu2x-Extension-GUI是什么?
 
