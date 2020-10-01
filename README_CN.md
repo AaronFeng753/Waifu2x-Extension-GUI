@@ -7,7 +7,7 @@
 <h3 align="center"> 使用机器学习放大 图片/视频/GIF </h3>
 
 <p align="center">
-<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20stable%20release&style=flat-square&color=brightgreen">
+<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=最新稳定版本&style=flat-square&color=brightgreen">
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
