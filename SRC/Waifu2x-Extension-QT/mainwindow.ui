@@ -66,8 +66,14 @@
     </item>
     <item row="1" column="1">
      <widget class="QGroupBox" name="groupBox_textBrowserSettings">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="title">
-       <string/>
+       <string notr="true"/>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
       </property>
       <layout class="QGridLayout" name="gridLayout_40">
        <item row="0" column="0">

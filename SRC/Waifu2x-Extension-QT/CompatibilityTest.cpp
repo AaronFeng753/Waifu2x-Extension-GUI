@@ -502,7 +502,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->tab_VideoSettings->setEnabled(1);
     ui->tab_AdditionalSettings->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
-    ui->pushButton_compatibilityTest->setText(tr("Compatibility test"));
+    ui->pushButton_compatibilityTest->setText(tr("Start compatibility test"));
     ui->tabWidget->setCurrentIndex(5);
     QtConcurrent::run(this, &MainWindow::Play_NFSound);//兼容性测试完成,播放提示音
     /*
