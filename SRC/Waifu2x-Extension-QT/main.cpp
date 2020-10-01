@@ -32,6 +32,10 @@ int main(int argc, char *argv[])
 }
 
 /*
+更新日志:
+v2.56.69-beta:
+- 更新Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
+- 适配新版Anime4KCPP.
 v2.56.68-beta:
 - 新特性:文件列表右键菜单支持应用与取消自定义分辨率设定.
 - 删除会误导用户的提示.
@@ -57,9 +61,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-30
-- Anime4KCPP v2.3.0
-- FFmpeg&FFprobe 2020-09-20-git-ef29e5bf42
+- ImageMagick 7.0.10-31
+- Anime4KCPP v2.4.0
+- FFmpeg&FFprobe 2020-09-30-git-9d8f9b2e40
 - NirCmd v2.86
 ---
 Icons made by :

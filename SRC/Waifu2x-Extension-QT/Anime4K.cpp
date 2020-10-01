@@ -1786,7 +1786,7 @@ void MainWindow::ListGPUs_Anime4k()
     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
     while(!Waifu2x->waitForFinished(500)&&!QProcess_stop) {}
     //===
-    QString OutputString = Waifu2x->readAllStandardOutput().trimmed();
+    QString OutputString = Waifu2x->readAllStandardError().trimmed();
     //===
     emit Send_ListGPUs_Anime4k_Finished(OutputString);
 }
