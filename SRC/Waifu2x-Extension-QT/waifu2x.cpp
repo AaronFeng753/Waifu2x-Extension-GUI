@@ -557,6 +557,11 @@ void MainWindow::MoveFileToOutputPath(QString Orginal,QString SourceFilePath)
         QString folder_path_SourceFilePath = file_getFolderPath(fileinfo_SourceFilePath);
         QStringList folder_path_SourceFilePath_QStringList = folder_path_SourceFilePath.split("/");
         QString ParentFolderName = folder_path_SourceFilePath_QStringList.last();
+        //判断上级文件夹是不是磁盘根目录,若是则将文件夹名改为[盘符 Drive]
+        if(ParentFolderName.contains(":"))
+        {
+            ParentFolderName=ParentFolderName.replace(":"," Drive");
+        }
         Target_folder = OutPutFolder_main+"/"+ParentFolderName;
         file_mkDir(Target_folder);
     }

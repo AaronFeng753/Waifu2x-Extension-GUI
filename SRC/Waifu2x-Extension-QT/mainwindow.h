@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.69-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.56.52";
-    QString LastBetaVer = "v2.56.69-beta";
+    QString VERSION = "v2.56.71";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.56.71";
+    QString LastBetaVer = "v2.56.71";
     //=======================
     QTranslator * translator;//界面翻译
     //=======

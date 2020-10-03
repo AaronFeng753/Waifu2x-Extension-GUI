@@ -33,9 +33,11 @@ int main(int argc, char *argv[])
 
 /*
 更新日志:
-v2.56.69-beta:
+v2.56.71:
+- 通过测试后更新版本号.
 - 更新Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
 - 适配新版Anime4KCPP.
+- 修复bug:当文件在磁盘根目录时,启用[保留上级文件夹]将导致错误.
 v2.56.68-beta:
 - 新特性:文件列表右键菜单支持应用与取消自定义分辨率设定.
 - 删除会误导用户的提示.
