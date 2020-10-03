@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.71](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.71)
+#### Change log:
+- New feature: The right-click menu of the file list now supports applying and canceling custom resolution setting of individual file.
+- New feature: Now you can choose to keep the parent folder when outputting files to the output path.
+- Performance optimization.
+- Improve user interface.
+- Update and adapt Anime4KCPP, FFmpeg&FFprobe, ImageMagick.
+- Fix multiple bugs.
+---
 ## [v2.56.52](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.52)
 #### Change log:
 - New feature: Now you can enable [Replace original file] to directly replace the original file with the processed file. (Additional settings, optional, disabled by default)
