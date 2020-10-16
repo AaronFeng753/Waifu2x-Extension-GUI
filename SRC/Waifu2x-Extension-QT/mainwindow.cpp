@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
     //==============
     Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第一次初始化[替换原文件]的右键菜单(需要在载入设定前设置为checkable
     //===========================================
+    connect(this, SIGNAL(Send_Table_EnableSorting(bool)), this, SLOT(Table_EnableSorting(bool)));
     connect(this, SIGNAL(Send_Add_progressBar_CompatibilityTest()), this, SLOT(Add_progressBar_CompatibilityTest()));
     connect(this, SIGNAL(Send_ListGPUs_Anime4k_Finished(QString)), this, SLOT(ListGPUs_Anime4k_Finished(QString)));
     connect(this, SIGNAL(Send_Unable2Connect_RawGithubusercontentCom()), this, SLOT(Unable2Connect_RawGithubusercontentCom()));
@@ -427,7 +428,10 @@ void MainWindow::on_pushButton_Start_clicked()
         ETA=0;
         isForceRetryClicked=false;
         //============== 界面初始化 ======================
-        RemoveFile_FilesList->setEnabled(0);
+        emit Send_Table_EnableSorting(0);//启用文件列表的排序功能
+        RemoveFile_FilesList_QAction_FileList->setEnabled(0);
+        Apply_CustRes_QAction_FileList->setEnabled(0);
+        Cancel_CustRes_QAction_FileList->setEnabled(0);
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Stop->setVisible(1);//启用stop button
         ui->pushButton_Start->setVisible(0);//禁用start button
@@ -1087,7 +1091,7 @@ void MainWindow::on_pushButton_about_clicked()
     QString line5 = "GNU Affero General Public License v3.0\n\n";
     QString line6 = "Copyright (C) 2020 Aaron Feng. All rights reserved.\n\n";
     QString line7 = "The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.\n\n";
-    QString line8 = "Icons made by : Freepik & Roundicons From Flaticon(https://www.flaticon.com/)";
+    QString line8 = "Icons made by : Freepik & Icongeek26 & Roundicons From Flaticon(https://www.flaticon.com/)";
     MSG->setText(line1+line2+line3+line4+line5+line6+line7+line8);
     QImage img(":/new/prefix1/icon/icon_main.png");
     QImage img_scaled = img.scaled(50,50,Qt::KeepAspectRatio,Qt::SmoothTransformation);

@@ -33,42 +33,33 @@ int main(int argc, char *argv[])
 
 /*
 更新日志:
-v2.56.71:
-- 通过测试后更新版本号.
-- 更新Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
-- 适配新版Anime4KCPP.
-- 修复bug:当文件在磁盘根目录时,启用[保留上级文件夹]将导致错误.
-v2.56.68-beta:
-- 新特性:文件列表右键菜单支持应用与取消自定义分辨率设定.
-- 删除会误导用户的提示.
-- 为部分按钮添加图标.
-- 改进UI布局.
-- 性能优化
-- 为一些部件添加了无效时自动禁用.
-- 改进将文件移动到输出文件夹并遇到同名文件时添加后辍的方式.
-v2.56.61-beta:
-- 新特性:将文件输出到指定路径时可以选择保留上级文件夹.
-- 优化代码结构.
-- 性能优化.
-- 修复bug:未自动禁用无效选项.
+v2.56.81-beta:
+- New feature: Now you can sort the files in the file list.
+- And other improvements to the file list.
+- Add more nice icons.
+- Update FFmpeg and FFprobe.
+- Update ImageMagick.
+- Fix bug: File list automatically scrolls horizontally.
+- Fix bug: Didn't disable some options after start processing, may casue error.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:
-- gifsicle version 1.92(release)
-- SoX 14.4.2-win32(release)
+- gifsicle version 1.92
+- SoX 14.4.2-win32
 - waifu2x-caffe 1.2.0.4
 - Waifu2x-converter e7de04d
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-31
+- ImageMagick 7.0.10-34
 - Anime4KCPP v2.4.0
-- FFmpeg&FFprobe 2020-09-30-git-9d8f9b2e40
+- FFmpeg&FFprobe 2020-10-14-git-6bdfea8d4b
 - NirCmd v2.86
 ---
 Icons made by :
 Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 Roundicons (https://www.flaticon.com/authors/roundicons) From Flaticon : https://www.flaticon.com/
+Icongeek26 (https://www.flaticon.com/authors/Icongeek26) From Flaticon : https://www.flaticon.com/
 */

@@ -52,6 +52,8 @@ void MainWindow::Init_Table()
     ui->tableView_video->horizontalHeader()->setVisible(1);
     ui->tableView_gif->horizontalHeader()->setVisible(1);
     ui->tableView_image->horizontalHeader()->setVisible(1);
+    //====
+    emit Send_Table_EnableSorting(1);//启用文件列表的排序功能
 }
 
 void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
@@ -774,4 +776,30 @@ void MainWindow::on_tableView_video_pressed(const QModelIndex &index)
     curRow_gif = -1;
     ui->tableView_image->clearSelection();
     ui->tableView_gif->clearSelection();
+}
+/*
+启用 or 禁用 三个文件列表的排序功能
+*/
+void MainWindow::Table_EnableSorting(bool EnableSorting)
+{
+    if(EnableSorting)
+    {
+        ui->tableView_video->horizontalHeader()->setSortIndicatorShown(1);
+        ui->tableView_gif->horizontalHeader()->setSortIndicatorShown(1);
+        ui->tableView_image->horizontalHeader()->setSortIndicatorShown(1);
+        //========
+        ui->tableView_image->setSortingEnabled(1);
+        ui->tableView_gif->setSortingEnabled(1);
+        ui->tableView_video->setSortingEnabled(1);
+    }
+    else
+    {
+        ui->tableView_video->horizontalHeader()->setSortIndicatorShown(0);
+        ui->tableView_gif->horizontalHeader()->setSortIndicatorShown(0);
+        ui->tableView_image->horizontalHeader()->setSortIndicatorShown(0);
+        //========
+        ui->tableView_image->setSortingEnabled(0);
+        ui->tableView_gif->setSortingEnabled(0);
+        ui->tableView_video->setSortingEnabled(0);
+    }
 }

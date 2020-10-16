@@ -10,5 +10,13 @@
         <file>icon/refresh.png</file>
         <file>icon/donateTabIcon_1.png</file>
         <file>icon/paypal.png</file>
+        <file>icon/gif_Rmenu.png</file>
+        <file>icon/picture_Rmenu.png</file>
+        <file>icon/video_Rmenu.png</file>
+        <file>icon/view_file.png</file>
+        <file>icon/cancel.png</file>
+        <file>icon/Apply.png</file>
+        <file>icon/RemoveFile.png</file>
+        <file>icon/opne_folder.png</file>
     </qresource>
 </RCC>

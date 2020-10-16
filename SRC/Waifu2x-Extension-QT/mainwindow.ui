@@ -170,7 +170,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -272,7 +272,7 @@ height:35
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
+        <item row="1" column="0">
          <widget class="QPushButton" name="pushButton_PayPal">
           <property name="minimumSize">
            <size>
@@ -1032,6 +1032,12 @@ selection-background-color: rgb(52, 152, 219);
 
 }</string>
                </property>
+               <property name="autoScroll">
+                <bool>false</bool>
+               </property>
+               <property name="autoScrollMargin">
+                <number>0</number>
+               </property>
                <property name="editTriggers">
                 <set>QAbstractItemView::NoEditTriggers</set>
                </property>
@@ -1040,6 +1046,12 @@ selection-background-color: rgb(52, 152, 219);
                </property>
                <property name="selectionBehavior">
                 <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="verticalScrollMode">
+                <enum>QAbstractItemView::ScrollPerPixel</enum>
+               </property>
+               <property name="horizontalScrollMode">
+                <enum>QAbstractItemView::ScrollPerPixel</enum>
                </property>
                <property name="sortingEnabled">
                 <bool>false</bool>
@@ -1089,6 +1101,12 @@ selection-background-color: rgb(52, 152, 219);
 selection-background-color: rgb(26, 188, 156);
 }</string>
                </property>
+               <property name="autoScroll">
+                <bool>false</bool>
+               </property>
+               <property name="autoScrollMargin">
+                <number>0</number>
+               </property>
                <property name="editTriggers">
                 <set>QAbstractItemView::NoEditTriggers</set>
                </property>
@@ -1097,6 +1115,12 @@ selection-background-color: rgb(26, 188, 156);
                </property>
                <property name="selectionBehavior">
                 <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="verticalScrollMode">
+                <enum>QAbstractItemView::ScrollPerPixel</enum>
+               </property>
+               <property name="horizontalScrollMode">
+                <enum>QAbstractItemView::ScrollPerPixel</enum>
                </property>
                <property name="sortingEnabled">
                 <bool>false</bool>
@@ -1137,6 +1161,12 @@ selection-background-color: rgb(26, 188, 156);
 selection-background-color: rgb(178, 58, 238);
 }</string>
                </property>
+               <property name="autoScroll">
+                <bool>false</bool>
+               </property>
+               <property name="autoScrollMargin">
+                <number>0</number>
+               </property>
                <property name="editTriggers">
                 <set>QAbstractItemView::NoEditTriggers</set>
                </property>
@@ -1145,6 +1175,12 @@ selection-background-color: rgb(178, 58, 238);
                </property>
                <property name="selectionBehavior">
                 <enum>QAbstractItemView::SelectRows</enum>
+               </property>
+               <property name="verticalScrollMode">
+                <enum>QAbstractItemView::ScrollPerPixel</enum>
+               </property>
+               <property name="horizontalScrollMode">
+                <enum>QAbstractItemView::ScrollPerPixel</enum>
                </property>
                <property name="sortingEnabled">
                 <bool>false</bool>
@@ -2280,7 +2316,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               <string/>
              </property>
              <property name="currentIndex">
-              <number>2</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_4">
               <attribute name="title">

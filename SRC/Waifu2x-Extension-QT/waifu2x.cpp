@@ -404,7 +404,10 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
-    RemoveFile_FilesList->setEnabled(1);
+    emit Send_Table_EnableSorting(1);//启用文件列表的排序功能
+    RemoveFile_FilesList_QAction_FileList->setEnabled(1);
+    Apply_CustRes_QAction_FileList->setEnabled(1);
+    Cancel_CustRes_QAction_FileList->setEnabled(1);
     this->setAcceptDrops(1);
     ui->pushButton_Stop->setVisible(0);
     ui->pushButton_Start->setVisible(1);

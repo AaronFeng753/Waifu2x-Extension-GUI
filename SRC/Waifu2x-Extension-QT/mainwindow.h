@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.71";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.56.81-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.56.71";
-    QString LastBetaVer = "v2.56.71";
+    QString LastBetaVer = "v2.56.81-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -457,12 +457,12 @@ public:
     QAction *OpenFolder_lineEdit_outputPath = new QAction(this);
     //================= 文件列表的右键菜单 ====================
     void Init_ActionsMenu_FilesList();
-    QAction *OpenFile = new QAction(this);
-    QAction *OpenFilesFolder = new QAction(this);
-    QAction *RemoveFile_FilesList = new QAction(this);
+    QAction *OpenFile_QAction_FileList = new QAction(this);
+    QAction *OpenFilesFolder_QAction_FileList = new QAction(this);
+    QAction *RemoveFile_FilesList_QAction_FileList = new QAction(this);
     bool EnableApply2All_CustRes=true;
-    QAction *Apply_CustRes = new QAction(this);
-    QAction *Cancel_CustRes = new QAction(this);
+    QAction *Apply_CustRes_QAction_FileList = new QAction(this);
+    QAction *Cancel_CustRes_QAction_FileList = new QAction(this);
     void OpenSelectedFile_FailedWarning_FilesList();
     //================ 移除条目 按钮的右键菜单=======================
     void Init_ActionsMenu_pushButton_RemoveItem();
@@ -487,8 +487,10 @@ public:
     ~MainWindow();
 
 public slots:
-    void Apply_CustRes_FilesList();
-    void Cancel_CustRes_FilesList();
+    void Table_EnableSorting(bool EnableSorting);
+
+    void Apply_CustRes_QAction_FileList_slot();
+    void Cancel_CustRes_QAction_FileList_slot();
 
     void RemoveALL_image_slot();
     void RemoveALL_gif_slot();
@@ -831,6 +833,8 @@ private slots:
     void on_checkBox_isCustFontEnable_stateChanged(int arg1);
 
 signals:
+    void Send_Table_EnableSorting(bool EnableSorting);
+
     void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条
 
     void Send_ListGPUs_Anime4k_Finished(QString OutputString);
