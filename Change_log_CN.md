@@ -8,6 +8,15 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.56.71](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.71)
+#### 更新日志:
+- 新特性:文件列表右键菜单支持应用与取消自定义分辨率设定.
+- 新特性:将文件输出到指定路径时可以选择保留上级文件夹.
+- 性能优化.
+- 改进用户界面.
+- 更新与适配Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
+- 修复多个bug.
+---
 ## [v2.56.52](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.52)
 #### 更新日志:
 - 新特性:可启用[替换原文件]以直接用处理后的文件替换原文件.(附加设置,可选,默认禁用)
