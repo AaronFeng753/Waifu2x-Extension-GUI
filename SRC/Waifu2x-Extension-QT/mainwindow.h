@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.81-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.56.71";
-    QString LastBetaVer = "v2.56.81-beta";
+    QString VERSION = "v2.56.82";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.56.82";
+    QString LastBetaVer = "v2.56.82";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -389,6 +389,8 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    bool isFirstTimeStart=false;
+
     bool isForceRetryClicked=false;
     QMutex isForceRetryClicked_QMutex;
     void DelTrash_ForceRetry_Anime4k(QString OutPut_Path);

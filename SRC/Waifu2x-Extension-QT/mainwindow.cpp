@@ -1391,10 +1391,12 @@ void MainWindow::Tip_FirstTimeStart()
     QString FirstTimeStart = Current_Path+"/FirstTimeStart";
     if(QFile::exists(FirstTimeStart))
     {
+        isFirstTimeStart=false;
         return;
     }
     else
     {
+        isFirstTimeStart=true;
         /*
           弹出语言选择对话框
         */

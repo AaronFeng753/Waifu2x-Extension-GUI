@@ -1768,7 +1768,10 @@ padding:10px;
                        <string>When this option is enabled, the output file 
 will be moved to the path you specified. 
 Otherwise, it will be saved in the same 
-folder as the source file.</string>
+folder as the source file.
+
+*This option will be deactivated when [Replace
+original file] is enabled*</string>
                       </property>
                       <property name="text">
                        <string>Enabled</string>
@@ -1880,7 +1883,10 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                  <string>Move original files to recycle bin 
 when [Delete original files] is enabled.
 (Only works when the recycle bin for the drive 
-where the file is located is enabled)</string>
+where the file is located is enabled)
+
+*This option will be deactivated when [Delete
+original files] is disabled*</string>
                 </property>
                 <property name="text">
                  <string>Move to Recycle Bin</string>
@@ -1915,7 +1921,10 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
               <item row="0" column="0" colspan="2">
                <widget class="QCheckBox" name="checkBox_DelOriginal">
                 <property name="toolTip">
-                 <string>Delete the original file after processing is complete.</string>
+                 <string>Delete the original file after processing is complete.
+
+*This option will be deactivated when [Replace original
+file] is enabled*</string>
                 </property>
                 <property name="text">
                  <string>Delete original files</string>
@@ -3281,7 +3290,10 @@ Will improve image quality.</string>
                    </property>
                    <property name="toolTip">
                     <string>Enable HDN mode for ACNet.
-Will improve image quality.</string>
+Will improve image quality.
+
+*This option will be deactivated
+when [ACNet] is disabled*</string>
                    </property>
                    <property name="text">
                     <string>HDN mode</string>
@@ -5223,7 +5235,10 @@ padding:10px;
                  <bool>false</bool>
                 </property>
                 <property name="toolTip">
-                 <string>Compress JPG files.</string>
+                 <string>Compress &quot;.jpg&quot; files.
+
+*This option will be deactivated
+when [Save as &quot;.jpg&quot;] is disabled*</string>
                 </property>
                 <property name="text">
                  <string>Compress &quot;.jpg&quot;</string>
@@ -5239,9 +5254,14 @@ padding:10px;
               </item>
               <item row="5" column="1">
                <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="toolTip">
                  <string>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.</string>
+automatically force the picture to be saved as PNG.
+
+*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</string>
                 </property>
                 <property name="text">
                  <string>Auto detect Alpha channel</string>
@@ -5683,7 +5703,10 @@ when processing video in segments.</string>
                  <string>After processing the file, directly replace
 the original file with the result file.
 
-WARNING: The original file will be DELETED.</string>
+WARNING: The original file will be DELETED.
+
+*This option will be deactivated when [Output
+path] or [Delete original files] is enabled*</string>
                 </property>
                 <property name="text">
                  <string>Replace original file</string>
