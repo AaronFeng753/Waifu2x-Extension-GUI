@@ -1885,7 +1885,7 @@ when [Delete original files] is enabled.
 (Only works when the recycle bin for the drive 
 where the file is located is enabled)
 
-*This option will be deactivated when [Delete
+*This option will be deactivated when [Delete 
 original files] is disabled*</string>
                 </property>
                 <property name="text">
