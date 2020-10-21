@@ -38,6 +38,7 @@ v2.56.82:
 - Change the version number after passed the test.
 - Improve performance.
 - Reduce cache file.
+- Fix bug: [Keep parent folder] setting not saved.
 v2.56.81-beta:
 - New feature: Now you can sort the files in the file list.
 - And other improvements to the file list.
