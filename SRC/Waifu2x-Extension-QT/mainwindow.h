@@ -589,8 +589,6 @@ private slots:
 
     int on_pushButton_RemoveItem_clicked();
 
-    void on_checkBox_SaveAsJPG_stateChanged(int arg1);
-
     void on_pushButton_CheckUpdate_clicked();
 
     void on_pushButton_Report_clicked();
@@ -750,8 +748,6 @@ private slots:
     void on_pushButton_DetectGPU_RealsrNCNNVulkan_clicked();
 
     void on_checkBox_ACNet_Anime4K_stateChanged(int arg1);
-
-    void on_checkBox_CompressJPG_stateChanged(int arg1);
 
     void on_checkBox_MultiGPU_Waifu2xNCNNVulkan_clicked();
 

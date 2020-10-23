@@ -428,6 +428,8 @@ void MainWindow::on_pushButton_Start_clicked()
         ETA=0;
         isForceRetryClicked=false;
         //============== 界面初始化 ======================
+        ui->comboBox_ImageSaveFormat->setEnabled(0);
+        ui->spinBox_ImageQualityLevel->setEnabled(0);
         emit Send_Table_EnableSorting(0);//启用文件列表的排序功能
         RemoveFile_FilesList_QAction_FileList->setEnabled(0);
         Apply_CustRes_QAction_FileList->setEnabled(0);
@@ -441,8 +443,6 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->groupBox_Engine->setEnabled(0);
         ui->groupBox_ScaleRaton_DenoiseLevel->setEnabled(0);
         ui->checkBox_OptGIF->setEnabled(0);
-        ui->checkBox_SaveAsJPG->setEnabled(0);
-        ui->checkBox_CompressJPG->setEnabled(0);
         ui->checkBox_DelOriginal->setEnabled(0);
         ui->checkBox_ReProcFinFiles->setEnabled(0);
         ui->pushButton_compatibilityTest->setEnabled(0);
@@ -450,7 +450,6 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);
         ui->comboBox_AspectRatio_custRes->setEnabled(0);
-        ui->spinBox_JPGCompressedQuality->setEnabled(0);
         progressbar_clear();
         ui->label_TimeCost->setText(tr("Time cost:NULL"));
         ui->label_ETA->setText(tr("ETA:NULL"));
@@ -617,22 +616,7 @@ void MainWindow::Play_NFSound()
 }
 
 
-void MainWindow::on_checkBox_SaveAsJPG_stateChanged(int arg1)
-{
-    if(ui->checkBox_SaveAsJPG->isChecked())
-    {
-        ui->checkBox_CompressJPG->setEnabled(1);
-        ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
-    }
-    else
-    {
-        ui->checkBox_CompressJPG->setChecked(0);
-        ui->checkBox_CompressJPG->setEnabled(0);
-        ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
-        ui->checkBox_AutoDetectAlphaChannel->setChecked(1);
-        ui->spinBox_JPGCompressedQuality->setEnabled(0);
-    }
-}
+
 
 void MainWindow::on_pushButton_Report_clicked()
 {
@@ -1987,18 +1971,6 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
         ui->spinBox_PushColorCount_Anime4K->setEnabled(1);
     }
     DenoiseLevelSpinboxSetting_Anime4k();
-}
-
-void MainWindow::on_checkBox_CompressJPG_stateChanged(int arg1)
-{
-    if(ui->checkBox_CompressJPG->isChecked())
-    {
-        ui->spinBox_JPGCompressedQuality->setEnabled(1);
-    }
-    else
-    {
-        ui->spinBox_JPGCompressedQuality->setEnabled(0);
-    }
 }
 
 void MainWindow::on_checkBox_HDNMode_Anime4k_stateChanged(int arg1)

@@ -131,7 +131,7 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     QImage img(SourceFile_fullPath);
     if(img.hasAlphaChannel())
     {
-        if(ui->checkBox_SaveAsJPG->isChecked())
+        if(ui->comboBox_ImageSaveFormat->currentText()!="png")
         {
             emit Send_TextBrowser_NewMessage(tr("It is detected that the image [")+SourceFile_fullPath+tr("] contains the Alpha channel, so the result image will be forcibly saved as PNG."));
         }

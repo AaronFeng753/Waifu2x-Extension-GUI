@@ -103,13 +103,13 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
     //=================== 存储 杂项设置 =================================
+    configIniWrite->setValue("/settings/spinBox_ImageQualityLevel", ui->spinBox_ImageQualityLevel->value());
+    configIniWrite->setValue("/settings/comboBox_ImageSaveFormat", ui->comboBox_ImageSaveFormat->currentIndex());
     configIniWrite->setValue("/settings/checkBox_KeepParentFolder", ui->checkBox_KeepParentFolder->isChecked());
     configIniWrite->setValue("/settings/checkBox_BanGitee", ui->checkBox_BanGitee->isChecked());
     configIniWrite->setValue("/settings/comboBox_UpdateChannel", ui->comboBox_UpdateChannel->currentIndex());
     configIniWrite->setValue("/settings/checkBox_MinimizeToTaskbar", ui->checkBox_MinimizeToTaskbar->isChecked());
     configIniWrite->setValue("/settings/checkBox_custres_isAll", ui->checkBox_custres_isAll->isChecked());
-    configIniWrite->setValue("/settings/SaveAsJPG", ui->checkBox_SaveAsJPG->isChecked());
-    configIniWrite->setValue("/settings/CompressJPG", ui->checkBox_CompressJPG->isChecked());
     configIniWrite->setValue("/settings/DelOriginal", ui->checkBox_DelOriginal->isChecked());
     configIniWrite->setValue("/settings/Move2RecycleBin", ui->checkBox_Move2RecycleBin->isChecked());
     configIniWrite->setValue("/settings/OptGIF", ui->checkBox_OptGIF->isChecked());
@@ -121,7 +121,6 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/AutoSaveSettings", ui->checkBox_AutoSaveSettings->isChecked());
     configIniWrite->setValue("/settings/AlwaysHideSettings", ui->checkBox_AlwaysHideSettings->isChecked());
     configIniWrite->setValue("/settings/AlwaysHideTextBrowser", ui->checkBox_AlwaysHideTextBrowser->isChecked());
-    configIniWrite->setValue("/settings/JPGCompressedQuality", ui->spinBox_JPGCompressedQuality->value());
     configIniWrite->setValue("/settings/ScanSubFolders", ui->checkBox_ScanSubFolders->isChecked());
     configIniWrite->setValue("/settings/InteractiveFileList", ui->checkBox_FileList_Interactive->isChecked());
     configIniWrite->setValue("/settings/RetryTimes", ui->spinBox_retry->value());
@@ -354,13 +353,13 @@ int MainWindow::Settings_Read_Apply()
     ui->Ext_image->setText(Settings_Read_value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(Settings_Read_value("/settings/VideoEXT").toString());
     //================== 加载 杂项设置 ==================================
+    ui->spinBox_ImageQualityLevel->setValue(Settings_Read_value("/settings/spinBox_ImageQualityLevel").toInt());
+    ui->comboBox_ImageSaveFormat->setCurrentIndex(Settings_Read_value("/settings/comboBox_ImageSaveFormat").toInt());
     ui->checkBox_KeepParentFolder->setChecked(Settings_Read_value("/settings/checkBox_KeepParentFolder").toBool());
     ui->checkBox_BanGitee->setChecked(Settings_Read_value("/settings/checkBox_BanGitee").toBool());
     comboBox_UpdateChannel_setCurrentIndex_self(Settings_Read_value("/settings/comboBox_UpdateChannel").toInt());
     ui->checkBox_MinimizeToTaskbar->setChecked(Settings_Read_value("/settings/checkBox_MinimizeToTaskbar").toBool());
     ui->checkBox_custres_isAll->setChecked(Settings_Read_value("/settings/checkBox_custres_isAll").toBool());
-    ui->checkBox_SaveAsJPG->setChecked(Settings_Read_value("/settings/SaveAsJPG").toBool());
-    ui->checkBox_CompressJPG->setChecked(Settings_Read_value("/settings/CompressJPG").toBool());
     ui->checkBox_DelOriginal->setChecked(Settings_Read_value("/settings/DelOriginal").toBool());
     ui->checkBox_Move2RecycleBin->setChecked(Settings_Read_value("/settings/Move2RecycleBin").toBool());
     ui->checkBox_OptGIF->setChecked(Settings_Read_value("/settings/OptGIF").toBool());
@@ -372,7 +371,6 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_AutoSaveSettings->setChecked(Settings_Read_value("/settings/AutoSaveSettings").toBool());
     ui->checkBox_AlwaysHideSettings->setChecked(Settings_Read_value("/settings/AlwaysHideSettings").toBool());
     ui->checkBox_AlwaysHideTextBrowser->setChecked(Settings_Read_value("/settings/AlwaysHideTextBrowser").toBool());
-    ui->spinBox_JPGCompressedQuality->setValue(Settings_Read_value("/settings/JPGCompressedQuality").toInt());
     ui->checkBox_ScanSubFolders->setChecked(Settings_Read_value("/settings/ScanSubFolders").toBool());
     ui->checkBox_FileList_Interactive->setChecked(Settings_Read_value("/settings/InteractiveFileList").toBool());
     ui->spinBox_retry->setValue(Settings_Read_value("/settings/RetryTimes").toInt());
@@ -480,7 +478,6 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_language->setCurrentIndex(Settings_Read_value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
-    on_checkBox_SaveAsJPG_stateChanged(0);
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
     on_checkBox_DelOriginal_stateChanged(0);

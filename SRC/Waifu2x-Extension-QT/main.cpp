@@ -40,8 +40,6 @@ v2.56.91-beta:
 - Fix bug: Audio and video might out of sync because of the wrong frame rate.(thanks to @CAFUCSteven for feedback)
 --------------------------------------------------------------------------
 To do:
-- 取代以前的保存jpg的那俩部件和相关的代码
-- 给新加上的俩部件添加设定记忆.
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:

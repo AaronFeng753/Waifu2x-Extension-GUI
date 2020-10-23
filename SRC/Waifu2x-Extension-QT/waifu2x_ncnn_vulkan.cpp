@@ -257,61 +257,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
     OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,true,DenoiseLevel);
-    /*
-    if(SaveAsJPG)
-    {
-        QString OutPut_Path_jpg;
-        QImage qimage;
-        qimage.load(OutPut_Path);
-        QImageWriter qimageW;
-        qimageW.setFormat("jpg");
-        if(CompressJPG)//压缩JPG
-        {
-            if(CustRes_isEnabled)
-            {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_compressed_"+file_ext+".jpg";
-            }
-            else
-            {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_compressed_"+file_ext+".jpg";
-            }
-            qimageW.setQuality(ui->spinBox_JPGCompressedQuality->value());
-            qimageW.setFileName(OutPut_Path_jpg);
-        }
-        else
-        {
-            if(CustRes_isEnabled)
-            {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".jpg";
-            }
-            else
-            {
-                OutPut_Path_jpg = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".jpg";
-            }
-            qimageW.setQuality(100);
-            qimageW.setFileName(OutPut_Path_jpg);
-        }
-        if(qimageW.canWrite())
-        {
-            qimageW.write(qimage);
-        }
-        else
-        {
-            // 获取错误信息
-            QString strError = qimageW.errorString();
-            emit TextBrowser_NewMessage(strError);
-        }
-        if(QFile::exists(OutPut_Path_jpg))
-        {
-            QFile::remove(OutPut_Path);
-            OutPutPath_Final = OutPut_Path_jpg;
-        }
-        else
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
-        }
-    }
-    */
     //============================= 删除原文件 & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {

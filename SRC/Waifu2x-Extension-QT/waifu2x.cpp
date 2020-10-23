@@ -404,6 +404,8 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
+    ui->comboBox_ImageSaveFormat->setEnabled(1);
+    on_comboBox_ImageSaveFormat_currentIndexChanged(1);
     emit Send_Table_EnableSorting(1);//启用文件列表的排序功能
     RemoveFile_FilesList_QAction_FileList->setEnabled(1);
     Apply_CustRes_QAction_FileList->setEnabled(1);
@@ -421,9 +423,6 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->groupBox_Engine->setEnabled(1);
     ui->groupBox_ScaleRaton_DenoiseLevel->setEnabled(1);
     ui->checkBox_OptGIF->setEnabled(1);
-    ui->checkBox_SaveAsJPG->setEnabled(1);
-    on_checkBox_SaveAsJPG_stateChanged(0);
-    on_checkBox_CompressJPG_stateChanged(0);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_CustRes_cancel->setEnabled(1);

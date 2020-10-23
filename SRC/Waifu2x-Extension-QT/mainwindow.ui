@@ -5279,13 +5279,6 @@ padding:10px;
                </widget>
               </item>
               <item row="3" column="0">
-               <widget class="QLabel" name="label_23">
-                <property name="text">
-                 <string>Compressed &quot;.jpg&quot; image quality:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
                <widget class="QCheckBox" name="checkBox_OptGIF">
                 <property name="toolTip">
                  <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
@@ -5296,21 +5289,7 @@ It is recommended to enable this option.</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="1" colspan="2">
-               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
-                <property name="toolTip">
-                 <string>0(worst quality)~99
-We recommend you use the default value(95)</string>
-                </property>
-                <property name="minimum">
-                 <number>0</number>
-                </property>
-                <property name="value">
-                 <number>95</number>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
+              <item row="3" column="1">
                <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
                 <property name="enabled">
                  <bool>false</bool>
@@ -5435,35 +5414,6 @@ automatically force the picture to be saved as PNG.
                   </widget>
                  </item>
                 </layout>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QCheckBox" name="checkBox_SaveAsJPG">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="text">
-                 <string>Save as &quot;.jpg&quot;</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QCheckBox" name="checkBox_CompressJPG">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string>Compress &quot;.jpg&quot; files.
-
-*This option will be deactivated
-when [Save as &quot;.jpg&quot;] is disabled*</string>
-                </property>
-                <property name="text">
-                 <string>Compress &quot;.jpg&quot;</string>
-                </property>
                </widget>
               </item>
              </layout>
