@@ -4,6 +4,17 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.82](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.82)
+#### Change log:
+- New feature: Now you can sort the files in the file list.
+- Other improvements to the file list.
+- Add more nice icons.
+- Update FFmpeg&FFprobe,ImageMagick.
+- Improve performance.
+- Reduce cache file.
+- Add more tooltip.
+- Fix multiple bugs.
+---
 ## [v2.56.71](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.71)
 #### Change log:
 - New feature: The right-click menu of the file list now supports applying and canceling custom resolution setting of individual file.

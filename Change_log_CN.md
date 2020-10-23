@@ -8,6 +8,17 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.56.82](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.82)
+#### 更新日志:
+- 新特性: 现在您可以对文件列表内的文件进行排序.
+- 对文件列表的其他改进.
+- 添加更多好看的图标.
+- 更新FFmpeg&FFprobe,ImageMagick.
+- 改进性能.
+- 减少缓存文件.
+- 添加更多提示信息.
+- 修复多个bug.
+---
 ## [v2.56.71](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.71)
 #### 更新日志:
 - 新特性:文件列表右键菜单支持应用与取消自定义分辨率设定.

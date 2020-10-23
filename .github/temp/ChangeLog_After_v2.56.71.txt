@@ -13,3 +13,19 @@ v2.56.81-beta:
 - Update ImageMagick.
 - Fix bug: File list automatically scrolls horizontally.
 - Fix bug: Didn't disable some options after start processing, may casue error.
+--------------------------------------------------------------------------------
+v2.56.82:
+- 添加更多提示.
+- 通过测试后更改版本号.
+- 改进性能.
+- 减少缓存文件.
+- 修复bug: [保留上级文件夹] 设定未存储.
+
+v2.56.81-beta:
+- 新特性: 现在您可以对文件列表内的文件进行排序.
+- 以及对文件列表的其他改进.
+- 添加更多好看的图标.
+- 更新 FFmpeg and FFprobe.
+- 更新 ImageMagick.
+- 修复 bug: 文件列表自动横向滑动.
+- 修复 bug: 开始处理文件后未禁用一些选项,可能导致错误.
