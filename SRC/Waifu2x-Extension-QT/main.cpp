@@ -33,12 +33,15 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.56.91-beta:
+- New feature: Now you can save pictures in multiple formats.(thanks to @loafylemon for suggestion)
 - Remove redundant function.
 - Optimize performance.
-- Fix bug: Audio and video might out of sync because of the wrong frame rate.
+- Fix bug: Audio and video might out of sync because of the wrong frame rate.(thanks to @CAFUCSteven for feedback)
 --------------------------------------------------------------------------
 To do:
-- 添加自选图片保存格式.
+- 取代以前的保存jpg的那俩部件和相关的代码
+- 给新加上的俩部件添加设定记忆.
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:

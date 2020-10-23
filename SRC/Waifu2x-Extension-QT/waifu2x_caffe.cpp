@@ -26,14 +26,6 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
-    //======
-    if(SaveAsJPG)
-    {
-        SaveAsJPG = !(Imgae_hasAlphaChannel(rowNum));//如果含有alpha通道则不另存为jpg
-    }
-    //=======
-    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -202,6 +194,8 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         OutPutPath_Final = OutPut_Path;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
+    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,true,DenoiseLevel);
+    /*
     if(SaveAsJPG)
     {
         QString OutPut_Path_jpg;
@@ -254,7 +248,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
         }
-    }
+    }*/
     //============================= 删除原文件 &  & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {

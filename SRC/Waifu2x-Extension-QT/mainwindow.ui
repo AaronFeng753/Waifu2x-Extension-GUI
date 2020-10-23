@@ -5222,7 +5222,7 @@ padding:10px;
               <item row="0" column="1">
                <widget class="QFrame" name="frame_2">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="maximumSize">
                  <size>
@@ -5258,12 +5258,12 @@ padding:10px;
                  <item row="1" column="0">
                   <widget class="QLabel" name="label_63">
                    <property name="text">
-                    <string>Quality level:</string>
+                    <string>Image quality:</string>
                    </property>
                   </widget>
                  </item>
                  <item row="2" column="0">
-                  <widget class="QSpinBox" name="spinBox">
+                  <widget class="QSpinBox" name="spinBox_ImageQualityLevel">
                    <property name="minimum">
                     <number>1</number>
                    </property>
@@ -5332,7 +5332,7 @@ automatically force the picture to be saved as PNG.
               <item row="0" column="0">
                <widget class="QFrame" name="frame">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="maximumSize">
                  <size>
@@ -5373,60 +5373,63 @@ automatically force the picture to be saved as PNG.
                   </widget>
                  </item>
                  <item row="1" column="0">
-                  <widget class="QComboBox" name="comboBox">
+                  <widget class="QComboBox" name="comboBox_ImageSaveFormat">
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
                    <item>
                     <property name="text">
-                     <string>png</string>
+                     <string notr="true">png</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>jpg</string>
+                     <string notr="true">jpg</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>webp</string>
+                     <string notr="true">webp</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>bmp</string>
+                     <string notr="true">bmp</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>tiff</string>
+                     <string notr="true">tiff</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>pdf</string>
+                     <string notr="true">pdf</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>gif</string>
+                     <string notr="true">gif</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>eps</string>
+                     <string notr="true">eps</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>tga</string>
+                     <string notr="true">tga</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>jp2</string>
+                     <string notr="true">jp2</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>svg</string>
+                     <string notr="true">svg</string>
                     </property>
                    </item>
                   </widget>
@@ -5436,6 +5439,9 @@ automatically force the picture to be saved as PNG.
               </item>
               <item row="1" column="0">
                <widget class="QCheckBox" name="checkBox_SaveAsJPG">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="toolTip">
                  <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save the scaled image as &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.jpg&lt;/span&gt;&amp;quot;.&lt;/p&gt;&lt;p&gt;Images are stored in &amp;quot;&lt;span style=&quot; font-weight:600;&quot;&gt;.png&lt;/span&gt;&amp;quot; format by default.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>

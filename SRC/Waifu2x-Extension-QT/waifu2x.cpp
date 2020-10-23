@@ -463,67 +463,6 @@ void MainWindow::Waifu2x_Finished_manual()
     TimeCost=0;
 }
 
-
-
-/*
-判断图片是否含有透明通道
-*/
-bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
-{
-    /*
-    ======== 如果没开启检测, 直接返回false =============
-    */
-    if(ui->checkBox_AutoDetectAlphaChannel->isChecked()==false)return false;
-    //======
-    QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
-    if(QFile::exists(SourceFile_fullPath)==false)return false;
-    //======
-    QImage img(SourceFile_fullPath);
-    if(img.hasAlphaChannel())
-    {
-        if(ui->checkBox_SaveAsJPG->isChecked())
-        {
-            emit Send_TextBrowser_NewMessage(tr("It is detected that the image [")+SourceFile_fullPath+tr("] contains the Alpha channel, so the result image will be forcibly saved as PNG."));
-        }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-/*
-判断图片格式并转换
-*/
-QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
-{
-    QFileInfo fileinfo(ImagePath);
-    QString file_ext = fileinfo.suffix();
-    //判断是否已经是PNG
-    if((file_ext.trimmed().toLower()=="png")||(ui->checkBox_PreProcessImage->isChecked()==false))
-    {
-        return ImagePath;
-    }
-    //不是PNG则开始转换
-    QString file_name = file_getBaseName(ImagePath);
-    QString file_Folder = file_getFolderPath(fileinfo);
-    QString OutPut_Path = file_Folder + "/" + file_name + "_W2xEX_"+file_ext+".png";//输出的png图片的完整路径
-    //======
-    QString program = Current_Path+"/convert_waifu2xEX.exe";
-    QFile::remove(OutPut_Path);
-    QProcess Convert2PNG;
-    Convert2PNG.start("\""+program+"\" \""+ImagePath+"\" \""+OutPut_Path+"\"");
-    while(!Convert2PNG.waitForStarted(100)&&!QProcess_stop) {}
-    while(!Convert2PNG.waitForFinished(100)&&!QProcess_stop) {}
-    //======
-    if(QFile::exists(OutPut_Path)==false)
-    {
-        emit Send_TextBrowser_NewMessage(tr("Error: Can\'t convert [")+ImagePath+tr("] to PNG. The pre-process will be skipped and try to process the original image directly."));
-        return ImagePath;
-    }
-    //======
-    return OutPut_Path;
-}
 /*
 移动文件到输出路径
 */

@@ -26,13 +26,7 @@ int MainWindow::Anime4k_Image(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
-    bool SaveAsJPG = ui->checkBox_SaveAsJPG->isChecked();
     bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
-    if(PreserveAlphaChannel)
-    {
-        SaveAsJPG = false;//如果含有alpha通道则不另存为jpg
-    }
-    bool CompressJPG = ui->checkBox_CompressJPG->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -193,6 +187,8 @@ int MainWindow::Anime4k_Image(int rowNum)
         OutPutPath_Final = OutPut_Path;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
+    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,false,0);
+    /*
     if(SaveAsJPG)
     {
         QString OutPut_Path_jpg;
@@ -246,6 +242,7 @@ int MainWindow::Anime4k_Image(int rowNum)
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot save scaled picture as .jpg.]"));
         }
     }
+    */
     //============================= 删除原文件 & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {

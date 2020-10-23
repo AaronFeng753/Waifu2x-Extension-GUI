@@ -262,9 +262,11 @@ public:
 
     void ListGPUs_Anime4k();//列出可用显卡 Anime4k
 
+    //======================== 图片处理 ================================
     bool Imgae_hasAlphaChannel(int rowNum);
-
     QString Imgae_Convert2PNG(QString ImagePath);
+    QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
+    //================================================================
 
     int Waifu2x_Compatibility_Test();//引擎兼容性检测
     //初始化 -兼容性测试进度条
@@ -832,6 +834,8 @@ private slots:
     void on_checkBox_ReplaceOriginalFile_stateChanged(int arg1);
 
     void on_checkBox_isCustFontEnable_stateChanged(int arg1);
+
+    void on_comboBox_ImageSaveFormat_currentIndexChanged(int index);
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

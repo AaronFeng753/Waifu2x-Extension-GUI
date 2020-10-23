@@ -47,6 +47,7 @@ SOURCES += \
     checkupdate.cpp \
     files.cpp \
     gif.cpp \
+    image.cpp \
     main.cpp \
     mainwindow.cpp \
     progressBar.cpp \
