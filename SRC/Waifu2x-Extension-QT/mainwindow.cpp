@@ -2083,15 +2083,7 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
     QString file_ext = fileinfo_output_fullpath.suffix();//获取输出文件的后辍
     QString file_path = file_getFolderPath(fileinfo_original_fullpath);//获取源文件的文件路径
     //=================
-    QString Target_fullpath="";
-    if(checkQAction_AddSuffix->isChecked())
-    {
-        Target_fullpath=file_path+"/"+file_name+"_W2xEX."+file_ext;
-    }
-    else
-    {
-        Target_fullpath=file_path+"/"+file_name+"."+file_ext;
-    }
+    QString Target_fullpath=file_path+"/"+file_name+"."+file_ext;
     //=================
     if(checkQAction_MoveToRecycleBin->isChecked())
     {

@@ -32,23 +32,13 @@ int main(int argc, char *argv[])
 }
 
 /*
-更新日志:
-v2.56.82:
-- Add more tooltip.
-- Change the version number after passed the test.
-- Improve performance.
-- Reduce cache file.
-- Fix bug: [Keep parent folder] setting not saved.
-v2.56.81-beta:
-- New feature: Now you can sort the files in the file list.
-- And other improvements to the file list.
-- Add more nice icons.
-- Update FFmpeg and FFprobe.
-- Update ImageMagick.
-- Fix bug: File list automatically scrolls horizontally.
-- Fix bug: Didn't disable some options after start processing, may casue error.
+Change log:
+- Remove redundant function.
+- Optimize performance.
+- Fix bug: Audio and video might out of sync because of the wrong frame rate.
 --------------------------------------------------------------------------
 To do:
+- 添加自选图片保存格式.
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:
@@ -63,6 +53,7 @@ Integrated component:
 - Anime4KCPP v2.4.0
 - FFmpeg&FFprobe 2020-10-14-git-6bdfea8d4b
 - NirCmd v2.86
+- Ghostscript 9.53.3
 ---
 Icons made by :
 Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/

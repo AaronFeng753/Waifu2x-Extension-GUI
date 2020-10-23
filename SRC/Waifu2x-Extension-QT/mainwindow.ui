@@ -170,7 +170,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <property name="iconSize">
        <size>
@@ -5219,6 +5219,221 @@ padding:10px;
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="1">
+               <widget class="QFrame" name="frame_2">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_45">
+                 <property name="sizeConstraint">
+                  <enum>QLayout::SetDefaultConstraint</enum>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="spacing">
+                  <number>7</number>
+                 </property>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_63">
+                   <property name="text">
+                    <string>Quality level:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QSpinBox" name="spinBox">
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_23">
+                <property name="text">
+                 <string>Compressed &quot;.jpg&quot; image quality:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QCheckBox" name="checkBox_OptGIF">
+                <property name="toolTip">
+                 <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</string>
+                </property>
+                <property name="text">
+                 <string>Optimize &quot;.gif&quot;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1" colspan="2">
+               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
+                <property name="toolTip">
+                 <string>0(worst quality)~99
+We recommend you use the default value(95)</string>
+                </property>
+                <property name="minimum">
+                 <number>0</number>
+                </property>
+                <property name="value">
+                 <number>95</number>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>When the alpha channel is detected in the picture, software will
+automatically force the picture to be saved as PNG.
+
+*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</string>
+                </property>
+                <property name="text">
+                 <string>Auto detect Alpha channel</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QFrame" name="frame">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>45</height>
+                 </size>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>0</number>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_42">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="spacing">
+                  <number>7</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_20">
+                   <property name="text">
+                    <string>Save image as:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QComboBox" name="comboBox">
+                   <item>
+                    <property name="text">
+                     <string>png</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>jpg</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>webp</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>bmp</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>tiff</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>pdf</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>gif</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>eps</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>tga</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>jp2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>svg</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
               <item row="1" column="0">
                <widget class="QCheckBox" name="checkBox_SaveAsJPG">
                 <property name="toolTip">
@@ -5242,57 +5457,6 @@ when [Save as &quot;.jpg&quot;] is disabled*</string>
                 </property>
                 <property name="text">
                  <string>Compress &quot;.jpg&quot;</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QLabel" name="label_23">
-                <property name="text">
-                 <string>Compressed &quot;.jpg&quot; image quality:</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.
-
-*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</string>
-                </property>
-                <property name="text">
-                 <string>Auto detect Alpha channel</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1" colspan="2">
-               <widget class="QSpinBox" name="spinBox_JPGCompressedQuality">
-                <property name="toolTip">
-                 <string>0(worst quality)~99
-We recommend you use the default value(95)</string>
-                </property>
-                <property name="minimum">
-                 <number>0</number>
-                </property>
-                <property name="value">
-                 <number>95</number>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QCheckBox" name="checkBox_OptGIF">
-                <property name="toolTip">
-                 <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</string>
-                </property>
-                <property name="text">
-                 <string>Optimize &quot;.gif&quot;</string>
                 </property>
                </widget>
               </item>
@@ -5702,6 +5866,7 @@ when processing video in segments.</string>
                 <property name="toolTip">
                  <string>After processing the file, directly replace
 the original file with the result file.
+(And keep the original file name.)
 
 WARNING: The original file will be DELETED.
 

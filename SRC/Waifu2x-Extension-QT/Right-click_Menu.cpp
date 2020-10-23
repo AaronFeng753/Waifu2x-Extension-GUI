@@ -24,11 +24,7 @@ void MainWindow::Init_ActionsMenu_checkBox_ReplaceOriginalFile()
     checkQAction_MoveToRecycleBin->setText(tr("Move to Recycle Bin."));
     checkQAction_MoveToRecycleBin->setCheckable(1);
     //===
-    checkQAction_AddSuffix->setText(tr("Add suffix.(_W2xEX)"));
-    checkQAction_AddSuffix->setCheckable(1);
-    //===
     ui->checkBox_ReplaceOriginalFile->addAction(checkQAction_MoveToRecycleBin);
-    ui->checkBox_ReplaceOriginalFile->addAction(checkQAction_AddSuffix);
 }
 
 void MainWindow::Init_ActionsMenu_pushButton_RemoveItem()

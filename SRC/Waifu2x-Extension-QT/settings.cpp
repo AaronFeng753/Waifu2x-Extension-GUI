@@ -131,7 +131,6 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_ReplaceOriginalFile", ui->checkBox_ReplaceOriginalFile->isChecked());
     //===
     configIniWrite->setValue("/settings/checkQAction_MoveToRecycleBin", checkQAction_MoveToRecycleBin->isChecked());
-    configIniWrite->setValue("/settings/checkQAction_AddSuffix", checkQAction_AddSuffix->isChecked());
     //===
     configIniWrite->setValue("/settings/ProcessVideoBySegment", ui->checkBox_ProcessVideoBySegment->isChecked());
     configIniWrite->setValue("/settings/SegmentDuration", ui->spinBox_SegmentDuration->value());
@@ -382,7 +381,6 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_KeepVideoCache->setChecked(Settings_Read_value("/settings/KeepVideoCache").toBool());
     ui->checkBox_ReplaceOriginalFile->setChecked(Settings_Read_value("/settings/checkBox_ReplaceOriginalFile").toBool());
     checkQAction_MoveToRecycleBin->setChecked(Settings_Read_value("/settings/checkQAction_MoveToRecycleBin").toBool());
-    checkQAction_AddSuffix->setChecked(Settings_Read_value("/settings/checkQAction_AddSuffix").toBool());
     //===
     ui->checkBox_ProcessVideoBySegment->setChecked(Settings_Read_value("/settings/ProcessVideoBySegment").toBool());
     ui->spinBox_SegmentDuration->setValue(Settings_Read_value("/settings/SegmentDuration").toInt());

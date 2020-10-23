@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.82";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.56.91-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.56.82";
-    QString LastBetaVer = "v2.56.82";
+    QString LastBetaVer = "v2.56.91-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -484,7 +484,6 @@ public:
     bool ReplaceOriginalFile(QString original_fullpath,QString output_fullpath);
     void Init_ActionsMenu_checkBox_ReplaceOriginalFile();
     QAction *checkQAction_MoveToRecycleBin = new QAction(this);
-    QAction *checkQAction_AddSuffix = new QAction(this);
     //=============
     ~MainWindow();
 
