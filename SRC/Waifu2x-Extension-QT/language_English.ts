@@ -2297,7 +2297,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1549"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1587"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1669"/>
-        <location filename="video.cpp" line="735"/>
+        <location filename="video.cpp" line="734"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="139"/>
@@ -3032,23 +3032,23 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="437"/>
+        <location filename="video.cpp" line="436"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="554"/>
+        <location filename="video.cpp" line="553"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="554"/>
+        <location filename="video.cpp" line="553"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="235"/>
-        <location filename="video.cpp" line="584"/>
+        <location filename="video.cpp" line="234"/>
+        <location filename="video.cpp" line="583"/>
         <source>Start splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3068,99 +3068,99 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="215"/>
+        <location filename="video.cpp" line="214"/>
         <source>Error output for FFmpeg when processing:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="228"/>
+        <location filename="video.cpp" line="227"/>
         <source>Finish assembling video with clips:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="265"/>
-        <location filename="video.cpp" line="660"/>
+        <location filename="video.cpp" line="264"/>
+        <location filename="video.cpp" line="659"/>
         <source>Finish splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="273"/>
+        <location filename="video.cpp" line="272"/>
         <source>Extract audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="282"/>
+        <location filename="video.cpp" line="281"/>
         <source>Successfully extracted audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="286"/>
+        <location filename="video.cpp" line="285"/>
         <source>Failed to extract audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="286"/>
+        <location filename="video.cpp" line="285"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="300"/>
+        <location filename="video.cpp" line="299"/>
         <source>Start converting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="300"/>
-        <location filename="video.cpp" line="345"/>
+        <location filename="video.cpp" line="299"/>
+        <location filename="video.cpp" line="344"/>
         <source>] to mp4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="345"/>
+        <location filename="video.cpp" line="344"/>
         <source>Successfully converted video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="355"/>
+        <location filename="video.cpp" line="354"/>
         <source>Get duration of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="390"/>
+        <location filename="video.cpp" line="389"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="390"/>
+        <location filename="video.cpp" line="389"/>
         <source>].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="408"/>
+        <location filename="video.cpp" line="407"/>
         <source>Starting to denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="431"/>
+        <location filename="video.cpp" line="430"/>
         <source>Successfully denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="515"/>
+        <location filename="video.cpp" line="514"/>
         <source>Get bitrate of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="665"/>
+        <location filename="video.cpp" line="664"/>
         <source>Start assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="735"/>
+        <location filename="video.cpp" line="734"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="781"/>
+        <location filename="video.cpp" line="780"/>
         <source>Finish assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>

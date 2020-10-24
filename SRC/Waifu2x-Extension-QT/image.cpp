@@ -114,6 +114,15 @@ void MainWindow::on_comboBox_ImageSaveFormat_currentIndexChanged(int index)
     {
         ui->spinBox_ImageQualityLevel->setEnabled(1);
     }
+    if(ui->comboBox_ImageSaveFormat->currentIndex()==0)
+    {
+        ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
+        ui->checkBox_AutoDetectAlphaChannel->setChecked(1);
+    }
+    else
+    {
+        ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
+    }
 }
 /*
 判断图片是否含有透明通道

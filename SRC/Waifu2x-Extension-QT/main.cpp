@@ -37,6 +37,7 @@ v2.56.92:
 - Update FFmpeg&FFprobe.
 - Complete translation.
 - Fix bug: Audio and video might out of sync because of the wrong frame rate when [Process video by segment] is enabled.
+- Fix bug: [Auto detect Alpha channel] is is always deactivated.
 v2.56.91-beta:
 - New feature: Now you can save pictures in multiple formats.(thanks to @loafylemon for suggestion)
 - Remove redundant function.

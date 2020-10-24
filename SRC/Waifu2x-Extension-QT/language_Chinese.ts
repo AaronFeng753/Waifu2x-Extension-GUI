@@ -3544,7 +3544,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1549"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1587"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1669"/>
-        <location filename="video.cpp" line="735"/>
+        <location filename="video.cpp" line="734"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="139"/>
@@ -4389,30 +4389,30 @@ Waifu2x-converter处理器列表:
         <translation type="vanished">所有文件(*.*);</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="437"/>
+        <location filename="video.cpp" line="436"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation>错误! 无法对音频执行降噪.[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="554"/>
+        <location filename="video.cpp" line="553"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation>警告! 无法获取当前文件的比特率:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="554"/>
+        <location filename="video.cpp" line="553"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation>]. 将使用ffmpeg自动分配的比特率.</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="235"/>
-        <location filename="video.cpp" line="584"/>
+        <location filename="video.cpp" line="234"/>
+        <location filename="video.cpp" line="583"/>
         <source>Start splitting video: [</source>
         <translation>开始拆分视频: [</translation>
     </message>
     <message>
         <location filename="video.cpp" line="64"/>
         <source>ERROR! Unable to read the resolution of the video. [</source>
-        <translation type="unfinished"></translation>
+        <translation>错误! 无法读取视频的分辨率. [</translation>
     </message>
     <message>
         <location filename="video.cpp" line="91"/>
@@ -4425,99 +4425,99 @@ Waifu2x-converter处理器列表:
         <translation>开始用片段组装视频:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="215"/>
+        <location filename="video.cpp" line="214"/>
         <source>Error output for FFmpeg when processing:[</source>
         <translation>当处理该文件时的FFmpeg错误输出:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="228"/>
+        <location filename="video.cpp" line="227"/>
         <source>Finish assembling video with clips:[</source>
         <translation>完成用片段拼装视频:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="265"/>
-        <location filename="video.cpp" line="660"/>
+        <location filename="video.cpp" line="264"/>
+        <location filename="video.cpp" line="659"/>
         <source>Finish splitting video: [</source>
         <translation>结束拆分视频:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="273"/>
+        <location filename="video.cpp" line="272"/>
         <source>Extract audio from video: [</source>
         <translation>从视频中提取音频: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="282"/>
+        <location filename="video.cpp" line="281"/>
         <source>Successfully extracted audio from video: [</source>
         <translation>成功从视频中提取音频: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="286"/>
+        <location filename="video.cpp" line="285"/>
         <source>Failed to extract audio from video: [</source>
         <translation>无法从视频中提取音频: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="286"/>
+        <location filename="video.cpp" line="285"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation>] 本视频可能为无声视频, 所以将继续处理本视频.</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="300"/>
+        <location filename="video.cpp" line="299"/>
         <source>Start converting video: [</source>
         <translation>开始转换视频: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="300"/>
-        <location filename="video.cpp" line="345"/>
+        <location filename="video.cpp" line="299"/>
+        <location filename="video.cpp" line="344"/>
         <source>] to mp4</source>
         <translation>] 到mp4</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="345"/>
+        <location filename="video.cpp" line="344"/>
         <source>Successfully converted video: [</source>
         <translation>成功转换视频: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="355"/>
+        <location filename="video.cpp" line="354"/>
         <source>Get duration of the video:[</source>
         <translation>获取视频时长:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="390"/>
+        <location filename="video.cpp" line="389"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation>错误! 无法读取当前视频的时长 [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="390"/>
+        <location filename="video.cpp" line="389"/>
         <source>].</source>
         <translation>].</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="408"/>
+        <location filename="video.cpp" line="407"/>
         <source>Starting to denoise audio.[</source>
         <translation>开始对音频进行降噪.[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="431"/>
+        <location filename="video.cpp" line="430"/>
         <source>Successfully denoise audio.[</source>
         <translation>音频降噪成功.[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="515"/>
+        <location filename="video.cpp" line="514"/>
         <source>Get bitrate of the video:[</source>
         <translation>获取视频的比特率:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="665"/>
+        <location filename="video.cpp" line="664"/>
         <source>Start assembling video:[</source>
         <translation>开始组装视频:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="735"/>
+        <location filename="video.cpp" line="734"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]. 错误: [无法获取视频帧率.]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="781"/>
+        <location filename="video.cpp" line="780"/>
         <source>Finish assembling video:[</source>
         <translation>结束组装视频:[</translation>
     </message>
