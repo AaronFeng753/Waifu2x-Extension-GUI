@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1190</width>
+    <width>1157</width>
     <height>774</height>
    </rect>
   </property>
@@ -1755,7 +1755,7 @@ padding:10px;
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>237</width>
+                   <width>233</width>
                    <height>95</height>
                   </rect>
                  </property>
@@ -5264,6 +5264,11 @@ padding:10px;
                  </item>
                  <item row="2" column="0">
                   <widget class="QSpinBox" name="spinBox_ImageQualityLevel">
+                   <property name="toolTip">
+                    <string>Only takes effect when processing Static Image.
+
+Will NOT take effect when processing Video and GIF.</string>
+                   </property>
                    <property name="minimum">
                     <number>1</number>
                    </property>
@@ -5353,6 +5358,11 @@ automatically force the picture to be saved as PNG.
                  </item>
                  <item row="1" column="0">
                   <widget class="QComboBox" name="comboBox_ImageSaveFormat">
+                   <property name="toolTip">
+                    <string>Only takes effect when processing Static Image.
+
+Will NOT take effect when processing Video and GIF.</string>
+                   </property>
                    <property name="currentIndex">
                     <number>0</number>
                    </property>

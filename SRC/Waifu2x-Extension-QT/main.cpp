@@ -33,6 +33,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.56.92:
+- Update FFmpeg&FFprobe.
+- Complete translation.
+- Fix bug: Audio and video might out of sync because of the wrong frame rate when [Process video by segment] is enabled.
 v2.56.91-beta:
 - New feature: Now you can save pictures in multiple formats.(thanks to @loafylemon for suggestion)
 - Remove redundant function.
@@ -52,7 +56,7 @@ Integrated component:
 - realsr-ncnn-vulkan 20200818
 - ImageMagick 7.0.10-34
 - Anime4KCPP v2.4.0
-- FFmpeg&FFprobe 2020-10-14-git-6bdfea8d4b
+- FFmpeg&FFprobe 2020-10-21-git-289e964873
 - NirCmd v2.86
 - Ghostscript 9.53.3
 ---

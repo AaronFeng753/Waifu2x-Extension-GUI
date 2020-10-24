@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.56.91-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.56.82";
-    QString LastBetaVer = "v2.56.91-beta";
+    QString VERSION = "v2.56.92";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.56.92";
+    QString LastBetaVer = "v2.56.92";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -345,6 +345,8 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
     void Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
+    QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率
     QString video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
     //拆分视频
@@ -356,7 +358,7 @@ public:
     //获取视频比特率
     QString video_get_bitrate(QString videoPath);
     //获取视频比特率(根据分辨率计算)
-    QString video_get_bitrate_AccordingToRes(QString ScaledFrameFolderPath);
+    QString video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledFrameFolderPath);
     //音频降噪
     QString video_AudioDenoise(QString OriginalAudioPath);
     //获取时长(秒)
