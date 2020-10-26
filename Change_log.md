@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.56.95](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.95)
+#### Change log:
+- New feature: Now you can save pictures in multiple formats.(thanks to @loafylemon for suggestion)
+- Optimize performance.
+- Update FFmpeg&FFprobe.
+- Remove redundant function, code and comments.
+- Fix bug: Audio and video might out of sync because of the wrong frame rate.(thanks to @CAFUCSteven for feedback and assistance in testing.)
+- And other minor improvements.
+---
 ## [v2.56.82](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.82)
 #### Change log:
 - New feature: Now you can sort the files in the file list.
