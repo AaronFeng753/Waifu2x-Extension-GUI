@@ -184,8 +184,21 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     }
     //================= 获取比特率 =================
     QString bitrate_video_cmd="";
-    int BitRate = video_UseRes2CalculateBitrate(Mp4Clip_forReadInfo);
-    if(BitRate!=0)bitrate_video_cmd = " -b:v "+QString::number(BitRate,10)+"k ";
+    if(ui->spinBox_bitrate_vid->value()>0&&ui->checkBox_videoSettings_isEnabled->isChecked())
+    {
+        bitrate_video_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid->value(),10)+"k ";
+    }
+    else
+    {
+        int BitRate = video_UseRes2CalculateBitrate(Mp4Clip_forReadInfo);
+        if(BitRate!=0)bitrate_video_cmd = " -b:v "+QString::number(BitRate,10)+"k ";
+    }
+    //================= 读取视频编码器设定 ==============
+    QString encoder_video_cmd="";
+    if(ui->checkBox_videoSettings_isEnabled->isChecked()&&ui->lineEdit_encoder_vid->text()!="")
+    {
+        encoder_video_cmd = " -c:v "+ui->lineEdit_encoder_vid->text()+" ";//图像编码器
+    }
     //================ 获取fps =====================
     QString fps_video_cmd="";
     QString fps = video_get_fps(Mp4Clip_forReadInfo).trimmed();
@@ -197,11 +210,11 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString CMD = "";
     if(QFile::exists(AudioPath))
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\""+bitrate_video_cmd+fps_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+"\""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\""+bitrate_video_cmd+encoder_video_cmd+fps_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+"\""+video_mp4_scaled_fullpath+"\"";
     }
     else
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\""+bitrate_video_cmd+fps_video_cmd+"\""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\""+bitrate_video_cmd+encoder_video_cmd+fps_video_cmd+"\""+video_mp4_scaled_fullpath+"\"";
     }
     QProcess AssembleVideo;
     AssembleVideo.start(CMD);

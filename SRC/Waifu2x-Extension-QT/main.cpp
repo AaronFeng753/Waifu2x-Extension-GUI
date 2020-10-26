@@ -33,16 +33,13 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.56.92-beta:
-- Update FFmpeg&FFprobe.
-- Complete translation.
-- Remove redundant code and comments.
-- Fix bug: Audio and video might out of sync because of the wrong frame rate.(thanks to @CAFUCSteven for feedback)
-- Fix bug: [Auto detect Alpha channel] is is always deactivated.
-v2.56.91-beta:
+v2.56.95:
 - New feature: Now you can save pictures in multiple formats.(thanks to @loafylemon for suggestion)
-- Remove redundant function.
 - Optimize performance.
+- Update FFmpeg&FFprobe.
+- Remove redundant function, code and comments.
+- Fix bug: Audio and video might out of sync because of the wrong frame rate.(thanks to @CAFUCSteven for feedback and assistance in testing.)
+- And other minor improvements.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
