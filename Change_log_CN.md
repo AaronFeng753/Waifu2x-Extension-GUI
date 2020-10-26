@@ -10,11 +10,11 @@
 ---
 ## [v2.56.95](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.95)
 #### 更新日志:
-- 新特性: 现在您可以将图片另存为多种格式.(感谢 @loafylemon 的建议)
+- 新特性: 现在您可以将图片另存为多种格式.(感谢 [@loafylemon](https://github.com/loafylemon) 的建议)
 - 优化性能.
 - 更新 FFmpeg&FFprobe.
 - 移除多余的功能,代码,以及注释.
-- 修复bug: 因帧率不正确导致的视频音画不同步.(感谢 @CAFUCSteven 的反馈以及协助测试.)
+- 修复bug: 因帧率不正确导致的视频音画不同步.(感谢 [@CAFUCSteven](https://github.com/CAFUCSteven) 的反馈以及协助测试.)
 - 以及其他改进.
 ---
 ## [v2.56.82](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.82)
