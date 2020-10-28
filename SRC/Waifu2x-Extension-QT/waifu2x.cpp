@@ -481,7 +481,7 @@ void MainWindow::MoveFileToOutputPath(QString Orginal,QString SourceFilePath)
     if(ui->checkBox_OutPath_KeepOriginalFileName->isChecked())
     {
         QFileInfo fileinfo_source(SourceFilePath);
-        QString file_name = file_getBaseName(fileinfo_source.filePath());
+        QString file_name = file_getBaseName(SourceFilePath);
         QFileInfo fileinfo_Orginal(Orginal);
         QString file_ext = fileinfo_Orginal.suffix();
         Target_fileName=file_name+"."+file_ext;
@@ -520,7 +520,7 @@ void MainWindow::MoveFileToOutputPath(QString Orginal,QString SourceFilePath)
         while(true)
         {
             QFileInfo fileinfo_tmp(Target_fullpPath);
-            QString file_name = file_getBaseName(fileinfo_tmp.filePath());
+            QString file_name = file_getBaseName(Target_fullpPath);
             QString file_ext = fileinfo_tmp.suffix();
             QString file_path = file_getFolderPath(fileinfo_tmp);
             Target_fullpPath_tmp = file_path+"/"+file_name+"_"+QString::number(suffix_int,10)+"."+file_ext;

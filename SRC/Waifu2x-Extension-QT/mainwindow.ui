@@ -5301,9 +5301,7 @@ It is recommended to enable this option.</string>
                 </property>
                 <property name="toolTip">
                  <string>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.
-
-*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</string>
+automatically force the picture to be saved as PNG.</string>
                 </property>
                 <property name="text">
                  <string>Auto detect Alpha channel</string>

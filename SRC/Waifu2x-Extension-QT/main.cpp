@@ -33,13 +33,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.56.95:
-- New feature: Now you can save pictures in multiple formats.(thanks to @loafylemon for suggestion)
-- Optimize performance.
-- Update FFmpeg&FFprobe.
-- Remove redundant function, code and comments.
-- Fix bug: Audio and video might out of sync because of the wrong frame rate.(thanks to @CAFUCSteven for feedback and assistance in testing.)
-- And other minor improvements.
+v2.56.96-beta:
+- Prformance optimization.
+- Fix typo in the tooltip.
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.

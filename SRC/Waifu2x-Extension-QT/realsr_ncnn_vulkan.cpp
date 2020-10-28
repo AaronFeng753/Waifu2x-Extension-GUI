@@ -76,7 +76,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum)
     }
     //===============
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+file_ext+".png";
@@ -342,7 +342,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     QString ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x.gif";
@@ -577,7 +577,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_i
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
-    QString Frame_fileName_basename = file_getBaseName(fileinfo_frame.filePath());
+    QString Frame_fileName_basename = file_getBaseName(Frame_fileFullPath);
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();
@@ -768,7 +768,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //===================================================================
@@ -1132,7 +1132,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //===================================================================
@@ -1649,7 +1649,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
-    QString Frame_fileName_basename = file_getBaseName(fileinfo_frame.filePath());
+    QString Frame_fileName_basename = file_getBaseName(Frame_fileFullPath);
     QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x.png";
     //========================================================================
     QProcess *Waifu2x = new QProcess();

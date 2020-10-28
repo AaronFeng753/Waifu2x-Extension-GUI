@@ -287,7 +287,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     {
         if(file_ext!="mp4"&&file_ext.toLower()=="mp4")
         {
-            QString file_name = file_getBaseName(fileinfo.filePath());
+            QString file_name = file_getBaseName(SourceFile_fullPath);
             QString file_ext = fileinfo.suffix();
             QString file_path = file_getFolderPath(fileinfo);
             QFile::rename(file_path+"/"+file_name+"."+file_ext,file_path+"/"+file_name+".mp4");

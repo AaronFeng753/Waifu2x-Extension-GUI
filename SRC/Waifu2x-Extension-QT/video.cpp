@@ -154,7 +154,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     do
     {
         int random = QRandomGenerator::global()->bounded(1,1000);
-        Path_FFMpegFileList = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_fileList_"+QString::number(random,10)+"_Waifu2xEX.txt";
+        Path_FFMpegFileList = video_dir+"/"+file_getBaseName(video_mp4_scaled_fullpath)+"_fileList_"+QString::number(random,10)+"_Waifu2xEX.txt";
     }
     while(QFile::exists(Path_FFMpegFileList));
     //=========
@@ -249,7 +249,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFileInfo vfinfo(VideoPath);
     QString video_dir = file_getFolderPath(vfinfo);
-    QString video_filename = file_getBaseName(vfinfo.filePath());
+    QString video_filename = file_getBaseName(VideoPath);
     QString video_ext = vfinfo.suffix();
     QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     //==============
@@ -312,7 +312,7 @@ void MainWindow::video_2mp4(QString VideoPath)
         emit Send_TextBrowser_NewMessage(tr("Start converting video: [")+VideoPath+tr("] to mp4"));
         QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
         QString video_dir = file_getFolderPath(vfinfo);
-        QString video_filename = file_getBaseName(vfinfo.filePath());
+        QString video_filename = file_getBaseName(VideoPath);
         QString video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
         QFile::remove(video_mp4_fullpath);
         QString vcodec_copy_cmd = "";
@@ -380,7 +380,7 @@ int MainWindow::video_get_duration(QString videoPath)
     do
     {
         int random = QRandomGenerator::global()->bounded(1,1000);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
@@ -420,7 +420,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
     emit Send_TextBrowser_NewMessage(tr("Starting to denoise audio.[")+OriginalAudioPath+"]");
     //===========
     QFileInfo fileinfo(OriginalAudioPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(OriginalAudioPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //================
@@ -547,7 +547,7 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     do
     {
         int random = QRandomGenerator::global()->bounded(1,1000);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoFileInfo.filePath())+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
@@ -598,7 +598,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFileInfo vfinfo(VideoPath);
     QString video_dir = file_getFolderPath(vfinfo);
-    QString video_filename = file_getBaseName(vfinfo.filePath());
+    QString video_filename = file_getBaseName(VideoPath);
     QString video_ext = vfinfo.suffix();
     QString video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     //==============
@@ -738,7 +738,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     QFileInfo vfinfo(VideoPath);
     QString video_dir = file_getFolderPath(vfinfo);
-    QString video_filename = file_getBaseName(vfinfo.filePath());
+    QString video_filename = file_getBaseName(VideoPath);
     QString video_ext = vfinfo.suffix();
     //=========== 获取fps ===========
     QString fps = video_get_fps(VideoPath).trimmed();

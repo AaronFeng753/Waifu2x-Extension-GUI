@@ -2051,7 +2051,7 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
     //=================
     QFileInfo fileinfo_original_fullpath(original_fullpath);
     QFileInfo fileinfo_output_fullpath(output_fullpath);
-    QString file_name = file_getBaseName(fileinfo_original_fullpath.filePath());//获取源文件的文件名
+    QString file_name = file_getBaseName(original_fullpath);//获取源文件的文件名
     QString file_ext = fileinfo_output_fullpath.suffix();//获取输出文件的后辍
     QString file_path = file_getFolderPath(fileinfo_original_fullpath);//获取源文件的文件路径
     //=================

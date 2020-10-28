@@ -48,7 +48,7 @@ QString MainWindow::SaveImageAs_FormatAndQuality(QString OriginalSourceImage_ful
     }
     //==========================
     QFileInfo OriginalSourceImage_fileinfo(OriginalSourceImage_fullPath);
-    QString OriginalSourceImage_file_name = file_getBaseName(OriginalSourceImage_fileinfo.filePath());
+    QString OriginalSourceImage_file_name = file_getBaseName(OriginalSourceImage_fullPath);
     QString OriginalSourceImage_file_ext = OriginalSourceImage_fileinfo.suffix();
     //============ 确定文件夹 ==============
     FinalFile_Folder = file_getFolderPath(OriginalSourceImage_fileinfo);

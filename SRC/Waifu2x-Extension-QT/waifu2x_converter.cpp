@@ -70,7 +70,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum)
     }
     //=======================================================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
@@ -257,7 +257,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     QString ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.gif";
@@ -570,7 +570,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //===================================================================
@@ -937,7 +937,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     }
     //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(fileinfo.filePath());
+    QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //===================================================================
