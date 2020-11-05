@@ -1733,10 +1733,10 @@ Will improve image quality.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5477"/>
-        <source>Enable this will stop download anything from Communist China website Gitee.
+        <source>Enabling this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
-enable this will affect auto update.
+enabling this will affect auto update.
 
 For detailed information, please read privacy policy.</source>
         <translation type="unfinished"></translation>
