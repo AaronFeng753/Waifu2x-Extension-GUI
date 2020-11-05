@@ -113,39 +113,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6244"/>
-        <location filename="mainwindow.ui" line="6265"/>
-        <location filename="mainwindow.ui" line="6280"/>
-        <location filename="mainwindow.ui" line="6296"/>
-        <location filename="mainwindow.ui" line="6317"/>
-        <location filename="mainwindow.ui" line="6358"/>
-        <location filename="mainwindow.ui" line="6374"/>
-        <location filename="mainwindow.ui" line="6411"/>
-        <location filename="mainwindow.ui" line="6445"/>
-        <location filename="mainwindow.ui" line="6460"/>
-        <location filename="mainwindow.ui" line="6503"/>
+        <location filename="mainwindow.ui" line="6242"/>
+        <location filename="mainwindow.ui" line="6263"/>
+        <location filename="mainwindow.ui" line="6278"/>
+        <location filename="mainwindow.ui" line="6294"/>
+        <location filename="mainwindow.ui" line="6315"/>
+        <location filename="mainwindow.ui" line="6356"/>
+        <location filename="mainwindow.ui" line="6372"/>
+        <location filename="mainwindow.ui" line="6409"/>
+        <location filename="mainwindow.ui" line="6443"/>
+        <location filename="mainwindow.ui" line="6458"/>
+        <location filename="mainwindow.ui" line="6501"/>
         <source>Image processing engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6351"/>
+        <location filename="mainwindow.ui" line="6349"/>
         <source>Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6470"/>
-        <location filename="mainwindow.ui" line="6493"/>
+        <location filename="mainwindow.ui" line="6468"/>
+        <location filename="mainwindow.ui" line="6491"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6389"/>
-        <location filename="mainwindow.ui" line="6429"/>
+        <location filename="mainwindow.ui" line="6387"/>
+        <location filename="mainwindow.ui" line="6427"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6206"/>
+        <location filename="mainwindow.ui" line="6204"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -159,17 +159,17 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6325"/>
+        <location filename="mainwindow.ui" line="6323"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6486"/>
+        <location filename="mainwindow.ui" line="6484"/>
         <source>Plugins:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6228"/>
+        <location filename="mainwindow.ui" line="6226"/>
         <source>For audio denoise(video).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -789,7 +789,7 @@ increase the time and storage space required to process image.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5268"/>
-        <location filename="mainwindow.ui" line="5362"/>
+        <location filename="mainwindow.ui" line="5360"/>
         <source>Only takes effect when processing Static Image.
 
 Will NOT take effect when processing Video and GIF.</source>
@@ -798,56 +798,58 @@ Will NOT take effect when processing Video and GIF.</source>
     <message>
         <location filename="mainwindow.ui" line="5303"/>
         <source>When the alpha channel is detected in the picture, software will
+automatically force the picture to be saved as PNG.</source>
+        <oldsource>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.
 
-*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</source>
+*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5448"/>
-        <location filename="mainwindow.ui" line="5647"/>
+        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5645"/>
         <source>The number of retries when failed to processing a image (or frame).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5676"/>
+        <location filename="mainwindow.ui" line="5674"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6549"/>
+        <location filename="mainwindow.ui" line="6547"/>
         <location filename="CompatibilityTest.cpp" line="505"/>
         <source>Start compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5464"/>
+        <location filename="mainwindow.ui" line="5462"/>
         <source>Play Notification sound.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5634"/>
+        <location filename="mainwindow.ui" line="5632"/>
         <source>Keep video cache after processing the video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5573"/>
+        <location filename="mainwindow.ui" line="5571"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5576"/>
+        <location filename="mainwindow.ui" line="5574"/>
         <source>Show internal progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5787"/>
+        <location filename="mainwindow.ui" line="5785"/>
         <source>Aspect Ratio(Custom resolution):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5833"/>
+        <location filename="mainwindow.ui" line="5831"/>
         <source>After processing the file, directly replace
 the original file with the result file.
 (And keep the original file name.)
@@ -859,32 +861,32 @@ path] or [Delete original files] is enabled*</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5843"/>
+        <location filename="mainwindow.ui" line="5841"/>
         <source>Replace original file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6071"/>
+        <location filename="mainwindow.ui" line="6069"/>
         <source>Official website</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6078"/>
+        <location filename="mainwindow.ui" line="6076"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6172"/>
+        <location filename="mainwindow.ui" line="6170"/>
         <source>Compatibility test results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6382"/>
+        <location filename="mainwindow.ui" line="6380"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6178"/>
+        <location filename="mainwindow.ui" line="6176"/>
         <source>Essential, for all sorts of functions.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -905,7 +907,7 @@ It is recommended to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5467"/>
+        <location filename="mainwindow.ui" line="5465"/>
         <source>Notification sound</source>
         <translation type="unfinished"></translation>
     </message>
@@ -915,12 +917,12 @@ It is recommended to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5611"/>
+        <location filename="mainwindow.ui" line="5609"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5614"/>
+        <location filename="mainwindow.ui" line="5612"/>
         <source>File list scrolls automatically</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1242,35 +1244,35 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6111"/>
+        <location filename="mainwindow.ui" line="6109"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5690"/>
-        <location filename="mainwindow.ui" line="5745"/>
+        <location filename="mainwindow.ui" line="5688"/>
+        <location filename="mainwindow.ui" line="5743"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5680"/>
+        <location filename="mainwindow.ui" line="5678"/>
         <source>Scan sub-folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5586"/>
+        <location filename="mainwindow.ui" line="5584"/>
         <source>Interactive file list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5650"/>
+        <location filename="mainwindow.ui" line="5648"/>
         <source>Retry:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5309"/>
+        <location filename="mainwindow.ui" line="5307"/>
         <source>Auto detect Alpha channel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1525,34 +1527,34 @@ by the software will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5666"/>
+        <location filename="mainwindow.ui" line="5664"/>
         <source>Update popup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5596"/>
+        <location filename="mainwindow.ui" line="5594"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5750"/>
+        <location filename="mainwindow.ui" line="5748"/>
         <source>Segment duration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5516"/>
+        <location filename="mainwindow.ui" line="5514"/>
         <source>Prompt when exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5637"/>
+        <location filename="mainwindow.ui" line="5635"/>
         <source>Keep video cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5601"/>
+        <location filename="mainwindow.ui" line="5599"/>
         <source>Process video by segment</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1658,32 +1660,32 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5355"/>
+        <location filename="mainwindow.ui" line="5353"/>
         <source>Save image as:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5663"/>
+        <location filename="mainwindow.ui" line="5661"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5719"/>
+        <location filename="mainwindow.ui" line="5717"/>
         <source>Update channel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5730"/>
+        <location filename="mainwindow.ui" line="5728"/>
         <source>Stable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5735"/>
+        <location filename="mainwindow.ui" line="5733"/>
         <source>Beta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5441"/>
+        <location filename="mainwindow.ui" line="5439"/>
         <source>Minimize to taskbar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1722,17 +1724,17 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5526"/>
+        <location filename="mainwindow.ui" line="5524"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5529"/>
+        <location filename="mainwindow.ui" line="5527"/>
         <source>Always hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5477"/>
+        <location filename="mainwindow.ui" line="5475"/>
         <source>Enable this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
@@ -1742,78 +1744,78 @@ For detailed information, please read privacy policy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5485"/>
+        <location filename="mainwindow.ui" line="5483"/>
         <source>Ban Gitee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5986"/>
+        <location filename="mainwindow.ui" line="5984"/>
         <source>Report issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6148"/>
+        <location filename="mainwindow.ui" line="6146"/>
         <location filename="mainwindow.cpp" line="1070"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5757"/>
+        <location filename="mainwindow.ui" line="5755"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5760"/>
+        <location filename="mainwindow.ui" line="5758"/>
         <source>Auto save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5810"/>
+        <location filename="mainwindow.ui" line="5808"/>
         <source>Ignore Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5815"/>
+        <location filename="mainwindow.ui" line="5813"/>
         <source>Keep Aspect Ratio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5820"/>
+        <location filename="mainwindow.ui" line="5818"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5624"/>
+        <location filename="mainwindow.ui" line="5622"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5627"/>
+        <location filename="mainwindow.ui" line="5625"/>
         <source>Always hide Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6029"/>
+        <location filename="mainwindow.ui" line="6027"/>
         <source>Check update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5907"/>
+        <location filename="mainwindow.ui" line="5905"/>
         <source>Save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6516"/>
+        <location filename="mainwindow.ui" line="6514"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6163"/>
+        <location filename="mainwindow.ui" line="6161"/>
         <source>Compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5944"/>
+        <location filename="mainwindow.ui" line="5942"/>
         <source>Reset settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1861,8 +1863,8 @@ For detailed information, please read privacy policy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5498"/>
-        <location filename="mainwindow.ui" line="5542"/>
+        <location filename="mainwindow.ui" line="5496"/>
+        <location filename="mainwindow.ui" line="5540"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
@@ -2297,7 +2299,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1549"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1587"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1669"/>
-        <location filename="video.cpp" line="734"/>
+        <location filename="video.cpp" line="747"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="139"/>
@@ -3032,23 +3034,23 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="436"/>
+        <location filename="video.cpp" line="449"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="553"/>
+        <location filename="video.cpp" line="566"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="553"/>
+        <location filename="video.cpp" line="566"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="234"/>
-        <location filename="video.cpp" line="583"/>
+        <location filename="video.cpp" line="247"/>
+        <location filename="video.cpp" line="596"/>
         <source>Start splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3068,99 +3070,99 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="214"/>
+        <location filename="video.cpp" line="227"/>
         <source>Error output for FFmpeg when processing:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="227"/>
+        <location filename="video.cpp" line="240"/>
         <source>Finish assembling video with clips:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="264"/>
-        <location filename="video.cpp" line="659"/>
+        <location filename="video.cpp" line="277"/>
+        <location filename="video.cpp" line="672"/>
         <source>Finish splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="272"/>
+        <location filename="video.cpp" line="285"/>
         <source>Extract audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="281"/>
+        <location filename="video.cpp" line="294"/>
         <source>Successfully extracted audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="298"/>
         <source>Failed to extract audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="298"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="299"/>
+        <location filename="video.cpp" line="312"/>
         <source>Start converting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="299"/>
-        <location filename="video.cpp" line="344"/>
+        <location filename="video.cpp" line="312"/>
+        <location filename="video.cpp" line="357"/>
         <source>] to mp4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="344"/>
+        <location filename="video.cpp" line="357"/>
         <source>Successfully converted video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="354"/>
+        <location filename="video.cpp" line="367"/>
         <source>Get duration of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="389"/>
+        <location filename="video.cpp" line="402"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="389"/>
+        <location filename="video.cpp" line="402"/>
         <source>].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="407"/>
+        <location filename="video.cpp" line="420"/>
         <source>Starting to denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="430"/>
+        <location filename="video.cpp" line="443"/>
         <source>Successfully denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="514"/>
+        <location filename="video.cpp" line="527"/>
         <source>Get bitrate of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="664"/>
+        <location filename="video.cpp" line="677"/>
         <source>Start assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="734"/>
+        <location filename="video.cpp" line="747"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="780"/>
+        <location filename="video.cpp" line="793"/>
         <source>Finish assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3403,18 +3405,18 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="136"/>
+        <location filename="image.cpp" line="145"/>
         <source>It is detected that the image [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="136"/>
+        <location filename="image.cpp" line="145"/>
         <source>] contains the Alpha channel, so the result image will be forcibly saved as PNG.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="image.cpp" line="97"/>
-        <location filename="image.cpp" line="169"/>
+        <location filename="image.cpp" line="178"/>
         <source>Error: Can&apos;t convert [</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3424,7 +3426,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="169"/>
+        <location filename="image.cpp" line="178"/>
         <source>] to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -5443,7 +5443,7 @@ Will NOT take effect when processing Video and GIF.</string>
               <item row="7" column="2">
                <widget class="QSpinBox" name="spinBox_retry">
                 <property name="toolTip">
-                 <string>The number of retries when failed to processing a image (or frame).</string>
+                 <string>The number of retries when an image (or frame) processing fails.</string>
                 </property>
                 <property name="minimum">
                  <number>1</number>
@@ -5472,10 +5472,10 @@ Will NOT take effect when processing Video and GIF.</string>
               <item row="12" column="0">
                <widget class="QCheckBox" name="checkBox_BanGitee">
                 <property name="toolTip">
-                 <string>Enable this will stop download anything from Communist China website Gitee.
+                 <string>Enabling this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
-enable this will affect auto update.
+enabling this will affect auto update.
 
 For detailed information, please read privacy policy.</string>
                 </property>
@@ -5642,7 +5642,7 @@ will increase the time required to process video.</string>
               <item row="7" column="0">
                <widget class="QLabel" name="label_39">
                 <property name="toolTip">
-                 <string>The number of retries when failed to processing a image (or frame).</string>
+                 <string>The number of retries when an image (or frame) processing fails.</string>
                 </property>
                 <property name="text">
                  <string>Retry:</string>

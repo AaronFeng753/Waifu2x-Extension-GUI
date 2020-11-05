@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 v2.56.96-beta:
 - Prformance optimization.
-- Fix typo in the tooltip.
+- Fix typo and grammatical issues in the tooltip.(Thanks to @CaptainStabs for feedback)
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
@@ -53,7 +53,7 @@ Integrated component:
 - FFmpeg&FFprobe 2020-10-21-git-289e964873
 - NirCmd v2.86
 - Ghostscript 9.53.3
----
+---------------------------------------------------------------------------
 Icons made by :
 Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
 Roundicons (https://www.flaticon.com/authors/roundicons) From Flaticon : https://www.flaticon.com/

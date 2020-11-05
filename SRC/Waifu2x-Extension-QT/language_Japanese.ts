@@ -425,17 +425,17 @@ It is recommended to enable this option.</source>
         <translation type="vanished">リスト内のすべてのファイルが処理されたときに通知音を再生します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5467"/>
+        <location filename="mainwindow.ui" line="5465"/>
         <source>Notification sound</source>
         <translation>通知音</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5573"/>
+        <location filename="mainwindow.ui" line="5571"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation>テキストブラウザー内のGIFおよびビデオプロセスの内部スケールおよびノイズ除去の進行状況を出力します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5576"/>
+        <location filename="mainwindow.ui" line="5574"/>
         <source>Show internal progress</source>
         <translation>内部の進捗状況を表示する</translation>
     </message>
@@ -746,14 +746,13 @@ when [Save as &quot;.jpg&quot;] is disabled*</source>
     <message>
         <location filename="mainwindow.ui" line="5303"/>
         <source>When the alpha channel is detected in the picture, software will
+automatically force the picture to be saved as PNG.</source>
+        <oldsource>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.
 
-*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</source>
+*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</oldsource>
         <translation>画像でアルファチャネルが検出されると、ソフト
-ウェアは自動的に画像をPNGとして保存します。
-
-*このオプションは、[名前を付けて保存 &quot;.jpg&quot;]
-が無効になっている場合は無効になります*</translation>
+ウェアは自動的に画像をPNGとして保存します。</translation>
     </message>
     <message>
         <source>After processing the file, directly replace
@@ -771,7 +770,7 @@ path] or [Delete original files] is enabled*</source>
 が有効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6549"/>
+        <location filename="mainwindow.ui" line="6547"/>
         <location filename="CompatibilityTest.cpp" line="505"/>
         <source>Start compatibility test</source>
         <translation>互換性テストを開始します</translation>
@@ -1124,12 +1123,12 @@ waifu2x-converterのみがアルファチャネルをサポートします。
         <translation type="vanished">古いバージョン</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5666"/>
+        <location filename="mainwindow.ui" line="5664"/>
         <source>Update popup</source>
         <translation>ポップアップを更新</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5596"/>
+        <location filename="mainwindow.ui" line="5594"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
@@ -1146,17 +1145,17 @@ will increase the time required to process video.</source>
         <translation type="vanished">s</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5750"/>
+        <location filename="mainwindow.ui" line="5748"/>
         <source>Segment duration:</source>
         <translation>ビデオクリップの長さ:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5516"/>
+        <location filename="mainwindow.ui" line="5514"/>
         <source>Prompt when exit</source>
         <translation>終了時にプロンプト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5637"/>
+        <location filename="mainwindow.ui" line="5635"/>
         <source>Keep video cache</source>
         <translation>ビデオキャッシュを保持する</translation>
     </message>
@@ -1165,7 +1164,7 @@ will increase the time required to process video.</source>
         <translation type="vanished">実験的な機能は、ビデオを処理するときのハードディスク領域の占有を減らすことができます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5601"/>
+        <location filename="mainwindow.ui" line="5599"/>
         <source>Process video by segment</source>
         <translation>セグメントごとにビデオを処理する</translation>
     </message>
@@ -1539,17 +1538,17 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">★★ 寄付 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6516"/>
+        <location filename="mainwindow.ui" line="6514"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>互換性テストを実行して、コンピューターが互換性のあるエンジンを確認します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6163"/>
+        <location filename="mainwindow.ui" line="6161"/>
         <source>Compatibility test</source>
         <translation>互換性テスト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5833"/>
+        <location filename="mainwindow.ui" line="5831"/>
         <source>After processing the file, directly replace
 the original file with the result file.
 (And keep the original file name.)
@@ -1567,12 +1566,12 @@ path] or [Delete original files] is enabled*</source>
 が有効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6111"/>
+        <location filename="mainwindow.ui" line="6109"/>
         <source>Wiki</source>
         <translation>Wiki</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6029"/>
+        <location filename="mainwindow.ui" line="6027"/>
         <source>Check update</source>
         <translation>更新を確認する</translation>
     </message>
@@ -1590,13 +1589,13 @@ path] or [Delete original files] is enabled*</source>
         <translation type="vanished">Readme</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6148"/>
+        <location filename="mainwindow.ui" line="6146"/>
         <location filename="mainwindow.cpp" line="1070"/>
         <source>About</source>
         <translation>について</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5986"/>
+        <location filename="mainwindow.ui" line="5984"/>
         <source>Report issue</source>
         <translation>問題を報告する</translation>
     </message>
@@ -1611,12 +1610,12 @@ WARNING: The original file will be DELETED.</source>
 警告：元のファイルは削除されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5907"/>
+        <location filename="mainwindow.ui" line="5905"/>
         <source>Save settings</source>
         <translation>設定を保存する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5944"/>
+        <location filename="mainwindow.ui" line="5942"/>
         <source>Reset settings</source>
         <translation>設定をリセット</translation>
     </message>
@@ -1637,28 +1636,28 @@ WARNING: The original file will be DELETED.</source>
         <translation type="vanished">更新を自動的に確認する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5611"/>
+        <location filename="mainwindow.ui" line="5609"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>ファイル処理ステータスが変更されると、ファイルリストが自動的にスクロールします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5614"/>
+        <location filename="mainwindow.ui" line="5612"/>
         <source>File list scrolls automatically</source>
         <translation>ファイルリストは自動的にスクロールします</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5757"/>
+        <location filename="mainwindow.ui" line="5755"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>ソフトウェアを閉じると、設定は自動的に保存されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5760"/>
+        <location filename="mainwindow.ui" line="5758"/>
         <source>Auto save settings</source>
         <translation>自動保存設定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5690"/>
-        <location filename="mainwindow.ui" line="5745"/>
+        <location filename="mainwindow.ui" line="5688"/>
+        <location filename="mainwindow.ui" line="5743"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1675,43 +1674,43 @@ when processing video in segments.</source>
         <translation type="vanished">パス設定を常に非表示にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5526"/>
+        <location filename="mainwindow.ui" line="5524"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation>[テキストブラウザ]は、ソフトウェアの起動時に自動的に非表示になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5529"/>
+        <location filename="mainwindow.ui" line="5527"/>
         <source>Always hide Text Browser</source>
         <translation>テキストブラウザを常に非表示にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5624"/>
+        <location filename="mainwindow.ui" line="5622"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[設定]は、ソフトウェアの起動時に自動的に非表示になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5627"/>
+        <location filename="mainwindow.ui" line="5625"/>
         <source>Always hide Settings</source>
         <translation>設定を常に非表示にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5680"/>
+        <location filename="mainwindow.ui" line="5678"/>
         <source>Scan sub-folders</source>
         <translation>サブフォルダーをスキャンする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5586"/>
+        <location filename="mainwindow.ui" line="5584"/>
         <source>Interactive file list</source>
         <translation>インタラクティブファイルリスト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5650"/>
+        <location filename="mainwindow.ui" line="5648"/>
         <source>Retry:</source>
         <translation>リトライ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5498"/>
-        <location filename="mainwindow.ui" line="5542"/>
+        <location filename="mainwindow.ui" line="5496"/>
+        <location filename="mainwindow.ui" line="5540"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>変更後にソフトウェアを再起動することをお勧めします
@@ -1755,8 +1754,8 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6470"/>
-        <location filename="mainwindow.ui" line="6493"/>
+        <location filename="mainwindow.ui" line="6468"/>
+        <location filename="mainwindow.ui" line="6491"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>ビデオの処理用。</translation>
@@ -1845,27 +1844,27 @@ be processed successfully)</source>
 正常に処理される）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5464"/>
+        <location filename="mainwindow.ui" line="5462"/>
         <source>Play Notification sound.</source>
         <translation>通知音を再生します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5787"/>
+        <location filename="mainwindow.ui" line="5785"/>
         <source>Aspect Ratio(Custom resolution):</source>
         <translation>アスペクト比(カスタム解像度):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5810"/>
+        <location filename="mainwindow.ui" line="5808"/>
         <source>Ignore Aspect Ratio</source>
         <translation>アスペクト比を無視</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5815"/>
+        <location filename="mainwindow.ui" line="5813"/>
         <source>Keep Aspect Ratio</source>
         <translation>アスペクト比を維持</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5820"/>
+        <location filename="mainwindow.ui" line="5818"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation>拡大してアスペクト比を維持</translation>
     </message>
@@ -1888,7 +1887,7 @@ waifu2x-converterエンジンに互換性があることを確認してくださ
 このオプションを有効にする前に、PCを使用してください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5309"/>
+        <location filename="mainwindow.ui" line="5307"/>
         <source>Auto detect Alpha channel</source>
         <translation>アルファチャネルを自動検出</translation>
     </message>
@@ -1897,7 +1896,7 @@ waifu2x-converterエンジンに互換性があることを確認してくださ
         <translation type="vanished">アルファチャネルのエンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6172"/>
+        <location filename="mainwindow.ui" line="6170"/>
         <source>Compatibility test results</source>
         <translation>互換性テストの結果</translation>
     </message>
@@ -1928,7 +1927,7 @@ Anime4k  [速度：★★★  画質：★]
 srmd-ncnn-vulkan  [速度：★☆  画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6228"/>
+        <location filename="mainwindow.ui" line="6226"/>
         <source>For audio denoise(video).</source>
         <translation>オーディオのノイズ除去（ビデオ）。</translation>
     </message>
@@ -1951,7 +1950,7 @@ Anime4k  [ 速度:★★★  画質:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6382"/>
+        <location filename="mainwindow.ui" line="6380"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(古いバージョン)</translation>
     </message>
@@ -1960,17 +1959,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6244"/>
-        <location filename="mainwindow.ui" line="6265"/>
-        <location filename="mainwindow.ui" line="6280"/>
-        <location filename="mainwindow.ui" line="6296"/>
-        <location filename="mainwindow.ui" line="6317"/>
-        <location filename="mainwindow.ui" line="6358"/>
-        <location filename="mainwindow.ui" line="6374"/>
-        <location filename="mainwindow.ui" line="6411"/>
-        <location filename="mainwindow.ui" line="6445"/>
-        <location filename="mainwindow.ui" line="6460"/>
-        <location filename="mainwindow.ui" line="6503"/>
+        <location filename="mainwindow.ui" line="6242"/>
+        <location filename="mainwindow.ui" line="6263"/>
+        <location filename="mainwindow.ui" line="6278"/>
+        <location filename="mainwindow.ui" line="6294"/>
+        <location filename="mainwindow.ui" line="6315"/>
+        <location filename="mainwindow.ui" line="6356"/>
+        <location filename="mainwindow.ui" line="6372"/>
+        <location filename="mainwindow.ui" line="6409"/>
+        <location filename="mainwindow.ui" line="6443"/>
+        <location filename="mainwindow.ui" line="6458"/>
+        <location filename="mainwindow.ui" line="6501"/>
         <source>Image processing engine.</source>
         <translation>画像処理エンジン。</translation>
     </message>
@@ -1999,8 +1998,8 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6389"/>
-        <location filename="mainwindow.ui" line="6429"/>
+        <location filename="mainwindow.ui" line="6387"/>
+        <location filename="mainwindow.ui" line="6427"/>
         <source>For processing GIF.</source>
         <translation>GIFの処理用。</translation>
     </message>
@@ -2017,7 +2016,7 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6178"/>
+        <location filename="mainwindow.ui" line="6176"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>あらゆる種類の機能に不可欠です。</translation>
     </message>
@@ -2664,7 +2663,7 @@ increase the time and storage space required to process image.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5268"/>
-        <location filename="mainwindow.ui" line="5362"/>
+        <location filename="mainwindow.ui" line="5360"/>
         <source>Only takes effect when processing Static Image.
 
 Will NOT take effect when processing Video and GIF.</source>
@@ -2673,32 +2672,32 @@ Will NOT take effect when processing Video and GIF.</source>
 ビデオとGIFの処理時には有効になりません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5355"/>
+        <location filename="mainwindow.ui" line="5353"/>
         <source>Save image as:</source>
         <translation>画像を保存します：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5663"/>
+        <location filename="mainwindow.ui" line="5661"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation>更新が検出されると、ポップアップウィンドウが表示されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5719"/>
+        <location filename="mainwindow.ui" line="5717"/>
         <source>Update channel:</source>
         <translation>チャンネルを更新：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5730"/>
+        <location filename="mainwindow.ui" line="5728"/>
         <source>Stable</source>
         <translation>安定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5735"/>
+        <location filename="mainwindow.ui" line="5733"/>
         <source>Beta</source>
         <translation>ベータ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5441"/>
+        <location filename="mainwindow.ui" line="5439"/>
         <source>Minimize to taskbar</source>
         <translation>タスクバーに最小化</translation>
     </message>
@@ -2708,21 +2707,11 @@ Will NOT take effect when processing Video and GIF.</source>
         <translation>カスタムフォント設定を有効にします。</translation>
     </message>
     <message>
-        <source>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.</source>
-        <oldsource>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.
-
-★Anime4K engine does NOT supports alpha channel.★</oldsource>
-        <translation type="vanished">画像でアルファチャネルが検出されると、ソフトウェアは
-画像を自動的にPNGとして保存します。</translation>
-    </message>
-    <message>
         <source>Compress JPG files.</source>
         <translation type="vanished">JPGファイルを圧縮します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5477"/>
+        <location filename="mainwindow.ui" line="5475"/>
         <source>Enable this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
@@ -2737,7 +2726,7 @@ For detailed information, please read privacy policy.</source>
 詳しくはプライバシーポリシーをご覧ください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5485"/>
+        <location filename="mainwindow.ui" line="5483"/>
         <source>Ban Gitee</source>
         <translation>禁止Gitee</translation>
     </message>
@@ -2752,22 +2741,22 @@ WARNING: The original file will be permanently DELETED.</source>
 警告：元のファイルは完全に削除されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5843"/>
+        <location filename="mainwindow.ui" line="5841"/>
         <source>Replace original file</source>
         <translation>元のファイルを置き換える</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6071"/>
+        <location filename="mainwindow.ui" line="6069"/>
         <source>Official website</source>
         <translation>公式ウェブサイト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6078"/>
+        <location filename="mainwindow.ui" line="6076"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation>Waifu2x-Extension-GUIオンラインwikiを開きます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6206"/>
+        <location filename="mainwindow.ui" line="6204"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -2790,7 +2779,7 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6325"/>
+        <location filename="mainwindow.ui" line="6323"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan（最新バージョン）</translation>
     </message>
@@ -2847,20 +2836,20 @@ waifu2x-caffe [速度：★☆  画質：★★★]
 PCに対応しています。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5448"/>
-        <location filename="mainwindow.ui" line="5647"/>
+        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5645"/>
         <source>The number of retries when failed to processing a image (or frame).</source>
         <translation>画像（またはフレーム）の処理に失敗した場合の再試行回数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5676"/>
+        <location filename="mainwindow.ui" line="5674"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation>フォルダをファイルリストに追加する場合は、サブフォルダ
 内のファイルをスキャンして、ファイルリストに追加します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5634"/>
+        <location filename="mainwindow.ui" line="5632"/>
         <source>Keep video cache after processing the video.</source>
         <translation>ビデオの処理後もビデオキャッシュを保持します。</translation>
     </message>
@@ -2938,12 +2927,12 @@ srmd-ncnn-vulkan  [ 速度:★☆  画質:★★★ ]
 waifu2x-caffe  [ 速度:★☆  画質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6351"/>
+        <location filename="mainwindow.ui" line="6349"/>
         <source>Engines:</source>
         <translation>エンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6486"/>
+        <location filename="mainwindow.ui" line="6484"/>
         <source>Plugins:</source>
         <translation>プラグイン：</translation>
     </message>
@@ -3125,7 +3114,7 @@ by the software will be used.</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1549"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1587"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1669"/>
-        <location filename="video.cpp" line="734"/>
+        <location filename="video.cpp" line="747"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="139"/>
@@ -4321,23 +4310,23 @@ Waifu2x-converterプロセッサリスト:
         <translation>前回保存されたファイルリストは空です。</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="436"/>
+        <location filename="video.cpp" line="449"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation>エラー！ オーディオのノイズを除去できません。[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="553"/>
+        <location filename="video.cpp" line="566"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation>警告！現在のファイルのビットレートを取得できません：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="553"/>
+        <location filename="video.cpp" line="566"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation>]。ffmpegによって自動的に割り当てられたビットレートが使用されます。</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="234"/>
-        <location filename="video.cpp" line="583"/>
+        <location filename="video.cpp" line="247"/>
+        <location filename="video.cpp" line="596"/>
         <source>Start splitting video: [</source>
         <translation>ビデオの分割を開始：[</translation>
     </message>
@@ -4357,99 +4346,99 @@ Waifu2x-converterプロセッサリスト:
         <translation>クリップを使用してビデオの組み立てを開始する:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="214"/>
+        <location filename="video.cpp" line="227"/>
         <source>Error output for FFmpeg when processing:[</source>
         <translation>処理時のFFmpegのエラー出力：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="227"/>
+        <location filename="video.cpp" line="240"/>
         <source>Finish assembling video with clips:[</source>
         <translation>クリップを使用してビデオの組み立てを終了します:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="264"/>
-        <location filename="video.cpp" line="659"/>
+        <location filename="video.cpp" line="277"/>
+        <location filename="video.cpp" line="672"/>
         <source>Finish splitting video: [</source>
         <translation>ビデオの分割を終了：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="272"/>
+        <location filename="video.cpp" line="285"/>
         <source>Extract audio from video: [</source>
         <translation>ビデオからオーディオを抽出する: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="281"/>
+        <location filename="video.cpp" line="294"/>
         <source>Successfully extracted audio from video: [</source>
         <translation>動画から音声を正常に抽出しました：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="298"/>
         <source>Failed to extract audio from video: [</source>
         <translation>ビデオからオーディオを抽出できませんでした：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="298"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation>]この動画はサイレント動画の可能性があるため、引き続きこの動画を処理します。</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="299"/>
+        <location filename="video.cpp" line="312"/>
         <source>Start converting video: [</source>
         <translation>ビデオをmp4に変換し始めます: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="299"/>
-        <location filename="video.cpp" line="344"/>
+        <location filename="video.cpp" line="312"/>
+        <location filename="video.cpp" line="357"/>
         <source>] to mp4</source>
         <translation>]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="344"/>
+        <location filename="video.cpp" line="357"/>
         <source>Successfully converted video: [</source>
         <translation>動画が正常に変換されました：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="354"/>
+        <location filename="video.cpp" line="367"/>
         <source>Get duration of the video:[</source>
         <translation>ビデオの長さを取得:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="389"/>
+        <location filename="video.cpp" line="402"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation>エラー！ の期間を取得できません [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="389"/>
+        <location filename="video.cpp" line="402"/>
         <source>].</source>
         <translation>].</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="407"/>
+        <location filename="video.cpp" line="420"/>
         <source>Starting to denoise audio.[</source>
         <translation>オーディオのノイズを除去し始めます。[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="430"/>
+        <location filename="video.cpp" line="443"/>
         <source>Successfully denoise audio.[</source>
         <translation>オーディオのノイズ除去に成功しました。[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="514"/>
+        <location filename="video.cpp" line="527"/>
         <source>Get bitrate of the video:[</source>
         <translation>ビデオのビットレートを取得する:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="664"/>
+        <location filename="video.cpp" line="677"/>
         <source>Start assembling video:[</source>
         <translation>ビデオの組み立てを開始します：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="734"/>
+        <location filename="video.cpp" line="747"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]。 エラー：[ビデオのフレームレートを取得できません。]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="780"/>
+        <location filename="video.cpp" line="793"/>
         <source>Finish assembling video:[</source>
         <translation>ビデオの組み立てを完了します：[</translation>
     </message>
@@ -4688,18 +4677,18 @@ Waifu2x-converterプロセッサリスト:
         <translation>互換性テストが完了しました！</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="136"/>
+        <location filename="image.cpp" line="145"/>
         <source>It is detected that the image [</source>
         <translation>画像[</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="136"/>
+        <location filename="image.cpp" line="145"/>
         <source>] contains the Alpha channel, so the result image will be forcibly saved as PNG.</source>
         <translation>]にアルファチャネルが含まれていることが検出されたため、結果の画像は強制的にPNGとして保存されます。</translation>
     </message>
     <message>
         <location filename="image.cpp" line="97"/>
-        <location filename="image.cpp" line="169"/>
+        <location filename="image.cpp" line="178"/>
         <source>Error: Can&apos;t convert [</source>
         <translation>エラー：[</translation>
     </message>
@@ -4709,7 +4698,7 @@ Waifu2x-converterプロセッサリスト:
         <translation>] を </translation>
     </message>
     <message>
-        <location filename="image.cpp" line="169"/>
+        <location filename="image.cpp" line="178"/>
         <source>] to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>]をPNGに変換できません。 前処理はスキップされ、元の画像を直接処理しようとします。</translation>
     </message>

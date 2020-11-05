@@ -101,12 +101,12 @@
         <translation type="vanished">一律隱藏輸入路徑</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5611"/>
+        <location filename="mainwindow.ui" line="5609"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>當文件的處理狀態改變時,文件列表自動滑動.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5614"/>
+        <location filename="mainwindow.ui" line="5612"/>
         <source>File list scrolls automatically</source>
         <translation>自動滑動文件列表</translation>
     </message>
@@ -116,13 +116,14 @@
         <translation>啟用自定義字體設定.</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="5303"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.</source>
         <oldsource>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.
 
 ★Anime4K engine does NOT supports alpha channel.★</oldsource>
-        <translation type="vanished">當在圖片中檢測到Alpha通道時, 軟件將自動強制將圖片另存為PNG格式.</translation>
+        <translation>當在圖片中檢測到Alpha通道時, 軟件將自動強制將圖片另存為PNG格式.</translation>
     </message>
     <message>
         <source>Compress JPG files.</source>
@@ -167,7 +168,7 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [ 速度:★★★ 畫質:★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5477"/>
+        <location filename="mainwindow.ui" line="5475"/>
         <source>Enable this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
@@ -182,12 +183,12 @@ For detailed information, please read privacy policy.</source>
 更多詳細信息，請查看隱私政策。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5485"/>
+        <location filename="mainwindow.ui" line="5483"/>
         <source>Ban Gitee</source>
         <translation>禁止連接碼雲</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5787"/>
+        <location filename="mainwindow.ui" line="5785"/>
         <source>Aspect Ratio(Custom resolution):</source>
         <translation>縱橫比(自定義分辨率):</translation>
     </message>
@@ -201,17 +202,17 @@ WARNING: The original file will be permanently DELETED.</source>
 警告: 原始文件將被永久刪除.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5843"/>
+        <location filename="mainwindow.ui" line="5841"/>
         <source>Replace original file</source>
         <translation>替換原文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5986"/>
+        <location filename="mainwindow.ui" line="5984"/>
         <source>Report issue</source>
         <translation>反饋</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6029"/>
+        <location filename="mainwindow.ui" line="6027"/>
         <source>Check update</source>
         <translation>檢查更新</translation>
     </message>
@@ -220,7 +221,7 @@ WARNING: The original file will be permanently DELETED.</source>
         <translation type="vanished">說明文檔</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5907"/>
+        <location filename="mainwindow.ui" line="5905"/>
         <source>Save settings</source>
         <translation>保存設定</translation>
     </message>
@@ -234,17 +235,17 @@ WARNING: The original file will be permanently DELETED.</source>
         <translation type="vanished">★ 捐贈 ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6516"/>
+        <location filename="mainwindow.ui" line="6514"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>進行兼容性測試以了解您的電腦與所有引擎的兼容性.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6163"/>
+        <location filename="mainwindow.ui" line="6161"/>
         <source>Compatibility test</source>
         <translation>兼容性測試</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5833"/>
+        <location filename="mainwindow.ui" line="5831"/>
         <source>After processing the file, directly replace
 the original file with the result file.
 (And keep the original file name.)
@@ -262,7 +263,7 @@ path] or [Delete original files] is enabled*</source>
 時本選項將會被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5944"/>
+        <location filename="mainwindow.ui" line="5942"/>
         <source>Reset settings</source>
         <translation>重置設定</translation>
     </message>
@@ -836,19 +837,19 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]
 您可以運行兼容性測試以知悉您的PC與哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5448"/>
-        <location filename="mainwindow.ui" line="5647"/>
+        <location filename="mainwindow.ui" line="5446"/>
+        <location filename="mainwindow.ui" line="5645"/>
         <source>The number of retries when failed to processing a image (or frame).</source>
         <translation>當處理一個圖片(或幀)失敗時重試的次數.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5676"/>
+        <location filename="mainwindow.ui" line="5674"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation>當向文件列表內添加文件夾時,掃描子文件夾內的文件並一同加入文件列表中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5634"/>
+        <location filename="mainwindow.ui" line="5632"/>
         <source>Keep video cache after processing the video.</source>
         <translation>處理完視頻後保存緩存.</translation>
     </message>
@@ -871,12 +872,12 @@ We recommend you use the default value(95)</source>
         <translation type="vanished">Alpha通道圖像引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6172"/>
+        <location filename="mainwindow.ui" line="6170"/>
         <source>Compatibility test results</source>
         <translation>兼容性測試結果</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6206"/>
+        <location filename="mainwindow.ui" line="6204"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -899,17 +900,17 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆ 畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6325"/>
+        <location filename="mainwindow.ui" line="6323"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan(最新版)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6351"/>
+        <location filename="mainwindow.ui" line="6349"/>
         <source>Engines:</source>
         <translation>引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6486"/>
+        <location filename="mainwindow.ui" line="6484"/>
         <source>Plugins:</source>
         <translation>外掛程式：</translation>
     </message>
@@ -928,7 +929,7 @@ Anime4k  [ 速度:★★★  畫質:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6382"/>
+        <location filename="mainwindow.ui" line="6380"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(舊版本)</translation>
     </message>
@@ -945,7 +946,7 @@ srmd-ncnn-vulkan  [ 速度:★★  畫質:★★★ ]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6178"/>
+        <location filename="mainwindow.ui" line="6176"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>至關重要，用於實現各種功能。</translation>
     </message>
@@ -1200,7 +1201,7 @@ Uncheck the [OLD Version] to enable [TTA].</source>
         <translation type="vanished">★★ 捐贈 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6111"/>
+        <location filename="mainwindow.ui" line="6109"/>
         <source>Wiki</source>
         <translation>使用教程</translation>
     </message>
@@ -1213,8 +1214,8 @@ Uncheck the [OLD Version] to enable [TTA].</source>
         <translation type="vanished">PayPal</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5690"/>
-        <location filename="mainwindow.ui" line="5745"/>
+        <location filename="mainwindow.ui" line="5688"/>
+        <location filename="mainwindow.ui" line="5743"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1230,12 +1231,12 @@ when processing video in segments.</source>
         <translation type="vanished">一律隱藏路徑設置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5680"/>
+        <location filename="mainwindow.ui" line="5678"/>
         <source>Scan sub-folders</source>
         <translation>掃描子文件夾</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5586"/>
+        <location filename="mainwindow.ui" line="5584"/>
         <source>Interactive file list</source>
         <translation>可交互文件列表</translation>
     </message>
@@ -1424,7 +1425,7 @@ increase the time and storage space required to process image.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5268"/>
-        <location filename="mainwindow.ui" line="5362"/>
+        <location filename="mainwindow.ui" line="5360"/>
         <source>Only takes effect when processing Static Image.
 
 Will NOT take effect when processing Video and GIF.</source>
@@ -1433,17 +1434,17 @@ Will NOT take effect when processing Video and GIF.</source>
 不會在處理 視頻 和 GIF 時生效.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5355"/>
+        <location filename="mainwindow.ui" line="5353"/>
         <source>Save image as:</source>
         <translation>將圖片保存為:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5464"/>
+        <location filename="mainwindow.ui" line="5462"/>
         <source>Play Notification sound.</source>
         <translation>播放提示音.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5650"/>
+        <location filename="mainwindow.ui" line="5648"/>
         <source>Retry:</source>
         <translation>重試:</translation>
     </message>
@@ -1458,7 +1459,7 @@ waifu2x-converter引擎來處理圖片並強制將圖片另存為PNG.
 在啟用此選項之前,請先確保waifu2x-converter引擎與您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5309"/>
+        <location filename="mainwindow.ui" line="5307"/>
         <source>Auto detect Alpha channel</source>
         <translation>自動檢測Alpha通道</translation>
     </message>
@@ -1775,16 +1776,6 @@ when [Save as &quot;.jpg&quot;] is disabled*</source>
 時本選項將會被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5303"/>
-        <source>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.
-
-*This option will be deactivated when [Save as &quot;.jpg&quot;] is disabled*</source>
-        <translation>當檢測到照片有Alpha通道時, 軟件將會自動強制將圖片保存為PNG.
-
-*當未啟用 [保存為&quot;.jpg&quot;] 時本選項將會被禁用*</translation>
-    </message>
-    <message>
         <source>After processing the file, directly replace
 the original file with the result file.
 
@@ -1800,7 +1791,7 @@ path] or [Delete original files] is enabled*</source>
 後本選項將會被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6549"/>
+        <location filename="mainwindow.ui" line="6547"/>
         <location filename="CompatibilityTest.cpp" line="505"/>
         <source>Start compatibility test</source>
         <translation>開始兼容性測試</translation>
@@ -2038,27 +2029,27 @@ the number of threads must &gt;= the number of GPUs.</source>
 那麼線程數量必須大於等於可用顯卡數量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5663"/>
+        <location filename="mainwindow.ui" line="5661"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation>當檢測到更新時彈窗提示.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5719"/>
+        <location filename="mainwindow.ui" line="5717"/>
         <source>Update channel:</source>
         <translation>更新頻道：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5730"/>
+        <location filename="mainwindow.ui" line="5728"/>
         <source>Stable</source>
         <translation>穩定版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5735"/>
+        <location filename="mainwindow.ui" line="5733"/>
         <source>Beta</source>
         <translation>測試版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5441"/>
+        <location filename="mainwindow.ui" line="5439"/>
         <source>Minimize to taskbar</source>
         <translation>最小化到任務欄</translation>
     </message>
@@ -2072,12 +2063,12 @@ WARNING: The original file will be DELETED.</source>
 警告: 原文件將會被刪除.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6071"/>
+        <location filename="mainwindow.ui" line="6069"/>
         <source>Official website</source>
         <translation>訪問官網</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6078"/>
+        <location filename="mainwindow.ui" line="6076"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation>打開Waifu2x-Extension-GUI的在線使用說明.</translation>
     </message>
@@ -2257,23 +2248,23 @@ srmd-ncnn-vulkan [ 速度:★★ 畫質:★★★ ]
 waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6244"/>
-        <location filename="mainwindow.ui" line="6265"/>
-        <location filename="mainwindow.ui" line="6280"/>
-        <location filename="mainwindow.ui" line="6296"/>
-        <location filename="mainwindow.ui" line="6317"/>
-        <location filename="mainwindow.ui" line="6358"/>
-        <location filename="mainwindow.ui" line="6374"/>
-        <location filename="mainwindow.ui" line="6411"/>
-        <location filename="mainwindow.ui" line="6445"/>
-        <location filename="mainwindow.ui" line="6460"/>
-        <location filename="mainwindow.ui" line="6503"/>
+        <location filename="mainwindow.ui" line="6242"/>
+        <location filename="mainwindow.ui" line="6263"/>
+        <location filename="mainwindow.ui" line="6278"/>
+        <location filename="mainwindow.ui" line="6294"/>
+        <location filename="mainwindow.ui" line="6315"/>
+        <location filename="mainwindow.ui" line="6356"/>
+        <location filename="mainwindow.ui" line="6372"/>
+        <location filename="mainwindow.ui" line="6409"/>
+        <location filename="mainwindow.ui" line="6443"/>
+        <location filename="mainwindow.ui" line="6458"/>
+        <location filename="mainwindow.ui" line="6501"/>
         <source>Image processing engine.</source>
         <translation>圖像處理引擎。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6470"/>
-        <location filename="mainwindow.ui" line="6493"/>
+        <location filename="mainwindow.ui" line="6468"/>
+        <location filename="mainwindow.ui" line="6491"/>
         <source>For processing Video.</source>
         <translation>用於處理視頻。</translation>
     </message>
@@ -2282,8 +2273,8 @@ waifu2x-caffe [ 速度:★☆ 畫質:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6389"/>
-        <location filename="mainwindow.ui" line="6429"/>
+        <location filename="mainwindow.ui" line="6387"/>
+        <location filename="mainwindow.ui" line="6427"/>
         <source>For processing GIF.</source>
         <translation>用於處理GIF。</translation>
     </message>
@@ -2330,7 +2321,7 @@ Anime4k  [ 速度:★★★  畫質:★ ]
 srmd-ncnn-vulkan [ 速度:★☆  畫質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6228"/>
+        <location filename="mainwindow.ui" line="6226"/>
         <source>For audio denoise(video).</source>
         <translation>用於給音頻降噪(視頻).</translation>
     </message>
@@ -2581,12 +2572,12 @@ by the software will be used.</source>
         <translation>啟用此功能後，ffmpeg會將原始視頻的視頻部分直接複製到mp4文件，可能會導致錯誤。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5666"/>
+        <location filename="mainwindow.ui" line="5664"/>
         <source>Update popup</source>
         <translation>更新彈窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5596"/>
+        <location filename="mainwindow.ui" line="5594"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
@@ -2602,17 +2593,17 @@ will increase the time required to process video.</source>
         <translation type="vanished">s</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5750"/>
+        <location filename="mainwindow.ui" line="5748"/>
         <source>Segment duration:</source>
         <translation>影片分段時長:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5516"/>
+        <location filename="mainwindow.ui" line="5514"/>
         <source>Prompt when exit</source>
         <translation>退出時提醒</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5637"/>
+        <location filename="mainwindow.ui" line="5635"/>
         <source>Keep video cache</source>
         <translation>保存影片緩存</translation>
     </message>
@@ -2621,7 +2612,7 @@ will increase the time required to process video.</source>
         <translation type="vanished">實驗性功能,可以減少處理影片時的硬盤空間佔用量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5601"/>
+        <location filename="mainwindow.ui" line="5599"/>
         <source>Process video by segment</source>
         <translation>分段處理影片</translation>
     </message>
@@ -2739,12 +2730,12 @@ It is recommended to enable this option.</source>
         <translation type="vanished">語言:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5526"/>
+        <location filename="mainwindow.ui" line="5524"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation>[文本框] 將在軟件啟動時自動隱藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5529"/>
+        <location filename="mainwindow.ui" line="5527"/>
         <source>Always hide Text Browser</source>
         <translation>一律隱藏文本框</translation>
     </message>
@@ -2768,14 +2759,14 @@ We recommend you use the default value(90)</source>
 我們建議您使用預設值(90)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6148"/>
+        <location filename="mainwindow.ui" line="6146"/>
         <location filename="mainwindow.cpp" line="1070"/>
         <source>About</source>
         <translation>關於</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5498"/>
-        <location filename="mainwindow.ui" line="5542"/>
+        <location filename="mainwindow.ui" line="5496"/>
+        <location filename="mainwindow.ui" line="5540"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>我們建議您在更改語言設定後重啟軟件 
@@ -2788,12 +2779,12 @@ the language for the language settings to fully take effect.</source>
 (重啟本軟件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5757"/>
+        <location filename="mainwindow.ui" line="5755"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>當您關閉軟件時將自動保存設定.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5760"/>
+        <location filename="mainwindow.ui" line="5758"/>
         <source>Auto save settings</source>
         <translation>自動保存設定</translation>
     </message>
@@ -2822,27 +2813,27 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">保存</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5810"/>
+        <location filename="mainwindow.ui" line="5808"/>
         <source>Ignore Aspect Ratio</source>
         <translation>忽略長寬比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5815"/>
+        <location filename="mainwindow.ui" line="5813"/>
         <source>Keep Aspect Ratio</source>
         <translation>保持長寬比</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5820"/>
+        <location filename="mainwindow.ui" line="5818"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation>保持長寬比(擴展)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5624"/>
+        <location filename="mainwindow.ui" line="5622"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[設定] 將會在軟件啟動時自動隱藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5627"/>
+        <location filename="mainwindow.ui" line="5625"/>
         <source>Always hide Settings</source>
         <translation>一律隱藏輸入路徑</translation>
     </message>
@@ -2855,7 +2846,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">處理完列表內所有文件後播放提示音.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5467"/>
+        <location filename="mainwindow.ui" line="5465"/>
         <source>Notification sound</source>
         <translation>提示音</translation>
     </message>
@@ -2902,12 +2893,12 @@ the language for the language settings to fully take effect.</source>
         <translation>重複處理已完成的文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5573"/>
+        <location filename="mainwindow.ui" line="5571"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation>在Textbrowser內輸出影片和GIF的內部放大與降噪進度.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5576"/>
+        <location filename="mainwindow.ui" line="5574"/>
         <source>Show internal progress</source>
         <translation>顯示內部進度</translation>
     </message>
@@ -3530,7 +3521,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1549"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1587"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1669"/>
-        <location filename="video.cpp" line="734"/>
+        <location filename="video.cpp" line="747"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="139"/>
@@ -4371,23 +4362,23 @@ Waifu2x-converter處理器列表:
         <translation type="vanished">所有文件(*.*);</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="436"/>
+        <location filename="video.cpp" line="449"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation>錯誤! 無法對音頻執行降噪.[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="553"/>
+        <location filename="video.cpp" line="566"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation>警告! 無法獲取當前文件的比特率:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="553"/>
+        <location filename="video.cpp" line="566"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation>]. 將使用ffmpeg自動分配的比特率.</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="234"/>
-        <location filename="video.cpp" line="583"/>
+        <location filename="video.cpp" line="247"/>
+        <location filename="video.cpp" line="596"/>
         <source>Start splitting video: [</source>
         <translation>開始拆分影片: [</translation>
     </message>
@@ -4407,99 +4398,99 @@ Waifu2x-converter處理器列表:
         <translation>開始用片段組裝影片:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="214"/>
+        <location filename="video.cpp" line="227"/>
         <source>Error output for FFmpeg when processing:[</source>
         <translation>當處理該文件時的FFmpeg錯誤輸出:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="227"/>
+        <location filename="video.cpp" line="240"/>
         <source>Finish assembling video with clips:[</source>
         <translation>完成用片段拼裝影片:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="264"/>
-        <location filename="video.cpp" line="659"/>
+        <location filename="video.cpp" line="277"/>
+        <location filename="video.cpp" line="672"/>
         <source>Finish splitting video: [</source>
         <translation>結束拆分影片:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="272"/>
+        <location filename="video.cpp" line="285"/>
         <source>Extract audio from video: [</source>
         <translation>從視頻中提取音頻: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="281"/>
+        <location filename="video.cpp" line="294"/>
         <source>Successfully extracted audio from video: [</source>
         <translation>成功從視頻中提取音頻: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="298"/>
         <source>Failed to extract audio from video: [</source>
         <translation>無法從視頻中提取音頻: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="298"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation>] 本視頻可能為無聲視頻, 所以將繼續處理本視頻.</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="299"/>
+        <location filename="video.cpp" line="312"/>
         <source>Start converting video: [</source>
         <translation>開始轉換影片: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="299"/>
-        <location filename="video.cpp" line="344"/>
+        <location filename="video.cpp" line="312"/>
+        <location filename="video.cpp" line="357"/>
         <source>] to mp4</source>
         <translation>] 到mp4</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="344"/>
+        <location filename="video.cpp" line="357"/>
         <source>Successfully converted video: [</source>
         <translation>成功轉換視頻: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="354"/>
+        <location filename="video.cpp" line="367"/>
         <source>Get duration of the video:[</source>
         <translation>獲取視頻時長:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="389"/>
+        <location filename="video.cpp" line="402"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation>錯誤! 無法讀取當前影片的時長 [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="389"/>
+        <location filename="video.cpp" line="402"/>
         <source>].</source>
         <translation>].</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="407"/>
+        <location filename="video.cpp" line="420"/>
         <source>Starting to denoise audio.[</source>
         <translation>開始對音頻進行降噪.[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="430"/>
+        <location filename="video.cpp" line="443"/>
         <source>Successfully denoise audio.[</source>
         <translation>音頻降噪成功.[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="514"/>
+        <location filename="video.cpp" line="527"/>
         <source>Get bitrate of the video:[</source>
         <translation>獲取視頻的比特率:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="664"/>
+        <location filename="video.cpp" line="677"/>
         <source>Start assembling video:[</source>
         <translation>開始組裝影片:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="734"/>
+        <location filename="video.cpp" line="747"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]. 错误: [无法获取影片帧率.]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="780"/>
+        <location filename="video.cpp" line="793"/>
         <source>Finish assembling video:[</source>
         <translation>結束組裝影片:[</translation>
     </message>
@@ -4738,18 +4729,18 @@ Waifu2x-converter處理器列表:
         <translation>兼容性測試已完成!</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="136"/>
+        <location filename="image.cpp" line="145"/>
         <source>It is detected that the image [</source>
         <translation>檢測到當前圖片: [</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="136"/>
+        <location filename="image.cpp" line="145"/>
         <source>] contains the Alpha channel, so the result image will be forcibly saved as PNG.</source>
         <translation>] 包含 Alpha 通道, 所以結果圖片將會被強制保存為 PNG.</translation>
     </message>
     <message>
         <location filename="image.cpp" line="97"/>
-        <location filename="image.cpp" line="169"/>
+        <location filename="image.cpp" line="178"/>
         <source>Error: Can&apos;t convert [</source>
         <translation>错误: 无法将 [</translation>
     </message>
@@ -4759,7 +4750,7 @@ Waifu2x-converter處理器列表:
         <translation>] 轉換為 </translation>
     </message>
     <message>
-        <location filename="image.cpp" line="169"/>
+        <location filename="image.cpp" line="178"/>
         <source>] to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>] 轉換為 PNG. 將跳過預處理並直接處理原始圖像.</translation>
     </message>
