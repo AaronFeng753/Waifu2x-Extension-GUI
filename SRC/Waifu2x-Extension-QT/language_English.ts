@@ -806,7 +806,7 @@ automatically force the picture to be saved as PNG.
     <message>
         <location filename="mainwindow.ui" line="5448"/>
         <location filename="mainwindow.ui" line="5647"/>
-        <source>The number of retries when failed to processing a image (or frame).</source>
+        <source>The number of retries when an image (or frame) processing fails.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
