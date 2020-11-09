@@ -33,8 +33,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.56.96-beta:
-- Prformance optimization.
+v2.57.01-beta:
+- Optimize the file list, greatly improve the speed of reading files.
+- Other prformance optimization.
 - Fix typo and grammatical issues in the tooltip.(Thanks to @CaptainStabs for feedback)
 --------------------------------------------------------------------------
 To do:

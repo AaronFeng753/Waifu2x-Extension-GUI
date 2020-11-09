@@ -60,7 +60,7 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
 {
     mutex_Table_insert.lock();
     //=========
-    ui->tableView_image->setUpdatesEnabled(false);
+    //ui->tableView_image->setUpdatesEnabled(false);
     int rowNum = Table_model_image->rowCount();
     Table_model_image->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_image->setItem(rowNum, 1, new QStandardItem(""));
@@ -72,7 +72,7 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
         QModelIndex indextemp = modessl->index(rowNum, 1);
         ui->tableView_image->scrollTo(indextemp);
     }
-    ui->tableView_image->setUpdatesEnabled(true);
+    //ui->tableView_image->setUpdatesEnabled(true);
     mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
     mutex_Table_insert_finished.unlock();
@@ -84,7 +84,7 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
 {
     mutex_Table_insert.lock();
     //=========
-    ui->tableView_gif->setUpdatesEnabled(false);
+    //ui->tableView_gif->setUpdatesEnabled(false);
     int rowNum = Table_model_gif->rowCount();
     Table_model_gif->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_gif->setItem(rowNum, 1, new QStandardItem(""));
@@ -96,7 +96,7 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
         QModelIndex indextemp = modessl->index(rowNum, 1);
         ui->tableView_gif->scrollTo(indextemp);
     }
-    ui->tableView_gif->setUpdatesEnabled(true);
+    //ui->tableView_gif->setUpdatesEnabled(true);
     mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
     mutex_Table_insert_finished.unlock();
@@ -108,7 +108,7 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
 {
     mutex_Table_insert.lock();
     //=========
-    ui->tableView_video->setUpdatesEnabled(false);
+    //ui->tableView_video->setUpdatesEnabled(false);
     int rowNum = Table_model_video->rowCount();
     Table_model_video->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_video->setItem(rowNum, 1, new QStandardItem(""));
@@ -120,7 +120,7 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
         QModelIndex indextemp = modessl->index(rowNum, 1);
         ui->tableView_video->scrollTo(indextemp);
     }
-    ui->tableView_video->setUpdatesEnabled(true);
+    //ui->tableView_video->setUpdatesEnabled(true);
     mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
     mutex_Table_insert_finished.unlock();
@@ -573,7 +573,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
             Custom_resolution_list.append(res_map);
         }
         emit Send_progressbar_Add();
-        Delay_msec_sleep(100);
+        //Delay_msec_sleep(100);
     }
     //========= 加载gif ========
     for(int i=0; i<rowCount_gif; i++)
@@ -610,7 +610,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
             Custom_resolution_list.append(res_map);
         }
         emit Send_progressbar_Add();
-        Delay_msec_sleep(100);
+        //Delay_msec_sleep(100);
     }
     //========= 加载video ========
     for(int i=0; i<rowCount_video; i++)
@@ -647,7 +647,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
             Custom_resolution_list.append(res_map);
         }
         emit Send_progressbar_Add();
-        Delay_msec_sleep(100);
+        //Delay_msec_sleep(100);
     }
     //====================
     if(!ui->checkBox_ReProcFinFiles->isChecked())
@@ -665,6 +665,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     Progressbar_CurrentVal = 0;
     progressbar_clear();
     //====
+    ui->tableView_image->setUpdatesEnabled(true);
     this->setAcceptDrops(1);
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);

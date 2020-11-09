@@ -32,7 +32,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="1236"/>
-        <location filename="files.cpp" line="90"/>
+        <location filename="files.cpp" line="94"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation>将文件或文件夹拖拽并投放到此处
@@ -70,7 +70,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="819"/>
-        <location filename="table.cpp" line="727"/>
+        <location filename="table.cpp" line="728"/>
         <source>Read Files List</source>
         <oldsource>Read Saved Files List</oldsource>
         <translation>读取文件列表</translation>
@@ -363,7 +363,7 @@ display the window, double-click to maximize the window.</source>
     <message>
         <location filename="mainwindow.ui" line="942"/>
         <location filename="mainwindow.cpp" line="956"/>
-        <location filename="mainwindow.cpp" line="1250"/>
+        <location filename="mainwindow.cpp" line="1252"/>
         <source>Hide Text Browser</source>
         <translation>隐藏文本框</translation>
     </message>
@@ -1844,12 +1844,18 @@ automatically force the picture to be saved as PNG.
     </message>
     <message>
         <location filename="mainwindow.ui" line="5475"/>
-        <source>Enable this will stop download anything from Communist China website Gitee.
+        <source>Enabling this will stop download anything from Communist China website Gitee.
+
+If you are in China, due to government banned raw.githubusercontent.com,
+enabling this will affect auto update.
+
+For detailed information, please read privacy policy.</source>
+        <oldsource>Enable this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
 enable this will affect auto update.
 
-For detailed information, please read privacy policy.</source>
+For detailed information, please read privacy policy.</oldsource>
         <translation>启用本选项后将停止从中国大陆网站码云下载任何数据.
 
 如果您在中国大陆,由于政府封禁了raw.githubusercontent.com,
@@ -2007,7 +2013,8 @@ Will NOT take effect when processing Video and GIF.</source>
     <message>
         <location filename="mainwindow.ui" line="5446"/>
         <location filename="mainwindow.ui" line="5645"/>
-        <source>The number of retries when failed to processing a image (or frame).</source>
+        <source>The number of retries when an image (or frame) processing fails.</source>
+        <oldsource>The number of retries when failed to processing a image (or frame).</oldsource>
         <translation>当处理一个图片(或帧)失败时重试的次数.</translation>
     </message>
     <message>
@@ -2774,7 +2781,7 @@ We recommend you use the default value(90)</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6146"/>
-        <location filename="mainwindow.cpp" line="1070"/>
+        <location filename="mainwindow.cpp" line="1071"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
@@ -3146,12 +3153,12 @@ the language for the language settings to fully take effect.</source>
         <translation>[失败]--[</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="715"/>
+        <location filename="table.cpp" line="716"/>
         <source>File list update is complete!</source>
         <translation>成功更新文件列表!</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="723"/>
+        <location filename="table.cpp" line="724"/>
         <source>The file list saved last time is empty.</source>
         <translation>上一次保存的文件列表为空.</translation>
     </message>
@@ -3169,7 +3176,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="916"/>
         <location filename="mainwindow.cpp" line="967"/>
         <location filename="mainwindow.cpp" line="979"/>
-        <location filename="mainwindow.cpp" line="1035"/>
+        <location filename="mainwindow.cpp" line="1036"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2031"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2044"/>
         <location filename="waifu2x_converter.cpp" line="1732"/>
@@ -3201,7 +3208,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="CustomResolution.cpp" line="151"/>
         <location filename="Right-click_Menu.cpp" line="198"/>
         <location filename="Right-click_Menu.cpp" line="244"/>
-        <location filename="files.cpp" line="101"/>
+        <location filename="files.cpp" line="105"/>
         <location filename="mainwindow.cpp" line="522"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2080"/>
         <location filename="settings.cpp" line="567"/>
@@ -3227,31 +3234,31 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation>]  [ 无法获取源文件的分辨率. ]</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="49"/>
-        <location filename="files.cpp" line="50"/>
-        <location filename="mainwindow.cpp" line="1204"/>
-        <location filename="mainwindow.cpp" line="1205"/>
+        <location filename="files.cpp" line="51"/>
+        <location filename="files.cpp" line="52"/>
+        <location filename="mainwindow.cpp" line="1206"/>
+        <location filename="mainwindow.cpp" line="1207"/>
         <source>Adding files, please wait.</source>
         <translation>添加文件中,请稍等.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="91"/>
+        <location filename="files.cpp" line="95"/>
         <source>Add file complete.</source>
         <translation>已成功添加文件.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="102"/>
+        <location filename="files.cpp" line="106"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation>不支持当前文件格式,请输入可以支持的文件格式,或者自行添加文件扩展名.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2071"/>
+        <location filename="mainwindow.cpp" line="2073"/>
         <location filename="waifu2x.cpp" line="538"/>
         <source>Error! Failed to move [</source>
         <translation>错误! 无法移动 [</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2071"/>
+        <location filename="mainwindow.cpp" line="2073"/>
         <location filename="waifu2x.cpp" line="538"/>
         <source>] to [</source>
         <translation>] 到 [</translation>
@@ -3267,9 +3274,9 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation>] 不存在.</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="526"/>
-        <location filename="files.cpp" line="544"/>
-        <location filename="files.cpp" line="562"/>
+        <location filename="files.cpp" line="530"/>
+        <location filename="files.cpp" line="548"/>
+        <location filename="files.cpp" line="566"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation>]. 错误: [权限不足, 需要管理员权限.]</translation>
     </message>
@@ -3286,8 +3293,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="SystemTrayIcon.cpp" line="111"/>
         <location filename="Web_Activities.cpp" line="77"/>
         <location filename="mainwindow.cpp" line="148"/>
-        <location filename="mainwindow.cpp" line="1128"/>
-        <location filename="mainwindow.cpp" line="1416"/>
+        <location filename="mainwindow.cpp" line="1129"/>
+        <location filename="mainwindow.cpp" line="1418"/>
         <location filename="settings.cpp" line="555"/>
         <location filename="settings.cpp" line="579"/>
         <location filename="table.cpp" line="513"/>
@@ -3480,9 +3487,9 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1384"/>
         <location filename="Anime4K.cpp" line="1480"/>
         <location filename="CustomResolution.cpp" line="298"/>
-        <location filename="files.cpp" line="526"/>
-        <location filename="files.cpp" line="544"/>
-        <location filename="files.cpp" line="562"/>
+        <location filename="files.cpp" line="530"/>
+        <location filename="files.cpp" line="548"/>
+        <location filename="files.cpp" line="566"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="36"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="61"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="198"/>
@@ -4023,7 +4030,7 @@ Anime4k 显卡列表(用户配置):
     <message>
         <location filename="mainwindow.cpp" line="873"/>
         <location filename="mainwindow.cpp" line="937"/>
-        <location filename="mainwindow.cpp" line="1116"/>
+        <location filename="mainwindow.cpp" line="1117"/>
         <source>Show settings</source>
         <translation>显示设置</translation>
     </message>
@@ -4081,12 +4088,12 @@ Anime4k 显卡列表(用户配置):
         <translation>写入文件中,请稍等.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1029"/>
+        <location filename="mainwindow.cpp" line="1030"/>
         <source>Please wait while reading the file.</source>
         <translation>请稍等,读取文件中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1036"/>
+        <location filename="mainwindow.cpp" line="1037"/>
         <location filename="table.cpp" line="527"/>
         <source>Cannot find the saved Files List!</source>
         <translation>找不到已保存的文件列表!</translation>
@@ -4151,7 +4158,7 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="vanished">Anime4K 引擎不支持处理Alpha通道.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1129"/>
+        <location filename="mainwindow.cpp" line="1130"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
@@ -4165,14 +4172,14 @@ Restart the software to take effect.</source>
         <translation type="vanished">选择文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1180"/>
+        <location filename="mainwindow.cpp" line="1181"/>
         <source>All file(</source>
         <translation>所有文件(</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="950"/>
-        <location filename="mainwindow.cpp" line="1244"/>
-        <location filename="mainwindow.cpp" line="1260"/>
+        <location filename="mainwindow.cpp" line="1246"/>
+        <location filename="mainwindow.cpp" line="1262"/>
         <source>Show Text Browser</source>
         <translation>显示文本框</translation>
     </message>
@@ -4192,52 +4199,52 @@ Restart the software to take effect.</source>
         <translation>无法加载语言文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1180"/>
+        <location filename="mainwindow.cpp" line="1181"/>
         <source>Select files</source>
         <translation>选择文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1402"/>
+        <location filename="mainwindow.cpp" line="1404"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- 正式开始使用本软件前请先阅读 Wiki.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1403"/>
+        <location filename="mainwindow.cpp" line="1405"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- 如果软件字体显示有问题, 您可以在附加设置内修改字体.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1404"/>
+        <location filename="mainwindow.cpp" line="1406"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation>- 本软件为免费软件, 如果您发现任何人贩售本软件, 请举报贩售者.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1405"/>
+        <location filename="mainwindow.cpp" line="1407"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>- 本软件免费开源, 并基于 GNU Affero General Public License v3.0 协议发行, 使用本软件的一切后果均由用户自己承担, 开发者不承担任何责任.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1406"/>
+        <location filename="mainwindow.cpp" line="1408"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation>- 如果您喜欢本软件, 请向开发者捐赠, 谢谢.
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1409"/>
+        <location filename="mainwindow.cpp" line="1411"/>
         <source>!!! Tips !!!</source>
         <translation>!!! 必读 !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1417"/>
+        <location filename="mainwindow.cpp" line="1419"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>检测到这是您第一次启动本软件,因此将自动执行兼容性测试.请稍等片刻,然后查看测试结果.</translation>
     </message>
@@ -4367,7 +4374,7 @@ Waifu2x-converter处理器列表:
         <translation type="vanished">未检测到可用处理器!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1537"/>
+        <location filename="mainwindow.cpp" line="1539"/>
         <source>Force retry.</source>
         <translation>强制重试.</translation>
     </message>

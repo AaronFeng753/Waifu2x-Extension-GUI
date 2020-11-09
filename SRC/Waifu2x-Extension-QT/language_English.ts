@@ -22,7 +22,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="1236"/>
-        <location filename="files.cpp" line="90"/>
+        <location filename="files.cpp" line="94"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation type="unfinished"></translation>
@@ -45,7 +45,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="819"/>
-        <location filename="table.cpp" line="727"/>
+        <location filename="table.cpp" line="728"/>
         <source>Read Files List</source>
         <oldsource>Read Saved Files List</oldsource>
         <translation type="unfinished"></translation>
@@ -808,7 +808,8 @@ automatically force the picture to be saved as PNG.
     <message>
         <location filename="mainwindow.ui" line="5446"/>
         <location filename="mainwindow.ui" line="5645"/>
-        <source>The number of retries when failed to processing a image (or frame).</source>
+        <source>The number of retries when an image (or frame) processing fails.</source>
+        <oldsource>The number of retries when failed to processing a image (or frame).</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1016,7 +1017,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     <message>
         <location filename="mainwindow.ui" line="942"/>
         <location filename="mainwindow.cpp" line="956"/>
-        <location filename="mainwindow.cpp" line="1250"/>
+        <location filename="mainwindow.cpp" line="1252"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1735,12 +1736,18 @@ Will improve image quality.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="5475"/>
-        <source>Enable this will stop download anything from Communist China website Gitee.
+        <source>Enabling this will stop download anything from Communist China website Gitee.
+
+If you are in China, due to government banned raw.githubusercontent.com,
+enabling this will affect auto update.
+
+For detailed information, please read privacy policy.</source>
+        <oldsource>Enable this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
 enable this will affect auto update.
 
-For detailed information, please read privacy policy.</source>
+For detailed information, please read privacy policy.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1755,7 +1762,7 @@ For detailed information, please read privacy policy.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6146"/>
-        <location filename="mainwindow.cpp" line="1070"/>
+        <location filename="mainwindow.cpp" line="1071"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1973,12 +1980,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="715"/>
+        <location filename="table.cpp" line="716"/>
         <source>File list update is complete!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="723"/>
+        <location filename="table.cpp" line="724"/>
         <source>The file list saved last time is empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1996,7 +2003,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.cpp" line="916"/>
         <location filename="mainwindow.cpp" line="967"/>
         <location filename="mainwindow.cpp" line="979"/>
-        <location filename="mainwindow.cpp" line="1035"/>
+        <location filename="mainwindow.cpp" line="1036"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2031"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2044"/>
         <location filename="waifu2x_converter.cpp" line="1732"/>
@@ -2026,7 +2033,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="CustomResolution.cpp" line="151"/>
         <location filename="Right-click_Menu.cpp" line="198"/>
         <location filename="Right-click_Menu.cpp" line="244"/>
-        <location filename="files.cpp" line="101"/>
+        <location filename="files.cpp" line="105"/>
         <location filename="mainwindow.cpp" line="522"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2080"/>
         <location filename="settings.cpp" line="567"/>
@@ -2048,31 +2055,31 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="49"/>
-        <location filename="files.cpp" line="50"/>
-        <location filename="mainwindow.cpp" line="1204"/>
-        <location filename="mainwindow.cpp" line="1205"/>
+        <location filename="files.cpp" line="51"/>
+        <location filename="files.cpp" line="52"/>
+        <location filename="mainwindow.cpp" line="1206"/>
+        <location filename="mainwindow.cpp" line="1207"/>
         <source>Adding files, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="91"/>
+        <location filename="files.cpp" line="95"/>
         <source>Add file complete.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="102"/>
+        <location filename="files.cpp" line="106"/>
         <source>The file format is not supported, please enter supported file format, or add more file extensions yourself.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2071"/>
+        <location filename="mainwindow.cpp" line="2073"/>
         <location filename="waifu2x.cpp" line="538"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2071"/>
+        <location filename="mainwindow.cpp" line="2073"/>
         <location filename="waifu2x.cpp" line="538"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
@@ -2088,9 +2095,9 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="files.cpp" line="526"/>
-        <location filename="files.cpp" line="544"/>
-        <location filename="files.cpp" line="562"/>
+        <location filename="files.cpp" line="530"/>
+        <location filename="files.cpp" line="548"/>
+        <location filename="files.cpp" line="566"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2103,8 +2110,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="SystemTrayIcon.cpp" line="111"/>
         <location filename="Web_Activities.cpp" line="77"/>
         <location filename="mainwindow.cpp" line="148"/>
-        <location filename="mainwindow.cpp" line="1128"/>
-        <location filename="mainwindow.cpp" line="1416"/>
+        <location filename="mainwindow.cpp" line="1129"/>
+        <location filename="mainwindow.cpp" line="1418"/>
         <location filename="settings.cpp" line="555"/>
         <location filename="settings.cpp" line="579"/>
         <location filename="table.cpp" line="513"/>
@@ -2244,9 +2251,9 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1384"/>
         <location filename="Anime4K.cpp" line="1480"/>
         <location filename="CustomResolution.cpp" line="298"/>
-        <location filename="files.cpp" line="526"/>
-        <location filename="files.cpp" line="544"/>
-        <location filename="files.cpp" line="562"/>
+        <location filename="files.cpp" line="530"/>
+        <location filename="files.cpp" line="548"/>
+        <location filename="files.cpp" line="566"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="36"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="61"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="198"/>
@@ -2752,12 +2759,12 @@ Anime4k GPUs List(user configuration):</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1180"/>
+        <location filename="mainwindow.cpp" line="1181"/>
         <source>Select files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1417"/>
+        <location filename="mainwindow.cpp" line="1419"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2837,7 +2844,7 @@ Or do not have sufficient permissions to write files to the output path, you mig
     <message>
         <location filename="mainwindow.cpp" line="873"/>
         <location filename="mainwindow.cpp" line="937"/>
-        <location filename="mainwindow.cpp" line="1116"/>
+        <location filename="mainwindow.cpp" line="1117"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2852,25 +2859,25 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1029"/>
+        <location filename="mainwindow.cpp" line="1030"/>
         <source>Please wait while reading the file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1036"/>
+        <location filename="mainwindow.cpp" line="1037"/>
         <location filename="table.cpp" line="527"/>
         <source>Cannot find the saved Files List!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1129"/>
+        <location filename="mainwindow.cpp" line="1130"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1180"/>
+        <location filename="mainwindow.cpp" line="1181"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2956,43 +2963,43 @@ Restart the software to take effect.</source>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="950"/>
-        <location filename="mainwindow.cpp" line="1244"/>
-        <location filename="mainwindow.cpp" line="1260"/>
+        <location filename="mainwindow.cpp" line="1246"/>
+        <location filename="mainwindow.cpp" line="1262"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1402"/>
+        <location filename="mainwindow.cpp" line="1404"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1403"/>
+        <location filename="mainwindow.cpp" line="1405"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1404"/>
+        <location filename="mainwindow.cpp" line="1406"/>
         <source>- This software is free software, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1405"/>
+        <location filename="mainwindow.cpp" line="1407"/>
         <source>- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1406"/>
+        <location filename="mainwindow.cpp" line="1408"/>
         <source>- If you like this software, please donate to the developer, thank you.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1409"/>
+        <location filename="mainwindow.cpp" line="1411"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3029,7 +3036,7 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1537"/>
+        <location filename="mainwindow.cpp" line="1539"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>
