@@ -111,11 +111,11 @@ Waifu2x-Extension-GUI is licensed under the [🔗GNU Affero General Public Licen
 
 We respect your privacy, so the following is the privacy policy of this software:
 ```
-1. This software won't upload anything to the internet, so we won't collect any data from you, we even don't have a server.
+1. This software won't upload anything to the internet, so we won't collect any data from you, we don't even have a server.
 
 2. This software will only connect to the internet when checking for new updates and update the QRCode on the Donate tab, which
 will download two .ini files and two .jpg files from GitHub and Gitee. (Gitee is a copycat version of GitHub in The
-People's Republic of China, you can stop download anything from Gitee by enabling [Ban Gitee] in [Additional settings])
+People's Republic of China, you can disable downloading anything from Gitee by enabling [Ban Gitee] in [Additional settings])
 
 In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
 ```
