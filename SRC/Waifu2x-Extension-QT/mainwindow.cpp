@@ -1005,7 +1005,7 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         //===
         ui->pushButton_ReadFileList->setText(tr("Loading..."));
         //===
-        ui->tableView_image->setUpdatesEnabled(false);
+        ui_tableViews_setUpdatesEnabled(false);
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Start->setEnabled(0);//禁用start button
         ui->pushButton_ClearList->setEnabled(0);
@@ -1196,7 +1196,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     AddNew_image=false;
     AddNew_video=false;
     //================== 界面管制 ========================
-    ui->tableView_image->setUpdatesEnabled(false);
+    ui_tableViews_setUpdatesEnabled(false);
     ui->groupBox_Setting->setEnabled(0);
     ui->groupBox_FileList->setEnabled(0);
     ui->groupBox_InputExt->setEnabled(0);

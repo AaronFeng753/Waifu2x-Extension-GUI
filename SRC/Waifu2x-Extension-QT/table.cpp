@@ -216,9 +216,7 @@ void MainWindow::Table_video_CustRes_Cancel_rowNumInt(int rowNum)
 void MainWindow::Table_ChangeAllStatusToWaiting()
 {
     QMutex_Table_ChangeAllStatusToWaiting.lock();
-    ui->tableView_image->setUpdatesEnabled(false);
-    ui->tableView_gif->setUpdatesEnabled(false);
-    ui->tableView_video->setUpdatesEnabled(false);
+    ui_tableViews_setUpdatesEnabled(false);
     bool ReProcFinFiles = ui->checkBox_ReProcFinFiles->isChecked();
     int rowNum = Table_model_image->rowCount();
     for (int i = 0; i < rowNum; i++)
@@ -286,17 +284,13 @@ void MainWindow::Table_ChangeAllStatusToWaiting()
             }
         }
     }
-    ui->tableView_image->setUpdatesEnabled(true);
-    ui->tableView_gif->setUpdatesEnabled(true);
-    ui->tableView_video->setUpdatesEnabled(true);
+    ui_tableViews_setUpdatesEnabled(true);
     QMutex_Table_ChangeAllStatusToWaiting.unlock();
 }
 
 void MainWindow::Table_Clear()
 {
-    ui->tableView_image->setUpdatesEnabled(false);
-    ui->tableView_gif->setUpdatesEnabled(false);
-    ui->tableView_video->setUpdatesEnabled(false);
+    ui_tableViews_setUpdatesEnabled(false);
     //=====
     Table_model_image->clear();
     Table_model_gif->clear();
@@ -306,9 +300,7 @@ void MainWindow::Table_Clear()
     curRow_gif = -1;
     curRow_video = -1;
     //=====
-    ui->tableView_image->setUpdatesEnabled(true);
-    ui->tableView_gif->setUpdatesEnabled(true);
-    ui->tableView_video->setUpdatesEnabled(true);
+    ui_tableViews_setUpdatesEnabled(true);
 }
 
 int MainWindow::Table_image_get_rowNum()
@@ -665,7 +657,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     Progressbar_CurrentVal = 0;
     progressbar_clear();
     //====
-    ui->tableView_image->setUpdatesEnabled(true);
+    ui_tableViews_setUpdatesEnabled(true);
     this->setAcceptDrops(1);
     ui->pushButton_Start->setEnabled(1);
     ui->pushButton_ClearList->setEnabled(1);
@@ -803,4 +795,13 @@ void MainWindow::Table_EnableSorting(bool EnableSorting)
         ui->tableView_gif->setSortingEnabled(0);
         ui->tableView_video->setSortingEnabled(0);
     }
+}
+/*
+启用/禁用 文件列表table的UI更新
+*/
+void MainWindow::ui_tableViews_setUpdatesEnabled(bool isEnabled)
+{
+    ui->tableView_video->setUpdatesEnabled(isEnabled);
+    ui->tableView_gif->setUpdatesEnabled(isEnabled);
+    ui->tableView_image->setUpdatesEnabled(isEnabled);
 }

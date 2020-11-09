@@ -40,7 +40,7 @@ void MainWindow::dropEvent(QDropEvent *event)
     if(urls.isEmpty())
         return;
     //================== 界面管制 ========================
-    ui->tableView_image->setUpdatesEnabled(false);
+    ui_tableViews_setUpdatesEnabled(false);
     //================
     ui->groupBox_Setting->setEnabled(0);
     ui->groupBox_FileList->setEnabled(0);
@@ -83,7 +83,7 @@ void MainWindow::Read_urls(QList<QUrl> urls)
 void MainWindow::Read_urls_finfished()
 {
     //================== 解除界面管制 ========================
-    ui->tableView_image->setUpdatesEnabled(true);
+    ui_tableViews_setUpdatesEnabled(true);
     //===
     ui->groupBox_Setting->setEnabled(1);
     ui->groupBox_FileList->setEnabled(1);

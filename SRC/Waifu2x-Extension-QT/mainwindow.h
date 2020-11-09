@@ -131,6 +131,8 @@ public:
     bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
     bool file_OpenFile(QString FilePath);
     //=================================  Table =================================
+    void ui_tableViews_setUpdatesEnabled(bool isEnabled);// 启用/禁用 文件列表table的UI更新
+
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
     QStandardItemModel *Table_model_video = new QStandardItemModel();
