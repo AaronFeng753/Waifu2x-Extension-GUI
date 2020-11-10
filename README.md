@@ -154,3 +154,4 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Thanks to [@Nova-Aurora](https://github.com/Nova-Aurora) for fixing several errors in the English README.
 - Thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for assistance in testing the software.
 - Thanks to [@Michael18751](https://github.com/Michael18751) for adding a fadeout effect to the notification sound.
+- Thanks to [@CaptainStabs](https://github.com/CaptainStabs) for fixing several English grammar errors.
