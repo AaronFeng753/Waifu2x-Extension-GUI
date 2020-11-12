@@ -380,7 +380,6 @@ void MainWindow::Waifu2x_Finished()
     //=================== 提示音 =================================
     QtConcurrent::run(this, &MainWindow::Play_NFSound);
     //===================== 关机 ==============================
-    //if(ui->checkBox_AutoTurnOFF->isChecked())
     if(ui->comboBox_FinishAction->currentIndex()>0)
     {
         AutoFinishAction_Message();

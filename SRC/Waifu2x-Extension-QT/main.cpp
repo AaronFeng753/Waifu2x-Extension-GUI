@@ -33,9 +33,10 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.57.01-beta:
+v2.57.12:
 - Optimize the file list, greatly improve the speed of reading files.
 - Other prformance optimization.
+- Update FFmpeg&FFprobe,ImageMagick.
 - Fix typo and grammatical issues in the tooltip.(Thanks to @CaptainStabs for feedback)
 --------------------------------------------------------------------------
 To do:
@@ -49,9 +50,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-34
+- ImageMagick 7.0.10-37-portable-Q16-x64
 - Anime4KCPP v2.4.0
-- FFmpeg&FFprobe 2020-10-21-git-289e964873
+- FFmpeg&FFprobe 2020-11-11-git-89429cf2f2
 - NirCmd v2.86
 - Ghostscript 9.53.3
 ---------------------------------------------------------------------------
