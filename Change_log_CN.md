@@ -8,6 +8,13 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.57.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.12)
+#### 更新日志:
+- 优化文件列表, 大大提高了文件读取速度.
+- 其他性能优化.
+- 更新 FFmpeg＆FFprobe, ImageMagick.
+- 修正了工具提示中的英文拼写错误和语法问题. (感谢 @CaptainStabs 反馈)
+---
 ## [v2.56.95](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.56.95)
 #### 更新日志:
 - 新特性: 现在您可以将图片另存为多种格式.(感谢 [@loafylemon](https://github.com/loafylemon) 的建议)
