@@ -45,7 +45,7 @@ int MainWindow::Anime4k_Image(int rowNum)
     }
     //========= 转换到 PNG =========
     QString SourceFile_fullPath_Original = SourceFile_fullPath;
-    SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
+    SourceFile_fullPath = Imgae_PreProcess(SourceFile_fullPath_Original);
     //=======================================================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;

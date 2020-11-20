@@ -4978,6 +4978,32 @@ likelihood of removing wanted components of the audio signal.</string>
               <string>Input file extensions</string>
              </property>
              <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="1" colspan="2">
+               <widget class="QLineEdit" name="Ext_image">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                </property>
+                <property name="text">
+                 <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
+                </property>
+               </widget>
+              </item>
               <item row="1" column="0">
                <widget class="QLabel" name="label_5">
                 <property name="maximumSize">
@@ -4998,6 +5024,32 @@ be processed successfully)</string>
                 </property>
                 <property name="text">
                  <string>Video:</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" colspan="2">
+               <widget class="QLineEdit" name="Ext_video">
+                <property name="minimumSize">
+                 <size>
+                  <width>300</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="acceptDrops">
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip">
+                 <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                </property>
+                <property name="text">
+                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
                 </property>
                </widget>
               </item>
@@ -5024,59 +5076,24 @@ be processed successfully)</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="1">
-               <widget class="QLineEdit" name="Ext_image">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
+              <item row="3" column="0" colspan="3">
+               <widget class="QCheckBox" name="checkBox_PreProcessAlphaPNG">
                 <property name="toolTip">
-                 <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
+                 <string>Enabling this option can fix some compatibility issues.
+However, it will increase the time and storage space required to process these images.
 
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
+For example, NCNN-Vulkan engines cannot preserve alpha channel 
+of some special images, you can enable this to fix that.</string>
                 </property>
                 <property name="text">
-                 <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
+                 <string>Pre-process images with Alpha Channel</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1">
-               <widget class="QLineEdit" name="Ext_video">
-                <property name="minimumSize">
-                 <size>
-                  <width>300</width>
-                  <height>0</height>
-                 </size>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                </property>
-                <property name="text">
-                 <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0" colspan="2">
+              <item row="2" column="0" colspan="3">
                <widget class="QCheckBox" name="checkBox_PreProcessImage">
                 <property name="toolTip">
                  <string>Convert every image to PNG before processing it.
@@ -5084,7 +5101,7 @@ Enabling this option will improve compatibility. However, it will
 increase the time and storage space required to process image.</string>
                 </property>
                 <property name="text">
-                 <string>Pre-process Image</string>
+                 <string>Pre-process all images</string>
                 </property>
                </widget>
               </item>

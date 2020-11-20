@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.57.12";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.57.13-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.57.12";
-    QString LastBetaVer = "v2.57.12";
+    QString LastBetaVer = "v2.57.13-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -266,7 +266,7 @@ public:
 
     //======================== 图片处理 ================================
     bool Imgae_hasAlphaChannel(int rowNum);
-    QString Imgae_Convert2PNG(QString ImagePath);
+    QString Imgae_PreProcess(QString ImagePath);
     QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
     //================================================================
 

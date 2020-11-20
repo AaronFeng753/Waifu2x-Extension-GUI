@@ -45,7 +45,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     }
     //========= 转换到 PNG =========
     QString SourceFile_fullPath_Original = SourceFile_fullPath;
-    SourceFile_fullPath = Imgae_Convert2PNG(SourceFile_fullPath_Original);
+    SourceFile_fullPath = Imgae_PreProcess(SourceFile_fullPath_Original);
     //===============
     int ScaleRatio=2;
     bool CustRes_isEnabled = false;

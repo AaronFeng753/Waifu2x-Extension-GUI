@@ -448,6 +448,7 @@ void MainWindow::Waifu2x_Finished_manual()
     }
     emit Send_CurrentFileProgress_Stop();
     ui->checkBox_PreProcessImage->setEnabled(1);
+    ui->checkBox_PreProcessAlphaPNG->setEnabled(1);
     checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;

@@ -33,13 +33,13 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-v2.57.12:
-- Optimize the file list, greatly improve the speed of reading files.
-- Other prformance optimization.
-- Update FFmpeg&FFprobe,ImageMagick.
-- Fix typo and grammatical issues in the tooltip.(Thanks to @CaptainStabs for feedback)
+v2.57.13-beta:
+- New feature: Pre-process images with Alpha Channel.
+- Improve stability and performance.
+- Fix bug: NCNN-Vulkan engines cannot keep the alpha channel of some special png pics.
 --------------------------------------------------------------------------
 To do:
+- 添加一个单独的打开输出路径的按钮.(或者尝试取消输出路径lineedit的所有focus以禁止修改
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:

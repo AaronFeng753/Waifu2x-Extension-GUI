@@ -464,6 +464,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->comboBox_ImageStyle->setEnabled(0);
         ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
         ui->checkBox_PreProcessImage->setEnabled(0);
+        ui->checkBox_PreProcessAlphaPNG->setEnabled(0);
         on_lineEdit_GPUs_Anime4k_editingFinished();
         on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
         ui->checkBox_ReplaceOriginalFile->setEnabled(0);

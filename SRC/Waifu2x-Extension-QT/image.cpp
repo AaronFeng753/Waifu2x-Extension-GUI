@@ -152,15 +152,56 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     }
 }
 /*
-判断图片格式并转换
+预处理图片
 */
-QString MainWindow::Imgae_Convert2PNG(QString ImagePath)
+QString MainWindow::Imgae_PreProcess(QString ImagePath)
 {
+    if(QFile::exists(ImagePath)==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error: Can\'t pre-process [")+ImagePath+tr("]. File doesn't exists."));
+        return ImagePath;
+    }
     QFileInfo fileinfo(ImagePath);
     QString file_ext = fileinfo.suffix();
+    QImage img(ImagePath);
+    //预处理带有Alpha的图片
+    if(ui->checkBox_PreProcessAlphaPNG->isChecked()==true && img.hasAlphaChannel()==true)
+    {
+        //有alpha则开始转换
+        QString file_name = file_getBaseName(ImagePath);
+        QString file_Folder = file_getFolderPath(fileinfo);
+        QString OutPut_Path_WebpCache = file_Folder + "/" + file_name + "_W2xEX_temp.webp";//输出的webp缓存的完整路径
+        QString OutPut_Path_FinalPNG = file_Folder + "/" + file_name + "_W2xEX_PPAC.png";//输出的png图片的完整路径
+        //======
+        QString program = Current_Path+"/convert_waifu2xEX.exe";
+        QFile::remove(OutPut_Path_FinalPNG);
+        QProcess Convert2PNG;
+        //先转换到质量99的webp
+        Convert2PNG.start("\""+program+"\" \""+ImagePath+"\" -quality 99 \""+OutPut_Path_WebpCache+"\"");
+        while(!Convert2PNG.waitForStarted(100)&&!QProcess_stop) {}
+        while(!Convert2PNG.waitForFinished(100)&&!QProcess_stop) {}
+        if(QFile::exists(OutPut_Path_WebpCache)==false)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error: Can\'t convert [")+ImagePath+tr("] to Webp. The pre-process will be skipped and try to process the original image directly."));
+            return ImagePath;
+        }
+        //再转换回PNG
+        Convert2PNG.start("\""+program+"\" \""+OutPut_Path_WebpCache+"\" -quality 100 \""+OutPut_Path_FinalPNG+"\"");
+        while(!Convert2PNG.waitForStarted(100)&&!QProcess_stop) {}
+        while(!Convert2PNG.waitForFinished(100)&&!QProcess_stop) {}
+        QFile::remove(OutPut_Path_WebpCache);
+        //======
+        if(QFile::exists(OutPut_Path_FinalPNG)==false)
+        {
+            emit Send_TextBrowser_NewMessage(tr("Error: Can\'t convert [")+OutPut_Path_WebpCache+tr("] back to PNG. The pre-process will be skipped and try to process the original image directly."));
+            return ImagePath;
+        }
+        //======
+        return OutPut_Path_FinalPNG;
+    }
     //判断是否已经是PNG
-    if(file_ext.trimmed().toLower()=="png")return ImagePath;
     if(ui->checkBox_PreProcessImage->isChecked()==false)return ImagePath;
+    if(file_ext.trimmed().toLower()=="png")return ImagePath;
     //不是PNG则开始转换
     QString file_name = file_getBaseName(ImagePath);
     QString file_Folder = file_getFolderPath(fileinfo);
