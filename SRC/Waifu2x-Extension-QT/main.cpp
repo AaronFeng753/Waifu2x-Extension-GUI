@@ -33,6 +33,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+v2.57.14-beta:
+- New feature: Intelligently detect whether the Alpha channel is lost, and automatically reprocess the picture.
+- Fix bug: Setting of [Always pre-process images with Alpha Channel] is not saved.
 v2.57.13-beta:
 - New feature: Pre-process images with Alpha Channel.
 - Improve stability and performance.

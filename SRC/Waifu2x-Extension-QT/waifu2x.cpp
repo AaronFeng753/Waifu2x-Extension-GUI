@@ -79,7 +79,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, i);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, i, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -91,7 +91,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -103,7 +103,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, i);
+                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, i, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -115,7 +115,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Anime4k_Image, i);
+                        QtConcurrent::run(this, &MainWindow::Anime4k_Image, i, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -127,7 +127,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, i);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, i, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -139,7 +139,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, i);
+                        QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, i, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -448,7 +448,7 @@ void MainWindow::Waifu2x_Finished_manual()
     }
     emit Send_CurrentFileProgress_Stop();
     ui->checkBox_PreProcessImage->setEnabled(1);
-    ui->checkBox_PreProcessAlphaPNG->setEnabled(1);
+    ui->checkBox_AlwaysPreProcessAlphaPNG->setEnabled(1);
     checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;

@@ -20,7 +20,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
+int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
 {
     //============================= 读取设置 ================================
     int DenoiseLevel = ui->spinBox_DenoiseLevel_image->value();
@@ -45,7 +45,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     }
     //========= 转换到 PNG =========
     QString SourceFile_fullPath_Original = SourceFile_fullPath;
-    SourceFile_fullPath = Imgae_PreProcess(SourceFile_fullPath_Original);
+    SourceFile_fullPath = Imgae_PreProcess(SourceFile_fullPath_Original,ReProcess_MissingAlphaChannel);
     //===============
     int ScaleRatio=2;
     bool CustRes_isEnabled = false;
@@ -257,6 +257,18 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum)
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
     OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,true,DenoiseLevel);
+    //================== 检查是否丢失了透明通道 =====================
+    if(ReProcess_MissingAlphaChannel==false)
+    {
+        QImage QImage_source(SourceFile_fullPath_Original);
+        QImage QImage_Final(OutPutPath_Final);
+        if(QImage_source.hasAlphaChannel()==true && QImage_Final.hasAlphaChannel()==false && ui->checkBox_AutoDetectAlphaChannel->isChecked())
+        {
+            QFile::remove(OutPutPath_Final);
+            emit Send_TextBrowser_NewMessage(tr("Since the Alpha channel in the resulting image is lost, this image will be reprocessed to fix it:[")+SourceFile_fullPath_Original+tr("].\nIf the reprocessing happens a lot, you should consider enable [Always pre-process images with Alpha Channel] in [Additional settings]."));
+            return Waifu2x_NCNN_Vulkan_Image(rowNum,true);
+        }
+    }
     //============================= 删除原文件 & 更新table status ============================
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {

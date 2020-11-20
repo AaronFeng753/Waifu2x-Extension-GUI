@@ -5077,19 +5077,20 @@ be processed successfully)</string>
                </widget>
               </item>
               <item row="3" column="0" colspan="3">
-               <widget class="QCheckBox" name="checkBox_PreProcessAlphaPNG">
+               <widget class="QCheckBox" name="checkBox_AlwaysPreProcessAlphaPNG">
                 <property name="toolTip">
-                 <string>Enabling this option can fix some compatibility issues.
-However, it will increase the time and storage space required to process these images.
+                 <string>This software already can intelligently detect whether the Alpha channel is lost,
+and automatically reprocess the picture. And image will be pre-processed during the 
+reporcess so the alpha channel won't lost again.
 
-For example, NCNN-Vulkan engines cannot preserve alpha channel 
-of some special images, you can enable this to fix that.</string>
+However, this will cause additional time consumption. If re-processing
+frequently occurs when processing images, you can enable this option to save time.</string>
                 </property>
                 <property name="text">
-                 <string>Pre-process images with Alpha Channel</string>
+                 <string>Always pre-process images with Alpha Channel</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>

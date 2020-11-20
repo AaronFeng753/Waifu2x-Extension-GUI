@@ -103,6 +103,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/ImageEXT", ui->Ext_image->text());
     configIniWrite->setValue("/settings/VideoEXT", ui->Ext_video->text());
     //=================== 存储 杂项设置 =================================
+    configIniWrite->setValue("/settings/checkBox_AlwaysPreProcessAlphaPNG", ui->checkBox_AlwaysPreProcessAlphaPNG->isChecked());
     configIniWrite->setValue("/settings/spinBox_ImageQualityLevel", ui->spinBox_ImageQualityLevel->value());
     configIniWrite->setValue("/settings/comboBox_ImageSaveFormat", ui->comboBox_ImageSaveFormat->currentIndex());
     configIniWrite->setValue("/settings/checkBox_KeepParentFolder", ui->checkBox_KeepParentFolder->isChecked());
@@ -353,6 +354,7 @@ int MainWindow::Settings_Read_Apply()
     ui->Ext_image->setText(Settings_Read_value("/settings/ImageEXT").toString());
     ui->Ext_video->setText(Settings_Read_value("/settings/VideoEXT").toString());
     //================== 加载 杂项设置 ==================================
+    ui->checkBox_AlwaysPreProcessAlphaPNG->setChecked(Settings_Read_value("/settings/checkBox_AlwaysPreProcessAlphaPNG").toBool());
     ui->spinBox_ImageQualityLevel->setValue(Settings_Read_value("/settings/spinBox_ImageQualityLevel").toInt());
     ui->comboBox_ImageSaveFormat->setCurrentIndex(Settings_Read_value("/settings/comboBox_ImageSaveFormat").toInt());
     ui->checkBox_KeepParentFolder->setChecked(Settings_Read_value("/settings/checkBox_KeepParentFolder").toBool());

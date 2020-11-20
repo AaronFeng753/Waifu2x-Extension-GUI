@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.57.13-beta";//软件版本号
+    QString VERSION = "v2.57.14-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.57.12";
-    QString LastBetaVer = "v2.57.13-beta";
+    QString LastBetaVer = "v2.57.14-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -175,7 +175,7 @@ public:
     QString Waifu2x_ncnn_vulkan_FolderPath = "";
     QString Waifu2x_ncnn_vulkan_ProgramPath = "";
     //===
-    int Waifu2x_NCNN_Vulkan_Image(int rowNum);//vulkan放大图片线程
+    int Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//vulkan放大图片线程
     //vulakn放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_GIF(int rowNum);
     int Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
@@ -185,7 +185,7 @@ public:
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Waifu2x_NCNN_Vulkan_ReadSettings();
     //===
-    int Realsr_NCNN_Vulkan_Image(int rowNum);//Realsr放大图片线程
+    int Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Realsr放大图片线程
     //Realsr放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Realsr_NCNN_Vulkan_GIF(int rowNum);
     int Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
@@ -195,7 +195,7 @@ public:
     int Realsr_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Realsr_NCNN_Vulkan_ReadSettings();
     //=========================
-    int Anime4k_Image(int rowNum);
+    int Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel);
     int Anime4k_GIF(int rowNum);
     int Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //Anime4k放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
@@ -205,7 +205,7 @@ public:
     QString Anime4k_ReadSettings(bool PreserveAlphaChannel);
     void DenoiseLevelSpinboxSetting_Anime4k();
     //=================================
-    int Waifu2x_Converter_Image(int rowNum);//Converter放大图片线程
+    int Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Converter_GIF(int rowNum);
     int Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
@@ -215,7 +215,7 @@ public:
     int Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Waifu2xConverter_ReadSettings();
     //===================================
-    int SRMD_NCNN_Vulkan_Image(int rowNum);//SRMD放大图片线程
+    int SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//SRMD放大图片线程
     //SRMD放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int SRMD_NCNN_Vulkan_GIF(int rowNum);
     int SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
@@ -225,7 +225,7 @@ public:
     int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString SrmdNcnnVulkan_ReadSettings();
     //=================================
-    int Waifu2x_Caffe_Image(int rowNum);//Caffe放大图片线程
+    int Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Caffe放大图片线程
     //Caffe放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_Caffe_GIF(int rowNum);
     int Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
@@ -266,7 +266,7 @@ public:
 
     //======================== 图片处理 ================================
     bool Imgae_hasAlphaChannel(int rowNum);
-    QString Imgae_PreProcess(QString ImagePath);
+    QString Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChannel);
     QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
     //================================================================
 

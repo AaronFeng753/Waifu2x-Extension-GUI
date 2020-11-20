@@ -154,7 +154,7 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
 /*
 预处理图片
 */
-QString MainWindow::Imgae_PreProcess(QString ImagePath)
+QString MainWindow::Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChannel)
 {
     if(QFile::exists(ImagePath)==false)
     {
@@ -165,7 +165,11 @@ QString MainWindow::Imgae_PreProcess(QString ImagePath)
     QString file_ext = fileinfo.suffix();
     QImage img(ImagePath);
     //预处理带有Alpha的图片
-    if(ui->checkBox_PreProcessAlphaPNG->isChecked()==true && img.hasAlphaChannel()==true)
+    if(ui->checkBox_AlwaysPreProcessAlphaPNG->isChecked()==true)
+    {
+        ReProcess_AlphaChannel = true;
+    }
+    if(ReProcess_AlphaChannel==true && img.hasAlphaChannel()==true)
     {
         //有alpha则开始转换
         QString file_name = file_getBaseName(ImagePath);
