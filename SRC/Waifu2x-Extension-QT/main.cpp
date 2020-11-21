@@ -33,9 +33,12 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+
 v2.57.14-beta:
 - New feature: Intelligently detect whether the Alpha channel is lost, and automatically reprocess the picture.
+- Update ImageMagick.
 - Fix bug: Setting of [Always pre-process images with Alpha Channel] is not saved.
+
 v2.57.13-beta:
 - New feature: Pre-process images with Alpha Channel.
 - Improve stability and performance.
@@ -53,7 +56,7 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-37-portable-Q16-x64
+- ImageMagick-7.0.10-40-portable-Q16-x64
 - Anime4KCPP v2.4.0
 - FFmpeg&FFprobe 2020-11-11-git-89429cf2f2
 - NirCmd v2.86
