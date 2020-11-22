@@ -34,18 +34,15 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.57.14-beta:
+v2.57.21:
 - New feature: Intelligently detect whether the Alpha channel is lost, and automatically reprocess the picture.
+- New feature: [`Always pre-process images with Alpha Channel`].
 - Update ImageMagick.
-- Fix bug: Setting of [Always pre-process images with Alpha Channel] is not saved.
-
-v2.57.13-beta:
-- New feature: Pre-process images with Alpha Channel.
 - Improve stability and performance.
 - Fix bug: NCNN-Vulkan engines cannot keep the alpha channel of some special png pics.
+- Fix typo.
 --------------------------------------------------------------------------
 To do:
-- 添加一个单独的打开输出路径的按钮.(或者尝试取消输出路径lineedit的所有focus以禁止修改
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:

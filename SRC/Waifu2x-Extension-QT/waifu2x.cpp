@@ -415,6 +415,7 @@ void MainWindow::Waifu2x_Finished_manual()
     if(ui->checkBox_ReplaceOriginalFile->isChecked()==false)
     {
         ui->groupBox_OutPut->setEnabled(1);
+        OutputSettingsArea_setEnabled(true);
         ui->checkBox_DelOriginal->setEnabled(1);
     }
     ui->pushButton_ClearList->setEnabled(1);

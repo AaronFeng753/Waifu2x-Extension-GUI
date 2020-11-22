@@ -437,7 +437,7 @@ void MainWindow::on_pushButton_Start_clicked()
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Stop->setVisible(1);//启用stop button
         ui->pushButton_Start->setVisible(0);//禁用start button
-        ui->groupBox_OutPut->setEnabled(0);
+        OutputSettingsArea_setEnabled(false);
         ui->pushButton_ClearList->setEnabled(0);
         ui->pushButton_RemoveItem->setEnabled(0);
         ui->groupBox_Engine->setEnabled(0);
@@ -1404,9 +1404,9 @@ void MainWindow::Tip_FirstTimeStart()
         */
         QString English_1 = tr("- Please read the Wiki before starting to use the software.\n");
         QString English_7 = tr("- If there is a problem with the software font display, you can modify the font in the additional settings.\n");
-        QString English_8 = tr("- This software is free software, if you find anyone selling this software, please report the seller.\n");
-        QString English_9 = tr("- This software is free and open source, and is is licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n");
-        QString English_10 = tr("- If you like this software, please donate to the developer, thank you.\n");
+        QString English_8 = tr("- This software is free, if you find anyone selling this software, please report the seller.\n");
+        QString English_9 = tr("- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n");
+        QString English_10 = tr("- If you like this software, please donate to support the developer, thank you!\n");
         //========
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("!!! Tips !!!"));
@@ -2089,5 +2089,19 @@ void MainWindow::on_checkBox_isCustFontEnable_stateChanged(int arg1)
         ui->pushButton_Save_GlobalFontSize->setEnabled(0);
         ui->spinBox_GlobalFontSize->setEnabled(0);
         ui->fontComboBox_CustFont->setEnabled(0);
+    }
+}
+
+void MainWindow::OutputSettingsArea_setEnabled(bool isEnabled)
+{
+    ui->scrollArea_outputPathSettings->setEnabled(isEnabled);
+    ui->lineEdit_outputPath->setClearButtonEnabled(isEnabled);
+    if(isEnabled==true)
+    {
+        ui->lineEdit_outputPath->setFocusPolicy(Qt::StrongFocus);
+    }
+    else
+    {
+        ui->lineEdit_outputPath->setFocusPolicy(Qt::NoFocus);
     }
 }

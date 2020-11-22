@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.57.14-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.57.12";
-    QString LastBetaVer = "v2.57.14-beta";
+    QString VERSION = "v2.57.21";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.57.21";
+    QString LastBetaVer = "v2.57.21";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -395,6 +395,8 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    void OutputSettingsArea_setEnabled(bool isEnabled);
+
     bool isFirstTimeStart=false;
 
     bool isForceRetryClicked=false;

@@ -1728,6 +1728,9 @@ padding:10px;
                 <property name="enabled">
                  <bool>false</bool>
                 </property>
+                <property name="focusPolicy">
+                 <enum>Qt::StrongFocus</enum>
+                </property>
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
