@@ -8,6 +8,15 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.57.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.21)
+#### 更新日志:
+- 新特性: 智能检测透明通道是否丢失, 并重新处理文件.
+- 新特性: [`总是预处理带有Alpha通道的图片`].
+- 更新 ImageMagick.
+- 改进性能与稳定性.
+- 修复bug: NCNN-Vulkan 系列引擎无法保留某些特殊png图片的透明通道.
+- 修正错字.
+---
 ## [v2.57.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.12)
 #### 更新日志:
 - 优化文件列表, 大大提高了文件读取速度.

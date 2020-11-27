@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.57.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.21)
+#### Change log:
+- New feature: Intelligently detect whether the Alpha channel is lost, and automatically reprocess the picture.
+- New feature: [`Always pre-process images with Alpha Channel`].
+- Update ImageMagick.
+- Improve stability and performance.
+- Fix bug: NCNN-Vulkan engines cannot keep the alpha channel of some special png pics.
+- Fix typo.
+---
 ## [v2.57.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.12)
 #### Change log:
 - Optimize the file list, greatly improve the speed of reading files.
