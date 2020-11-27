@@ -34,13 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.57.21:
-- New feature: Intelligently detect whether the Alpha channel is lost, and automatically reprocess the picture.
-- New feature: [`Always pre-process images with Alpha Channel`].
-- Update ImageMagick.
-- Improve stability and performance.
-- Fix bug: NCNN-Vulkan engines cannot keep the alpha channel of some special png pics.
-- Fix typo.
+v2.57.22-beta:
+- Fix bug: Image with alpha channel will still be reprocessed even the current engine doesn't support processing alpha channel.
+
 --------------------------------------------------------------------------
 To do:
 - 移植到Linux.
