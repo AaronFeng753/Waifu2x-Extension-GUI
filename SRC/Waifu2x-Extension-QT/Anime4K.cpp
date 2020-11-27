@@ -1544,6 +1544,7 @@ Anime4k
 QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
 {
     QString Anime4k_Settings_str = " ";
+    Anime4k_Settings_str.append("-M opencl ");//强制使用OpenCL(因为自行编译的版本中禁用了cuda,我没英伟达显卡
     //保留透明通道
     if(PreserveAlphaChannel)
     {
