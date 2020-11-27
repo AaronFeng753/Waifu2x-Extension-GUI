@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.57.22-beta:
+- Update Anime4KCPP(2aecb53).
+- Modify and rebuild Anime4KCPP(2aecb53) to fix compatibility issues.
 - Fix bug: Image with alpha channel will still be reprocessed even the current engine doesn't support processing alpha channel.
 
 --------------------------------------------------------------------------
@@ -50,7 +52,7 @@ Integrated component:
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
 - ImageMagick-7.0.10-40-portable-Q16-x64
-- Anime4KCPP v2.4.0
+- Anime4KCPP 2aecb5348a423527e9e4016be9c83815fa3e5777
 - FFmpeg&FFprobe 2020-11-11-git-89429cf2f2
 - NirCmd v2.86
 - Ghostscript 9.53.3
