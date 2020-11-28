@@ -36,12 +36,13 @@ Change log:
 
 v2.57.22-beta:
 - Update Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
+- Improve performance and compatibility.
 - Modify and rebuild Anime4KCPP(2aecb53) to fix compatibility issues.
 - Fix bug: Image with alpha channel will still be reprocessed even the current engine doesn't support processing alpha channel.
 
 --------------------------------------------------------------------------
 To do:
-- 在Anime4kCCP更新release后,删除强制启用opencl那段( Anime4k_Settings_str.append("-M opencl "); )
+- 在Anime4kCCP更新release后,删除强制启用opencl的语句( -M opencl )
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:
