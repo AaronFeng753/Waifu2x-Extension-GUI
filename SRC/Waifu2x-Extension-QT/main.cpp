@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.57.23-beta:
+- Fix bug: When engines randomly crashes for some unknown reasons, the compatibility test will provide incorrect results.
+
 v2.57.22-beta:
 - Update Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
 - Improve performance and compatibility.
