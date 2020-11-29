@@ -512,8 +512,6 @@ public slots:
 
     void OpenOutputFolder();
 
-    void ListGPUs_Anime4k_Finished(QString OutputString);
-
     void Unable2Connect_RawGithubusercontentCom();
 
     void SetEnable_pushButton_ForceRetry_self();
@@ -843,8 +841,6 @@ signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 
     void Send_Add_progressBar_CompatibilityTest();//进度+1 -兼容性测试进度条
-
-    void Send_ListGPUs_Anime4k_Finished(QString OutputString);
 
     void Send_Unable2Connect_RawGithubusercontentCom();
 

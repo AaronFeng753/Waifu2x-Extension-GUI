@@ -1725,40 +1725,13 @@ QString MainWindow::Anime4k_GetGPUInfo()
 */
 void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
 {
-    ui->pushButton_ListGPUs_Anime4k->setEnabled(0);
-    ui->pushButton_ListGPUs_Anime4k->setText(tr("Loading"));
-    //===
     QtConcurrent::run(this, &MainWindow::ListGPUs_Anime4k);
 }
 
 void MainWindow::ListGPUs_Anime4k()
 {
-    QString Anime4k_folder_path = Current_Path + "/Anime4K";
-    QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
-    QString cmd = "\"" + program + "\" -l";
-    QProcess *Waifu2x = new QProcess();
-    Waifu2x->start(cmd);
-    while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-    while(!Waifu2x->waitForFinished(500)&&!QProcess_stop) {}
-    //===
-    QString OutputString = Waifu2x->readAllStandardError().trimmed();
-    //===
-    emit Send_ListGPUs_Anime4k_Finished(OutputString);
-}
-
-void MainWindow::ListGPUs_Anime4k_Finished(QString OutputString)
-{
-    emit Send_TextBrowser_NewMessage("\n"+tr("GPU List for Anime4K")+":\n"+OutputString);
-    //====
-    QMessageBox *MSG = new QMessageBox();
-    MSG->setWindowTitle(tr("GPU List for Anime4K"));
-    MSG->setText(OutputString);
-    MSG->setIcon(QMessageBox::Information);
-    MSG->setModal(true);
-    MSG->show();
-    //====
-    on_checkBox_SpecifyGPU_Anime4k_stateChanged(1);
-    ui->pushButton_ListGPUs_Anime4k->setText(tr("List GPUs"));
+    QString cmd = "\"" + Current_Path + "/Anime4K/Anime4K_waifu2xEX.exe" + "\" -l";
+    ExecuteCMD_batFile(cmd+"\n title = GPU List for Anime4K @ Waifu2x-Extension-GUI\n pause");
 }
 
 void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()
@@ -1809,7 +1782,7 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Anime4k_clicked()
     MSG->setModal(true);
     MSG->show();
     //======
-    emit Send_TextBrowser_NewMessage(tr("\nAnime4k GPUs List(user configuration):\n")+VerRes);
+    emit Send_TextBrowser_NewMessage(tr("\nAnime4k GPUs List(user configuration):\n")+VerRes.trimmed());
 }
 
 /*

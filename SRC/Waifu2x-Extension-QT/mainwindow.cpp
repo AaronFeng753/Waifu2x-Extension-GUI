@@ -52,7 +52,6 @@ MainWindow::MainWindow(QWidget *parent)
     //===========================================
     connect(this, SIGNAL(Send_Table_EnableSorting(bool)), this, SLOT(Table_EnableSorting(bool)));
     connect(this, SIGNAL(Send_Add_progressBar_CompatibilityTest()), this, SLOT(Add_progressBar_CompatibilityTest()));
-    connect(this, SIGNAL(Send_ListGPUs_Anime4k_Finished(QString)), this, SLOT(ListGPUs_Anime4k_Finished(QString)));
     connect(this, SIGNAL(Send_Unable2Connect_RawGithubusercontentCom()), this, SLOT(Unable2Connect_RawGithubusercontentCom()));
     connect(this, SIGNAL(Send_SetEnable_pushButton_ForceRetry_self()), this, SLOT(SetEnable_pushButton_ForceRetry_self()));
     connect(this, SIGNAL(Send_SystemTray_NewMessage(QString)), this, SLOT(SystemTray_NewMessage(QString)));
@@ -1985,7 +1984,7 @@ void MainWindow::ExecuteCMD_batFile(QString cmd_str)
 {
     ExecuteCMD_batFile_QMutex.lock();
     QString cmd_commands = "@echo off\n "+cmd_str+"\n exit";
-    Delay_msec_sleep(100);//延时防止文件名称碰撞
+    Delay_msec_sleep(10);//延时防止文件名称碰撞
     file_mkDir(Current_Path+"/batFiles_tmp");
     QString Bat_path = Current_Path+"/batFiles_tmp/W2xEX_"+QDateTime::currentDateTime().toString("dhhmmsszzz")+".bat";
     //========
