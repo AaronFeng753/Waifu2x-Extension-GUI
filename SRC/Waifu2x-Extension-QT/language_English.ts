@@ -1906,7 +1906,7 @@ the language for the language settings to fully take effect.</source>
         <location filename="mainwindow.ui" line="2050"/>
         <location filename="Current_File_Progress.cpp" line="35"/>
         <location filename="mainwindow.cpp" line="454"/>
-        <source>Time cost:NULL</source>
+        <source>Time taken:NULL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
