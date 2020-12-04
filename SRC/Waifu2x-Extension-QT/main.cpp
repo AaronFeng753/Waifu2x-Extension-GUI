@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.57.24-beta:
+- Fix grammatical issues.
+
 v2.57.23-beta:
 - Update Anime4KCPP.
 - Some minor improvements.
@@ -48,7 +51,7 @@ v2.57.22-beta:
 
 --------------------------------------------------------------------------
 To do:
-- 在Anime4kCCP更新release后,删除强制启用opencl的语句( -M opencl )
+- 在Anime4kCPP更新release后,删除强制启用opencl的语句( -M opencl )
 - 移植到Linux.
 ---------------------------------------------------------------------------
 Integrated component:

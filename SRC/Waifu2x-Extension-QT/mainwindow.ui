@@ -491,7 +491,7 @@ padding:10px;
               <number>1</number>
              </property>
              <property name="text">
-              <string>Time cost:NULL</string>
+              <string>Time taken:NULL</string>
              </property>
             </widget>
            </item>
@@ -2047,7 +2047,7 @@ after processing all files in the file list.</string>
               <enum>QFrame::Box</enum>
              </property>
              <property name="text">
-              <string>Time cost:NULL</string>
+              <string>Time taken:NULL</string>
              </property>
             </widget>
            </item>

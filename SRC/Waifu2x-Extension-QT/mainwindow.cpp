@@ -224,7 +224,7 @@ void MainWindow::TimeSlot()
 {
     TimeCost++;
     //====================总进度==================
-    QString TimeCostStr = tr("Time cost:[")+Seconds2hms(TimeCost)+"]";
+    QString TimeCostStr = tr("Time taken:[")+Seconds2hms(TimeCost)+"]";
     ui->label_TimeCost->setText(TimeCostStr);
     if(ui->label_TimeRemain_CurrentFile->isVisible())
     {
@@ -261,7 +261,7 @@ void MainWindow::TimeSlot()
     if(isStart_CurrentFile)
     {
         TimeCost_CurrentFile++;
-        QString TimeCostStr_CurrentFile = tr("Time cost:[")+Seconds2hms(TimeCost_CurrentFile)+"]";
+        QString TimeCostStr_CurrentFile = tr("Time taken:[")+Seconds2hms(TimeCost_CurrentFile)+"]";
         ui->label_TimeCost_CurrentFile->setText(TimeCostStr_CurrentFile);
         int TaskNumFinished_tmp_CurrentFile = TaskNumFinished_CurrentFile;
         long unsigned int TimeCost_tmp_CurrentFile = TimeCost_CurrentFile;
@@ -450,7 +450,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ui->pushButton_ReadFileList->setEnabled(0);
         ui->comboBox_AspectRatio_custRes->setEnabled(0);
         progressbar_clear();
-        ui->label_TimeCost->setText(tr("Time cost:NULL"));
+        ui->label_TimeCost->setText(tr("Time taken:NULL"));
         ui->label_ETA->setText(tr("ETA:NULL"));
         ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
         ui->groupBox_video_settings->setEnabled(0);

@@ -32,7 +32,7 @@ void MainWindow::CurrentFileProgress_Start(QString FileName,int FrameNum)
     //=================================
     ui->label_FrameProgress_CurrentFile->setText("0/"+QString::number(FrameNum,10));
     ui->label_TimeRemain_CurrentFile->setText(tr("Time remaining:NULL"));
-    ui->label_TimeCost_CurrentFile->setText(tr("Time cost:NULL"));
+    ui->label_TimeCost_CurrentFile->setText(tr("Time taken:NULL"));
     ui->label_ETA_CurrentFile->setText(tr("ETA:NULL"));
     //=================================
     TimeCost_CurrentFile = 0;
