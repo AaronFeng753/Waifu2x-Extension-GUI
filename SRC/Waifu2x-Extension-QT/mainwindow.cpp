@@ -1972,7 +1972,7 @@ void MainWindow::ExecuteCMD_batFile(QString cmd_str)
         stream << cmd_commands;
     }
     OpenFile_cmdFile.close();
-    QDesktopServices::openUrl(QUrl("file:"+Bat_path));
+    QDesktopServices::openUrl(QUrl("file:"+QUrl::toPercentEncoding(Bat_path)));
     //========
     ExecuteCMD_batFile_QMutex.unlock();
 }

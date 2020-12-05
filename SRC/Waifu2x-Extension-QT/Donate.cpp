@@ -79,7 +79,7 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
     }
     else
     {
-        ui->label_DonateQRCode->setStyleSheet("image: url("+QRCodePath+");");
+        ui->label_DonateQRCode->setStyleSheet("image: url(\""+QRCodePath+"\");");
         Donate_Count();
     }
 }

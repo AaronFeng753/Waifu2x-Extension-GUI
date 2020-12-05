@@ -36,8 +36,10 @@ Change log:
 
 v2.57.24-beta:
 - Update Anime4KCPP(e25501c76).
+- Improve performance.
 - Fix grammatical issues.
 - Fix UI issues.
+- Fix compatibility issues.
 
 v2.57.23-beta:
 - Update Anime4KCPP.

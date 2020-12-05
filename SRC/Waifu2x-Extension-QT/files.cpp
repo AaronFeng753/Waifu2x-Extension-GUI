@@ -594,9 +594,9 @@ bool MainWindow::file_OpenFile(QString FilePath)
 {
     if(QFile::exists(FilePath))
     {
-        if(QDesktopServices::openUrl(QUrl("file:"+FilePath,QUrl::TolerantMode))==false)
+        if(QDesktopServices::openUrl(QUrl("file:"+QUrl::toPercentEncoding(FilePath),QUrl::TolerantMode))==false)
         {
-            ExecuteCMD_batFile("start \"\" \""+FilePath+"\"");
+            ExecuteCMD_batFile("start \"\" \""+FilePath.replace("%","%%")+"\"");
         }
         return true;
     }

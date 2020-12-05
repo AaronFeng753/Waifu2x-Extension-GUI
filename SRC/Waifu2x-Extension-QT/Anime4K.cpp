@@ -1731,7 +1731,7 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
 void MainWindow::ListGPUs_Anime4k()
 {
     QString cmd = "\"" + Current_Path + "/Anime4K/Anime4K_waifu2xEX.exe" + "\" -l";
-    ExecuteCMD_batFile(cmd+"\n title = GPU List for Anime4K @ Waifu2x-Extension-GUI\n pause");
+    ExecuteCMD_batFile(cmd.replace("%","%%")+"\n title = GPU List for Anime4K @ Waifu2x-Extension-GUI\n pause");
 }
 
 void MainWindow::on_lineEdit_GPUs_Anime4k_editingFinished()
