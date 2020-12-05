@@ -113,6 +113,19 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
     AssembleGIF->start(cmd);
     while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}
     while(!AssembleGIF->waitForFinished(100)&&!QProcess_stop) {}
+    //======= 纠正文件名称错误(当 结果gif文件路径内有 % 符号时) ======
+    if(QFile::exists(ResGifPath)==false)
+    {
+        QFileInfo fileinfo(ResGifPath);
+        QString file_name = file_getBaseName(ResGifPath);
+        QString file_ext = fileinfo.suffix();
+        QString file_path = file_getFolderPath(fileinfo);
+        QString ActualResGifPath = file_path + "/" + file_name + "-0." + file_ext;
+        if(QFile::exists(ActualResGifPath)==true)
+        {
+            QFile::rename(ActualResGifPath,ResGifPath);
+        }
+    }
     //===========
     emit Send_TextBrowser_NewMessage(tr("Finish assembling GIF:[")+ResGifPath+"]");
 }

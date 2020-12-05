@@ -40,6 +40,7 @@ v2.57.24-beta:
 - Fix grammatical issues.
 - Fix UI issues.
 - Fix compatibility issues.
+- Fix bug: Unable to process gif and video, when there are "%" in the file path.
 
 v2.57.23-beta:
 - Update Anime4KCPP.
