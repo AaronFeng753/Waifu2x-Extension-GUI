@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.57.24-beta:
+- Update Anime4KCPP(e25501c76).
 - Fix grammatical issues.
+- Fix UI issues.
 
 v2.57.23-beta:
 - Update Anime4KCPP.
@@ -63,7 +65,7 @@ Integrated component:
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
 - ImageMagick 7.0.10-43-portable-Q16-x64
-- Anime4KCPP 307df52531115985e55a9b5a19d74518a6f747cd
+- Anime4KCPP e25501c7637d8746bfea63d3fea898a4725e2b28
 - FFmpeg&FFprobe 2020-11-25-git-3de3d2f5e2-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3

@@ -427,6 +427,7 @@ void MainWindow::on_pushButton_Start_clicked()
         ETA=0;
         isForceRetryClicked=false;
         //============== 界面初始化 ======================
+        ui->pushButton_BrowserFile->setEnabled(0);
         ui->comboBox_ImageSaveFormat->setEnabled(0);
         ui->spinBox_ImageQualityLevel->setEnabled(0);
         emit Send_Table_EnableSorting(0);//启用文件列表的排序功能
@@ -970,31 +971,6 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         MSG_Unable2LoadLanguageFiles->setModal(true);
         MSG_Unable2LoadLanguageFiles->show();
     }
-}
-void MainWindow::on_pushButton_SaveFileList_clicked()
-{
-    if(Table_model_video->rowCount()<=0&&Table_model_image->rowCount()<=0&&Table_model_gif->rowCount()<=0)
-    {
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("Error"));
-        MSG->setText(tr("File list is empty!"));
-        MSG->setIcon(QMessageBox::Warning);
-        MSG->setModal(false);
-        MSG->show();
-        return;
-    }
-    this->setAcceptDrops(0);//禁止drop file
-    ui->pushButton_Start->setEnabled(0);//禁用start button
-    ui->pushButton_ClearList->setEnabled(0);
-    ui->pushButton_RemoveItem->setEnabled(0);
-    ui->checkBox_ReProcFinFiles->setEnabled(0);
-    ui->pushButton_CustRes_cancel->setEnabled(0);
-    ui->pushButton_CustRes_apply->setEnabled(0);
-    ui->pushButton_ReadFileList->setEnabled(0);
-    ui->pushButton_SaveFileList->setEnabled(0);
-    emit Send_TextBrowser_NewMessage(tr("Write to the file, please wait."));
-    Table_Save_Current_Table_Filelist();
-    QtConcurrent::run(this, &MainWindow::Table_Save_Current_Table_Filelist_Watchdog);
 }
 
 void MainWindow::on_pushButton_ReadFileList_clicked()

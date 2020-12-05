@@ -403,6 +403,7 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
+    ui->pushButton_BrowserFile->setEnabled(1);
     ui->comboBox_ImageSaveFormat->setEnabled(1);
     on_comboBox_ImageSaveFormat_currentIndexChanged(1);
     emit Send_Table_EnableSorting(1);//启用文件列表的排序功能

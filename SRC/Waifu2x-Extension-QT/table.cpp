@@ -360,7 +360,7 @@ int MainWindow::Table_FileCount_reload()
     }
     return 0;
 }
-
+//保存当前文件列表
 int MainWindow::Table_Save_Current_Table_Filelist()
 {
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
@@ -477,6 +477,33 @@ int MainWindow::Table_Save_Current_Table_Filelist()
     return 0;
 }
 
+void MainWindow::on_pushButton_SaveFileList_clicked()
+{
+    if(Table_model_video->rowCount()<=0&&Table_model_image->rowCount()<=0&&Table_model_gif->rowCount()<=0)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("File list is empty!"));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+        return;
+    }
+    this->setAcceptDrops(0);//禁止drop file
+    ui->pushButton_Start->setEnabled(0);//禁用start button
+    ui->pushButton_ClearList->setEnabled(0);
+    ui->pushButton_RemoveItem->setEnabled(0);
+    ui->checkBox_ReProcFinFiles->setEnabled(0);
+    ui->pushButton_CustRes_cancel->setEnabled(0);
+    ui->pushButton_CustRes_apply->setEnabled(0);
+    ui->pushButton_ReadFileList->setEnabled(0);
+    ui->pushButton_SaveFileList->setEnabled(0);
+    ui->pushButton_BrowserFile->setEnabled(0);
+    emit Send_TextBrowser_NewMessage(tr("Write to the file, please wait."));
+    Table_Save_Current_Table_Filelist();
+    QtConcurrent::run(this, &MainWindow::Table_Save_Current_Table_Filelist_Watchdog);
+}
+
 int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
 {
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
@@ -490,14 +517,18 @@ int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
 
 int MainWindow::Table_Save_Current_Table_Filelist_Finished()
 {
-    this->setAcceptDrops(1);//禁止drop file
-    ui->pushButton_Start->setEnabled(1);//禁用start button
-    ui->pushButton_ClearList->setEnabled(1);
-    ui->pushButton_RemoveItem->setEnabled(1);
-    ui->checkBox_ReProcFinFiles->setEnabled(1);
-    ui->pushButton_CustRes_cancel->setEnabled(1);
-    ui->pushButton_CustRes_apply->setEnabled(1);
-    ui->pushButton_ReadFileList->setEnabled(1);
+    if(Waifu2xMain.isRunning()==false)
+    {
+        this->setAcceptDrops(1);//启用drop file
+        ui->pushButton_ClearList->setEnabled(1);
+        ui->pushButton_RemoveItem->setEnabled(1);
+        ui->checkBox_ReProcFinFiles->setEnabled(1);
+        ui->pushButton_CustRes_cancel->setEnabled(1);
+        ui->pushButton_CustRes_apply->setEnabled(1);
+        ui->pushButton_ReadFileList->setEnabled(1);
+        ui->pushButton_BrowserFile->setEnabled(1);
+    }
+    ui->pushButton_Start->setEnabled(1);//启用start button
     ui->pushButton_SaveFileList->setEnabled(1);
     emit Send_TextBrowser_NewMessage(tr("File list saved successfully!"));
     //===
