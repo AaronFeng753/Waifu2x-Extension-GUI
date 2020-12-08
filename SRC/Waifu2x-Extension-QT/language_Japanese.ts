@@ -78,7 +78,7 @@ folder as the source file.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="819"/>
-        <location filename="table.cpp" line="720"/>
+        <location filename="table.cpp" line="751"/>
         <source>Read Files List</source>
         <oldsource>Read Saved Files List</oldsource>
         <translation>ファイルリストを読む</translation>
@@ -103,8 +103,8 @@ folder as the source file.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="859"/>
-        <location filename="mainwindow.cpp" line="879"/>
-        <location filename="mainwindow.cpp" line="943"/>
+        <location filename="mainwindow.cpp" line="880"/>
+        <location filename="mainwindow.cpp" line="944"/>
         <source>Hide settings</source>
         <translation>設定を非表示にする</translation>
     </message>
@@ -166,8 +166,8 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="942"/>
-        <location filename="mainwindow.cpp" line="956"/>
-        <location filename="mainwindow.cpp" line="1252"/>
+        <location filename="mainwindow.cpp" line="957"/>
+        <location filename="mainwindow.cpp" line="1228"/>
         <source>Hide Text Browser</source>
         <translation>テキスト ブラウザを非表示にする</translation>
     </message>
@@ -248,7 +248,7 @@ into a directory that can run normally without administrator rights.</oldsource>
         <location filename="mainwindow.ui" line="635"/>
         <location filename="mainwindow.ui" line="2060"/>
         <location filename="Current_File_Progress.cpp" line="34"/>
-        <location filename="mainwindow.cpp" line="455"/>
+        <location filename="mainwindow.cpp" line="456"/>
         <source>Time remaining:NULL</source>
         <translation>残り時間:NULL</translation>
     </message>
@@ -256,7 +256,7 @@ into a directory that can run normally without administrator rights.</oldsource>
         <location filename="mainwindow.ui" line="462"/>
         <location filename="mainwindow.ui" line="2070"/>
         <location filename="Current_File_Progress.cpp" line="36"/>
-        <location filename="mainwindow.cpp" line="454"/>
+        <location filename="mainwindow.cpp" line="455"/>
         <source>ETA:NULL</source>
         <translation>イータ:NULL</translation>
     </message>
@@ -464,7 +464,7 @@ It is recommended to enable this option.</source>
         <location filename="mainwindow.ui" line="494"/>
         <location filename="mainwindow.ui" line="2050"/>
         <location filename="Current_File_Progress.cpp" line="35"/>
-        <location filename="mainwindow.cpp" line="453"/>
+        <location filename="mainwindow.cpp" line="454"/>
         <source>Time taken:NULL</source>
         <translation>所要時間：NULL</translation>
     </message>
@@ -1594,7 +1594,7 @@ path] or [Delete original files] is enabled*</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6167"/>
-        <location filename="mainwindow.cpp" line="1071"/>
+        <location filename="mainwindow.cpp" line="1047"/>
         <source>About</source>
         <translation>について</translation>
     </message>
@@ -3148,7 +3148,7 @@ by the software will be used.</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1561"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1599"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1681"/>
-        <location filename="video.cpp" line="747"/>
+        <location filename="video.cpp" line="749"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="139"/>
@@ -3550,7 +3550,7 @@ Anime4k GPUリスト（ユーザー構成）：
         <translation>自動再試行、お待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1006"/>
+        <location filename="mainwindow.cpp" line="982"/>
         <source>Loading...</source>
         <translation>加载中...</translation>
     </message>
@@ -3573,12 +3573,12 @@ Anime4k GPUリスト（ユーザー構成）：
         <location filename="mainwindow.cpp" line="354"/>
         <location filename="mainwindow.cpp" line="379"/>
         <location filename="mainwindow.cpp" line="396"/>
-        <location filename="mainwindow.cpp" line="916"/>
-        <location filename="mainwindow.cpp" line="967"/>
-        <location filename="mainwindow.cpp" line="979"/>
-        <location filename="mainwindow.cpp" line="1036"/>
+        <location filename="mainwindow.cpp" line="917"/>
+        <location filename="mainwindow.cpp" line="968"/>
+        <location filename="mainwindow.cpp" line="1012"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2043"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2056"/>
+        <location filename="table.cpp" line="485"/>
         <location filename="waifu2x_converter.cpp" line="1744"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2017"/>
         <source>Error</source>
@@ -3596,7 +3596,7 @@ Anime4k GPUリスト（ユーザー構成）：
         <location filename="Right-click_Menu.cpp" line="198"/>
         <location filename="Right-click_Menu.cpp" line="244"/>
         <location filename="files.cpp" line="105"/>
-        <location filename="mainwindow.cpp" line="522"/>
+        <location filename="mainwindow.cpp" line="523"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2092"/>
         <location filename="settings.cpp" line="569"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2094"/>
@@ -3624,7 +3624,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="CustomResolution.cpp" line="220"/>
         <location filename="Right-click_Menu.cpp" line="199"/>
         <location filename="Right-click_Menu.cpp" line="245"/>
-        <location filename="mainwindow.cpp" line="523"/>
+        <location filename="mainwindow.cpp" line="524"/>
         <source>No items are currently selected.</source>
         <translation>現在選択されているアイテムはありません。</translation>
     </message>
@@ -3759,8 +3759,8 @@ Do you wanna update now???</source>
     <message>
         <location filename="files.cpp" line="51"/>
         <location filename="files.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="1206"/>
-        <location filename="mainwindow.cpp" line="1207"/>
+        <location filename="mainwindow.cpp" line="1182"/>
+        <location filename="mainwindow.cpp" line="1183"/>
         <source>Adding files, please wait.</source>
         <translation>ファイルを追加しています。しばらくお待ちください。</translation>
     </message>
@@ -3775,24 +3775,24 @@ Do you wanna update now???</source>
         <translation>ファイル形式はサポートされていません。サポートされているファイル形式を入力するか、自分でファイル拡張子を追加してください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2073"/>
-        <location filename="waifu2x.cpp" line="539"/>
+        <location filename="mainwindow.cpp" line="2049"/>
+        <location filename="waifu2x.cpp" line="540"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2073"/>
-        <location filename="waifu2x.cpp" line="539"/>
+        <location filename="mainwindow.cpp" line="2049"/>
+        <location filename="waifu2x.cpp" line="540"/>
         <source>] to [</source>
         <translation>]から[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="474"/>
+        <location filename="waifu2x.cpp" line="475"/>
         <source>Error! Original file [</source>
         <translation>エラー！ 元のファイル[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="474"/>
+        <location filename="waifu2x.cpp" line="475"/>
         <source>] does not exists.</source>
         <translation>]存在しません。</translation>
     </message>
@@ -3816,11 +3816,11 @@ Do you wanna update now???</source>
         <location filename="SystemTrayIcon.cpp" line="111"/>
         <location filename="Web_Activities.cpp" line="77"/>
         <location filename="mainwindow.cpp" line="147"/>
-        <location filename="mainwindow.cpp" line="1129"/>
-        <location filename="mainwindow.cpp" line="1418"/>
+        <location filename="mainwindow.cpp" line="1105"/>
+        <location filename="mainwindow.cpp" line="1394"/>
         <location filename="settings.cpp" line="557"/>
         <location filename="settings.cpp" line="581"/>
-        <location filename="table.cpp" line="505"/>
+        <location filename="table.cpp" line="536"/>
         <source>Notification</source>
         <translation>お知らせ</translation>
     </message>
@@ -3879,36 +3879,36 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation>ファイルの処理を開始できません：ファイルリストが空です。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="473"/>
+        <location filename="mainwindow.cpp" line="474"/>
         <source>Start processing files.</source>
         <translation>ファイルの処理を開始します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="485"/>
+        <location filename="mainwindow.cpp" line="486"/>
         <source>Trying to stop, please wait...</source>
         <translation>停止しようとしています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="498"/>
+        <location filename="mainwindow.cpp" line="499"/>
         <source>Processing of files has stopped.</source>
         <translation>ファイルの処理が停止しました。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1406"/>
+        <location filename="mainwindow.cpp" line="1382"/>
         <source>- This software is free, if you find anyone selling this software, please report the seller.
 </source>
         <translation>-このソフトウェアは無料です。このソフトウェアを販売している人を見つけた場合は、販売者に報告してください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1407"/>
+        <location filename="mainwindow.cpp" line="1383"/>
         <source>- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>-このソフトウェアは無料でオープンソースであり、GNU Affero General Public Licensev3.0の下でライセンスされています。 このソフトウェアを使用した結果はすべてユーザーが負担し、開発者は一切の責任を負いません。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1408"/>
+        <location filename="mainwindow.cpp" line="1384"/>
         <source>- If you like this software, please donate to support the developer, thank you!
 </source>
         <translation>-このソフトウェアが気に入ったら、開発者をサポートするために寄付してください、ありがとう！
@@ -3920,22 +3920,22 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation>プログラムが最後に実行されたときにコンピューターの自動シャットダウンを実行したことが検出されました。 最後のファイルリストは、シャットダウン前に自動的に保存されました。 ファイルリストを手動でロードして、ファイル処理ステータスを表示できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="609"/>
+        <location filename="mainwindow.cpp" line="610"/>
         <source>Error! Notification sound file is missing!</source>
         <translation>エラー！ 通知音ファイルがありません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="917"/>
+        <location filename="mainwindow.cpp" line="918"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation>言語ファイルがありません。このプログラムを再インストールしてください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="968"/>
+        <location filename="mainwindow.cpp" line="969"/>
         <source>Language file cannot be loaded properly.</source>
         <translation>言語ファイルを正しく読み込めません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1130"/>
+        <location filename="mainwindow.cpp" line="1106"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
@@ -4036,18 +4036,18 @@ Restart the software to take effect.</source>
         <translation type="vanished">入力パスが存在しません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="650"/>
         <location filename="mainwindow.cpp" line="651"/>
-        <location filename="mainwindow.cpp" line="682"/>
+        <location filename="mainwindow.cpp" line="652"/>
         <location filename="mainwindow.cpp" line="683"/>
-        <location filename="mainwindow.cpp" line="717"/>
+        <location filename="mainwindow.cpp" line="684"/>
         <location filename="mainwindow.cpp" line="718"/>
-        <location filename="mainwindow.cpp" line="749"/>
+        <location filename="mainwindow.cpp" line="719"/>
         <location filename="mainwindow.cpp" line="750"/>
-        <location filename="mainwindow.cpp" line="783"/>
+        <location filename="mainwindow.cpp" line="751"/>
         <location filename="mainwindow.cpp" line="784"/>
-        <location filename="mainwindow.cpp" line="815"/>
+        <location filename="mainwindow.cpp" line="785"/>
         <location filename="mainwindow.cpp" line="816"/>
+        <location filename="mainwindow.cpp" line="817"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation>範囲：-1（ノイズリダクションなし）〜3</translation>
     </message>
@@ -4071,32 +4071,32 @@ Otherwise, this software may not work properly.</source>
         <translation>所要時間：[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="659"/>
         <location filename="mainwindow.cpp" line="660"/>
-        <location filename="mainwindow.cpp" line="726"/>
+        <location filename="mainwindow.cpp" line="661"/>
         <location filename="mainwindow.cpp" line="727"/>
-        <location filename="mainwindow.cpp" line="792"/>
+        <location filename="mainwindow.cpp" line="728"/>
         <location filename="mainwindow.cpp" line="793"/>
+        <location filename="mainwindow.cpp" line="794"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation>範囲：0（ノイズリダクションなし）〜3</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="668"/>
         <location filename="mainwindow.cpp" line="669"/>
-        <location filename="mainwindow.cpp" line="735"/>
+        <location filename="mainwindow.cpp" line="670"/>
         <location filename="mainwindow.cpp" line="736"/>
-        <location filename="mainwindow.cpp" line="806"/>
+        <location filename="mainwindow.cpp" line="737"/>
         <location filename="mainwindow.cpp" line="807"/>
+        <location filename="mainwindow.cpp" line="808"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation>範囲：-1（ノイズリダクションなし）~10</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="691"/>
         <location filename="mainwindow.cpp" line="692"/>
-        <location filename="mainwindow.cpp" line="758"/>
+        <location filename="mainwindow.cpp" line="693"/>
         <location filename="mainwindow.cpp" line="759"/>
-        <location filename="mainwindow.cpp" line="824"/>
+        <location filename="mainwindow.cpp" line="760"/>
         <location filename="mainwindow.cpp" line="825"/>
+        <location filename="mainwindow.cpp" line="826"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <oldsource>Anime4K engine does not support noise reduction.</oldsource>
         <translation>Realsr-ncnn-vulkanエンジンは自動的にノイズを除去します。</translation>
@@ -4112,9 +4112,9 @@ Otherwise, this software may not work properly.</source>
         <translation>テストしています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="873"/>
-        <location filename="mainwindow.cpp" line="937"/>
-        <location filename="mainwindow.cpp" line="1117"/>
+        <location filename="mainwindow.cpp" line="874"/>
+        <location filename="mainwindow.cpp" line="938"/>
+        <location filename="mainwindow.cpp" line="1093"/>
         <source>Show settings</source>
         <translation>設定を表示</translation>
     </message>
@@ -4127,23 +4127,23 @@ Otherwise, this software may not work properly.</source>
         <translation type="vanished">エラー：言語ファイルを正しくロードできません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="980"/>
+        <location filename="table.cpp" line="486"/>
         <source>File list is empty!</source>
         <translation>ファイルリストが空です！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="995"/>
+        <location filename="table.cpp" line="502"/>
         <source>Write to the file, please wait.</source>
         <translation>ファイルに書き込みます。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1030"/>
+        <location filename="mainwindow.cpp" line="1006"/>
         <source>Please wait while reading the file.</source>
         <translation>ファイルの読み取り中にお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1037"/>
-        <location filename="table.cpp" line="519"/>
+        <location filename="mainwindow.cpp" line="1013"/>
+        <location filename="table.cpp" line="550"/>
         <source>Cannot find the saved Files List!</source>
         <translation>保存されたファイルリストが見つかりません！</translation>
     </message>
@@ -4184,31 +4184,31 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1181"/>
+        <location filename="mainwindow.cpp" line="1157"/>
         <source>All file(</source>
         <translation>すべてのファイル（</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="950"/>
-        <location filename="mainwindow.cpp" line="1246"/>
-        <location filename="mainwindow.cpp" line="1262"/>
+        <location filename="mainwindow.cpp" line="951"/>
+        <location filename="mainwindow.cpp" line="1222"/>
+        <location filename="mainwindow.cpp" line="1238"/>
         <source>Show Text Browser</source>
         <translation>テキストブラウザを表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1181"/>
+        <location filename="mainwindow.cpp" line="1157"/>
         <source>Select files</source>
         <translation>ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1404"/>
+        <location filename="mainwindow.cpp" line="1380"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- ソフトウェアを使用する前にWikiをお読みください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1405"/>
+        <location filename="mainwindow.cpp" line="1381"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- ソフトウェアのフォント表示に問題がある場合は、追加設定でフォントを変更できます。
@@ -4227,12 +4227,12 @@ If you like the software, please donate to support the developers to ensure the 
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1411"/>
+        <location filename="mainwindow.cpp" line="1387"/>
         <source>!!! Tips !!!</source>
         <translation>!!! プロンプト !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1419"/>
+        <location filename="mainwindow.cpp" line="1395"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>ソフトウェアを初めて起動したことが検出されたため、互換性テストが自動的に実行されます。 しばらく待ってから、テスト結果を確認してください。</translation>
     </message>
@@ -4295,7 +4295,7 @@ Waifu2x-converterプロセッサリスト:
         <translation type="vanished">利用可能なプロセッサが検出されません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1539"/>
+        <location filename="mainwindow.cpp" line="1515"/>
         <source>Force retry.</source>
         <translation>強制的に再試行します。</translation>
     </message>
@@ -4356,46 +4356,46 @@ Waifu2x-converterプロセッサリスト:
         <translation>ファイル数：%1</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="502"/>
-        <location filename="table.cpp" line="506"/>
+        <location filename="table.cpp" line="533"/>
+        <location filename="table.cpp" line="537"/>
         <source>File list saved successfully!</source>
         <translation>ファイルリストが正常に保存されました！</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="553"/>
-        <location filename="table.cpp" line="590"/>
-        <location filename="table.cpp" line="627"/>
+        <location filename="table.cpp" line="584"/>
+        <location filename="table.cpp" line="621"/>
+        <location filename="table.cpp" line="658"/>
         <source>[Failed]--[</source>
         <translation>[失敗]-[</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="708"/>
+        <location filename="table.cpp" line="739"/>
         <source>File list update is complete!</source>
         <translation>ファイルリストの更新が完了しました！</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="716"/>
+        <location filename="table.cpp" line="747"/>
         <source>The file list saved last time is empty.</source>
         <translation>前回保存されたファイルリストは空です。</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="449"/>
+        <location filename="video.cpp" line="450"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation>エラー！ オーディオのノイズを除去できません。[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="566"/>
+        <location filename="video.cpp" line="567"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation>警告！現在のファイルのビットレートを取得できません：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="566"/>
+        <location filename="video.cpp" line="567"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation>]。ffmpegによって自動的に割り当てられたビットレートが使用されます。</translation>
     </message>
     <message>
         <location filename="video.cpp" line="247"/>
-        <location filename="video.cpp" line="596"/>
+        <location filename="video.cpp" line="597"/>
         <source>Start splitting video: [</source>
         <translation>ビデオの分割を開始：[</translation>
     </message>
@@ -4425,89 +4425,89 @@ Waifu2x-converterプロセッサリスト:
         <translation>クリップを使用してビデオの組み立てを終了します:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="277"/>
-        <location filename="video.cpp" line="672"/>
+        <location filename="video.cpp" line="278"/>
+        <location filename="video.cpp" line="674"/>
         <source>Finish splitting video: [</source>
         <translation>ビデオの分割を終了：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="285"/>
+        <location filename="video.cpp" line="286"/>
         <source>Extract audio from video: [</source>
         <translation>ビデオからオーディオを抽出する: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="294"/>
+        <location filename="video.cpp" line="295"/>
         <source>Successfully extracted audio from video: [</source>
         <translation>動画から音声を正常に抽出しました：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="298"/>
+        <location filename="video.cpp" line="299"/>
         <source>Failed to extract audio from video: [</source>
         <translation>ビデオからオーディオを抽出できませんでした：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="298"/>
+        <location filename="video.cpp" line="299"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation>]この動画はサイレント動画の可能性があるため、引き続きこの動画を処理します。</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="312"/>
+        <location filename="video.cpp" line="313"/>
         <source>Start converting video: [</source>
         <translation>ビデオをmp4に変換し始めます: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="312"/>
-        <location filename="video.cpp" line="357"/>
+        <location filename="video.cpp" line="313"/>
+        <location filename="video.cpp" line="358"/>
         <source>] to mp4</source>
         <translation>]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="357"/>
+        <location filename="video.cpp" line="358"/>
         <source>Successfully converted video: [</source>
         <translation>動画が正常に変換されました：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="367"/>
+        <location filename="video.cpp" line="368"/>
         <source>Get duration of the video:[</source>
         <translation>ビデオの長さを取得:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="402"/>
+        <location filename="video.cpp" line="403"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation>エラー！ の期間を取得できません [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="402"/>
+        <location filename="video.cpp" line="403"/>
         <source>].</source>
         <translation>].</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="420"/>
+        <location filename="video.cpp" line="421"/>
         <source>Starting to denoise audio.[</source>
         <translation>オーディオのノイズを除去し始めます。[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="443"/>
+        <location filename="video.cpp" line="444"/>
         <source>Successfully denoise audio.[</source>
         <translation>オーディオのノイズ除去に成功しました。[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="527"/>
+        <location filename="video.cpp" line="528"/>
         <source>Get bitrate of the video:[</source>
         <translation>ビデオのビットレートを取得する:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="677"/>
+        <location filename="video.cpp" line="679"/>
         <source>Start assembling video:[</source>
         <translation>ビデオの組み立てを開始します：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="747"/>
+        <location filename="video.cpp" line="749"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]。 エラー：[ビデオのフレームレートを取得できません。]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="793"/>
+        <location filename="video.cpp" line="795"/>
         <source>Finish assembling video:[</source>
         <translation>ビデオの組み立てを完了します：[</translation>
     </message>
@@ -4999,17 +4999,17 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>GIFの組み立てを開始します：[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="117"/>
+        <location filename="gif.cpp" line="130"/>
         <source>Finish assembling GIF:[</source>
         <translation>GIFの組み立てを完了：[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="124"/>
+        <location filename="gif.cpp" line="137"/>
         <source>Starting to optimize GIF:[</source>
         <translation>GIFの最適化を開始:[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="133"/>
+        <location filename="gif.cpp" line="146"/>
         <source>Finish optimizing GIF:[</source>
         <translation>GIFの最適化を終了:[</translation>
     </message>
