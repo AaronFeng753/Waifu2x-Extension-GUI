@@ -4,6 +4,17 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.57.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.31)
+#### Change log:
+- Update Anime4K,FFmpeg&FFprobe,ImageMagick.
+- Improve performance and compatibility.
+- Some other minor improvements.
+- ✅Fix grammatical,UI and compatibility issues.
+- ✅Fix bug: Unable to process gif and video, when there are % in the file path.
+- ✅Fix bug: Cannot read the GPUs List of the latest Anime4K.
+- ✅Fix bug: When engines randomly crashes for some unknown reasons, the compatibility test will provide incorrect results.
+- ✅Fix bug: Image with alpha channel will still be reprocessed even the current engine doesn't support processing alpha channel.
+---
 ## [v2.57.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.21)
 #### Change log:
 - New feature: Intelligently detect whether the Alpha channel is lost, and automatically reprocess the picture.
