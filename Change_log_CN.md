@@ -8,6 +8,14 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.57.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.31)
+#### 更新日志:
+- 更新Anime4K,FFmpeg&FFprobe,ImageMagick.
+- 改进性能与兼容性.
+- 一些其他小改进
+- ✅修正多个(英语)语法,UI以及兼容性问题.
+- ✅修复多个bug.
+---
 ## [v2.57.21](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.21)
 #### 更新日志:
 - 新特性: 智能检测透明通道是否丢失, 并重新处理文件.
