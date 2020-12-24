@@ -75,10 +75,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.57.31";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.57.32-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.57.31";
-    QString LastBetaVer = "v2.57.31";
+    QString LastBetaVer = "v2.57.32-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -345,7 +345,7 @@ public:
     int Gif_getFrameDigits(QString gifPath);//获取帧数量的位数
     void Gif_splitGif(QString gifPath,QString SplitFramesFolderPath);//拆分gif
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
-    void Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
+    QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
     int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率

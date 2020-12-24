@@ -414,7 +414,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     //======================================= 优化gif ===================================================
     if(OptGIF)
     {
-        QString ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
+        QString ResGIFPath_compressed = "";
         if(CustRes_isEnabled)
         {
             ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
@@ -423,16 +423,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         {
             ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
         }
-        Gif_compressGif(ResGIFPath,ResGIFPath_compressed);
-        if(QFile::exists(ResGIFPath_compressed))
-        {
-            QFile::remove(ResGIFPath);
-            OutPutPath_Final = ResGIFPath_compressed;
-        }
-        else
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't optimize gif.]"));
-        }
+        OutPutPath_Final = Gif_compressGif(ResGIFPath,ResGIFPath_compressed);
     }
     //============================== 删除缓存文件 ====================================================
     file_DelDir(SplitFramesFolderPath);

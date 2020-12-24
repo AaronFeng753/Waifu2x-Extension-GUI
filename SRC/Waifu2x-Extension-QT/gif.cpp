@@ -132,7 +132,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
 /*
 压缩gif
 */
-void MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
+QString MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
 {
     emit Send_TextBrowser_NewMessage(tr("Starting to optimize GIF:[")+gifPath+"]");
     //=====
@@ -143,5 +143,24 @@ void MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
     while(!CompressGIF->waitForStarted(100)&&!QProcess_stop) {}
     while(!CompressGIF->waitForFinished(100)&&!QProcess_stop) {}
     //======
+    //判断是否生成压缩后的gif
+    if(QFile::exists(gifPath_compressd) == false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+gifPath+tr("]. Error: [Can't optimize gif.]"));
+        return gifPath;//返回源文件路径
+    }
+    //======
+    //比较文件大小,判断压缩是否有效
+    QFileInfo *gifPath_QFileInfo = new QFileInfo(gifPath);
+    QFileInfo *gifPath_compressd_QFileInfo = new QFileInfo(gifPath_compressd);
+    if((gifPath_compressd_QFileInfo->size() < gifPath_QFileInfo->size())==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Failed to optimize gif [")+gifPath+tr("] to reduce storage usage, the optimized gif file will be deleted."));
+        QFile::remove(gifPath_compressd);
+        return gifPath;//返回源文件路径
+    }
+    //======
+    QFile::remove(gifPath);
     emit Send_TextBrowser_NewMessage(tr("Finish optimizing GIF:[")+gifPath+"]");
+    return gifPath_compressd;//返回处理完成的文件路径
 }

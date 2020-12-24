@@ -34,25 +34,11 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.57.24-beta:
-- Update Anime4KCPP(e25501c76).
-- Improve performance.
-- Fix grammatical issues.
-- Fix UI issues.
-- Fix compatibility issues.
-- Fix bug: Unable to process gif and video, when there are "%" in the file path.
-
-v2.57.23-beta:
-- Update Anime4KCPP.
-- Some minor improvements.
-- Fix bug: Cannot read the GPUs List of the latest Anime4KCPP(307df52).
-- Fix bug: When engines randomly crashes for some unknown reasons, the compatibility test will provide incorrect results.
-
-v2.57.22-beta:
-- Update Anime4KCPP,FFmpeg&FFprobe,ImageMagick.
-- Improve performance and compatibility.
-- Modify and rebuild Anime4KCPP(2aecb53) to fix compatibility issues.
-- Fix bug: Image with alpha channel will still be reprocessed even the current engine doesn't support processing alpha channel.
+v2.57.32-beta:
+- The optimized gif will not replace original gif when it's not smaller than the original.
+- Optimize performance.
+- Update Waifu2x-converter,Anime4KCPP,ImageMagick,FFmpeg&FFprobe.
+- Fix typo(Chinese).
 
 --------------------------------------------------------------------------
 To do:
@@ -63,13 +49,13 @@ Integrated component:
 - gifsicle version 1.92
 - SoX 14.4.2-win32
 - waifu2x-caffe 1.2.0.4
-- Waifu2x-converter e7de04d
+- Waifu2x-converter 9e0284ae23d43c990efb6320253ff0f1e3776854
 - waifu2x-ncnn-vulkan 20200818
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-43-portable-Q16-x64
-- Anime4KCPP e25501c7637d8746bfea63d3fea898a4725e2b28
-- FFmpeg&FFprobe 2020-11-25-git-3de3d2f5e2-full_build
+- ImageMagick 7.0.10-52-portable-Q16-x64
+- Anime4KCPP b81d3fc2fd17b86c31ea3e9c24b9edce519cf974
+- FFmpeg&FFprobe 2020-12-20-git-ab6a56773f-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 ---------------------------------------------------------------------------
