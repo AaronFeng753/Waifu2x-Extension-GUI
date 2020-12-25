@@ -462,6 +462,7 @@ void MainWindow::Waifu2x_Finished_manual()
     NewTaskFinished=false;
     ETA=0;
     TimeCost=0;
+    ForceRetryCount=1;
 }
 
 /*

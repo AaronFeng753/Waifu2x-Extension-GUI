@@ -82,7 +82,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaCh
     //====
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -106,7 +106,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaCh
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -494,7 +494,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
         }
     }
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
@@ -517,7 +517,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -1458,7 +1458,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         }
     }
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
@@ -1481,7 +1481,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }

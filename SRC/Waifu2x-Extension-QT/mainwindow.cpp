@@ -426,6 +426,7 @@ void MainWindow::on_pushButton_Start_clicked()
         NewTaskFinished=false;
         ETA=0;
         isForceRetryClicked=false;
+        ForceRetryCount=1;
         //============== 界面初始化 ======================
         ui->pushButton_BrowserFile->setEnabled(0);
         ui->comboBox_ImageSaveFormat->setEnabled(0);
@@ -1485,9 +1486,7 @@ void MainWindow::on_pushButton_ForceRetry_clicked()
     //========
     QtConcurrent::run(this, &MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k);//block a4k引擎线程 防止无效图片污染缓存
     //========
-    int tmp = ui->spinBox_retry->value();
-    tmp++;
-    ui->spinBox_retry->setValue(tmp);
+    ForceRetryCount++;
     //========
     QProcess Close;
     Close.start("taskkill /f /t /fi \"imagename eq Anime4K_waifu2xEX.exe\"");

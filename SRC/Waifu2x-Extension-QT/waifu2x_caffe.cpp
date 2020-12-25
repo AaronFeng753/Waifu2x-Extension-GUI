@@ -99,7 +99,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
     //====
     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + ImageProcessingModeCMD + Waifu2x_Caffe_ReadSettings(true);
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -123,7 +123,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -528,7 +528,7 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
         ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
     }
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings(false);
         QProcess *Waifu2x = new QProcess();
@@ -551,7 +551,7 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -1509,7 +1509,7 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
         ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
     }
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings(false);
         QProcess *Waifu2x = new QProcess();
@@ -1532,7 +1532,7 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }

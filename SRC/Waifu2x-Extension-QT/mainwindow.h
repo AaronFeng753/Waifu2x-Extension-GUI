@@ -395,6 +395,8 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    int ForceRetryCount = 1;
+
     void OutputSettingsArea_setEnabled(bool isEnabled);
 
     bool isFirstTimeStart=false;

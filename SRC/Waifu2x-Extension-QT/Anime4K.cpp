@@ -91,7 +91,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //====
     QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(PreserveAlphaChannel);
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -116,7 +116,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -516,7 +516,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     //=======
     QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(false);
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -539,7 +539,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
@@ -1490,7 +1490,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     //=======
     QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(false);
     //=======
-    for(int retry=0; retry<(ui->spinBox_retry->value()+1); retry++)
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
@@ -1513,7 +1513,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
         else
         {
-            if(retry==ui->spinBox_retry->value())break;
+            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
             Delay_sec_sleep(5);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
         }
