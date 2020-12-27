@@ -1,9 +1,0 @@
-In the latest version, Encoders List has been moved to the local.
-Open the link below to download the latest version:
-
-https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
------
-在最新版找中,编码器列表已经被移动到本地
-打开下方链接下载最新版:
-
-https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
