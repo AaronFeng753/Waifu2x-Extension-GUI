@@ -34,11 +34,16 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.57.33-beta:
+- Complete translation.
+- More detailed tool tips.
+- Show a message when no update was found.
+
 v2.57.32-beta:
 - The setting value will not be modified when using Force retry.
 - The optimized gif will not replace original gif when it's not smaller than the original.
 - Optimize performance.
-- Update Waifu2x-converter,Anime4KCPP,ImageMagick,FFmpeg&FFprobe.
+- Update Waifu2x-converter,Anime4K,ImageMagick,FFmpeg&FFprobe.
 - Fix typo(Chinese).
 
 --------------------------------------------------------------------------

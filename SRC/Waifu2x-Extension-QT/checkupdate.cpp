@@ -42,6 +42,7 @@ int MainWindow::CheckUpadte_Auto()
     QString Current_Ver="";
     QString Github_UpdateInfo_online = "";
     QString Gitee_UpdateInfo_online = "";
+    QString UpdateType=ui->comboBox_UpdateChannel->currentText();
     switch(ui->comboBox_UpdateChannel->currentIndex())
     {
         case 0:
@@ -80,6 +81,10 @@ int MainWindow::CheckUpadte_Auto()
         {
             emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
         }
+        else
+        {
+            emit Send_TextBrowser_NewMessage(tr("No update found, you are using the latest ")+UpdateType+tr(" version."));
+        }
         QFile::remove(Github_UpdateInfo_local);
         QFile::remove(Gitee_UpdateInfo_local);
         return 0;
@@ -106,6 +111,10 @@ int MainWindow::CheckUpadte_Auto()
             if(Latest_Ver!=Current_Ver&&Latest_Ver!="")
             {
                 emit Send_CheckUpadte_NewUpdate(Latest_Ver,Change_log);
+            }
+            else
+            {
+                emit Send_TextBrowser_NewMessage(tr("No update found, you are using the latest ")+UpdateType+tr(" version."));
             }
             QFile::remove(Github_UpdateInfo_local);
             QFile::remove(Gitee_UpdateInfo_local);

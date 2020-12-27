@@ -33,7 +33,7 @@ void MainWindow::Init_SystemTrayIcon()
 {
     //初始化图标
     systemTray->setIcon(*MainIcon_QIcon);
-    systemTray->setToolTip("Waifu2x-Extension-GUI");
+    systemTray->setToolTip(tr("Waifu2x-Extension-GUI\nRight-click to show the menu."));
     //初始化点击动作
     connect(systemTray,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason)));
     //初始化菜单动作

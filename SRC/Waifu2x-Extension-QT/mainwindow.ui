@@ -170,7 +170,7 @@ height:35
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <property name="iconSize">
        <size>
@@ -709,7 +709,9 @@ padding:10px;
               <enum>Qt::ActionsContextMenu</enum>
              </property>
              <property name="toolTip">
-              <string>Remove the selected file from File List.</string>
+              <string>Remove the selected file from File List.
+
+[Right click here to show more options]</string>
              </property>
              <property name="styleSheet">
               <string notr="true">QPushButton{
@@ -1735,7 +1737,9 @@ padding:10px;
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
                 <property name="toolTip">
-                 <string>Output path must be a Folder.</string>
+                 <string>Output path must be a Folder.
+
+[Right click here to show more options]</string>
                 </property>
                 <property name="text">
                  <string notr="true"/>
@@ -5856,7 +5860,9 @@ the original file with the result file.
 WARNING: The original file will be DELETED.
 
 *This option will be deactivated when [Output
-path] or [Delete original files] is enabled*</string>
+path] or [Delete original files] is enabled*
+
+[Right click here to show more options]</string>
                 </property>
                 <property name="text">
                  <string>Replace original file</string>
