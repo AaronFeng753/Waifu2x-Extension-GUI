@@ -264,6 +264,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     //============================  判断是否为图片 ===============================
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
+    nameFilters_image.removeAll("gif");
     if (nameFilters_image.contains(file_ext.toLower()))
     {
         AddNew_image=true;
@@ -287,6 +288,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     //============================  判断是否为视频 ===============================
     QString Ext_video_str = ui->Ext_video->text();
     QStringList nameFilters_video = Ext_video_str.split(":");
+    nameFilters_video.removeAll("gif");
     if (nameFilters_video.contains(file_ext.toLower()))
     {
         if(file_ext!="mp4"&&file_ext.toLower()=="mp4")

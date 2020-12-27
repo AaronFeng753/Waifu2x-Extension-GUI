@@ -1021,14 +1021,14 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
 void MainWindow::on_Ext_image_editingFinished()
 {
     QString ext_image_str = ui->Ext_image->text();
-    ext_image_str = ext_image_str.trimmed().replace("：",":").remove(" ").remove("　");
+    ext_image_str = ext_image_str.trimmed().replace("：",":").remove(" ").remove("　").replace(":gif:",":");
     ui->Ext_image->setText(ext_image_str);
 }
 
 void MainWindow::on_Ext_video_editingFinished()
 {
     QString ext_video_str = ui->Ext_video->text();
-    ext_video_str = ext_video_str.trimmed().replace("：",":").remove(" ").remove("　");
+    ext_video_str = ext_video_str.trimmed().replace("：",":").remove(" ").remove("　").replace(":gif:",":");
     ui->Ext_video->setText(ext_video_str);
 }
 
@@ -1122,6 +1122,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     nameFilters.append("*.gif");
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
+    nameFilters_image.removeAll("gif");
     for(int i = 0; i < nameFilters_image.size(); ++i)
     {
         QString tmp = nameFilters_image.at(i).trimmed();
@@ -1131,6 +1132,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     }
     QString Ext_video_str = ui->Ext_video->text();
     QStringList nameFilters_video = Ext_video_str.split(":");
+    nameFilters_video.removeAll("gif");
     for(int i = 0; i < nameFilters_video.size(); ++i)
     {
         QString tmp = nameFilters_video.at(i).trimmed();

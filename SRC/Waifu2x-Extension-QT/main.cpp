@@ -38,6 +38,7 @@ v2.57.33-beta:
 - Complete translation.
 - More detailed tool tips.
 - Show a message when no update was found.
+- Fix bug: Gif files will be misplaced if user put "gif" in the input file extensions list.
 
 v2.57.32-beta:
 - The setting value will not be modified when using Force retry.
