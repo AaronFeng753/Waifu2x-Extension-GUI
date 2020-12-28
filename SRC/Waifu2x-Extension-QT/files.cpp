@@ -133,6 +133,12 @@ void MainWindow::Read_urls_finfished()
     ui->tableView_gif->scrollToBottom();
     ui->tableView_image->scrollToBottom();
     ui->tableView_video->scrollToBottom();
+    QScrollBar *image_ScrBar = ui->tableView_image->horizontalScrollBar();
+    image_ScrBar->setValue(0);
+    QScrollBar *gif_ScrBar = ui->tableView_gif->horizontalScrollBar();
+    gif_ScrBar->setValue(0);
+    QScrollBar *video_ScrBar = ui->tableView_video->horizontalScrollBar();
+    video_ScrBar->setValue(0);
     AddNew_image=false;
     AddNew_gif=false;
     AddNew_video=false;

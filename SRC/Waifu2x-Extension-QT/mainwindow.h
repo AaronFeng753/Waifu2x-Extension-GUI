@@ -56,6 +56,7 @@
 #include <QMenu>
 #include <QMetaType>
 #include <QRandomGenerator>
+#include <QScrollBar>
 
 typedef QList<QMap<QString, QString>> QList_QMap_QStrQStr;
 Q_DECLARE_METATYPE(QList_QMap_QStrQStr)
@@ -75,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.57.33-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.57.31";
-    QString LastBetaVer = "v2.57.33-beta";
+    QString VERSION = "v2.57.41";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.57.41";
+    QString LastBetaVer = "v2.57.41";
     //=======================
     QTranslator * translator;//界面翻译
     //=======

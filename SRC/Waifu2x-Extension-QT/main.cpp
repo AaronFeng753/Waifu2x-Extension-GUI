@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.57.41:
+- Fix bug: Sometimes Files list randomly scrolls horizontally by itself.
+
 v2.57.33-beta:
 - Complete translation.
 - More detailed tool tips.

@@ -47,12 +47,11 @@ void MainWindow::Init_Table()
     Table_model_video->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
     ui->tableView_video->horizontalHeader()->setDefaultAlignment(Qt::AlignLeft);
     ui->tableView_video->setModel(Table_model_video);
-    //=============================================
     //将横向表头设置为可见
     ui->tableView_video->horizontalHeader()->setVisible(1);
     ui->tableView_gif->horizontalHeader()->setVisible(1);
     ui->tableView_image->horizontalHeader()->setVisible(1);
-    //====
+    //=============================================
     emit Send_Table_EnableSorting(1);//启用文件列表的排序功能
 }
 
@@ -736,6 +735,12 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     ui->tableView_gif->scrollToBottom();
     ui->tableView_image->scrollToBottom();
     ui->tableView_video->scrollToBottom();
+    QScrollBar *image_ScrBar = ui->tableView_image->horizontalScrollBar();
+    image_ScrBar->setValue(0);
+    QScrollBar *gif_ScrBar = ui->tableView_gif->horizontalScrollBar();
+    gif_ScrBar->setValue(0);
+    QScrollBar *video_ScrBar = ui->tableView_video->horizontalScrollBar();
+    video_ScrBar->setValue(0);
     Send_TextBrowser_NewMessage(tr("File list update is complete!"));
     //====
     progressbar_SetToMax(Progressbar_MaxVal);
