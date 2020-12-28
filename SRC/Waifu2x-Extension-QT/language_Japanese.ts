@@ -78,7 +78,7 @@ folder as the source file.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="821"/>
-        <location filename="table.cpp" line="751"/>
+        <location filename="table.cpp" line="756"/>
         <source>Read Files List</source>
         <oldsource>Read Saved Files List</oldsource>
         <translation>ファイルリストを読む</translation>
@@ -174,7 +174,7 @@ display the window, double-click to maximize the window.</source>
     <message>
         <location filename="mainwindow.ui" line="944"/>
         <location filename="mainwindow.cpp" line="958"/>
-        <location filename="mainwindow.cpp" line="1229"/>
+        <location filename="mainwindow.cpp" line="1231"/>
         <source>Hide Text Browser</source>
         <translation>テキスト ブラウザを非表示にする</translation>
     </message>
@@ -3134,9 +3134,9 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1387"/>
         <location filename="Anime4K.cpp" line="1483"/>
         <location filename="CustomResolution.cpp" line="298"/>
-        <location filename="files.cpp" line="530"/>
-        <location filename="files.cpp" line="548"/>
-        <location filename="files.cpp" line="566"/>
+        <location filename="files.cpp" line="538"/>
+        <location filename="files.cpp" line="556"/>
+        <location filename="files.cpp" line="574"/>
         <location filename="gif.cpp" line="149"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="36"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="61"/>
@@ -3615,7 +3615,7 @@ Anime4k GPUリスト（ユーザー構成）：
         <location filename="mainwindow.cpp" line="1013"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2034"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2047"/>
-        <location filename="table.cpp" line="485"/>
+        <location filename="table.cpp" line="484"/>
         <location filename="waifu2x_converter.cpp" line="1735"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2008"/>
         <source>Error</source>
@@ -3808,8 +3808,8 @@ Do you wanna update now???</source>
     <message>
         <location filename="files.cpp" line="51"/>
         <location filename="files.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="1183"/>
-        <location filename="mainwindow.cpp" line="1184"/>
+        <location filename="mainwindow.cpp" line="1185"/>
+        <location filename="mainwindow.cpp" line="1186"/>
         <source>Adding files, please wait.</source>
         <translation>ファイルを追加しています。しばらくお待ちください。</translation>
     </message>
@@ -3824,13 +3824,13 @@ Do you wanna update now???</source>
         <translation>ファイル形式はサポートされていません。サポートされているファイル形式を入力するか、自分でファイル拡張子を追加してください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2048"/>
+        <location filename="mainwindow.cpp" line="2050"/>
         <location filename="waifu2x.cpp" line="541"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2048"/>
+        <location filename="mainwindow.cpp" line="2050"/>
         <location filename="waifu2x.cpp" line="541"/>
         <source>] to [</source>
         <translation>]から[</translation>
@@ -3846,9 +3846,9 @@ Do you wanna update now???</source>
         <translation>]存在しません。</translation>
     </message>
     <message>
-        <location filename="files.cpp" line="530"/>
-        <location filename="files.cpp" line="548"/>
-        <location filename="files.cpp" line="566"/>
+        <location filename="files.cpp" line="538"/>
+        <location filename="files.cpp" line="556"/>
+        <location filename="files.cpp" line="574"/>
         <source>]. Error: [Insufficient permissions, administrator permissions is needed.]</source>
         <translation>]. エラー: [権限が不足しています。管理者権限が必要です。]</translation>
     </message>
@@ -3866,10 +3866,10 @@ Do you wanna update now???</source>
         <location filename="Web_Activities.cpp" line="77"/>
         <location filename="mainwindow.cpp" line="147"/>
         <location filename="mainwindow.cpp" line="1106"/>
-        <location filename="mainwindow.cpp" line="1395"/>
+        <location filename="mainwindow.cpp" line="1397"/>
         <location filename="settings.cpp" line="557"/>
         <location filename="settings.cpp" line="581"/>
-        <location filename="table.cpp" line="536"/>
+        <location filename="table.cpp" line="535"/>
         <source>Notification</source>
         <translation>お知らせ</translation>
     </message>
@@ -3943,21 +3943,21 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation>ファイルの処理が停止しました。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1383"/>
+        <location filename="mainwindow.cpp" line="1385"/>
         <source>- This software is free, if you find anyone selling this software, please report the seller.
 </source>
         <translation>-このソフトウェアは無料です。このソフトウェアを販売している人を見つけた場合は、販売者に報告してください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1384"/>
+        <location filename="mainwindow.cpp" line="1386"/>
         <source>- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>-このソフトウェアは無料でオープンソースであり、GNU Affero General Public Licensev3.0の下でライセンスされています。 このソフトウェアを使用した結果はすべてユーザーが負担し、開発者は一切の責任を負いません。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1385"/>
+        <location filename="mainwindow.cpp" line="1387"/>
         <source>- If you like this software, please donate to support the developer, thank you!
 </source>
         <translation>-このソフトウェアが気に入ったら、開発者をサポートするために寄付してください、ありがとう！
@@ -4176,12 +4176,12 @@ Otherwise, this software may not work properly.</source>
         <translation type="vanished">エラー：言語ファイルを正しくロードできません。</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="486"/>
+        <location filename="table.cpp" line="485"/>
         <source>File list is empty!</source>
         <translation>ファイルリストが空です！</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="502"/>
+        <location filename="table.cpp" line="501"/>
         <source>Write to the file, please wait.</source>
         <translation>ファイルに書き込みます。しばらくお待ちください。</translation>
     </message>
@@ -4192,7 +4192,7 @@ Otherwise, this software may not work properly.</source>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1014"/>
-        <location filename="table.cpp" line="550"/>
+        <location filename="table.cpp" line="549"/>
         <source>Cannot find the saved Files List!</source>
         <translation>保存されたファイルリストが見つかりません！</translation>
     </message>
@@ -4233,31 +4233,31 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1158"/>
+        <location filename="mainwindow.cpp" line="1160"/>
         <source>All file(</source>
         <translation>すべてのファイル（</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="952"/>
-        <location filename="mainwindow.cpp" line="1223"/>
-        <location filename="mainwindow.cpp" line="1239"/>
+        <location filename="mainwindow.cpp" line="1225"/>
+        <location filename="mainwindow.cpp" line="1241"/>
         <source>Show Text Browser</source>
         <translation>テキストブラウザを表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1158"/>
+        <location filename="mainwindow.cpp" line="1160"/>
         <source>Select files</source>
         <translation>ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1381"/>
+        <location filename="mainwindow.cpp" line="1383"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- ソフトウェアを使用する前にWikiをお読みください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1382"/>
+        <location filename="mainwindow.cpp" line="1384"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- ソフトウェアのフォント表示に問題がある場合は、追加設定でフォントを変更できます。
@@ -4276,12 +4276,12 @@ If you like the software, please donate to support the developers to ensure the 
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1388"/>
+        <location filename="mainwindow.cpp" line="1390"/>
         <source>!!! Tips !!!</source>
         <translation>!!! プロンプト !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1396"/>
+        <location filename="mainwindow.cpp" line="1398"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>ソフトウェアを初めて起動したことが検出されたため、互換性テストが自動的に実行されます。 しばらく待ってから、テスト結果を確認してください。</translation>
     </message>
@@ -4344,7 +4344,7 @@ Waifu2x-converterプロセッサリスト:
         <translation type="vanished">利用可能なプロセッサが検出されません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1514"/>
+        <location filename="mainwindow.cpp" line="1516"/>
         <source>Force retry.</source>
         <translation>強制的に再試行します。</translation>
     </message>
@@ -4400,30 +4400,30 @@ Waifu2x-converterプロセッサリスト:
         <translation>ビデオファイル名</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="355"/>
+        <location filename="table.cpp" line="354"/>
         <source>File count: %1</source>
         <translation>ファイル数：%1</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="533"/>
-        <location filename="table.cpp" line="537"/>
+        <location filename="table.cpp" line="532"/>
+        <location filename="table.cpp" line="536"/>
         <source>File list saved successfully!</source>
         <translation>ファイルリストが正常に保存されました！</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="584"/>
-        <location filename="table.cpp" line="621"/>
-        <location filename="table.cpp" line="658"/>
+        <location filename="table.cpp" line="583"/>
+        <location filename="table.cpp" line="620"/>
+        <location filename="table.cpp" line="657"/>
         <source>[Failed]--[</source>
         <translation>[失敗]-[</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="739"/>
+        <location filename="table.cpp" line="744"/>
         <source>File list update is complete!</source>
         <translation>ファイルリストの更新が完了しました！</translation>
     </message>
     <message>
-        <location filename="table.cpp" line="747"/>
+        <location filename="table.cpp" line="752"/>
         <source>The file list saved last time is empty.</source>
         <translation>前回保存されたファイルリストは空です。</translation>
     </message>
