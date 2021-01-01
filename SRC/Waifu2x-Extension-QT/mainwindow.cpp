@@ -1,5 +1,5 @@
 ﻿/*
-    Copyright (C) 2020  Aaron Feng
+    Copyright (C) 2021  Aaron Feng
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published
@@ -1051,7 +1051,7 @@ void MainWindow::on_pushButton_about_clicked()
     QString line3 = "Github: https://github.com/AaronFeng753/Waifu2x-Extension-GUI\n\n";
     QString line4 = "Waifu2x-Extension-GUI is licensed under the\n";
     QString line5 = "GNU Affero General Public License v3.0\n\n";
-    QString line6 = "Copyright (C) 2020 Aaron Feng. All rights reserved.\n\n";
+    QString line6 = "Copyright (C) 2021 Aaron Feng. All rights reserved.\n\n";
     QString line7 = "The program is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.\n\n";
     QString line8 = "Icons made by : Freepik & Icongeek26 & Roundicons From Flaticon(https://www.flaticon.com/)";
     MSG->setText(line1+line2+line3+line4+line5+line6+line7+line8);
