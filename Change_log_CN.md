@@ -8,6 +8,16 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.57.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.41)
+#### 更新日志:
+- ♥预祝各位新年快乐, 感谢各位在2020年中对本项目的支持.
+- 使用强制重试时将不会再改变设定值.
+- 如果优化后的GIF体积不小于原GIF,则其不会被用于替换原GIF.
+- 更新Waifu2x-converter,Anime4K,ImageMagick,FFmpeg&FFprobe.
+- 优化性能,修正错字,以及其他改进.
+- 修复bug: 如果用户将"gif"放入文件扩展名列表中,会导致gif文件错位.
+- 修复bug: 有时文件列表会随机横向滑动.
+---
 ## [v2.57.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.31)
 #### 更新日志:
 - 更新Anime4K,FFmpeg&FFprobe,ImageMagick.

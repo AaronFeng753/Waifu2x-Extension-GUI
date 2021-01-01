@@ -4,6 +4,16 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.57.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.41)
+#### Change log:
+- ♥Happy New Year in advance, and thank you for your support of this project in 2020.
+- The setting value will not be modified when using Force retry.
+- The optimized gif will not replace original gif when it's not smaller than the original.
+- Update Waifu2x-converter,Anime4K,ImageMagick,FFmpeg&FFprobe.
+- Optimize performance, fix typo(Chinese) and some other improvements.
+- Fix bug: Gif files will be misplaced if user put "gif" in the input file extensions list.
+- Fix bug: Sometimes Files list randomly scrolls horizontally by itself.
+---
 ## [v2.57.31](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.31)
 #### Change log:
 - Update Anime4K,FFmpeg&FFprobe,ImageMagick.
