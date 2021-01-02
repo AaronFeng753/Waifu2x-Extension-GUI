@@ -2490,7 +2490,8 @@ the number of threads must &gt;= the number of GPUs.
                   <bool>true</bool>
                  </property>
                  <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+                  <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.
+★ &quot;-1&quot; is CPU,others are GPUs ★</string>
                  </property>
                  <property name="currentText">
                   <string notr="true">auto</string>

@@ -88,7 +88,7 @@ int MainWindow::Donate_Count()
 {
     if(isFirstTimeStart)return 0;
     int DonateRandomNum_main = QRandomGenerator::global()->bounded(10000);
-    if(DonateRandomNum_main<5000)
+    if(DonateRandomNum_main<7000)
     {
         ui->tabWidget->setCurrentIndex(0);
         emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));

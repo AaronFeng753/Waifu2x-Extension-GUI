@@ -1840,7 +1840,7 @@ int MainWindow::Waifu2x_DetectGPU()
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
     QString model_path = Waifu2x_folder_path+"/models-upconv_7_anime_style_art_rgb";
     //=========
-    int GPU_ID=0;
+    int GPU_ID=-1;
     //=========
     while(true)
     {
@@ -1859,7 +1859,14 @@ int MainWindow::Waifu2x_DetectGPU()
         }
         else
         {
-            break;
+            if(GPU_ID > -1)
+            {
+                break;
+            }
+            else
+            {
+                GPU_ID++;
+            }
         }
     }
     QFile::remove(OutputPath);
