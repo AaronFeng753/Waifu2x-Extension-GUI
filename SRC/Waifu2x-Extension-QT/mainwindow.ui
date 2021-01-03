@@ -1627,7 +1627,10 @@ padding:10px;
                 <property name="toolTip">
                  <string>1.Set the height and width of the resolution.
 2.Select a file in the file list.
-3.Click the Apply button to set the resolution.</string>
+3.Click the Apply button to set the resolution.
+
+★Scale ratio will not be applied to files which
+already have custom resolution applied.★</string>
                 </property>
                 <property name="styleSheet">
                  <string notr="true">QPushButton{
@@ -3583,7 +3586,8 @@ padding:10px;
                <item row="1" column="1">
                 <widget class="QComboBox" name="comboBox_GPUID_srmd">
                  <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
+                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.
+★ &quot;-1&quot; is CPU,others are GPUs ★</string>
                  </property>
                  <property name="currentText">
                   <string notr="true">auto</string>
@@ -4109,7 +4113,8 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                   <bool>true</bool>
                  </property>
                  <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
+                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.
+★ &quot;-1&quot; is CPU,others are GPUs ★</string>
                  </property>
                  <property name="currentText">
                   <string notr="true">auto</string>
