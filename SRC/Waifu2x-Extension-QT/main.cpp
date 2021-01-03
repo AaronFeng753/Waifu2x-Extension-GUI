@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.58.02-beta:
+- Compatible with future version of NCNN-Vulkan engines.
+
 v2.58.01-beta:
 - NEW Feature: CPU support for waifu2x-ncnn-vulkan.
 - Update waifu2x-ncnn-vulkan(20210102).

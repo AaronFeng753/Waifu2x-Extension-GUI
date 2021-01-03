@@ -1888,7 +1888,7 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU()
     QString program = Waifu2x_folder_path + "/realsr-ncnn-vulkan_waifu2xEX.exe";
     QString model_path = Waifu2x_folder_path+"/models-DF2K_JPEG";
     //===========
-    int GPU_ID=0;
+    int GPU_ID=-1;
     //=========
     while(true)
     {
@@ -1907,7 +1907,14 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU()
         }
         else
         {
-            break;
+            if(GPU_ID > -1)
+            {
+                break;
+            }
+            else
+            {
+                GPU_ID++;
+            }
         }
     }
     QFile::remove(OutputPath);
