@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.58.02-beta:
+- Notify user when all files in Files list are Finished or Deleted.
 - Compatible with future version of NCNN-Vulkan engines.
 - More detailed tooltips.
 
