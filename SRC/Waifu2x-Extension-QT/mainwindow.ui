@@ -3586,8 +3586,7 @@ padding:10px;
                <item row="1" column="1">
                 <widget class="QComboBox" name="comboBox_GPUID_srmd">
                  <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.
-★ &quot;-1&quot; is CPU,others are GPUs ★</string>
+                  <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
                  </property>
                  <property name="currentText">
                   <string notr="true">auto</string>
@@ -4113,8 +4112,7 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                   <bool>true</bool>
                  </property>
                  <property name="toolTip">
-                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.
-★ &quot;-1&quot; is CPU,others are GPUs ★</string>
+                  <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
                  </property>
                  <property name="currentText">
                   <string notr="true">auto</string>

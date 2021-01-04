@@ -46,7 +46,7 @@ v2.58.01-beta:
 --------------------------------------------------------------------------
 To do:
 - 补全翻译.
-
+- 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 在Anime4kCPP更新release后,删除强制启用opencl的语句( -M opencl )
 ---------------------------------------------------------------------------
 Integrated component:
