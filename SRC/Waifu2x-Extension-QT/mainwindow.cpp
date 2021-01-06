@@ -49,6 +49,10 @@ MainWindow::MainWindow(QWidget *parent)
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //==============
     Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第一次初始化[替换原文件]的右键菜单(需要在载入设定前设置为checkable
+    //=========安装事件过滤器==========
+    ui->tableView_image->installEventFilter(this);
+    ui->tableView_gif->installEventFilter(this);
+    ui->tableView_video->installEventFilter(this);
     //===========================================
     connect(this, SIGNAL(Send_Table_EnableSorting(bool)), this, SLOT(Table_EnableSorting(bool)));
     connect(this, SIGNAL(Send_Add_progressBar_CompatibilityTest()), this, SLOT(Add_progressBar_CompatibilityTest()));
@@ -2148,4 +2152,21 @@ void MainWindow::OutputSettingsArea_setEnabled(bool isEnabled)
     {
         ui->lineEdit_outputPath->setFocusPolicy(Qt::NoFocus);
     }
+}
+
+bool MainWindow::eventFilter(QObject *target, QEvent *event)
+{
+    if (target == ui->tableView_image || target == ui->tableView_gif || target == ui->tableView_video)
+    {
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            if (keyEvent->key() == Qt::Key_Delete)
+            {
+                on_pushButton_RemoveItem_clicked();
+                return true;
+            }
+        }
+    }
+    return false;
 }

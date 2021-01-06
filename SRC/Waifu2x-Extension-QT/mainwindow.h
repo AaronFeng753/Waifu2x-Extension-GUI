@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.58.02-beta";//软件版本号
+    QString VERSION = "v2.58.03-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.57.41";
-    QString LastBetaVer = "v2.58.02-beta";
+    QString LastBetaVer = "v2.58.03-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -495,6 +495,8 @@ public:
     bool ReplaceOriginalFile(QString original_fullpath,QString output_fullpath);
     void Init_ActionsMenu_checkBox_ReplaceOriginalFile();//替换源文件 的右键菜单
     QAction *checkQAction_MoveToRecycleBin = new QAction(this);
+    //===================== 事件过滤器 =====================
+    bool eventFilter(QObject *target, QEvent *event);
     //=============
     ~MainWindow();
 
