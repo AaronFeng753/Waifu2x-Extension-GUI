@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.58.03-beta:
-- NEW Feature: Now you can use Delete key to remove file from Files List.
+- NEW Feature: Keyboard shortcuts for Files list.
+- Update ImageMagick,FFmpeg&FFprobe.
+- Complete translation.
 
 v2.58.02-beta:
 - Notify user when all files in Files list are Finished or Deleted.
@@ -48,7 +50,6 @@ v2.58.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-- 补全翻译.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 在Anime4kCPP更新release后,删除强制启用opencl的语句( -M opencl )
 ---------------------------------------------------------------------------
@@ -60,9 +61,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20210102
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-52-portable-Q16-x64
+- ImageMagick 7.0.10-56-portable-Q16-x64
 - Anime4KCPP b81d3fc2fd17b86c31ea3e9c24b9edce519cf974
-- FFmpeg&FFprobe 2020-12-20-git-ab6a56773f-full_build
+- FFmpeg&FFprobe 2021-01-05-git-66deab3a26-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 ---------------------------------------------------------------------------

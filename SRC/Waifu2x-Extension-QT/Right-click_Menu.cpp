@@ -139,35 +139,35 @@ void MainWindow::OpenOutputFolder()
 
 void MainWindow::Init_ActionsMenu_FilesList()
 {
-    OpenFile_QAction_FileList->setText(tr("Open selected file"));
+    OpenFile_QAction_FileList->setText(tr("Open file"));
     OpenFile_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/view_file.png"));
     connect(OpenFile_QAction_FileList, SIGNAL(triggered()), this, SLOT(OpenSelectedFile_FilesList()));
     ui->tableView_image->addAction(OpenFile_QAction_FileList);
     ui->tableView_gif->addAction(OpenFile_QAction_FileList);
     ui->tableView_video->addAction(OpenFile_QAction_FileList);
     //===
-    OpenFilesFolder_QAction_FileList->setText(tr("Open the folder of the selected file"));
+    OpenFilesFolder_QAction_FileList->setText(tr("Open folder"));
     OpenFilesFolder_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/opne_folder.png"));
     connect(OpenFilesFolder_QAction_FileList, SIGNAL(triggered()), this, SLOT(OpenSelectedFilesFolder_FilesList()));
     ui->tableView_image->addAction(OpenFilesFolder_QAction_FileList);
     ui->tableView_gif->addAction(OpenFilesFolder_QAction_FileList);
     ui->tableView_video->addAction(OpenFilesFolder_QAction_FileList);
     //===
-    RemoveFile_FilesList_QAction_FileList->setText(tr("Remove selected file from list"));
+    RemoveFile_FilesList_QAction_FileList->setText(tr("Remove from list [Delete]"));
     RemoveFile_FilesList_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/RemoveFile.png"));
     connect(RemoveFile_FilesList_QAction_FileList, SIGNAL(triggered()), this, SLOT(on_pushButton_RemoveItem_clicked()));
     ui->tableView_image->addAction(RemoveFile_FilesList_QAction_FileList);
     ui->tableView_gif->addAction(RemoveFile_FilesList_QAction_FileList);
     ui->tableView_video->addAction(RemoveFile_FilesList_QAction_FileList);
     //===
-    Apply_CustRes_QAction_FileList->setText(tr("Apply(Custom resolution)"));
+    Apply_CustRes_QAction_FileList->setText(tr("Apply custom resolution [Ctrl+A]"));
     Apply_CustRes_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/Apply.png"));
     connect(Apply_CustRes_QAction_FileList, SIGNAL(triggered()), this, SLOT(Apply_CustRes_QAction_FileList_slot()));
     ui->tableView_image->addAction(Apply_CustRes_QAction_FileList);
     ui->tableView_gif->addAction(Apply_CustRes_QAction_FileList);
     ui->tableView_video->addAction(Apply_CustRes_QAction_FileList);
     //===
-    Cancel_CustRes_QAction_FileList->setText(tr("Cancel(Custom resolution)"));
+    Cancel_CustRes_QAction_FileList->setText(tr("Cancel custom resolution [Ctrl+C]"));
     Cancel_CustRes_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/cancel.png"));
     connect(Cancel_CustRes_QAction_FileList, SIGNAL(triggered()), this, SLOT(Cancel_CustRes_QAction_FileList_slot()));
     ui->tableView_image->addAction(Cancel_CustRes_QAction_FileList);

@@ -2154,8 +2154,12 @@ void MainWindow::OutputSettingsArea_setEnabled(bool isEnabled)
     }
 }
 
+//事件过滤器
 bool MainWindow::eventFilter(QObject *target, QEvent *event)
 {
+    //=============================
+    //按下 Delete 移除文件列表里的文件
+    //=============================
     if (target == ui->tableView_image || target == ui->tableView_gif || target == ui->tableView_video)
     {
         if (event->type() == QEvent::KeyPress)
@@ -2166,7 +2170,28 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
                 on_pushButton_RemoveItem_clicked();
                 return true;
             }
+            if ((keyEvent->modifiers() == Qt::ControlModifier) && (keyEvent->key() == Qt::Key_A))
+            {
+                if(Apply_CustRes_QAction_FileList->isEnabled())
+                {
+                    EnableApply2All_CustRes=false;
+                    on_pushButton_CustRes_apply_clicked();
+                    EnableApply2All_CustRes=true;
+                }
+                return true;
+            }
+            if ((keyEvent->modifiers() == Qt::ControlModifier) && (keyEvent->key() == Qt::Key_C))
+            {
+                if(Cancel_CustRes_QAction_FileList->isEnabled())
+                {
+                    EnableApply2All_CustRes=false;
+                    on_pushButton_CustRes_cancel_clicked();
+                    EnableApply2All_CustRes=true;
+                }
+                return true;
+            }
         }
     }
+    //==============
     return false;
 }

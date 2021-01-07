@@ -1031,6 +1031,13 @@ padding:10px;
                <property name="contextMenuPolicy">
                 <enum>Qt::ActionsContextMenu</enum>
                </property>
+               <property name="toolTip">
+                <string>Press [Delete] key to remove file from the list.
+Press [Ctrl + A] key to apply custom resolution.
+Press [Ctrl + C] key to cancel custom resolution.
+
+Right click to show more options.</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QTableView{
 selection-background-color: rgb(52, 152, 219);
@@ -1101,6 +1108,13 @@ selection-background-color: rgb(52, 152, 219);
                <property name="contextMenuPolicy">
                 <enum>Qt::ActionsContextMenu</enum>
                </property>
+               <property name="toolTip">
+                <string>Press [Delete] key to remove file from the list.
+Press [Ctrl + A] key to apply custom resolution.
+Press [Ctrl + C] key to cancel custom resolution.
+
+Right click to show more options.</string>
+               </property>
                <property name="styleSheet">
                 <string notr="true">QTableView{
 selection-background-color: rgb(26, 188, 156);
@@ -1160,6 +1174,13 @@ selection-background-color: rgb(26, 188, 156);
                </property>
                <property name="contextMenuPolicy">
                 <enum>Qt::ActionsContextMenu</enum>
+               </property>
+               <property name="toolTip">
+                <string>Press [Delete] key to remove file from the list.
+Press [Ctrl + A] key to apply custom resolution.
+Press [Ctrl + C] key to cancel custom resolution.
+
+Right click to show more options.</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">QTableView{
