@@ -8,6 +8,15 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.58.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.58.13)
+#### 更新日志:
+- 新特性: Waifu2x-ncnn-vulkan 引擎支持使用CPU运算.
+- 新特性: 文件列表支持键盘快捷键.
+- 当文件列表内的文件已经全部处理完成或者被删除时, 提示用户.
+- 更新 Waifu2x-NCNN-Vulkan,ImageMagick,FFmpeg&FFprobe.
+- 与未来版本的NCNN-Vulkan引擎兼容.
+- 更加详尽的工具提示.
+---
 ## [v2.57.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.41)
 #### 更新日志:
 - ♥预祝各位新年快乐, 感谢各位在2020年中对本项目的支持.
