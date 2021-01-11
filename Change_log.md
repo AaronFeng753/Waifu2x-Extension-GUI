@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.58.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.58.13)
+#### Change log:
+- NEW Feature: CPU support for waifu2x-ncnn-vulkan.
+- NEW Feature: Keyboard shortcuts for Files list.
+- Notify user when all files in Files list are Finished or Deleted.
+- Update Waifu2x-NCNN-Vulkan,ImageMagick,FFmpeg&FFprobe.
+- Compatible with future version of NCNN-Vulkan engines.
+- More detailed tooltips.
+---
 ## [v2.57.41](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.57.41)
 #### Change log:
 - ♥Happy New Year in advance, and thank you for your support of this project in 2020.
