@@ -291,7 +291,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -532,7 +532,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -1089,7 +1089,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -1618,7 +1618,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }

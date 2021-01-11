@@ -431,7 +431,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->comboBox_AspectRatio_custRes->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
-    if(ui->checkBox_DelOriginal->isChecked())ui->checkBox_Move2RecycleBin->setEnabled(1);
+    if(ui->checkBox_DelOriginal->isChecked())QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setEnabled(1);
     ui->pushButton_ForceRetry->setVisible(0);
     ui->groupBox_AudioDenoise->setEnabled(1);
     ui->checkBox_ProcessVideoBySegment->setEnabled(1);

@@ -49,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //==============
     Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第一次初始化[替换原文件]的右键菜单(需要在载入设定前设置为checkable
+    Init_ActionsMenu_checkBox_DelOriginal();
     //=========安装事件过滤器==========
     ui->tableView_image->installEventFilter(this);
     ui->tableView_gif->installEventFilter(this);
@@ -126,6 +127,7 @@ MainWindow::MainWindow(QWidget *parent)
     Init_ActionsMenu_FilesList();
     Init_ActionsMenu_pushButton_RemoveItem();
     Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第二次初始化[替换原文件]的右键菜单(载入语言设置
+    Init_ActionsMenu_checkBox_DelOriginal();
     //==============
     this->showNormal();
     this->activateWindow();
@@ -529,7 +531,7 @@ void MainWindow::on_pushButton_Start_clicked()
     ui->label_ETA->setText(tr("ETA:NULL"));
     ui->label_TimeRemain->setText(tr("Time remaining:NULL"));
     ui->groupBox_video_settings->setEnabled(0);
-    ui->checkBox_Move2RecycleBin->setEnabled(0);
+    QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setEnabled(0);
     ui->pushButton_ForceRetry->setVisible(1);
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
     ui->groupBox_AudioDenoise->setEnabled(0);
@@ -1489,13 +1491,13 @@ void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
 {
     if(ui->checkBox_DelOriginal->isChecked())
     {
-        ui->checkBox_Move2RecycleBin->setEnabled(1);
+        QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setEnabled(1);
         ui->checkBox_ReplaceOriginalFile->setEnabled(0);
         ui->checkBox_ReplaceOriginalFile->setChecked(0);
     }
     else
     {
-        ui->checkBox_Move2RecycleBin->setEnabled(0);
+        QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setEnabled(0);
         checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     }
 }
@@ -2108,7 +2110,7 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
     //=================
     QString Target_fullpath=file_path+"/"+file_name+"."+file_ext;
     //=================
-    if(checkQAction_MoveToRecycleBin->isChecked())
+    if(QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->isChecked())
     {
         file_MoveToTrash(original_fullpath);
     }

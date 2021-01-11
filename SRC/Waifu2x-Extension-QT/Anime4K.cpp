@@ -210,7 +210,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -441,7 +441,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -889,7 +889,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -1415,7 +1415,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }

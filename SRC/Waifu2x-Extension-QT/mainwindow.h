@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.58.13";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.58.14-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.58.13";
-    QString LastBetaVer = "v2.58.03-beta";
+    QString LastBetaVer = "v2.58.14-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -494,7 +494,10 @@ public:
     void checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     bool ReplaceOriginalFile(QString original_fullpath,QString output_fullpath);
     void Init_ActionsMenu_checkBox_ReplaceOriginalFile();//替换源文件 的右键菜单
-    QAction *checkQAction_MoveToRecycleBin = new QAction(this);
+    QAction *QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile = new QAction(this);
+    //===================== 删除原文件的右键菜单 ===========================
+    void Init_ActionsMenu_checkBox_DelOriginal();//替换源文件 的右键菜单
+    QAction *QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal = new QAction(this);
     //===================== 事件过滤器 =====================
     bool eventFilter(QObject *target, QEvent *event);
     //=============

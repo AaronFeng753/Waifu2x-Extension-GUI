@@ -112,7 +112,6 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_MinimizeToTaskbar", ui->checkBox_MinimizeToTaskbar->isChecked());
     configIniWrite->setValue("/settings/checkBox_custres_isAll", ui->checkBox_custres_isAll->isChecked());
     configIniWrite->setValue("/settings/DelOriginal", ui->checkBox_DelOriginal->isChecked());
-    configIniWrite->setValue("/settings/Move2RecycleBin", ui->checkBox_Move2RecycleBin->isChecked());
     configIniWrite->setValue("/settings/OptGIF", ui->checkBox_OptGIF->isChecked());
     configIniWrite->setValue("/settings/NFSound", ui->checkBox_NfSound->isChecked());
     configIniWrite->setValue("/settings/ReProFinFiles", ui->checkBox_ReProcFinFiles->isChecked());
@@ -130,7 +129,9 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/KeepVideoCache", ui->checkBox_KeepVideoCache->isChecked());
     configIniWrite->setValue("/settings/checkBox_ReplaceOriginalFile", ui->checkBox_ReplaceOriginalFile->isChecked());
     //===
-    configIniWrite->setValue("/settings/checkQAction_MoveToRecycleBin", checkQAction_MoveToRecycleBin->isChecked());
+    configIniWrite->setValue("/settings/QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile", QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->isChecked());
+    //===
+    configIniWrite->setValue("/settings/QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal", QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked());
     //===
     configIniWrite->setValue("/settings/ProcessVideoBySegment", ui->checkBox_ProcessVideoBySegment->isChecked());
     configIniWrite->setValue("/settings/SegmentDuration", ui->spinBox_SegmentDuration->value());
@@ -225,7 +226,8 @@ int MainWindow::Settings_Read_Apply()
     QString settings_ini = Current_Path+"/settings.ini";
     if(!QFile::exists(settings_ini))
     {
-        checkQAction_MoveToRecycleBin->setChecked(1);
+        QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->setChecked(1);
+        QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setChecked(1);
         if(isBetaVer)comboBox_UpdateChannel_setCurrentIndex_self(1);
         Settings_Save();
         Settings_Read_Apply();
@@ -363,7 +365,6 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_MinimizeToTaskbar->setChecked(Settings_Read_value("/settings/checkBox_MinimizeToTaskbar").toBool());
     ui->checkBox_custres_isAll->setChecked(Settings_Read_value("/settings/checkBox_custres_isAll").toBool());
     ui->checkBox_DelOriginal->setChecked(Settings_Read_value("/settings/DelOriginal").toBool());
-    ui->checkBox_Move2RecycleBin->setChecked(Settings_Read_value("/settings/Move2RecycleBin").toBool());
     ui->checkBox_OptGIF->setChecked(Settings_Read_value("/settings/OptGIF").toBool());
     ui->checkBox_NfSound->setChecked(Settings_Read_value("/settings/NFSound").toBool());
     ui->checkBox_ReProcFinFiles->setChecked(Settings_Read_value("/settings/ReProFinFiles").toBool());
@@ -380,7 +381,8 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_PromptWhenExit->setChecked(Settings_Read_value("/settings/PromptWhenExit").toBool());
     ui->checkBox_KeepVideoCache->setChecked(Settings_Read_value("/settings/KeepVideoCache").toBool());
     ui->checkBox_ReplaceOriginalFile->setChecked(Settings_Read_value("/settings/checkBox_ReplaceOriginalFile").toBool());
-    checkQAction_MoveToRecycleBin->setChecked(Settings_Read_value("/settings/checkQAction_MoveToRecycleBin").toBool());
+    QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->setChecked(Settings_Read_value("/settings/QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile").toBool());
+    QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setChecked(Settings_Read_value("/settings/QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal").toBool());
     //===
     ui->checkBox_ProcessVideoBySegment->setChecked(Settings_Read_value("/settings/ProcessVideoBySegment").toBool());
     ui->spinBox_SegmentDuration->setValue(Settings_Read_value("/settings/SegmentDuration").toInt());

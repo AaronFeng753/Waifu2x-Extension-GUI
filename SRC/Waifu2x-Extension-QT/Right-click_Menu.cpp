@@ -19,12 +19,20 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+void MainWindow::Init_ActionsMenu_checkBox_DelOriginal()
+{
+    QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setText(tr("Move to Recycle Bin."));
+    QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setCheckable(1);
+    //===
+    ui->checkBox_DelOriginal->addAction(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal);
+}
+
 void MainWindow::Init_ActionsMenu_checkBox_ReplaceOriginalFile()
 {
-    checkQAction_MoveToRecycleBin->setText(tr("Move to Recycle Bin."));
-    checkQAction_MoveToRecycleBin->setCheckable(1);
+    QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->setText(tr("Move to Recycle Bin."));
+    QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->setCheckable(1);
     //===
-    ui->checkBox_ReplaceOriginalFile->addAction(checkQAction_MoveToRecycleBin);
+    ui->checkBox_ReplaceOriginalFile->addAction(QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile);
 }
 
 void MainWindow::Init_ActionsMenu_pushButton_RemoveItem()

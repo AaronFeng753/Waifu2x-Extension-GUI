@@ -200,7 +200,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaCh
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -432,7 +432,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -865,7 +865,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }
@@ -1394,7 +1394,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     {
         if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
         {
-            if(ui->checkBox_Move2RecycleBin->isChecked())
+            if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
                 file_MoveToTrash(SourceFile_fullPath);
             }

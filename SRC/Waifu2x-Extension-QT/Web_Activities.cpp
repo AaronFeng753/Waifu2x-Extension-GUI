@@ -24,6 +24,7 @@
 */
 bool MainWindow::DownloadTo(QString OnlineLink,QString LocalPath)
 {
+    QFile::remove(LocalPath);
     QString program = Current_Path+"/python_ext_waifu2xEX.exe";
     QProcess Downlad2;
     Downlad2.start("\""+program+"\" \""+OnlineLink+"\" download2 \""+LocalPath+"\"");
