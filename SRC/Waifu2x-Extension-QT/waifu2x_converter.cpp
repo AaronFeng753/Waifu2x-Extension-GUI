@@ -1729,6 +1729,17 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_clicked()
 {
     if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
     {
+        if(GPUIDs_List_MultiGPU_Waifu2xConverter.count()==0)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Notification"));
+            MSG->setText(tr("Please dump processor list before enable Multi-Processor."));
+            MSG->setIcon(QMessageBox::Information);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(0);
+            return;
+        }
         if(GPUIDs_List_MultiGPU_Waifu2xConverter.count()<2)
         {
             QMessageBox *MSG = new QMessageBox();

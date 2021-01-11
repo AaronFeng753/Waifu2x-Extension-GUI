@@ -2009,6 +2009,17 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_clicked()
 {
     if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
     {
+        if(GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count()==0)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Notification"));
+            MSG->setText(tr("Please detect available GPU ID before enable Multi-GPU."));
+            MSG->setIcon(QMessageBox::Information);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(0);
+            return;
+        }
         if(GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.count()<2)
         {
             QMessageBox *MSG = new QMessageBox();
@@ -2018,6 +2029,7 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_clicked()
             MSG->setModal(true);
             MSG->show();
             ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(0);
+            return;
         }
     }
 }

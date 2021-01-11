@@ -2048,6 +2048,17 @@ void MainWindow::on_checkBox_MultiGPU_SrmdNCNNVulkan_clicked()
 {
     if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
     {
+        if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()==0)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Notification"));
+            MSG->setText(tr("Please detect available GPU ID before enable Multi-GPU."));
+            MSG->setIcon(QMessageBox::Information);
+            MSG->setModal(true);
+            MSG->show();
+            ui->checkBox_MultiGPU_SrmdNCNNVulkan->setChecked(0);
+            return;
+        }
         if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()<2)
         {
             QMessageBox *MSG = new QMessageBox();
