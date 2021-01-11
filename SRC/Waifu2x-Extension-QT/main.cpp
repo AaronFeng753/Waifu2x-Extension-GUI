@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.58.14-beta:
+- NEW Feature: Now you can adjust the horizontal width of the file list.
 - Move [Move to Recycle Bin] option to Right-click menu of [Delete original files]
+- Other improvements to the GUI.
 
 --------------------------------------------------------------------------
 To do:
