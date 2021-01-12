@@ -1749,6 +1749,7 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_clicked()
             MSG->setModal(true);
             MSG->show();
             ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(0);
+            return;
         }
     }
 }

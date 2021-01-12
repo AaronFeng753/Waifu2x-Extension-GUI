@@ -426,7 +426,6 @@ public:
 
     int CheckUpadte_Auto();//自动检查更新
 
-    int Donate_Count();//计算启动次数判断是否弹窗
     int Donate_DownloadOnlineQRCode();
 
     bool isSettingsHide=false;//是否隐藏主页的设置groupbox

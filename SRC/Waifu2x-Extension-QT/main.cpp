@@ -38,6 +38,8 @@ v2.58.14-beta:
 - NEW Feature: Now you can adjust the horizontal width of the file list.
 - Move [Move to Recycle Bin] option to Right-click menu of [Delete original files]
 - Other improvements to the GUI.
+- Notify users GPU ID list is empty when they try to enable Multi-GPU.
+- Optimize performance.
 
 --------------------------------------------------------------------------
 To do:

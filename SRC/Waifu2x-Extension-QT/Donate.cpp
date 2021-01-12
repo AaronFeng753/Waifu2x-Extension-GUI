@@ -31,9 +31,6 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     //=
     QString Github_OnlineQRCode_local = Current_Path+"/Online_Donate_QRCode_Github.jpg";
     QString Gitee_OnlineQRCode_local = Current_Path+"/Online_Donate_QRCode_Gitee.jpg";
-    //=
-    QFile::remove(Github_OnlineQRCode_local);
-    QFile::remove(Gitee_OnlineQRCode_local);
     //==================== 从Github下载文件 ========================
     emit Send_TextBrowser_NewMessage(tr("Starting to download QR Code image(for [Donate] tab) from Github."));
     DownloadTo(Github_OnlineQRCode_online,Github_OnlineQRCode_local);
@@ -73,26 +70,12 @@ int MainWindow::Donate_DownloadOnlineQRCode()
 
 void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
 {
-    if(QRCodePath=="")
-    {
-        Donate_Count();
-    }
-    else
+    if(QRCodePath!="")
     {
         ui->label_DonateQRCode->setStyleSheet("image: url(\""+QRCodePath+"\");");
-        Donate_Count();
     }
-}
-
-int MainWindow::Donate_Count()
-{
-    if(isFirstTimeStart)return 0;
-    int DonateRandomNum_main = QRandomGenerator::global()->bounded(10000);
-    if(DonateRandomNum_main<7000)
-    {
-        ui->tabWidget->setCurrentIndex(0);
-        emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
-        return 1;
-    }
-    return 0;
+    if(isFirstTimeStart)return;
+    ui->tabWidget->setCurrentIndex(0);
+    emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
+    return;
 }

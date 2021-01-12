@@ -2055,6 +2055,7 @@ void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_clicked()
             MSG->setModal(true);
             MSG->show();
             ui->checkBox_MultiGPU_RealsrNcnnVulkan->setChecked(0);
+            return;
         }
     }
 }

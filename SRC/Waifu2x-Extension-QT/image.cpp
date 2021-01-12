@@ -30,8 +30,8 @@ QString MainWindow::SaveImageAs_FormatAndQuality(QString OriginalSourceImage_ful
     QString FinalFile_FullPath = "";
     int ImageQualityLevel = ui->spinBox_ImageQualityLevel->value();
     //=========== 确定扩展名 ===================
-    QImage img(OriginalSourceImage_fullPath);
-    if(img.hasAlphaChannel()&&ui->checkBox_AutoDetectAlphaChannel->isChecked())
+    QImage QImage_OriginalSourceImage_fullPath(OriginalSourceImage_fullPath);
+    if(QImage_OriginalSourceImage_fullPath.hasAlphaChannel()&&ui->checkBox_AutoDetectAlphaChannel->isChecked())
     {
         FinalFile_Ext = "png";
     }
@@ -137,8 +137,8 @@ bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     if(QFile::exists(SourceFile_fullPath)==false)return false;
     //======
-    QImage img(SourceFile_fullPath);
-    if(img.hasAlphaChannel())
+    QImage QImage_SourceFile_fullPath(SourceFile_fullPath);
+    if(QImage_SourceFile_fullPath.hasAlphaChannel())
     {
         if(ui->comboBox_ImageSaveFormat->currentText()!="png")
         {
@@ -161,19 +161,19 @@ QString MainWindow::Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChann
         emit Send_TextBrowser_NewMessage(tr("Error: Can\'t pre-process [")+ImagePath+tr("]. File doesn't exists."));
         return ImagePath;
     }
-    QFileInfo fileinfo(ImagePath);
-    QString file_ext = fileinfo.suffix();
-    QImage img(ImagePath);
+    QFileInfo fileinfo_ImagePath(ImagePath);
+    QString file_ext_ImagePath = fileinfo_ImagePath.suffix();
+    QImage QImage_ImagePath(ImagePath);
     //预处理带有Alpha的图片
     if(ui->checkBox_AlwaysPreProcessAlphaPNG->isChecked()==true)
     {
         ReProcess_AlphaChannel = true;
     }
-    if(ReProcess_AlphaChannel==true && img.hasAlphaChannel()==true)
+    if(ReProcess_AlphaChannel==true && QImage_ImagePath.hasAlphaChannel()==true)
     {
         //有alpha则开始转换
         QString file_name = file_getBaseName(ImagePath);
-        QString file_Folder = file_getFolderPath(fileinfo);
+        QString file_Folder = file_getFolderPath(fileinfo_ImagePath);
         QString OutPut_Path_WebpCache = file_Folder + "/" + file_name + "_W2xEX_temp.webp";//输出的webp缓存的完整路径
         QString OutPut_Path_FinalPNG = file_Folder + "/" + file_name + "_W2xEX_PPAC.png";//输出的png图片的完整路径
         //======
@@ -205,11 +205,11 @@ QString MainWindow::Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChann
     }
     //判断是否已经是PNG
     if(ui->checkBox_PreProcessImage->isChecked()==false)return ImagePath;
-    if(file_ext.trimmed().toLower()=="png")return ImagePath;
+    if(file_ext_ImagePath.trimmed().toLower()=="png")return ImagePath;
     //不是PNG则开始转换
     QString file_name = file_getBaseName(ImagePath);
-    QString file_Folder = file_getFolderPath(fileinfo);
-    QString OutPut_Path = file_Folder + "/" + file_name + "_W2xEX_"+file_ext+".png";//输出的png图片的完整路径
+    QString file_Folder = file_getFolderPath(fileinfo_ImagePath);
+    QString OutPut_Path = file_Folder + "/" + file_name + "_W2xEX_"+file_ext_ImagePath+".png";//输出的png图片的完整路径
     //======
     QString program = Current_Path+"/convert_waifu2xEX.exe";
     QFile::remove(OutPut_Path);
