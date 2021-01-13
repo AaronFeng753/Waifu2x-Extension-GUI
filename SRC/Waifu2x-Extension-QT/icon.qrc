@@ -18,5 +18,15 @@
         <file>icon/Apply.png</file>
         <file>icon/RemoveFile.png</file>
         <file>icon/opne_folder.png</file>
+        <file>icon/Read_FileList.png</file>
+        <file>icon/Save_FileList.png</file>
+        <file>icon/Read_FileList_hover.png</file>
+        <file>icon/Save_FileList_hover.png</file>
+        <file>icon/RemoveItem.png</file>
+        <file>icon/RemoveItem_hover.png</file>
+        <file>icon/ClearList.png</file>
+        <file>icon/ClearList_hover.png</file>
+        <file>icon/AddNewFile.png</file>
+        <file>icon/AddNewFile_hover.png</file>
     </qresource>
 </RCC>

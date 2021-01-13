@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.59.02-beta:
-- Improve GUI design.
+- New icons.
+- Other improvements to the GUI.
+- Fix bug: [Add Files] button is not disabled when loading Files list.
 
 v2.59.01-beta:
 - NEW Feature: Now you can hide components easier by drag the handle.
@@ -51,7 +53,6 @@ v2.58.14-beta:
 --------------------------------------------------------------------------
 To do:
 - 补全翻译
-- QT Style Sheet.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 在Anime4kCPP更新release后,删除强制启用opencl的语句( -M opencl )
 ---------------------------------------------------------------------------

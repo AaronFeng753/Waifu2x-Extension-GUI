@@ -697,6 +697,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     ui->pushButton_CustRes_apply->setEnabled(1);
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
+    ui->pushButton_BrowserFile->setEnabled(1);
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(!QFile::exists(Table_FileList_ini))
     {
@@ -753,7 +754,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
         progressbar_clear();
     }
     //===
-    ui->pushButton_ReadFileList->setText(tr("Read Files List"));
+    ui->label_DropFile->setText(tr("Drag and drop files or folders here\n(Image, GIF and Video)"));
     //===
     return 0;
 }

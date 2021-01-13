@@ -1053,9 +1053,6 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
     QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
     if(QFile::exists(Table_FileList_ini))
     {
-        //===
-        ui->pushButton_ReadFileList->setText(tr("Loading..."));
-        //===
         ui_tableViews_setUpdatesEnabled(false);
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Start->setEnabled(0);//禁用start button
@@ -1066,6 +1063,7 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);
         ui->pushButton_SaveFileList->setEnabled(0);
+        ui->pushButton_BrowserFile->setEnabled(0);
         curRow_image = -1;
         curRow_gif = -1;
         curRow_video = -1;
@@ -1079,6 +1077,7 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         ui->pushButton_RemoveItem->setVisible(0);
         Table_FileCount_reload();
         Send_TextBrowser_NewMessage(tr("Please wait while reading the file."));
+        ui->label_DropFile->setText(tr("Loading list, please wait."));
         QtConcurrent::run(this, &MainWindow::Table_Read_Saved_Table_Filelist);
     }
     else
