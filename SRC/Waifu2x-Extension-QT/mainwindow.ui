@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1133</width>
-    <height>767</height>
+    <height>773</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -985,7 +985,7 @@ padding:10px;
             <property name="maximumSize">
              <size>
               <width>16777215</width>
-              <height>300</height>
+              <height>305</height>
              </size>
             </property>
             <property name="title">
@@ -1346,6 +1346,9 @@ padding:10px;
                     <property name="frameShadow">
                      <enum>QFrame::Sunken</enum>
                     </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                    </property>
                     <property name="widgetResizable">
                      <bool>true</bool>
                     </property>
@@ -1355,7 +1358,7 @@ padding:10px;
                        <x>0</x>
                        <y>0</y>
                        <width>233</width>
-                       <height>95</height>
+                       <height>99</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_37">
@@ -1447,6 +1450,12 @@ file that exists in the output path.</string>
                </item>
                <item>
                 <widget class="QGroupBox" name="groupBox_2">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
@@ -1457,10 +1466,7 @@ file that exists in the output path.</string>
                   <string/>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_26">
-                  <property name="spacing">
-                   <number>6</number>
-                  </property>
-                  <item row="1" column="0" colspan="2">
+                  <item row="0" column="0">
                    <widget class="QFrame" name="frame">
                     <property name="enabled">
                      <bool>true</bool>
@@ -1518,6 +1524,9 @@ Will NOT take effect when processing Video and GIF.</string>
                        </property>
                        <property name="currentIndex">
                         <number>0</number>
+                       </property>
+                       <property name="maxVisibleItems">
+                        <number>15</number>
                        </property>
                        <item>
                         <property name="text">
@@ -1579,121 +1588,7 @@ Will NOT take effect when processing Video and GIF.</string>
                     </layout>
                    </widget>
                   </item>
-                  <item row="4" column="0" colspan="2">
-                   <widget class="QComboBox" name="comboBox_FinishAction">
-                    <property name="toolTip">
-                     <string>Select the action to be executed automatically
-after processing all files in the file list.</string>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Do nothing(when finished)</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Shut down</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Sleep</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Hibernate</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Restart</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                  <item row="5" column="0" colspan="2">
-                   <widget class="QLabel" name="label_3">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                    </property>
-                    <property name="text">
-                     <string>Image Style(waifu2x-ncnn-vulkan):</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="6" column="0" colspan="2">
-                   <widget class="QLabel" name="label_57">
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                    </property>
-                    <property name="text">
-                     <string>Image Style(waifu2x-caffe):</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_DelOriginal">
-                    <property name="contextMenuPolicy">
-                     <enum>Qt::ActionsContextMenu</enum>
-                    </property>
-                    <property name="toolTip">
-                     <string>Delete the original file after processing is complete.
-
-*This option will be deactivated when [Replace original
-file] is enabled*
-
-[Right click here to show more options]</string>
-                    </property>
-                    <property name="text">
-                     <string>Delete original files</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="2" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_OptGIF">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="toolTip">
-                     <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</string>
-                    </property>
-                    <property name="text">
-                     <string>Optimize &quot;.gif&quot;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="2" colspan="2">
-                   <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
-                    <property name="toolTip">
-                     <string>When there are finished files in the list, the finished files will be
- processed again when the processing process is started again.</string>
-                    </property>
-                    <property name="text">
-                     <string>Re-process finished files</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="2" colspan="2">
+                  <item row="0" column="1">
                    <widget class="QFrame" name="frame_2">
                     <property name="enabled">
                      <bool>true</bool>
@@ -1769,7 +1664,152 @@ Will NOT take effect when processing Video and GIF.</string>
                     </layout>
                    </widget>
                   </item>
-                  <item row="5" column="2" colspan="2">
+                  <item row="1" column="0" colspan="2">
+                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="sizeConstraint">
+                     <enum>QLayout::SetFixedSize</enum>
+                    </property>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_OptGIF">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</string>
+                      </property>
+                      <property name="text">
+                       <string>Optimize &quot;.gif&quot;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_DelOriginal">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="contextMenuPolicy">
+                       <enum>Qt::ActionsContextMenu</enum>
+                      </property>
+                      <property name="toolTip">
+                       <string>Delete the original file after processing is complete.
+
+*This option will be deactivated when [Replace original
+file] is enabled*
+
+[Right click here to show more options]</string>
+                      </property>
+                      <property name="text">
+                       <string>Delete original files</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBox_ReplaceOriginalFile">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="contextMenuPolicy">
+                       <enum>Qt::ActionsContextMenu</enum>
+                      </property>
+                      <property name="toolTip">
+                       <string>After processing the file, directly replace
+the original file with the result file.
+(And keep the original file name.)
+
+WARNING: The original file will be DELETED.
+
+*This option will be deactivated when [Output
+path] or [Delete original files] is enabled*
+
+[Right click here to show more options]</string>
+                      </property>
+                      <property name="text">
+                       <string>Replace original file</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QComboBox" name="comboBox_FinishAction">
+                    <property name="toolTip">
+                     <string>Select the action to be executed automatically
+after processing all files in the file list.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Do nothing(when finished)</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Shut down</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Sleep</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Hibernate</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Restart</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
+                    <property name="toolTip">
+                     <string>When there are finished files in the list, the finished files will be
+ processed again when the processing process is started again.</string>
+                    </property>
+                    <property name="text">
+                     <string>Re-process finished files</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="label_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style(waifu2x-ncnn-vulkan):</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="1">
                    <widget class="QComboBox" name="comboBox_ImageStyle">
                     <property name="minimumSize">
                      <size>
@@ -1798,7 +1838,20 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                     </item>
                    </widget>
                   </item>
-                  <item row="6" column="2" colspan="2">
+                  <item row="4" column="0">
+                   <widget class="QLabel" name="label_57">
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style(waifu2x-caffe):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="1">
                    <widget class="QComboBox" name="comboBox_ImageStyle_Waifu2xCaffe">
                     <property name="toolTip">
                      <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
@@ -6423,28 +6476,6 @@ when processing video in segments.</string>
                  </property>
                  <property name="value">
                   <number>5</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="10" column="3">
-                <widget class="QCheckBox" name="checkBox_ReplaceOriginalFile">
-                 <property name="contextMenuPolicy">
-                  <enum>Qt::ActionsContextMenu</enum>
-                 </property>
-                 <property name="toolTip">
-                  <string>After processing the file, directly replace
-the original file with the result file.
-(And keep the original file name.)
-
-WARNING: The original file will be DELETED.
-
-*This option will be deactivated when [Output
-path] or [Delete original files] is enabled*
-
-[Right click here to show more options]</string>
-                 </property>
-                 <property name="text">
-                  <string>Replace original file</string>
                  </property>
                 </widget>
                </item>
