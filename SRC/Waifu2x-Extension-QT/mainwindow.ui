@@ -992,110 +992,422 @@ padding:10px;
              <string>Settings</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
-             <item row="0" column="3" colspan="2">
-              <widget class="QGroupBox" name="groupBox_OutPut">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>0</height>
-                </size>
+             <item row="0" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <property name="spacing">
+                <number>5</number>
                </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="title">
-                <string>Output path(Folder):</string>
-               </property>
-               <property name="checkable">
-                <bool>false</bool>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_23">
-                <property name="leftMargin">
-                 <number>6</number>
-                </property>
-                <property name="topMargin">
-                 <number>6</number>
-                </property>
-                <property name="rightMargin">
-                 <number>6</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>6</number>
-                </property>
-                <item row="0" column="0" colspan="3">
-                 <widget class="QLineEdit" name="lineEdit_outputPath">
-                  <property name="enabled">
-                   <bool>false</bool>
+               <item>
+                <widget class="QGroupBox" name="groupBox">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="toolTip">
+                  <string>By default, the aspect ratio of the result image 
+will be as same as the original image.
+(So the image won't look weird.)
+You can change the aspect ratio settings for custom 
+resolution in the Additional settings.</string>
+                 </property>
+                 <property name="title">
+                  <string>Custom resolution</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_13">
+                  <property name="leftMargin">
+                   <number>8</number>
                   </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::StrongFocus</enum>
+                  <property name="topMargin">
+                   <number>8</number>
                   </property>
-                  <property name="contextMenuPolicy">
-                   <enum>Qt::ActionsContextMenu</enum>
+                  <property name="rightMargin">
+                   <number>8</number>
                   </property>
-                  <property name="toolTip">
-                   <string>Output path must be a Folder.
+                  <property name="bottomMargin">
+                   <number>8</number>
+                  </property>
+                  <property name="spacing">
+                   <number>5</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_18">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Width:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1" colspan="2">
+                   <widget class="QSpinBox" name="spinBox_CustRes_width">
+                    <property name="suffix">
+                     <string> pixels</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="value">
+                     <number>1920</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_15">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Height:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="1" colspan="2">
+                   <widget class="QSpinBox" name="spinBox_CustRes_height">
+                    <property name="suffix">
+                     <string> pixels</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="value">
+                     <number>1080</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="2">
+                   <widget class="QCheckBox" name="checkBox_custres_isAll">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="toolTip">
+                     <string>Valid for all files.</string>
+                    </property>
+                    <property name="text">
+                     <string>Apply to all</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" colspan="2">
+                   <layout class="QHBoxLayout" name="horizontalLayout">
+                    <item>
+                     <widget class="QPushButton" name="pushButton_CustRes_apply">
+                      <property name="toolTip">
+                       <string>1.Set the height and width of the resolution.
+2.Select a file in the file list.
+3.Click the Apply button to set the resolution.
+
+★Scale ratio will not be applied to files which
+already have custom resolution applied.★</string>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color: rgb(26, 188, 156);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(29, 214, 177);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(23, 173, 143);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Apply</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButton_CustRes_cancel">
+                      <property name="toolTip">
+                       <string>1.Select a file in the file list.
+2.Click the Cancel button to cancel the custom resolution.</string>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(204, 65, 53);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton{
+background-color: rgb(231, 76, 60);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(255, 102, 64);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+	background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Cancel</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="0" colspan="3">
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <property name="spacing">
+                     <number>2</number>
+                    </property>
+                    <property name="sizeConstraint">
+                     <enum>QLayout::SetDefaultConstraint</enum>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="label_44">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="text">
+                       <string>Aspect Ratio(Custom resolution):</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+                      <property name="minimumSize">
+                       <size>
+                        <width>280</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="currentIndex">
+                       <number>1</number>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Ignore Aspect Ratio</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Keep Aspect Ratio</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Keep Aspect Ratio By Expanding</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_OutPut">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>Output path(Folder):</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_23">
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="0" colspan="3">
+                   <widget class="QLineEdit" name="lineEdit_outputPath">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::StrongFocus</enum>
+                    </property>
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::ActionsContextMenu</enum>
+                    </property>
+                    <property name="toolTip">
+                     <string>Output path must be a Folder.
 
 [Right click here to show more options]</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true"/>
-                  </property>
-                  <property name="clearButtonEnabled">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0" rowspan="3" colspan="3">
-                 <widget class="QScrollArea" name="scrollArea_outputPathSettings">
-                  <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Sunken</enum>
-                  </property>
-                  <property name="widgetResizable">
-                   <bool>true</bool>
-                  </property>
-                  <widget class="QWidget" name="scrollAreaWidgetContents">
-                   <property name="geometry">
-                    <rect>
-                     <x>0</x>
-                     <y>0</y>
-                     <width>233</width>
-                     <height>118</height>
-                    </rect>
-                   </property>
-                   <layout class="QGridLayout" name="gridLayout_37">
-                    <item row="0" column="0">
-                     <layout class="QHBoxLayout" name="horizontalLayout_5">
-                      <item>
-                       <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="toolTip">
-                         <string>When this option is enabled, the output file 
+                    </property>
+                    <property name="text">
+                     <string notr="true"/>
+                    </property>
+                    <property name="clearButtonEnabled">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" rowspan="3" colspan="3">
+                   <widget class="QScrollArea" name="scrollArea_outputPathSettings">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Sunken</enum>
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>235</width>
+                       <height>114</height>
+                      </rect>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_37">
+                      <item row="0" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_5">
+                        <item>
+                         <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="toolTip">
+                           <string>When this option is enabled, the output file 
 will be moved to the path you specified. 
 Otherwise, it will be saved in the same 
 folder as the source file.
 
 *This option will be deactivated when [Replace
 original file] is enabled*</string>
-                        </property>
-                        <property name="text">
-                         <string>Enabled</string>
-                        </property>
-                       </widget>
+                          </property>
+                          <property name="text">
+                           <string>Enabled</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="toolTip">
+                           <string>When this option is enabled, the output file will
+replace the file with the same name as the output
+file that exists in the output path.</string>
+                          </property>
+                          <property name="text">
+                           <string>Overwrite</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
                       </item>
-                      <item>
-                       <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
+                      <item row="1" column="0">
+                       <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
                         <property name="enabled">
                          <bool>false</bool>
                         </property>
@@ -1105,58 +1417,413 @@ original file] is enabled*</string>
                           <verstretch>0</verstretch>
                          </sizepolicy>
                         </property>
-                        <property name="toolTip">
-                         <string>When this option is enabled, the output file will
-replace the file with the same name as the output
-file that exists in the output path.</string>
+                        <property name="text">
+                         <string>Keep original file name</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QCheckBox" name="checkBox_KeepParentFolder">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
                         </property>
                         <property name="text">
-                         <string>Overwrite</string>
+                         <string>Keep parent folder</string>
                         </property>
                        </widget>
                       </item>
                      </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_2">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string/>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_26">
+                  <property name="spacing">
+                   <number>6</number>
+                  </property>
+                  <item row="1" column="0" colspan="2">
+                   <widget class="QFrame" name="frame">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="lineWidth">
+                     <number>0</number>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_42">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>7</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_20">
+                       <property name="text">
+                        <string>Save image as:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QComboBox" name="comboBox_ImageSaveFormat">
+                       <property name="toolTip">
+                        <string>Only takes effect when processing Static Image.
+
+Will NOT take effect when processing Video and GIF.</string>
+                       </property>
+                       <property name="currentIndex">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string notr="true">png</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">jpg</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">webp</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">bmp</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">tiff</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">pdf</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">gif</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">eps</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">tga</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">jp2</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">svg</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="2">
+                   <widget class="QComboBox" name="comboBox_FinishAction">
+                    <property name="toolTip">
+                     <string>Select the action to be executed automatically
+after processing all files in the file list.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>Do nothing(when finished)</string>
+                     </property>
                     </item>
-                    <item row="1" column="0">
-                     <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="text">
-                       <string>Keep original file name</string>
-                      </property>
-                     </widget>
+                    <item>
+                     <property name="text">
+                      <string>Shut down</string>
+                     </property>
                     </item>
-                    <item row="2" column="0">
-                     <widget class="QCheckBox" name="checkBox_KeepParentFolder">
-                      <property name="enabled">
-                       <bool>false</bool>
-                      </property>
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="text">
-                       <string>Keep parent folder</string>
-                      </property>
-                     </widget>
+                    <item>
+                     <property name="text">
+                      <string>Sleep</string>
+                     </property>
                     </item>
-                   </layout>
-                  </widget>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
+                    <item>
+                     <property name="text">
+                      <string>Hibernate</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Restart</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="5" column="0" colspan="2">
+                   <widget class="QLabel" name="label_3">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style(waifu2x-ncnn-vulkan):</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="6" column="0" colspan="2">
+                   <widget class="QLabel" name="label_57">
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style(waifu2x-caffe):</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0" colspan="2">
+                   <widget class="QCheckBox" name="checkBox_DelOriginal">
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::ActionsContextMenu</enum>
+                    </property>
+                    <property name="toolTip">
+                     <string>Delete the original file after processing is complete.
+
+*This option will be deactivated when [Replace original
+file] is enabled*
+
+[Right click here to show more options]</string>
+                    </property>
+                    <property name="text">
+                     <string>Delete original files</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2" colspan="2">
+                   <widget class="QCheckBox" name="checkBox_OptGIF">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="toolTip">
+                     <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
+It is recommended to enable this option.</string>
+                    </property>
+                    <property name="text">
+                     <string>Optimize &quot;.gif&quot;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="2" colspan="2">
+                   <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
+                    <property name="toolTip">
+                     <string>When there are finished files in the list, the finished files will be
+ processed again when the processing process is started again.</string>
+                    </property>
+                    <property name="text">
+                     <string>Re-process finished files</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="2" colspan="2">
+                   <widget class="QFrame" name="frame_2">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_45">
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetDefaultConstraint</enum>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>7</number>
+                     </property>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_63">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Image quality:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QSpinBox" name="spinBox_ImageQualityLevel">
+                       <property name="toolTip">
+                        <string>Only takes effect when processing Static Image.
+
+Will NOT take effect when processing Video and GIF.</string>
+                       </property>
+                       <property name="minimum">
+                        <number>1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                       <property name="value">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="5" column="2" colspan="2">
+                   <widget class="QComboBox" name="comboBox_ImageStyle">
+                    <property name="minimumSize">
+                     <size>
+                      <width>120</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="currentText">
+                     <string notr="true">2D Anime</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>2D Anime</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3D Real-life</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item row="6" column="2" colspan="2">
+                   <widget class="QComboBox" name="comboBox_ImageStyle_Waifu2xCaffe">
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>2D Anime</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3D Real-life</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
              </item>
-             <item row="1" column="0" rowspan="2" colspan="6">
+             <item row="1" column="0">
               <widget class="QGroupBox" name="groupBox_ScaleRaton_DenoiseLevel">
                <property name="maximumSize">
                 <size>
@@ -1472,679 +2139,6 @@ it might cause the software to crash.</string>
                    <enum>Qt::Vertical</enum>
                   </property>
                  </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="0" column="5">
-              <widget class="QGroupBox" name="groupBox_2">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="title">
-                <string/>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_26">
-                <property name="horizontalSpacing">
-                 <number>6</number>
-                </property>
-                <property name="verticalSpacing">
-                 <number>5</number>
-                </property>
-                <item row="4" column="2">
-                 <widget class="QComboBox" name="comboBox_ImageStyle">
-                  <property name="minimumSize">
-                   <size>
-                    <width>120</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                  </property>
-                  <property name="currentText">
-                   <string notr="true">2D Anime</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>2D Anime</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3D Real-life</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="2" column="0" colspan="2">
-                 <widget class="QFrame" name="frame">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::NoFrame</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Plain</enum>
-                  </property>
-                  <property name="lineWidth">
-                   <number>0</number>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_42">
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="spacing">
-                    <number>7</number>
-                   </property>
-                   <item row="0" column="0">
-                    <widget class="QLabel" name="label_20">
-                     <property name="text">
-                      <string>Save image as:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="1" column="0">
-                    <widget class="QComboBox" name="comboBox_ImageSaveFormat">
-                     <property name="toolTip">
-                      <string>Only takes effect when processing Static Image.
-
-Will NOT take effect when processing Video and GIF.</string>
-                     </property>
-                     <property name="currentIndex">
-                      <number>0</number>
-                     </property>
-                     <item>
-                      <property name="text">
-                       <string notr="true">png</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">jpg</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">webp</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">bmp</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">tiff</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">pdf</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">gif</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">eps</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">tga</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">jp2</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string notr="true">svg</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="3" column="0" colspan="2">
-                 <widget class="QComboBox" name="comboBox_FinishAction">
-                  <property name="toolTip">
-                   <string>Select the action to be executed automatically
-after processing all files in the file list.</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>Do nothing(when finished)</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Shut down</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Sleep</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Hibernate</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Restart</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
-                  <property name="toolTip">
-                   <string>When there are finished files in the list, the finished files will be
- processed again when the processing process is started again.</string>
-                  </property>
-                  <property name="text">
-                   <string>Re-process finished files</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0" colspan="2">
-                 <widget class="QLabel" name="label_3">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                  </property>
-                  <property name="text">
-                   <string>Image Style(waifu2x-ncnn-vulkan):</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0" colspan="2">
-                 <widget class="QCheckBox" name="checkBox_DelOriginal">
-                  <property name="contextMenuPolicy">
-                   <enum>Qt::ActionsContextMenu</enum>
-                  </property>
-                  <property name="toolTip">
-                   <string>Delete the original file after processing is complete.
-
-*This option will be deactivated when [Replace original
-file] is enabled*
-
-[Right click here to show more options]</string>
-                  </property>
-                  <property name="text">
-                   <string>Delete original files</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="QFrame" name="frame_2">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>45</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::StyledPanel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_45">
-                   <property name="sizeConstraint">
-                    <enum>QLayout::SetDefaultConstraint</enum>
-                   </property>
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="spacing">
-                    <number>7</number>
-                   </property>
-                   <item row="1" column="0">
-                    <widget class="QLabel" name="label_63">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Image quality:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="2" column="0">
-                    <widget class="QSpinBox" name="spinBox_ImageQualityLevel">
-                     <property name="toolTip">
-                      <string>Only takes effect when processing Static Image.
-
-Will NOT take effect when processing Video and GIF.</string>
-                     </property>
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>100</number>
-                     </property>
-                     <property name="value">
-                      <number>100</number>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="3" column="2">
-                 <widget class="QCheckBox" name="checkBox_OptGIF">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="toolTip">
-                   <string>Optimizing the scaled gif will slightly reduce the image quality, but it can reduce the GIF file size.
-It is recommended to enable this option.</string>
-                  </property>
-                  <property name="text">
-                   <string>Optimize &quot;.gif&quot;</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0" colspan="3">
-                 <widget class="Line" name="line_25">
-                  <property name="frameShadow">
-                   <enum>QFrame::Sunken</enum>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="0" colspan="2">
-                 <widget class="QLabel" name="label_57">
-                  <property name="toolTip">
-                   <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                  </property>
-                  <property name="text">
-                   <string>Image Style(waifu2x-caffe):</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="5" column="2">
-                 <widget class="QComboBox" name="comboBox_ImageStyle_Waifu2xCaffe">
-                  <property name="toolTip">
-                   <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>2D Anime</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3D Real-life</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item row="0" column="0" colspan="3">
-              <widget class="QGroupBox" name="groupBox">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="toolTip">
-                <string>By default, the aspect ratio of the result image 
-will be as same as the original image.
-(So the image won't look weird.)
-You can change the aspect ratio settings for custom 
-resolution in the Additional settings.</string>
-               </property>
-               <property name="title">
-                <string>Custom resolution</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-               </property>
-               <layout class="QGridLayout" name="gridLayout_13">
-                <property name="leftMargin">
-                 <number>8</number>
-                </property>
-                <property name="topMargin">
-                 <number>8</number>
-                </property>
-                <property name="rightMargin">
-                 <number>8</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>8</number>
-                </property>
-                <property name="spacing">
-                 <number>5</number>
-                </property>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_18">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>Width:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1" colspan="2">
-                 <widget class="QSpinBox" name="spinBox_CustRes_width">
-                  <property name="suffix">
-                   <string> pixels</string>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="value">
-                   <number>1920</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_15">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>Height:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1" colspan="2">
-                 <widget class="QSpinBox" name="spinBox_CustRes_height">
-                  <property name="suffix">
-                   <string> pixels</string>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="value">
-                   <number>1080</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2">
-                 <widget class="QCheckBox" name="checkBox_custres_isAll">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="toolTip">
-                   <string>Valid for all files.</string>
-                  </property>
-                  <property name="text">
-                   <string>Apply to all</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0" colspan="2">
-                 <layout class="QHBoxLayout" name="horizontalLayout">
-                  <item>
-                   <widget class="QPushButton" name="pushButton_CustRes_apply">
-                    <property name="toolTip">
-                     <string>1.Set the height and width of the resolution.
-2.Select a file in the file list.
-3.Click the Apply button to set the resolution.
-
-★Scale ratio will not be applied to files which
-already have custom resolution applied.★</string>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background-color: rgb(26, 188, 156);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(29, 214, 177);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(23, 173, 143);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Apply</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_CustRes_cancel">
-                    <property name="toolTip">
-                     <string>1.Select a file in the file list.
-2.Click the Cancel button to cancel the custom resolution.</string>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(204, 65, 53);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton{
-background-color: rgb(231, 76, 60);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(255, 102, 64);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-	background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Cancel</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item row="3" column="0" colspan="3">
-                 <layout class="QVBoxLayout" name="verticalLayout_2">
-                  <property name="spacing">
-                   <number>2</number>
-                  </property>
-                  <property name="sizeConstraint">
-                   <enum>QLayout::SetDefaultConstraint</enum>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="label_44">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                    <property name="text">
-                     <string>Aspect Ratio(Custom resolution):</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-                    <property name="minimumSize">
-                     <size>
-                      <width>280</width>
-                      <height>0</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                    <property name="currentIndex">
-                     <number>1</number>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>Ignore Aspect Ratio</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Keep Aspect Ratio</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Keep Aspect Ratio By Expanding</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
-                 </layout>
                 </item>
                </layout>
               </widget>
@@ -6508,7 +6502,7 @@ the language for the language settings to fully take effect.</string>
                   <string notr="true">Language:</string>
                  </property>
                  <property name="alignment">
-                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                  </property>
                 </widget>
                </item>
