@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.59.01-beta:
+- NEW Feature: Now you can hide components easier by drag the handle.
 - Improve GUI design.
 
 v2.58.14-beta:
