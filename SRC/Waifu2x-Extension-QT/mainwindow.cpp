@@ -1635,7 +1635,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AdditionalSettings->setVisible(0);
+                ui->groupBox_3->setVisible(0);
+                ui->groupBox_8->setVisible(0);
+                ui->groupBox_InputExt->setVisible(0);
+                ui->groupBox_other_1->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
                 ui->pushButton_compatibilityTest->setVisible(0);
@@ -1661,7 +1664,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AdditionalSettings->setVisible(0);
+                ui->groupBox_3->setVisible(0);
+                ui->groupBox_8->setVisible(0);
+                ui->groupBox_InputExt->setVisible(0);
+                ui->groupBox_other_1->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
                 ui->pushButton_compatibilityTest->setVisible(0);
@@ -1684,7 +1690,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AdditionalSettings->setVisible(0);
+                ui->groupBox_3->setVisible(0);
+                ui->groupBox_8->setVisible(0);
+                ui->groupBox_InputExt->setVisible(0);
+                ui->groupBox_other_1->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
                 ui->pushButton_compatibilityTest->setVisible(0);
@@ -1707,7 +1716,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(1);
                 ui->groupBox_video_settings->setVisible(1);
                 //tab 4
-                ui->groupBox_AdditionalSettings->setVisible(0);
+                ui->groupBox_3->setVisible(0);
+                ui->groupBox_8->setVisible(0);
+                ui->groupBox_InputExt->setVisible(0);
+                ui->groupBox_other_1->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
                 ui->pushButton_compatibilityTest->setVisible(0);
@@ -1730,7 +1742,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AdditionalSettings->setVisible(1);
+                ui->groupBox_3->setVisible(1);
+                ui->groupBox_8->setVisible(1);
+                ui->groupBox_InputExt->setVisible(1);
+                ui->groupBox_other_1->setVisible(1);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
                 ui->pushButton_compatibilityTest->setVisible(0);
@@ -1753,7 +1768,10 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AdditionalSettings->setVisible(0);
+                ui->groupBox_3->setVisible(0);
+                ui->groupBox_8->setVisible(0);
+                ui->groupBox_InputExt->setVisible(0);
+                ui->groupBox_other_1->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(1);
                 ui->pushButton_compatibilityTest->setVisible(1);

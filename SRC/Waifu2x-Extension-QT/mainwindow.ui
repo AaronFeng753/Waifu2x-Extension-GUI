@@ -993,7 +993,7 @@ padding:10px;
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
              <item row="0" column="0">
-              <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="1,1,1">
                <property name="spacing">
                 <number>5</number>
                </property>
@@ -1665,7 +1665,7 @@ Will NOT take effect when processing Video and GIF.</string>
                    </widget>
                   </item>
                   <item row="1" column="0" colspan="2">
-                   <layout class="QHBoxLayout" name="horizontalLayout_9">
+                   <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="1,1,1">
                     <property name="spacing">
                      <number>0</number>
                     </property>
@@ -5249,275 +5249,6 @@ padding:10px;
               </property>
              </widget>
             </item>
-            <item row="0" column="0" colspan="4">
-             <layout class="QHBoxLayout" name="horizontalLayout_3">
-              <item>
-               <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="title">
-                 <string>Output video</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_12">
-                 <item row="7" column="1" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_ExCommand_output">
-                   <property name="toolTip">
-                    <string>You can enter ffmpeg instructions here.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true"/>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_encoder_audio">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">aac</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_32">
-                   <property name="text">
-                    <string>Encoder(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_31">
-                   <property name="text">
-                    <string>Encoder(video):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_27">
-                   <property name="text">
-                    <string>Bitrate(video):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_encoder_vid">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">libx264</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0">
-                  <widget class="QLabel" name="label_33">
-                   <property name="text">
-                    <string>Pixel format:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="1" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_pixformat">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">yuv420p</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="7" column="0">
-                  <widget class="QLabel" name="label_42">
-                   <property name="text">
-                    <string>Extra command:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0">
-                  <widget class="QLabel" name="label_29">
-                   <property name="text">
-                    <string>Bitrate(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="6" column="0" colspan="3">
-                  <widget class="Line" name="line_17">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="1" colspan="2">
-                  <widget class="QSpinBox" name="spinBox_bitrate_audio">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>10</number>
-                   </property>
-                   <property name="value">
-                    <number>320</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1" colspan="2">
-                  <widget class="QSpinBox" name="spinBox_bitrate_vid">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>6000</number>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-              <item>
-               <widget class="QGroupBox" name="groupBox_ToMp4VideoSettings">
-                <property name="enabled">
-                 <bool>false</bool>
-                </property>
-                <property name="title">
-                 <string>When convert video to mp4</string>
-                </property>
-                <layout class="QGridLayout" name="gridLayout_33">
-                 <item row="7" column="1" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_ExCommand_2mp4">
-                   <property name="toolTip">
-                    <string>You can enter ffmpeg instructions here.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true"/>
-                   </property>
-                   <property name="clearButtonEnabled">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="7" column="0">
-                  <widget class="QLabel" name="label_45">
-                   <property name="text">
-                    <string>Extra command:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0" colspan="2">
-                  <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
-                   <property name="toolTip">
-                    <string>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">-acodec copy</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="2" colspan="3">
-                  <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
-                   <property name="toolTip">
-                    <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">-vcodec copy</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_34">
-                   <property name="text">
-                    <string>Bitrate(video):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_35">
-                   <property name="text">
-                    <string>Bitrate(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0" colspan="5">
-                  <widget class="Line" name="line_18">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" colspan="4">
-                  <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>2500</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1" colspan="4">
-                  <widget class="QSpinBox" name="spinBox_bitrate_audio_2mp4">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>10</number>
-                   </property>
-                   <property name="value">
-                    <number>320</number>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </item>
             <item row="1" column="3">
              <widget class="QCheckBox" name="checkBox_videoSettings_isEnabled">
               <property name="toolTip">
@@ -5578,6 +5309,335 @@ padding:10px;
               </property>
              </widget>
             </item>
+            <item row="0" column="0" colspan="4">
+             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="50,50">
+              <item>
+               <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="title">
+                 <string>Output video</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_51">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_31">
+                   <property name="text">
+                    <string>Encoder(video):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="lineEdit_encoder_vid">
+                   <property name="toolTip">
+                    <string>If you leave it empty, software will use auto settings.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">libx264</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_27">
+                   <property name="text">
+                    <string>Bitrate(video):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QSpinBox" name="spinBox_bitrate_vid">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>6000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_32">
+                   <property name="text">
+                    <string>Encoder(audio):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLineEdit" name="lineEdit_encoder_audio">
+                   <property name="toolTip">
+                    <string>If you leave it empty, software will use auto settings.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">aac</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_29">
+                   <property name="text">
+                    <string>Bitrate(audio):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QSpinBox" name="spinBox_bitrate_audio">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>10</number>
+                   </property>
+                   <property name="value">
+                    <number>320</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="label_33">
+                   <property name="text">
+                    <string>Pixel format:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <widget class="QLineEdit" name="lineEdit_pixformat">
+                   <property name="toolTip">
+                    <string>If you leave it empty, software will use auto settings.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">yuv420p</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0" colspan="2">
+                  <widget class="Line" name="line_17">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0" colspan="2">
+                  <widget class="QFrame" name="frame_9">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_12">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_42">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Extra command:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="lineEdit_ExCommand_output">
+                      <property name="toolTip">
+                       <string>You can enter ffmpeg instructions here.</string>
+                      </property>
+                      <property name="text">
+                       <string notr="true"/>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_ToMp4VideoSettings">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="title">
+                 <string>When convert video to mp4</string>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_33">
+                 <property name="leftMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>6</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>6</number>
+                 </property>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_34">
+                   <property name="text">
+                    <string>Bitrate(video):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0" colspan="4">
+                  <widget class="QFrame" name="frame_10">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_52">
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_45">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Extra command:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QLineEdit" name="lineEdit_ExCommand_2mp4">
+                      <property name="toolTip">
+                       <string>You can enter ffmpeg instructions here.</string>
+                      </property>
+                      <property name="text">
+                       <string notr="true"/>
+                      </property>
+                      <property name="clearButtonEnabled">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="5" column="0" colspan="4">
+                  <widget class="Line" name="line_18">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="1" colspan="3">
+                  <widget class="QSpinBox" name="spinBox_bitrate_audio_2mp4">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>10</number>
+                   </property>
+                   <property name="value">
+                    <number>320</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
+                   <property name="toolTip">
+                    <string>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">-acodec copy</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="2" colspan="2">
+                  <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
+                   <property name="toolTip">
+                    <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">-vcodec copy</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" colspan="3">
+                  <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>2500</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_35">
+                   <property name="text">
+                    <string>Bitrate(audio):</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </item>
            </layout>
           </widget>
          </item>
@@ -5593,6 +5653,18 @@ padding:10px;
             <string>Audio denoise(for video)</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_16">
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
             <item row="0" column="0">
              <widget class="QLabel" name="label_46">
               <property name="text">
@@ -5655,218 +5727,281 @@ likelihood of removing wanted components of the audio signal.</string>
         <attribute name="title">
          <string>Additional settings</string>
         </attribute>
-        <layout class="QGridLayout" name="gridLayout_21">
-         <item row="0" column="0" colspan="2">
-          <widget class="QGroupBox" name="groupBox_AdditionalSettings">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="title">
-            <string/>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_19">
-            <item row="0" column="0">
-             <widget class="QGroupBox" name="groupBox_InputExt">
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="title">
-               <string>Input file extensions</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_10">
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_4">
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                 </property>
-                 <property name="text">
-                  <string>Image:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="3">
-                <widget class="QCheckBox" name="checkBox_PreProcessImage">
-                 <property name="toolTip">
-                  <string>Convert every image to PNG before processing it.
-Enabling this option will improve compatibility. However, it will
-increase the time and storage space required to process image.</string>
-                 </property>
-                 <property name="text">
-                  <string>Pre-process all images</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_5">
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                 </property>
-                 <property name="text">
-                  <string>Video:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="3">
-                <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.</string>
-                 </property>
-                 <property name="text">
-                  <string>Auto detect Alpha channel</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1" colspan="3">
-                <widget class="QLineEdit" name="Ext_video">
-                 <property name="minimumSize">
-                  <size>
-                   <width>300</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="acceptDrops">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" colspan="3">
-                <widget class="QLineEdit" name="Ext_image">
-                 <property name="minimumSize">
-                  <size>
-                   <width>300</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="acceptDrops">
-                  <bool>false</bool>
-                 </property>
-                 <property name="toolTip">
-                  <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0" colspan="4">
-                <widget class="QCheckBox" name="checkBox_AlwaysPreProcessAlphaPNG">
-                 <property name="toolTip">
-                  <string>This software already can intelligently detect whether the Alpha channel is lost,
+        <layout class="QGridLayout" name="gridLayout_19">
+         <item row="0" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,1">
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1">
+             <item>
+              <widget class="QGroupBox" name="groupBox_InputExt">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="title">
+                <string>Input file extensions</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_10">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item row="3" column="0" colspan="4">
+                 <widget class="QCheckBox" name="checkBox_AlwaysPreProcessAlphaPNG">
+                  <property name="toolTip">
+                   <string>This software already can intelligently detect whether the Alpha channel is lost,
 and automatically reprocess the picture. And image will be pre-processed during the 
 reporcess so the alpha channel won't lost again.
 
 However, this will cause additional time consumption. If re-processing
 frequently occurs when processing images, you can enable this option to save time.</string>
-                 </property>
-                 <property name="text">
-                  <string>Always pre-process images with Alpha Channel</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QGroupBox" name="groupBox_3">
-              <property name="title">
-               <string>Custom Font Settings (Restart the software to take effect)</string>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_17">
-               <item row="1" column="0">
-                <widget class="QLabel" name="label_24">
-                 <property name="text">
-                  <string>Custom font:</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_22">
-                 <property name="text">
-                  <string>Custom font size:</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="2">
-                <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Always pre-process images with Alpha Channel</string>
+                  </property>
+                  <property name="checked">
+                   <bool>false</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="3">
+                 <widget class="QLineEdit" name="Ext_video">
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="acceptDrops">
+                   <bool>false</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                  </property>
+                  <property name="text">
+                   <string>Image:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="3">
+                 <widget class="QLineEdit" name="Ext_image">
+                  <property name="minimumSize">
+                   <size>
+                    <width>300</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="acceptDrops">
+                   <bool>false</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                  </property>
+                  <property name="text">
+                   <string>Video:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>When the alpha channel is detected in the picture, software will
+automatically force the picture to be saved as PNG.</string>
+                  </property>
+                  <property name="text">
+                   <string>Auto detect Alpha channel</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="3">
+                 <widget class="QCheckBox" name="checkBox_PreProcessImage">
+                  <property name="toolTip">
+                   <string>Convert every image to PNG before processing it.
+Enabling this option will improve compatibility. However, it will
+increase the time and storage space required to process image.</string>
+                  </property>
+                  <property name="text">
+                   <string>Pre-process all images</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_3">
+               <property name="title">
+                <string>Custom Font Settings (Restart the software to take effect)</string>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_17">
+                <item row="0" column="1" colspan="3">
+                 <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999</number>
+                  </property>
+                  <property name="value">
+                   <number>15</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="3">
+                 <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="currentText">
+                   <string notr="true">宋体</string>
+                  </property>
+                  <property name="currentFont">
+                   <font>
+                    <family>宋体</family>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_22">
+                  <property name="text">
+                   <string>Custom font size:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>Custom font:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QCheckBox" name="checkBox_isCustFontEnable">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>Enable Custom Font Settings.</string>
+                  </property>
+                  <property name="text">
+                   <string>Enable</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="3">
+                 <widget class="QPushButton" name="pushButton_Save_GlobalFontSize">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(26, 188, 156);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -5894,77 +6029,51 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Save Custom Font Settings</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="1" colspan="3">
-                <widget class="QFontComboBox" name="fontComboBox_CustFont">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">宋体</string>
-                 </property>
-                 <property name="currentFont">
-                  <font>
-                   <family>宋体</family>
-                  </font>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1" colspan="3">
-                <widget class="QSpinBox" name="spinBox_GlobalFontSize">
-                 <property name="enabled">
-                  <bool>false</bool>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>999</number>
-                 </property>
-                 <property name="value">
-                  <number>15</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="2" colspan="2">
-                <widget class="QCheckBox" name="checkBox_isCustFontEnable">
-                 <property name="toolTip">
-                  <string>Enable Custom Font Settings.</string>
-                 </property>
-                 <property name="text">
-                  <string>Enable</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QGroupBox" name="groupBox_other_1">
-              <property name="title">
-               <string/>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_7">
-               <item row="1" column="1">
-                <widget class="QPushButton" name="pushButton_ReadMe">
-                 <property name="font">
-                  <font>
-                   <underline>false</underline>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Save Custom Font Settings</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="groupBox_other_1">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string/>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_7">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="spacing">
+                 <number>5</number>
+                </property>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="pushButton_ReadMe">
+                  <property name="font">
+                   <font>
+                    <underline>false</underline>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(255, 181, 6);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -5992,19 +6101,19 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Official website</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QPushButton" name="pushButton_SaveSettings">
-                 <property name="enabled">
-                  <bool>true</bool>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Official website</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="pushButton_SaveSettings">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(178, 58, 238);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -6032,21 +6141,21 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Save settings</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0">
-                <widget class="QPushButton" name="pushButton_Report">
-                 <property name="font">
-                  <font>
-                   <underline>false</underline>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Save settings</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QPushButton" name="pushButton_Report">
+                  <property name="font">
+                   <font>
+                    <underline>false</underline>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(231, 76, 60);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -6074,19 +6183,19 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Report issue</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2">
-                <widget class="QPushButton" name="pushButton_wiki">
-                 <property name="toolTip">
-                  <string>Open Waifu2x-Extension-GUI online wiki.</string>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Report issue</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QPushButton" name="pushButton_wiki">
+                  <property name="toolTip">
+                   <string>Open Waifu2x-Extension-GUI online wiki.</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(178, 58, 238);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -6114,16 +6223,16 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Wiki</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QPushButton" name="pushButton_ResetSettings">
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Wiki</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="pushButton_ResetSettings">
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(238, 99, 99);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -6151,22 +6260,22 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Reset settings</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="2">
-                <widget class="QPushButton" name="pushButton_CheckUpdate">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                   <underline>false</underline>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Reset settings</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QPushButton" name="pushButton_CheckUpdate">
+                  <property name="font">
+                   <font>
+                    <pointsize>9</pointsize>
+                    <underline>false</underline>
+                   </font>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(26, 188, 156);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -6194,16 +6303,16 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>Check update</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="3">
-                <widget class="QPushButton" name="pushButton_about">
-                 <property name="styleSheet">
-                  <string notr="true">QPushButton{
+                  </property>
+                  <property name="text">
+                   <string>Check update</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="3">
+                 <widget class="QPushButton" name="pushButton_about">
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
 background-color: rgb(52, 152, 219);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -6231,357 +6340,600 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                 </property>
-                 <property name="text">
-                  <string>About</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item row="0" column="1" rowspan="3">
-             <widget class="QGroupBox" name="groupBox_8">
-              <property name="title">
-               <string/>
+                  </property>
+                  <property name="text">
+                   <string>About</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_14" columnstretch="50,50">
+              <property name="leftMargin">
+               <number>7</number>
               </property>
-              <layout class="QGridLayout" name="gridLayout_14">
-               <item row="7" column="0">
-                <widget class="QLabel" name="label_39">
-                 <property name="toolTip">
-                  <string>The number of retries when an image (or frame) processing fails.</string>
+              <property name="topMargin">
+               <number>7</number>
+              </property>
+              <property name="rightMargin">
+               <number>7</number>
+              </property>
+              <property name="bottomMargin">
+               <number>7</number>
+              </property>
+              <property name="spacing">
+               <number>7</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QFrame" name="frame_7">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_50">
+                 <property name="leftMargin">
+                  <number>0</number>
                  </property>
-                 <property name="text">
-                  <string>Retry:</string>
+                 <property name="topMargin">
+                  <number>0</number>
                  </property>
-                </widget>
-               </item>
-               <item row="2" column="0" colspan="3">
-                <widget class="QCheckBox" name="checkBox_MinimizeToTaskbar">
-                 <property name="text">
-                  <string>Minimize to taskbar</string>
+                 <property name="rightMargin">
+                  <number>0</number>
                  </property>
-                </widget>
-               </item>
-               <item row="8" column="1">
-                <widget class="QSpinBox" name="spinBox_SegmentDuration">
-                 <property name="toolTip">
-                  <string>When processing video in segments, the length of each video clip.
-This will determine how much hard disk space the program will occupy 
-when processing video in segments.</string>
+                 <property name="bottomMargin">
+                  <number>0</number>
                  </property>
-                 <property name="suffix">
-                  <string notr="true">s</string>
-                 </property>
-                 <property name="prefix">
-                  <string/>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                 <property name="value">
-                  <number>10</number>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkBox_UpdatePopup">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>A pop-up window will prompts when an update is detected.</string>
-                 </property>
-                 <property name="text">
-                  <string>Update popup</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="3">
-                <widget class="QCheckBox" name="checkBox_NfSound">
-                 <property name="toolTip">
-                  <string>Play Notification sound.</string>
-                 </property>
-                 <property name="text">
-                  <string>Notification sound</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="3">
-                <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
-                 <property name="toolTip">
-                  <string>Processing video in segments can greatly reduce the 
-hard disk space occupied by processing video. But it 
-will increase the time required to process video.</string>
-                 </property>
-                 <property name="text">
-                  <string>Process video by segment</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="4" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
-                 <property name="toolTip">
-                  <string>[Text browser] will be automatically hidden when the software starts.</string>
-                 </property>
-                 <property name="text">
-                  <string>Always hide Text Browser</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
-                 <property name="toolTip">
-                  <string>Settings will be saved automatically when you close the software.</string>
-                 </property>
-                 <property name="text">
-                  <string>Auto save settings</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkBox_ScanSubFolders">
-                 <property name="toolTip">
-                  <string>When adding a folder to the file list, scan the files in
-the subfolder and add them to the file list.</string>
-                 </property>
-                 <property name="text">
-                  <string>Scan sub-folders</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="6" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkBox_PromptWhenExit">
-                 <property name="text">
-                  <string>Prompt when exit</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="1" column="2" colspan="2">
-                <layout class="QVBoxLayout" name="verticalLayout">
                  <property name="spacing">
-                  <number>2</number>
-                 </property>
-                 <item>
-                  <widget class="QLabel" name="label_55">
-                   <property name="text">
-                    <string>Update channel:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboBox_UpdateChannel">
-                   <property name="toolTip">
-                    <string/>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Stable</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Beta</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="6" column="3">
-                <widget class="QCheckBox" name="checkBox_KeepVideoCache">
-                 <property name="toolTip">
-                  <string>Keep video cache after processing the video.</string>
-                 </property>
-                 <property name="text">
-                  <string>Keep video cache</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="3" column="3">
-                <widget class="QCheckBox" name="checkBox_ShowInterPro">
-                 <property name="toolTip">
-                  <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
-                 </property>
-                 <property name="text">
-                  <string>Show internal progress</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
-                <widget class="QLabel" name="label_SegmentDuration">
-                 <property name="toolTip">
-                  <string>When processing video in segments, the length of each video clip.
-This will determine how much hard disk space the program will occupy 
-when processing video in segments.</string>
-                 </property>
-                 <property name="text">
-                  <string>Segment duration:</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="3">
-                <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
-                 <property name="toolTip">
-                  <string>When the file processing status changes, the file list scrolls automatically.</string>
-                 </property>
-                 <property name="text">
-                  <string>File list scrolls automatically</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QSpinBox" name="spinBox_retry">
-                 <property name="toolTip">
-                  <string>The number of retries when an image (or frame) processing fails.</string>
-                 </property>
-                 <property name="minimum">
-                  <number>1</number>
-                 </property>
-                 <property name="maximum">
-                  <number>999999999</number>
-                 </property>
-                 <property name="value">
                   <number>5</number>
                  </property>
-                </widget>
-               </item>
-               <item row="10" column="0" colspan="2">
-                <widget class="QCheckBox" name="checkBox_BanGitee">
-                 <property name="toolTip">
-                  <string>Enabling this will stop download anything from Communist China website Gitee.
+                 <item row="0" column="0">
+                  <widget class="QCheckBox" name="checkBox_UpdatePopup">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>A pop-up window will prompts when an update is detected.</string>
+                   </property>
+                   <property name="text">
+                    <string>Update popup</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QCheckBox" name="checkBox_MinimizeToTaskbar">
+                   <property name="text">
+                    <string>Minimize to taskbar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+                   <property name="toolTip">
+                    <string>Settings will be saved automatically when you close the software.</string>
+                   </property>
+                   <property name="text">
+                    <string>Auto save settings</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
+                   <property name="toolTip">
+                    <string>[Text browser] will be automatically hidden when the software starts.</string>
+                   </property>
+                   <property name="text">
+                    <string>Always hide Text Browser</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+                   <property name="toolTip">
+                    <string>When adding a folder to the file list, scan the files in
+the subfolder and add them to the file list.</string>
+                   </property>
+                   <property name="text">
+                    <string>Scan sub-folders</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QCheckBox" name="checkBox_PromptWhenExit">
+                   <property name="text">
+                    <string>Prompt when exit</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QFrame" name="frame_4">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <property name="lineWidth">
+                    <number>0</number>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_46">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>2</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_39">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string>The number of retries when an image (or frame) processing fails.</string>
+                      </property>
+                      <property name="text">
+                       <string>Retry:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="spinBox_retry">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string>The number of retries when an image (or frame) processing fails.</string>
+                      </property>
+                      <property name="minimum">
+                       <number>1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>999999999</number>
+                      </property>
+                      <property name="value">
+                       <number>5</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="QFrame" name="frame_5">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <property name="lineWidth">
+                    <number>0</number>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_47">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>2</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_SegmentDuration">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string>When processing video in segments, the length of each video clip.
+This will determine how much hard disk space the program will occupy 
+when processing video in segments.</string>
+                      </property>
+                      <property name="text">
+                       <string>Segment duration:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QSpinBox" name="spinBox_SegmentDuration">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string>When processing video in segments, the length of each video clip.
+This will determine how much hard disk space the program will occupy 
+when processing video in segments.</string>
+                      </property>
+                      <property name="suffix">
+                       <string notr="true">s</string>
+                      </property>
+                      <property name="prefix">
+                       <string/>
+                      </property>
+                      <property name="minimum">
+                       <number>1</number>
+                      </property>
+                      <property name="maximum">
+                       <number>999999999</number>
+                      </property>
+                      <property name="value">
+                       <number>10</number>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QCheckBox" name="checkBox_BanGitee">
+                   <property name="toolTip">
+                    <string>Enabling this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
 enabling this will affect auto update.
 
 For detailed information, please read privacy policy.</string>
+                   </property>
+                   <property name="text">
+                    <string>Ban Gitee</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QFrame" name="frame_8">
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QGridLayout" name="gridLayout_49">
+                 <property name="leftMargin">
+                  <number>0</number>
                  </property>
-                 <property name="text">
-                  <string>Ban Gitee</string>
+                 <property name="topMargin">
+                  <number>0</number>
                  </property>
-                </widget>
-               </item>
-               <item row="4" column="3">
-                <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
-                 <property name="toolTip">
-                  <string>[Settings] will be automatically hidden when the software starts.</string>
+                 <property name="rightMargin">
+                  <number>0</number>
                  </property>
-                 <property name="text">
-                  <string>Always hide Settings</string>
+                 <property name="bottomMargin">
+                  <number>0</number>
                  </property>
-                </widget>
-               </item>
-               <item row="5" column="3">
-                <widget class="QCheckBox" name="checkBox_FileList_Interactive">
-                 <property name="text">
-                  <string>Interactive file list</string>
+                 <property name="spacing">
+                  <number>5</number>
                  </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="12" column="0">
-                <widget class="QLabel" name="label_21">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>We recommend that you restart the software after changing 
+                 <item row="0" column="0">
+                  <widget class="QFrame" name="frame_6">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <property name="lineWidth">
+                    <number>0</number>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_48">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>2</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_55">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Update channel:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QComboBox" name="comboBox_UpdateChannel">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="toolTip">
+                       <string/>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Stable</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Beta</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QCheckBox" name="checkBox_FileListAutoSlide">
+                   <property name="toolTip">
+                    <string>When the file processing status changes, the file list scrolls automatically.</string>
+                   </property>
+                   <property name="text">
+                    <string>File list scrolls automatically</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QCheckBox" name="checkBox_ShowInterPro">
+                   <property name="toolTip">
+                    <string>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</string>
+                   </property>
+                   <property name="text">
+                    <string>Show internal progress</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QCheckBox" name="checkBox_AlwaysHideSettings">
+                   <property name="toolTip">
+                    <string>[Settings] will be automatically hidden when the software starts.</string>
+                   </property>
+                   <property name="text">
+                    <string>Always hide Settings</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QCheckBox" name="checkBox_FileList_Interactive">
+                   <property name="text">
+                    <string>Interactive file list</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QCheckBox" name="checkBox_KeepVideoCache">
+                   <property name="toolTip">
+                    <string>Keep video cache after processing the video.</string>
+                   </property>
+                   <property name="text">
+                    <string>Keep video cache</string>
+                   </property>
+                   <property name="checked">
+                    <bool>false</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0">
+                  <widget class="QCheckBox" name="checkBox_NfSound">
+                   <property name="toolTip">
+                    <string>Play Notification sound.</string>
+                   </property>
+                   <property name="text">
+                    <string>Notification sound</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="QCheckBox" name="checkBox_ProcessVideoBySegment">
+                   <property name="toolTip">
+                    <string>Processing video in segments can greatly reduce the 
+hard disk space occupied by processing video. But it 
+will increase the time required to process video.</string>
+                   </property>
+                   <property name="text">
+                    <string>Process video by segment</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QFrame" name="frame_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <property name="lineWidth">
+                    <number>0</number>
+                   </property>
+                   <layout class="QGridLayout" name="gridLayout_27">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>2</number>
+                    </property>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="label_21">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</string>
-                 </property>
-                 <property name="text">
-                  <string notr="true">Language:</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item row="12" column="1" colspan="3">
-                <widget class="QComboBox" name="comboBox_language">
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>We recommend that you restart the software after changing 
+                      </property>
+                      <property name="text">
+                       <string notr="true">Language:</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="0" column="1">
+                     <widget class="QComboBox" name="comboBox_language">
+                      <property name="minimumSize">
+                       <size>
+                        <width>150</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</string>
-                 </property>
-                 <property name="currentText">
-                  <string notr="true">English</string>
-                 </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">English</string>
-                  </property>
+                      </property>
+                      <property name="currentText">
+                       <string notr="true">English</string>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string notr="true">English</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string notr="true">简体中文</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string notr="true">日本語(機械翻訳)</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string notr="true">繁體中文(由uimee翻譯)</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
                  </item>
-                 <item>
-                  <property name="text">
-                   <string notr="true">简体中文</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string notr="true">日本語(機械翻訳)</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string notr="true">繁體中文(由uimee翻譯)</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
-          </widget>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
        </widget>
@@ -6603,6 +6955,18 @@ the language for the language settings to fully take effect.</string>
             <string>Compatibility test results</string>
            </property>
            <layout class="QGridLayout" name="gridLayout_20">
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
             <item row="7" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_PythonExtension">
               <property name="toolTip">
@@ -7161,7 +7525,7 @@ padding:10px;
            <item>
             <widget class="QSpinBox" name="spinBox_textbrowser_fontsize">
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
