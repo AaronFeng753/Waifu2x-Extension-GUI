@@ -34,8 +34,8 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.58.15-beta:
-- Improve GUI.
+v2.59.01-beta:
+- Improve GUI design.
 
 v2.58.14-beta:
 - NEW Feature: Now you can adjust the horizontal width of the file list.

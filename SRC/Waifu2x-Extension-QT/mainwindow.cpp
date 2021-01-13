@@ -1635,7 +1635,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AddSettingsButtons->setVisible(0);
                 ui->groupBox_AdditionalSettings->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
@@ -1662,7 +1661,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AddSettingsButtons->setVisible(0);
                 ui->groupBox_AdditionalSettings->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
@@ -1686,7 +1684,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AddSettingsButtons->setVisible(0);
                 ui->groupBox_AdditionalSettings->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
@@ -1710,7 +1707,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(1);
                 ui->groupBox_video_settings->setVisible(1);
                 //tab 4
-                ui->groupBox_AddSettingsButtons->setVisible(0);
                 ui->groupBox_AdditionalSettings->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
@@ -1734,7 +1730,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AddSettingsButtons->setVisible(1);
                 ui->groupBox_AdditionalSettings->setVisible(1);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(0);
@@ -1758,7 +1753,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->groupBox_AudioDenoise->setVisible(0);
                 ui->groupBox_video_settings->setVisible(0);
                 //tab 4
-                ui->groupBox_AddSettingsButtons->setVisible(0);
                 ui->groupBox_AdditionalSettings->setVisible(0);
                 //tab 5
                 ui->groupBox_CompatibilityTestRes->setVisible(1);
