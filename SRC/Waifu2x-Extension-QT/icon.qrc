@@ -28,5 +28,13 @@
         <file>icon/ClearList_hover.png</file>
         <file>icon/AddNewFile.png</file>
         <file>icon/AddNewFile_hover.png</file>
+        <file>icon/AddNewFile_disabled.png</file>
+        <file>icon/RemoveItem_disabled.png</file>
+        <file>icon/ClearList_disabled.png</file>
+        <file>icon/Read_FileList_disabled.png</file>
+        <file>icon/Save_FileList_disabled.png</file>
+        <file>icon/ResizeFilesListSplitter.png</file>
+        <file>icon/ResizeFilesListSplitter_disabled.png</file>
+        <file>icon/ResizeFilesListSplitter_hover.png</file>
     </qresource>
 </RCC>

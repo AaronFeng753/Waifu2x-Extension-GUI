@@ -40,12 +40,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_Stop->setVisible(0);
     ui->pushButton_ForceRetry->setVisible(0);
     ui->progressBar_CompatibilityTest->setVisible(0);
-    //=================== 初始隐藏所有table和按钮 ======================
+    //=================== 初始隐藏所有table和禁用按钮 ======================
     ui->tableView_image->setVisible(0);
     ui->tableView_gif->setVisible(0);
     ui->tableView_video->setVisible(0);
-    ui->pushButton_ClearList->setVisible(0);
-    ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();//重载文件列表下的文件数量统计
     //==============
     Init_ActionsMenu_checkBox_ReplaceOriginalFile();//第一次初始化[替换原文件]的右键菜单(需要在载入设定前设置为checkable
@@ -337,8 +335,6 @@ void MainWindow::on_pushButton_ClearList_clicked()
     ui->tableView_gif->setVisible(0);
     ui->tableView_image->setVisible(0);
     ui->tableView_video->setVisible(0);
-    ui->pushButton_ClearList->setVisible(0);
-    ui->pushButton_RemoveItem->setVisible(0);
     Table_FileCount_reload();
     progressbar_clear();
 }
@@ -586,8 +582,6 @@ void MainWindow::Wait_waifu2x_stop()
 */
 int MainWindow::on_pushButton_RemoveItem_clicked()
 {
-    ui->pushButton_RemoveItem->setEnabled(0);
-    //===========
     if(curRow_image==-1&&curRow_video==-1&&curRow_gif==-1)
     {
         ui->tableView_image->clearSelection();
@@ -601,7 +595,6 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
         MSG->setModal(true);
         MSG->show();
         //=====
-        ui->pushButton_RemoveItem->setEnabled(1);
         return 0;
     }
     //==========================
@@ -647,13 +640,13 @@ int MainWindow::on_pushButton_RemoveItem_clicked()
     {
         ui->tableView_video->setVisible(0);
     }
+    //===================================================
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         on_pushButton_ClearList_clicked();
     }
     Table_FileCount_reload();
     //============
-    ui->pushButton_RemoveItem->setEnabled(1);
     return 0;
 }
 
@@ -1056,26 +1049,13 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         ui_tableViews_setUpdatesEnabled(false);
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Start->setEnabled(0);//禁用start button
-        ui->pushButton_ClearList->setEnabled(0);
-        ui->pushButton_RemoveItem->setEnabled(0);
         ui->checkBox_ReProcFinFiles->setEnabled(0);
         ui->pushButton_CustRes_cancel->setEnabled(0);
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);
         ui->pushButton_SaveFileList->setEnabled(0);
         ui->pushButton_BrowserFile->setEnabled(0);
-        curRow_image = -1;
-        curRow_gif = -1;
-        curRow_video = -1;
-        Table_Clear();
-        Custom_resolution_list.clear();
-        ui->label_DropFile->setVisible(1);
-        ui->tableView_gif->setVisible(0);
-        ui->tableView_image->setVisible(0);
-        ui->tableView_video->setVisible(0);
-        ui->pushButton_ClearList->setVisible(0);
-        ui->pushButton_RemoveItem->setVisible(0);
-        Table_FileCount_reload();
+        on_pushButton_ClearList_clicked();
         Send_TextBrowser_NewMessage(tr("Please wait while reading the file."));
         ui->label_DropFile->setText(tr("Loading list, please wait."));
         QtConcurrent::run(this, &MainWindow::Table_Read_Saved_Table_Filelist);
@@ -2207,4 +2187,9 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
     }
     //==============
     return false;
+}
+
+void MainWindow::on_pushButton_ResizeFilesListSplitter_clicked()
+{
+    ui->splitter_FilesList->setSizes(QList<int>() << 1 << 1 << 1);
 }

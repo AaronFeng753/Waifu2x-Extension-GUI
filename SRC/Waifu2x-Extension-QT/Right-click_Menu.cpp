@@ -65,16 +65,16 @@ void MainWindow::RemoveALL_image_slot()
             CustRes_remove(Table_model_image->item(i,2)->text());
         }
         Table_model_image->clear();
+        Init_Table();
         curRow_image = -1;
         ui->tableView_image->clearSelection();
         ui->tableView_image->setVisible(0);
-        Table_FileCount_reload();
     }
+    Table_FileCount_reload();
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         on_pushButton_ClearList_clicked();
     }
-    ui->pushButton_RemoveItem->setEnabled(1);
 }
 
 void MainWindow::RemoveALL_gif_slot()
@@ -88,16 +88,16 @@ void MainWindow::RemoveALL_gif_slot()
             CustRes_remove(Table_model_gif->item(i,2)->text());
         }
         Table_model_gif->clear();
+        Init_Table();
         curRow_gif = -1;
         ui->tableView_gif->clearSelection();
         ui->tableView_gif->setVisible(0);
-        Table_FileCount_reload();
     }
+    Table_FileCount_reload();
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         on_pushButton_ClearList_clicked();
     }
-    ui->pushButton_RemoveItem->setEnabled(1);
 }
 
 void MainWindow::RemoveALL_video_slot()
@@ -111,16 +111,16 @@ void MainWindow::RemoveALL_video_slot()
             CustRes_remove(Table_model_video->item(i,2)->text());
         }
         Table_model_video->clear();
+        Init_Table();
         curRow_video = -1;
         ui->tableView_video->clearSelection();
         ui->tableView_video->setVisible(0);
-        Table_FileCount_reload();
     }
+    Table_FileCount_reload();
     if(Table_model_gif->rowCount()==0&&Table_model_image->rowCount()==0&&Table_model_video->rowCount()==0)
     {
         on_pushButton_ClearList_clicked();
     }
-    ui->pushButton_RemoveItem->setEnabled(1);
 }
 
 void MainWindow::Init_ActionsMenu_lineEdit_outputPath()

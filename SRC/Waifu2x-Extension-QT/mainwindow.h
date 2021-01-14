@@ -844,6 +844,8 @@ private slots:
 
     void on_comboBox_ImageSaveFormat_currentIndexChanged(int index);
 
+    void on_pushButton_ResizeFilesListSplitter_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 

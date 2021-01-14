@@ -113,23 +113,18 @@ void MainWindow::Read_urls_finfished()
     {
         ui->label_DropFile->setVisible(0);//隐藏文件投放label
         ui->tableView_image->setVisible(1);
-        ui->pushButton_ClearList->setVisible(1);
-        ui->pushButton_RemoveItem->setVisible(1);
     }
     if(AddNew_gif)
     {
         ui->label_DropFile->setVisible(0);//隐藏文件投放label
         ui->tableView_gif->setVisible(1);
-        ui->pushButton_ClearList->setVisible(1);
-        ui->pushButton_RemoveItem->setVisible(1);
     }
     if(AddNew_video)
     {
         ui->label_DropFile->setVisible(0);//隐藏文件投放label
         ui->tableView_video->setVisible(1);
-        ui->pushButton_ClearList->setVisible(1);
-        ui->pushButton_RemoveItem->setVisible(1);
     }
+    //===================
     ui->tableView_gif->scrollToBottom();
     ui->tableView_image->scrollToBottom();
     ui->tableView_video->scrollToBottom();
@@ -139,9 +134,11 @@ void MainWindow::Read_urls_finfished()
     gif_ScrBar->setValue(0);
     QScrollBar *video_ScrBar = ui->tableView_video->horizontalScrollBar();
     video_ScrBar->setValue(0);
+    //==========
     AddNew_image=false;
     AddNew_gif=false;
     AddNew_video=false;
+    //============
     Table_FileCount_reload();
 }
 
