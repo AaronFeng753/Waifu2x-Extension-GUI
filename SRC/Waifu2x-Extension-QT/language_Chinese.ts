@@ -1498,9 +1498,8 @@ will be propagated through the network.</source>
         <translation>已完成/总数</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1065"/>
         <source>Number of files in the list.</source>
-        <translation>列表中的文件数量.</translation>
+        <translation type="vanished">列表中的文件数量.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2469"/>
@@ -2092,7 +2091,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
     <message>
         <location filename="mainwindow.ui" line="2265"/>
         <source>Image quality:</source>
-        <translation>图像质量:</translation>
+        <translation>图片质量:</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2144"/>
@@ -2194,6 +2193,11 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]</translation>
         <location filename="mainwindow.ui" line="7466"/>
         <source>Engines:</source>
         <translation>引擎:</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="7504"/>
+        <source>For processing Image and GIF.</source>
+        <translation>用于处理图片和GIF.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="7601"/>
@@ -2500,7 +2504,6 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7504"/>
         <location filename="mainwindow.ui" line="7544"/>
         <source>For processing GIF.</source>
         <translation>用于处理GIF。</translation>

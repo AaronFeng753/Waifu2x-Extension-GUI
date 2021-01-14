@@ -457,6 +457,11 @@ It is recommended to enable this option.</source>
         <translation>開発者をサポートするために寄付してください。そうすれば、このソフトウェアの更なるアップデートをもたらすことができます。ありがとう！ （｡・∀・）ﾉﾞ</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="7504"/>
+        <source>For processing Image and GIF.</source>
+        <translation>画像やGIFの処理に。</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="7874"/>
         <location filename="mainwindow.ui" line="7890"/>
         <source>Change the font size of the text browser.</source>
@@ -2094,7 +2099,6 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7504"/>
         <location filename="mainwindow.ui" line="7544"/>
         <source>For processing GIF.</source>
         <translation>GIFの処理用。</translation>
@@ -2530,9 +2534,8 @@ will be propagated through the network.</source>
         <translation>完了/合計</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1065"/>
         <source>Number of files in the list.</source>
-        <translation>リスト内のファイルの数。</translation>
+        <translation type="vanished">リスト内のファイルの数。</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2469"/>

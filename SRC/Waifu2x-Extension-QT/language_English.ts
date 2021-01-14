@@ -117,13 +117,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="7504"/>
+        <source>For processing Image and GIF.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="7585"/>
         <location filename="mainwindow.ui" line="7608"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7504"/>
         <location filename="mainwindow.ui" line="7544"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
@@ -228,11 +232,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <location filename="mainwindow.ui" line="1443"/>
         <source>Browse and add files.</source>
         <oldsource>Browse and add file.</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="1065"/>
-        <source>Number of files in the list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

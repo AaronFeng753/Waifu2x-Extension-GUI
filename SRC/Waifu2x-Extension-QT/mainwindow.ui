@@ -1062,7 +1062,7 @@ software into a directory that can run normally without administrator rights.</s
                 </sizepolicy>
                </property>
                <property name="toolTip">
-                <string>Number of files in the list.</string>
+                <string/>
                </property>
                <property name="styleSheet">
                 <string notr="true"/>
@@ -7501,7 +7501,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
             <item row="7" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_ImageMagick">
               <property name="toolTip">
-               <string>For processing GIF.</string>
+               <string>For processing Image and GIF.</string>
               </property>
               <property name="text">
                <string notr="true">ImageMagick</string>
@@ -7848,8 +7848,8 @@ padding:10px;
            </property>
            <property name="iconSize">
             <size>
-             <width>15</width>
-             <height>15</height>
+             <width>25</width>
+             <height>25</height>
             </size>
            </property>
           </widget>
