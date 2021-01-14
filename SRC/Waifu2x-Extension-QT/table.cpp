@@ -54,7 +54,109 @@ void MainWindow::Init_Table()
     //=============================================
     emit Send_Table_EnableSorting(1);//启用文件列表的排序功能
 }
-
+/*
+重载Tableview下的文件数量统计
+*/
+int MainWindow::Table_FileCount_reload()
+{
+    long int filecount_image=Table_model_image->rowCount();
+    long int filecount_gif=Table_model_gif->rowCount();
+    long int filecount_video=Table_model_video->rowCount();
+    long int filecount_total=filecount_image+filecount_gif+filecount_video;
+    //====================
+    // 列表内有文件
+    //====================
+    if(filecount_total>0)
+    {
+        //===========
+        //显示文件数量
+        //===========
+        ui->label_FileCount->setVisible(1);
+        ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount_total));
+        ui->label_FileCount->setToolTip(QString(tr("Image: %1\nGIF: %2\nVideo: %3")).arg(filecount_image).arg(filecount_gif).arg(filecount_video));
+        //=================
+        //启用控制按钮
+        //=================
+        ui->pushButton_ClearList->setEnabled(1);
+        ui->pushButton_RemoveItem->setEnabled(1);
+        //===============================================
+        //根据每个列表内文件数量逐个判断是否显示这个列表
+        //===============================================
+        int TableView_VisibleCount = 0;
+        ui->label_DropFile->setVisible(0);//隐藏文件投放label
+        if(filecount_image>0)
+        {
+            ui->tableView_image->setVisible(1);
+            TableView_VisibleCount++;
+        }
+        else
+        {
+            curRow_image = -1;
+            ui->tableView_image->clearSelection();
+            ui->tableView_image->setVisible(0);
+        }
+        //===
+        if(filecount_gif>0)
+        {
+            ui->tableView_gif->setVisible(1);
+            TableView_VisibleCount++;
+        }
+        else
+        {
+            curRow_gif = -1;
+            ui->tableView_gif->clearSelection();
+            ui->tableView_gif->setVisible(0);
+        }
+        //===
+        if(filecount_video>0)
+        {
+            ui->tableView_video->setVisible(1);
+            TableView_VisibleCount++;
+        }
+        else
+        {
+            curRow_video = -1;
+            ui->tableView_video->clearSelection();
+            ui->tableView_video->setVisible(0);
+        }
+        //========================
+        ui->pushButton_ResizeFilesListSplitter->setEnabled(TableView_VisibleCount>1);//当可见的文件列表数量大于1时启用重置文件列表比例按钮
+        //========================
+        ui->pushButton_SaveFileList->setEnabled(1);//列表内有文件时自动启用保存文件列表的按钮
+    }
+    //====================
+    // 列表内无文件
+    //====================
+    else
+    {
+        ui->label_FileCount->setVisible(0);//隐藏文件数量label
+        //===================
+        // 禁用文件列表控制按钮
+        //===================
+        ui->pushButton_ClearList->setEnabled(0);
+        ui->pushButton_RemoveItem->setEnabled(0);
+        ui->pushButton_ResizeFilesListSplitter->setEnabled(0);
+        //====================
+        //隐藏文件列表,取消选中
+        //====================
+        ui->label_DropFile->setVisible(1);
+        curRow_image = -1;
+        ui->tableView_image->clearSelection();
+        ui->tableView_image->setVisible(0);
+        curRow_gif = -1;
+        ui->tableView_gif->clearSelection();
+        ui->tableView_gif->setVisible(0);
+        curRow_video = -1;
+        ui->tableView_video->clearSelection();
+        ui->tableView_video->setVisible(0);
+        //========================
+        ui->pushButton_SaveFileList->setEnabled(0);//列表内没有文件时自动禁用保存文件列表的按钮
+    }
+    return 0;
+}
+//============================
+// 插入文件
+//============================
 void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath)
 {
     mutex_Table_insert.lock();
@@ -341,92 +443,6 @@ QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel
     return Map_fullPath_status;
 }
 
-/*
-重载Tableview下的文件数量统计
-*/
-int MainWindow::Table_FileCount_reload()
-{
-    long int filecount_image=Table_model_image->rowCount();
-    long int filecount_gif=Table_model_gif->rowCount();
-    long int filecount_video=Table_model_video->rowCount();
-    long int filecount_total=filecount_image+filecount_gif+filecount_video;
-    //====================
-    // 列表内有文件
-    //====================
-    if(filecount_total>0)
-    {
-        ui->label_FileCount->setVisible(1);
-        ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount_total));
-        ui->label_FileCount->setToolTip(QString(tr("Image: %1\nGIF: %2\nVideo: %3")).arg(filecount_image).arg(filecount_gif).arg(filecount_video));
-        //=================
-        ui->pushButton_ClearList->setEnabled(1);
-        ui->pushButton_RemoveItem->setEnabled(1);
-        //=================
-        int TableView_VisibleCount = 0;
-        ui->label_DropFile->setVisible(0);//隐藏文件投放label
-        if(filecount_image>0)
-        {
-            ui->tableView_image->setVisible(1);
-            TableView_VisibleCount++;
-        }
-        else
-        {
-            curRow_image = -1;
-            ui->tableView_image->clearSelection();
-            ui->tableView_image->setVisible(0);
-        }
-        //===
-        if(filecount_gif>0)
-        {
-            ui->tableView_gif->setVisible(1);
-            TableView_VisibleCount++;
-        }
-        else
-        {
-            curRow_gif = -1;
-            ui->tableView_gif->clearSelection();
-            ui->tableView_gif->setVisible(0);
-        }
-        //===
-        if(filecount_video>0)
-        {
-            ui->tableView_video->setVisible(1);
-            TableView_VisibleCount++;
-        }
-        else
-        {
-            curRow_video = -1;
-            ui->tableView_video->clearSelection();
-            ui->tableView_video->setVisible(0);
-        }
-        //========================
-        ui->pushButton_ResizeFilesListSplitter->setEnabled(TableView_VisibleCount>1);
-    }
-    //====================
-    // 列表内无文件
-    //====================
-    else
-    {
-        ui->label_FileCount->setVisible(0);
-        //===================
-        ui->pushButton_ClearList->setEnabled(0);
-        ui->pushButton_RemoveItem->setEnabled(0);
-        ui->pushButton_ResizeFilesListSplitter->setEnabled(0);
-        //====================
-        ui->label_DropFile->setVisible(1);
-        curRow_image = -1;
-        ui->tableView_image->clearSelection();
-        ui->tableView_image->setVisible(0);
-        curRow_gif = -1;
-        ui->tableView_gif->clearSelection();
-        ui->tableView_gif->setVisible(0);
-        curRow_video = -1;
-        ui->tableView_video->clearSelection();
-        ui->tableView_video->setVisible(0);
-        return 0;
-    }
-    return 0;
-}
 //保存当前文件列表
 int MainWindow::Table_Save_Current_Table_Filelist()
 {

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1133</width>
-    <height>773</height>
+    <width>1123</width>
+    <height>763</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -46,6 +46,18 @@
     <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout_40">
+    <property name="leftMargin">
+     <number>6</number>
+    </property>
+    <property name="topMargin">
+     <number>6</number>
+    </property>
+    <property name="rightMargin">
+     <number>6</number>
+    </property>
+    <property name="bottomMargin">
+     <number>6</number>
+    </property>
     <item row="0" column="0">
      <widget class="QSplitter" name="splitter_4">
       <property name="styleSheet">
@@ -58,6 +70,12 @@
        <number>5</number>
       </property>
       <widget class="QTabWidget" name="tabWidget">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -105,6 +123,18 @@ height:35
          <string>Donate</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_22">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
          <item row="0" column="0">
           <widget class="QLabel" name="label_DonateText">
            <property name="maximumSize">
@@ -257,6 +287,18 @@ padding:10px;
          <string>Home</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_15">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
          <item row="3" column="0">
           <widget class="QGroupBox" name="groupBox_Progress">
            <property name="sizePolicy">
@@ -601,16 +643,16 @@ padding:10px;
            </property>
            <layout class="QGridLayout" name="gridLayout_28">
             <property name="leftMargin">
-             <number>7</number>
+             <number>6</number>
             </property>
             <property name="topMargin">
-             <number>7</number>
+             <number>6</number>
             </property>
             <property name="rightMargin">
-             <number>7</number>
+             <number>6</number>
             </property>
             <property name="bottomMargin">
-             <number>7</number>
+             <number>6</number>
             </property>
             <property name="spacing">
              <number>6</number>
@@ -730,16 +772,16 @@ padding:10px;
             </property>
             <layout class="QGridLayout" name="gridLayout_21">
              <property name="leftMargin">
-              <number>8</number>
+              <number>6</number>
              </property>
              <property name="topMargin">
-              <number>8</number>
+              <number>6</number>
              </property>
              <property name="rightMargin">
-              <number>8</number>
+              <number>6</number>
              </property>
              <property name="bottomMargin">
-              <number>8</number>
+              <number>6</number>
              </property>
              <item row="0" column="0" colspan="5">
               <widget class="QSplitter" name="splitter_FilesList">
@@ -1589,16 +1631,16 @@ resolution in the Additional settings.</string>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_13">
                   <property name="leftMargin">
-                   <number>8</number>
+                   <number>6</number>
                   </property>
                   <property name="topMargin">
-                   <number>8</number>
+                   <number>6</number>
                   </property>
                   <property name="rightMargin">
-                   <number>8</number>
+                   <number>6</number>
                   </property>
                   <property name="bottomMargin">
-                   <number>8</number>
+                   <number>6</number>
                   </property>
                   <property name="spacing">
                    <number>5</number>
@@ -1927,7 +1969,7 @@ padding:10px;
                        <x>0</x>
                        <y>0</y>
                        <width>233</width>
-                       <height>99</height>
+                       <height>95</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_37">
@@ -2035,6 +2077,18 @@ file that exists in the output path.</string>
                   <string/>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_26">
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>6</number>
+                  </property>
                   <item row="0" column="0">
                    <widget class="QFrame" name="frame">
                     <property name="enabled">
@@ -2782,6 +2836,18 @@ it might cause the software to crash.</string>
          <string>Engine settings</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_29">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
          <item row="0" column="0">
           <widget class="QGroupBox" name="groupBox_Engine">
            <property name="minimumSize">
@@ -5316,6 +5382,18 @@ process at the same time when processing a GIF.</string>
          <string>Video settings</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_2">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
          <item row="1" column="0">
           <widget class="QGroupBox" name="groupBox_video_settings">
            <property name="maximumSize">
@@ -5384,6 +5462,13 @@ by the software will be used.</string>
               </property>
              </widget>
             </item>
+            <item row="1" column="2">
+             <widget class="Line" name="line_19">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
             <item row="1" column="1">
              <widget class="QPushButton" name="pushButton_encodersList">
               <property name="styleSheet">
@@ -5421,14 +5506,20 @@ padding:10px;
               </property>
              </widget>
             </item>
-            <item row="1" column="2">
-             <widget class="Line" name="line_19">
+            <item row="1" column="4">
+             <spacer name="horizontalSpacer_4">
               <property name="orientation">
-               <enum>Qt::Vertical</enum>
+               <enum>Qt::Horizontal</enum>
               </property>
-             </widget>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
-            <item row="0" column="0" colspan="4">
+            <item row="0" column="0" colspan="5">
              <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="50,50">
               <item>
                <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
@@ -5564,12 +5655,27 @@ padding:10px;
                     </sizepolicy>
                    </property>
                    <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                    <enum>QFrame::NoFrame</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_12">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
                     <item row="0" column="0">
                      <widget class="QLabel" name="label_42">
                       <property name="sizePolicy">
@@ -5639,12 +5745,27 @@ padding:10px;
                     </sizepolicy>
                    </property>
                    <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
+                    <enum>QFrame::NoFrame</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_52">
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="spacing">
+                     <number>5</number>
+                    </property>
                     <item row="0" column="0">
                      <widget class="QLabel" name="label_45">
                       <property name="sizePolicy">
@@ -5784,10 +5905,10 @@ padding:10px;
             <property name="bottomMargin">
              <number>6</number>
             </property>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_46">
-              <property name="text">
-               <string>Denoise level:</string>
+            <item row="0" column="2">
+             <widget class="Line" name="line_7">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
               </property>
              </widget>
             </item>
@@ -5795,6 +5916,12 @@ padding:10px;
              <widget class="QDoubleSpinBox" name="doubleSpinBox_AudioDenoiseLevel">
               <property name="enabled">
                <bool>false</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
               </property>
               <property name="toolTip">
                <string>How much noise should be removed is specified by amount-a 
@@ -5819,15 +5946,33 @@ likelihood of removing wanted components of the audio signal.</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="2">
-             <widget class="Line" name="line_7">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_46">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Denoise level:</string>
               </property>
              </widget>
             </item>
             <item row="0" column="3">
              <widget class="QCheckBox" name="checkBox_AudioDenoise">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="text">
                <string>Enabled</string>
               </property>
@@ -5847,6 +5992,18 @@ likelihood of removing wanted components of the audio signal.</string>
          <string>Additional settings</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_19">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
          <item row="0" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout_10" stretch="1,1">
            <item>
@@ -5875,25 +6032,78 @@ likelihood of removing wanted components of the audio signal.</string>
                 <property name="bottomMargin">
                  <number>6</number>
                 </property>
-                <item row="3" column="0" colspan="4">
-                 <widget class="QCheckBox" name="checkBox_AlwaysPreProcessAlphaPNG">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_4">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
                   <property name="toolTip">
-                   <string>This software already can intelligently detect whether the Alpha channel is lost,
-and automatically reprocess the picture. And image will be pre-processed during the 
-reporcess so the alpha channel won't lost again.
+                   <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
 
-However, this will cause additional time consumption. If re-processing
-frequently occurs when processing images, you can enable this option to save time.</string>
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
                   </property>
                   <property name="text">
-                   <string>Always pre-process images with Alpha Channel</string>
-                  </property>
-                  <property name="checked">
-                   <bool>false</bool>
+                   <string>Image:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="1" colspan="3">
+                <item row="2" column="0" colspan="2">
+                 <widget class="QCheckBox" name="checkBox_PreProcessImage">
+                  <property name="toolTip">
+                   <string>Convert every image to PNG before processing it.
+Enabling this option will improve compatibility. However, it will
+increase the time and storage space required to process image.</string>
+                  </property>
+                  <property name="text">
+                   <string>Pre-process all images</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3" colspan="2">
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_5">
+                  <property name="maximumSize">
+                   <size>
+                    <width>50</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                  </property>
+                  <property name="text">
+                   <string>Video:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="4">
                  <widget class="QLineEdit" name="Ext_video">
                   <property name="minimumSize">
                    <size>
@@ -5919,30 +6129,24 @@ be processed successfully)</string>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_4">
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
+                <item row="2" column="2">
+                 <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
+                  <property name="enabled">
+                   <bool>false</bool>
                   </property>
                   <property name="toolTip">
-                   <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
+                   <string>When the alpha channel is detected in the picture, software will
+automatically force the picture to be saved as PNG.</string>
                   </property>
                   <property name="text">
-                   <string>Image:</string>
+                   <string>Auto detect Alpha channel</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1" colspan="3">
+                <item row="0" column="1" colspan="4">
                  <widget class="QLineEdit" name="Ext_image">
                   <property name="minimumSize">
                    <size>
@@ -5968,55 +6172,27 @@ be processed successfully)</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_5">
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
+                <item row="3" column="0" colspan="5">
+                 <widget class="QCheckBox" name="checkBox_AlwaysPreProcessAlphaPNG">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
                   </property>
                   <property name="toolTip">
-                   <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
+                   <string>This software already can intelligently detect whether the Alpha channel is lost,
+and automatically reprocess the picture. And image will be pre-processed during the 
+reporcess so the alpha channel won't lost again.
 
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
+However, this will cause additional time consumption. If re-processing
+frequently occurs when processing images, you can enable this option to save time.</string>
                   </property>
                   <property name="text">
-                   <string>Video:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="3">
-                 <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>When the alpha channel is detected in the picture, software will
-automatically force the picture to be saved as PNG.</string>
-                  </property>
-                  <property name="text">
-                   <string>Auto detect Alpha channel</string>
+                   <string>Always pre-process images with Alpha Channel</string>
                   </property>
                   <property name="checked">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0" colspan="3">
-                 <widget class="QCheckBox" name="checkBox_PreProcessImage">
-                  <property name="toolTip">
-                   <string>Convert every image to PNG before processing it.
-Enabling this option will improve compatibility. However, it will
-increase the time and storage space required to process image.</string>
-                  </property>
-                  <property name="text">
-                   <string>Pre-process all images</string>
+                   <bool>false</bool>
                   </property>
                  </widget>
                 </item>
@@ -6029,63 +6205,6 @@ increase the time and storage space required to process image.</string>
                 <string>Custom Font Settings (Restart the software to take effect)</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_17">
-                <item row="0" column="1" colspan="3">
-                 <widget class="QSpinBox" name="spinBox_GlobalFontSize">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999</number>
-                  </property>
-                  <property name="value">
-                   <number>15</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1" colspan="3">
-                 <widget class="QFontComboBox" name="fontComboBox_CustFont">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="currentText">
-                   <string notr="true">宋体</string>
-                  </property>
-                  <property name="currentFont">
-                   <font>
-                    <family>宋体</family>
-                   </font>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_22">
-                  <property name="text">
-                   <string>Custom font size:</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_24">
-                  <property name="text">
-                   <string>Custom font:</string>
-                  </property>
-                  <property name="alignment">
-                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                  </property>
-                 </widget>
-                </item>
                 <item row="2" column="3">
                  <widget class="QCheckBox" name="checkBox_isCustFontEnable">
                   <property name="sizePolicy">
@@ -6151,6 +6270,76 @@ padding:10px;
                   </property>
                   <property name="text">
                    <string>Save Custom Font Settings</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_22">
+                  <property name="text">
+                   <string>Custom font size:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_24">
+                  <property name="text">
+                   <string>Custom font:</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="4">
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="1" column="1" colspan="4">
+                 <widget class="QFontComboBox" name="fontComboBox_CustFont">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="currentText">
+                   <string notr="true">宋体</string>
+                  </property>
+                  <property name="currentFont">
+                   <font>
+                    <family>宋体</family>
+                   </font>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="4">
+                 <widget class="QSpinBox" name="spinBox_GlobalFontSize">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999</number>
+                  </property>
+                  <property name="value">
+                   <number>15</number>
                   </property>
                  </widget>
                 </item>
@@ -6475,7 +6664,7 @@ padding:10px;
              <property name="title">
               <string/>
              </property>
-             <layout class="QGridLayout" name="gridLayout_14" columnstretch="50,50">
+             <layout class="QGridLayout" name="gridLayout_14" columnstretch="50,0">
               <property name="leftMargin">
                <number>7</number>
               </property>
@@ -7065,6 +7254,18 @@ the language for the language settings to fully take effect.</string>
          <string>Compatibility test</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_32">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>6</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>6</number>
+         </property>
          <item row="0" column="0">
           <widget class="QGroupBox" name="groupBox_CompatibilityTestRes">
            <property name="enabled">
@@ -7426,6 +7627,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
          </item>
          <item row="2" column="0">
           <widget class="QPushButton" name="pushButton_compatibilityTest">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="toolTip">
             <string>Run a compatibility test to see which engines your computer is compatible with.</string>
            </property>
@@ -7466,6 +7673,12 @@ padding:10px;
          </item>
          <item row="1" column="0">
           <widget class="QProgressBar" name="progressBar_CompatibilityTest">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="maximum">
             <number>17</number>
            </property>
@@ -7484,6 +7697,24 @@ padding:10px;
        </widget>
       </widget>
       <widget class="QSplitter" name="splitter_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>95</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="contextMenuPolicy">
         <enum>Qt::DefaultContextMenu</enum>
        </property>
@@ -7497,16 +7728,22 @@ padding:10px;
         <number>5</number>
        </property>
        <widget class="QTextBrowser" name="textBrowser">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>94</height>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>94</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="font">
@@ -7551,16 +7788,16 @@ padding:10px;
           <enum>QLayout::SetFixedSize</enum>
          </property>
          <property name="leftMargin">
-          <number>8</number>
+          <number>6</number>
          </property>
          <property name="topMargin">
-          <number>8</number>
+          <number>6</number>
          </property>
          <property name="rightMargin">
-          <number>8</number>
+          <number>6</number>
          </property>
          <property name="bottomMargin">
-          <number>8</number>
+          <number>6</number>
          </property>
          <property name="spacing">
           <number>5</number>

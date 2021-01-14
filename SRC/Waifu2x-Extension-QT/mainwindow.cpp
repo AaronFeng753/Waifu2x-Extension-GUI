@@ -1604,9 +1604,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->pushButton_PayPal->setVisible(1);
                 ui->label_DonateText->setVisible(1);
                 //tab 1
-                ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
-                ui->groupBox_Setting->setVisible(0);
+                ui->splitter_2->setVisible(0);
                 //tab 2
                 ui->groupBox_Engine->setVisible(0);
                 ui->groupBox_NumOfThreads->setVisible(0);
@@ -1630,8 +1629,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->pushButton_PayPal->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
-                ui->groupBox_FileList->setVisible(1);
                 ui->groupBox_Progress->setVisible(1);
+                ui->splitter_2->setVisible(1);
                 if(isSettingsHide==false)
                 {
                     ui->groupBox_Setting->setVisible(1);
@@ -1659,9 +1658,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->pushButton_PayPal->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
-                ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
-                ui->groupBox_Setting->setVisible(0);
+                ui->splitter_2->setVisible(0);
                 //tab 2
                 ui->groupBox_Engine->setVisible(1);
                 ui->groupBox_NumOfThreads->setVisible(1);
@@ -1685,9 +1683,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->pushButton_PayPal->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
-                ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
-                ui->groupBox_Setting->setVisible(0);
+                ui->splitter_2->setVisible(0);
                 //tab 2
                 ui->groupBox_Engine->setVisible(0);
                 ui->groupBox_NumOfThreads->setVisible(0);
@@ -1711,9 +1708,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->pushButton_PayPal->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
-                ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
-                ui->groupBox_Setting->setVisible(0);
+                ui->splitter_2->setVisible(0);
                 //tab 2
                 ui->groupBox_Engine->setVisible(0);
                 ui->groupBox_NumOfThreads->setVisible(0);
@@ -1737,9 +1733,8 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 ui->pushButton_PayPal->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
-                ui->groupBox_FileList->setVisible(0);
                 ui->groupBox_Progress->setVisible(0);
-                ui->groupBox_Setting->setVisible(0);
+                ui->splitter_2->setVisible(0);
                 //tab 2
                 ui->groupBox_Engine->setVisible(0);
                 ui->groupBox_NumOfThreads->setVisible(0);
