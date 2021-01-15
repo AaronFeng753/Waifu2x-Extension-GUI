@@ -1888,6 +1888,11 @@ already have custom resolution applied.★</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="6919"/>
+        <source> secs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="7187"/>
         <location filename="mainwindow.ui" line="7207"/>
         <source>We recommend that you restart the software after changing 

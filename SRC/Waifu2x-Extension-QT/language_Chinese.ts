@@ -1903,6 +1903,11 @@ automatically force the picture to be saved as PNG.
         <translation>当检测到更新时弹窗提示.</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="6919"/>
+        <source> secs</source>
+        <translation> 秒</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="7022"/>
         <source>Update channel:</source>
         <translation>更新通道:</translation>

@@ -36,7 +36,7 @@ Change log:
 
 v2.59.03-beta:
 - Automatically disable [Save Files List] button when files list is empty.
-- Other improvements to the GUI.
+- More compact GUI, and other improvements.
 - Edit tool tip and Chinese translation.
 
 v2.59.02-beta:

@@ -1946,6 +1946,11 @@ be processed successfully)</source>
         <translation>すべての画像を前処理する</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="6919"/>
+        <source> secs</source>
+        <translation> 秒</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="7114"/>
         <source>Play Notification sound.</source>
         <translation>通知音を再生します。</translation>

@@ -166,6 +166,11 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [ 速度:★★★ 畫質:★ ]</translation>
     </message>
     <message>
+        <location filename="mainwindow.ui" line="6919"/>
+        <source> secs</source>
+        <translation> 秒</translation>
+    </message>
+    <message>
         <location filename="mainwindow.ui" line="6941"/>
         <source>Enabling this will stop download anything from Communist China website Gitee.
 
