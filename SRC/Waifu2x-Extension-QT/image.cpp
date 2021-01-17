@@ -30,14 +30,14 @@ QString MainWindow::SaveImageAs_FormatAndQuality(QString OriginalSourceImage_ful
     QString FinalFile_FullPath = "";
     int ImageQualityLevel = ui->spinBox_ImageQualityLevel->value();
     //=========== 确定扩展名 ===================
+    FinalFile_Ext = ui->comboBox_ImageSaveFormat->currentText();
     QImage QImage_OriginalSourceImage_fullPath(OriginalSourceImage_fullPath);
     if(QImage_OriginalSourceImage_fullPath.hasAlphaChannel()&&ui->checkBox_AutoDetectAlphaChannel->isChecked())
     {
-        FinalFile_Ext = "png";
-    }
-    else
-    {
-        FinalFile_Ext = ui->comboBox_ImageSaveFormat->currentText();
+        if(FinalFile_Ext=="jpg" || FinalFile_Ext=="tga")
+        {
+            FinalFile_Ext = "png";
+        }
     }
     //================ 判断是否要继续 ==================
     //如果扩展名不变且画质拉满,则直接返回原图片路径
@@ -114,42 +114,16 @@ void MainWindow::on_comboBox_ImageSaveFormat_currentIndexChanged(int index)
     {
         ui->spinBox_ImageQualityLevel->setEnabled(1);
     }
-    if(ui->comboBox_ImageSaveFormat->currentIndex()==0)
-    {
-        ui->checkBox_AutoDetectAlphaChannel->setEnabled(0);
-        ui->checkBox_AutoDetectAlphaChannel->setChecked(1);
-    }
-    else
-    {
-        ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
-    }
 }
 /*
 判断图片是否含有透明通道
 */
 bool MainWindow::Imgae_hasAlphaChannel(int rowNum)
 {
-    /*
-    ======== 如果没开启检测, 直接返回false =============
-    */
-    if(ui->checkBox_AutoDetectAlphaChannel->isChecked()==false)return false;
-    //======
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     if(QFile::exists(SourceFile_fullPath)==false)return false;
-    //======
     QImage QImage_SourceFile_fullPath(SourceFile_fullPath);
-    if(QImage_SourceFile_fullPath.hasAlphaChannel())
-    {
-        if(ui->comboBox_ImageSaveFormat->currentText()!="png")
-        {
-            emit Send_TextBrowser_NewMessage(tr("It is detected that the image [")+SourceFile_fullPath+tr("] contains the Alpha channel, so the result image will be forcibly saved as PNG."));
-        }
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return QImage_SourceFile_fullPath.hasAlphaChannel();
 }
 /*
 预处理图片

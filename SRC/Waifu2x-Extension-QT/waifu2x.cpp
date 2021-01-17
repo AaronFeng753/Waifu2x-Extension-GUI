@@ -452,6 +452,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->checkBox_PreProcessImage->setEnabled(1);
     ui->checkBox_AlwaysPreProcessAlphaPNG->setEnabled(1);
     checkBox_ReplaceOriginalFile_setEnabled_True_Self();
+    ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

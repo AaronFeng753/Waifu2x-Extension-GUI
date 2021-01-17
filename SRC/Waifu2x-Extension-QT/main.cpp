@@ -34,6 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.59.04-beta:
+- Images will only be forced to be saved as PNG when the specified file format does not support Alpha channel.
+- Performance optimization.
+- Edit tool tip.
+- Other improvements.
+
 v2.59.03-beta:
 - Automatically disable [Save Files List] button when files list is empty.
 - More compact GUI, and other improvements.
@@ -62,6 +68,7 @@ v2.58.14-beta:
 
 --------------------------------------------------------------------------
 To do:
+- 加上个按钮,将块大小调整到2的n次方
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 在Anime4kCPP更新release后,删除强制启用opencl的语句( -M opencl )
 ---------------------------------------------------------------------------

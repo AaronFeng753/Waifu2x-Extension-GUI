@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1099</width>
-    <height>738</height>
+    <width>1089</width>
+    <height>724</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1635,11 +1635,7 @@ padding:10px;
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>By default, the aspect ratio of the result image 
-will be as same as the original image.
-(So the image won't look weird.)
-You can change the aspect ratio settings for custom 
-resolution in the Additional settings.</string>
+                  <string/>
                  </property>
                  <property name="title">
                   <string>Custom resolution</string>
@@ -6186,7 +6182,7 @@ be processed successfully)</string>
                 <item row="2" column="2">
                  <widget class="QCheckBox" name="checkBox_AutoDetectAlphaChannel">
                   <property name="enabled">
-                   <bool>false</bool>
+                   <bool>true</bool>
                   </property>
                   <property name="toolTip">
                    <string>When the alpha channel is detected in the picture, software will
