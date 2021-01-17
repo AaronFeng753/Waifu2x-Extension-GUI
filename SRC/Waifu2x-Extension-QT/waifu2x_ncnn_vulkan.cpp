@@ -2139,3 +2139,17 @@ void MainWindow::on_pushButton_ShowMultiGPUSettings_Waifu2xNCNNVulkan_clicked()
     MSG->setModal(true);
     MSG->show();
 }
+/*
+W2x NCNN Vulkan 块大小调整按钮 +
+*/
+void MainWindow::on_pushButton_TileSize_Add_W2xNCNNVulkan_clicked()
+{
+    ui->spinBox_TileSize->setValue(AddTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize->value()));
+}
+/*
+W2x NCNN Vulkan 块大小调整按钮 -
+*/
+void MainWindow::on_pushButton_TileSize_Minus_W2xNCNNVulkan_clicked()
+{
+    ui->spinBox_TileSize->setValue(MinusTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize->value()));
+}

@@ -264,13 +264,11 @@ public:
     QStringList Available_GPUID_Realsr_ncnn_vulkan;//可用GPU ID列表
 
     void ListGPUs_Anime4k();//列出可用显卡 Anime4k
-
     //======================== 图片处理 ================================
     bool Imgae_hasAlphaChannel(int rowNum);
     QString Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChannel);
     QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
     //================================================================
-
     int Waifu2x_Compatibility_Test();//引擎兼容性检测
     //初始化 -兼容性测试进度条
     void Init_progressBar_CompatibilityTest();
@@ -337,10 +335,8 @@ public:
     int Progressbar_CurrentVal = 0;//进度条当前值
     void progressbar_clear();//清空进度条
     void progressbar_SetToMax(int maxval);//将进度条设定到最大值
-
     //=============================== textbrowser===============================
     void TextBrowser_StartMes();//输出启动信息
-
     //================================ gif ====================================
     int Gif_getDuration(QString gifPath);//获取帧间隔时长
     int Gif_getFrameDigits(QString gifPath);//获取帧数量的位数
@@ -499,6 +495,9 @@ public:
     QAction *QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal = new QAction(this);
     //===================== 事件过滤器 =====================
     bool eventFilter(QObject *target, QEvent *event);
+    //===================== 块大小调整 ======================
+    int AddTileSize_NCNNVulkan_Converter(int OrginalTileSize);
+    int MinusTileSize_NCNNVulkan_Converter(int OrginalTileSize);
     //=============
     ~MainWindow();
 
@@ -845,6 +844,22 @@ private slots:
     void on_comboBox_ImageSaveFormat_currentIndexChanged(int index);
 
     void on_pushButton_ResizeFilesListSplitter_clicked();
+
+    void on_pushButton_TileSize_Add_W2xNCNNVulkan_clicked();
+
+    void on_pushButton_TileSize_Minus_W2xNCNNVulkan_clicked();
+
+    void on_pushButton_BlockSize_Add_W2xConverter_clicked();
+
+    void on_pushButton_BlockSize_Minus_W2xConverter_clicked();
+
+    void on_pushButton_Add_TileSize_SrmdNCNNVulkan_clicked();
+
+    void on_pushButton_Minus_TileSize_SrmdNCNNVulkan_clicked();
+
+    void on_pushButton_Add_TileSize_RealsrNCNNVulkan_clicked();
+
+    void on_pushButton_Minus_TileSize_RealsrNCNNVulkan_clicked();
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

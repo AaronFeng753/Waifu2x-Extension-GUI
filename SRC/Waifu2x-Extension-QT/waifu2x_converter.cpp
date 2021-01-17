@@ -1832,3 +1832,15 @@ void MainWindow::on_pushButton_ShowMultiGPUSettings_Waifu2xConverter_clicked()
     MSG->setModal(true);
     MSG->show();
 }
+/*
+W2xConverter 块大小调整按钮
+*/
+void MainWindow::on_pushButton_BlockSize_Add_W2xConverter_clicked()
+{
+    ui->spinBox_BlockSize_converter->setValue(AddTileSize_NCNNVulkan_Converter(ui->spinBox_BlockSize_converter->value()));
+}
+
+void MainWindow::on_pushButton_BlockSize_Minus_W2xConverter_clicked()
+{
+    ui->spinBox_BlockSize_converter->setValue(MinusTileSize_NCNNVulkan_Converter(ui->spinBox_BlockSize_converter->value()));
+}

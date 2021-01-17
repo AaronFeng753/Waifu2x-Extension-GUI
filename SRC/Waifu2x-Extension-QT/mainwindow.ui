@@ -2886,20 +2886,6 @@ it might cause the software to crash.</string>
             <property name="bottomMargin">
              <number>6</number>
             </property>
-            <item row="1" column="0" colspan="8">
-             <widget class="Line" name="line_6">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="Line" name="line_11">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-             </widget>
-            </item>
             <item row="0" column="0">
              <widget class="QLabel" name="label_6">
               <property name="sizePolicy">
@@ -2916,35 +2902,6 @@ it might cause the software to crash.</string>
               </property>
               <property name="text">
                <string>Image:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="5">
-             <widget class="Line" name="line_12">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="6">
-             <widget class="QLabel" name="label_8">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Video:</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -2987,84 +2944,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               <item>
                <property name="text">
                 <string notr="true">srmd-ncnn-vulkan</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">waifu2x-caffe</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">realsr-ncnn-vulkan</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QLabel" name="label_7">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>16777215</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>GIF:</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QComboBox" name="comboBox_Engine_Image">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>200</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="toolTip">
-               <string>Select the engine for processing Image. 
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
-              </property>
-              <property name="currentText">
-               <string notr="true">waifu2x-ncnn-vulkan</string>
-              </property>
-              <item>
-               <property name="text">
-                <string notr="true">waifu2x-ncnn-vulkan</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">waifu2x-converter</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">srmd-ncnn-vulkan</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
-                <string notr="true">Anime4K</string>
                </property>
               </item>
               <item>
@@ -3129,13 +3008,140 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </item>
              </widget>
             </item>
+            <item row="0" column="6">
+             <widget class="QLabel" name="label_8">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Video:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="Line" name="line_11">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="8">
+             <widget class="Line" name="line_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="comboBox_Engine_Image">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>200</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>Select the engine for processing Image. 
+
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
+srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
+              </property>
+              <property name="currentText">
+               <string notr="true">waifu2x-ncnn-vulkan</string>
+              </property>
+              <item>
+               <property name="text">
+                <string notr="true">waifu2x-ncnn-vulkan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">waifu2x-converter</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">srmd-ncnn-vulkan</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">Anime4K</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">waifu2x-caffe</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string notr="true">realsr-ncnn-vulkan</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QLabel" name="label_7">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>GIF:</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="5">
+             <widget class="Line" name="line_12">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
             <item row="2" column="0" colspan="8">
              <widget class="QTabWidget" name="tabWidget_Engines">
               <property name="toolTip">
                <string/>
               </property>
+              <property name="tabPosition">
+               <enum>QTabWidget::North</enum>
+              </property>
               <property name="currentIndex">
                <number>0</number>
+              </property>
+              <property name="usesScrollButtons">
+               <bool>true</bool>
               </property>
               <widget class="QWidget" name="tab_4">
                <attribute name="title">
@@ -3151,8 +3157,106 @@ same time, you need to change [Image style] settings at [Home] tab.
 
 - [ Speed:★★  Image Quality:★★★ ]</string>
                </attribute>
-               <layout class="QGridLayout" name="gridLayout_31">
-                <item row="5" column="0" colspan="3">
+               <layout class="QGridLayout" name="gridLayout_53">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>7</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_26">
+                  <property name="text">
+                   <string>Model:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QCheckBox" name="checkBox_MultiGPU_Waifu2xNCNNVulkan">
+                  <property name="toolTip">
+                   <string>1.You need at least 2 available GPUs.
+
+2.If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.
+
+3.You need to [Detect available GPU ID] first.</string>
+                  </property>
+                  <property name="text">
+                   <string>Enable Multi-GPU</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_9">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.
+(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
+                  </property>
+                  <property name="text">
+                   <string>Tile size:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QComboBox" name="comboBox_GPUID">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.
+★ &quot;-1&quot; is CPU,others are GPUs ★</string>
+                  </property>
+                  <property name="currentText">
+                   <string notr="true">auto</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string notr="true">auto</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_10">
+                  <property name="toolTip">
+                   <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
+                  </property>
+                  <property name="text">
+                   <string>GPU ID:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_47">
+                  <property name="text">
+                   <string>Version:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="3">
                  <widget class="QPushButton" name="pushButton_DetectGPU">
                   <property name="enabled">
                    <bool>true</bool>
@@ -3192,46 +3296,7 @@ padding:10px;
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="2">
-                 <widget class="QCheckBox" name="checkBox_MultiGPU_Waifu2xNCNNVulkan">
-                  <property name="toolTip">
-                   <string>1.You need at least 2 available GPUs.
-
-2.If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.
-
-3.You need to [Detect available GPU ID] first.</string>
-                  </property>
-                  <property name="text">
-                   <string>Enable Multi-GPU</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="label_10">
-                  <property name="toolTip">
-                   <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</string>
-                  </property>
-                  <property name="text">
-                   <string>GPU ID:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QCheckBox" name="checkBox_TTA_vulkan">
-                  <property name="toolTip">
-                   <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.
-[TTA] is not available for [OLD Version] of waifu2x-ncnn-vulkan.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">TTA</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="1" colspan="2">
+                <item row="2" column="1" colspan="2">
                  <widget class="QComboBox" name="comboBox_version_Waifu2xNCNNVulkan">
                   <property name="currentIndex">
                    <number>0</number>
@@ -3253,54 +3318,174 @@ but the effect may not be obvious. It is not recommended to enable it.
                   </item>
                  </widget>
                 </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_47">
+                <item row="1" column="1" colspan="2">
+                 <widget class="QFrame" name="frame_12">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_31">
+                   <property name="sizeConstraint">
+                    <enum>QLayout::SetDefaultConstraint</enum>
+                   </property>
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="pushButton_TileSize_Minus_W2xNCNNVulkan">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">-</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="spinBox_TileSize">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means waifu2x will use more GPU memory and run faster.
+Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
+                     </property>
+                     <property name="minimum">
+                      <number>32</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>128</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="pushButton_TileSize_Add_W2xNCNNVulkan">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">+</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="comboBox_model_vulkan">
+                  <property name="toolTip">
+                   <string>We recommend you use the default &quot;upconv_7&quot; model.
+Only &quot;upconv_7&quot; model supports image style switching.
+&quot;cunet&quot; model only supports 2D anime image style, 
+and it's much more slower than &quot;upconv_7&quot; model.</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string notr="true">upconv_7</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>cunet(Only support 2D Anime)</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QCheckBox" name="checkBox_TTA_vulkan">
+                  <property name="toolTip">
+                   <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.
+[TTA] is not available for [OLD Version] of waifu2x-ncnn-vulkan.</string>
+                  </property>
                   <property name="text">
-                   <string>Version:</string>
+                   <string notr="true">TTA</string>
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_9">
+                <item row="5" column="0" colspan="3">
+                 <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
                     <height>16777215</height>
                    </size>
                   </property>
-                  <property name="toolTip">
-                   <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.
-(Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine.)</string>
-                  </property>
-                  <property name="text">
-                   <string>Tile size:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_26">
-                  <property name="text">
-                   <string>Model:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="0" colspan="3">
-                 <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>75</height>
-                   </size>
-                  </property>
                   <property name="title">
                    <string>GPU Settings(Multi-GPU)</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_39">
+                   <property name="leftMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="horizontalSpacing">
+                    <number>7</number>
+                   </property>
                    <item row="0" column="1">
                     <widget class="QComboBox" name="comboBox_GPUIDs_MultiGPU_Waifu2xNCNNVulkan">
                      <property name="currentText">
@@ -3422,66 +3607,6 @@ padding:10px;
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1" colspan="2">
-                 <widget class="QSpinBox" name="spinBox_TileSize">
-                  <property name="toolTip">
-                   <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.</string>
-                  </property>
-                  <property name="minimum">
-                   <number>32</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>10</number>
-                  </property>
-                  <property name="value">
-                   <number>100</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QComboBox" name="comboBox_model_vulkan">
-                  <property name="toolTip">
-                   <string>We recommend you use the default &quot;upconv_7&quot; model.
-Only &quot;upconv_7&quot; model supports image style switching.
-&quot;cunet&quot; model only supports 2D anime image style, 
-and it's much more slower than &quot;upconv_7&quot; model.</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string notr="true">upconv_7</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>cunet(Only support 2D Anime)</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="4" column="1">
-                 <widget class="QComboBox" name="comboBox_GPUID">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.
-★ &quot;-1&quot; is CPU,others are GPUs ★</string>
-                  </property>
-                  <property name="currentText">
-                   <string notr="true">auto</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string notr="true">auto</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
                </layout>
               </widget>
               <widget class="QWidget" name="tab_5">
@@ -3495,9 +3620,30 @@ and it's much more slower than &quot;upconv_7&quot; model.</string>
 
 - [ Speed:★☆  Image Quality:★★☆ ]</string>
                </attribute>
-               <layout class="QGridLayout" name="gridLayout_35">
-                <item row="0" column="0">
+               <layout class="QGridLayout" name="gridLayout_54">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>7</number>
+                </property>
+                <item row="0" column="0" colspan="2">
                  <widget class="QLabel" name="label_54">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="toolTip">
                    <string>Block size: This value will affects GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
@@ -3508,21 +3654,52 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                   </property>
                  </widget>
                 </item>
-                <item row="5" column="0" colspan="4">
+                <item row="2" column="0" colspan="2">
+                 <widget class="QLabel" name="label_53">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string>Target processor:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="6">
                  <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_Waifu2xConverter">
                   <property name="enabled">
                    <bool>false</bool>
                   </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>75</height>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="title">
                    <string>Processor Settings(Multi-Processor)</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_44">
+                   <property name="leftMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>6</number>
+                   </property>
                    <item row="0" column="6">
                     <widget class="QPushButton" name="pushButton_ShowMultiGPUSettings_Waifu2xConverter">
                      <property name="toolTip">
@@ -3566,7 +3743,7 @@ padding:10px;
                    <item row="0" column="0">
                     <widget class="QLabel" name="label_75">
                      <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
@@ -3582,7 +3759,7 @@ padding:10px;
                    <item row="0" column="4">
                     <widget class="QLabel" name="label_74">
                      <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                        <horstretch>0</horstretch>
                        <verstretch>0</verstretch>
                       </sizepolicy>
@@ -3644,47 +3821,14 @@ padding:10px;
                   </layout>
                  </widget>
                 </item>
-                <item row="2" column="1">
-                 <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="currentText">
-                   <string notr="true">auto</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string notr="true">auto</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
-                  <property name="toolTip">
-                   <string>Force to use OpenCL on Intel Platform.</string>
-                  </property>
-                  <property name="text">
-                   <string>Force OpenCL</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_53">
-                  <property name="text">
-                   <string>Target processor:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1" colspan="2">
-                 <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
-                  <property name="text">
-                   <string>Disable GPU</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="2" colspan="2">
+                <item row="2" column="4">
                  <widget class="QCheckBox" name="checkBox_MultiGPU_Waifu2xConverter">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="toolTip">
                    <string>1.You need at least 2 available processors.
 
@@ -3698,7 +3842,7 @@ the number of threads must &gt;= the number of processors.
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="3">
+                <item row="1" column="4">
                  <widget class="QCheckBox" name="checkBox_TTA_converter">
                   <property name="toolTip">
                    <string>TTA(Test-Time Augmentation):
@@ -3711,7 +3855,14 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="0" colspan="4">
+                <item row="1" column="2" colspan="2">
+                 <widget class="QCheckBox" name="checkBox_DisableGPU_converter">
+                  <property name="text">
+                   <string>Disable GPU</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0" colspan="6">
                  <widget class="QPushButton" name="pushButton_DumpProcessorList_converter">
                   <property name="enabled">
                    <bool>true</bool>
@@ -3751,30 +3902,117 @@ padding:10px;
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="1" colspan="3">
-                 <widget class="QSpinBox" name="spinBox_BlockSize_converter">
-                  <property name="toolTip">
-                   <string>Block size: This value will affects GPU memory usage.
+                <item row="0" column="2" colspan="3">
+                 <widget class="QFrame" name="frame_13">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_35">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="pushButton_BlockSize_Minus_W2xConverter">
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">-</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="spinBox_BlockSize_converter">
+                     <property name="toolTip">
+                      <string>Block size: This value will affects GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</string>
+                     </property>
+                     <property name="minimum">
+                      <number>32</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>256</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="pushButton_BlockSize_Add_W2xConverter">
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">+</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="0" colspan="2">
+                 <widget class="QCheckBox" name="checkBox_ForceOpenCL_converter">
+                  <property name="toolTip">
+                   <string>Force to use OpenCL on Intel Platform.</string>
                   </property>
-                  <property name="minimum">
-                   <number>32</number>
+                  <property name="text">
+                   <string>Force OpenCL</string>
                   </property>
-                  <property name="maximum">
-                   <number>999999999</number>
+                 </widget>
+                </item>
+                <item row="2" column="2" colspan="2">
+                 <widget class="QComboBox" name="comboBox_TargetProcessor_converter">
+                  <property name="enabled">
+                   <bool>true</bool>
                   </property>
-                  <property name="singleStep">
-                   <number>10</number>
+                  <property name="currentText">
+                   <string notr="true">auto</string>
                   </property>
-                  <property name="value">
-                   <number>300</number>
-                  </property>
+                  <item>
+                   <property name="text">
+                    <string notr="true">auto</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>
               </widget>
               <widget class="QWidget" name="tab_7">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
                <attribute name="title">
                 <string notr="true">Anime4K</string>
                </attribute>
@@ -3794,404 +4032,157 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [ Speed:★★★  Image Quality:★ ]</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_5">
-                <item row="5" column="0" colspan="12">
-                 <layout class="QHBoxLayout" name="horizontalLayout_2">
-                  <item>
-                   <widget class="QGroupBox" name="groupBox_PreProcessing_Anime4k">
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
-                     </size>
-                    </property>
-                    <property name="toolTip">
-                     <string/>
-                    </property>
-                    <property name="title">
-                     <string>Pre-processing</string>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_25">
-                     <item row="1" column="0" colspan="4">
-                      <widget class="Line" name="line_8">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QCheckBox" name="checkBox_MeanBlur_Pre_Anime4k">
-                       <property name="text">
-                        <string>Mean blur</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QCheckBox" name="checkBox_MedianBlur_Pre_Anime4k">
-                       <property name="text">
-                        <string>Median blur</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="1" colspan="3">
-                      <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Pre_Anime4k">
-                       <property name="text">
-                        <string>Gaussian blur weak</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="2" colspan="2">
-                      <widget class="QCheckBox" name="checkBox_CASSharping_Pre_Anime4k">
-                       <property name="text">
-                        <string>CAS Sharpening</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="0">
-                      <widget class="QCheckBox" name="checkBox_GaussianBlur_Pre_Anime4k">
-                       <property name="text">
-                        <string>Gaussian blur</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="0">
-                      <widget class="QCheckBox" name="checkBox_BilateralFilter_Pre_Anime4k">
-                       <property name="text">
-                        <string>Bilateral filter</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="1" colspan="3">
-                      <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Pre_Anime4k">
-                       <property name="text">
-                        <string>Bilateral filter faster</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="0" colspan="3">
-                      <widget class="QCheckBox" name="checkBox_EnablePreProcessing_Anime4k">
-                       <property name="toolTip">
-                        <string>Apply filters to image before process it.</string>
-                       </property>
-                       <property name="text">
-                        <string>Enable Pre-processing</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QGroupBox" name="groupBox_PostProcessing_Anime4k">
-                    <property name="toolTip">
-                     <string/>
-                    </property>
-                    <property name="title">
-                     <string>Post-processing</string>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_24">
-                     <item row="0" column="0" colspan="3">
-                      <widget class="QCheckBox" name="checkBox_EnablePostProcessing_Anime4k">
-                       <property name="toolTip">
-                        <string>Add filters to the image after processing it.</string>
-                       </property>
-                       <property name="text">
-                        <string>Enable Post-processing</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0" colspan="4">
-                      <widget class="Line" name="line_9">
-                       <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QCheckBox" name="checkBox_MedianBlur_Post_Anime4k">
-                       <property name="text">
-                        <string>Median blur</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="1">
-                      <widget class="QCheckBox" name="checkBox_MeanBlur_Post_Anime4k">
-                       <property name="text">
-                        <string>Mean blur</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="2" colspan="2">
-                      <widget class="QCheckBox" name="checkBox_CASSharping_Post_Anime4k">
-                       <property name="text">
-                        <string>CAS Sharpening</string>
-                       </property>
-                       <property name="checked">
-                        <bool>false</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="0">
-                      <widget class="QCheckBox" name="checkBox_GaussianBlur_Post_Anime4k">
-                       <property name="text">
-                        <string>Gaussian blur</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="0">
-                      <widget class="QCheckBox" name="checkBox_BilateralFilter_Post_Anime4k">
-                       <property name="text">
-                        <string>Bilateral filter</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="3" column="1" colspan="3">
-                      <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Post_Anime4k">
-                       <property name="text">
-                        <string>Gaussian blur weak</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="4" column="1" colspan="3">
-                      <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Post_Anime4k">
-                       <property name="text">
-                        <string>Bilateral filter faster</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item row="4" column="0" colspan="12">
-                 <widget class="QWidget" name="widget" native="true">
+                <property name="sizeConstraint">
+                 <enum>QLayout::SetDefaultConstraint</enum>
+                </property>
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QFrame" name="frame_16">
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>42</height>
+                    <height>16777215</height>
                    </size>
                   </property>
-                  <layout class="QGridLayout" name="gridLayout_38">
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_57">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="verticalSpacing">
+                    <number>7</number>
+                   </property>
                    <item row="0" column="0">
-                    <widget class="QLabel" name="label_48">
-                     <property name="toolTip">
-                      <string>Passes for processing.</string>
-                     </property>
-                     <property name="text">
-                      <string>Passes:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>999999999</number>
-                     </property>
-                     <property name="value">
-                      <number>2</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QLabel" name="label_49">
-                     <property name="toolTip">
-                      <string>Limit the number of color pushes.</string>
-                     </property>
-                     <property name="text">
-                      <string>Push color count:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>999999999</number>
-                     </property>
-                     <property name="value">
-                      <number>2</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="4">
-                    <widget class="QLabel" name="label_50">
-                     <property name="toolTip">
-                      <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
-                     </property>
-                     <property name="text">
-                      <string>Push color strength:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="5">
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
-                     <property name="maximum">
-                      <double>1.000000000000000</double>
-                     </property>
-                     <property name="singleStep">
-                      <double>0.100000000000000</double>
-                     </property>
-                     <property name="value">
-                      <double>0.300000000000000</double>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="6">
-                    <widget class="QLabel" name="label_51">
-                     <property name="toolTip">
-                      <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
-                     </property>
-                     <property name="text">
-                      <string>Push gradient strength:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="7">
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
-                     <property name="maximum">
-                      <double>1.000000000000000</double>
-                     </property>
-                     <property name="singleStep">
-                      <double>0.100000000000000</double>
-                     </property>
-                     <property name="value">
-                      <double>1.000000000000000</double>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </widget>
-                </item>
-                <item row="1" column="5">
-                 <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
-                  <property name="toolTip">
-                   <string>Enable GPU acceleration.</string>
-                  </property>
-                  <property name="text">
-                   <string>GPU Mode</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="7">
-                 <widget class="Line" name="line_15">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="4">
-                 <widget class="Line" name="line_13">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0" colspan="12">
-                 <widget class="Line" name="line_14">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="6">
-                 <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>You can specify multiple GPUs to fully 
-utilize the capabilities of your PC.
-(If there are multiple GPUs available.)</string>
-                  </property>
-                  <property name="text">
-                   <string>Specify GPUs</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0" colspan="4">
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Enable ACNet.
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
+                       <property name="enabled">
+                        <bool>true</bool>
+                       </property>
+                       <property name="toolTip">
+                        <string>Enable ACNet.
 Will improve image quality.</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">ACNet</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_HDNMode_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Enable HDN mode for ACNet.
+                       </property>
+                       <property name="text">
+                        <string notr="true">ACNet</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="checkBox_HDNMode_Anime4k">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="toolTip">
+                        <string>Enable HDN mode for ACNet.
 Will improve image quality.
 
 *This option will be deactivated
 when [ACNet] is disabled*</string>
-                    </property>
-                    <property name="text">
-                     <string>HDN mode</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
-                    <property name="toolTip">
-                     <string>Faster but maybe low quality.</string>
-                    </property>
-                    <property name="text">
-                     <string>Fast mode</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item row="1" column="8" colspan="4">
-                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                  <item>
-                   <widget class="QLabel" name="label_19">
-                    <property name="text">
-                     <string notr="true">GPUs:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="lineEdit_GPUs_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Format: Platform ID,Device ID:
+                       </property>
+                       <property name="text">
+                        <string>HDN mode</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
+                       <property name="toolTip">
+                        <string>Faster but maybe low quality.</string>
+                       </property>
+                       <property name="text">
+                        <string>Fast mode</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="Line" name="line_13">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
+                     <property name="toolTip">
+                      <string>Enable GPU acceleration.</string>
+                     </property>
+                     <property name="text">
+                      <string>GPU Mode</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="toolTip">
+                      <string>You can specify multiple GPUs to fully 
+utilize the capabilities of your PC.
+(If there are multiple GPUs available.)</string>
+                     </property>
+                     <property name="text">
+                      <string>Specify GPUs</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="Line" name="line_15">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="5">
+                    <layout class="QHBoxLayout" name="horizontalLayout_6">
+                     <item>
+                      <widget class="QLabel" name="label_19">
+                       <property name="text">
+                        <string notr="true">GPUs:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="lineEdit_GPUs_Anime4k">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="toolTip">
+                        <string>Format: Platform ID,Device ID:
 
 Example: 0,0:0,1:1,0:
 
@@ -4199,25 +4190,25 @@ You must follow the format,otherwise the software may crash.
 
 If you wanna get all GPUs running together,
 the number of threads must &gt;= the number of GPUs.</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">0,0:</string>
-                    </property>
-                    <property name="clearButtonEnabled">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Verify your GPUs configuration.</string>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
+                       </property>
+                       <property name="text">
+                        <string notr="true">0,0:</string>
+                       </property>
+                       <property name="clearButtonEnabled">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Anime4k">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="toolTip">
+                        <string>Verify your GPUs configuration.</string>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
 background-color: rgb(178, 58, 238);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -4245,25 +4236,25 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>Verify</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>35</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
+                       </property>
+                       <property name="text">
+                        <string>Verify</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
+                       <property name="enabled">
+                        <bool>false</bool>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>35</height>
+                        </size>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">QPushButton{
 background-color: rgb(26, 188, 156);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -4291,13 +4282,335 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>List GPUs</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                       </property>
+                       <property name="text">
+                        <string>List GPUs</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item row="1" column="0" colspan="6">
+                    <widget class="Line" name="line_14">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0" colspan="6">
+                    <widget class="QWidget" name="widget" native="true">
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>42</height>
+                      </size>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_38">
+                      <item row="0" column="0">
+                       <widget class="QLabel" name="label_48">
+                        <property name="toolTip">
+                         <string>Passes for processing.</string>
+                        </property>
+                        <property name="text">
+                         <string>Passes:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="1">
+                       <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
+                        <property name="minimum">
+                         <number>1</number>
+                        </property>
+                        <property name="maximum">
+                         <number>999999999</number>
+                        </property>
+                        <property name="value">
+                         <number>2</number>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="2">
+                       <widget class="QLabel" name="label_49">
+                        <property name="toolTip">
+                         <string>Limit the number of color pushes.</string>
+                        </property>
+                        <property name="text">
+                         <string>Push color count:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="3">
+                       <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
+                        <property name="minimum">
+                         <number>1</number>
+                        </property>
+                        <property name="maximum">
+                         <number>999999999</number>
+                        </property>
+                        <property name="value">
+                         <number>2</number>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="4">
+                       <widget class="QLabel" name="label_50">
+                        <property name="toolTip">
+                         <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
+                        </property>
+                        <property name="text">
+                         <string>Push color strength:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="5">
+                       <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
+                        <property name="maximum">
+                         <double>1.000000000000000</double>
+                        </property>
+                        <property name="singleStep">
+                         <double>0.100000000000000</double>
+                        </property>
+                        <property name="value">
+                         <double>0.300000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="6">
+                       <widget class="QLabel" name="label_51">
+                        <property name="toolTip">
+                         <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
+                        </property>
+                        <property name="text">
+                         <string>Push gradient strength:</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="0" column="7">
+                       <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
+                        <property name="maximum">
+                         <double>1.000000000000000</double>
+                        </property>
+                        <property name="singleStep">
+                         <double>0.100000000000000</double>
+                        </property>
+                        <property name="value">
+                         <double>1.000000000000000</double>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                   <item row="3" column="0" colspan="6">
+                    <layout class="QHBoxLayout" name="horizontalLayout_2">
+                     <item>
+                      <widget class="QGroupBox" name="groupBox_PreProcessing_Anime4k">
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <property name="toolTip">
+                        <string/>
+                       </property>
+                       <property name="title">
+                        <string>Pre-processing</string>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_25">
+                        <property name="leftMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>6</number>
+                        </property>
+                        <item row="1" column="0" colspan="4">
+                         <widget class="Line" name="line_8">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QCheckBox" name="checkBox_MeanBlur_Pre_Anime4k">
+                          <property name="text">
+                           <string>Mean blur</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QCheckBox" name="checkBox_MedianBlur_Pre_Anime4k">
+                          <property name="text">
+                           <string>Median blur</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="1" colspan="3">
+                         <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Pre_Anime4k">
+                          <property name="text">
+                           <string>Gaussian blur weak</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="2" colspan="2">
+                         <widget class="QCheckBox" name="checkBox_CASSharping_Pre_Anime4k">
+                          <property name="text">
+                           <string>CAS Sharpening</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QCheckBox" name="checkBox_GaussianBlur_Pre_Anime4k">
+                          <property name="text">
+                           <string>Gaussian blur</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="0">
+                         <widget class="QCheckBox" name="checkBox_BilateralFilter_Pre_Anime4k">
+                          <property name="text">
+                           <string>Bilateral filter</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1" colspan="3">
+                         <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Pre_Anime4k">
+                          <property name="text">
+                           <string>Bilateral filter faster</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="0" colspan="3">
+                         <widget class="QCheckBox" name="checkBox_EnablePreProcessing_Anime4k">
+                          <property name="toolTip">
+                           <string>Apply filters to image before process it.</string>
+                          </property>
+                          <property name="text">
+                           <string>Enable Pre-processing</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QGroupBox" name="groupBox_PostProcessing_Anime4k">
+                       <property name="toolTip">
+                        <string/>
+                       </property>
+                       <property name="title">
+                        <string>Post-processing</string>
+                       </property>
+                       <layout class="QGridLayout" name="gridLayout_24">
+                        <property name="leftMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="topMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="rightMargin">
+                         <number>6</number>
+                        </property>
+                        <property name="bottomMargin">
+                         <number>6</number>
+                        </property>
+                        <item row="0" column="0" colspan="3">
+                         <widget class="QCheckBox" name="checkBox_EnablePostProcessing_Anime4k">
+                          <property name="toolTip">
+                           <string>Add filters to the image after processing it.</string>
+                          </property>
+                          <property name="text">
+                           <string>Enable Post-processing</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="1" column="0" colspan="4">
+                         <widget class="Line" name="line_9">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="0">
+                         <widget class="QCheckBox" name="checkBox_MedianBlur_Post_Anime4k">
+                          <property name="text">
+                           <string>Median blur</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="1">
+                         <widget class="QCheckBox" name="checkBox_MeanBlur_Post_Anime4k">
+                          <property name="text">
+                           <string>Mean blur</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="2" column="2" colspan="2">
+                         <widget class="QCheckBox" name="checkBox_CASSharping_Post_Anime4k">
+                          <property name="text">
+                           <string>CAS Sharpening</string>
+                          </property>
+                          <property name="checked">
+                           <bool>false</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="0">
+                         <widget class="QCheckBox" name="checkBox_GaussianBlur_Post_Anime4k">
+                          <property name="text">
+                           <string>Gaussian blur</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="0">
+                         <widget class="QCheckBox" name="checkBox_BilateralFilter_Post_Anime4k">
+                          <property name="text">
+                           <string>Bilateral filter</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="3" column="1" colspan="3">
+                         <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Post_Anime4k">
+                          <property name="text">
+                           <string>Gaussian blur weak</string>
+                          </property>
+                          <property name="checked">
+                           <bool>true</bool>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="4" column="1" colspan="3">
+                         <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Post_Anime4k">
+                          <property name="text">
+                           <string>Bilateral filter faster</string>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
                </layout>
               </widget>
@@ -4314,29 +4627,89 @@ padding:10px;
 
 - [ Speed:★☆  Image Quality:★★★ ]</string>
                </attribute>
-               <layout class="QGridLayout" name="gridLayout_36">
-                <item row="1" column="0">
+               <layout class="QGridLayout" name="gridLayout_55">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>7</number>
+                </property>
+                <item row="3" column="0">
                  <widget class="QLabel" name="label_41">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="text">
                    <string>GPU ID:</string>
                   </property>
                  </widget>
                 </item>
-                <item row="5" column="0" colspan="3">
+                <item row="3" column="2" colspan="2">
+                 <widget class="QCheckBox" name="checkBox_MultiGPU_SrmdNCNNVulkan">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>1.You need at least 2 available GPUs.
+
+2.If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.
+
+3.You need to [Detect available GPU ID] first.</string>
+                  </property>
+                  <property name="text">
+                   <string>Enable Multi-GPU</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0" colspan="5">
                  <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_SrmdNCNNVulkan">
                   <property name="enabled">
                    <bool>false</bool>
                   </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>75</height>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="title">
                    <string>GPU Settings(Multi-GPU)</string>
                   </property>
                   <layout class="QGridLayout" name="gridLayout_41">
+                   <property name="leftMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>6</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>6</number>
+                   </property>
                    <item row="0" column="2">
                     <widget class="QCheckBox" name="checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan">
                      <property name="sizePolicy">
@@ -4458,7 +4831,7 @@ padding:10px;
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1">
+                <item row="3" column="1">
                  <widget class="QComboBox" name="comboBox_GPUID_srmd">
                   <property name="toolTip">
                    <string>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</string>
@@ -4473,53 +4846,7 @@ padding:10px;
                   </item>
                  </widget>
                 </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_40">
-                  <property name="toolTip">
-                   <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means SRMD will use more GPU memory and run faster.
-Smaller tile size means SRMD will use less GPU memory and run slower.</string>
-                  </property>
-                  <property name="text">
-                   <string>Tile size:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="QCheckBox" name="checkBox_TTA_srmd">
-                  <property name="toolTip">
-                   <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">TTA</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QSpinBox" name="spinBox_TileSize_srmd">
-                  <property name="toolTip">
-                   <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means SRMD will use more GPU memory and run faster.
-Smaller tile size means SRMD will use less GPU memory and run slower.</string>
-                  </property>
-                  <property name="minimum">
-                   <number>32</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>10</number>
-                  </property>
-                  <property name="value">
-                   <number>100</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0" colspan="3">
+                <item row="4" column="0" colspan="5">
                  <widget class="QPushButton" name="pushButton_DetectGPUID_srmd">
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
@@ -4556,18 +4883,117 @@ padding:10px;
                   </property>
                  </widget>
                 </item>
-                <item row="1" column="2">
-                 <widget class="QCheckBox" name="checkBox_MultiGPU_SrmdNCNNVulkan">
+                <item row="2" column="1">
+                 <widget class="QFrame" name="frame_14">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_36">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="pushButton_Minus_TileSize_SrmdNCNNVulkan">
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">-</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="spinBox_TileSize_srmd">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means SRMD will use more GPU memory and run faster.
+Smaller tile size means SRMD will use less GPU memory and run slower.</string>
+                     </property>
+                     <property name="minimum">
+                      <number>32</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>128</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="pushButton_Add_TileSize_SrmdNCNNVulkan">
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">+</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_40">
                   <property name="toolTip">
-                   <string>1.You need at least 2 available GPUs.
-
-2.If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.
-
-3.You need to [Detect available GPU ID] first.</string>
+                   <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means SRMD will use more GPU memory and run faster.
+Smaller tile size means SRMD will use less GPU memory and run slower.</string>
                   </property>
                   <property name="text">
-                   <string>Enable Multi-GPU</string>
+                   <string>Tile size:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QCheckBox" name="checkBox_TTA_srmd">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">TTA</string>
                   </property>
                  </widget>
                 </item>
@@ -4592,7 +5018,153 @@ is recommended.
 - [ Speed:★☆  Image Quality:★★★ ]</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_30">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>7</number>
+                </property>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="label_52">
+                  <property name="toolTip">
+                   <string>Split size: This value will affects GPU memory usage.
+Larger Split size means waifu2x will use more GPU memory and run faster.
+Smaller Split size means waifu2x will use less GPU memory and run slower.</string>
+                  </property>
+                  <property name="text">
+                   <string>Split size:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="label_38">
+                  <property name="text">
+                   <string>GPU ID:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="3">
+                 <widget class="QPushButton" name="pushButton_SplitSize_Add_Waifu2xCaffe">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Increase split size.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">+</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3" colspan="3">
+                 <widget class="QCheckBox" name="checkBox_TTA_Waifu2xCaffe">
+                  <property name="toolTip">
+                   <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">TTA</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="5">
+                 <widget class="QComboBox" name="comboBox_Model_3D_Waifu2xCaffe">
+                  <property name="toolTip">
+                   <string>Model for processing 3D Real-life style image.</string>
+                  </property>
+                  <property name="currentText">
+                   <string notr="true">upconv_7_photo</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>upconv_7_photo</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>photo</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
                 <item row="3" column="1" colspan="5">
+                 <widget class="QSpinBox" name="spinBox_GPUID_Waifu2xCaffe">
+                  <property name="toolTip">
+                   <string>Select the GPU to use when enabling the &quot;waifu2x-caffe&quot; engine.</string>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="2">
+                 <widget class="QSpinBox" name="spinBox_SplitSize_Waifu2xCaffe">
+                  <property name="toolTip">
+                   <string>Split size: This value will affects GPU memory usage.
+Larger Split size means waifu2x will use more GPU memory and run faster.
+Smaller Split size means waifu2x will use less GPU memory and run slower.</string>
+                  </property>
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="buttonSymbols">
+                   <enum>QAbstractSpinBox::NoButtons</enum>
+                  </property>
+                  <property name="correctionMode">
+                   <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="value">
+                   <number>128</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1" colspan="4">
+                 <widget class="QLineEdit" name="lineEdit_MultiGPUInfo_Waifu2xCaffe">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>Format: GPU ID,Batch size,Split size:
+
+Example: 0,1,128:1,2,64:2,1,128:
+
+You must follow the format,otherwise the software may crash.
+
+If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">0,1,128:</string>
+                  </property>
+                  <property name="clearButtonEnabled">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="5">
                  <widget class="QComboBox" name="comboBox_Model_2D_Waifu2xCaffe">
                   <property name="toolTip">
                    <string>Model for processing 2D Anime style image.</string>
@@ -4640,120 +5212,7 @@ is recommended.
                   </item>
                  </widget>
                 </item>
-                <item row="0" column="3" colspan="3">
-                 <widget class="QCheckBox" name="checkBox_TTA_Waifu2xCaffe">
-                  <property name="toolTip">
-                   <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">TTA</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="6" column="1" colspan="5">
-                 <widget class="QSpinBox" name="spinBox_GPUID_Waifu2xCaffe">
-                  <property name="toolTip">
-                   <string>Select the GPU to use when enabling the &quot;waifu2x-caffe&quot; engine.</string>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0">
-                 <widget class="QLabel" name="label_56">
-                  <property name="text">
-                   <string>3D Real-life Model:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="0">
-                 <widget class="QLabel" name="label_43">
-                  <property name="toolTip">
-                   <string>The batch size defines the number of samples that 
-will be propagated through the network.</string>
-                  </property>
-                  <property name="text">
-                   <string>Batch size:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="0">
-                 <widget class="QLabel" name="label_52">
-                  <property name="toolTip">
-                   <string>Split size: This value will affects GPU memory usage.
-Larger Split size means waifu2x will use more GPU memory and run faster.
-Smaller Split size means waifu2x will use less GPU memory and run slower.</string>
-                  </property>
-                  <property name="text">
-                   <string>Split size:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0">
-                 <widget class="QLabel" name="label_25">
-                  <property name="text">
-                   <string>2D Anime Model:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_14">
-                  <property name="text">
-                   <string>Process mode:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="2">
-                 <widget class="QSpinBox" name="spinBox_SplitSize_Waifu2xCaffe">
-                  <property name="toolTip">
-                   <string>Split size: This value will affects GPU memory usage.
-Larger Split size means waifu2x will use more GPU memory and run faster.
-Smaller Split size means waifu2x will use less GPU memory and run slower.</string>
-                  </property>
-                  <property name="readOnly">
-                   <bool>true</bool>
-                  </property>
-                  <property name="buttonSymbols">
-                   <enum>QAbstractSpinBox::NoButtons</enum>
-                  </property>
-                  <property name="correctionMode">
-                   <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="value">
-                   <number>128</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="8" column="3">
-                 <widget class="QPushButton" name="pushButton_SplitSize_Add_Waifu2xCaffe">
-                  <property name="maximumSize">
-                   <size>
-                    <width>30</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Increase split size.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">+</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="7" column="1" colspan="5">
+                <item row="4" column="1" colspan="5">
                  <widget class="QSpinBox" name="spinBox_BatchSize_Waifu2xCaffe">
                   <property name="toolTip">
                    <string>The batch size defines the number of samples that 
@@ -4767,30 +5226,24 @@ will be propagated through the network.</string>
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="1" colspan="5">
-                 <widget class="QComboBox" name="comboBox_Model_3D_Waifu2xCaffe">
+                <item row="6" column="0">
+                 <widget class="QCheckBox" name="checkBox_EnableMultiGPU_Waifu2xCaffe">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
                   <property name="toolTip">
-                   <string>Model for processing 3D Real-life style image.</string>
+                   <string>You need to switch [Process mode] to
+[GPU] or [cuDNN] to enable Multi-GPU.</string>
                   </property>
-                  <property name="currentText">
-                   <string notr="true">upconv_7_photo</string>
+                  <property name="text">
+                   <string>Multi-GPU:</string>
                   </property>
-                  <item>
-                   <property name="text">
-                    <string>upconv_7_photo</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>photo</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
-                <item row="6" column="0">
-                 <widget class="QLabel" name="label_38">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_14">
                   <property name="text">
-                   <string>GPU ID:</string>
+                   <string>Process mode:</string>
                   </property>
                  </widget>
                 </item>
@@ -4819,60 +5272,7 @@ will be propagated through the network.</string>
                   </item>
                  </widget>
                 </item>
-                <item row="8" column="1">
-                 <widget class="QPushButton" name="pushButton_SplitSize_Minus_Waifu2xCaffe">
-                  <property name="maximumSize">
-                   <size>
-                    <width>30</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Decrease split size.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">-</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="0">
-                 <widget class="QCheckBox" name="checkBox_EnableMultiGPU_Waifu2xCaffe">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>You need to switch [Process mode] to
-[GPU] or [cuDNN] to enable Multi-GPU.</string>
-                  </property>
-                  <property name="text">
-                   <string>Multi-GPU:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="1" colspan="4">
-                 <widget class="QLineEdit" name="lineEdit_MultiGPUInfo_Waifu2xCaffe">
-                  <property name="enabled">
-                   <bool>false</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>Format: GPU ID,Batch size,Split size:
-
-Example: 0,1,128:1,2,64:2,1,128:
-
-You must follow the format,otherwise the software may crash.
-
-If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">0,1,128:</string>
-                  </property>
-                  <property name="clearButtonEnabled">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="9" column="5">
+                <item row="6" column="5">
                  <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Waifu2xCaffe">
                   <property name="enabled">
                    <bool>false</bool>
@@ -4915,6 +5315,47 @@ padding:10px;
                   </property>
                  </widget>
                 </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_25">
+                  <property name="text">
+                   <string>2D Anime Model:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="label_43">
+                  <property name="toolTip">
+                   <string>The batch size defines the number of samples that 
+will be propagated through the network.</string>
+                  </property>
+                  <property name="text">
+                   <string>Batch size:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_56">
+                  <property name="text">
+                   <string>3D Real-life Model:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QPushButton" name="pushButton_SplitSize_Minus_Waifu2xCaffe">
+                  <property name="maximumSize">
+                   <size>
+                    <width>30</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Decrease split size.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">-</string>
+                  </property>
+                 </widget>
+                </item>
                </layout>
               </widget>
               <widget class="QWidget" name="tab_2">
@@ -4933,14 +5374,22 @@ padding:10px;
 - [ Speed:☆  Image Quality:★★★ ]</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_34">
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label_60">
-                  <property name="text">
-                   <string>Model:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1" colspan="2">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <property name="verticalSpacing">
+                 <number>7</number>
+                </property>
+                <item row="0" column="1" colspan="3">
                  <widget class="QComboBox" name="comboBox_Model_RealsrNCNNVulkan">
                   <item>
                    <property name="text">
@@ -4954,75 +5403,21 @@ padding:10px;
                   </item>
                  </widget>
                 </item>
-                <item row="0" column="3">
-                 <widget class="QCheckBox" name="checkBox_TTA_RealsrNCNNVulkan">
-                  <property name="toolTip">
-                   <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">TTA</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_61">
-                  <property name="text">
-                   <string>Tile size:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="0">
-                 <widget class="QLabel" name="label_62">
-                  <property name="text">
-                   <string>GPU ID:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1">
-                 <widget class="QComboBox" name="comboBox_GPUID_RealsrNCNNVulkan">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
-                  </property>
-                  <property name="currentText">
-                   <string notr="true">auto</string>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string notr="true">auto</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item row="2" column="2" colspan="2">
-                 <widget class="QCheckBox" name="checkBox_MultiGPU_RealsrNcnnVulkan">
-                  <property name="toolTip">
-                   <string>1.You need at least 2 available GPUs.
-
-2.If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.
-
-3.You need to [Detect available GPU ID] first.</string>
-                  </property>
-                  <property name="text">
-                   <string>Enable Multi-GPU</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0" colspan="4">
+                <item row="4" column="0" colspan="6">
                  <widget class="QGroupBox" name="groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan">
                   <property name="enabled">
                    <bool>false</bool>
                   </property>
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
                   <property name="maximumSize">
                    <size>
                     <width>16777215</width>
-                    <height>75</height>
+                    <height>16777215</height>
                    </size>
                   </property>
                   <property name="title">
@@ -5150,28 +5545,7 @@ padding:10px;
                   </layout>
                  </widget>
                 </item>
-                <item row="1" column="1" colspan="3">
-                 <widget class="QSpinBox" name="spinBox_TileSize_RealsrNCNNVulkan">
-                  <property name="toolTip">
-                   <string>Tile size: This value will affects GPU memory usage.
-Larger tile size means Realsr will use more GPU memory and run faster.
-Smaller tile size means Realsr will use less GPU memory and run slower.</string>
-                  </property>
-                  <property name="minimum">
-                   <number>32</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>10</number>
-                  </property>
-                  <property name="value">
-                   <number>100</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="3" column="0" colspan="4">
+                <item row="3" column="0" colspan="6">
                  <widget class="QPushButton" name="pushButton_DetectGPU_RealsrNCNNVulkan">
                   <property name="enabled">
                    <bool>true</bool>
@@ -5208,6 +5582,162 @@ padding:10px;
                   </property>
                   <property name="text">
                    <string>Detect available GPU ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="2">
+                 <widget class="QFrame" name="frame_15">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>0</height>
+                   </size>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_56">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="pushButton_Minus_TileSize_RealsrNCNNVulkan">
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">-</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="spinBox_TileSize_RealsrNCNNVulkan">
+                     <property name="toolTip">
+                      <string>Tile size: This value will affects GPU memory usage.
+Larger tile size means Realsr will use more GPU memory and run faster.
+Smaller tile size means Realsr will use less GPU memory and run slower.</string>
+                     </property>
+                     <property name="minimum">
+                      <number>32</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>128</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="pushButton_Add_TileSize_RealsrNCNNVulkan">
+                     <property name="maximumSize">
+                      <size>
+                       <width>30</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string notr="true">+</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="2" column="4">
+                 <widget class="QCheckBox" name="checkBox_MultiGPU_RealsrNcnnVulkan">
+                  <property name="toolTip">
+                   <string>1.You need at least 2 available GPUs.
+
+2.If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.
+
+3.You need to [Detect available GPU ID] first.</string>
+                  </property>
+                  <property name="text">
+                   <string>Enable Multi-GPU</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1" colspan="3">
+                 <widget class="QComboBox" name="comboBox_GPUID_RealsrNCNNVulkan">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</string>
+                  </property>
+                  <property name="currentText">
+                   <string notr="true">auto</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string notr="true">auto</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="label_62">
+                  <property name="text">
+                   <string>GPU ID:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="label_60">
+                  <property name="text">
+                   <string>Model:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="4">
+                 <widget class="QCheckBox" name="checkBox_TTA_RealsrNCNNVulkan">
+                  <property name="toolTip">
+                   <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                  </property>
+                  <property name="text">
+                   <string notr="true">TTA</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="label_61">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string>Tile size:</string>
                   </property>
                  </widget>
                 </item>

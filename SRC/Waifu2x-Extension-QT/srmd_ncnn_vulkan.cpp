@@ -2151,3 +2151,15 @@ void MainWindow::on_pushButton_ShowMultiGPUSettings_SrmdNCNNVulkan_clicked()
     MSG->setModal(true);
     MSG->show();
 }
+/*
+SRMD 块大小调整按钮
+*/
+void MainWindow::on_pushButton_Add_TileSize_SrmdNCNNVulkan_clicked()
+{
+    ui->spinBox_TileSize_srmd->setValue(AddTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize_srmd->value()));
+}
+
+void MainWindow::on_pushButton_Minus_TileSize_SrmdNCNNVulkan_clicked()
+{
+    ui->spinBox_TileSize_srmd->setValue(MinusTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize_srmd->value()));
+}

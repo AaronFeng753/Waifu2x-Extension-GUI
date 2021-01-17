@@ -2138,3 +2138,15 @@ void MainWindow::on_pushButton_ShowMultiGPUSettings_RealsrNcnnVulkan_clicked()
     MSG->setModal(true);
     MSG->show();
 }
+/*
+RealSR 块大小调整按钮
+*/
+void MainWindow::on_pushButton_Add_TileSize_RealsrNCNNVulkan_clicked()
+{
+    ui->spinBox_TileSize_RealsrNCNNVulkan->setValue(AddTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize_RealsrNCNNVulkan->value()));
+}
+
+void MainWindow::on_pushButton_Minus_TileSize_RealsrNCNNVulkan_clicked()
+{
+    ui->spinBox_TileSize_RealsrNCNNVulkan->setValue(MinusTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize_RealsrNCNNVulkan->value()));
+}

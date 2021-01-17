@@ -99,12 +99,12 @@
         <translation type="vanished">一直隐藏输入路径</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7117"/>
+        <location filename="mainwindow.ui" line="7647"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>当文件的处理状态改变时,文件列表自动滑动.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7120"/>
+        <location filename="mainwindow.ui" line="7650"/>
         <source>File list scrolls automatically</source>
         <translation>自动滑动文件列表</translation>
     </message>
@@ -113,12 +113,12 @@
         <translation type="vanished">Alpha通道图像引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6558"/>
+        <location filename="mainwindow.ui" line="7088"/>
         <source>Report issue</source>
         <translation>反馈</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6678"/>
+        <location filename="mainwindow.ui" line="7208"/>
         <source>Check update</source>
         <translation>检查更新</translation>
     </message>
@@ -127,7 +127,7 @@
         <translation type="vanished">说明文档</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6516"/>
+        <location filename="mainwindow.ui" line="7046"/>
         <source>Save settings</source>
         <translation>保存设置</translation>
     </message>
@@ -141,12 +141,12 @@
         <translation type="vanished">★ 捐赠 ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7699"/>
+        <location filename="mainwindow.ui" line="8229"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>进行兼容性测试以了解您的电脑与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7316"/>
+        <location filename="mainwindow.ui" line="7846"/>
         <source>Compatibility test</source>
         <translation>兼容性测试</translation>
     </message>
@@ -160,7 +160,7 @@ WARNING: The original file will be DELETED.</source>
 警告: 原文件将会被删除.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6635"/>
+        <location filename="mainwindow.ui" line="7165"/>
         <source>Reset settings</source>
         <translation>重置设置</translation>
     </message>
@@ -187,7 +187,7 @@ WARNING: The original file will be DELETED.</source>
         <translation type="vanished">waifu2x-ncnn-vulkan</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3272"/>
+        <location filename="mainwindow.ui" line="3213"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.
@@ -202,12 +202,12 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
 (仅在使用waifu2x-ncnn-vulkan引擎时生效.)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3278"/>
-        <location filename="mainwindow.ui" line="3392"/>
-        <location filename="mainwindow.ui" line="4365"/>
-        <location filename="mainwindow.ui" line="4484"/>
-        <location filename="mainwindow.ui" line="4973"/>
-        <location filename="mainwindow.ui" line="5073"/>
+        <location filename="mainwindow.ui" line="3219"/>
+        <location filename="mainwindow.ui" line="3577"/>
+        <location filename="mainwindow.ui" line="4738"/>
+        <location filename="mainwindow.ui" line="4977"/>
+        <location filename="mainwindow.ui" line="5468"/>
+        <location filename="mainwindow.ui" line="5740"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="2130"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="2143"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="2131"/>
@@ -231,18 +231,18 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation>3D写实</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3213"/>
+        <location filename="mainwindow.ui" line="3245"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</source>
         <translation>选择在启用waifu2x-ncnn-vulkan引擎时所使用的GPU.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3216"/>
-        <location filename="mainwindow.ui" line="3408"/>
-        <location filename="mainwindow.ui" line="4321"/>
-        <location filename="mainwindow.ui" line="4444"/>
-        <location filename="mainwindow.ui" line="4793"/>
-        <location filename="mainwindow.ui" line="4980"/>
-        <location filename="mainwindow.ui" line="5057"/>
+        <location filename="mainwindow.ui" line="3248"/>
+        <location filename="mainwindow.ui" line="3593"/>
+        <location filename="mainwindow.ui" line="4655"/>
+        <location filename="mainwindow.ui" line="4817"/>
+        <location filename="mainwindow.ui" line="5051"/>
+        <location filename="mainwindow.ui" line="5452"/>
+        <location filename="mainwindow.ui" line="5707"/>
         <source>GPU ID:</source>
         <translation>GPU ID:</translation>
     </message>
@@ -251,9 +251,9 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation type="vanished">图像样式:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3191"/>
-        <location filename="mainwindow.ui" line="4555"/>
-        <location filename="mainwindow.ui" line="5210"/>
+        <location filename="mainwindow.ui" line="3295"/>
+        <location filename="mainwindow.ui" line="4882"/>
+        <location filename="mainwindow.ui" line="5584"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1957"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1936"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1906"/>
@@ -261,8 +261,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation>查询可用的GPU ID</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3019"/>
-        <location filename="mainwindow.ui" line="5377"/>
+        <location filename="mainwindow.ui" line="3118"/>
+        <location filename="mainwindow.ui" line="5907"/>
         <source>GIF:</source>
         <translation>GIF:</translation>
     </message>
@@ -310,9 +310,9 @@ Anime4k  [ 速度:★★★  画质:☆ ]
 几乎看不出区别.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2918"/>
-        <location filename="mainwindow.ui" line="5346"/>
-        <location filename="mainwindow.ui" line="6104"/>
+        <location filename="mainwindow.ui" line="2904"/>
+        <location filename="mainwindow.ui" line="5876"/>
+        <location filename="mainwindow.ui" line="6634"/>
         <source>Image:</source>
         <translation>图片:</translation>
     </message>
@@ -384,9 +384,9 @@ When this option is enabled, alpha channel (ransparent images)support will be lo
         <translation type="vanished">移动到回收站</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2947"/>
-        <location filename="mainwindow.ui" line="5274"/>
-        <location filename="mainwindow.ui" line="6152"/>
+        <location filename="mainwindow.ui" line="3026"/>
+        <location filename="mainwindow.ui" line="5804"/>
+        <location filename="mainwindow.ui" line="6682"/>
         <source>Video:</source>
         <translation>视频:</translation>
     </message>
@@ -412,7 +412,7 @@ waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
 您可以运行兼容性测试以查看您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3428"/>
+        <location filename="mainwindow.ui" line="3379"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
@@ -424,8 +424,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsou
 更小的块大小意味着waifu2x将使用更多显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3285"/>
-        <location filename="mainwindow.ui" line="4939"/>
+        <location filename="mainwindow.ui" line="3179"/>
+        <location filename="mainwindow.ui" line="5714"/>
         <source>Model:</source>
         <translation>模型:</translation>
     </message>
@@ -442,13 +442,13 @@ Only &quot;upconv_7&quot; model supports image style switching.
         <translation type="vanished">waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3675"/>
+        <location filename="mainwindow.ui" line="3666"/>
         <source>Target processor:</source>
         <translation>处理器:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3502"/>
-        <location filename="mainwindow.ui" line="3757"/>
+        <location filename="mainwindow.ui" line="3648"/>
+        <location filename="mainwindow.ui" line="3948"/>
         <source>Block size: This value will affects GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</source>
@@ -460,7 +460,7 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</oldso
 更小的块大小意味着waifu2x将使用更多显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3682"/>
+        <location filename="mainwindow.ui" line="3861"/>
         <source>Disable GPU</source>
         <translation>禁用GPU</translation>
     </message>
@@ -497,24 +497,24 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
         <translation type="vanished">waifu2x-caffe(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3507"/>
-        <location filename="mainwindow.ui" line="3591"/>
+        <location filename="mainwindow.ui" line="3653"/>
+        <location filename="mainwindow.ui" line="3768"/>
         <location filename="waifu2x_converter.cpp" line="1824"/>
         <source>Block size:</source>
         <translation>块大小:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3665"/>
+        <location filename="mainwindow.ui" line="3985"/>
         <source>Force to use OpenCL on Intel Platform.</source>
         <translation>强制在Intel平台上启用OpenCL.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3668"/>
+        <location filename="mainwindow.ui" line="3988"/>
         <source>Force OpenCL</source>
         <translation>强制启用OpenCL</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3750"/>
+        <location filename="mainwindow.ui" line="3901"/>
         <location filename="waifu2x_converter.cpp" line="1598"/>
         <source>Dump processor list</source>
         <translation>输出处理器列表</translation>
@@ -552,8 +552,8 @@ folder as the source file.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2010"/>
-        <location filename="mainwindow.ui" line="5508"/>
-        <location filename="mainwindow.ui" line="6027"/>
+        <location filename="mainwindow.ui" line="6038"/>
+        <location filename="mainwindow.ui" line="6557"/>
         <source>Enabled</source>
         <translation>启用</translation>
     </message>
@@ -721,7 +721,7 @@ be processed again when the processing process is started again.</source>
         <translation>当文件列表内有已处理完成的文件时,这些文件将会被再次处理.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3038"/>
+        <location filename="mainwindow.ui" line="3059"/>
         <source>Select the engine for processing Image. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -750,7 +750,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3145"/>
+        <location filename="mainwindow.ui" line="3151"/>
         <source>Waifu2x-NCNN-Vulkan:
 
 - Supports [2D Anime] and [3D Real-life] image style. But not at the
@@ -769,21 +769,37 @@ same time, you need to change [Image style] settings at [Home] tab.
 - [ 速度:★★  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3346"/>
-        <location filename="mainwindow.ui" line="4382"/>
-        <location filename="mainwindow.ui" line="5083"/>
+        <location filename="mainwindow.ui" line="3366"/>
+        <location filename="mainwindow.ui" line="3941"/>
+        <location filename="mainwindow.ui" line="4922"/>
+        <location filename="mainwindow.ui" line="5630"/>
+        <source>-</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="3412"/>
+        <location filename="mainwindow.ui" line="3975"/>
+        <location filename="mainwindow.ui" line="4962"/>
+        <location filename="mainwindow.ui" line="5664"/>
+        <source>+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="3531"/>
+        <location filename="mainwindow.ui" line="4755"/>
+        <location filename="mainwindow.ui" line="5478"/>
         <source>Show current Multi-GPU settings.</source>
         <translation>显示当前多显卡设定.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3379"/>
-        <location filename="mainwindow.ui" line="4415"/>
-        <location filename="mainwindow.ui" line="5116"/>
+        <location filename="mainwindow.ui" line="3564"/>
+        <location filename="mainwindow.ui" line="4788"/>
+        <location filename="mainwindow.ui" line="5511"/>
         <source>Show GPUs Settings</source>
         <translation>显示显卡设定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3492"/>
+        <location filename="mainwindow.ui" line="3617"/>
         <source>Waifu2x-Converter:
 
 - Only supports [2D Anime] image style.
@@ -796,17 +812,17 @@ same time, you need to change [Image style] settings at [Home] tab.
 - [ 速度:★☆  画质:★★☆ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3529"/>
+        <location filename="mainwindow.ui" line="3706"/>
         <source>Show current Multi-Processor settings.</source>
         <translation>显示多处理器设定.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3562"/>
+        <location filename="mainwindow.ui" line="3739"/>
         <source>Show Processor Settings</source>
         <translation>显示处理器设定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3689"/>
+        <location filename="mainwindow.ui" line="3833"/>
         <source>1.You need at least 2 available processors.
 
 2.If you wanna get all processors running together,
@@ -836,7 +852,7 @@ path] or [Delete original files] is enabled*</source>
 后本选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7732"/>
+        <location filename="mainwindow.ui" line="8262"/>
         <location filename="CompatibilityTest.cpp" line="549"/>
         <source>Start compatibility test</source>
         <translation>开始兼容性测试</translation>
@@ -874,17 +890,17 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [ 速度:★★★  画质:★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3876"/>
+        <location filename="mainwindow.ui" line="4495"/>
         <source>Apply filters to image before process it.</source>
         <translation>在处理图像前对其添加滤镜.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3901"/>
+        <location filename="mainwindow.ui" line="4532"/>
         <source>Add filters to the image after processing it.</source>
         <translation>在处理完图像后对其添加滤镜.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4122"/>
+        <location filename="mainwindow.ui" line="4154"/>
         <source>You can specify multiple GPUs to fully 
 utilize the capabilities of your PC.
 (If there are multiple GPUs available.)</source>
@@ -892,12 +908,12 @@ utilize the capabilities of your PC.
 (如果有多个显卡可用的话.)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4127"/>
+        <location filename="mainwindow.ui" line="4159"/>
         <source>Specify GPUs</source>
         <translation>指定显卡</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4194"/>
+        <location filename="mainwindow.ui" line="4185"/>
         <source>Format: Platform ID,Device ID:
 
 Example: 0,0:0,1:1,0:
@@ -916,19 +932,19 @@ the number of threads must &gt;= the number of GPUs.</source>
 那么线程数量必须大于等于可用显卡数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4217"/>
-        <location filename="mainwindow.ui" line="4881"/>
+        <location filename="mainwindow.ui" line="4208"/>
+        <location filename="mainwindow.ui" line="5281"/>
         <source>Verify your GPUs configuration.</source>
         <translation>验证您的GPUs设定.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4250"/>
-        <location filename="mainwindow.ui" line="4914"/>
+        <location filename="mainwindow.ui" line="4241"/>
+        <location filename="mainwindow.ui" line="5314"/>
         <source>Verify</source>
         <translation>验证</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4309"/>
+        <location filename="mainwindow.ui" line="4622"/>
         <source>SRMD-NCNN-Vulkan:
 
 - Supports [2D Anime] and [3D Real-life] image style at the same time.
@@ -965,7 +981,7 @@ the number of threads must &gt;= the number of GPUs.</source>
 - [ 速度:★★★  画质:★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4581"/>
+        <location filename="mainwindow.ui" line="5007"/>
         <source>Waifu2x-Caffe:
 
 - Supports [2D Anime] and [3D Real-life] image style. But not at the
@@ -1007,7 +1023,7 @@ Process mode]
         <translation type="vanished">Realsr-ncnn-vulkan(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4925"/>
+        <location filename="mainwindow.ui" line="5366"/>
         <source>RealSR-NCNN-Vulkan:
 
 - Only support [3D Real-life] image style.
@@ -1037,7 +1053,7 @@ Process mode]
 - [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5156"/>
+        <location filename="mainwindow.ui" line="5637"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means Realsr will use more GPU memory and run faster.
 Smaller tile size means Realsr will use less GPU memory and run slower.</source>
@@ -1046,22 +1062,22 @@ Smaller tile size means Realsr will use less GPU memory and run slower.</source>
 更小的块大小意味着Realsr将使用更多显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4947"/>
+        <location filename="mainwindow.ui" line="5396"/>
         <source>models-DF2K_JPEG(Supports denoise)</source>
         <translation>models-DF2K_JPEG(支持降噪)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4952"/>
+        <location filename="mainwindow.ui" line="5401"/>
         <source>models-DF2K(Does NOT supports denoise)</source>
         <translation>models-DF2K(不支持降噪)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4990"/>
+        <location filename="mainwindow.ui" line="5692"/>
         <source>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</source>
         <translation>选择在启用 &quot;Realsr-ncnn-vulkan&quot; 引擎时使用的显卡.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3088"/>
+        <location filename="mainwindow.ui" line="2967"/>
         <source>Select the engine for processing GIF. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -1080,7 +1096,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2960"/>
+        <location filename="mainwindow.ui" line="2917"/>
         <source>Select the engine for processing Video. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -1099,36 +1115,36 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5302"/>
+        <location filename="mainwindow.ui" line="5832"/>
         <source>The number of threads that the software processes video frames,
 which will determine how many video frames the software will
 process at the same time when processing a video.</source>
         <translation>软件处理视频帧时将启用的线程数量,将决定软件处理一个视频时,将同时处理多少个帧画面.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5269"/>
+        <location filename="mainwindow.ui" line="5799"/>
         <source>The number of threads that the software processes video,
 which will determine how many video files the software
 will process at the same time.</source>
         <translation>软件处理视频时的线程数量,这决定了软件将同时处理多少个视频.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5281"/>
-        <location filename="mainwindow.ui" line="5335"/>
+        <location filename="mainwindow.ui" line="5811"/>
+        <location filename="mainwindow.ui" line="5865"/>
         <source>The number of threads that the software processes pictures,
 which will determine how many pictures the software will
 process at the same time.</source>
         <translation>软件处理图片时的线程数量,这决定了软件将同时处理多少个图片.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5372"/>
+        <location filename="mainwindow.ui" line="5902"/>
         <source>The number of threads that the software processes GIF,
 which will determine how many GIF files the software
 will process at the same time.</source>
         <translation>软件处理GIF时的线程数量,这决定了软件将同时处理多少个GIF.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5384"/>
+        <location filename="mainwindow.ui" line="5914"/>
         <source>The number of threads that the software processes GIF frames,
 which will determine how many GIF frames the software will
 process at the same time when processing a GIF.</source>
@@ -1199,7 +1215,7 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
         <translation type="vanished">旧版本</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3449"/>
+        <location filename="mainwindow.ui" line="3422"/>
         <source>We recommend you use the default &quot;upconv_7&quot; model.
 Only &quot;upconv_7&quot; model supports image style switching.
 &quot;cunet&quot; model only supports 2D anime image style, 
@@ -1225,10 +1241,10 @@ Realsr-ncnn-vulkan 仅支持3D写实图像样式.
 SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3704"/>
-        <location filename="mainwindow.ui" line="4491"/>
-        <location filename="mainwindow.ui" line="4646"/>
-        <location filename="mainwindow.ui" line="4960"/>
+        <location filename="mainwindow.ui" line="3848"/>
+        <location filename="mainwindow.ui" line="4990"/>
+        <location filename="mainwindow.ui" line="5074"/>
+        <location filename="mainwindow.ui" line="5721"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -1258,13 +1274,13 @@ you can try to enable the older version of the engine.</source>
         <translation type="vanished">srmd-ncnn-vulkan</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4464"/>
+        <location filename="mainwindow.ui" line="4837"/>
         <source>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</source>
         <translation>选择在使用 &quot;srmd-ncnn-vulkan&quot; 引擎时要启用的GPU.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4479"/>
-        <location filename="mainwindow.ui" line="4504"/>
+        <location filename="mainwindow.ui" line="4935"/>
+        <location filename="mainwindow.ui" line="4972"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means SRMD will use more GPU memory and run faster.
 Smaller tile size means SRMD will use less GPU memory and run slower.</source>
@@ -1276,7 +1292,7 @@ Smaller tile size means SRMD will use less GPU memory and run slower.</oldsource
 更小的块大小意味着SRMD将使用更少的显存运行的更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3223"/>
+        <location filename="mainwindow.ui" line="3442"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -1298,7 +1314,7 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">★★ 捐赠 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6598"/>
+        <location filename="mainwindow.ui" line="7128"/>
         <source>Wiki</source>
         <translation>使用教程</translation>
     </message>
@@ -1311,8 +1327,8 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">PayPal</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6958"/>
-        <location filename="mainwindow.ui" line="6976"/>
+        <location filename="mainwindow.ui" line="7488"/>
+        <location filename="mainwindow.ui" line="7506"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1328,12 +1344,12 @@ when processing video in segments.</source>
         <translation type="vanished">一直隐藏路径设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6825"/>
+        <location filename="mainwindow.ui" line="7355"/>
         <source>Scan sub-folders</source>
         <translation>扫描子文件夹</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7153"/>
+        <location filename="mainwindow.ui" line="7683"/>
         <source>Interactive file list</source>
         <translation>可交互文件列表</translation>
     </message>
@@ -1427,7 +1443,7 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 您可以通过运行兼容性测试来知悉哪些引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3461"/>
+        <location filename="mainwindow.ui" line="3434"/>
         <source>cunet(Only support 2D Anime)</source>
         <translation>cunet(仅支持2D动漫)</translation>
     </message>
@@ -1436,8 +1452,8 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
         <translation type="vanished">Waifu2x-Caffe(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4690"/>
-        <location filename="mainwindow.ui" line="4716"/>
+        <location filename="mainwindow.ui" line="5039"/>
+        <location filename="mainwindow.ui" line="5120"/>
         <source>Split size: This value will affects GPU memory usage.
 Larger Split size means waifu2x will use more GPU memory and run faster.
 Smaller Split size means waifu2x will use less GPU memory and run slower.</source>
@@ -1449,43 +1465,43 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</oldso
 更小的分割尺寸意味着waifu2x将使用更少的显存且运行更慢.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4709"/>
+        <location filename="mainwindow.ui" line="5246"/>
         <source>Process mode:</source>
         <translation>处理模式:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4702"/>
+        <location filename="mainwindow.ui" line="5321"/>
         <source>2D Anime Model:</source>
         <translation>2D动漫模型:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4598"/>
+        <location filename="mainwindow.ui" line="5170"/>
         <source>Model for processing 2D Anime style image.</source>
         <translation>处理2D动漫风格图像时使用的模型.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4773"/>
+        <location filename="mainwindow.ui" line="5087"/>
         <source>Model for processing 3D Real-life style image.</source>
         <translation>处理3D写实风格图像时使用的引擎.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4780"/>
+        <location filename="mainwindow.ui" line="5094"/>
         <source>upconv_7_photo</source>
         <translation>upconv_7_photo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4785"/>
+        <location filename="mainwindow.ui" line="5099"/>
         <source>photo</source>
         <translation>photo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4695"/>
+        <location filename="mainwindow.ui" line="5044"/>
         <source>Split size:</source>
         <translation>分割尺寸:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4679"/>
-        <location filename="mainwindow.ui" line="4759"/>
+        <location filename="mainwindow.ui" line="5218"/>
+        <location filename="mainwindow.ui" line="5328"/>
         <source>The batch size defines the number of samples that 
 will be propagated through the network.</source>
         <translation>批尺寸定义了将通过网络传播的样本数量.</translation>
@@ -1539,24 +1555,24 @@ Anime4K引擎不支持处理Alpha通道.</translation>
         <translation type="vanished">realsr-ncnn-vulkan(实验性功能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3241"/>
+        <location filename="mainwindow.ui" line="3306"/>
         <source>Latest(Only this version supports alpha channel)</source>
         <translation>最新版(只有这个版本支持处理Alpha通道)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3246"/>
+        <location filename="mainwindow.ui" line="3311"/>
         <source>20200414(fp16p)</source>
         <translation>20200414(fp16p)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3251"/>
+        <location filename="mainwindow.ui" line="3316"/>
         <source>Old</source>
         <translation>旧版本</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3198"/>
-        <location filename="mainwindow.ui" line="4562"/>
-        <location filename="mainwindow.ui" line="5005"/>
+        <location filename="mainwindow.ui" line="3186"/>
+        <location filename="mainwindow.ui" line="4668"/>
+        <location filename="mainwindow.ui" line="5674"/>
         <source>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
@@ -1575,26 +1591,26 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
 3.您需要先[查询可用的GPU ID].</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3206"/>
-        <location filename="mainwindow.ui" line="4570"/>
-        <location filename="mainwindow.ui" line="5013"/>
+        <location filename="mainwindow.ui" line="3194"/>
+        <location filename="mainwindow.ui" line="4676"/>
+        <location filename="mainwindow.ui" line="5682"/>
         <source>Enable Multi-GPU</source>
         <translation>启用多显卡</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3301"/>
-        <location filename="mainwindow.ui" line="4337"/>
-        <location filename="mainwindow.ui" line="5029"/>
+        <location filename="mainwindow.ui" line="3471"/>
+        <location filename="mainwindow.ui" line="4698"/>
+        <location filename="mainwindow.ui" line="5424"/>
         <source>GPU Settings(Multi-GPU)</source>
         <translation>GPU设定(多显卡)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3523"/>
+        <location filename="mainwindow.ui" line="3688"/>
         <source>Processor Settings(Multi-Processor)</source>
         <translation>处理器设定(多处理器)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3575"/>
+        <location filename="mainwindow.ui" line="3752"/>
         <location filename="waifu2x_converter.cpp" line="1824"/>
         <source>Processor ID:</source>
         <translation>处理器 ID:</translation>
@@ -1610,12 +1626,12 @@ the number of threads must &gt;= the number of processors.</source>
 那么线程数量必须大于等于处理器数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3697"/>
+        <location filename="mainwindow.ui" line="3841"/>
         <source>Enable Multi-Processor</source>
         <translation>启用多处理器</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4139"/>
+        <location filename="mainwindow.ui" line="4091"/>
         <source>Enable ACNet.
 Will improve image quality.</source>
         <translation>启用ACNet以改善画质.</translation>
@@ -1627,32 +1643,32 @@ Will improve image quality.</source>
 可改善画质.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4160"/>
+        <location filename="mainwindow.ui" line="4112"/>
         <source>HDN mode</source>
         <translation>HDN模式</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4683"/>
+        <location filename="mainwindow.ui" line="5332"/>
         <source>Batch size:</source>
         <translation>批尺寸:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4672"/>
+        <location filename="mainwindow.ui" line="5339"/>
         <source>3D Real-life Model:</source>
         <translation>3D写实模型:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4659"/>
+        <location filename="mainwindow.ui" line="5107"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-caffe&quot; engine.</source>
         <translation>选择启用“ waifu2x-caffe”引擎时要使用的GPU。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4831"/>
+        <location filename="mainwindow.ui" line="5352"/>
         <source>Decrease split size.</source>
         <translation>减少分割尺寸.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4749"/>
+        <location filename="mainwindow.ui" line="5064"/>
         <source>Increase split size.</source>
         <translation>增加分割尺寸.</translation>
     </message>
@@ -1725,14 +1741,14 @@ file] is enabled*</source>
 后本选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3472"/>
+        <location filename="mainwindow.ui" line="3229"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.
 ★ &quot;-1&quot; is CPU,others are GPUs ★</source>
         <translation>选择在启用 &quot;waifu2x-ncnn-vulkan&quot; 引擎时要使用的显卡.
 ★ &quot;-1&quot; 是 CPU,其他都是 GPUs ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3782"/>
+        <location filename="mainwindow.ui" line="4020"/>
         <source>Anime4K:
 
 - Only supports [2D Anime] image style.
@@ -1760,7 +1776,7 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [ 速度:★★★  画质:★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4153"/>
+        <location filename="mainwindow.ui" line="4105"/>
         <source>Enable HDN mode for ACNet.
 Will improve image quality.
 
@@ -1773,18 +1789,18 @@ when [ACNet] is disabled*</source>
 选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4844"/>
+        <location filename="mainwindow.ui" line="5235"/>
         <source>You need to switch [Process mode] to
 [GPU] or [cuDNN] to enable Multi-GPU.</source>
         <translation>您需要将 [处理模式] 切换到 [GPU] 或者 [cuDNN] 以启用 多显卡.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4848"/>
+        <location filename="mainwindow.ui" line="5239"/>
         <source>Multi-GPU:</source>
         <translation>多显卡:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4858"/>
+        <location filename="mainwindow.ui" line="5150"/>
         <source>Format: GPU ID,Batch size,Split size:
 
 Example: 0,1,128:1,2,64:2,1,128:
@@ -1803,28 +1819,28 @@ the number of threads must &gt;= the number of GPUs.</source>
 那么线程数量必须大于等于可用显卡数量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5610"/>
-        <location filename="mainwindow.ui" line="5656"/>
-        <location filename="mainwindow.ui" line="5858"/>
-        <location filename="mainwindow.ui" line="5900"/>
+        <location filename="mainwindow.ui" line="6140"/>
+        <location filename="mainwindow.ui" line="6186"/>
+        <location filename="mainwindow.ui" line="6388"/>
+        <location filename="mainwindow.ui" line="6430"/>
         <source>If you set it to 0, software will use auto settings.</source>
         <translation>如果您将本项设定到 0, 软件将自动生成设定参数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5745"/>
-        <location filename="mainwindow.ui" line="5835"/>
+        <location filename="mainwindow.ui" line="6275"/>
+        <location filename="mainwindow.ui" line="6365"/>
         <source>You can enter ffmpeg instructions here.</source>
         <translation>您可以在此处键入FFmpeg指令.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5593"/>
-        <location filename="mainwindow.ui" line="5639"/>
-        <location filename="mainwindow.ui" line="5685"/>
+        <location filename="mainwindow.ui" line="6123"/>
+        <location filename="mainwindow.ui" line="6169"/>
+        <location filename="mainwindow.ui" line="6215"/>
         <source>If you leave it empty, software will use auto settings.</source>
         <translation>如果您将本项留空,那么软件将自动生成设定参数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6234"/>
+        <location filename="mainwindow.ui" line="6764"/>
         <source>This software already can intelligently detect whether the Alpha channel is lost,
 and automatically reprocess the picture. And image will be pre-processed during the 
 reporcess so the alpha channel won&apos;t lost again.
@@ -1838,12 +1854,12 @@ frequently occurs when processing images, you can enable this option to save tim
 您可以启用本选项来节约时间.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6242"/>
+        <location filename="mainwindow.ui" line="6772"/>
         <source>Always pre-process images with Alpha Channel</source>
         <translation>总是预处理带有Alpha通道的图片</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6111"/>
+        <location filename="mainwindow.ui" line="6641"/>
         <source>Convert every image to PNG before processing it.
 Enabling this option will improve compatibility. However, it will
 increase the time and storage space required to process image.</source>
@@ -1887,7 +1903,7 @@ when [Save as &quot;.jpg&quot;] is disabled*</source>
 时本选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6188"/>
+        <location filename="mainwindow.ui" line="6718"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.</source>
         <oldsource>When the alpha channel is detected in the picture, software will
@@ -1897,37 +1913,37 @@ automatically force the picture to be saved as PNG.
         <translation>当检测到照片有Alpha通道时, 软件将会自动强制将图片保存为PNG.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6778"/>
+        <location filename="mainwindow.ui" line="7308"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation>当检测到更新时弹窗提示.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6981"/>
+        <location filename="mainwindow.ui" line="7511"/>
         <source> secs</source>
         <translation> 秒</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7084"/>
+        <location filename="mainwindow.ui" line="7614"/>
         <source>Update channel:</source>
         <translation>更新通道:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7101"/>
+        <location filename="mainwindow.ui" line="7631"/>
         <source>Stable</source>
         <translation>稳定版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7106"/>
+        <location filename="mainwindow.ui" line="7636"/>
         <source>Beta</source>
         <translation>测试版</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6791"/>
+        <location filename="mainwindow.ui" line="7321"/>
         <source>Minimize to taskbar</source>
         <translation>最小化到任务栏</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6279"/>
+        <location filename="mainwindow.ui" line="6809"/>
         <source>Enable Custom Font Settings.</source>
         <translation>启用自定义字体设置.</translation>
     </message>
@@ -1936,12 +1952,12 @@ automatically force the picture to be saved as PNG.
         <translation type="vanished">压缩 JPG 文件.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7176"/>
+        <location filename="mainwindow.ui" line="7706"/>
         <source>Play Notification sound.</source>
         <translation>播放提示音.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7003"/>
+        <location filename="mainwindow.ui" line="7533"/>
         <source>Enabling this will stop download anything from Communist China website Gitee.
 
 If you are in China, due to government banned raw.githubusercontent.com,
@@ -1962,7 +1978,7 @@ For detailed information, please read privacy policy.</oldsource>
 更多详细信息,请查看隐私政策.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7011"/>
+        <location filename="mainwindow.ui" line="7541"/>
         <source>Ban Gitee</source>
         <translation>禁止连接码云</translation>
     </message>
@@ -1985,17 +2001,17 @@ WARNING: The original file will be permanently DELETED.</source>
         <translation>替换原文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6476"/>
+        <location filename="mainwindow.ui" line="7006"/>
         <source>Official website</source>
         <translation>访问官网</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6565"/>
+        <location filename="mainwindow.ui" line="7095"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation>打开Waifu2x-Extension-GUI的在线使用说明.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7383"/>
+        <location filename="mainwindow.ui" line="7913"/>
         <source>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
@@ -2018,7 +2034,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7502"/>
+        <location filename="mainwindow.ui" line="8032"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan(最新版)</translation>
     </message>
@@ -2073,22 +2089,22 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 您可以运行兼容性测试以知悉您的PC与哪些引擎兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5420"/>
+        <location filename="mainwindow.ui" line="5950"/>
         <source>Video settings</source>
         <translation>视频设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5580"/>
+        <location filename="mainwindow.ui" line="6110"/>
         <source>Output video</source>
         <translation>输出视频</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5767"/>
+        <location filename="mainwindow.ui" line="6297"/>
         <source>When convert video to mp4</source>
         <translation>当转换视频到mp4时</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6116"/>
+        <location filename="mainwindow.ui" line="6646"/>
         <source>Pre-process all images</source>
         <translation>预处理所有图片</translation>
     </message>
@@ -2113,25 +2129,25 @@ Will NOT take effect when processing Video and GIF.</source>
         <translation>将图片保存为:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6884"/>
-        <location filename="mainwindow.ui" line="6900"/>
+        <location filename="mainwindow.ui" line="7414"/>
+        <location filename="mainwindow.ui" line="7430"/>
         <source>The number of retries when an image (or frame) processing fails.</source>
         <oldsource>The number of retries when failed to processing a image (or frame).</oldsource>
         <translation>当处理一个图片(或帧)失败时重试的次数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6887"/>
+        <location filename="mainwindow.ui" line="7417"/>
         <source>Retry:</source>
         <translation>重试:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6821"/>
+        <location filename="mainwindow.ui" line="7351"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation>当向文件列表内添加文件夹时,扫描子文件夹内的文件并一同加入文件列表中.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7163"/>
+        <location filename="mainwindow.ui" line="7693"/>
         <source>Keep video cache after processing the video.</source>
         <translation>处理完视频后保存缓存.</translation>
     </message>
@@ -2160,7 +2176,7 @@ waifu2x-converter引擎来处理图片并强制将图片另存为PNG。
 在启用此选项之前，请先确保waifu2x-converter引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6192"/>
+        <location filename="mainwindow.ui" line="6722"/>
         <source>Auto detect Alpha channel</source>
         <translation>自动检测Alpha通道</translation>
     </message>
@@ -2194,17 +2210,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 waifu2x-caffe  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7528"/>
+        <location filename="mainwindow.ui" line="8058"/>
         <source>Engines:</source>
         <translation>引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7566"/>
+        <location filename="mainwindow.ui" line="8096"/>
         <source>For processing Image and GIF.</source>
         <translation>用于处理图片和GIF.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7663"/>
+        <location filename="mainwindow.ui" line="8193"/>
         <source>Plugins:</source>
         <translation>插件:</translation>
     </message>
@@ -2232,17 +2248,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
         <translation type="vanished">Anime4K</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4062"/>
+        <location filename="mainwindow.ui" line="4381"/>
         <source>Strength for pushing gradient,range 0 to 1,higher for sharper.</source>
         <translation>处理强度,范围为0~1,值越高画面越锐利.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4065"/>
+        <location filename="mainwindow.ui" line="4384"/>
         <source>Push gradient strength:</source>
         <translation>处理强度:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3993"/>
+        <location filename="mainwindow.ui" line="4312"/>
         <source>Passes for processing.</source>
         <translation>处理次数.</translation>
     </message>
@@ -2293,8 +2309,8 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7647"/>
-        <location filename="mainwindow.ui" line="7670"/>
+        <location filename="mainwindow.ui" line="8177"/>
+        <location filename="mainwindow.ui" line="8200"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>用于处理视频.</translation>
@@ -2320,22 +2336,22 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">设备ID:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3996"/>
+        <location filename="mainwindow.ui" line="4315"/>
         <source>Passes:</source>
         <translation>处理次数:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4296"/>
+        <location filename="mainwindow.ui" line="4287"/>
         <source>List GPUs</source>
         <translation>列出GPU</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4016"/>
+        <location filename="mainwindow.ui" line="4335"/>
         <source>Limit the number of color pushes.</source>
         <translation>限制边缘细化次数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4019"/>
+        <location filename="mainwindow.ui" line="4338"/>
         <source>Push color count:</source>
         <translation>边缘细化次数:</translation>
     </message>
@@ -2344,12 +2360,12 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">指定GPU</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4039"/>
+        <location filename="mainwindow.ui" line="4358"/>
         <source>Strength for pushing color,range 0 to 1,higher for thinner.</source>
         <translation>边缘细化强度,范围为0~1,值越高细化强度越高.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4042"/>
+        <location filename="mainwindow.ui" line="4361"/>
         <source>Push color strength:</source>
         <translation>边缘细化强度:</translation>
     </message>
@@ -2369,10 +2385,10 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]
 您可以通过运行兼容性测试来知悉哪些引擎与您的PC兼容.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6094"/>
-        <location filename="mainwindow.ui" line="6142"/>
-        <location filename="mainwindow.ui" line="6168"/>
-        <location filename="mainwindow.ui" line="6211"/>
+        <location filename="mainwindow.ui" line="6624"/>
+        <location filename="mainwindow.ui" line="6672"/>
+        <location filename="mainwindow.ui" line="6698"/>
+        <location filename="mainwindow.ui" line="6741"/>
         <source>When you find that the file format you want to process cannot 
 be added to the file list, you can add the file extension yourself 
 in the additional settings.
@@ -2406,7 +2422,7 @@ path] or [Delete original files] is enabled*</source>
 时本选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7337"/>
+        <location filename="mainwindow.ui" line="7867"/>
         <source>Compatibility test results</source>
         <translation>兼容性测试结果</translation>
     </message>
@@ -2437,7 +2453,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7405"/>
+        <location filename="mainwindow.ui" line="7935"/>
         <source>For audio denoise(video).</source>
         <translation>用于给音频降噪(视频).</translation>
     </message>
@@ -2460,7 +2476,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7559"/>
+        <location filename="mainwindow.ui" line="8089"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(旧版本)</translation>
     </message>
@@ -2469,17 +2485,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7421"/>
-        <location filename="mainwindow.ui" line="7442"/>
-        <location filename="mainwindow.ui" line="7457"/>
-        <location filename="mainwindow.ui" line="7473"/>
-        <location filename="mainwindow.ui" line="7494"/>
-        <location filename="mainwindow.ui" line="7535"/>
-        <location filename="mainwindow.ui" line="7551"/>
-        <location filename="mainwindow.ui" line="7588"/>
-        <location filename="mainwindow.ui" line="7622"/>
-        <location filename="mainwindow.ui" line="7637"/>
-        <location filename="mainwindow.ui" line="7680"/>
+        <location filename="mainwindow.ui" line="7951"/>
+        <location filename="mainwindow.ui" line="7972"/>
+        <location filename="mainwindow.ui" line="7987"/>
+        <location filename="mainwindow.ui" line="8003"/>
+        <location filename="mainwindow.ui" line="8024"/>
+        <location filename="mainwindow.ui" line="8065"/>
+        <location filename="mainwindow.ui" line="8081"/>
+        <location filename="mainwindow.ui" line="8118"/>
+        <location filename="mainwindow.ui" line="8152"/>
+        <location filename="mainwindow.ui" line="8167"/>
+        <location filename="mainwindow.ui" line="8210"/>
         <source>Image processing engine.</source>
         <translation>图像处理引擎。</translation>
     </message>
@@ -2508,7 +2524,7 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7606"/>
+        <location filename="mainwindow.ui" line="8136"/>
         <source>For processing GIF.</source>
         <translation>用于处理GIF。</translation>
     </message>
@@ -2525,7 +2541,7 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">Anime4K(CPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7355"/>
+        <location filename="mainwindow.ui" line="7885"/>
         <source>Essential, for all sorts of functions.</source>
         <translation>至关重要，用于实现各种功能。</translation>
     </message>
@@ -2538,59 +2554,59 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">Waifu2x-ncnn-vulkan(新版本)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4170"/>
+        <location filename="mainwindow.ui" line="4122"/>
         <source>Faster but maybe low quality.</source>
         <translation>速度更快但是画质更低.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4173"/>
+        <location filename="mainwindow.ui" line="4125"/>
         <source>Fast mode</source>
         <translation>快速模式</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3811"/>
+        <location filename="mainwindow.ui" line="4418"/>
         <source>Pre-processing</source>
         <translation>预处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3862"/>
-        <location filename="mainwindow.ui" line="3952"/>
+        <location filename="mainwindow.ui" line="4481"/>
+        <location filename="mainwindow.ui" line="4583"/>
         <source>Bilateral filter</source>
         <translation>双边滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3855"/>
-        <location filename="mainwindow.ui" line="3945"/>
+        <location filename="mainwindow.ui" line="4474"/>
+        <location filename="mainwindow.ui" line="4576"/>
         <source>Gaussian blur</source>
         <translation>高斯模糊</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3838"/>
-        <location filename="mainwindow.ui" line="3962"/>
+        <location filename="mainwindow.ui" line="4457"/>
+        <location filename="mainwindow.ui" line="4593"/>
         <source>Gaussian blur weak</source>
         <translation>高斯模糊(弱)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3824"/>
-        <location filename="mainwindow.ui" line="3928"/>
+        <location filename="mainwindow.ui" line="4443"/>
+        <location filename="mainwindow.ui" line="4559"/>
         <source>Mean blur</source>
         <translation>均值滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3869"/>
-        <location filename="mainwindow.ui" line="3972"/>
+        <location filename="mainwindow.ui" line="4488"/>
+        <location filename="mainwindow.ui" line="4603"/>
         <source>Bilateral filter faster</source>
         <translation>快速双边滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3845"/>
-        <location filename="mainwindow.ui" line="3935"/>
+        <location filename="mainwindow.ui" line="4464"/>
+        <location filename="mainwindow.ui" line="4566"/>
         <source>CAS Sharpening</source>
         <translation>CAS自适应锐化</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7936"/>
-        <location filename="mainwindow.ui" line="7952"/>
+        <location filename="mainwindow.ui" line="8466"/>
+        <location filename="mainwindow.ui" line="8482"/>
         <source>Change the font size of the text browser.</source>
         <translation>更改文本框的字体大小。</translation>
     </message>
@@ -2600,33 +2616,33 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation>暂停</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3831"/>
-        <location filename="mainwindow.ui" line="3921"/>
+        <location filename="mainwindow.ui" line="4450"/>
+        <location filename="mainwindow.ui" line="4552"/>
         <source>Median blur</source>
         <translation>中值滤波</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3879"/>
+        <location filename="mainwindow.ui" line="4498"/>
         <source>Enable Pre-processing</source>
         <translation>启用预处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3895"/>
+        <location filename="mainwindow.ui" line="4514"/>
         <source>Post-processing</source>
         <translation>后期处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3904"/>
+        <location filename="mainwindow.ui" line="4535"/>
         <source>Enable Post-processing</source>
         <translation>启用后期处理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4088"/>
+        <location filename="mainwindow.ui" line="4141"/>
         <source>Enable GPU acceleration.</source>
         <translation>启用GPU加速.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4091"/>
+        <location filename="mainwindow.ui" line="4144"/>
         <source>GPU Mode</source>
         <translation>GPU模式</translation>
     </message>
@@ -2636,17 +2652,17 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation>通过PayPal向开发者捐赠.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5495"/>
+        <location filename="mainwindow.ui" line="6025"/>
         <source>Reset</source>
         <translation>重置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5555"/>
+        <location filename="mainwindow.ui" line="6085"/>
         <source>Encoders List</source>
         <translation>编码器列表</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5502"/>
+        <location filename="mainwindow.ui" line="6032"/>
         <source>When this option is enabled, your customized parameters 
 will be used when processing the video. 
 Otherwise the parameters automatically configured 
@@ -2660,19 +2676,19 @@ by the software will be used.</source>
         <translation type="vanished">输出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5603"/>
-        <location filename="mainwindow.ui" line="5785"/>
+        <location filename="mainwindow.ui" line="6133"/>
+        <location filename="mainwindow.ui" line="6315"/>
         <source>Bitrate(video):</source>
         <translation>比特率(视频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5678"/>
+        <location filename="mainwindow.ui" line="6208"/>
         <source>Pixel format:</source>
         <translation>像素格式:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5738"/>
-        <location filename="mainwindow.ui" line="5828"/>
+        <location filename="mainwindow.ui" line="6268"/>
+        <location filename="mainwindow.ui" line="6358"/>
         <source>Extra command:</source>
         <translation>额外指令:</translation>
     </message>
@@ -2687,22 +2703,22 @@ by the software will be used.</source>
         <translation type="vanished">转换到mp4</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5880"/>
+        <location filename="mainwindow.ui" line="6410"/>
         <source>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</source>
         <translation>启用此功能后，ffmpeg会将原始视频的音频部分直接复制到mp4文件，可能会导致错误。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5890"/>
+        <location filename="mainwindow.ui" line="6420"/>
         <source>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</source>
         <translation>启用此功能后，ffmpeg会将原始视频的视频部分直接复制到mp4文件，可能会导致错误。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6781"/>
+        <location filename="mainwindow.ui" line="7311"/>
         <source>Update popup</source>
         <translation>更新弹窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7189"/>
+        <location filename="mainwindow.ui" line="7719"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
@@ -2718,17 +2734,17 @@ will increase the time required to process video.</source>
         <translation type="vanished">s</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6963"/>
+        <location filename="mainwindow.ui" line="7493"/>
         <source>Segment duration:</source>
         <translation>视频片段时长:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6835"/>
+        <location filename="mainwindow.ui" line="7365"/>
         <source>Prompt when exit</source>
         <translation>退出时弹窗</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7166"/>
+        <location filename="mainwindow.ui" line="7696"/>
         <source>Keep video cache</source>
         <translation>保存视频缓存</translation>
     </message>
@@ -2737,22 +2753,22 @@ will increase the time required to process video.</source>
         <translation type="vanished">实验性功能,可以减少处理视频时的硬盘空间占用量.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7194"/>
+        <location filename="mainwindow.ui" line="7724"/>
         <source>Process video by segment</source>
         <translation>分段处理视频</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5943"/>
+        <location filename="mainwindow.ui" line="6473"/>
         <source>Audio denoise(for video)</source>
         <translation>音频降噪(视频)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6014"/>
+        <location filename="mainwindow.ui" line="6544"/>
         <source>Denoise level:</source>
         <translation>降噪等级:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5977"/>
+        <location filename="mainwindow.ui" line="6507"/>
         <source>How much noise should be removed is specified by amount-a 
 number between 0.01 and 1 with a default of 0.25. Higher 
 numbers will remove more noise but present a greater 
@@ -2769,13 +2785,13 @@ likelihood of removing wanted components of the audio signal.</source>
         <translation type="vanished">-vcodec copy</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5632"/>
+        <location filename="mainwindow.ui" line="6162"/>
         <source>Encoder(audio):</source>
         <translation>编码器(音频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5649"/>
-        <location filename="mainwindow.ui" line="5922"/>
+        <location filename="mainwindow.ui" line="6179"/>
+        <location filename="mainwindow.ui" line="6452"/>
         <source>Bitrate(audio):</source>
         <translation>比特率(音频):</translation>
     </message>
@@ -2784,12 +2800,12 @@ likelihood of removing wanted components of the audio signal.</source>
         <translation type="vanished">K</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5586"/>
+        <location filename="mainwindow.ui" line="6116"/>
         <source>Encoder(video):</source>
         <translation>编码器(视频):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5462"/>
+        <location filename="mainwindow.ui" line="5992"/>
         <source>Reset video settings</source>
         <translation>重置视频设置</translation>
     </message>
@@ -2820,26 +2836,26 @@ It is recommended to enable this option.</source>
         <translation>优化&quot;.gif&quot;</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6255"/>
+        <location filename="mainwindow.ui" line="6785"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation>自定义字体设置 (重启软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6341"/>
+        <location filename="mainwindow.ui" line="6871"/>
         <source>Custom font size:</source>
         <translation>自定义字体大小:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3336"/>
-        <location filename="mainwindow.ui" line="3614"/>
-        <location filename="mainwindow.ui" line="4349"/>
-        <location filename="mainwindow.ui" line="5041"/>
-        <location filename="mainwindow.ui" line="6282"/>
+        <location filename="mainwindow.ui" line="3521"/>
+        <location filename="mainwindow.ui" line="3791"/>
+        <location filename="mainwindow.ui" line="4722"/>
+        <location filename="mainwindow.ui" line="5436"/>
+        <location filename="mainwindow.ui" line="6812"/>
         <source>Enable</source>
         <translation>启用</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6351"/>
+        <location filename="mainwindow.ui" line="6881"/>
         <source>Custom font:</source>
         <translation>自定义字体:</translation>
     </message>
@@ -2848,12 +2864,12 @@ It is recommended to enable this option.</source>
         <translation type="vanished">语言:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6811"/>
+        <location filename="mainwindow.ui" line="7341"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation>[文本框] 将在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6814"/>
+        <location filename="mainwindow.ui" line="7344"/>
         <source>Always hide Text Browser</source>
         <translation>一直隐藏文本框</translation>
     </message>
@@ -2862,7 +2878,7 @@ It is recommended to enable this option.</source>
         <translation type="vanished">宋体</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6334"/>
+        <location filename="mainwindow.ui" line="6864"/>
         <source>Save Custom Font Settings</source>
         <translation>保存自定义字体设置</translation>
     </message>
@@ -2877,14 +2893,14 @@ We recommend you use the default value(90)</source>
 我们建议您使用默认值(90)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6715"/>
+        <location filename="mainwindow.ui" line="7245"/>
         <location filename="mainwindow.cpp" line="1101"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7249"/>
-        <location filename="mainwindow.ui" line="7269"/>
+        <location filename="mainwindow.ui" line="7779"/>
+        <location filename="mainwindow.ui" line="7799"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>我们建议您在更改语言设置后重启软件 
@@ -2897,12 +2913,12 @@ the language for the language settings to fully take effect.</source>
 (重启本软件以生效)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6798"/>
+        <location filename="mainwindow.ui" line="7328"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>当您关闭软件时将自动保存设置.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6801"/>
+        <location filename="mainwindow.ui" line="7331"/>
         <source>Auto save settings</source>
         <translation>自动保存设置</translation>
     </message>
@@ -2946,12 +2962,12 @@ the language for the language settings to fully take effect.</source>
         <translation>保持纵横比(扩展)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7143"/>
+        <location filename="mainwindow.ui" line="7673"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[设置] 将会在软件启动时自动隐藏.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7146"/>
+        <location filename="mainwindow.ui" line="7676"/>
         <source>Always hide Settings</source>
         <translation>一直隐藏设置</translation>
     </message>
@@ -2964,7 +2980,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">处理完列表内所有文件后播放提示音.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7179"/>
+        <location filename="mainwindow.ui" line="7709"/>
         <source>Notification sound</source>
         <translation>提示音</translation>
     </message>
@@ -3011,27 +3027,27 @@ the language for the language settings to fully take effect.</source>
         <translation>重复处理已完成的文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7130"/>
+        <location filename="mainwindow.ui" line="7660"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation>在Textbrowser内输出视频和GIF的内部放大与降噪进度.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7133"/>
+        <location filename="mainwindow.ui" line="7663"/>
         <source>Show internal progress</source>
         <translation>显示内部进度</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6042"/>
+        <location filename="mainwindow.ui" line="6572"/>
         <source>Additional settings</source>
         <translation>附加设置</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6070"/>
+        <location filename="mainwindow.ui" line="6600"/>
         <source>Input file extensions</source>
         <translation>文件扩展名</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5236"/>
+        <location filename="mainwindow.ui" line="5766"/>
         <source>Number of threads</source>
         <translation>线程数量</translation>
     </message>
@@ -3194,12 +3210,12 @@ file] is enabled*
         <translation type="vanished">停止</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7876"/>
+        <location filename="mainwindow.ui" line="8406"/>
         <source>Clear text browser.</source>
         <translation>清空Text browser.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7909"/>
+        <location filename="mainwindow.ui" line="8439"/>
         <source>Clear</source>
         <translation>清空</translation>
     </message>
@@ -3233,7 +3249,7 @@ file] is enabled*
         <translation>开始</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7939"/>
+        <location filename="mainwindow.ui" line="8469"/>
         <source>Font size:</source>
         <translation>字体大小:</translation>
     </message>
@@ -5271,7 +5287,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>完成优化GIF:[</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3259"/>
+        <location filename="mainwindow.ui" line="3255"/>
         <location filename="textBrowser.cpp" line="50"/>
         <source>Version:</source>
         <translation>版本:</translation>

@@ -543,3 +543,62 @@ void MainWindow::MoveFileToOutputPath(QString Orginal,QString SourceFilePath)
     }
     MoveFile_QMutex.unlock();
 }
+/*
+块大小调节 NCNN-Vulkan & Converter
+*/
+/*
+块大小调整按钮 +
+*/
+int MainWindow::AddTileSize_NCNNVulkan_Converter(int OrginalTileSize)
+{
+    int TileSize = OrginalTileSize;
+    //判断是否为2的幂数
+    if((TileSize&(TileSize-1))==0)
+    {
+        TileSize++;
+    }
+    if((TileSize&(TileSize-1))!=0)
+    {
+        for(int i=1; true; i++)
+        {
+            int pow_ =pow(2,i);
+            if(pow_>999999999)
+            {
+                return OrginalTileSize;
+            }
+            if(pow_>=TileSize)
+            {
+                return pow_;
+            }
+        }
+    }
+    return OrginalTileSize+1;
+}
+/*
+块大小调整按钮 -
+*/
+int MainWindow::MinusTileSize_NCNNVulkan_Converter(int OrginalTileSize)
+{
+    int TileSize = OrginalTileSize;
+    //判断是否为2的幂数
+    if((TileSize&(TileSize-1))==0)
+    {
+        TileSize--;
+    }
+    if((TileSize&(TileSize-1))!=0)
+    {
+        for(int i=1; true; i++)
+        {
+            int pow_ =pow(2,i);
+            if(pow_>999999999)
+            {
+                return OrginalTileSize;
+            }
+            if(pow_>=TileSize)
+            {
+                return pow(2,i-1);
+            }
+        }
+    }
+    return OrginalTileSize-1;
+}
