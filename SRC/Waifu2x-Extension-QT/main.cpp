@@ -40,6 +40,7 @@ v2.59.04-beta:
 - Performance optimization.
 - Edit tool tip.
 - Other improvements.
+- Update ImageMagick,FFmpeg&FFprobe.
 
 v2.59.03-beta:
 - Automatically disable [Save Files List] button when files list is empty.
@@ -80,9 +81,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20210102
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-56-portable-Q16-x64
+- ImageMagick 7.0.10-58-portable-Q16-x64
 - Anime4KCPP b81d3fc2fd17b86c31ea3e9c24b9edce519cf974
-- FFmpeg&FFprobe 2021-01-05-git-66deab3a26-full_build
+- FFmpeg&FFprobe 2021-01-12-git-ca21cb1e36
 - NirCmd v2.86
 - Ghostscript 9.53.3
 ---------------------------------------------------------------------------
