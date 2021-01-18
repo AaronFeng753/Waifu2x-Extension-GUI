@@ -3143,7 +3143,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               <property name="usesScrollButtons">
                <bool>true</bool>
               </property>
-              <widget class="QWidget" name="tab_4">
+              <widget class="QWidget" name="tab_W2xNcnnVulkan">
                <attribute name="title">
                 <string notr="true">Waifu2x-ncnn-vulkan</string>
                </attribute>
@@ -3609,7 +3609,7 @@ padding:10px;
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab_5">
+              <widget class="QWidget" name="tab_W2xConverter">
                <attribute name="title">
                 <string notr="true">Waifu2x-converter</string>
                </attribute>
@@ -4006,7 +4006,7 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</strin
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab_7">
+              <widget class="QWidget" name="tab_A4k">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -4032,157 +4032,121 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [ Speed:★★★  Image Quality:★ ]</string>
                </attribute>
                <layout class="QGridLayout" name="gridLayout_5">
-                <property name="sizeConstraint">
-                 <enum>QLayout::SetDefaultConstraint</enum>
-                </property>
                 <property name="leftMargin">
-                 <number>6</number>
+                 <number>5</number>
                 </property>
                 <property name="topMargin">
-                 <number>6</number>
+                 <number>5</number>
                 </property>
                 <property name="rightMargin">
-                 <number>6</number>
+                 <number>5</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>6</number>
-                </property>
-                <property name="spacing">
-                 <number>0</number>
+                 <number>5</number>
                 </property>
                 <item row="0" column="0">
-                 <widget class="QFrame" name="frame_16">
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="frameShape">
-                   <enum>QFrame::NoFrame</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Raised</enum>
-                  </property>
-                  <layout class="QGridLayout" name="gridLayout_57">
-                   <property name="leftMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="topMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="rightMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="bottomMargin">
-                    <number>0</number>
-                   </property>
-                   <property name="verticalSpacing">
-                    <number>7</number>
-                   </property>
-                   <item row="0" column="0">
-                    <layout class="QHBoxLayout" name="horizontalLayout_4">
-                     <item>
-                      <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
-                       <property name="enabled">
-                        <bool>true</bool>
-                       </property>
-                       <property name="toolTip">
-                        <string>Enable ACNet.
+                 <layout class="QHBoxLayout" name="horizontalLayout_4">
+                  <item>
+                   <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Enable ACNet.
 Will improve image quality.</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">ACNet</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QCheckBox" name="checkBox_HDNMode_Anime4k">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="toolTip">
-                        <string>Enable HDN mode for ACNet.
+                    </property>
+                    <property name="text">
+                     <string notr="true">ACNet</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="checkBox_HDNMode_Anime4k">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Enable HDN mode for ACNet.
 Will improve image quality.
 
 *This option will be deactivated
 when [ACNet] is disabled*</string>
-                       </property>
-                       <property name="text">
-                        <string>HDN mode</string>
-                       </property>
-                       <property name="checked">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
-                       <property name="toolTip">
-                        <string>Faster but maybe low quality.</string>
-                       </property>
-                       <property name="text">
-                        <string>Fast mode</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="Line" name="line_13">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
-                     <property name="toolTip">
-                      <string>Enable GPU acceleration.</string>
-                     </property>
-                     <property name="text">
-                      <string>GPU Mode</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="toolTip">
-                      <string>You can specify multiple GPUs to fully 
+                    </property>
+                    <property name="text">
+                     <string>HDN mode</string>
+                    </property>
+                    <property name="checked">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
+                    <property name="toolTip">
+                     <string>Faster but maybe low quality.</string>
+                    </property>
+                    <property name="text">
+                     <string>Fast mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="0" column="1">
+                 <widget class="Line" name="line_13">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
+                  <property name="toolTip">
+                   <string>Enable GPU acceleration.</string>
+                  </property>
+                  <property name="text">
+                   <string>GPU Mode</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="toolTip">
+                   <string>You can specify multiple GPUs to fully 
 utilize the capabilities of your PC.
 (If there are multiple GPUs available.)</string>
-                     </property>
-                     <property name="text">
-                      <string>Specify GPUs</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="4">
-                    <widget class="Line" name="line_15">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="5">
-                    <layout class="QHBoxLayout" name="horizontalLayout_6">
-                     <item>
-                      <widget class="QLabel" name="label_19">
-                       <property name="text">
-                        <string notr="true">GPUs:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="lineEdit_GPUs_Anime4k">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="toolTip">
-                        <string>Format: Platform ID,Device ID:
+                  </property>
+                  <property name="text">
+                   <string>Specify GPUs</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="4">
+                 <widget class="Line" name="line_15">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="5">
+                 <layout class="QHBoxLayout" name="horizontalLayout_6">
+                  <item>
+                   <widget class="QLabel" name="label_19">
+                    <property name="text">
+                     <string notr="true">GPUs:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_GPUs_Anime4k">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Format: Platform ID,Device ID:
 
 Example: 0,0:0,1:1,0:
 
@@ -4190,25 +4154,25 @@ You must follow the format,otherwise the software may crash.
 
 If you wanna get all GPUs running together,
 the number of threads must &gt;= the number of GPUs.</string>
-                       </property>
-                       <property name="text">
-                        <string notr="true">0,0:</string>
-                       </property>
-                       <property name="clearButtonEnabled">
-                        <bool>true</bool>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Anime4k">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="toolTip">
-                        <string>Verify your GPUs configuration.</string>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
+                    </property>
+                    <property name="text">
+                     <string notr="true">0,0:</string>
+                    </property>
+                    <property name="clearButtonEnabled">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Anime4k">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>Verify your GPUs configuration.</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
 background-color: rgb(178, 58, 238);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -4236,25 +4200,25 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>Verify</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
-                       <property name="enabled">
-                        <bool>false</bool>
-                       </property>
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>35</height>
-                        </size>
-                       </property>
-                       <property name="styleSheet">
-                        <string notr="true">QPushButton{
+                    </property>
+                    <property name="text">
+                     <string>Verify</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton{
 background-color: rgb(26, 188, 156);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -4282,339 +4246,378 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                       </property>
-                       <property name="text">
-                        <string>List GPUs</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item row="1" column="0" colspan="6">
-                    <widget class="Line" name="line_14">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="text">
+                     <string>List GPUs</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="1" column="0" colspan="6">
+                 <widget class="Line" name="line_14">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="6">
+                 <widget class="QWidget" name="widget" native="true">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>42</height>
+                   </size>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_38">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="label_48">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Passes for processing.</string>
+                     </property>
+                     <property name="text">
+                      <string>Passes:</string>
                      </property>
                     </widget>
                    </item>
-                   <item row="2" column="0" colspan="6">
-                    <widget class="QWidget" name="widget" native="true">
-                     <property name="maximumSize">
-                      <size>
-                       <width>16777215</width>
-                       <height>42</height>
-                      </size>
+                   <item row="0" column="1">
+                    <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
+                     <property name="minimum">
+                      <number>1</number>
                      </property>
-                     <layout class="QGridLayout" name="gridLayout_38">
-                      <item row="0" column="0">
-                       <widget class="QLabel" name="label_48">
-                        <property name="toolTip">
-                         <string>Passes for processing.</string>
-                        </property>
-                        <property name="text">
-                         <string>Passes:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="1">
-                       <widget class="QSpinBox" name="spinBox_Passes_Anime4K">
-                        <property name="minimum">
-                         <number>1</number>
-                        </property>
-                        <property name="maximum">
-                         <number>999999999</number>
-                        </property>
-                        <property name="value">
-                         <number>2</number>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="2">
-                       <widget class="QLabel" name="label_49">
-                        <property name="toolTip">
-                         <string>Limit the number of color pushes.</string>
-                        </property>
-                        <property name="text">
-                         <string>Push color count:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="3">
-                       <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
-                        <property name="minimum">
-                         <number>1</number>
-                        </property>
-                        <property name="maximum">
-                         <number>999999999</number>
-                        </property>
-                        <property name="value">
-                         <number>2</number>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="4">
-                       <widget class="QLabel" name="label_50">
-                        <property name="toolTip">
-                         <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
-                        </property>
-                        <property name="text">
-                         <string>Push color strength:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="5">
-                       <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
-                        <property name="maximum">
-                         <double>1.000000000000000</double>
-                        </property>
-                        <property name="singleStep">
-                         <double>0.100000000000000</double>
-                        </property>
-                        <property name="value">
-                         <double>0.300000000000000</double>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="6">
-                       <widget class="QLabel" name="label_51">
-                        <property name="toolTip">
-                         <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
-                        </property>
-                        <property name="text">
-                         <string>Push gradient strength:</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="0" column="7">
-                       <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
-                        <property name="maximum">
-                         <double>1.000000000000000</double>
-                        </property>
-                        <property name="singleStep">
-                         <double>0.100000000000000</double>
-                        </property>
-                        <property name="value">
-                         <double>1.000000000000000</double>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="value">
+                      <number>2</number>
+                     </property>
                     </widget>
                    </item>
-                   <item row="3" column="0" colspan="6">
-                    <layout class="QHBoxLayout" name="horizontalLayout_2">
-                     <item>
-                      <widget class="QGroupBox" name="groupBox_PreProcessing_Anime4k">
-                       <property name="maximumSize">
-                        <size>
-                         <width>16777215</width>
-                         <height>16777215</height>
-                        </size>
-                       </property>
-                       <property name="toolTip">
-                        <string/>
-                       </property>
-                       <property name="title">
-                        <string>Pre-processing</string>
-                       </property>
-                       <layout class="QGridLayout" name="gridLayout_25">
-                        <property name="leftMargin">
-                         <number>6</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>6</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>6</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>6</number>
-                        </property>
-                        <item row="1" column="0" colspan="4">
-                         <widget class="Line" name="line_8">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="1">
-                         <widget class="QCheckBox" name="checkBox_MeanBlur_Pre_Anime4k">
-                          <property name="text">
-                           <string>Mean blur</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="0">
-                         <widget class="QCheckBox" name="checkBox_MedianBlur_Pre_Anime4k">
-                          <property name="text">
-                           <string>Median blur</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="1" colspan="3">
-                         <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Pre_Anime4k">
-                          <property name="text">
-                           <string>Gaussian blur weak</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="2" colspan="2">
-                         <widget class="QCheckBox" name="checkBox_CASSharping_Pre_Anime4k">
-                          <property name="text">
-                           <string>CAS Sharpening</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="0">
-                         <widget class="QCheckBox" name="checkBox_GaussianBlur_Pre_Anime4k">
-                          <property name="text">
-                           <string>Gaussian blur</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="4" column="0">
-                         <widget class="QCheckBox" name="checkBox_BilateralFilter_Pre_Anime4k">
-                          <property name="text">
-                           <string>Bilateral filter</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="4" column="1" colspan="3">
-                         <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Pre_Anime4k">
-                          <property name="text">
-                           <string>Bilateral filter faster</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="0" column="0" colspan="3">
-                         <widget class="QCheckBox" name="checkBox_EnablePreProcessing_Anime4k">
-                          <property name="toolTip">
-                           <string>Apply filters to image before process it.</string>
-                          </property>
-                          <property name="text">
-                           <string>Enable Pre-processing</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QGroupBox" name="groupBox_PostProcessing_Anime4k">
-                       <property name="toolTip">
-                        <string/>
-                       </property>
-                       <property name="title">
-                        <string>Post-processing</string>
-                       </property>
-                       <layout class="QGridLayout" name="gridLayout_24">
-                        <property name="leftMargin">
-                         <number>6</number>
-                        </property>
-                        <property name="topMargin">
-                         <number>6</number>
-                        </property>
-                        <property name="rightMargin">
-                         <number>6</number>
-                        </property>
-                        <property name="bottomMargin">
-                         <number>6</number>
-                        </property>
-                        <item row="0" column="0" colspan="3">
-                         <widget class="QCheckBox" name="checkBox_EnablePostProcessing_Anime4k">
-                          <property name="toolTip">
-                           <string>Add filters to the image after processing it.</string>
-                          </property>
-                          <property name="text">
-                           <string>Enable Post-processing</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="1" column="0" colspan="4">
-                         <widget class="Line" name="line_9">
-                          <property name="orientation">
-                           <enum>Qt::Horizontal</enum>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="0">
-                         <widget class="QCheckBox" name="checkBox_MedianBlur_Post_Anime4k">
-                          <property name="text">
-                           <string>Median blur</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="1">
-                         <widget class="QCheckBox" name="checkBox_MeanBlur_Post_Anime4k">
-                          <property name="text">
-                           <string>Mean blur</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="2" column="2" colspan="2">
-                         <widget class="QCheckBox" name="checkBox_CASSharping_Post_Anime4k">
-                          <property name="text">
-                           <string>CAS Sharpening</string>
-                          </property>
-                          <property name="checked">
-                           <bool>false</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="0">
-                         <widget class="QCheckBox" name="checkBox_GaussianBlur_Post_Anime4k">
-                          <property name="text">
-                           <string>Gaussian blur</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="4" column="0">
-                         <widget class="QCheckBox" name="checkBox_BilateralFilter_Post_Anime4k">
-                          <property name="text">
-                           <string>Bilateral filter</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="3" column="1" colspan="3">
-                         <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Post_Anime4k">
-                          <property name="text">
-                           <string>Gaussian blur weak</string>
-                          </property>
-                          <property name="checked">
-                           <bool>true</bool>
-                          </property>
-                         </widget>
-                        </item>
-                        <item row="4" column="1" colspan="3">
-                         <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Post_Anime4k">
-                          <property name="text">
-                           <string>Bilateral filter faster</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="label_49">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Limit the number of color pushes.</string>
+                     </property>
+                     <property name="text">
+                      <string>Push color count:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QSpinBox" name="spinBox_PushColorCount_Anime4K">
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="value">
+                      <number>2</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QLabel" name="label_50">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Strength for pushing color,range 0 to 1,higher for thinner.</string>
+                     </property>
+                     <property name="text">
+                      <string>Push color strength:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="5">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_PushColorStrength_Anime4K">
+                     <property name="maximum">
+                      <double>1.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="value">
+                      <double>0.300000000000000</double>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="6">
+                    <widget class="QLabel" name="label_51">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Strength for pushing gradient,range 0 to 1,higher for sharper.</string>
+                     </property>
+                     <property name="text">
+                      <string>Push gradient strength:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="7">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_PushGradientStrength_Anime4K">
+                     <property name="maximum">
+                      <double>1.000000000000000</double>
+                     </property>
+                     <property name="singleStep">
+                      <double>0.100000000000000</double>
+                     </property>
+                     <property name="value">
+                      <double>1.000000000000000</double>
+                     </property>
+                    </widget>
                    </item>
                   </layout>
                  </widget>
                 </item>
+                <item row="3" column="0" colspan="6">
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_PreProcessing_Anime4k">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string/>
+                    </property>
+                    <property name="title">
+                     <string>Pre-processing</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_25">
+                     <property name="leftMargin">
+                      <number>6</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>6</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>6</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>6</number>
+                     </property>
+                     <item row="1" column="0" colspan="4">
+                      <widget class="Line" name="line_8">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QCheckBox" name="checkBox_MeanBlur_Pre_Anime4k">
+                       <property name="text">
+                        <string>Mean blur</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QCheckBox" name="checkBox_MedianBlur_Pre_Anime4k">
+                       <property name="text">
+                        <string>Median blur</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1" colspan="3">
+                      <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Pre_Anime4k">
+                       <property name="text">
+                        <string>Gaussian blur weak</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="2" colspan="2">
+                      <widget class="QCheckBox" name="checkBox_CASSharping_Pre_Anime4k">
+                       <property name="text">
+                        <string>CAS Sharpening</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QCheckBox" name="checkBox_GaussianBlur_Pre_Anime4k">
+                       <property name="text">
+                        <string>Gaussian blur</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0">
+                      <widget class="QCheckBox" name="checkBox_BilateralFilter_Pre_Anime4k">
+                       <property name="text">
+                        <string>Bilateral filter</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="1" colspan="3">
+                      <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Pre_Anime4k">
+                       <property name="text">
+                        <string>Bilateral filter faster</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0" colspan="3">
+                      <widget class="QCheckBox" name="checkBox_EnablePreProcessing_Anime4k">
+                       <property name="toolTip">
+                        <string>Apply filters to image before process it.</string>
+                       </property>
+                       <property name="text">
+                        <string>Enable Pre-processing</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QGroupBox" name="groupBox_PostProcessing_Anime4k">
+                    <property name="toolTip">
+                     <string/>
+                    </property>
+                    <property name="title">
+                     <string>Post-processing</string>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_24">
+                     <property name="leftMargin">
+                      <number>6</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>6</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>6</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>6</number>
+                     </property>
+                     <item row="0" column="0" colspan="3">
+                      <widget class="QCheckBox" name="checkBox_EnablePostProcessing_Anime4k">
+                       <property name="toolTip">
+                        <string>Add filters to the image after processing it.</string>
+                       </property>
+                       <property name="text">
+                        <string>Enable Post-processing</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0" colspan="4">
+                      <widget class="Line" name="line_9">
+                       <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QCheckBox" name="checkBox_MedianBlur_Post_Anime4k">
+                       <property name="text">
+                        <string>Median blur</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="1">
+                      <widget class="QCheckBox" name="checkBox_MeanBlur_Post_Anime4k">
+                       <property name="text">
+                        <string>Mean blur</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="2" colspan="2">
+                      <widget class="QCheckBox" name="checkBox_CASSharping_Post_Anime4k">
+                       <property name="text">
+                        <string>CAS Sharpening</string>
+                       </property>
+                       <property name="checked">
+                        <bool>false</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
+                      <widget class="QCheckBox" name="checkBox_GaussianBlur_Post_Anime4k">
+                       <property name="text">
+                        <string>Gaussian blur</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="0">
+                      <widget class="QCheckBox" name="checkBox_BilateralFilter_Post_Anime4k">
+                       <property name="text">
+                        <string>Bilateral filter</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="1" colspan="3">
+                      <widget class="QCheckBox" name="checkBox_GaussianBlurWeak_Post_Anime4k">
+                       <property name="text">
+                        <string>Gaussian blur weak</string>
+                       </property>
+                       <property name="checked">
+                        <bool>true</bool>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="4" column="1" colspan="3">
+                      <widget class="QCheckBox" name="checkBox_BilateralFilterFaster_Post_Anime4k">
+                       <property name="text">
+                        <string>Bilateral filter faster</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab_6">
+              <widget class="QWidget" name="tab_SrmdNcnnVulkan">
                <attribute name="title">
                 <string notr="true">SRMD-ncnn-vulkan</string>
                </attribute>
@@ -4999,7 +5002,7 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab">
+              <widget class="QWidget" name="tab_W2xCaffe">
                <attribute name="title">
                 <string notr="true">Waifu2x-Caffe</string>
                </attribute>
@@ -5358,7 +5361,7 @@ will be propagated through the network.</string>
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab_2">
+              <widget class="QWidget" name="tab_RealsrNcnnVulkan">
                <attribute name="title">
                 <string notr="true">RealSR-ncnn-vulkan</string>
                </attribute>
@@ -5805,12 +5808,19 @@ will process at the same time.</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
-             <widget class="QSpinBox" name="spinBox_ThreadNum_image">
+            <item row="0" column="2">
+             <widget class="Line" name="line">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="4">
+             <widget class="QSpinBox" name="spinBox_ThreadNum_gif_internal">
               <property name="toolTip">
-               <string>The number of threads that the software processes pictures,
-which will determine how many pictures the software will
-process at the same time.</string>
+               <string>The number of threads that the software processes GIF frames,
+which will determine how many GIF frames the software will
+process at the same time when processing a GIF.</string>
               </property>
               <property name="minimum">
                <number>1</number>
@@ -5826,12 +5836,12 @@ process at the same time.</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="7">
-             <widget class="QSpinBox" name="spinBox_ThreadNum_video_internal">
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="spinBox_ThreadNum_image">
               <property name="toolTip">
-               <string>The number of threads that the software processes video frames,
-which will determine how many video frames the software will
-process at the same time when processing a video.</string>
+               <string>The number of threads that the software processes pictures,
+which will determine how many pictures the software will
+process at the same time.</string>
               </property>
               <property name="minimum">
                <number>1</number>
@@ -5877,8 +5887,8 @@ process at the same time.</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="2">
-             <widget class="Line" name="line">
+            <item row="0" column="5">
+             <widget class="Line" name="line_2">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
@@ -5908,12 +5918,12 @@ will process at the same time.</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="4">
-             <widget class="QSpinBox" name="spinBox_ThreadNum_gif_internal">
+            <item row="0" column="7">
+             <widget class="QSpinBox" name="spinBox_ThreadNum_video_internal">
               <property name="toolTip">
-               <string>The number of threads that the software processes GIF frames,
-which will determine how many GIF frames the software will
-process at the same time when processing a GIF.</string>
+               <string>The number of threads that the software processes video frames,
+which will determine how many video frames the software will
+process at the same time when processing a video.</string>
               </property>
               <property name="minimum">
                <number>1</number>
@@ -5926,13 +5936,6 @@ process at the same time when processing a GIF.</string>
               </property>
               <property name="value">
                <number>1</number>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="5">
-             <widget class="Line" name="line_2">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
               </property>
              </widget>
             </item>
