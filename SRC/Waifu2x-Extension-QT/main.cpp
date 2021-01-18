@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.59.15:
+- Improve GUI.
+
 v2.59.04-beta:
 - Images will only be forced to be saved as PNG when the specified file format does not support Alpha channel.
 - Add buttons to adjust the block size to the nth power of 2.
