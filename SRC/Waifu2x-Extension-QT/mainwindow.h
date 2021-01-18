@@ -77,8 +77,8 @@ public:
     void changeEvent(QEvent *e);
     //=======================
     QString VERSION = "v2.59.15";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.58.13";
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.59.15";
     QString LastBetaVer = "v2.59.15";
     //=======================
     QTranslator * translator;//界面翻译
