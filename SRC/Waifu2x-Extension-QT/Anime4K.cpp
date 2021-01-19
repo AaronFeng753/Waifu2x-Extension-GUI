@@ -75,21 +75,11 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+file_ext+".png";
-    //======
-    QString HDNDenoiseLevel="";
-    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
-    {
-        int HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_image->value();
-        if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
-        {
-            HDNDenoiseLevel = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
-        }
-    }
     //============================== 放大 =======================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
     //====
-    QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(PreserveAlphaChannel);
+    QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_image + Anime4k_ReadSettings(PreserveAlphaChannel);
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -484,16 +474,6 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
-    //======
-    QString HDNDenoiseLevel="";
-    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
-    {
-        int HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_gif->value();
-        if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
-        {
-            HDNDenoiseLevel = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
-        }
-    }
     //========================================================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
@@ -514,7 +494,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
         }
     }
     //=======
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(false);
+    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_gif + Anime4k_ReadSettings(false);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -1458,16 +1438,6 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
-    //======
-    QString HDNDenoiseLevel="";
-    if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
-    {
-        int HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_video->value();
-        if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
-        {
-            HDNDenoiseLevel = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
-        }
-    }
     //========================================================================
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
@@ -1488,7 +1458,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         }
     }
     //=======
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel + Anime4k_ReadSettings(false);
+    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_video + Anime4k_ReadSettings(false);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {

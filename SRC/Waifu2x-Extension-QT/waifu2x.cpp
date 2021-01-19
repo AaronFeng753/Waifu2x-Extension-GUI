@@ -845,6 +845,35 @@ void MainWindow::PreLoad_Engines_Settings()
     if(ui->comboBox_Engine_Image->currentIndex()==3||ui->comboBox_Engine_GIF->currentIndex()==3||ui->comboBox_Engine_Video->currentIndex()==2)
     {
         Anime4k_PreLoad_Settings_Str = Anime4k_PreLoad_Settings();
+        //预加载HDN等级
+        if(ui->checkBox_ACNet_Anime4K->isChecked()&&ui->checkBox_HDNMode_Anime4k->isChecked())
+        {
+            int HDNDenoiseLevel_value = 0;
+            if(ui->comboBox_Engine_Image->currentIndex()==3)//图片
+            {
+                HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_image->value();
+                if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
+                {
+                    HDNDenoiseLevel_image = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+                }
+            }
+            if(ui->comboBox_Engine_GIF->currentIndex()==3)//GIF
+            {
+                HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_gif->value();
+                if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
+                {
+                    HDNDenoiseLevel_gif = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+                }
+            }
+            if(ui->comboBox_Engine_Video->currentIndex()==2)//视频
+            {
+                HDNDenoiseLevel_value = ui->spinBox_DenoiseLevel_video->value();
+                if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
+                {
+                    HDNDenoiseLevel_video = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+                }
+            }
+        }
     }
     //======================
     //Waifu2x-Caffe

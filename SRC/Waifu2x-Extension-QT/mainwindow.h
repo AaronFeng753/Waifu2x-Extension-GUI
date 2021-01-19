@@ -518,6 +518,9 @@ public:
     //===
     QString Anime4k_PreLoad_Settings();
     QString Anime4k_PreLoad_Settings_Str = "";
+    QString HDNDenoiseLevel_image = "";
+    QString HDNDenoiseLevel_gif = "";
+    QString HDNDenoiseLevel_video = "";
     //=============
     ~MainWindow();
 
