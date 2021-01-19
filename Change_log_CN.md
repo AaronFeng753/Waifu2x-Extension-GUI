@@ -11,41 +11,41 @@
 ## [v2.59.15](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.59.15)
 ```
 v2.59.15:
-- Improve GUI.
+- 改进 GUI.
 
 v2.59.04-beta:
-- Images will only be forced to be saved as PNG when the specified file format does not support Alpha channel.
-- Add buttons to adjust the block size to the nth power of 2.
-- Performance optimization.
-- Edit tool tip.
-- Other improvements.
-- Update ImageMagick,FFmpeg&FFprobe.
+- 仅在指定的图片格式不支持Alpha通道时,才将图像强制保存为PNG。
+- 添加按钮以将块大小调整为2的n次方。
+- 性能优化。
+- 编辑工具提示。
+- 其他改进。
+- 更新ImageMagick，FFmpeg＆FFprobe。
 
-v2.59.03-beta:
-- Automatically disable [Save Files List] button when files list is empty.
-- More compact GUI, and other improvements.
-- Edit tool tip and Chinese translation.
+v2.59.03-beta：
+- 当文件列表为空时，自动禁用[保存文件列表]按钮。
+- 更紧凑的GUI和其他GUI改进。
+- 编辑工具提示和中文翻译。
 
-v2.59.02-beta:
-- NEW Feature: Reset Files List scale.
-- NEW Feature: File count for each kind of file.
-- New icons.
-- Performance optimization.
-- Other improvements to the GUI.
-- Complete translation.
-- Fix bug: [Add Files] button is not disabled when loading Files list.
-- Fix bug: Horizontal header data of the Files List will lost after using the right-click menu of [Remove item].
+v2.59.02-beta：
+- 新功能：重置文件列表比例。
+- 新功能：针对每种文件的文件计数。
+- 新图标。
+- 性能优化。
+- 对GUI的其他改进。
+- 完整的翻译。
+- 修复bug：“加载文件”列表时未禁用[添加文件]按钮。
+- 修复bug：使用[移除项目]的右键菜单后，文件列表的横向标题数据将丢失。
 
-v2.59.01-beta:
-- NEW Feature: Now you can hide components easier by drag the handle.
-- Improve GUI design.
+v2.59.01-beta：
+- 新功能：现在您可以通过拖动来更轻松地隐藏组件。
+- 改善GUI设计。
 
-v2.58.14-beta:
-- NEW Feature: Now you can adjust the horizontal width of the file list.
-- Move [Move to Recycle Bin] option to Right-click menu of [Delete original files]
-- Other improvements to the GUI.
-- Notify users GPU ID list is empty when they try to enable Multi-GPU.
-- Optimize performance.
+v2.58.14-beta：
+- 新功能：现在，您可以调整文件列表的水平宽度。
+- 将[移至回收站]选项移至[删除原始文件]的右键菜单
+- 对GUI的其他改进。
+- 当用户尝试启用多GPU并且GPU ID列表为空时，通知用户。
+- 优化性能。
 ```
 ---
 ## [v2.58.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.58.13)
