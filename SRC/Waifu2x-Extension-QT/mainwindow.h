@@ -234,7 +234,7 @@ public:
     int Waifu2x_Caffe_Video(int rowNum);
     int Waifu2x_Caffe_Video_BySegment(int rowNum);
     int Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
-    QString Waifu2x_Caffe_ReadSettings(bool isImage);
+    QString Waifu2x_Caffe_ReadSettings();
     bool isWaifu2xCaffeEnabled();
     void DeleteErrorLog_Waifu2xCaffe();
 

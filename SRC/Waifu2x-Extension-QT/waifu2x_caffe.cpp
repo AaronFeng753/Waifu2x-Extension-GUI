@@ -86,7 +86,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
     else
     {
         int DenoiseLevel_tmp =0;
-        if((ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex()==0)&&(DenoiseLevel==0)&&(ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex()==0)&&(ui->comboBox_Engine_Image->currentIndex()==4))
+        if((ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex()==0)&&(DenoiseLevel==0)&&(ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex()==0))
         {
             DenoiseLevel_tmp=1;
         }
@@ -97,7 +97,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
         ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
     }
     //====
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + ImageProcessingModeCMD + Waifu2x_Caffe_ReadSettings(true);
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + ImageProcessingModeCMD + Waifu2x_Caffe_ReadSettings();
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -530,7 +530,7 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings(false);
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1511,7 +1511,7 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings(false);
+        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1573,50 +1573,9 @@ QString MainWindow::Waifu2xCaffe_PreLoad_Settings()
                 break;
             }
     }
-    //TTA
-    if(ui->checkBox_TTA_Waifu2xCaffe->isChecked())
-    {
-        Waifu2x_Caffe_Settings_str.append("-t 1 ");
-    }
-    else
-    {
-        Waifu2x_Caffe_Settings_str.append("-t 0 ");
-    }
-    //显卡设定
-    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==false)
-    {
-        //单个显卡
-        //GPU ID
-        if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
-        {
-            Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
-        }
-        //Batch size
-        Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
-        //Split size
-        Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
-    }
-    return Waifu2x_Caffe_Settings_str;
-}
-/*
-Waifu2x_Caffe
-读取配置生成配置string
-*/
-QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
-{
-    QString Waifu2x_Caffe_Settings_str = "";
-    Waifu2x_Caffe_Settings_str.append(Waifu2xCaffe_PreLoad_Settings_Str);
     //模型
     QString model_folder_path = Current_Path + "/waifu2x-caffe/models/";
-    int ImageStyle = 0;
-    if(isImage&&ui->comboBox_Engine_Image->currentIndex()!=4)
-    {
-        ImageStyle=1;
-    }
-    else
-    {
-        ImageStyle=ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex();
-    }
+    int ImageStyle = ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex();
     switch(ImageStyle)
     {
         case 0:
@@ -1679,6 +1638,39 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
                 break;
             }
     }
+    //TTA
+    if(ui->checkBox_TTA_Waifu2xCaffe->isChecked())
+    {
+        Waifu2x_Caffe_Settings_str.append("-t 1 ");
+    }
+    else
+    {
+        Waifu2x_Caffe_Settings_str.append("-t 0 ");
+    }
+    //显卡设定
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==false)
+    {
+        //单个显卡
+        //GPU ID
+        if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
+        {
+            Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+        }
+        //Batch size
+        Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
+        //Split size
+        Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
+    }
+    return Waifu2x_Caffe_Settings_str;
+}
+/*
+Waifu2x_Caffe
+读取配置生成配置string
+*/
+QString MainWindow::Waifu2x_Caffe_ReadSettings()
+{
+    QString Waifu2x_Caffe_Settings_str = "";
+    Waifu2x_Caffe_Settings_str.append(Waifu2xCaffe_PreLoad_Settings_Str);
     //显卡设定
     if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
     {
