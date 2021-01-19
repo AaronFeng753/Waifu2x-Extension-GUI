@@ -1529,18 +1529,11 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     return 0;
 }
 /*
-Anime4k
-读取配置生成配置string
+预读取引擎配置
 */
-QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
+QString MainWindow::Anime4k_PreLoad_Settings()
 {
     QString Anime4k_Settings_str = " ";
-    Anime4k_Settings_str.append("-M opencl ");//强制使用OpenCL(因为自行编译的版本中禁用了cuda,我没英伟达显卡
-    //保留透明通道
-    if(PreserveAlphaChannel)
-    {
-        Anime4k_Settings_str.append("-A ");//保留透明通道
-    }
     //快速模式
     if(ui->checkBox_FastMode_Anime4K->isChecked())
     {
@@ -1558,11 +1551,6 @@ QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
         {
             if(ui->checkBox_OpenCLParallelIO_A4k->isChecked())Anime4k_Settings_str.append("-P ");
             Anime4k_Settings_str.append("-Q "+QString::number(ui->spinBox_OpenCLCommandQueues_A4k->value(),10)+" ");
-        }
-        //指定GPU
-        if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
-        {
-            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
         }
     }
     //ACNet
@@ -1672,6 +1660,32 @@ QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
             Anime4k_Settings_str.append("-e 4 ");
         }
     }
+    return Anime4k_Settings_str;
+}
+/*
+Anime4k
+读取配置生成配置string
+*/
+QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
+{
+    QString Anime4k_Settings_str = " ";
+    //=================================
+    Anime4k_Settings_str.append(Anime4k_PreLoad_Settings_Str);
+    //保留透明通道
+    if(PreserveAlphaChannel)
+    {
+        Anime4k_Settings_str.append("-A ");//保留透明通道
+    }
+    //GPU加速
+    if(ui->checkBox_GPUMode_Anime4K->isChecked())
+    {
+        //指定GPU
+        if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
+        {
+            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
+        }
+    }
+    //=================================
     return Anime4k_Settings_str;
 }
 

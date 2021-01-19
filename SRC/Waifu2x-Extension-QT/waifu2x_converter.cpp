@@ -1612,23 +1612,13 @@ void MainWindow::on_comboBox_TargetProcessor_converter_currentIndexChanged(int i
     }
 }
 /*
-Waifu2x-Converter
-读取设定
+预读取引擎设定
 */
-QString MainWindow::Waifu2xConverter_ReadSettings()
+QString MainWindow::Waifu2xConverter_PreLoad_Settings()
 {
     QString Waifu2xConverter_Settings_str = " ";
     //=====
-    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
-    {
-        //==========多显卡==========
-        QMap<QString,QString> GPUInfo = Waifu2xConverter_MultiGPU();
-        //GPU ID
-        Waifu2xConverter_Settings_str.append("-p "+GPUInfo["ID"]+" ");
-        //Tile Size
-        Waifu2xConverter_Settings_str.append("--block-size "+GPUInfo["TileSize"]+" ");
-    }
-    else
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked()==false)
     {
         //==========单显卡==========
         //Processor ID
@@ -1654,6 +1644,28 @@ QString MainWindow::Waifu2xConverter_ReadSettings()
     else
     {
         Waifu2xConverter_Settings_str.append("-t 0 ");
+    }
+    //=======================================
+    return Waifu2xConverter_Settings_str;
+}
+
+/*
+Waifu2x-Converter
+读取设定
+*/
+QString MainWindow::Waifu2xConverter_ReadSettings()
+{
+    QString Waifu2xConverter_Settings_str = "";
+    //=====
+    Waifu2xConverter_Settings_str.append(Waifu2xConverter_PreLoad_Settings_Str);
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = Waifu2xConverter_MultiGPU();
+        //GPU ID
+        Waifu2xConverter_Settings_str.append("-p "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Waifu2xConverter_Settings_str.append("--block-size "+GPUInfo["TileSize"]+" ");
     }
     //=======================================
     return Waifu2xConverter_Settings_str;

@@ -818,13 +818,46 @@ int MainWindow::MinusTileSize_NCNNVulkan_Converter(int OrginalTileSize)
 */
 void MainWindow::PreLoad_Engines_Settings()
 {
-    Waifu2x_NCNN_Vulkan_PreLoad_Settings_Str = Waifu2x_NCNN_Vulkan_PreLoad_Settings();
-    SrmdNcnnVulkan_PreLoad_Settings_Str = SrmdNcnnVulkan_PreLoad_Settings();
-    Realsr_NCNN_Vulkan_PreLoad_Settings_Str = Realsr_NCNN_Vulkan_PreLoad_Settings();
+    //======================
+    //Waifu2x-NCNN-Vulkan
+    //======================
+    if(ui->comboBox_Engine_Image->currentIndex()==0||ui->comboBox_Engine_GIF->currentIndex()==0||ui->comboBox_Engine_Video->currentIndex()==0)
+    {
+        Waifu2x_NCNN_Vulkan_PreLoad_Settings_Str = Waifu2x_NCNN_Vulkan_PreLoad_Settings();
+    }
+    //======================
+    //Waifu2x-Converter
+    //======================
+    if(ui->comboBox_Engine_Image->currentIndex()==1||ui->comboBox_Engine_GIF->currentIndex()==1||ui->comboBox_Engine_Video->currentIndex()==1)
+    {
+        Waifu2xConverter_PreLoad_Settings_Str = Waifu2xConverter_PreLoad_Settings();
+    }
+    //======================
+    //SRMD-NCNN-Vulkan
+    //======================
+    if(ui->comboBox_Engine_Image->currentIndex()==2||ui->comboBox_Engine_GIF->currentIndex()==2||ui->comboBox_Engine_Video->currentIndex()==3)
+    {
+        SrmdNcnnVulkan_PreLoad_Settings_Str = SrmdNcnnVulkan_PreLoad_Settings();
+    }
+    //======================
+    //Anime4k
+    //======================
+    if(ui->comboBox_Engine_Image->currentIndex()==3||ui->comboBox_Engine_GIF->currentIndex()==3||ui->comboBox_Engine_Video->currentIndex()==2)
+    {
+        Anime4k_PreLoad_Settings_Str = Anime4k_PreLoad_Settings();
+    }
+    //======================
+    //Waifu2x-Caffe
+    //======================
     if(isWaifu2xCaffeEnabled())
     {
         Waifu2xCaffe_PreLoad_Settings_Str = Waifu2xCaffe_PreLoad_Settings();
     }
-    //Waifu2xConverter_PreLoad_Settings_Str = Waifu2xConverter_PreLoad_Settings();
-    //Anime4k_PreLoad_Settings_Str = Anime4k_PreLoad_Settings();
+    //======================
+    //Realsr-NCNN-Vulkan
+    //======================
+    if(ui->comboBox_Engine_Image->currentIndex()==5||ui->comboBox_Engine_GIF->currentIndex()==5||ui->comboBox_Engine_Video->currentIndex()==5)
+    {
+        Realsr_NCNN_Vulkan_PreLoad_Settings_Str = Realsr_NCNN_Vulkan_PreLoad_Settings();
+    }
 }
