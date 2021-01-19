@@ -1800,21 +1800,12 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_
 }
 /*
 Realsr_NCNN_Vulkan
-读取配置生成配置QString
+预读取引擎配置
 */
-QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
+QString MainWindow::Realsr_NCNN_Vulkan_PreLoad_Settings()
 {
     QString Realsr_NCNN_Vulkan_Settings_str = " ";
-    if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
-    {
-        //==========多显卡==========
-        QMap<QString,QString> GPUInfo = RealsrNcnnVulkan_MultiGPU();
-        //GPU ID
-        Realsr_NCNN_Vulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
-        //Tile Size
-        Realsr_NCNN_Vulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
-    }
-    else
+    if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked()==false)
     {
         //==========单显卡==========
         //GPU ID
@@ -1846,6 +1837,26 @@ QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
             }
     }
     Realsr_NCNN_Vulkan_Settings_str.append("-j 1:1:1 ");
+    //=======================================
+    return Realsr_NCNN_Vulkan_Settings_str;
+}
+/*
+Realsr_NCNN_Vulkan
+读取配置生成配置QString
+*/
+QString MainWindow::Realsr_NCNN_Vulkan_ReadSettings()
+{
+    QString Realsr_NCNN_Vulkan_Settings_str = "";
+    Realsr_NCNN_Vulkan_Settings_str.append(Realsr_NCNN_Vulkan_PreLoad_Settings_Str);
+    if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = RealsrNcnnVulkan_MultiGPU();
+        //GPU ID
+        Realsr_NCNN_Vulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Realsr_NCNN_Vulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
+    }
     //=======================================
     return Realsr_NCNN_Vulkan_Settings_str;
 }

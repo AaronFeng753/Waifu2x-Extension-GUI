@@ -1549,9 +1549,9 @@ int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,
 }
 /*
 Waifu2x_Caffe
-读取配置生成配置string
+预读取引擎设定
 */
-QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
+QString MainWindow::Waifu2xCaffe_PreLoad_Settings()
 {
     QString Waifu2x_Caffe_Settings_str = " ";
     //处理模式
@@ -1573,6 +1573,39 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
                 break;
             }
     }
+    //TTA
+    if(ui->checkBox_TTA_Waifu2xCaffe->isChecked())
+    {
+        Waifu2x_Caffe_Settings_str.append("-t 1 ");
+    }
+    else
+    {
+        Waifu2x_Caffe_Settings_str.append("-t 0 ");
+    }
+    //显卡设定
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==false)
+    {
+        //单个显卡
+        //GPU ID
+        if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
+        {
+            Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
+        }
+        //Batch size
+        Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
+        //Split size
+        Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
+    }
+    return Waifu2x_Caffe_Settings_str;
+}
+/*
+Waifu2x_Caffe
+读取配置生成配置string
+*/
+QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
+{
+    QString Waifu2x_Caffe_Settings_str = "";
+    Waifu2x_Caffe_Settings_str.append(Waifu2xCaffe_PreLoad_Settings_Str);
     //模型
     QString model_folder_path = Current_Path + "/waifu2x-caffe/models/";
     int ImageStyle = 0;
@@ -1646,33 +1679,11 @@ QString MainWindow::Waifu2x_Caffe_ReadSettings(bool isImage)
                 break;
             }
     }
-    //TTA
-    if(ui->checkBox_TTA_Waifu2xCaffe->isChecked())
-    {
-        Waifu2x_Caffe_Settings_str.append("-t 1 ");
-    }
-    else
-    {
-        Waifu2x_Caffe_Settings_str.append("-t 0 ");
-    }
     //显卡设定
     if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked())
     {
         //多显卡
         Waifu2x_Caffe_Settings_str.append(Waifu2xCaffe_GetGPUInfo()+" ");
-    }
-    else
-    {
-        //单个显卡
-        //GPU ID
-        if(ui->comboBox_ProcessMode_Waifu2xCaffe->currentIndex()>0)
-        {
-            Waifu2x_Caffe_Settings_str.append("--gpu "+QString::number(ui->spinBox_GPUID_Waifu2xCaffe->value(),10)+" ");
-        }
-        //Batch size
-        Waifu2x_Caffe_Settings_str.append("-b "+QString::number(ui->spinBox_BatchSize_Waifu2xCaffe->value(),10)+" ");
-        //Split size
-        Waifu2x_Caffe_Settings_str.append("-c "+QString::number(ui->spinBox_SplitSize_Waifu2xCaffe->value(),10)+" ");
     }
     return Waifu2x_Caffe_Settings_str;
 }

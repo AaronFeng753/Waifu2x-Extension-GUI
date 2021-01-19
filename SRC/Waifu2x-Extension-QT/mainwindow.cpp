@@ -1999,3 +1999,19 @@ void MainWindow::on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index)
         ui->checkBox_OpenCLParallelIO_A4k->setEnabled(0);
     }
 }
+
+void MainWindow::on_checkBox_DisableGPU_converter_stateChanged(int arg1)
+{
+    if(ui->checkBox_DisableGPU_converter->isChecked())
+    {
+        ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(0);
+        ui->comboBox_TargetProcessor_converter->setEnabled(0);
+        ui->comboBox_TargetProcessor_converter->setCurrentIndex(0);
+        ui->checkBox_MultiGPU_Waifu2xConverter->setEnabled(0);
+    }
+    else
+    {
+        ui->comboBox_TargetProcessor_converter->setEnabled(1);
+        ui->checkBox_MultiGPU_Waifu2xConverter->setEnabled(1);
+    }
+}

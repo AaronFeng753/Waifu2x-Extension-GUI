@@ -1910,9 +1910,9 @@ int MainWindow::Waifu2x_DetectGPU_finished()
 
 /*
 Waifu2x_NCNN_Vulkan
-读取配置生成配置string
+预读取引擎配置
 */
-QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings()
+QString MainWindow::Waifu2x_NCNN_Vulkan_PreLoad_Settings()
 {
     QString Waifu2x_NCNN_Vulkan_Settings_str = " ";
     //TTA
@@ -1920,16 +1920,7 @@ QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings()
     {
         Waifu2x_NCNN_Vulkan_Settings_str.append("-x ");
     }
-    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
-    {
-        //==========多显卡==========
-        QMap<QString,QString> GPUInfo = Waifu2x_NCNN_Vulkan_MultiGPU();
-        //GPU ID
-        Waifu2x_NCNN_Vulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
-        //Tile Size
-        Waifu2x_NCNN_Vulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
-    }
-    else
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked()==false)
     {
         //==========单显卡==========
         //GPU ID
@@ -1960,6 +1951,27 @@ QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings()
     }
     Waifu2x_NCNN_Vulkan_Settings_str.append("-m \""+model_path+"\" ");
     Waifu2x_NCNN_Vulkan_Settings_str.append("-j 1:1:1 ");
+    //=======================================
+    return Waifu2x_NCNN_Vulkan_Settings_str;
+}
+
+/*
+Waifu2x_NCNN_Vulkan
+读取配置生成配置string
+*/
+QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings()
+{
+    QString Waifu2x_NCNN_Vulkan_Settings_str = "";
+    Waifu2x_NCNN_Vulkan_Settings_str.append(Waifu2x_NCNN_Vulkan_PreLoad_Settings_Str);
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = Waifu2x_NCNN_Vulkan_MultiGPU();
+        //GPU ID
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
+        //Tile Size
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
+    }
     //=======================================
     return Waifu2x_NCNN_Vulkan_Settings_str;
 }

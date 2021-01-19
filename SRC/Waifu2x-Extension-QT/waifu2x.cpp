@@ -225,6 +225,9 @@ void MainWindow::on_pushButton_Start_clicked()
     TimeCost=0;
     TimeCostTimer->start(1000);
     emit Send_TextBrowser_NewMessage(tr("Start processing files."));
+    //==========
+    PreLoad_Engines_Settings();//预读取引擎设定
+    //==========
     Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
 }
 
@@ -809,4 +812,19 @@ int MainWindow::MinusTileSize_NCNNVulkan_Converter(int OrginalTileSize)
         }
     }
     return OrginalTileSize-1;
+}
+/*
+预读取引擎设定
+*/
+void MainWindow::PreLoad_Engines_Settings()
+{
+    Waifu2x_NCNN_Vulkan_PreLoad_Settings_Str = Waifu2x_NCNN_Vulkan_PreLoad_Settings();
+    SrmdNcnnVulkan_PreLoad_Settings_Str = SrmdNcnnVulkan_PreLoad_Settings();
+    Realsr_NCNN_Vulkan_PreLoad_Settings_Str = Realsr_NCNN_Vulkan_PreLoad_Settings();
+    if(isWaifu2xCaffeEnabled())
+    {
+        Waifu2xCaffe_PreLoad_Settings_Str = Waifu2xCaffe_PreLoad_Settings();
+    }
+    //Waifu2xConverter_PreLoad_Settings_Str = Waifu2xConverter_PreLoad_Settings();
+    //Anime4k_PreLoad_Settings_Str = Anime4k_PreLoad_Settings();
 }

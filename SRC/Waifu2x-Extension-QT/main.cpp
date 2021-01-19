@@ -35,8 +35,10 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.01-beta:
-- Update Anime4K.
+- Preload engines settings to improve performance.
 - Adapt to the new version of Anime4K.
+- Update Anime4K.
+- Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
 
 --------------------------------------------------------------------------
 To do:

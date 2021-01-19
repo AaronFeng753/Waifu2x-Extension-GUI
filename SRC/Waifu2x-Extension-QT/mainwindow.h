@@ -498,6 +498,26 @@ public:
     //===================== 块大小调整 ======================
     int AddTileSize_NCNNVulkan_Converter(int OrginalTileSize);
     int MinusTileSize_NCNNVulkan_Converter(int OrginalTileSize);
+    //==================== 预读取引擎设定 ==================
+    void PreLoad_Engines_Settings();
+    //===
+    QString Waifu2x_NCNN_Vulkan_PreLoad_Settings();
+    QString Waifu2x_NCNN_Vulkan_PreLoad_Settings_Str = "";
+    //===
+    QString SrmdNcnnVulkan_PreLoad_Settings();
+    QString SrmdNcnnVulkan_PreLoad_Settings_Str = "";
+    //===
+    QString Realsr_NCNN_Vulkan_PreLoad_Settings();
+    QString Realsr_NCNN_Vulkan_PreLoad_Settings_Str = "";
+    //===
+    QString Waifu2xCaffe_PreLoad_Settings();
+    QString Waifu2xCaffe_PreLoad_Settings_Str = "";
+    //===
+    QString Waifu2xConverter_PreLoad_Settings();
+    QString Waifu2xConverter_PreLoad_Settings_Str = "";
+    //===
+    QString Anime4k_PreLoad_Settings();
+    QString Anime4k_PreLoad_Settings_Str = "";
     //=============
     ~MainWindow();
 
@@ -862,6 +882,8 @@ private slots:
     void on_pushButton_Minus_TileSize_RealsrNCNNVulkan_clicked();
 
     void on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index);
+
+    void on_checkBox_DisableGPU_converter_stateChanged(int arg1);
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

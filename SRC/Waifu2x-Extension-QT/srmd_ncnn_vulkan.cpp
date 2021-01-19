@@ -1936,8 +1936,10 @@ void MainWindow::SRMD_DetectGPU_finished()
     ui->pushButton_DetectGPUID_srmd->setText(tr("Detect available GPU ID"));
     //===
 }
-
-QString MainWindow::SrmdNcnnVulkan_ReadSettings()
+/*
+预读取SRMD引擎设定
+*/
+QString MainWindow::SrmdNcnnVulkan_PreLoad_Settings()
 {
     QString SrmdNcnnVulkan_Settings_str = " ";
     //TTA
@@ -1945,16 +1947,7 @@ QString MainWindow::SrmdNcnnVulkan_ReadSettings()
     {
         SrmdNcnnVulkan_Settings_str.append("-x ");
     }
-    if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
-    {
-        //==========多显卡==========
-        QMap<QString,QString> GPUInfo = SrmdNcnnVulkan_MultiGPU();
-        //GPU ID
-        SrmdNcnnVulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
-        //Tile Size
-        SrmdNcnnVulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
-    }
-    else
+    if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked()==false)
     {
         //==========单显卡==========
         //GPU ID
@@ -1970,6 +1963,26 @@ QString MainWindow::SrmdNcnnVulkan_ReadSettings()
     QString model_path = SrmdNcnnVulkan_folder_path+"/models-srmd";
     SrmdNcnnVulkan_Settings_str.append("-m \""+model_path+"\" ");
     SrmdNcnnVulkan_Settings_str.append("-j 1:1:1 ");
+    //=======================================
+    return SrmdNcnnVulkan_Settings_str;
+}
+
+/*
+读取SRMD引擎设置
+*/
+QString MainWindow::SrmdNcnnVulkan_ReadSettings()
+{
+    QString SrmdNcnnVulkan_Settings_str = "";
+    SrmdNcnnVulkan_Settings_str.append(SrmdNcnnVulkan_PreLoad_Settings_Str);
+    if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
+    {
+        //==========多显卡==========
+        QMap<QString,QString> GPUInfo = SrmdNcnnVulkan_MultiGPU();
+        //GPU ID
+        SrmdNcnnVulkan_Settings_str.append("-g "+GPUInfo["ID"]+" ");
+        //Tile Size
+        SrmdNcnnVulkan_Settings_str.append("-t "+GPUInfo["TileSize"]+" ");
+    }
     //=======================================
     return SrmdNcnnVulkan_Settings_str;
 }
