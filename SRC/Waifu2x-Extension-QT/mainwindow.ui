@@ -108,6 +108,9 @@ height:35
        <property name="elideMode">
         <enum>Qt::ElideNone</enum>
        </property>
+       <property name="usesScrollButtons">
+        <bool>false</bool>
+       </property>
        <property name="documentMode">
         <bool>false</bool>
        </property>
@@ -3181,7 +3184,7 @@ process at the same time.</string>
                <number>0</number>
               </property>
               <property name="usesScrollButtons">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <widget class="QWidget" name="tab_W2xNcnnVulkan">
                <attribute name="title">
@@ -5903,6 +5906,12 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>190</width>
+                      <height>0</height>
+                     </size>
+                    </property>
                     <property name="toolTip">
                      <string>Select the engine for processing GIF. 
 
@@ -5915,6 +5924,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QComboBox::AdjustToContents</enum>
                     </property>
                     <item>
                      <property name="text">
@@ -5975,6 +5987,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>190</width>
+                      <height>0</height>
+                     </size>
+                    </property>
                     <property name="toolTip">
                      <string>Select the engine for processing Video. 
 
@@ -5987,6 +6005,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QComboBox::AdjustToContents</enum>
                     </property>
                     <item>
                      <property name="text">
@@ -6049,8 +6070,14 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                     </property>
                     <property name="minimumSize">
                      <size>
-                      <width>200</width>
+                      <width>190</width>
                       <height>0</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
                      </size>
                     </property>
                     <property name="toolTip">
@@ -6065,6 +6092,9 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QComboBox::AdjustToContents</enum>
                     </property>
                     <item>
                      <property name="text">
