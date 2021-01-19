@@ -521,6 +521,8 @@ public:
     QString HDNDenoiseLevel_image = "";
     QString HDNDenoiseLevel_gif = "";
     QString HDNDenoiseLevel_video = "";
+    //================== 计算临时放大倍率 ====================
+    int Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(int ScaleRatio);
     //=============
     ~MainWindow();
 

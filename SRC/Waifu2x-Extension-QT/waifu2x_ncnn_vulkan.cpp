@@ -86,29 +86,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlpha
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
     //==========
-    int ScaleRatio_tmp=0;
-    //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
-    if((ScaleRatio%2)==0)
-    {
-        ScaleRatio_tmp = ScaleRatio;
-    }
-    else
-    {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //判断是否为2的幂数
-    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-    {
-        for(int i=1; true; i++)
-        {
-            int pow_ =pow(2,i);
-            if(pow_>=ScaleRatio_tmp)
-            {
-                ScaleRatio_tmp=pow_;
-                break;
-            }
-        }
-    }
+    int ScaleRatio_tmp=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio);
     //======
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
@@ -591,29 +569,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
     QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
     //======
-    int ScaleRatio_tmp=0;
-    if((ScaleRatio%2)==0)
-    {
-        ScaleRatio_tmp = ScaleRatio;
-    }
-    else
-    {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //======
-    //判断是否为2的幂数
-    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-    {
-        for(int i=1; true; i++)
-        {
-            int pow_ =pow(2,i);
-            if(pow_>=ScaleRatio_tmp)
-            {
-                ScaleRatio_tmp=pow_;
-                break;
-            }
-        }
-    }
+    int ScaleRatio_tmp=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio);
     //======
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
@@ -1668,29 +1624,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
     //========
     QString program = Waifu2x_ncnn_vulkan_ProgramPath;
     //=========
-    int ScaleRatio_tmp=0;
-    if((ScaleRatio%2)==0)
-    {
-        ScaleRatio_tmp = ScaleRatio;
-    }
-    else
-    {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //======
-    //判断是否为2的幂数
-    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-    {
-        for(int i=1; true; i++)
-        {
-            int pow_ =pow(2,i);
-            if(pow_>=ScaleRatio_tmp)
-            {
-                ScaleRatio_tmp=pow_;
-                break;
-            }
-        }
-    }
+    int ScaleRatio_tmp=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio);
     //===================
     QString OutputPath_tmp ="";
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
@@ -2164,4 +2098,34 @@ W2x NCNN Vulkan 块大小调整按钮 -
 void MainWindow::on_pushButton_TileSize_Minus_W2xNCNNVulkan_clicked()
 {
     ui->spinBox_TileSize->setValue(MinusTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize->value()));
+}
+/*
+计算 临时放大倍率
+*/
+int MainWindow::Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(int ScaleRatio)
+{
+    int ScaleRatio_tmp=0;
+    //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
+    if((ScaleRatio%2)==0)
+    {
+        ScaleRatio_tmp = ScaleRatio;
+    }
+    else
+    {
+        ScaleRatio_tmp = ScaleRatio+1;
+    }
+    //判断是否为2的幂数
+    if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+    {
+        for(int i=1; true; i++)
+        {
+            int pow_ =pow(2,i);
+            if(pow_>=ScaleRatio_tmp)
+            {
+                ScaleRatio_tmp=pow_;
+                break;
+            }
+        }
+    }
+    return ScaleRatio_tmp;
 }
