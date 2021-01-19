@@ -1541,28 +1541,6 @@ QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
     {
         Anime4k_Settings_str.append("-A ");//保留透明通道
     }
-    //ACNet
-    if(ui->checkBox_ACNet_Anime4K->isChecked())
-    {
-        Anime4k_Settings_str.append("-w ");//启用acnet
-        if(ui->checkBox_GPUMode_Anime4K->isChecked())
-        {
-            Anime4k_Settings_str.append("-q ");//启用显卡
-        }
-        if(ui->checkBox_HDNMode_Anime4k->isChecked())
-        {
-            Anime4k_Settings_str.append("-H ");//启用HDN
-        }
-        if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
-        {
-            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");//指定显卡
-        }
-        if(ui->checkBox_FastMode_Anime4K->isChecked())
-        {
-            Anime4k_Settings_str.append("-f ");//快速模式
-        }
-        return Anime4k_Settings_str;
-    }
     //快速模式
     if(ui->checkBox_FastMode_Anime4K->isChecked())
     {
@@ -1572,12 +1550,32 @@ QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
     if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         Anime4k_Settings_str.append("-q ");
+        //加载GPGPU模式
+        QString GPGPU_Model = ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed();
+        Anime4k_Settings_str.append("-M "+GPGPU_Model+" ");
+        //加载OpenCL选项
+        if(GPGPU_Model=="opencl")
+        {
+            if(ui->checkBox_OpenCLParallelIO_A4k->isChecked())Anime4k_Settings_str.append("-P ");
+            Anime4k_Settings_str.append("-Q "+QString::number(ui->spinBox_OpenCLCommandQueues_A4k->value(),10)+" ");
+        }
+        //指定GPU
+        if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
+        {
+            Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
+        }
     }
-    //指定GPU
-    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
+    //ACNet
+    if(ui->checkBox_ACNet_Anime4K->isChecked())
     {
-        Anime4k_Settings_str.append(Anime4k_GetGPUInfo()+" ");
+        Anime4k_Settings_str.append("-w ");//启用acnet
+        if(ui->checkBox_HDNMode_Anime4k->isChecked())
+        {
+            Anime4k_Settings_str.append("-H ");//启用HDN
+        }
+        return Anime4k_Settings_str;
     }
+    //============= 非ACNET选项 ===========
     //Passes
     Anime4k_Settings_str.append("-p "+QString::number(ui->spinBox_Passes_Anime4K->value(),10)+" ");
     //Push color count

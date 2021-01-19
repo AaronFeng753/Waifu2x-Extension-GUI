@@ -1931,11 +1931,15 @@ void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
     if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(1);
+        ui->comboBox_GPGPUModel_A4k->setEnabled(1);
+        on_comboBox_GPGPUModel_A4k_currentIndexChanged(1);
     }
     else
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(0);
         ui->checkBox_SpecifyGPU_Anime4k->setChecked(0);
+        ui->comboBox_GPGPUModel_A4k->setEnabled(0);
+        on_comboBox_GPGPUModel_A4k_currentIndexChanged(1);
     }
 }
 
@@ -2187,4 +2191,18 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
 void MainWindow::on_pushButton_ResizeFilesListSplitter_clicked()
 {
     ui->splitter_FilesList->setSizes(QList<int>() << 1 << 1 << 1);
+}
+
+void MainWindow::on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index)
+{
+    if(ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed()=="opencl" && ui->checkBox_GPUMode_Anime4K->isChecked())
+    {
+        ui->spinBox_OpenCLCommandQueues_A4k->setEnabled(1);
+        ui->checkBox_OpenCLParallelIO_A4k->setEnabled(1);
+    }
+    else
+    {
+        ui->spinBox_OpenCLCommandQueues_A4k->setEnabled(0);
+        ui->checkBox_OpenCLParallelIO_A4k->setEnabled(0);
+    }
 }

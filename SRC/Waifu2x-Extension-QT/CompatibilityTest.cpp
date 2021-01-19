@@ -162,7 +162,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     Current_Path = qApp->applicationDirPath();
     QString Anime4k_folder_path = Current_Path + "/Anime4K";
     program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
-    cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2 -M opencl";
+    cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2";
     QProcess *Waifu2x_anime4k = new QProcess();
     for(int CompatTest_retry=0; CompatTest_retry<3; CompatTest_retry++)
     {
@@ -190,7 +190,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     //==========================================
     Current_Path = qApp->applicationDirPath();
     program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
-    cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2 -q -M opencl";
+    cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z 2 -q";
     QProcess *Waifu2x_anime4k_gpu = new QProcess();
     for(int CompatTest_retry=0; CompatTest_retry<3; CompatTest_retry++)
     {

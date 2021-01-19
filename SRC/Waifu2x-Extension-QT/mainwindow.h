@@ -76,10 +76,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.59.15";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v2.61.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v2.59.15";
-    QString LastBetaVer = "v2.59.15";
+    QString LastBetaVer = "v2.61.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -860,6 +860,8 @@ private slots:
     void on_pushButton_Add_TileSize_RealsrNCNNVulkan_clicked();
 
     void on_pushButton_Minus_TileSize_RealsrNCNNVulkan_clicked();
+
+    void on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index);
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

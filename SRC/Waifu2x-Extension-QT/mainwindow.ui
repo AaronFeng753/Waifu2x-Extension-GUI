@@ -4074,194 +4074,236 @@ enabling [GPU Mode] can greatly increase the processing speed.
 
 - [ Speed:★★★  Image Quality:★ ]</string>
                </attribute>
-               <layout class="QGridLayout" name="gridLayout_5">
+               <layout class="QGridLayout" name="gridLayout_62">
                 <property name="leftMargin">
-                 <number>5</number>
+                 <number>6</number>
                 </property>
                 <property name="topMargin">
-                 <number>5</number>
+                 <number>6</number>
                 </property>
                 <property name="rightMargin">
-                 <number>5</number>
+                 <number>6</number>
                 </property>
                 <property name="bottomMargin">
-                 <number>5</number>
+                 <number>6</number>
                 </property>
                 <item row="0" column="0">
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Enable ACNet.
+                 <widget class="QFrame" name="frame_21">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_61">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="3">
+                    <widget class="Line" name="line_26">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
+                     <property name="enabled">
+                      <bool>true</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Enable ACNet.
 Will improve image quality.</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">ACNet</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_HDNMode_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Enable HDN mode for ACNet.
+                     </property>
+                     <property name="text">
+                      <string notr="true">ACNet</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Faster but maybe low quality.</string>
+                     </property>
+                     <property name="text">
+                      <string>Fast mode</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="6">
+                    <widget class="QCheckBox" name="checkBox_OpenCLParallelIO_A4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>OpenCL parallel IO command queue</string>
+                     </property>
+                     <property name="text">
+                      <string>OpenCL parallel IO</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QCheckBox" name="checkBox_HDNMode_Anime4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Enable HDN mode for ACNet.
 Will improve image quality.
 
 *This option will be deactivated
 when [ACNet] is disabled*</string>
-                    </property>
-                    <property name="text">
-                     <string>HDN mode</string>
-                    </property>
-                    <property name="checked">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
-                    <property name="toolTip">
-                     <string>Faster but maybe low quality.</string>
-                    </property>
-                    <property name="text">
-                     <string>Fast mode</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                     </property>
+                     <property name="text">
+                      <string>HDN mode</string>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="5">
+                    <widget class="QSpinBox" name="spinBox_OpenCLCommandQueues_A4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Number of OpenCL command queues</string>
+                     </property>
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QLabel" name="label_23">
+                     <property name="text">
+                      <string>OpenCL command queues:</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
-                <item row="0" column="1">
-                 <widget class="Line" name="line_13">
+                <item row="1" column="0">
+                 <widget class="Line" name="line_5">
                   <property name="orientation">
-                   <enum>Qt::Vertical</enum>
+                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2">
-                 <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
-                  <property name="toolTip">
-                   <string>Enable GPU acceleration.</string>
+                <item row="2" column="0">
+                 <widget class="QFrame" name="frame_20">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
                   </property>
-                  <property name="text">
-                   <string>GPU Mode</string>
+                  <property name="frameShape">
+                   <enum>QFrame::NoFrame</enum>
                   </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
-                  <property name="enabled">
-                   <bool>false</bool>
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
                   </property>
-                  <property name="toolTip">
-                   <string>You can specify multiple GPUs to fully 
-utilize the capabilities of your PC.
-(If there are multiple GPUs available.)</string>
-                  </property>
-                  <property name="text">
-                   <string>Specify GPUs</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="4">
-                 <widget class="Line" name="line_15">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="5">
-                 <layout class="QHBoxLayout" name="horizontalLayout_6">
-                  <item>
-                   <widget class="QLabel" name="label_19">
-                    <property name="text">
-                     <string notr="true">GPUs:</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="lineEdit_GPUs_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Format: Platform ID,Device ID:
-
-Example: 0,0:0,1:1,0:
-
-You must follow the format,otherwise the software may crash.
-
-If you wanna get all GPUs running together,
-the number of threads must &gt;= the number of GPUs.</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true">0,0:</string>
-                    </property>
-                    <property name="clearButtonEnabled">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="toolTip">
-                     <string>Verify your GPUs configuration.</string>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                    </property>
-                    <property name="text">
-                     <string>Verify</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>35</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton{
+                  <layout class="QGridLayout" name="gridLayout_5">
+                   <property name="leftMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="topMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="rightMargin">
+                    <number>0</number>
+                   </property>
+                   <property name="bottomMargin">
+                    <number>0</number>
+                   </property>
+                   <item row="0" column="4">
+                    <widget class="Line" name="line_15">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QCheckBox" name="checkBox_GPUMode_Anime4K">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Enable GPU acceleration.</string>
+                     </property>
+                     <property name="text">
+                      <string>GPU Mode</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="8">
+                    <widget class="QPushButton" name="pushButton_ListGPUs_Anime4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>35</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton{
 background-color: rgb(26, 188, 156);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -4289,22 +4331,158 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-                    </property>
-                    <property name="text">
-                     <string>List GPUs</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                     </property>
+                     <property name="text">
+                      <string>List GPUs</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QComboBox" name="comboBox_GPGPUModel_A4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="toolTip">
+                      <string>GPGPU model.
+
+Only NVIDIA products support CUDA.</string>
+                     </property>
+                     <item>
+                      <property name="text">
+                       <string notr="true">OpenCL</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string notr="true">CUDA</string>
+                      </property>
+                     </item>
+                    </widget>
+                   </item>
+                   <item row="0" column="5">
+                    <widget class="QLabel" name="label_19">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string notr="true">GPUs:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="7">
+                    <widget class="QPushButton" name="pushButton_VerifyGPUsConfig_Anime4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="toolTip">
+                      <string>Verify your GPUs configuration.</string>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                     </property>
+                     <property name="text">
+                      <string>Verify</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="6">
+                    <widget class="QLineEdit" name="lineEdit_GPUs_Anime4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Format: Platform ID,Device ID:
+
+Example: 0,0:0,1:1,0:
+
+You must follow the format,otherwise the software may crash.
+
+If you wanna get all GPUs running together,
+the number of threads must &gt;= the number of GPUs.</string>
+                     </property>
+                     <property name="text">
+                      <string notr="true">0,0:</string>
+                     </property>
+                     <property name="clearButtonEnabled">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="QCheckBox" name="checkBox_SpecifyGPU_Anime4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>You can specify multiple GPUs to fully 
+utilize the capabilities of your PC.
+(If there are multiple GPUs available.)</string>
+                     </property>
+                     <property name="text">
+                      <string>Specify GPUs</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="Line" name="line_13">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
                 </item>
-                <item row="1" column="0" colspan="6">
+                <item row="3" column="0">
                  <widget class="Line" name="line_14">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="0" colspan="6">
+                <item row="4" column="0">
                  <widget class="QWidget" name="widget" native="true">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -4450,7 +4628,7 @@ padding:10px;
                   </layout>
                  </widget>
                 </item>
-                <item row="3" column="0" colspan="6">
+                <item row="5" column="0">
                  <layout class="QHBoxLayout" name="horizontalLayout_2">
                   <item>
                    <widget class="QGroupBox" name="groupBox_PreProcessing_Anime4k">
