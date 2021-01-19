@@ -8,6 +8,46 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.59.15](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.59.15)
+```
+v2.59.15:
+- Improve GUI.
+
+v2.59.04-beta:
+- Images will only be forced to be saved as PNG when the specified file format does not support Alpha channel.
+- Add buttons to adjust the block size to the nth power of 2.
+- Performance optimization.
+- Edit tool tip.
+- Other improvements.
+- Update ImageMagick,FFmpeg&FFprobe.
+
+v2.59.03-beta:
+- Automatically disable [Save Files List] button when files list is empty.
+- More compact GUI, and other improvements.
+- Edit tool tip and Chinese translation.
+
+v2.59.02-beta:
+- NEW Feature: Reset Files List scale.
+- NEW Feature: File count for each kind of file.
+- New icons.
+- Performance optimization.
+- Other improvements to the GUI.
+- Complete translation.
+- Fix bug: [Add Files] button is not disabled when loading Files list.
+- Fix bug: Horizontal header data of the Files List will lost after using the right-click menu of [Remove item].
+
+v2.59.01-beta:
+- NEW Feature: Now you can hide components easier by drag the handle.
+- Improve GUI design.
+
+v2.58.14-beta:
+- NEW Feature: Now you can adjust the horizontal width of the file list.
+- Move [Move to Recycle Bin] option to Right-click menu of [Delete original files]
+- Other improvements to the GUI.
+- Notify users GPU ID list is empty when they try to enable Multi-GPU.
+- Optimize performance.
+```
+---
 ## [v2.58.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.58.13)
 #### 更新日志:
 - 新特性: Waifu2x-ncnn-vulkan 引擎支持使用CPU运算.
