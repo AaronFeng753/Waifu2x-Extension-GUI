@@ -435,6 +435,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     //==========================================
     //                 ImageMagick
     //==========================================
+    //convert
     QString convert_InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
     QString convert_OutputPath = Current_Path + "/Compatibility_Test/convert_res.bmp";
     QString convert_program = Current_Path+"/convert_waifu2xEX.exe";
@@ -445,7 +446,9 @@ int MainWindow::Waifu2x_Compatibility_Test()
     {
         while(!convert_QProcess.waitForFinished(100)&&!QProcess_stop) {}
     }
-    if(QFile::exists(convert_OutputPath))
+    //identify
+    QMap<QString,int> res_map_Compatibility_Test = Image_Gif_Read_Resolution(convert_InputPath);
+    if(QFile::exists(convert_OutputPath)&&res_map_Compatibility_Test["height"]>0&&res_map_Compatibility_Test["width"]>0)
     {
         emit Send_TextBrowser_NewMessage(tr("Compatible with ImageMagick: Yes."));
         isCompatible_ImageMagick=true;

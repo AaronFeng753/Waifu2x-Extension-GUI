@@ -146,6 +146,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
                     {
                         QFile::remove(InputPath_tmp);
                     }
+                    QFile::remove(OutputPath_tmp);
                     status = "Interrupted";
                     emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     mutex_ThreadNumRunning.lock();
@@ -222,8 +223,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
     //============================ 调整大小 ====================================================
     if(ScaleRatio_tmp != ScaleRatio||CustRes_isEnabled)
     {
-        QImage qimage_original;
-        qimage_original.load(SourceFile_fullPath);
+        QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
         int New_height=0;
         int New_width=0;
         if(CustRes_isEnabled)
@@ -233,8 +233,8 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
         }
         else
         {
-            New_height = qimage_original.height()*ScaleRatio;
-            New_width = qimage_original.width()*ScaleRatio;
+            New_height = res_map_OriginalFile["height"]*ScaleRatio;
+            New_width = res_map_OriginalFile["width"]*ScaleRatio;
         }
         QImage qimage_adj(OutputPath_tmp);
         //读取放大后的图片并调整大小

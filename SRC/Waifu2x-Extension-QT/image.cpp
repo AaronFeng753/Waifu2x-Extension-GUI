@@ -67,26 +67,47 @@ bool MainWindow::Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif)
 /*
 读取图片和GIF的分辨率
 */
-QMap<QString,int> MainWindow::Image_Gif_Read_Resolution(QString GifFileFullPath)
+QMap<QString,int> MainWindow::Image_Gif_Read_Resolution(QString SourceFileFullPath)
 {
-    QImage qimage_gif;
-    qimage_gif.load(GifFileFullPath);
-    int original_height = qimage_gif.height();
-    int original_width = qimage_gif.width();
+    QString program = Current_Path+"/identify_waifu2xEX.exe";
+    QProcess QProcess_Read_Resolution;
+    QProcess_Read_Resolution.start("\""+program+"\" -format \"%w:%h;success;\" \""+SourceFileFullPath+"\"");
+    while(!QProcess_Read_Resolution.waitForStarted(100)&&!QProcess_stop) {}
+    while(!QProcess_Read_Resolution.waitForFinished(100)&&!QProcess_stop) {}
+    QString QProcess_Read_Resolution_OutputStr = QProcess_Read_Resolution.readAllStandardOutput().trimmed();
+    if(QProcess_Read_Resolution_OutputStr.contains("success"))
+    {
+        QStringList Res_strList = QProcess_Read_Resolution_OutputStr.split(";").at(0).split(":");
+        int width = Res_strList.at(0).toInt();
+        int height = Res_strList.at(1).toInt();
+        if(height>0 && width>0)
+        {
+            QMap<QString,int> res_map;
+            res_map["height"] = height;
+            res_map["width"] = width;
+            return res_map;
+        }
+    }
+    //==============================
+    QImage qimage_GifFileFullPath;
+    qimage_GifFileFullPath.load(SourceFileFullPath);
+    int original_height = qimage_GifFileFullPath.height();
+    int original_width = qimage_GifFileFullPath.width();
     if(original_height<=0||original_width<=0)
     {
-        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the resolution of the GIF. [")+GifFileFullPath+"]");
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the resolution of the GIF. [")+SourceFileFullPath+"]");
         QMap<QString,int> empty;
         empty["height"] = 0;
         empty["width"] = 0;
         return empty;
     }
-    //==============================
-    QMap<QString,int> res_map;
-    //读取文件信息
-    res_map["height"] = original_height;
-    res_map["width"] = original_width;
-    return res_map;
+    else
+    {
+        QMap<QString,int> res_map;
+        res_map["height"] = original_height;
+        res_map["width"] = original_width;
+        return res_map;
+    }
 }
 /*
 修改图片的 格式 与 图像质量

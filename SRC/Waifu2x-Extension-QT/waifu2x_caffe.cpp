@@ -109,6 +109,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
             if(waifu2x_STOP)
             {
                 Waifu2x->close();
+                QFile::remove(OutPut_Path);
                 status = "Interrupted";
                 emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                 mutex_ThreadNumRunning.lock();
@@ -149,8 +150,7 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
     //============================ 调整大小 ====================================================
     if(CustRes_isEnabled)
     {
-        QImage qimage_original;
-        qimage_original.load(SourceFile_fullPath);
+        QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
         int New_height=0;
         int New_width=0;
         if(CustRes_isEnabled)
@@ -160,8 +160,8 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
         }
         else
         {
-            New_height = qimage_original.height()*ScaleRatio;
-            New_width = qimage_original.width()*ScaleRatio;
+            New_height = res_map_OriginalFile["height"]*ScaleRatio;
+            New_width = res_map_OriginalFile["width"]*ScaleRatio;
         }
         QImage qimage_adj(OutPut_Path);
         //读取放大后的图片并调整大小

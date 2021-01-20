@@ -38,8 +38,10 @@ v2.61.01-beta:
 - NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
 - Preload engines settings to improve performance.
 - Update and adapt to the new version of Anime4K.
+- Improve the way of reading picture resolution.
 - Remove useless code.
 - Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
+- Fix bug: If pause during the image processing, useless files will be generated.
 
 --------------------------------------------------------------------------
 To do:

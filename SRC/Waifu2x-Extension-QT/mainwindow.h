@@ -266,7 +266,7 @@ public:
     void ListGPUs_Anime4k();//列出可用显卡 Anime4k
     //======================== 图片处理 ================================
     bool Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif);
-    QMap<QString,int> Image_Gif_Read_Resolution(QString GifFileFullPath);//获取图片&GIF分辨率
+    QMap<QString,int> Image_Gif_Read_Resolution(QString SourceFileFullPath);//获取图片&GIF分辨率
     bool Imgae_hasAlphaChannel(int rowNum);
     QString Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChannel);
     QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
