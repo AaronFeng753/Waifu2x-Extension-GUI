@@ -265,6 +265,8 @@ public:
 
     void ListGPUs_Anime4k();//列出可用显卡 Anime4k
     //======================== 图片处理 ================================
+    bool Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif);
+    QMap<QString,int> Image_Gif_Read_Resolution(QString GifFileFullPath);//获取图片&GIF分辨率
     bool Imgae_hasAlphaChannel(int rowNum);
     QString Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChannel);
     QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
@@ -344,6 +346,7 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    bool Video_AutoSkip_CustRes(int rowNum);
     int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率
     QString video_get_fps(QString videoPath);//获取视频fps
@@ -922,8 +925,6 @@ signals:
     void Send_CheckUpadte_NewUpdate(QString, QString);
 
     void Send_Table_FileCount_reload();
-
-    void Send_MovToFinedList();
 
     void Send_Table_image_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);
     void Send_Table_gif_insert_fileName_fullPath(QString fileName, QString SourceFile_fullPath);

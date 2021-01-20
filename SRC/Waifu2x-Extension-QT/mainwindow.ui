@@ -1675,35 +1675,6 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="0" column="1" colspan="2">
-                   <widget class="QSpinBox" name="spinBox_CustRes_width">
-                    <property name="suffix">
-                     <string> pixels</string>
-                    </property>
-                    <property name="minimum">
-                     <number>1</number>
-                    </property>
-                    <property name="maximum">
-                     <number>999999999</number>
-                    </property>
-                    <property name="value">
-                     <number>1920</number>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0">
-                   <widget class="QLabel" name="label_15">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>Height:</string>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="1" column="1" colspan="2">
                    <widget class="QSpinBox" name="spinBox_CustRes_height">
                     <property name="suffix">
@@ -1717,6 +1688,88 @@ padding:10px;
                     </property>
                     <property name="value">
                      <number>1080</number>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="4" column="0" colspan="3">
+                   <layout class="QVBoxLayout" name="verticalLayout_2">
+                    <property name="spacing">
+                     <number>2</number>
+                    </property>
+                    <property name="sizeConstraint">
+                     <enum>QLayout::SetDefaultConstraint</enum>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="label_44">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="maximumSize">
+                       <size>
+                        <width>16777215</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="text">
+                       <string>Aspect Ratio:</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
+                      <property name="minimumSize">
+                       <size>
+                        <width>280</width>
+                        <height>0</height>
+                       </size>
+                      </property>
+                      <property name="toolTip">
+                       <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="currentIndex">
+                       <number>1</number>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>Ignore Aspect Ratio</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Keep Aspect Ratio</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Keep Aspect Ratio By Expanding</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="0" column="1" colspan="2">
+                   <widget class="QSpinBox" name="spinBox_CustRes_width">
+                    <property name="suffix">
+                     <string> pixels</string>
+                    </property>
+                    <property name="minimum">
+                     <number>1</number>
+                    </property>
+                    <property name="maximum">
+                     <number>999999999</number>
+                    </property>
+                    <property name="value">
+                     <number>1920</number>
                     </property>
                    </widget>
                   </item>
@@ -1736,7 +1789,31 @@ padding:10px;
                     </property>
                    </widget>
                   </item>
-                  <item row="2" column="0" colspan="2">
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="label_15">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Height:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="2">
+                   <widget class="QCheckBox" name="checkBox_AutoSkip_CustomRes">
+                    <property name="toolTip">
+                     <string>Automatically skip file when its resolution
+is larger than the specified resolution.</string>
+                    </property>
+                    <property name="text">
+                     <string>Auto Skip</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0" rowspan="2" colspan="2">
                    <layout class="QHBoxLayout" name="horizontalLayout">
                     <item>
                      <widget class="QPushButton" name="pushButton_CustRes_apply">
@@ -1836,72 +1913,6 @@ padding:10px;
                       <property name="text">
                        <string>Cancel</string>
                       </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="3" column="0" colspan="3">
-                   <layout class="QVBoxLayout" name="verticalLayout_2">
-                    <property name="spacing">
-                     <number>2</number>
-                    </property>
-                    <property name="sizeConstraint">
-                     <enum>QLayout::SetDefaultConstraint</enum>
-                    </property>
-                    <item>
-                     <widget class="QLabel" name="label_44">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="toolTip">
-                       <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                      <property name="text">
-                       <string>Aspect Ratio:</string>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QComboBox" name="comboBox_AspectRatio_custRes">
-                      <property name="minimumSize">
-                       <size>
-                        <width>280</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="toolTip">
-                       <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/new/prefix1/OtherPic/AspectRatioStrategy.jpg&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                      <property name="currentIndex">
-                       <number>1</number>
-                      </property>
-                      <item>
-                       <property name="text">
-                        <string>Ignore Aspect Ratio</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>Keep Aspect Ratio</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string>Keep Aspect Ratio By Expanding</string>
-                       </property>
-                      </item>
                      </widget>
                     </item>
                    </layout>

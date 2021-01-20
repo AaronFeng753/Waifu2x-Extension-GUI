@@ -19,7 +19,6 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
 /*
 获取gif帧间隔时间
 */

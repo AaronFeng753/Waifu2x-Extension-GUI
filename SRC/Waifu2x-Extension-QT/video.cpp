@@ -19,6 +19,44 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+根据分辨率判断是否跳过
+true = 跳过
+*/
+bool MainWindow::Video_AutoSkip_CustRes(int rowNum)
+{
+    if(ui->checkBox_AutoSkip_CustomRes->isChecked()==false)return false;
+    QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        int CustRes_height=0;
+        int CustRes_width=0;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+        //=========================
+        QMap<QString,int> res_map = video_get_Resolution(SourceFile_fullPath);
+        int original_height = res_map["height"];
+        int original_width = res_map["width"];
+        if(original_height<=0||original_width<=0)//判断是否读取失败
+        {
+            return false;
+        }
+        //==========================
+        if((CustRes_height*CustRes_width) <= (original_height*original_width))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+/*
 直接读取视频 分辨率 然后用 自有算法 计算其应该有的比特率
 单位为k
 */

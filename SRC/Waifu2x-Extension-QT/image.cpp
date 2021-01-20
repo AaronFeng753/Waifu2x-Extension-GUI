@@ -19,6 +19,76 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+根据分辨率判断是否跳过
+true = 跳过
+*/
+bool MainWindow::Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif)
+{
+    if(ui->checkBox_AutoSkip_CustomRes->isChecked()==false)return false;
+    QString SourceFile_fullPath = "";
+    if(isGif)
+    {
+        SourceFile_fullPath = Table_model_gif->item(rowNum,2)->text();
+    }
+    else
+    {
+        SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
+    }
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        int CustRes_height=0;
+        int CustRes_width=0;
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+        //=========================
+        QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceFile_fullPath);
+        int original_height = res_map["height"];
+        int original_width = res_map["width"];
+        if(original_height<=0||original_width<=0)//判断是否读取失败
+        {
+            return false;
+        }
+        //==========================
+        if((CustRes_height*CustRes_width) <= (original_height*original_width))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
+}
+/*
+读取图片和GIF的分辨率
+*/
+QMap<QString,int> MainWindow::Image_Gif_Read_Resolution(QString GifFileFullPath)
+{
+    QImage qimage_gif;
+    qimage_gif.load(GifFileFullPath);
+    int original_height = qimage_gif.height();
+    int original_width = qimage_gif.width();
+    if(original_height<=0||original_width<=0)
+    {
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the resolution of the GIF. [")+GifFileFullPath+"]");
+        QMap<QString,int> empty;
+        empty["height"] = 0;
+        empty["width"] = 0;
+        return empty;
+    }
+    //==============================
+    QMap<QString,int> res_map;
+    //读取文件信息
+    res_map["height"] = original_height;
+    res_map["width"] = original_width;
+    return res_map;
+}
+/*
 修改图片的 格式 与 图像质量
 返回修改完成后文件的路径
 */

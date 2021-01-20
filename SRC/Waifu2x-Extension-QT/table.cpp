@@ -752,10 +752,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         //Delay_msec_sleep(100);
     }
     //====================
-    if(!ui->checkBox_ReProcFinFiles->isChecked())
-    {
-        emit Send_MovToFinedList();
-    }
     emit Send_Table_Read_Saved_Table_Filelist_Finished();
     return 0;
 }

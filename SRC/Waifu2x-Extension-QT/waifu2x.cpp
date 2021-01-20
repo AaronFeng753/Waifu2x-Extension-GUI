@@ -94,7 +94,7 @@ void MainWindow::on_pushButton_Start_clicked()
     //检查图片文件列表
     for ( int i = 0; i < rowCount_image; i++ )
     {
-        if(!ui->checkBox_ReProcFinFiles->isChecked())
+        if(ui->checkBox_ReProcFinFiles->isChecked()==false)
         {
             if(Table_model_image->item(i,1)->text().toLower().contains("finished"))
             {
@@ -111,7 +111,7 @@ void MainWindow::on_pushButton_Start_clicked()
     //检查GIF文件列表
     for ( int i = 0; i < rowCount_gif; i++ )
     {
-        if(!ui->checkBox_ReProcFinFiles->isChecked())
+        if(ui->checkBox_ReProcFinFiles->isChecked()==false)
         {
             if(Table_model_gif->item(i,1)->text().toLower().contains("finished"))
             {
@@ -128,7 +128,7 @@ void MainWindow::on_pushButton_Start_clicked()
     //检查视频文件列表
     for ( int i = 0; i < rowCount_video; i++ )
     {
-        if(!ui->checkBox_ReProcFinFiles->isChecked())
+        if(ui->checkBox_ReProcFinFiles->isChecked()==false)
         {
             if(Table_model_video->item(i,1)->text().toLower().contains("finished"))
             {
@@ -261,7 +261,7 @@ int MainWindow::Waifu2xMainThread()
                 return 0;//如果启用stop位,则直接return
             }
             //=============== 判断状态 ================
-            if(!ui->checkBox_ReProcFinFiles->isChecked())
+            if(ui->checkBox_ReProcFinFiles->isChecked()==false)
             {
                 if(Table_model_image->item(i,1)->text().toLower().contains("finished"))
                 {
@@ -278,6 +278,12 @@ int MainWindow::Waifu2xMainThread()
             if(file_isFilesFolderWritable_row_image(i)==false)
             {
                 emit Send_progressbar_Add();
+                continue;
+            }
+            //============ 自动跳过高分辨率文件 ===================
+            if(Image_Gif_AutoSkip_CustRes(i,false))
+            {
+                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(i, "Skipped");
                 continue;
             }
             //=========
@@ -382,7 +388,7 @@ int MainWindow::Waifu2xMainThread()
                 return 0;//如果启用stop位,则直接return
             }
             //=============== 判断状态 ================
-            if(!ui->checkBox_ReProcFinFiles->isChecked())
+            if(ui->checkBox_ReProcFinFiles->isChecked()==false)
             {
                 if(Table_model_gif->item(i,1)->text().toLower().contains("finished"))
                 {
@@ -399,6 +405,12 @@ int MainWindow::Waifu2xMainThread()
             if(file_isFilesFolderWritable_row_gif(i)==false)
             {
                 emit Send_progressbar_Add();
+                continue;
+            }
+            //============ 自动跳过高分辨率文件 ===================
+            if(Image_Gif_AutoSkip_CustRes(i,true))
+            {
+                emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(i, "Skipped");
                 continue;
             }
             //=========
@@ -467,7 +479,7 @@ int MainWindow::Waifu2xMainThread()
                 return 0;//如果启用stop位,则直接return
             }
             //=============== 判断状态 ================
-            if(!ui->checkBox_ReProcFinFiles->isChecked())
+            if(ui->checkBox_ReProcFinFiles->isChecked()==false)
             {
                 if(Table_model_video->item(i,1)->text().toLower().contains("finished"))
                 {
@@ -486,8 +498,13 @@ int MainWindow::Waifu2xMainThread()
                 emit Send_progressbar_Add();
                 continue;
             }
+            //============ 自动跳过高分辨率文件 ===================
+            if(Video_AutoSkip_CustRes(i))
+            {
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(i, "Skipped");
+                continue;
+            }
             //============= 获取时长, 判断是否需要分段处理 =================
-            //=========
             switch(VideoEngine)
             {
                 case 0:

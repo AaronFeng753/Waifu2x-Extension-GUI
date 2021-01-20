@@ -35,14 +35,17 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.01-beta:
+- NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
 - Preload engines settings to improve performance.
-- Adapt to the new version of Anime4K.
-- Update Anime4K.
+- Update and adapt to the new version of Anime4K.
+- Remove useless code.
 - Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
 
 --------------------------------------------------------------------------
 To do:
+- 改进图片分辨率计算方法.
 - 补全翻译.
+- 将文件列表的状态替换为预设的QString
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 ---------------------------------------------------------------------------
 Integrated component:
