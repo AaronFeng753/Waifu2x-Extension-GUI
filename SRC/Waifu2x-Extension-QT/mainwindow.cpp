@@ -842,7 +842,6 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         ui_tableViews_setUpdatesEnabled(false);
         this->setAcceptDrops(0);//禁止drop file
         ui->pushButton_Start->setEnabled(0);//禁用start button
-        ui->checkBox_ReProcFinFiles->setEnabled(0);
         ui->pushButton_CustRes_cancel->setEnabled(0);
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);

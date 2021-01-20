@@ -199,10 +199,7 @@ void MainWindow::on_pushButton_Start_clicked()
     ui->checkBox_DelOriginal->setEnabled(0);
     ui->checkBox_ReProcFinFiles->setEnabled(0);
     ui->pushButton_compatibilityTest->setEnabled(0);
-    ui->pushButton_CustRes_cancel->setEnabled(0);
-    ui->pushButton_CustRes_apply->setEnabled(0);
     ui->pushButton_ReadFileList->setEnabled(0);
-    ui->comboBox_AspectRatio_custRes->setEnabled(0);
     progressbar_clear();
     ui->label_TimeCost->setText(tr("Time taken:NULL"));
     ui->label_ETA->setText(tr("ETA:NULL"));
@@ -221,6 +218,7 @@ void MainWindow::on_pushButton_Start_clicked()
     on_lineEdit_GPUs_Anime4k_editingFinished();
     on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
     ui->checkBox_ReplaceOriginalFile->setEnabled(0);
+    ui->groupBox_CustRes->setEnabled(0);
     //==========
     TimeCost=0;
     TimeCostTimer->start(1000);
@@ -654,10 +652,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->checkBox_OptGIF->setEnabled(1);
     ui->checkBox_ReProcFinFiles->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
-    ui->pushButton_CustRes_cancel->setEnabled(1);
-    ui->pushButton_CustRes_apply->setEnabled(1);
     ui->pushButton_ReadFileList->setEnabled(1);
-    ui->comboBox_AspectRatio_custRes->setEnabled(1);
     ui->groupBox_video_settings->setEnabled(1);
     if(ui->checkBox_DelOriginal->isChecked())QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setEnabled(1);
     ui->pushButton_ForceRetry->setVisible(0);
@@ -681,6 +676,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ui->checkBox_AlwaysPreProcessAlphaPNG->setEnabled(1);
     checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
+    ui->groupBox_CustRes->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;

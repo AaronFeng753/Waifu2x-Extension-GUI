@@ -1630,7 +1630,7 @@ padding:10px;
                 <number>5</number>
                </property>
                <item>
-                <widget class="QGroupBox" name="groupBox">
+                <widget class="QGroupBox" name="groupBox_CustRes">
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
