@@ -223,7 +223,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
     //============================ 调整大小 ====================================================
     if(ScaleRatio_tmp != ScaleRatio||CustRes_isEnabled)
     {
-        QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
         int New_height=0;
         int New_width=0;
         if(CustRes_isEnabled)
@@ -233,6 +232,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
         }
         else
         {
+            QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
             New_height = res_map_OriginalFile["height"]*ScaleRatio;
             New_width = res_map_OriginalFile["width"]*ScaleRatio;
         }

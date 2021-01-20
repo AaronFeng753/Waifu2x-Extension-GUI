@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.61.02-beta:
+- Performance improvement.
+
 v2.61.01-beta:
 - NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
 - Preload engines settings to improve performance.

@@ -133,7 +133,6 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //============================ 调整大小 ====================================================
     if(CustRes_isEnabled)
     {
-        QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
         int New_height=0;
         int New_width=0;
         if(CustRes_isEnabled)
@@ -143,6 +142,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         }
         else
         {
+            QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
             New_height = res_map_OriginalFile["height"]*ScaleRatio;
             New_width = res_map_OriginalFile["width"]*ScaleRatio;
         }
