@@ -171,7 +171,6 @@ int MainWindow::Settings_Save()
     //=================== 存储Anime4k设置 =============================
     configIniWrite->setValue("/settings/spinBox_OpenCLCommandQueues_A4k", ui->spinBox_OpenCLCommandQueues_A4k->value());
     configIniWrite->setValue("/settings/checkBox_OpenCLParallelIO_A4k", ui->checkBox_OpenCLParallelIO_A4k->isChecked());
-    configIniWrite->setValue("/settings/comboBox_Version_A4k", ui->comboBox_Version_A4k->currentIndex());
     configIniWrite->setValue("/settings/comboBox_GPGPUModel_A4k", ui->comboBox_GPGPUModel_A4k->currentIndex());
     configIniWrite->setValue("/settings/checkBox_HDNMode_Anime4k", ui->checkBox_HDNMode_Anime4k->isChecked());
     configIniWrite->setValue("/settings/checkBox_FastMode_Anime4K", ui->checkBox_FastMode_Anime4K->isChecked());
@@ -422,7 +421,6 @@ int MainWindow::Settings_Read_Apply()
     //================== 加载Anime4k设置 ===================================
     ui->spinBox_OpenCLCommandQueues_A4k->setValue(Settings_Read_value("/settings/spinBox_OpenCLCommandQueues_A4k").toInt());
     ui->checkBox_OpenCLParallelIO_A4k->setChecked(Settings_Read_value("/settings/checkBox_OpenCLParallelIO_A4k").toBool());
-    ui->comboBox_Version_A4k->setCurrentIndex(Settings_Read_value("/settings/comboBox_Version_A4k").toInt());
     ui->comboBox_GPGPUModel_A4k->setCurrentIndex(Settings_Read_value("/settings/comboBox_GPGPUModel_A4k").toInt());
     ui->checkBox_HDNMode_Anime4k->setChecked(Settings_Read_value("/settings/checkBox_HDNMode_Anime4k").toBool());
     ui->checkBox_FastMode_Anime4K->setChecked(Settings_Read_value("/settings/checkBox_FastMode_Anime4K").toBool());
@@ -506,7 +504,6 @@ int MainWindow::Settings_Read_Apply()
     on_checkBox_ShowInterPro_stateChanged(0);
     //====
     on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(0);
-    on_comboBox_Version_A4k_currentIndexChanged(0);
     on_comboBox_Engine_GIF_currentIndexChanged(0);
     isShowAnime4kWarning=false;
     on_comboBox_Engine_Image_currentIndexChanged(0);

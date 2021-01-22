@@ -4125,6 +4125,77 @@ enabling [GPU Mode] can greatly increase the processing speed.
                    <property name="bottomMargin">
                     <number>0</number>
                    </property>
+                   <item row="0" column="6">
+                    <widget class="QCheckBox" name="checkBox_OpenCLParallelIO_A4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>OpenCL parallel IO command queue</string>
+                     </property>
+                     <property name="text">
+                      <string>OpenCL parallel IO</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Faster but maybe low quality.</string>
+                     </property>
+                     <property name="text">
+                      <string>Fast mode</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="3">
+                    <widget class="Line" name="line_26">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="5">
+                    <widget class="QSpinBox" name="spinBox_OpenCLCommandQueues_A4k">
+                     <property name="enabled">
+                      <bool>false</bool>
+                     </property>
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>Number of OpenCL command queues</string>
+                     </property>
+                     <property name="minimum">
+                      <number>1</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="4">
+                    <widget class="QLabel" name="label_23">
+                     <property name="text">
+                      <string>OpenCL command queues:</string>
+                     </property>
+                    </widget>
+                   </item>
                    <item row="0" column="0">
                     <widget class="QCheckBox" name="checkBox_ACNet_Anime4K">
                      <property name="enabled">
@@ -4142,13 +4213,6 @@ Will improve image quality.</string>
                      </property>
                      <property name="text">
                       <string notr="true">ACNet</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="4">
-                    <widget class="QLabel" name="label_23">
-                     <property name="text">
-                      <string>OpenCL command queues:</string>
                      </property>
                     </widget>
                    </item>
@@ -4175,105 +4239,6 @@ when [ACNet] is disabled*</string>
                      </property>
                      <property name="checked">
                       <bool>true</bool>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="9">
-                    <widget class="QComboBox" name="comboBox_Version_A4k">
-                     <property name="toolTip">
-                      <string>Switch the version of Anime4k engine.
-
-If you find that your computer has compatibility
-issues with the latest version, switching to the
-old version may fix the problem.</string>
-                     </property>
-                     <item>
-                      <property name="text">
-                       <string>Latest</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>Old</string>
-                      </property>
-                     </item>
-                    </widget>
-                   </item>
-                   <item row="0" column="2">
-                    <widget class="QCheckBox" name="checkBox_FastMode_Anime4K">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="toolTip">
-                      <string>Faster but maybe low quality.</string>
-                     </property>
-                     <property name="text">
-                      <string>Fast mode</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="8">
-                    <widget class="QLabel" name="label_28">
-                     <property name="text">
-                      <string>Version:</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="5">
-                    <widget class="QSpinBox" name="spinBox_OpenCLCommandQueues_A4k">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="toolTip">
-                      <string>Number of OpenCL command queues</string>
-                     </property>
-                     <property name="minimum">
-                      <number>1</number>
-                     </property>
-                     <property name="maximum">
-                      <number>999999999</number>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="6">
-                    <widget class="QCheckBox" name="checkBox_OpenCLParallelIO_A4k">
-                     <property name="enabled">
-                      <bool>false</bool>
-                     </property>
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="toolTip">
-                      <string>OpenCL parallel IO command queue</string>
-                     </property>
-                     <property name="text">
-                      <string>OpenCL parallel IO</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="3">
-                    <widget class="Line" name="line_26">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="7">
-                    <widget class="Line" name="line_27">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
                      </property>
                     </widget>
                    </item>

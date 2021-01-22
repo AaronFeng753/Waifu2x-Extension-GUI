@@ -1723,7 +1723,7 @@ void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
     if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         ui->checkBox_SpecifyGPU_Anime4k->setEnabled(1);
-        on_comboBox_Version_A4k_currentIndexChanged(1);
+        ui->comboBox_GPGPUModel_A4k->setEnabled(1);
         on_comboBox_GPGPUModel_A4k_currentIndexChanged(1);
     }
     else
@@ -1989,7 +1989,8 @@ void MainWindow::on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index)
 {
     if(ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed()=="opencl" && ui->checkBox_GPUMode_Anime4K->isChecked())
     {
-        on_comboBox_Version_A4k_currentIndexChanged(1);
+        ui->spinBox_OpenCLCommandQueues_A4k->setEnabled(1);
+        ui->checkBox_OpenCLParallelIO_A4k->setEnabled(1);
     }
     else
     {
@@ -2011,31 +2012,5 @@ void MainWindow::on_checkBox_DisableGPU_converter_stateChanged(int arg1)
     {
         ui->comboBox_TargetProcessor_converter->setEnabled(1);
         ui->checkBox_MultiGPU_Waifu2xConverter->setEnabled(1);
-    }
-}
-
-void MainWindow::on_comboBox_Version_A4k_currentIndexChanged(int index)
-{
-    switch (ui->comboBox_Version_A4k->currentIndex())
-    {
-        case 0:
-            {
-                Anime4k_ProgramPath = Current_Path + "/Anime4K/Anime4K_waifu2xEX.exe";
-                if(ui->checkBox_GPUMode_Anime4K->isChecked())ui->comboBox_GPGPUModel_A4k->setEnabled(1);
-                if(ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed()=="opencl" && ui->checkBox_GPUMode_Anime4K->isChecked())
-                {
-                    ui->checkBox_OpenCLParallelIO_A4k->setEnabled(1);
-                    ui->spinBox_OpenCLCommandQueues_A4k->setEnabled(1);
-                }
-                return;
-            }
-        case 1:
-            {
-                Anime4k_ProgramPath = Current_Path + "/Anime4K_OLD/Anime4K_waifu2xEX.exe";
-                ui->comboBox_GPGPUModel_A4k->setEnabled(0);
-                ui->checkBox_OpenCLParallelIO_A4k->setEnabled(0);
-                ui->spinBox_OpenCLCommandQueues_A4k->setEnabled(0);
-                return;
-            }
     }
 }

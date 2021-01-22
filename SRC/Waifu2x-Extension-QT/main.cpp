@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.02-beta:
-- Add version switch for Anime4k engine to fix compatibility issues.
 - Performance improvement.
 - Fix bug: Some settings were not saved.
 

@@ -1510,17 +1510,14 @@ QString MainWindow::Anime4k_PreLoad_Settings()
     if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         Anime4k_Settings_str.append("-q ");
-        if(ui->comboBox_Version_A4k->currentIndex()==0)//判断版本
+        //加载GPGPU模式
+        QString GPGPU_Model = ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed();
+        Anime4k_Settings_str.append("-M "+GPGPU_Model+" ");
+        //加载OpenCL选项
+        if(GPGPU_Model=="opencl")
         {
-            //加载GPGPU模式
-            QString GPGPU_Model = ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed();
-            Anime4k_Settings_str.append("-M "+GPGPU_Model+" ");
-            //加载OpenCL选项
-            if(GPGPU_Model=="opencl")
-            {
-                if(ui->checkBox_OpenCLParallelIO_A4k->isChecked())Anime4k_Settings_str.append("-P ");
-                Anime4k_Settings_str.append("-Q "+QString::number(ui->spinBox_OpenCLCommandQueues_A4k->value(),10)+" ");
-            }
+            if(ui->checkBox_OpenCLParallelIO_A4k->isChecked())Anime4k_Settings_str.append("-P ");
+            Anime4k_Settings_str.append("-Q "+QString::number(ui->spinBox_OpenCLCommandQueues_A4k->value(),10)+" ");
         }
     }
     //ACNet

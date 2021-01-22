@@ -894,8 +894,6 @@ private slots:
 
     void on_checkBox_DisableGPU_converter_stateChanged(int arg1);
 
-    void on_comboBox_Version_A4k_currentIndexChanged(int index);
-
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 
