@@ -76,8 +76,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+file_ext+".png";
     //============================== 放大 =======================================
-    QString Anime4k_folder_path = Current_Path + "/Anime4K";
-    QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
+    QString program = Anime4k_ProgramPath;
     //====
     QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_image + Anime4k_ReadSettings(PreserveAlphaChannel);
     //========
@@ -475,8 +474,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
-    QString Anime4k_folder_path = Current_Path + "/Anime4K";
-    QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
+    QString program = Anime4k_ProgramPath;
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
     //======
@@ -1439,8 +1437,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
-    QString Anime4k_folder_path = Current_Path + "/Anime4K";
-    QString program = Anime4k_folder_path + "/Anime4K_waifu2xEX.exe";
+    QString program = Anime4k_ProgramPath;
     QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
     QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
     //======
@@ -1513,14 +1510,17 @@ QString MainWindow::Anime4k_PreLoad_Settings()
     if(ui->checkBox_GPUMode_Anime4K->isChecked())
     {
         Anime4k_Settings_str.append("-q ");
-        //加载GPGPU模式
-        QString GPGPU_Model = ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed();
-        Anime4k_Settings_str.append("-M "+GPGPU_Model+" ");
-        //加载OpenCL选项
-        if(GPGPU_Model=="opencl")
+        if(ui->comboBox_Version_A4k->currentIndex()==0)//判断版本
         {
-            if(ui->checkBox_OpenCLParallelIO_A4k->isChecked())Anime4k_Settings_str.append("-P ");
-            Anime4k_Settings_str.append("-Q "+QString::number(ui->spinBox_OpenCLCommandQueues_A4k->value(),10)+" ");
+            //加载GPGPU模式
+            QString GPGPU_Model = ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed();
+            Anime4k_Settings_str.append("-M "+GPGPU_Model+" ");
+            //加载OpenCL选项
+            if(GPGPU_Model=="opencl")
+            {
+                if(ui->checkBox_OpenCLParallelIO_A4k->isChecked())Anime4k_Settings_str.append("-P ");
+                Anime4k_Settings_str.append("-Q "+QString::number(ui->spinBox_OpenCLCommandQueues_A4k->value(),10)+" ");
+            }
         }
     }
     //ACNet
@@ -1638,7 +1638,7 @@ Anime4k
 */
 QString MainWindow::Anime4k_ReadSettings(bool PreserveAlphaChannel)
 {
-    QString Anime4k_Settings_str = " ";
+    QString Anime4k_Settings_str = "";
     //=================================
     Anime4k_Settings_str.append(Anime4k_PreLoad_Settings_Str);
     //保留透明通道
@@ -1703,7 +1703,7 @@ void MainWindow::on_pushButton_ListGPUs_Anime4k_clicked()
 
 void MainWindow::ListGPUs_Anime4k()
 {
-    QString cmd = "\"" + Current_Path + "/Anime4K/Anime4K_waifu2xEX.exe" + "\" -l";
+    QString cmd = "\"" + Anime4k_ProgramPath + "\" -l";
     ExecuteCMD_batFile(cmd.replace("%","%%")+"\n title = GPU List for Anime4K @ Waifu2x-Extension-GUI\n pause");
 }
 

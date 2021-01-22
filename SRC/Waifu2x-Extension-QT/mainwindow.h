@@ -205,6 +205,7 @@ public:
     int Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Anime4k_ReadSettings(bool PreserveAlphaChannel);
     void DenoiseLevelSpinboxSetting_Anime4k();
+    QString Anime4k_ProgramPath = Current_Path + "/Anime4K/Anime4K_waifu2xEX.exe";
     //=================================
     int Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -892,6 +893,8 @@ private slots:
     void on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index);
 
     void on_checkBox_DisableGPU_converter_stateChanged(int arg1);
+
+    void on_comboBox_Version_A4k_currentIndexChanged(int index);
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

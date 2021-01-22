@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.02-beta:
+- Add version switch for Anime4k engine to fix compatibility issues.
 - Performance improvement.
+- Fix bug: Some settings were not saved.
 
 v2.61.01-beta:
 - NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
@@ -49,7 +51,6 @@ v2.61.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-- 改进图片分辨率计算方法.
 - 补全翻译.
 - 将文件列表的状态替换为预设的QString
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
