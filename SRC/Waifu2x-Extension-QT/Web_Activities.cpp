@@ -54,7 +54,7 @@ void MainWindow::ConnectivityTest_RawGithubusercontentCom()
     QString LocalAddress=Current_Path+"/ConnectivityTest_Waifu2xEX.txt";
     QFile::remove(LocalAddress);
     //===
-    emit Send_TextBrowser_NewMessage(tr("Start testing if your PC can connect to raw.githubusercontent.com."));
+    emit Send_TextBrowser_NewMessage(tr("Testing if your PC can connect to raw.githubusercontent.com..."));
     if(DownloadTo(OnlineAddress,LocalAddress)==true)
     {
         emit Send_TextBrowser_NewMessage(tr("Detection complete, your PC can connect to raw.githubusercontent.com."));
@@ -76,7 +76,7 @@ void MainWindow::Unable2Connect_RawGithubusercontentCom()
 {
     QMessageBox *MSG_2 = new QMessageBox();
     MSG_2->setWindowTitle(tr("Notification"));
-    MSG_2->setText(tr("It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee]."));
+    MSG_2->setText(tr("Detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] won't allow the software to automatically check for updates. It is recommended that you disable [Ban Gitee]."));
     MSG_2->setIcon(QMessageBox::Information);
     MSG_2->setModal(false);
     MSG_2->show();

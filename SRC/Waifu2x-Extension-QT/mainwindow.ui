@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -3192,7 +3192,7 @@ process at the same time.</string>
                <enum>QTabWidget::North</enum>
               </property>
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <property name="usesScrollButtons">
                <bool>false</bool>
@@ -6958,7 +6958,7 @@ padding:10px;
 }</string>
                  </property>
                  <property name="text">
-                  <string>Encoders List</string>
+                  <string>List Encoders</string>
                  </property>
                 </widget>
                </item>
@@ -7992,9 +7992,9 @@ when processing video in segments.</string>
                  <item row="8" column="0">
                   <widget class="QCheckBox" name="checkBox_BanGitee">
                    <property name="toolTip">
-                    <string>Enabling this will stop download anything from Communist China website Gitee.
+                    <string>Bans downloading anything from Communist China website Gitee.
 
-If you are in China, due to government banned raw.githubusercontent.com,
+If you are in China, due to the government ban on raw.githubusercontent.com,
 enabling this will affect auto update.
 
 For detailed information, please read privacy policy.</string>
@@ -8109,7 +8109,7 @@ For detailed information, please read privacy policy.</string>
                     <string>When the file processing status changes, the file list scrolls automatically.</string>
                    </property>
                    <property name="text">
-                    <string>File list scrolls automatically</string>
+                    <string>Automatic file list scrolling</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>
