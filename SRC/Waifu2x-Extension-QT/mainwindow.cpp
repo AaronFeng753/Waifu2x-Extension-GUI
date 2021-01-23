@@ -557,14 +557,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
     }
     isShowAnime4kWarning=true;
     on_comboBox_model_vulkan_currentIndexChanged(0);
-    if(isWaifu2xCaffeEnabled())
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
-    }
-    else
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
-    }
+    isWaifu2xCaffeEnabled();//判断是否启用caffe图片风格设定
 }
 
 void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
@@ -623,14 +616,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
             }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
-    if(isWaifu2xCaffeEnabled())
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
-    }
-    else
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
-    }
+    isWaifu2xCaffeEnabled();//判断是否启用caffe图片风格设定
 }
 
 void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
@@ -689,14 +675,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
             }
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
-    if(isWaifu2xCaffeEnabled())
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
-    }
-    else
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
-    }
+    isWaifu2xCaffeEnabled();//判断是否启用caffe图片风格设定
 }
 
 void MainWindow::on_pushButton_clear_textbrowser_clicked()
@@ -1106,14 +1085,20 @@ void MainWindow::on_comboBox_model_vulkan_currentIndexChanged(int index)
     if(ui->comboBox_model_vulkan->currentIndex()==0)
     {
         ui->comboBox_ImageStyle->setEnabled(1);
+        ui->label_ImageStyle_W2xNCNNVulkan->setVisible(1);
+        ui->comboBox_ImageStyle->setVisible(1);
         if(ui->comboBox_Engine_Image->currentIndex()!=0&&ui->comboBox_Engine_GIF->currentIndex()!=0&&ui->comboBox_Engine_Video->currentIndex()!=0)
         {
             ui->comboBox_ImageStyle->setEnabled(0);
+            ui->label_ImageStyle_W2xNCNNVulkan->setVisible(0);
+            ui->comboBox_ImageStyle->setVisible(0);
         }
     }
     if(ui->comboBox_model_vulkan->currentIndex()==1)
     {
         ui->comboBox_ImageStyle->setEnabled(0);
+        ui->label_ImageStyle_W2xNCNNVulkan->setVisible(0);
+        ui->comboBox_ImageStyle->setVisible(0);
     }
 }
 
@@ -1270,22 +1255,6 @@ void MainWindow::on_checkBox_DelOriginal_stateChanged(int arg1)
     {
         QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->setEnabled(0);
         checkBox_ReplaceOriginalFile_setEnabled_True_Self();
-    }
-}
-/*
-是否启用自定义视频设置
-*/
-void MainWindow::on_checkBox_videoSettings_isEnabled_stateChanged(int arg1)
-{
-    if(ui->checkBox_videoSettings_isEnabled->isChecked())
-    {
-        ui->groupBox_OutputVideoSettings->setEnabled(1);
-        ui->groupBox_ToMp4VideoSettings->setEnabled(1);
-    }
-    else
-    {
-        ui->groupBox_OutputVideoSettings->setEnabled(0);
-        ui->groupBox_ToMp4VideoSettings->setEnabled(0);
     }
 }
 
@@ -2012,5 +1981,23 @@ void MainWindow::on_checkBox_DisableGPU_converter_stateChanged(int arg1)
     {
         ui->comboBox_TargetProcessor_converter->setEnabled(1);
         ui->checkBox_MultiGPU_Waifu2xConverter->setEnabled(1);
+    }
+}
+
+void MainWindow::on_groupBox_video_settings_clicked()
+{
+    if(ui->groupBox_video_settings->isChecked())
+    {
+        ui->groupBox_OutputVideoSettings->setEnabled(1);
+        ui->groupBox_ToMp4VideoSettings->setEnabled(1);
+        ui->pushButton_encodersList->setEnabled(1);
+        ui->pushButton_ResetVideoSettings->setEnabled(1);
+    }
+    else
+    {
+        ui->groupBox_OutputVideoSettings->setEnabled(0);
+        ui->groupBox_ToMp4VideoSettings->setEnabled(0);
+        ui->pushButton_encodersList->setEnabled(0);
+        ui->pushButton_ResetVideoSettings->setEnabled(0);
     }
 }

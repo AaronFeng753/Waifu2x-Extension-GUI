@@ -150,7 +150,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/CustFont", ui->fontComboBox_CustFont->currentFont());
     configIniWrite->setValue("/settings/CustFont_isEnabled", ui->checkBox_isCustFontEnable->isChecked());
     //=================== 存储视频设置 ===========================
-    configIniWrite->setValue("/settings/VideoSettingsIsEnabled", ui->checkBox_videoSettings_isEnabled->isChecked());
+    configIniWrite->setValue("/settings/VideoSettingsIsEnabled", ui->groupBox_video_settings->isChecked());
     configIniWrite->setValue("/settings/EncoderVideo", ui->lineEdit_encoder_vid->text());
     configIniWrite->setValue("/settings/EncoderAudio", ui->lineEdit_encoder_audio->text());
     configIniWrite->setValue("/settings/PixelFormat", ui->lineEdit_pixformat->text());
@@ -399,7 +399,7 @@ int MainWindow::Settings_Read_Apply()
     //=================== 加载 textbrowser 设置 ==========================
     ui->spinBox_textbrowser_fontsize->setValue(Settings_Read_value("/settings/TextBrowserFontSize").toInt());
     //=================== 加载视频设置 ===========================
-    ui->checkBox_videoSettings_isEnabled->setChecked(Settings_Read_value("/settings/VideoSettingsIsEnabled").toBool());
+    ui->groupBox_video_settings->setChecked(Settings_Read_value("/settings/VideoSettingsIsEnabled").toBool());
     //===
     ui->lineEdit_encoder_vid->setText(Settings_Read_value("/settings/EncoderVideo").toString());
     ui->lineEdit_encoder_audio->setText(Settings_Read_value("/settings/EncoderAudio").toString());
@@ -490,6 +490,7 @@ int MainWindow::Settings_Read_Apply()
     ui->comboBox_language->setCurrentIndex(Settings_Read_value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
+    on_groupBox_video_settings_clicked();
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
     on_checkBox_DelOriginal_stateChanged(0);
@@ -522,7 +523,6 @@ int MainWindow::Settings_Read_Apply()
     //====
     on_checkBox_acodec_copy_2mp4_stateChanged(1);
     on_checkBox_vcodec_copy_2mp4_stateChanged(1);
-    on_checkBox_videoSettings_isEnabled_stateChanged(1);
     //==================================
     isReadOldSettings=false;
     QFile::remove(Current_Path+"/settings_old.ini");

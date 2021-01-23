@@ -2441,7 +2441,7 @@ be processed again when the processing process is started again.</string>
                    </widget>
                   </item>
                   <item row="3" column="0">
-                   <widget class="QLabel" name="label_3">
+                   <widget class="QLabel" name="label_ImageStyle_W2xNCNNVulkan">
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
@@ -2492,7 +2492,7 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                    </widget>
                   </item>
                   <item row="4" column="0">
-                   <widget class="QLabel" name="label_57">
+                   <widget class="QLabel" name="label_ImageStyle_W2xCaffe">
                     <property name="toolTip">
                      <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
@@ -6484,9 +6484,15 @@ likelihood of removing wanted components of the audio signal.</string>
             </size>
            </property>
            <property name="title">
-            <string/>
+            <string>Video Settings</string>
            </property>
-           <layout class="QGridLayout" name="gridLayout_18">
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_18" columnstretch="0,0,0">
             <property name="leftMargin">
              <number>6</number>
             </property>
@@ -6500,7 +6506,7 @@ likelihood of removing wanted components of the audio signal.</string>
              <number>6</number>
             </property>
             <item row="0" column="0" colspan="3">
-             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="50,50">
+             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,1">
               <item>
                <widget class="QGroupBox" name="groupBox_OutputVideoSettings">
                 <property name="enabled">
@@ -6709,13 +6715,6 @@ likelihood of removing wanted components of the audio signal.</string>
                  <property name="bottomMargin">
                   <number>6</number>
                  </property>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_34">
-                   <property name="text">
-                    <string>Bitrate(video):</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="6" column="0" colspan="4">
                   <widget class="QFrame" name="frame_10">
                    <property name="sizePolicy">
@@ -6775,10 +6774,32 @@ likelihood of removing wanted components of the audio signal.</string>
                    </layout>
                   </widget>
                  </item>
-                 <item row="5" column="0" colspan="4">
-                  <widget class="Line" name="line_18">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                 <item row="0" column="1" colspan="3">
+                  <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>2500</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_34">
+                   <property name="text">
+                    <string>Bitrate(video):</string>
                    </property>
                   </widget>
                  </item>
@@ -6804,45 +6825,13 @@ likelihood of removing wanted components of the audio signal.</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="4" column="0" colspan="2">
-                  <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
-                   <property name="toolTip">
-                    <string>When this is enabled, ffmpeg will copy the audio part of the original video directly to the mp4, may cause error.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">-acodec copy</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="4" column="2" colspan="2">
                   <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
                    <property name="toolTip">
                     <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
                    </property>
                    <property name="text">
-                    <string notr="true">-vcodec copy</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" colspan="3">
-                  <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>2500</number>
+                    <string notr="true">Copy video stream</string>
                    </property>
                   </widget>
                  </item>
@@ -6850,6 +6839,26 @@ likelihood of removing wanted components of the audio signal.</string>
                   <widget class="QLabel" name="label_35">
                    <property name="text">
                     <string>Bitrate(audio):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0" colspan="4">
+                  <widget class="Line" name="line_18">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
+                   <property name="toolTip">
+                    <string>When this is enabled, ffmpeg will copy the audio part of
+the original video directly to the mp4, may cause error.
+
+Command: -acodec copy</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">Copy audio stream</string>
                    </property>
                   </widget>
                  </item>
@@ -6872,7 +6881,7 @@ likelihood of removing wanted components of the audio signal.</string>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QGridLayout" name="gridLayout_60" columnstretch="20,20,1,10,60">
+              <layout class="QGridLayout" name="gridLayout_60" columnstretch="20,0,0">
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -6921,7 +6930,7 @@ padding:10px;
 }</string>
                  </property>
                  <property name="text">
-                  <string>Reset</string>
+                  <string>Reset video settings</string>
                  </property>
                 </widget>
                </item>
@@ -6958,34 +6967,11 @@ padding:10px;
 }</string>
                  </property>
                  <property name="text">
-                  <string>List Encoders</string>
+                  <string>List Available Encoders</string>
                  </property>
                 </widget>
                </item>
                <item row="0" column="2">
-                <widget class="Line" name="line_19">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="3">
-                <widget class="QCheckBox" name="checkBox_videoSettings_isEnabled">
-                 <property name="toolTip">
-                  <string>When this option is enabled, your customized parameters 
-will be used when processing the video. 
-Otherwise the parameters automatically configured 
-by the software will be used.</string>
-                 </property>
-                 <property name="text">
-                  <string>Enabled</string>
-                 </property>
-                 <property name="checked">
-                  <bool>false</bool>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="4">
                 <spacer name="horizontalSpacer_4">
                  <property name="orientation">
                   <enum>Qt::Horizontal</enum>

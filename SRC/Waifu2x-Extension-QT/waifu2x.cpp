@@ -212,7 +212,6 @@ void MainWindow::on_pushButton_Start_clicked()
     ui->checkBox_ProcessVideoBySegment->setEnabled(0);
     ui->spinBox_SegmentDuration->setEnabled(0);
     ui->comboBox_ImageStyle->setEnabled(0);
-    ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
     ui->checkBox_PreProcessImage->setEnabled(0);
     ui->checkBox_AlwaysPreProcessAlphaPNG->setEnabled(0);
     on_lineEdit_GPUs_Anime4k_editingFinished();
@@ -225,6 +224,7 @@ void MainWindow::on_pushButton_Start_clicked()
     emit Send_TextBrowser_NewMessage(tr("Start processing files."));
     //==========
     PreLoad_Engines_Settings();//预读取引擎设定
+    ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
     //==========
     Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
 }
@@ -663,14 +663,7 @@ void MainWindow::Waifu2x_Finished_manual()
         ui->spinBox_SegmentDuration->setEnabled(1);
     }
     on_comboBox_model_vulkan_currentIndexChanged(0);
-    if(isWaifu2xCaffeEnabled())
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
-    }
-    else
-    {
-        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
-    }
+    isWaifu2xCaffeEnabled();//判断是否启用caffe图片风格combobox
     emit Send_CurrentFileProgress_Stop();
     ui->checkBox_PreProcessImage->setEnabled(1);
     ui->checkBox_AlwaysPreProcessAlphaPNG->setEnabled(1);

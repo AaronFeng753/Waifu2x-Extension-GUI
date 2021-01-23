@@ -1684,10 +1684,16 @@ bool MainWindow::isWaifu2xCaffeEnabled()
 {
     if(ui->comboBox_Engine_Image->currentIndex()!=4&&ui->comboBox_Engine_GIF->currentIndex()!=4&&ui->comboBox_Engine_Video->currentIndex()!=4)
     {
+        ui->label_ImageStyle_W2xCaffe->setVisible(0);
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setVisible(0);
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(0);
         return false;
     }
     else
     {
+        ui->label_ImageStyle_W2xCaffe->setVisible(1);
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setVisible(1);
+        ui->comboBox_ImageStyle_Waifu2xCaffe->setEnabled(1);
         return true;
     }
 }

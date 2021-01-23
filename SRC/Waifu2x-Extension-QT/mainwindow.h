@@ -714,8 +714,6 @@ private slots:
 
     void on_checkBox_DelOriginal_stateChanged(int arg1);
 
-    void on_checkBox_videoSettings_isEnabled_stateChanged(int arg1);
-
     void on_checkBox_FileList_Interactive_stateChanged(int arg1);
 
     void on_checkBox_OutPath_isEnabled_stateChanged(int arg1);
@@ -893,6 +891,8 @@ private slots:
     void on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index);
 
     void on_checkBox_DisableGPU_converter_stateChanged(int arg1);
+
+    void on_groupBox_video_settings_clicked();
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
