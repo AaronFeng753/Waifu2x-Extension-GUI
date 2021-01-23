@@ -34,12 +34,14 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.61.03-beta:
+- GUI fix.
+
 v2.61.02-beta:
 - Improve the GUI based on @Nova-Aurora's suggestion.
 - Performance improvement.
 - Fix bug: Some settings were not saved.
 - English localization fixes.(Thanks to @Nova-Aurora)
-
 
 v2.61.01-beta:
 - NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.

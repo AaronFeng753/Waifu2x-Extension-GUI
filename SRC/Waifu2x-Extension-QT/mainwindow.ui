@@ -6881,7 +6881,7 @@ Command: -acodec copy</string>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QGridLayout" name="gridLayout_60" columnstretch="20,0,0">
+              <layout class="QGridLayout" name="gridLayout_60" columnstretch="2,2,5">
                <property name="leftMargin">
                 <number>0</number>
                </property>
@@ -6896,6 +6896,12 @@ Command: -acodec copy</string>
                </property>
                <item row="0" column="0">
                 <widget class="QPushButton" name="pushButton_ResetVideoSettings">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="toolTip">
                   <string>Reset video settings</string>
                  </property>
@@ -6936,6 +6942,12 @@ padding:10px;
                </item>
                <item row="0" column="1">
                 <widget class="QPushButton" name="pushButton_encodersList">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton{
 background-color: rgb(52, 152, 219);
