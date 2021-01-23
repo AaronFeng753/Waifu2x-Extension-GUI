@@ -7992,10 +7992,10 @@ when processing video in segments.</string>
                  <item row="8" column="0">
                   <widget class="QCheckBox" name="checkBox_BanGitee">
                    <property name="toolTip">
-                    <string>Enabling this will stop download anything from Communist China website Gitee.
+                    <string>Bans downloading anything from Gitee, a hosting service in the PRC
 
-If you are in China, due to government banned raw.githubusercontent.com,
-enabling this will affect auto update.
+If you are in China, due to the government ban on raw.githubusercontent.com,
+enabling this can interfere with automatic updates.
 
 For detailed information, please read privacy policy.</string>
                    </property>
@@ -8109,7 +8109,7 @@ For detailed information, please read privacy policy.</string>
                     <string>When the file processing status changes, the file list scrolls automatically.</string>
                    </property>
                    <property name="text">
-                    <string>File list scrolls automatically</string>
+                    <string>Automatic file list scrolling</string>
                    </property>
                    <property name="checked">
                     <bool>true</bool>

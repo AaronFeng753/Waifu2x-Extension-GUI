@@ -1496,7 +1496,7 @@ will be propagated through the network.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6088"/>
-        <source>Encoders List</source>
+        <source>List Encoders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3008,7 +3008,7 @@ Restart the software to take effect.</source>
     </message>
     <message>
         <location filename="Web_Activities.cpp" line="57"/>
-        <source>Start testing if your PC can connect to raw.githubusercontent.com.</source>
+        <source>Testing if your PC can connect to raw.githubusercontent.com...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3023,7 +3023,7 @@ Restart the software to take effect.</source>
     </message>
     <message>
         <location filename="Web_Activities.cpp" line="79"/>
-        <source>It is detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] will affect the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
+        <source>Detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] won't allow the software to automatically check for updates. It is recommended that you disable [Ban Gitee].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
