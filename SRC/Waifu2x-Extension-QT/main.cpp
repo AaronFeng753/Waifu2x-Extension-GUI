@@ -36,6 +36,7 @@ Change log:
 
 v2.61.03-beta:
 - GUI fix.
+- Complete translation.
 
 v2.61.02-beta:
 - Improve the GUI based on @Nova-Aurora's suggestion.
@@ -55,7 +56,6 @@ v2.61.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-- 补全翻译.
 - 将文件列表的状态替换为预设的QString
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 ---------------------------------------------------------------------------
