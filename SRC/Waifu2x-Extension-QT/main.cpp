@@ -34,6 +34,18 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.61.13:
+- NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
+- NEW Feature: CUDA support for Anime4k
+- Preload engines settings to improve performance,and other performance improvements.
+- Update and adapt to the new version of Anime4K.
+- Improve the way of reading picture resolution.
+- Improve the GUI based on @Nova-Aurora's suggestion.
+- Update FFmpeg&FFprobe,ImageMagick.
+- English localization fixes(Thanks to @Nova-Aurora), and GUI fixes.
+- Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
+- Fix bug: If pause during the image processing, useless files will be generated.
+
 v2.61.03-beta:
 - GUI fix.
 - Complete translation.
