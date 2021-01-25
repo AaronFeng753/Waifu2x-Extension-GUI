@@ -37,6 +37,7 @@ Change log:
 v2.61.03-beta:
 - GUI fix.
 - Complete translation.
+- Update FFmpeg&FFprobe,ImageMagick.
 
 v2.61.02-beta:
 - Improve the GUI based on @Nova-Aurora's suggestion.
@@ -67,9 +68,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20210102
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-58-portable-Q16-x64
+- ImageMagick 7.0.10-59-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-01-12-git-ca21cb1e36
+- FFmpeg&FFprobe 2021-01-24-git-1775688292-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 ---------------------------------------------------------------------------
