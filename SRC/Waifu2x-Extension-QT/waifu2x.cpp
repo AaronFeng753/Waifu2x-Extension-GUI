@@ -92,51 +92,51 @@ void MainWindow::on_pushButton_Start_clicked()
     int rowCount_video = Table_model_video->rowCount();
     int rowCount_video_cache = rowCount_video;
     //检查图片文件列表
-    for ( int i = 0; i < rowCount_image; i++ )
+    for ( int RowNum = 0; RowNum < rowCount_image; RowNum++ )
     {
         if(ui->checkBox_ReProcFinFiles->isChecked()==false)
         {
-            if(Table_model_image->item(i,1)->text().toLower().contains("finished"))
+            if(Table_model_image->item(RowNum,1)->text().toLower().contains("finished"))
             {
                 rowCount_image_cache--;
                 continue;
             }
         }
-        if(Table_model_image->item(i,1)->text().toLower().contains("deleted"))
+        if(Table_model_image->item(RowNum,1)->text().toLower().contains("deleted"))
         {
             rowCount_image_cache--;
             continue;
         }
     }
     //检查GIF文件列表
-    for ( int i = 0; i < rowCount_gif; i++ )
+    for ( int RowNum = 0; RowNum < rowCount_gif; RowNum++ )
     {
         if(ui->checkBox_ReProcFinFiles->isChecked()==false)
         {
-            if(Table_model_gif->item(i,1)->text().toLower().contains("finished"))
+            if(Table_model_gif->item(RowNum,1)->text().toLower().contains("finished"))
             {
                 rowCount_gif_cache--;
                 continue;
             }
         }
-        if(Table_model_gif->item(i,1)->text().toLower().contains("deleted"))
+        if(Table_model_gif->item(RowNum,1)->text().toLower().contains("deleted"))
         {
             rowCount_gif_cache--;
             continue;
         }
     }
     //检查视频文件列表
-    for ( int i = 0; i < rowCount_video; i++ )
+    for ( int RowNum = 0; RowNum < rowCount_video; RowNum++ )
     {
         if(ui->checkBox_ReProcFinFiles->isChecked()==false)
         {
-            if(Table_model_video->item(i,1)->text().toLower().contains("finished"))
+            if(Table_model_video->item(RowNum,1)->text().toLower().contains("finished"))
             {
                 rowCount_video_cache--;
                 continue;
             }
         }
-        if(Table_model_video->item(i,1)->text().toLower().contains("deleted"))
+        if(Table_model_video->item(RowNum,1)->text().toLower().contains("deleted"))
         {
             rowCount_video_cache--;
             continue;
@@ -247,7 +247,7 @@ int MainWindow::Waifu2xMainThread()
     if(rowCount_image>0)
     {
         int ImageEngine = ui->comboBox_Engine_Image->currentIndex();
-        for ( int i = 0; i < rowCount_image; i++ )
+        for ( int currentRowNumber = 0; currentRowNumber < rowCount_image; currentRowNumber++ )
         {
             if(waifu2x_STOP)
             {
@@ -261,27 +261,27 @@ int MainWindow::Waifu2xMainThread()
             //=============== 判断状态 ================
             if(ui->checkBox_ReProcFinFiles->isChecked()==false)
             {
-                if(Table_model_image->item(i,1)->text().toLower().contains("finished"))
+                if(Table_model_image->item(currentRowNumber,1)->text().toLower().contains("finished"))
                 {
                     emit Send_progressbar_Add();
                     continue;
                 }
             }
-            if(Table_model_image->item(i,1)->text().toLower().contains("deleted"))
+            if(Table_model_image->item(currentRowNumber,1)->text().toLower().contains("deleted"))
             {
                 emit Send_progressbar_Add();
                 continue;
             }
             //============== 判断权限 =====================
-            if(file_isFilesFolderWritable_row_image(i)==false)
+            if(file_isFilesFolderWritable_row_image(currentRowNumber)==false)
             {
                 emit Send_progressbar_Add();
                 continue;
             }
             //============ 自动跳过高分辨率文件 ===================
-            if(Image_Gif_AutoSkip_CustRes(i,false))
+            if(Image_Gif_AutoSkip_CustRes(currentRowNumber,false))
             {
-                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(i, "Skipped");
+                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
                 continue;
             }
             //=========
@@ -294,7 +294,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, i, false);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, currentRowNumber, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -306,7 +306,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, i, false);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, currentRowNumber, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -318,7 +318,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, i, false);
+                        QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, currentRowNumber, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -330,7 +330,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Anime4k_Image, i, false);
+                        QtConcurrent::run(this, &MainWindow::Anime4k_Image, currentRowNumber, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -342,7 +342,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, i, false);
+                        QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, currentRowNumber, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -354,7 +354,7 @@ int MainWindow::Waifu2xMainThread()
                         mutex_ThreadNumRunning.lock();
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
-                        QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, i, false);
+                        QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, currentRowNumber, false);
                         while (ThreadNumRunning >= ThreadNumMax)
                         {
                             Delay_msec_sleep(750);
@@ -377,7 +377,7 @@ int MainWindow::Waifu2xMainThread()
     if(rowCount_gif>0)
     {
         int GIFEngine = ui->comboBox_Engine_GIF->currentIndex();
-        for ( int i = 0; i < rowCount_gif; i++ )
+        for ( int currentRowNumber = 0; currentRowNumber < rowCount_gif; currentRowNumber++ )
         {
             if(waifu2x_STOP)
             {
@@ -387,27 +387,27 @@ int MainWindow::Waifu2xMainThread()
             //=============== 判断状态 ================
             if(ui->checkBox_ReProcFinFiles->isChecked()==false)
             {
-                if(Table_model_gif->item(i,1)->text().toLower().contains("finished"))
+                if(Table_model_gif->item(currentRowNumber,1)->text().toLower().contains("finished"))
                 {
                     emit Send_progressbar_Add();
                     continue;
                 }
             }
-            if(Table_model_gif->item(i,1)->text().toLower().contains("deleted"))
+            if(Table_model_gif->item(currentRowNumber,1)->text().toLower().contains("deleted"))
             {
                 emit Send_progressbar_Add();
                 continue;
             }
             //============== 判断权限 =====================
-            if(file_isFilesFolderWritable_row_gif(i)==false)
+            if(file_isFilesFolderWritable_row_gif(currentRowNumber)==false)
             {
                 emit Send_progressbar_Add();
                 continue;
             }
             //============ 自动跳过高分辨率文件 ===================
-            if(Image_Gif_AutoSkip_CustRes(i,true))
+            if(Image_Gif_AutoSkip_CustRes(currentRowNumber,true))
             {
-                emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(i, "Skipped");
+                emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
                 continue;
             }
             //=========
@@ -415,32 +415,32 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        Waifu2x_NCNN_Vulkan_GIF(i);
+                        Waifu2x_NCNN_Vulkan_GIF(currentRowNumber);
                         break;
                     }
                 case 1:
                     {
-                        Waifu2x_Converter_GIF(i);
+                        Waifu2x_Converter_GIF(currentRowNumber);
                         break;
                     }
                 case 2:
                     {
-                        SRMD_NCNN_Vulkan_GIF(i);
+                        SRMD_NCNN_Vulkan_GIF(currentRowNumber);
                         break;
                     }
                 case 3:
                     {
-                        Anime4k_GIF(i);
+                        Anime4k_GIF(currentRowNumber);
                         break;
                     }
                 case 4:
                     {
-                        Waifu2x_Caffe_GIF(i);
+                        Waifu2x_Caffe_GIF(currentRowNumber);
                         break;
                     }
                 case 5:
                     {
-                        Realsr_NCNN_Vulkan_GIF(i);
+                        Realsr_NCNN_Vulkan_GIF(currentRowNumber);
                         break;
                     }
             }
@@ -452,7 +452,7 @@ int MainWindow::Waifu2xMainThread()
     if(rowCount_video>0)
     {
         int VideoEngine = ui->comboBox_Engine_Video->currentIndex();
-        for ( int i = 0; i<rowCount_video; i++ )
+        for ( int currentRowNumber = 0; currentRowNumber<rowCount_video; currentRowNumber++ )
         {
             if(waifu2x_STOP)
             {
@@ -462,27 +462,27 @@ int MainWindow::Waifu2xMainThread()
             //=============== 判断状态 ================
             if(ui->checkBox_ReProcFinFiles->isChecked()==false)
             {
-                if(Table_model_video->item(i,1)->text().toLower().contains("finished"))
+                if(Table_model_video->item(currentRowNumber,1)->text().toLower().contains("finished"))
                 {
                     emit Send_progressbar_Add();
                     continue;
                 }
             }
-            if(Table_model_video->item(i,1)->text().toLower().contains("deleted"))
+            if(Table_model_video->item(currentRowNumber,1)->text().toLower().contains("deleted"))
             {
                 emit Send_progressbar_Add();
                 continue;
             }
             //============== 判断权限 =====================
-            if(file_isFilesFolderWritable_row_video(i)==false)
+            if(file_isFilesFolderWritable_row_video(currentRowNumber)==false)
             {
                 emit Send_progressbar_Add();
                 continue;
             }
             //============ 自动跳过高分辨率文件 ===================
-            if(Video_AutoSkip_CustRes(i))
+            if(Video_AutoSkip_CustRes(currentRowNumber))
             {
-                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(i, "Skipped");
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
                 continue;
             }
             //============= 获取时长, 判断是否需要分段处理 =================
@@ -490,73 +490,73 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        if(video_isNeedProcessBySegment(i))
+                        if(video_isNeedProcessBySegment(currentRowNumber))
                         {
-                            Waifu2x_NCNN_Vulkan_Video_BySegment(i);
+                            Waifu2x_NCNN_Vulkan_Video_BySegment(currentRowNumber);
                         }
                         else
                         {
-                            Waifu2x_NCNN_Vulkan_Video(i);
+                            Waifu2x_NCNN_Vulkan_Video(currentRowNumber);
                         }
                         break;
                     }
                 case 1:
                     {
-                        if(video_isNeedProcessBySegment(i))
+                        if(video_isNeedProcessBySegment(currentRowNumber))
                         {
-                            Waifu2x_Converter_Video_BySegment(i);
+                            Waifu2x_Converter_Video_BySegment(currentRowNumber);
                         }
                         else
                         {
-                            Waifu2x_Converter_Video(i);
+                            Waifu2x_Converter_Video(currentRowNumber);
                         }
                         break;
                     }
                 case 2:
                     {
-                        if(video_isNeedProcessBySegment(i))
+                        if(video_isNeedProcessBySegment(currentRowNumber))
                         {
-                            Anime4k_Video_BySegment(i);
+                            Anime4k_Video_BySegment(currentRowNumber);
                         }
                         else
                         {
-                            Anime4k_Video(i);
+                            Anime4k_Video(currentRowNumber);
                         }
                         break;
                     }
                 case 3:
                     {
-                        if(video_isNeedProcessBySegment(i))
+                        if(video_isNeedProcessBySegment(currentRowNumber))
                         {
-                            SRMD_NCNN_Vulkan_Video_BySegment(i);
+                            SRMD_NCNN_Vulkan_Video_BySegment(currentRowNumber);
                         }
                         else
                         {
-                            SRMD_NCNN_Vulkan_Video(i);
+                            SRMD_NCNN_Vulkan_Video(currentRowNumber);
                         }
                         break;
                     }
                 case 4:
                     {
-                        if(video_isNeedProcessBySegment(i))
+                        if(video_isNeedProcessBySegment(currentRowNumber))
                         {
-                            Waifu2x_Caffe_Video_BySegment(i);
+                            Waifu2x_Caffe_Video_BySegment(currentRowNumber);
                         }
                         else
                         {
-                            Waifu2x_Caffe_Video(i);
+                            Waifu2x_Caffe_Video(currentRowNumber);
                         }
                         break;
                     }
                 case 5:
                     {
-                        if(video_isNeedProcessBySegment(i))
+                        if(video_isNeedProcessBySegment(currentRowNumber))
                         {
-                            Realsr_NCNN_Vulkan_Video_BySegment(i);
+                            Realsr_NCNN_Vulkan_Video_BySegment(currentRowNumber);
                         }
                         else
                         {
-                            Realsr_NCNN_Vulkan_Video(i);
+                            Realsr_NCNN_Vulkan_Video(currentRowNumber);
                         }
                         break;
                     }
@@ -747,9 +747,9 @@ int MainWindow::AddTileSize_NCNNVulkan_Converter(int OrginalTileSize)
     }
     if((TileSize&(TileSize-1))!=0)
     {
-        for(int i=1; true; i++)
+        for(int intNum=1; true; intNum++)
         {
-            int pow_ =pow(2,i);
+            int pow_ =pow(2,intNum);
             if(pow_>999999999)
             {
                 return OrginalTileSize;
@@ -775,16 +775,16 @@ int MainWindow::MinusTileSize_NCNNVulkan_Converter(int OrginalTileSize)
     }
     if((TileSize&(TileSize-1))!=0)
     {
-        for(int i=1; true; i++)
+        for(int intNum=1; true; intNum++)
         {
-            int pow_ =pow(2,i);
+            int pow_ =pow(2,intNum);
             if(pow_>999999999)
             {
                 return OrginalTileSize;
             }
             if(pow_>=TileSize)
             {
-                return pow(2,i-1);
+                return pow(2,intNum-1);
             }
         }
     }
