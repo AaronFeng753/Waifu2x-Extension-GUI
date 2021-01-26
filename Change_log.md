@@ -11,9 +11,9 @@
 - Preload engines settings to improve performance,and other performance improvements.
 - Update and adapt to the new version of Anime4K.
 - Improve the way of reading picture resolution.
-- Improve the GUI based on @Nova-Aurora's suggestion.
+- Improve the GUI based on [@Nova-Aurora](https://github.com/Nova-Aurora)'s suggestion.
 - Update FFmpeg&FFprobe,ImageMagick.
-- English localization fixes(Thanks to @Nova-Aurora), and GUI fixes.
+- English localization fixes(Thanks to [@Nova-Aurora](https://github.com/Nova-Aurora)), and GUI fixes.
 - Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
 - Fix bug: If pause during the image processing, useless files will be generated.
 ---
