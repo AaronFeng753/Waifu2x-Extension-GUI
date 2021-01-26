@@ -34,43 +34,14 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.61.13:
-- NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
-- NEW Feature: CUDA support for Anime4k
-- Preload engines settings to improve performance,and other performance improvements.
-- Update and adapt to the new version of Anime4K.
-- Improve the way of reading picture resolution.
-- Improve the GUI based on @Nova-Aurora's suggestion.
-- Update FFmpeg&FFprobe,ImageMagick.
-- English localization fixes(Thanks to @Nova-Aurora), and GUI fixes.
-- Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
-- Fix bug: If pause during the image processing, useless files will be generated.
-
-v2.61.03-beta:
-- GUI fix.
-- Complete translation.
-- Update FFmpeg&FFprobe,ImageMagick.
-
-v2.61.02-beta:
-- Improve the GUI based on @Nova-Aurora's suggestion.
-- Performance improvement.
-- Fix bug: Some settings were not saved.
-- English localization fixes.(Thanks to @Nova-Aurora)
-
-v2.61.01-beta:
-- NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
-- Preload engines settings to improve performance.
-- Update and adapt to the new version of Anime4K.
-- Improve the way of reading picture resolution.
-- Remove useless code.
-- Fix GUI problem.
-- Fix bug: After the user specifies the processor, the [Disable GPU] option of Waifu2x-Converter will not take effect.
-- Fix bug: If pause during the image processing, useless files will be generated.
+v2.61.21-beta:
+- Improve multithreading performance.
 
 --------------------------------------------------------------------------
 To do:
-- 将文件列表的状态替换为预设的QString
+- 删除处理视频和GIF的函数中对总线程数量的修改.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
+- 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------
 Integrated component:
 - gifsicle version 1.92

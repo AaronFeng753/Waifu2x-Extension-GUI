@@ -368,6 +368,9 @@ int MainWindow::Waifu2xMainThread()
     {
         Delay_msec_sleep(750);
     }
+    mutex_ThreadNumRunning.lock();
+    ThreadNumRunning=0;//线程数量统计+1
+    mutex_ThreadNumRunning.unlock();
     //=========================================================
     //                   GIF 线程调度
     //===========================================================
@@ -378,10 +381,6 @@ int MainWindow::Waifu2xMainThread()
         {
             if(waifu2x_STOP)
             {
-                while (ThreadNumRunning > 0)
-                {
-                    Delay_msec_sleep(750);
-                }
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
             }
@@ -416,44 +415,32 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        ThreadNumRunning=1;
                         Waifu2x_NCNN_Vulkan_GIF(i);
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 1:
                     {
-                        ThreadNumRunning=1;
                         Waifu2x_Converter_GIF(i);
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 2:
                     {
-                        ThreadNumRunning=1;
                         SRMD_NCNN_Vulkan_GIF(i);
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 3:
                     {
-                        ThreadNumRunning=1;
                         Anime4k_GIF(i);
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 4:
                     {
-                        ThreadNumRunning=1;
                         Waifu2x_Caffe_GIF(i);
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 5:
                     {
-                        ThreadNumRunning=1;
                         Realsr_NCNN_Vulkan_GIF(i);
-                        ThreadNumRunning=0;
                         break;
                     }
             }
@@ -469,10 +456,6 @@ int MainWindow::Waifu2xMainThread()
         {
             if(waifu2x_STOP)
             {
-                while (ThreadNumRunning > 0)
-                {
-                    Delay_msec_sleep(750);
-                }
                 waifu2x_STOP_confirm = true;
                 return 0;//如果启用stop位,则直接return
             }
@@ -507,7 +490,6 @@ int MainWindow::Waifu2xMainThread()
             {
                 case 0:
                     {
-                        ThreadNumRunning=1;
                         if(video_isNeedProcessBySegment(i))
                         {
                             Waifu2x_NCNN_Vulkan_Video_BySegment(i);
@@ -516,12 +498,10 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Waifu2x_NCNN_Vulkan_Video(i);
                         }
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 1:
                     {
-                        ThreadNumRunning=1;
                         if(video_isNeedProcessBySegment(i))
                         {
                             Waifu2x_Converter_Video_BySegment(i);
@@ -530,12 +510,10 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Waifu2x_Converter_Video(i);
                         }
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 2:
                     {
-                        ThreadNumRunning=1;
                         if(video_isNeedProcessBySegment(i))
                         {
                             Anime4k_Video_BySegment(i);
@@ -544,12 +522,10 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Anime4k_Video(i);
                         }
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 3:
                     {
-                        ThreadNumRunning=1;
                         if(video_isNeedProcessBySegment(i))
                         {
                             SRMD_NCNN_Vulkan_Video_BySegment(i);
@@ -558,12 +534,10 @@ int MainWindow::Waifu2xMainThread()
                         {
                             SRMD_NCNN_Vulkan_Video(i);
                         }
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 4:
                     {
-                        ThreadNumRunning=1;
                         if(video_isNeedProcessBySegment(i))
                         {
                             Waifu2x_Caffe_Video_BySegment(i);
@@ -572,12 +546,10 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Waifu2x_Caffe_Video(i);
                         }
-                        ThreadNumRunning=0;
                         break;
                     }
                 case 5:
                     {
-                        ThreadNumRunning=1;
                         if(video_isNeedProcessBySegment(i))
                         {
                             Realsr_NCNN_Vulkan_Video_BySegment(i);
@@ -586,7 +558,6 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Realsr_NCNN_Vulkan_Video(i);
                         }
-                        ThreadNumRunning=0;
                         break;
                     }
             }
