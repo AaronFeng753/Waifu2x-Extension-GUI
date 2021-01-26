@@ -336,9 +336,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
         status = "Failed";
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -367,9 +364,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         //file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //============================== 拆分 ==========================================
@@ -384,9 +378,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //===========建立存储放大后frame的文件夹===========
@@ -434,9 +425,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         mutex_SubThreadNumRunning.lock();
@@ -456,9 +444,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             file_DelDir(SplitFramesFolderPath);
             emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -477,9 +462,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -495,9 +477,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = ResGIFPath;
@@ -547,9 +526,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
     //===========================  ==============================
-    mutex_ThreadNumRunning.lock();
-    ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 
@@ -753,9 +729,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -908,9 +881,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -924,9 +894,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -973,9 +940,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             }
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         mutex_SubThreadNumRunning.lock();
@@ -994,9 +958,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1013,9 +974,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
@@ -1036,9 +994,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -1087,9 +1042,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
     //===========================  ==============================
-    mutex_ThreadNumRunning.lock();
-    ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 /*
@@ -1117,9 +1069,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;
     }
     //==========================
@@ -1285,9 +1234,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
     }
@@ -1400,9 +1346,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                     status = "Failed";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     emit Send_progressbar_Add();
-                    mutex_ThreadNumRunning.lock();
-                    ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
             }
@@ -1456,9 +1399,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                     }
                     status = "Interrupted";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-                    mutex_ThreadNumRunning.lock();
-                    ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
                 mutex_SubThreadNumRunning.lock();
@@ -1477,9 +1417,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                     status = "Failed";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     emit Send_progressbar_Add();
-                    mutex_ThreadNumRunning.lock();
-                    ThreadNumRunning--;
-                    mutex_ThreadNumRunning.unlock();//线程数量统计-1
                     return 0;//如果启用stop位,则直接return
                 }
             }
@@ -1495,9 +1432,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                 status = "Failed";
                 emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                 emit Send_progressbar_Add();
-                mutex_ThreadNumRunning.lock();
-                ThreadNumRunning--;
-                mutex_ThreadNumRunning.unlock();//线程数量统计-1
                 return 0;//如果启用stop位,则直接return
             }
             /*
@@ -1523,9 +1457,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
             return 0;//如果启用stop位,则直接return
         }
         /*==========================
@@ -1561,9 +1492,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
         emit Send_progressbar_Add();
-        mutex_ThreadNumRunning.lock();
-        ThreadNumRunning--;
-        mutex_ThreadNumRunning.unlock();//线程数量统计-1
         return 0;//如果启用stop位,则直接return
     }
     OutPutPath_Final = video_mp4_scaled_fullpath;
@@ -1613,9 +1541,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
     //===========================  ==============================
-    mutex_ThreadNumRunning.lock();
-    ThreadNumRunning--;
-    mutex_ThreadNumRunning.unlock();//线程数量统计-1
     return 0;
 }
 /*
