@@ -8,6 +8,19 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.61.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.61.13)
+#### 更新日志:
+- 新特性: 当文件分辨率大于指定分辨率时,自动跳过文件.
+- 新特性: Anime4k新增CUDA运算支持.
+- 预载入引擎设定以改进性能,以及其他性能改进.
+- 更新并适配新版Anime4K.
+- 改进读取图片分辨率的方式.
+- 根据 @Nova-Aurora 的建议改进GUI.
+- 更新FFmpeg&FFprobe,ImageMagick.
+- 修复英语翻译问题(感谢 @Nova-Aurora), 以及GUI问题修复.
+- 修复bug: 在用户指定处理器后, Waifu2x-Converter的[禁用GPU]选项将不会生效.
+- 修复bug: 如果在处理图片时暂停,会产生垃圾文件.
+---
 ## [v2.59.15](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.59.15)
 ```
 v2.59.15:
