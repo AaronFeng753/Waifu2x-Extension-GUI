@@ -84,6 +84,53 @@ int MainWindow::video_UseRes2CalculateBitrate(QString VideoFileFullPath)
 */
 QMap<QString,int> MainWindow::video_get_Resolution(QString VideoFileFullPath)
 {
+    emit Send_TextBrowser_NewMessage(tr("Get duration of the video:[")+VideoFileFullPath+"]");
+    //========================= 调用ffprobe读取视频信息 ======================
+    QProcess *Get_Duration_process = new QProcess();
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+VideoFileFullPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
+    Get_Duration_process->start(cmd);
+    while(!Get_Duration_process->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Get_Duration_process->waitForFinished(100)&&!QProcess_stop) {}
+    //============= 保存ffprobe输出的ini格式文本 =============
+    QString ffprobe_output_str = Get_Duration_process->readAllStandardOutput();
+    //================ 将ini写入文件保存 ================
+    QFileInfo videoFileInfo(VideoFileFullPath);
+    QString Path_video_info_ini = "";
+    QString video_dir = file_getFolderPath(VideoFileFullPath);
+    do
+    {
+        int random = QRandomGenerator::global()->bounded(1,10000);
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(VideoFileFullPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+    }
+    while(QFile::exists(Path_video_info_ini));
+    //=========
+    QFile video_info_ini(Path_video_info_ini);
+    video_info_ini.remove();
+    if (video_info_ini.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&video_info_ini);
+        stream << ffprobe_output_str;
+    }
+    video_info_ini.close();
+    //================== 读取ini获得参数 =====================
+    QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
+    QString width_str = configIniRead_videoInfo->value("/streams.stream.0/width").toString().trimmed();
+    QString height_str = configIniRead_videoInfo->value("/streams.stream.0/height").toString().trimmed();
+    video_info_ini.remove();
+    //=======================
+    if(width_str!="" && height_str!="")
+    {
+        int width_int = width_str.toInt();
+        int height_int = height_str.toInt();
+        if(width_int>0 && height_int>0)
+        {
+            QMap<QString,int> res_map;
+            res_map["height"] = height_int;
+            res_map["width"] = width_int;
+            return res_map;
+        }
+    }
+    //========================================================================================
     QString FrameImageFullPath="";
     FrameImageFullPath = file_getBaseName(VideoFileFullPath)+"_GetVideoRes_W2xEX.jpg";
     QFile::remove(FrameImageFullPath);
