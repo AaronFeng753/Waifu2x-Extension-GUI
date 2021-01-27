@@ -302,6 +302,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
     if(FrameNumDigits==0)return;
+    //=====================
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
@@ -398,7 +399,6 @@ void MainWindow::video_2mp4(QString VideoPath)
         }
     }
 }
-
 //===============
 //获取时长(秒)
 //===============

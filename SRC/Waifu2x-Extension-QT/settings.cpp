@@ -208,7 +208,6 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_isCompatible_SRMD_NCNN_Vulkan", ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_Anime4k_CPU", ui->checkBox_isCompatible_Anime4k_CPU->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_Anime4k_GPU", ui->checkBox_isCompatible_Anime4k_GPU->isChecked());
-    configIniWrite->setValue("/settings/checkBox_isCompatible_PythonExtension", ui->checkBox_isCompatible_PythonExtension->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_FFmpeg", ui->checkBox_isCompatible_FFmpeg->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_FFprobe", ui->checkBox_isCompatible_FFprobe->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_ImageMagick", ui->checkBox_isCompatible_ImageMagick->isChecked());
@@ -458,7 +457,6 @@ int MainWindow::Settings_Read_Apply()
     isCompatible_SRMD_NCNN_Vulkan = Settings_Read_value("/settings/checkBox_isCompatible_SRMD_NCNN_Vulkan").toBool();
     isCompatible_Anime4k_CPU = Settings_Read_value("/settings/checkBox_isCompatible_Anime4k_CPU").toBool();
     isCompatible_Anime4k_GPU = Settings_Read_value("/settings/checkBox_isCompatible_Anime4k_GPU").toBool();
-    isCompatible_PythonExtension = Settings_Read_value("/settings/checkBox_isCompatible_PythonExtension").toBool();
     isCompatible_FFmpeg = Settings_Read_value("/settings/checkBox_isCompatible_FFmpeg").toBool();
     isCompatible_FFprobe = Settings_Read_value("/settings/checkBox_isCompatible_FFprobe").toBool();
     isCompatible_ImageMagick = Settings_Read_value("/settings/checkBox_isCompatible_ImageMagick").toBool();
@@ -476,7 +474,6 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->setChecked(isCompatible_SRMD_NCNN_Vulkan);
     ui->checkBox_isCompatible_Anime4k_CPU->setChecked(isCompatible_Anime4k_CPU);
     ui->checkBox_isCompatible_Anime4k_GPU->setChecked(isCompatible_Anime4k_GPU);
-    ui->checkBox_isCompatible_PythonExtension->setChecked(isCompatible_PythonExtension);
     ui->checkBox_isCompatible_FFmpeg->setChecked(isCompatible_FFmpeg);
     ui->checkBox_isCompatible_FFprobe->setChecked(isCompatible_FFprobe);
     ui->checkBox_isCompatible_ImageMagick->setChecked(isCompatible_ImageMagick);

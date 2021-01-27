@@ -286,7 +286,6 @@ public:
     bool isCompatible_Waifu2x_Converter=false;
     bool isCompatible_Anime4k_CPU=false;
     bool isCompatible_Anime4k_GPU=false;
-    bool isCompatible_PythonExtension=false;
     bool isCompatible_FFmpeg=false;
     bool isCompatible_FFprobe=false;
     bool isCompatible_ImageMagick=false;
@@ -754,8 +753,6 @@ private slots:
     void on_checkBox_SpecifyGPU_Anime4k_stateChanged(int arg1);
 
     void on_pushButton_ListGPUs_Anime4k_clicked();
-
-    void on_checkBox_isCompatible_PythonExtension_clicked();
 
     void on_checkBox_isCompatible_FFmpeg_clicked();
 

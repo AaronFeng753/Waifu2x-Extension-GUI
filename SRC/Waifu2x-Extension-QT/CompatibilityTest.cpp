@@ -359,29 +359,6 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     emit Send_Add_progressBar_CompatibilityTest();
     //==========================================
-    //            Python 扩展
-    //==========================================
-    QString PythonExt_ProgramPath = Current_Path + "/python_ext_waifu2xEX.exe";
-    QString PythonExt_VideoFilePath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
-    QProcess PythonExt_QProcess;
-    PythonExt_QProcess.start("\""+PythonExt_ProgramPath+"\" \""+PythonExt_VideoFilePath+"\" fps");
-    if(PythonExt_QProcess.waitForStarted(30000))
-    {
-        while(!PythonExt_QProcess.waitForFinished(100)&&!QProcess_stop) {}
-    }
-    QString PythonExt_fps=PythonExt_QProcess.readAllStandardOutput().trimmed();
-    if(PythonExt_fps!="0.0")
-    {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Python extension: Yes."));
-        isCompatible_PythonExtension=true;
-    }
-    else
-    {
-        emit Send_TextBrowser_NewMessage(tr("Compatible with Python extension: No."));
-        isCompatible_PythonExtension=false;
-    }
-    emit Send_Add_progressBar_CompatibilityTest();
-    //==========================================
     //                  FFmpeg
     //==========================================
     QString ffmpeg_VideoPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
@@ -532,7 +509,6 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->setChecked(isCompatible_SRMD_NCNN_Vulkan);
     ui->checkBox_isCompatible_Anime4k_CPU->setChecked(isCompatible_Anime4k_CPU);
     ui->checkBox_isCompatible_Anime4k_GPU->setChecked(isCompatible_Anime4k_GPU);
-    ui->checkBox_isCompatible_PythonExtension->setChecked(isCompatible_PythonExtension);
     ui->checkBox_isCompatible_FFmpeg->setChecked(isCompatible_FFmpeg);
     ui->checkBox_isCompatible_FFprobe->setChecked(isCompatible_FFprobe);
     ui->checkBox_isCompatible_ImageMagick->setChecked(isCompatible_ImageMagick);
@@ -555,7 +531,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     /*
     判断是否有必要部件不兼容,如果有则弹出提示
     */
-    if(isCompatible_PythonExtension==false||isCompatible_FFmpeg==false||isCompatible_FFprobe==false||isCompatible_ImageMagick==false||isCompatible_Gifsicle==false||isCompatible_SoX==false)
+    if(isCompatible_FFmpeg==false||isCompatible_FFprobe==false||isCompatible_ImageMagick==false||isCompatible_Gifsicle==false||isCompatible_SoX==false)
     {
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Notification"));
@@ -759,7 +735,7 @@ void MainWindow::Init_progressBar_CompatibilityTest()
 {
     ui->progressBar_CompatibilityTest->setEnabled(1);
     ui->progressBar_CompatibilityTest->setVisible(1);
-    ui->progressBar_CompatibilityTest->setRange(0,17);
+    ui->progressBar_CompatibilityTest->setRange(0,16);
     ui->progressBar_CompatibilityTest->setValue(0);
 }
 //进度+1 -兼容性测试进度条

@@ -32,7 +32,7 @@ void MainWindow::on_pushButton_CheckUpdate_clicked()
 }
 /*
 自动检查更新:
-启动软件时以单独线程运行,调用python扩展检测更新,如有则弹窗
+启动软件时以单独线程运行,检测更新,如有则弹窗
 */
 int MainWindow::CheckUpadte_Auto()
 {

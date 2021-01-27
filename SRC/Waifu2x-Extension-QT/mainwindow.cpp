@@ -1657,11 +1657,6 @@ void MainWindow::on_checkBox_isCompatible_Anime4k_GPU_clicked()
     ui->checkBox_isCompatible_Anime4k_GPU->setChecked(isCompatible_Anime4k_GPU);
 }
 
-void MainWindow::on_checkBox_isCompatible_PythonExtension_clicked()
-{
-    ui->checkBox_isCompatible_PythonExtension->setChecked(isCompatible_PythonExtension);
-}
-
 void MainWindow::on_checkBox_isCompatible_FFmpeg_clicked()
 {
     ui->checkBox_isCompatible_FFmpeg->setChecked(isCompatible_FFmpeg);

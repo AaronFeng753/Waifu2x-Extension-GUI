@@ -8361,16 +8361,6 @@ the language for the language settings to fully take effect.</string>
             <property name="bottomMargin">
              <number>6</number>
             </property>
-            <item row="7" column="0">
-             <widget class="QCheckBox" name="checkBox_isCompatible_PythonExtension">
-              <property name="toolTip">
-               <string>Essential, for all sorts of functions.</string>
-              </property>
-              <property name="text">
-               <string notr="true">Python extension</string>
-              </property>
-             </widget>
-            </item>
             <item row="11" column="0" colspan="4">
              <widget class="QLabel" name="label_2">
               <property name="minimumSize">
@@ -8392,7 +8382,7 @@ the language for the language settings to fully take effect.</string>
                <enum>QFrame::Sunken</enum>
               </property>
               <property name="text">
-               <string>[Python extension, FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
+               <string>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the engines is compatible with your PC, you can use all the functions of this software.
 
@@ -8408,16 +8398,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
               <property name="wordWrap">
                <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="1">
-             <widget class="QCheckBox" name="checkBox_isCompatible_SoX">
-              <property name="toolTip">
-               <string>For audio denoise(video).</string>
-              </property>
-              <property name="text">
-               <string notr="true">SoX</string>
               </property>
              </widget>
             </item>
@@ -8656,7 +8636,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
             <item row="8" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_FFprobe">
               <property name="toolTip">
-               <string>For processing Video.</string>
+               <string>For processing Video and Gif.</string>
               </property>
               <property name="text">
                <string notr="true">FFprobe</string>
@@ -8676,16 +8656,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
              </widget>
             </item>
-            <item row="8" column="2">
-             <widget class="QCheckBox" name="checkBox_isCompatible_FFmpeg">
-              <property name="toolTip">
-               <string>For processing Video.</string>
-              </property>
-              <property name="text">
-               <string notr="true">FFmpeg</string>
-              </property>
-             </widget>
-            </item>
             <item row="4" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_Realsr_NCNN_Vulkan">
               <property name="toolTip">
@@ -8693,6 +8663,26 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
               <property name="text">
                <string notr="true">Realsr-ncnn-vulkan</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QCheckBox" name="checkBox_isCompatible_SoX">
+              <property name="toolTip">
+               <string>For audio denoise(video).</string>
+              </property>
+              <property name="text">
+               <string notr="true">SoX</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QCheckBox" name="checkBox_isCompatible_FFmpeg">
+              <property name="toolTip">
+               <string>For processing Video.</string>
+              </property>
+              <property name="text">
+               <string notr="true">FFmpeg</string>
               </property>
              </widget>
             </item>
@@ -8754,7 +8744,7 @@ padding:10px;
             </sizepolicy>
            </property>
            <property name="maximum">
-            <number>17</number>
+            <number>16</number>
            </property>
            <property name="value">
             <number>0</number>
