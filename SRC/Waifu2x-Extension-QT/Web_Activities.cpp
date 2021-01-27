@@ -25,9 +25,10 @@
 bool MainWindow::DownloadTo(QString OnlineLink,QString LocalPath)
 {
     QFile::remove(LocalPath);
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
+    QString user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36";
+    QString program = Current_Path+"/wget_waifu2xEX.exe";
     QProcess Downlad2;
-    Downlad2.start("\""+program+"\" \""+OnlineLink+"\" download2 \""+LocalPath+"\"");
+    Downlad2.start("\""+program+"\" --user-agent=\""+user_agent+"\" -O \""+LocalPath+"\" \""+OnlineLink+"\"");
     while(!Downlad2.waitForStarted(500)&&!QProcess_stop) {}
     while(!Downlad2.waitForFinished(500)&&!QProcess_stop) {}
     return QFile::exists(LocalPath);

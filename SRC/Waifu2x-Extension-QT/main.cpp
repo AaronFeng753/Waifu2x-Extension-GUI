@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.21-beta:
+- Increase download speed by using GNU Wget.
 - Improve multithreading performance.
 - More detailed tool tips.
 
@@ -56,6 +57,7 @@ Integrated component:
 - FFmpeg&FFprobe 2021-01-24-git-1775688292-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
+- GNU Wget 1.20.3
 ---------------------------------------------------------------------------
 Icons made by :
 Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
