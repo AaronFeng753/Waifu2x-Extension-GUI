@@ -301,6 +301,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
     }
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
+    if(FrameNumDigits==0)return;
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
@@ -406,7 +407,7 @@ int MainWindow::video_get_duration(QString videoPath)
     emit Send_TextBrowser_NewMessage(tr("Get duration of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_Duration_process = new QProcess();
-    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
     Get_Duration_process->start(cmd);
     while(!Get_Duration_process->waitForStarted(100)&&!QProcess_stop) {}
     while(!Get_Duration_process->waitForFinished(100)&&!QProcess_stop) {}
@@ -566,7 +567,7 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     emit Send_TextBrowser_NewMessage(tr("Get bitrate of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_Bitrate_process = new QProcess();
-    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -v quiet -print_format ini -show_format";
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
     Get_Bitrate_process->start(cmd);
     while(!Get_Bitrate_process->waitForStarted(100)&&!QProcess_stop) {}
     while(!Get_Bitrate_process->waitForFinished(100)&&!QProcess_stop) {}
@@ -611,7 +612,6 @@ QString MainWindow::video_get_bitrate(QString videoPath)
 */
 QString MainWindow::video_get_fps(QString videoPath)
 {
-    emit Send_TextBrowser_NewMessage(tr("Get FPS of the video:[")+videoPath+"]");
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_VideoFPS_process = new QProcess();
     QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
@@ -646,21 +646,18 @@ QString MainWindow::video_get_fps(QString videoPath)
     //=======================
     if(FPS_Division=="")
     {
-        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the FPS of the [")+videoPath+tr("]."));
         return "0.0";
     }
     //=======================
     QStringList FPS_Nums = FPS_Division.split("/");
     if(FPS_Nums.count()!=2)
     {
-        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the FPS of the [")+videoPath+tr("]."));
         return "0.0";
     }
     double FPS_Num_0 = FPS_Nums.at(0).toDouble();
     double FPS_Num_1 = FPS_Nums.at(1).toDouble();
     if(FPS_Num_0<=0||FPS_Num_1<=0)
     {
-        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the FPS of the [")+videoPath+tr("]."));
         return "0.0";
     }
     double FPS_double = FPS_Num_0/FPS_Num_1;
@@ -670,12 +667,43 @@ QString MainWindow::video_get_fps(QString videoPath)
 
 int MainWindow::video_get_frameNumDigits(QString videoPath)
 {
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
-    QProcess vid;
-    vid.start("\""+program+"\" \""+videoPath+"\" countframe");
-    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
-    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
-    int FrameNum = vid.readAllStandardOutput().toInt();
+    //========================= 调用ffprobe读取视频信息 ======================
+    QProcess *Get_VideoFrameNumDigits_process = new QProcess();
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
+    Get_VideoFrameNumDigits_process->start(cmd);
+    while(!Get_VideoFrameNumDigits_process->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Get_VideoFrameNumDigits_process->waitForFinished(100)&&!QProcess_stop) {}
+    //============= 保存ffprobe输出的ini格式文本 =============
+    QString ffprobe_output_str = Get_VideoFrameNumDigits_process->readAllStandardOutput();
+    //================ 将ini写入文件保存 ================
+    QFileInfo videoFileInfo(videoPath);
+    QString Path_video_info_ini = "";
+    QString video_dir = file_getFolderPath(videoPath);
+    do
+    {
+        int random = QRandomGenerator::global()->bounded(1,10000);
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+    }
+    while(QFile::exists(Path_video_info_ini));
+    //=========
+    QFile video_info_ini(Path_video_info_ini);
+    video_info_ini.remove();
+    if (video_info_ini.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&video_info_ini);
+        stream << ffprobe_output_str;
+    }
+    video_info_ini.close();
+    //================== 读取ini获得参数 =====================
+    QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
+    QString FrameNum_Str = configIniRead_videoInfo->value("/streams.stream.0/nb_frames").toString().trimmed();
+    video_info_ini.remove();
+    int FrameNum = FrameNum_Str.toInt();
+    if(FrameNum<1)
+    {
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the number of frames of the video: [")+videoPath+"]");
+        return 0;
+    }
     int frameNumDigits=1+(int)log10(FrameNum);
     return frameNumDigits;
 }
@@ -742,6 +770,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     }
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
+    if(FrameNumDigits==0)return;
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
@@ -826,6 +855,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
+    if(FrameNumDigits==0)return 0;
     QFileInfo vfinfo(VideoPath);
     QString video_dir = file_getFolderPath(vfinfo);
     QString video_filename = file_getBaseName(VideoPath);

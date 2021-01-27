@@ -35,13 +35,14 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.21-beta:
-- Speed up the reading of video FPS.
+- Faster video processing.
 - Increase download speed by using GNU Wget.
 - Improve multithreading performance.
 - More detailed tool tips.
 
 --------------------------------------------------------------------------
 To do:
+- 测试视频时长需不需要+1补足损失的小数.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------
