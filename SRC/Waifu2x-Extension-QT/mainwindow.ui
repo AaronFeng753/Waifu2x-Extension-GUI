@@ -3035,9 +3035,12 @@ will process at the same time.</string>
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes GIF frames,
-which will determine how many GIF frames the software will
-process at the same time when processing a GIF.</string>
+                  <string>The number of threads that the software processes pictures,
+which will determine how many pictures the software will
+process at the same time.
+
+The actual maximum number of threads is limited by the number
+of CPU logical cores.</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3062,9 +3065,12 @@ process at the same time when processing a GIF.</string>
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes video frames,
-which will determine how many video frames the software will
-process at the same time when processing a video.</string>
+                  <string>The number of threads that the software processes pictures,
+which will determine how many pictures the software will
+process at the same time.
+
+The actual maximum number of threads is limited by the number
+of CPU logical cores.</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3115,7 +3121,10 @@ will process at the same time.</string>
                  <property name="toolTip">
                   <string>The number of threads that the software processes pictures,
 which will determine how many pictures the software will
-process at the same time.</string>
+process at the same time.
+
+The actual maximum number of threads is limited by the number
+of CPU logical cores.</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>

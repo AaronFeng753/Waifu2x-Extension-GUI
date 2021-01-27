@@ -36,6 +36,7 @@ Change log:
 
 v2.61.21-beta:
 - Improve multithreading performance.
+- More detailed tool tips.
 
 --------------------------------------------------------------------------
 To do:
