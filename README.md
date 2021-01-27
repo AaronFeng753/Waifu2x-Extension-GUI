@@ -130,6 +130,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - FFmpeg Builds - Zeranoe (This website has ceased operations): https://ffmpeg.zeranoe.com/builds/
 - Ghostscript: https://www.ghostscript.com/index.html
 - Gifsicle: https://www.lcdf.org/gifsicle/
+- GNU Wget: https://www.gnu.org/software/wget/
 - ImageMagick: http://www.imagemagick.org/
 - NCNN: https://github.com/Tencent/ncnn
 - NirCmd: https://www.nirsoft.net/utils/nircmd.html
