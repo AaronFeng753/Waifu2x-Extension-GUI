@@ -682,6 +682,8 @@ void MainWindow::on_pushButton_clear_textbrowser_clicked()
 {
     ui->textBrowser->clear();
     TextBrowser_StartMes();
+    //===============
+    emit Send_TextBrowser_NewMessage(video_get_fps(ui->lineEdit_outputPath->text()));
 }
 
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)

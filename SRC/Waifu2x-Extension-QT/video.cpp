@@ -418,7 +418,7 @@ int MainWindow::video_get_duration(QString videoPath)
     QString video_dir = file_getFolderPath(videoPath);
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,1000);
+        int random = QRandomGenerator::global()->bounded(1,10000);
         Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
@@ -585,7 +585,7 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     QString video_dir = file_getFolderPath(videoPath);
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,1000);
+        int random = QRandomGenerator::global()->bounded(1,10000);
         Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
@@ -606,16 +606,66 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     video_info_ini.remove();
     return BitRate;
 }
-
+/*
+获取视频FPS
+*/
 QString MainWindow::video_get_fps(QString videoPath)
 {
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
-    QProcess vid;
-    vid.start("\""+program+"\" \""+videoPath+"\" fps");
-    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
-    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
-    QString fps=vid.readAllStandardOutput();
-    return fps;
+    emit Send_TextBrowser_NewMessage(tr("Get FPS of the video:[")+videoPath+"]");
+    //========================= 调用ffprobe读取视频信息 ======================
+    QProcess *Get_VideoFPS_process = new QProcess();
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+videoPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
+    Get_VideoFPS_process->start(cmd);
+    while(!Get_VideoFPS_process->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Get_VideoFPS_process->waitForFinished(100)&&!QProcess_stop) {}
+    //============= 保存ffprobe输出的ini格式文本 =============
+    QString ffprobe_output_str = Get_VideoFPS_process->readAllStandardOutput();
+    //================ 将ini写入文件保存 ================
+    QFileInfo videoFileInfo(videoPath);
+    QString Path_video_info_ini = "";
+    QString video_dir = file_getFolderPath(videoPath);
+    do
+    {
+        int random = QRandomGenerator::global()->bounded(1,10000);
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+    }
+    while(QFile::exists(Path_video_info_ini));
+    //=========
+    QFile video_info_ini(Path_video_info_ini);
+    video_info_ini.remove();
+    if (video_info_ini.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&video_info_ini);
+        stream << ffprobe_output_str;
+    }
+    video_info_ini.close();
+    //================== 读取ini获得参数 =====================
+    QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
+    QString FPS_Division = configIniRead_videoInfo->value("/streams.stream.0/r_frame_rate").toString().trimmed();
+    video_info_ini.remove();
+    //=======================
+    if(FPS_Division=="")
+    {
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the FPS of the [")+videoPath+tr("]."));
+        return "0.0";
+    }
+    //=======================
+    QStringList FPS_Nums = FPS_Division.split("/");
+    if(FPS_Nums.count()!=2)
+    {
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the FPS of the [")+videoPath+tr("]."));
+        return "0.0";
+    }
+    double FPS_Num_0 = FPS_Nums.at(0).toDouble();
+    double FPS_Num_1 = FPS_Nums.at(1).toDouble();
+    if(FPS_Num_0<=0||FPS_Num_1<=0)
+    {
+        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to get the FPS of the [")+videoPath+tr("]."));
+        return "0.0";
+    }
+    double FPS_double = FPS_Num_0/FPS_Num_1;
+    //=====================
+    return QString("%1").arg(FPS_double);
 }
 
 int MainWindow::video_get_frameNumDigits(QString videoPath)
