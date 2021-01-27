@@ -24,12 +24,57 @@
 */
 int MainWindow::Gif_getDuration(QString gifPath)
 {
-    QString program = Current_Path+"/python_ext_waifu2xEX.exe";
-    QProcess GifDuration;
-    GifDuration.start("\""+program+"\" \""+gifPath+"\" duration");
-    while(!GifDuration.waitForStarted(100)&&!QProcess_stop) {}
-    while(!GifDuration.waitForFinished(100)&&!QProcess_stop) {}
-    int Duration=GifDuration.readAllStandardOutput().toInt();
+    //========================= 调用ffprobe读取视频信息 ======================
+    QProcess *Get_GifAvgFPS_process = new QProcess();
+    QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+gifPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
+    Get_GifAvgFPS_process->start(cmd);
+    while(!Get_GifAvgFPS_process->waitForStarted(100)&&!QProcess_stop) {}
+    while(!Get_GifAvgFPS_process->waitForFinished(100)&&!QProcess_stop) {}
+    //============= 保存ffprobe输出的ini格式文本 =============
+    QString ffprobe_output_str = Get_GifAvgFPS_process->readAllStandardOutput();
+    //================ 将ini写入文件保存 ================
+    QFileInfo videoFileInfo(gifPath);
+    QString Path_gif_info_ini = "";
+    QString video_dir = file_getFolderPath(gifPath);
+    do
+    {
+        int random = QRandomGenerator::global()->bounded(1,10000);
+        Path_gif_info_ini = video_dir+"/"+file_getBaseName(gifPath)+"_gifInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+    }
+    while(QFile::exists(Path_gif_info_ini));
+    //=========
+    QFile gif_info_ini(Path_gif_info_ini);
+    gif_info_ini.remove();
+    if (gif_info_ini.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
+    {
+        QTextStream stream(&gif_info_ini);
+        stream << ffprobe_output_str;
+    }
+    gif_info_ini.close();
+    //================== 读取ini获得参数 =====================
+    QSettings *configIniRead_videoInfo = new QSettings(Path_gif_info_ini, QSettings::IniFormat);
+    QString FPS_Division = configIniRead_videoInfo->value("/streams.stream.0/avg_frame_rate").toString().trimmed();
+    gif_info_ini.remove();
+    //=======================
+    int Duration = 0;
+    if(FPS_Division!="")
+    {
+        QStringList FPS_Nums = FPS_Division.split("/");
+        if(FPS_Nums.count()==2)
+        {
+            double FPS_Num_0 = FPS_Nums.at(0).toDouble();
+            double FPS_Num_1 = FPS_Nums.at(1).toDouble();
+            if(FPS_Num_0>0&&FPS_Num_1>0)
+            {
+                double Duration_double = 100/(FPS_Num_0/FPS_Num_1);
+                Duration = Duration_double;
+                if(Duration_double>Duration)
+                {
+                    Duration++;
+                }
+            }
+        }
+    }
     if(Duration<=0)
     {
         QMovie movie(gifPath);

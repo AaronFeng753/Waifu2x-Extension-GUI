@@ -35,7 +35,8 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.61.21-beta:
-- Faster video processing.
+- Speed up the processing of video and gif.
+- Abandon python extension to improve performance.
 - Increase download speed by using GNU Wget.
 - Improve multithreading performance.
 - More detailed tool tips.
