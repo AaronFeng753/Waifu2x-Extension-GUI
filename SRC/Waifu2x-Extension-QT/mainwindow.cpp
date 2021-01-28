@@ -1776,7 +1776,9 @@ void MainWindow::on_checkBox_HDNMode_Anime4k_stateChanged(int arg1)
 {
     DenoiseLevelSpinboxSetting_Anime4k();
 }
-
+/*
+生成独立cmd文件来执行cmd命令
+*/
 void MainWindow::ExecuteCMD_batFile(QString cmd_str)
 {
     ExecuteCMD_batFile_QMutex.lock();

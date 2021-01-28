@@ -97,10 +97,11 @@ QMap<QString,int> MainWindow::video_get_Resolution(QString VideoFileFullPath)
     QFileInfo videoFileInfo(VideoFileFullPath);
     QString Path_video_info_ini = "";
     QString video_dir = file_getFolderPath(VideoFileFullPath);
+    int FileNo = 0;
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,99999);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(VideoFileFullPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        FileNo++;
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(VideoFileFullPath)+"_videoInfo_"+QString::number(FileNo,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
@@ -236,10 +237,11 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     //================ 将文件列表写入文件保存 ================
     QFileInfo videoFileInfo(video_mp4_scaled_fullpath);
     QString Path_FFMpegFileList = "";
+    int FileNo = 0;
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,99999);
-        Path_FFMpegFileList = video_dir+"/"+file_getBaseName(video_mp4_scaled_fullpath)+"_fileList_"+QString::number(random,10)+"_Waifu2xEX.txt";
+        FileNo++;
+        Path_FFMpegFileList = video_dir+"/"+file_getBaseName(video_mp4_scaled_fullpath)+"_fileList_"+QString::number(FileNo,10)+"_Waifu2xEX.txt";
     }
     while(QFile::exists(Path_FFMpegFileList));
     //=========
@@ -464,10 +466,11 @@ int MainWindow::video_get_duration(QString videoPath)
     QFileInfo videoFileInfo(videoPath);
     QString Path_video_info_ini = "";
     QString video_dir = file_getFolderPath(videoPath);
+    int FileNo = 0;
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,99999);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        FileNo++;
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(FileNo,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
@@ -631,10 +634,11 @@ QString MainWindow::video_get_bitrate(QString videoPath)
     QFileInfo videoFileInfo(videoPath);
     QString Path_video_info_ini = "";
     QString video_dir = file_getFolderPath(videoPath);
+    int FileNo = 0;
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,99999);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        FileNo++;
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(FileNo,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
@@ -671,10 +675,11 @@ QString MainWindow::video_get_fps(QString videoPath)
     QFileInfo videoFileInfo(videoPath);
     QString Path_video_info_ini = "";
     QString video_dir = file_getFolderPath(videoPath);
+    int FileNo = 0;
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,99999);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        FileNo++;
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(FileNo,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
@@ -726,10 +731,11 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
     QFileInfo videoFileInfo(videoPath);
     QString Path_video_info_ini = "";
     QString video_dir = file_getFolderPath(videoPath);
+    int FileNo = 0;
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,99999);
-        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
+        FileNo++;
+        Path_video_info_ini = video_dir+"/"+file_getBaseName(videoPath)+"_videoInfo_"+QString::number(FileNo,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_video_info_ini));
     //=========
