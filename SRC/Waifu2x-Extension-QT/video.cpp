@@ -380,10 +380,18 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
 void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
 {
     emit Send_TextBrowser_NewMessage(tr("Extract audio from video: [")+VideoPath+"]");
+    //================ 获取fps =====================
+    QString fps_video_cmd="";
+    QString fps = video_get_fps(VideoPath).trimmed();
+    if(fps != "0.0")
+    {
+        fps_video_cmd = " -r "+fps+" ";
+    }
+    //==============================================
     QString ffmpeg_path = Current_Path+"/ffmpeg_waifu2xEX.exe";
     QFile::remove(AudioPath);
     QProcess video_splitSound;
-    video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" \""+AudioPath+"\"");
+    video_splitSound.start("\""+ffmpeg_path+"\" -y"+fps_video_cmd+"-i \""+VideoPath+"\""+fps_video_cmd+"\""+AudioPath+"\""+fps_video_cmd);
     while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
     if(QFile::exists(AudioPath))
@@ -850,11 +858,14 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     }
+    /*
     QFile::remove(AudioPath);
     QProcess video_splitSound;
     video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+AudioPath+"\"");
     while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
+    */
+    video_get_audio(video_mp4_fullpath,AudioPath);//拆分音频
     //====================================
     emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
 }

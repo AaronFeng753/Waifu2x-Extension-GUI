@@ -203,11 +203,9 @@ int MainWindow::Auto_Save_Settings_Watchdog()
 int MainWindow::Force_close()
 {
     QProcess Close;
-    //==============
     Close.start("taskkill /f /t /fi \"imagename eq Waifu2x-Extension-GUI.exe\"");
     Close.waitForStarted(10000);
     Close.waitForFinished(10000);
-    //==============
     return 0;
 }
 /*
