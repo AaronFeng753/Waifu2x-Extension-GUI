@@ -693,7 +693,7 @@ QString MainWindow::video_get_fps(QString videoPath)
     video_info_ini.close();
     //================== 读取ini获得参数 =====================
     QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
-    QString FPS_Division = configIniRead_videoInfo->value("/streams.stream.0/r_frame_rate").toString().trimmed();
+    QString FPS_Division = configIniRead_videoInfo->value("/streams.stream.0/avg_frame_rate").toString().trimmed();
     video_info_ini.remove();
     //=======================
     if(FPS_Division=="")
@@ -712,9 +712,10 @@ QString MainWindow::video_get_fps(QString videoPath)
     {
         return "0.0";
     }
-    double FPS_double = FPS_Num_0/FPS_Num_1;
+    //double FPS_double = FPS_Num_0/FPS_Num_1;
     //=====================
-    return QString("%1").arg(FPS_double);
+    //return QString("%1").arg(FPS_double);
+    return FPS_Division;
 }
 
 int MainWindow::video_get_frameNumDigits(QString videoPath)
@@ -821,11 +822,18 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
     }
+    //================ 获取fps =====================
+    QString fps_video_cmd="";
+    QString fps = video_get_fps(video_mp4_fullpath).trimmed();
+    if(fps != "0.0")
+    {
+        fps_video_cmd = " -r "+fps+" ";
+    }
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
     if(FrameNumDigits==0)return;
     QProcess video_splitFrame;
-    video_splitFrame.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
+    video_splitFrame.start("\""+ffmpeg_path+"\" -y"+fps_video_cmd+"-i \""+video_mp4_fullpath+"\" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\""+fps_video_cmd);
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     //============== 尝试在Win7下可能兼容的指令 ================================
