@@ -3035,7 +3035,7 @@ will process at the same time.</string>
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes pictures,
+                  <string>The number of threads that the software processes GIF,
 which will determine how many pictures the software will
 process at the same time.
 
@@ -3065,7 +3065,7 @@ of CPU logical cores.</string>
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes pictures,
+                  <string>The number of threads that the software processes Video,
 which will determine how many pictures the software will
 process at the same time.
 
@@ -3119,7 +3119,7 @@ will process at the same time.</string>
                   </sizepolicy>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes pictures,
+                  <string>The number of threads that the software processes Image,
 which will determine how many pictures the software will
 process at the same time.
 

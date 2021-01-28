@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.62.02-beta:
+- Fix typo.
+
 v2.62.01-beta:
 - Speed up the processing of video and gif.
 - Abandon python extension to improve performance.
