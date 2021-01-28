@@ -38,7 +38,7 @@ int MainWindow::Gif_getDuration(QString gifPath)
     QString video_dir = file_getFolderPath(gifPath);
     do
     {
-        int random = QRandomGenerator::global()->bounded(1,10000);
+        int random = QRandomGenerator::global()->bounded(1,99999);
         Path_gif_info_ini = video_dir+"/"+file_getBaseName(gifPath)+"_gifInfo_"+QString::number(random,10)+"_Waifu2xEX.ini";
     }
     while(QFile::exists(Path_gif_info_ini));
