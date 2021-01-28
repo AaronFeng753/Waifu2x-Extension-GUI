@@ -37,7 +37,7 @@ Change log:
 v2.62.02-beta:
 - Improve performance.
 - Fix typo.
-- Fix bug: Cannot process variable frame rate video.
+- Fix bug: Cannot process variable frame rate video properly.
 
 v2.62.01-beta:
 - Speed up the processing of video and gif.

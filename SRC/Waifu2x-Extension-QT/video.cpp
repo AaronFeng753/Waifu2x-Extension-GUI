@@ -287,7 +287,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
         encoder_video_cmd = " -c:v "+ui->lineEdit_encoder_vid->text()+" ";//图像编码器
     }
     //================ 获取fps =====================
-    QString fps_video_cmd="";
+    QString fps_video_cmd=" ";
     QString fps = video_get_fps(Mp4Clip_forReadInfo).trimmed();
     if(fps != "0.0")
     {
@@ -349,7 +349,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
         video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     }
     //================ 获取fps =====================
-    QString fps_video_cmd="";
+    QString fps_video_cmd=" ";
     QString fps = video_get_fps(video_mp4_fullpath).trimmed();
     if(fps != "0.0")
     {
@@ -381,7 +381,7 @@ void MainWindow::video_get_audio(QString VideoPath,QString AudioPath)
 {
     emit Send_TextBrowser_NewMessage(tr("Extract audio from video: [")+VideoPath+"]");
     //================ 获取fps =====================
-    QString fps_video_cmd="";
+    QString fps_video_cmd=" ";
     QString fps = video_get_fps(VideoPath).trimmed();
     if(fps != "0.0")
     {
@@ -797,48 +797,9 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         video_mp4_fullpath = video_dir+"/"+video_filename+".mp4";
     }
     //======= 转换到mp4 =======
-    if(video_ext!="mp4")
-    {
-        QFile::remove(video_mp4_fullpath);
-        QString vcodec_copy_cmd = "";
-        QString acodec_copy_cmd = "";
-        QString bitrate_vid_cmd = "";
-        QString bitrate_audio_cmd = "";
-        QString Extra_command = "";
-        QString bitrate_OverAll = "";
-        if(ui->groupBox_video_settings->isChecked())
-        {
-            Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
-            if(ui->checkBox_vcodec_copy_2mp4->isChecked())
-            {
-                vcodec_copy_cmd = " -vcodec copy ";
-            }
-            else
-            {
-                if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_vid_cmd = " -b:v "+QString::number(ui->spinBox_bitrate_vid_2mp4->value(),10)+"k ";
-            }
-            if(ui->checkBox_acodec_copy_2mp4->isChecked())
-            {
-                acodec_copy_cmd = " -acodec copy ";
-            }
-            else
-            {
-                if(ui->spinBox_bitrate_vid_2mp4->value()>0&&ui->spinBox_bitrate_audio_2mp4->value()>0)bitrate_audio_cmd = " -b:a "+QString::number(ui->spinBox_bitrate_audio_2mp4->value(),10)+"k ";
-            }
-        }
-        if((ui->groupBox_video_settings->isChecked()==false)||(ui->spinBox_bitrate_vid_2mp4->value()<=0||ui->spinBox_bitrate_audio_2mp4->value()<=0))
-        {
-            QString BitRate = video_get_bitrate(VideoPath);
-            if(BitRate!="")bitrate_OverAll = " -b "+BitRate+" ";
-        }
-        //=====
-        QProcess video_tomp4;
-        video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
-        while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
-        while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
-    }
+    video_2mp4(VideoPath);
     //================ 获取fps =====================
-    QString fps_video_cmd="";
+    QString fps_video_cmd=" ";
     QString fps = video_get_fps(video_mp4_fullpath).trimmed();
     if(fps != "0.0")
     {
@@ -858,13 +819,6 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     }
-    /*
-    QFile::remove(AudioPath);
-    QProcess video_splitSound;
-    video_splitSound.start("\""+ffmpeg_path+"\" -y -i \""+video_mp4_fullpath+"\" \""+AudioPath+"\"");
-    while(!video_splitSound.waitForStarted(100)&&!QProcess_stop) {}
-    while(!video_splitSound.waitForFinished(100)&&!QProcess_stop) {}
-    */
     video_get_audio(video_mp4_fullpath,AudioPath);//拆分音频
     //====================================
     emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
