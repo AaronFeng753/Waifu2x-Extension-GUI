@@ -114,7 +114,9 @@ MainWindow::MainWindow(QWidget *parent)
     */
     if(file_isDirWritable(Current_Path)==false)
     {
-        QMessageBox Msg(QMessageBox::Question, QString(tr("Error")), QString(tr("It is detected that this software lacks the necessary permissions to run.\n\nPlease close this software and start this software again after giving this software administrator permission.\n\nOtherwise, this software may not work properly.")));
+        QMessageBox Msg(QMessageBox::Question, QString(tr("Error")), QString(tr("It is detected that this software lacks the necessary permissions to run."
+                        "\n\nPlease close this software and start this software again after giving this software administrator permission. "
+                        "Or reinstall the software into a directory that can run normally without administrator rights.\n\nOtherwise, this software may not work properly.")));
         Msg.setIcon(QMessageBox::Warning);
         Msg.addButton(QString("OK"), QMessageBox::NoRole);
         Msg.exec();
