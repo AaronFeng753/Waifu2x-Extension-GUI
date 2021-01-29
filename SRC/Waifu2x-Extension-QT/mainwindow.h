@@ -77,10 +77,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.62.02-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v2.61.13";
-    QString LastBetaVer = "v2.62.02-beta";
+    QString VERSION = "v2.62.12";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v2.62.12";
+    QString LastBetaVer = "v2.62.12";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -93,9 +93,7 @@ public:
     void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
     void Read_urls(QList<QUrl> urls);
-
     void Read_Input_paths_BrowserFile(QStringList Input_path_List);
-
     bool AddNew_gif=false;//判断是否有新增文件-gif
     bool AddNew_image=false;//判断是否有新增文件-图片
     bool AddNew_video=false;//判断是否有新增文件-视频

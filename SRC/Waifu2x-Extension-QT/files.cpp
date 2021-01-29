@@ -52,7 +52,6 @@ void MainWindow::dropEvent(QDropEvent *event)
     emit Send_TextBrowser_NewMessage(tr("Adding files, please wait."));
     //===================================================
     QtConcurrent::run(this, &MainWindow::Read_urls, urls);
-    //=============
 }
 /*
 读取urls
@@ -75,6 +74,7 @@ void MainWindow::Read_urls(QList<QUrl> urls)
         emit Send_progressbar_Add();
     }
     emit Send_Read_urls_finfished();
+    return;
 }
 /*
 读取urls

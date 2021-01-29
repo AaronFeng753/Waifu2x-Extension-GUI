@@ -75,8 +75,8 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
         ui->label_DonateQRCode->setStyleSheet("image: url(\""+QRCodePath+"\");");
     }
     if(isFirstTimeStart)return;
-    int randomNum = QRandomGenerator::global()->bounded(0, 10);
-    if(randomNum<3)
+    int randomNum = QRandomGenerator::global()->bounded(0, 100);
+    if(randomNum<35)
     {
         ui->tabWidget->setCurrentIndex(0);
         emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));

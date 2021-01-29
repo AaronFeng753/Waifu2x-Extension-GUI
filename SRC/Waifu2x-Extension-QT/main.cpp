@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.62.02-beta:
+v2.62.12:
 - Improve performance.
 - Complete translation.
 - Fix typo.
