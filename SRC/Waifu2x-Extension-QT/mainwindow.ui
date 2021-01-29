@@ -2973,9 +2973,7 @@ it might cause the software to crash.</string>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes pictures,
-which will determine how many pictures the software will
-process at the same time.</string>
+                  <string/>
                  </property>
                  <property name="statusTip">
                   <string/>
@@ -3010,9 +3008,7 @@ process at the same time.</string>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes video,
-which will determine how many video files the software
-will process at the same time.</string>
+                  <string/>
                  </property>
                  <property name="text">
                   <string>Video:</string>
@@ -3036,7 +3032,7 @@ will process at the same time.</string>
                  </property>
                  <property name="toolTip">
                   <string>The number of threads that the software processes GIF,
-which will determine how many pictures the software will
+which will determine how many frames the software will
 process at the same time.
 
 The actual maximum number of threads is limited by the number
@@ -3066,7 +3062,7 @@ of CPU logical cores.</string>
                  </property>
                  <property name="toolTip">
                   <string>The number of threads that the software processes Video,
-which will determine how many pictures the software will
+which will determine how many frames the software will
 process at the same time.
 
 The actual maximum number of threads is limited by the number
@@ -3101,9 +3097,7 @@ of CPU logical cores.</string>
                   </size>
                  </property>
                  <property name="toolTip">
-                  <string>The number of threads that the software processes GIF,
-which will determine how many GIF files the software
-will process at the same time.</string>
+                  <string/>
                  </property>
                  <property name="text">
                   <string>GIF:</string>
@@ -3120,7 +3114,7 @@ will process at the same time.</string>
                  </property>
                  <property name="toolTip">
                   <string>The number of threads that the software processes Image,
-which will determine how many pictures the software will
+which will determine how many images the software will
 process at the same time.
 
 The actual maximum number of threads is limited by the number

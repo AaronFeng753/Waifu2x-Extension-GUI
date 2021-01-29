@@ -36,6 +36,7 @@ Change log:
 
 v2.62.02-beta:
 - Improve performance.
+- Complete translation.
 - Fix typo.
 - Fix bug: Cannot process variable frame rate video properly.
 
