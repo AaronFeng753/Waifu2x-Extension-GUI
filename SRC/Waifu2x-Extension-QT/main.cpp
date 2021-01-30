@@ -34,9 +34,20 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+brief:
+- Speed up the processing of video and gif.
+- Abandon python extension to improve performance.
+- Increase download speed by using GNU Wget.
+- Improve video processing flow.
+- Improve multithreading performance.
+- Other performance improvements.
+- More detailed tool tips,fix typo.
+- Fix bug: Cannot process variable frame rate video properly.
+
 v2.62.12:
 - Improve performance.
 - Complete translation.
+- Improve video processing flow.
 - Fix typo.
 - Fix bug: Cannot process variable frame rate video properly.
 
@@ -49,6 +60,7 @@ v2.62.01-beta:
 
 --------------------------------------------------------------------------
 To do:
+- 当单显卡时整个文件夹一起处理.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------
