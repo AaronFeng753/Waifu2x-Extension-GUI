@@ -37,7 +37,7 @@ Change log:
 brief:
 - Speed up the processing of video and gif.
 - Abandon python extension to improve performance.
-- Increase download speed by using GNU Wget.
+- Increase download speed.
 - Improve video processing flow.
 - Improve multithreading performance.
 - Other performance improvements.

@@ -482,7 +482,7 @@ public:
     QAction *RemoveALL_gif = new QAction(this);
     QAction *RemoveALL_video = new QAction(this);
     //=================== 生成bat文件来执行cmd命令 ===========
-    void ExecuteCMD_batFile(QString cmd_str);
+    void ExecuteCMD_batFile(QString cmd_str,bool requestAdmin);
     QMutex ExecuteCMD_batFile_QMutex;
     void Del_TempBatFile();
     //=====================================================

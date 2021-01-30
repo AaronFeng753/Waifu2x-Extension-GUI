@@ -682,7 +682,6 @@ void MainWindow::on_pushButton_clear_textbrowser_clicked()
 {
     ui->textBrowser->clear();
     TextBrowser_StartMes();
-    //==============
 }
 
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
@@ -1780,7 +1779,7 @@ void MainWindow::on_checkBox_HDNMode_Anime4k_stateChanged(int arg1)
 /*
 生成独立cmd文件来执行cmd命令
 */
-void MainWindow::ExecuteCMD_batFile(QString cmd_str)
+void MainWindow::ExecuteCMD_batFile(QString cmd_str,bool requestAdmin)
 {
     ExecuteCMD_batFile_QMutex.lock();
     QString cmd_commands = "@echo off\n "+cmd_str+"\n exit";
@@ -1796,7 +1795,14 @@ void MainWindow::ExecuteCMD_batFile(QString cmd_str)
         stream << cmd_commands;
     }
     OpenFile_cmdFile.close();
-    QDesktopServices::openUrl(QUrl("file:"+QUrl::toPercentEncoding(Bat_path)));
+    if(requestAdmin)
+    {
+        ShellExecuteW(NULL, QString("runas").toStdWString().c_str(), QString(Bat_path).toStdWString().c_str(), QString(Bat_path).toStdWString().c_str(), NULL, 1);
+    }
+    else
+    {
+        QDesktopServices::openUrl(QUrl("file:"+QUrl::toPercentEncoding(Bat_path)));
+    }
     //========
     ExecuteCMD_batFile_QMutex.unlock();
 }

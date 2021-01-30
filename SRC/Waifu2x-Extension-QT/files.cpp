@@ -601,7 +601,7 @@ bool MainWindow::file_OpenFile(QString FilePath)
     {
         if(QDesktopServices::openUrl(QUrl("file:"+QUrl::toPercentEncoding(FilePath),QUrl::TolerantMode))==false)
         {
-            ExecuteCMD_batFile("start \"\" \""+FilePath.replace("%","%%")+"\"");
+            ExecuteCMD_batFile("start \"\" \""+FilePath.replace("%","%%")+"\"",false);
         }
         return true;
     }
