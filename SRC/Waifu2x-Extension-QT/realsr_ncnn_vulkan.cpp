@@ -748,15 +748,17 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //===================================================================
-    QString video_mp4_fullpath="";//mp4路径
-    if(file_ext!="mp4")
+    //生成mp4
+    QString video_mp4_fullpath=video_To_CFRMp4(SourceFile_fullPath);
+    if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
-        video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
+        status = "Failed";
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
+        return 0;//如果启用stop位,则直接return
     }
-    else
-    {
-        video_mp4_fullpath = file_path+"/"+file_name+".mp4";
-    }
+    //=================
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
     QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
@@ -838,7 +840,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             QFile::remove(VideoConfiguration_fullPath);
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",false,"","");
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
@@ -851,7 +852,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",false,"","");
         //========
     }
@@ -868,15 +868,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             file_mkDir(SplitFramesFolderPath);
         }
         QFile::remove(AudioPath);
-        video_video2images(SourceFile_fullPath,SplitFramesFolderPath,AudioPath);
-        if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            emit Send_progressbar_Add();
-            return 0;//如果启用stop位,则直接return
-        }
+        video_video2images(video_mp4_fullpath,SplitFramesFolderPath,AudioPath);
     }
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -1079,15 +1071,17 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     QString file_ext = fileinfo.suffix();
     QString file_path = file_getFolderPath(fileinfo);
     //===================================================================
-    QString video_mp4_fullpath="";//mp4路径
-    if(file_ext!="mp4")
+    //生成mp4
+    QString video_mp4_fullpath=video_To_CFRMp4(SourceFile_fullPath);
+    if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
-        video_mp4_fullpath = file_path+"/"+file_name+"_"+file_ext+".mp4";
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
+        status = "Failed";
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_progressbar_Add();
+        return 0;//如果启用stop位,则直接return
     }
-    else
-    {
-        video_mp4_fullpath = file_path+"/"+file_name+".mp4";
-    }
+    //=================
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
     QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
@@ -1189,7 +1183,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             file_DelDir(VideoClipsFolderPath);
             QFile::remove(AudioPath);
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
@@ -1203,24 +1196,8 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         file_DelDir(VideoClipsFolderPath);
         QFile::remove(AudioPath);
-        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
         //========
-    }
-    /*====================================
-                将视频转换为MP4
-    ======================================*/
-    if(!QFile::exists(video_mp4_fullpath))
-    {
-        video_2mp4(SourceFile_fullPath);
-        if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            emit Send_progressbar_Add();
-            return 0;//如果启用stop位,则直接return
-        }
     }
     /*====================================
                   提取音频

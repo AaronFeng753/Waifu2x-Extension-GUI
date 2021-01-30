@@ -350,6 +350,8 @@ public:
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率
     QString video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
+    //判断视频是否可变帧率
+    bool video_isVFR(QString videoPath);
     //拆分视频
     void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);
     //组装视频
@@ -365,7 +367,7 @@ public:
     //获取时长(秒)
     int video_get_duration(QString videoPath);
     //转换为mp4
-    void video_2mp4(QString VideoPath);
+    QString video_To_CFRMp4(QString VideoPath);
     //提取音频
     void video_get_audio(QString VideoPath,QString AudioPath);
     //拆分视频(分段)
