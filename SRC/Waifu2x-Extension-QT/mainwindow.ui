@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -6731,7 +6731,10 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                  <item row="4" column="2" colspan="2">
                   <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
                    <property name="toolTip">
-                    <string>When this is enabled, ffmpeg will copy the video part of the original video directly to the mp4, may cause error.</string>
+                    <string>When this is enabled, ffmpeg will copy the video part of
+the original video directly to the mp4, may cause error.
+
+Command: -vcodec copy</string>
                    </property>
                    <property name="text">
                     <string notr="true">Copy video stream</string>
