@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>3</number>
        </property>
        <property name="iconSize">
         <size>
@@ -6352,7 +6352,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
         <attribute name="title">
          <string>Video settings</string>
         </attribute>
-        <layout class="QGridLayout" name="gridLayout_2" columnstretch="3,5">
+        <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,3">
          <property name="leftMargin">
           <number>6</number>
          </property>
@@ -6365,106 +6365,6 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
          <property name="bottomMargin">
           <number>6</number>
          </property>
-         <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBox_AudioDenoise">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>65</height>
-            </size>
-           </property>
-           <property name="title">
-            <string>Audio denoise(for video)</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_16">
-            <property name="leftMargin">
-             <number>6</number>
-            </property>
-            <property name="topMargin">
-             <number>6</number>
-            </property>
-            <property name="rightMargin">
-             <number>6</number>
-            </property>
-            <property name="bottomMargin">
-             <number>6</number>
-            </property>
-            <item row="0" column="2">
-             <widget class="Line" name="line_7">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QDoubleSpinBox" name="doubleSpinBox_AudioDenoiseLevel">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="toolTip">
-               <string>How much noise should be removed is specified by amount-a 
-number between 0.01 and 1 with a default of 0.25. Higher 
-numbers will remove more noise but present a greater 
-likelihood of removing wanted components of the audio signal.</string>
-              </property>
-              <property name="decimals">
-               <number>2</number>
-              </property>
-              <property name="minimum">
-               <double>0.010000000000000</double>
-              </property>
-              <property name="maximum">
-               <double>1.000000000000000</double>
-              </property>
-              <property name="singleStep">
-               <double>0.010000000000000</double>
-              </property>
-              <property name="value">
-               <double>0.200000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_46">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Denoise level:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QCheckBox" name="checkBox_AudioDenoise">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
          <item row="0" column="1">
           <spacer name="horizontalSpacer_11">
            <property name="orientation">
@@ -6519,105 +6419,6 @@ likelihood of removing wanted components of the audio signal.</string>
                  <string>Output video</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_51">
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_31">
-                   <property name="text">
-                    <string>Encoder(video):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QLineEdit" name="lineEdit_encoder_vid">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">libx264</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_27">
-                   <property name="text">
-                    <string>Bitrate(video):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QSpinBox" name="spinBox_bitrate_vid">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>6000</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_32">
-                   <property name="text">
-                    <string>Encoder(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QLineEdit" name="lineEdit_encoder_audio">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">aac</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_29">
-                   <property name="text">
-                    <string>Bitrate(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1">
-                  <widget class="QSpinBox" name="spinBox_bitrate_audio">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>10</number>
-                   </property>
-                   <property name="value">
-                    <number>320</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0">
-                  <widget class="QLabel" name="label_33">
-                   <property name="text">
-                    <string>Pixel format:</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="4" column="1">
                   <widget class="QLineEdit" name="lineEdit_pixformat">
                    <property name="toolTip">
@@ -6628,10 +6429,24 @@ likelihood of removing wanted components of the audio signal.</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="5" column="0" colspan="2">
-                  <widget class="Line" name="line_17">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_27">
+                   <property name="text">
+                    <string>Bitrate(video):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_31">
+                   <property name="text">
+                    <string>Encoder(video):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_29">
+                   <property name="text">
+                    <string>Bitrate(audio):</string>
                    </property>
                   </widget>
                  </item>
@@ -6692,6 +6507,91 @@ likelihood of removing wanted components of the audio signal.</string>
                      </widget>
                     </item>
                    </layout>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QSpinBox" name="spinBox_bitrate_audio">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>10</number>
+                   </property>
+                   <property name="value">
+                    <number>320</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QSpinBox" name="spinBox_bitrate_vid">
+                   <property name="toolTip">
+                    <string>If you set it to 0, software will use auto settings.</string>
+                   </property>
+                   <property name="suffix">
+                    <string notr="true"> K</string>
+                   </property>
+                   <property name="minimum">
+                    <number>0</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>100</number>
+                   </property>
+                   <property name="value">
+                    <number>6000</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QLabel" name="label_32">
+                   <property name="text">
+                    <string>Encoder(audio):</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0" colspan="2">
+                  <widget class="Line" name="line_17">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="1">
+                  <widget class="QLineEdit" name="lineEdit_encoder_audio">
+                   <property name="toolTip">
+                    <string>If you leave it empty, software will use auto settings.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">aac</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QLabel" name="label_33">
+                   <property name="text">
+                    <string>Pixel format:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1">
+                  <widget class="QLineEdit" name="lineEdit_encoder_vid">
+                   <property name="toolTip">
+                    <string>If you leave it empty, software will use auto settings.</string>
+                   </property>
+                   <property name="text">
+                    <string notr="true">libx264</string>
+                   </property>
                   </widget>
                  </item>
                 </layout>
@@ -7000,6 +6900,112 @@ padding:10px;
                 </spacer>
                </item>
               </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="groupBox_AudioDenoise">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>55</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Audio denoise(for video)</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <item row="0" column="1">
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_AudioDenoiseLevel">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="toolTip">
+               <string>How much noise should be removed is specified by amount-a 
+number between 0.01 and 1 with a default of 0.25. Higher 
+numbers will remove more noise but present a greater 
+likelihood of removing wanted components of the audio signal.</string>
+              </property>
+              <property name="decimals">
+               <number>2</number>
+              </property>
+              <property name="minimum">
+               <double>0.010000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>0.010000000000000</double>
+              </property>
+              <property name="value">
+               <double>0.200000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_46">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Denoise level:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QCheckBox" name="checkBox_AudioDenoise">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Enabled</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="Line" name="line_7">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
              </widget>
             </item>
            </layout>
