@@ -838,10 +838,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             QFile::remove(VideoConfiguration_fullPath);
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
-            if(file_ext!="mp4")
-            {
-                if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-            }
+            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",false,"","");
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
@@ -854,10 +851,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        if(file_ext!="mp4")
-        {
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        }
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",false,"","");
         //========
     }
@@ -1003,10 +997,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        if(file_ext!="mp4")
-        {
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        }
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     else
     {
@@ -1198,10 +1189,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             file_DelDir(VideoClipsFolderPath);
             QFile::remove(AudioPath);
-            if(file_ext!="mp4")
-            {
-                if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-            }
+            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
             emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
@@ -1215,10 +1203,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         file_DelDir(VideoClipsFolderPath);
         QFile::remove(AudioPath);
-        if(file_ext!="mp4")
-        {
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        }
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
         emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,0,CustRes_isEnabled,CustRes_height,CustRes_width,"realsr-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName);
         //========
     }
@@ -1502,10 +1487,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         file_DelDir(VideoClipsFolderPath);
         QFile::remove(AudioPath);
-        if(file_ext!="mp4")
-        {
-            if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
-        }
+        if(SourceFile_fullPath!=video_mp4_fullpath)QFile::remove(video_mp4_fullpath);
     }
     else
     {

@@ -297,11 +297,11 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QString CMD = "";
     if(QFile::exists(AudioPath))
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\" -i \""+AudioPath+"\""+bitrate_video_cmd+encoder_video_cmd+fps_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+"\""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\" "+fps_video_cmd+" -i \""+AudioPath+"\" "+fps_video_cmd+" "+bitrate_video_cmd+encoder_video_cmd+fps_video_cmd+encoder_audio_cmd+bitrate_audio_cmd+"\""+video_mp4_scaled_fullpath+"\""+fps_video_cmd;
     }
     else
     {
-        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\""+bitrate_video_cmd+encoder_video_cmd+fps_video_cmd+"\""+video_mp4_scaled_fullpath+"\"";
+        CMD = "\""+ffmpeg_path+"\" -y -f concat -safe 0 "+fps_video_cmd+" -i \""+Path_FFMpegFileList+"\""+bitrate_video_cmd+encoder_video_cmd+fps_video_cmd+"\""+video_mp4_scaled_fullpath+"\""+fps_video_cmd;
     }
     QProcess AssembleVideo;
     AssembleVideo.start(CMD);
