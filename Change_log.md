@@ -4,6 +4,11 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.62.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.13)
+#### Change log:
+- Improve the performance of SRMD-NCNN-Vulkan.
+- Fix bug: Incorrect scale ratio when using SRMD-NCNN-Vulkan.
+---
 ## [v2.62.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.12)
 #### Change log:
 - Speed up the processing of video and gif.
