@@ -43,6 +43,7 @@ brief:
 - Other performance improvements.
 - More detailed tool tips,fix typo.
 - Fix bug: Cannot process variable frame rate video properly.
+- Fix bug: After the compatibility test is over, the waifu2x-caffe process will stay in the background.
 
 v2.62.12:
 - Improve performance.
@@ -50,6 +51,7 @@ v2.62.12:
 - Improve video processing flow.
 - Fix typo.
 - Fix bug: Cannot process variable frame rate video properly.
+- Fix bug: After the compatibility test is over, the waifu2x-caffe process will stay in the background.
 
 v2.62.01-beta:
 - Speed up the processing of video and gif.
