@@ -37,13 +37,17 @@ Change log:
 brief:
 - Speed up the processing of video and gif.
 - Abandon python extension to improve performance.
-- Increase download speed.
-- Improve video processing flow.
-- Improve multithreading performance.
-- Other performance improvements.
-- More detailed tool tips,fix typo.
+- Improve download speed, video processing flow, multithreading performance and other performance improvements.
+- More detailed tool tips, fix typo.
 - Fix bug: Cannot process variable frame rate video properly.
 - Fix bug: After the compatibility test is over, the waifu2x-caffe process will stay in the background.
+
+- 加快视频和gif的处理速度。
+- 放弃python扩展以提高性能。
+- 改进下载速度, 视频处理流程, 多线程性能以及其他性能改进。
+- 更详尽的工具提示，修正错字。
+- 修复错误：无法正确处理可变帧率视频。
+- 修复错误：兼容性测试结束后，waifu2x-caffe进程可能滞留在后台。
 
 v2.62.12:
 - Improve performance.

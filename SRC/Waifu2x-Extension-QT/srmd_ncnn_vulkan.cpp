@@ -88,11 +88,13 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
     //==========
     int ScaleRatio_tmp=0;
     int Initial_ScaleRatio=0;
+    QString CMD_ScaleRatio = " -s 2 ";
     if(ScaleRatio>=2&&ScaleRatio<=4)
     {
         //当倍率为原生支持时
         ScaleRatio_tmp=ScaleRatio;
         Initial_ScaleRatio=ScaleRatio;
+        CMD_ScaleRatio = " -s "+QString::number(ScaleRatio,10)+" ";
     }
     else
     {
@@ -134,7 +136,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
         for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + CMD_ScaleRatio + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -576,11 +578,13 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
     //======
     int ScaleRatio_tmp=0;
     int Initial_ScaleRatio=0;
+    QString CMD_ScaleRatio = " -s 2 ";
     if(ScaleRatio>=2&&ScaleRatio<=4)
     {
         //当倍率为原生支持时
         ScaleRatio_tmp=ScaleRatio;
         Initial_ScaleRatio=ScaleRatio;
+        CMD_ScaleRatio = " -s "+QString::number(ScaleRatio,10)+" ";
     }
     else
     {
@@ -622,7 +626,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
         for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + CMD_ScaleRatio + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -1573,11 +1577,13 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     //=========
     int ScaleRatio_tmp=0;
     int Initial_ScaleRatio=0;
+    QString CMD_ScaleRatio = " -s 2 ";
     if(ScaleRatio>=2&&ScaleRatio<=4)
     {
         //当倍率为原生支持时
         ScaleRatio_tmp=ScaleRatio;
         Initial_ScaleRatio=ScaleRatio;
+        CMD_ScaleRatio = " -s "+QString::number(ScaleRatio,10)+" ";
     }
     else
     {
@@ -1617,7 +1623,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
         for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + CMD_ScaleRatio + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
