@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.62.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.12)
+#### Change log:
+- Speed up the processing of video and gif.
+- Abandon python extension to improve performance.
+- Improve download speed, video processing flow, multithreading performance and other performance improvements.
+- More detailed tool tips, fix typo.
+- Fix bug: Cannot process variable frame rate video properly.
+- Fix bug: After the compatibility test is over, the waifu2x-caffe process will stay in the background.
+---
 ## [v2.61.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.61.13)
 #### Change log:
 - NEW Feature: Automatically skip file when its resolution is larger than the specified resolution.
