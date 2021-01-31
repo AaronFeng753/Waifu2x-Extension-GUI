@@ -11,7 +11,7 @@
 ## [v2.62.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.12)
 #### 更新日志:
 - 加快视频和gif的处理速度。
-- 放弃python扩展以提高性能。
+- 替换掉python扩展以提高性能。
 - 改进下载速度, 视频处理流程, 多线程性能以及其他性能改进。
 - 更详尽的工具提示，修正错字。
 - 修复错误：无法正确处理可变帧率视频。
