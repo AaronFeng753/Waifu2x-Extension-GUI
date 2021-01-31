@@ -86,43 +86,9 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
     QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     //==========
-    int ScaleRatio_tmp=0;
-    int Initial_ScaleRatio=0;
-    QString CMD_ScaleRatio = " -s 2 ";
-    if(ScaleRatio>=2&&ScaleRatio<=4)
-    {
-        //当倍率为原生支持时
-        ScaleRatio_tmp=ScaleRatio;
-        Initial_ScaleRatio=ScaleRatio;
-        CMD_ScaleRatio = " -s "+QString::number(ScaleRatio,10)+" ";
-    }
-    else
-    {
-        //当倍率为非原生时
-        Initial_ScaleRatio=2;
-        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
-        if((ScaleRatio%2)==0)
-        {
-            ScaleRatio_tmp = ScaleRatio;
-        }
-        else
-        {
-            ScaleRatio_tmp = ScaleRatio+1;
-        }
-        //判断是否为2的幂数
-        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-        {
-            for(int i=1; true; i++)
-            {
-                int pow_ =pow(2,i);
-                if(pow_>=ScaleRatio_tmp)
-                {
-                    ScaleRatio_tmp=pow_;
-                    break;
-                }
-            }
-        }
-    }
+    QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ui->spinBox_ScaleRatio_image->value());
+    int ScaleRatio_tmp=result_map["ScaleRatio_tmp"];
+    int Initial_ScaleRatio=result_map["Initial_ScaleRatio"];
     //======
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
@@ -133,10 +99,10 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
         InputPath_tmp = SourceFile_fullPath;
         OutputPath_tmp ="";
         DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
+        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=Initial_ScaleRatio)
         {
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + CMD_ScaleRatio + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + QString::number(Initial_ScaleRatio, 10) + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -576,43 +542,9 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
     QString Waifu2x_folder_path = Current_Path + "/srmd-ncnn-vulkan";
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     //======
-    int ScaleRatio_tmp=0;
-    int Initial_ScaleRatio=0;
-    QString CMD_ScaleRatio = " -s 2 ";
-    if(ScaleRatio>=2&&ScaleRatio<=4)
-    {
-        //当倍率为原生支持时
-        ScaleRatio_tmp=ScaleRatio;
-        Initial_ScaleRatio=ScaleRatio;
-        CMD_ScaleRatio = " -s "+QString::number(ScaleRatio,10)+" ";
-    }
-    else
-    {
-        //当倍率为非原生时
-        Initial_ScaleRatio=2;
-        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
-        if((ScaleRatio%2)==0)
-        {
-            ScaleRatio_tmp = ScaleRatio;
-        }
-        else
-        {
-            ScaleRatio_tmp = ScaleRatio+1;
-        }
-        //判断是否为2的幂数
-        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-        {
-            for(int i=1; true; i++)
-            {
-                int pow_ =pow(2,i);
-                if(pow_>=ScaleRatio_tmp)
-                {
-                    ScaleRatio_tmp=pow_;
-                    break;
-                }
-            }
-        }
-    }
+    QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ui->spinBox_ScaleRatio_image->value());
+    int ScaleRatio_tmp=result_map["ScaleRatio_tmp"];
+    int Initial_ScaleRatio=result_map["Initial_ScaleRatio"];
     //======
     QString InputPath_tmp = Frame_fileFullPath;
     QString OutputPath_tmp ="";
@@ -623,10 +555,10 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
         OutputPath_tmp ="";
         InputPath_tmp = Frame_fileFullPath;
         DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
+        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=Initial_ScaleRatio)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + CMD_ScaleRatio + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + QString::number(Initial_ScaleRatio, 10) + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -1575,43 +1507,9 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
     //========
     QString program = Waifu2x_folder_path + "/srmd-ncnn-vulkan_waifu2xEX.exe";
     //=========
-    int ScaleRatio_tmp=0;
-    int Initial_ScaleRatio=0;
-    QString CMD_ScaleRatio = " -s 2 ";
-    if(ScaleRatio>=2&&ScaleRatio<=4)
-    {
-        //当倍率为原生支持时
-        ScaleRatio_tmp=ScaleRatio;
-        Initial_ScaleRatio=ScaleRatio;
-        CMD_ScaleRatio = " -s "+QString::number(ScaleRatio,10)+" ";
-    }
-    else
-    {
-        //当倍率为非原生时
-        Initial_ScaleRatio=2;
-        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
-        if((ScaleRatio%2)==0)
-        {
-            ScaleRatio_tmp = ScaleRatio;
-        }
-        else
-        {
-            ScaleRatio_tmp = ScaleRatio+1;
-        }
-        //判断是否为2的幂数
-        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
-        {
-            for(int i=1; true; i++)
-            {
-                int pow_ =pow(2,i);
-                if(pow_>=ScaleRatio_tmp)
-                {
-                    ScaleRatio_tmp=pow_;
-                    break;
-                }
-            }
-        }
-    }
+    QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ui->spinBox_ScaleRatio_image->value());
+    int ScaleRatio_tmp=result_map["ScaleRatio_tmp"];
+    int Initial_ScaleRatio=result_map["Initial_ScaleRatio"];
     //===================
     QString OutputPath_tmp ="";
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
@@ -1620,10 +1518,10 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
         QString InputPath_tmp = Frame_fileFullPath;
         OutputPath_tmp ="";
         int DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=2)
+        for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=Initial_ScaleRatio)
         {
             OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + CMD_ScaleRatio + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + QString::number(Initial_ScaleRatio, 10) + " -n " + QString::number(DenoiseLevel_tmp, 10) + SrmdNcnnVulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -2065,4 +1963,144 @@ void MainWindow::on_pushButton_Add_TileSize_SrmdNCNNVulkan_clicked()
 void MainWindow::on_pushButton_Minus_TileSize_SrmdNCNNVulkan_clicked()
 {
     ui->spinBox_TileSize_srmd->setValue(MinusTileSize_NCNNVulkan_Converter(ui->spinBox_TileSize_srmd->value()));
+}
+/*
+SRMD 计算放大倍数
+result_map["ScaleRatio_tmp"] = ScaleRatio_tmp;
+result_map["Initial_ScaleRatio"] = Initial_ScaleRatio;
+*/
+QMap<QString,int> MainWindow::Calculate_ScaleRatio_SrmdNcnnVulkan(int ScaleRatio)
+{
+    int ScaleRatio_tmp=0;
+    int Initial_ScaleRatio=0;
+    do
+    {
+        //判断是否为1
+        if(ScaleRatio<=1)
+        {
+            ScaleRatio_tmp = 2;
+            Initial_ScaleRatio = 2;
+            break;
+        }
+        //判断是否为原生支持的倍率
+        if(ScaleRatio>=2&&ScaleRatio<=4)
+        {
+            ScaleRatio_tmp=ScaleRatio;
+            Initial_ScaleRatio=ScaleRatio;
+            break;
+        }
+        //若不是原生支持,则判断是否为2,3,4中某个数的幂
+        //开始判断是否是3的幂
+        if(387420489%ScaleRatio==0)
+        {
+            ScaleRatio_tmp = ScaleRatio;
+            Initial_ScaleRatio = 3;
+            break;
+        }
+        //开始判断是否是2和4的幂,先转换为偶数
+        if((ScaleRatio%2)==0)
+        {
+            ScaleRatio_tmp = ScaleRatio;
+        }
+        else
+        {
+            ScaleRatio_tmp = ScaleRatio+1;
+        }
+        //判断是否是4的幂
+        if((((ScaleRatio_tmp&(ScaleRatio_tmp-1))==0)&&(ScaleRatio_tmp&0x555555555))==true)
+        {
+            Initial_ScaleRatio = 4;
+            break;
+        }
+        //判断是否是2的幂
+        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))==0)
+        {
+            Initial_ScaleRatio = 2;
+            break;
+        }
+        //谁的幂都不是,就比谁更近
+        int res_2=0;
+        int res_3=0;
+        int res_4=0;
+        int pow_ = 0;
+        for(int i=1; true; i++)
+        {
+            pow_ =pow(2,i);
+            if(pow_>=ScaleRatio)
+            {
+                res_2=pow_;
+                break;
+            }
+        }
+        for(int i=1; true; i++)
+        {
+            pow_ =pow(3,i);
+            if(pow_>=ScaleRatio)
+            {
+                res_3=pow_;
+                break;
+            }
+        }
+        for(int i=1; true; i++)
+        {
+            pow_ =pow(4,i);
+            if(pow_>=ScaleRatio)
+            {
+                res_4=pow_;
+                break;
+            }
+        }
+        QList<int> sort_list;
+        sort_list<<res_2<<res_3<<res_4;
+        std::sort(sort_list.begin(),sort_list.end());
+        int small_res = sort_list.at(0);
+        if(small_res == res_4)
+        {
+            ScaleRatio_tmp=res_4;
+            Initial_ScaleRatio=4;
+            break;
+        }
+        if(small_res == res_3)
+        {
+            ScaleRatio_tmp=res_3;
+            Initial_ScaleRatio=3;
+            break;
+        }
+        if(small_res == res_2)
+        {
+            ScaleRatio_tmp=res_2;
+            Initial_ScaleRatio=2;
+            break;
+        }
+        //当倍率为非原生时
+        Initial_ScaleRatio=2;
+        //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
+        if((ScaleRatio%2)==0)
+        {
+            ScaleRatio_tmp = ScaleRatio;
+        }
+        else
+        {
+            ScaleRatio_tmp = ScaleRatio+1;
+        }
+        //判断是否为2的幂数
+        if((ScaleRatio_tmp&(ScaleRatio_tmp-1))!=0)
+        {
+            for(int i=1; true; i++)
+            {
+                int pow_ =pow(2,i);
+                if(pow_>=ScaleRatio_tmp)
+                {
+                    ScaleRatio_tmp=pow_;
+                    break;
+                }
+            }
+        }
+        break;
+    }
+    while(false);
+    QMap<QString,int> result_map;
+    result_map["ScaleRatio_tmp"] = ScaleRatio_tmp;
+    result_map["Initial_ScaleRatio"] = Initial_ScaleRatio;
+    return result_map;
 }

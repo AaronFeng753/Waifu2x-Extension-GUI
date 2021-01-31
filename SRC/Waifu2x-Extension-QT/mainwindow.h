@@ -225,6 +225,7 @@ public:
     int SRMD_NCNN_Vulkan_Video_BySegment(int rowNum);
     int SRMD_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString SrmdNcnnVulkan_ReadSettings();
+    QMap<QString,int> Calculate_ScaleRatio_SrmdNcnnVulkan(int ScaleRatio);
     //=================================
     int Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Caffe放大图片线程
     //Caffe放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
