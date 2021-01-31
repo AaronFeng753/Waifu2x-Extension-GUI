@@ -8,6 +8,15 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.62.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.12)
+#### 更新日志:
+- 加快视频和gif的处理速度。
+- 放弃python扩展以提高性能。
+- 改进下载速度, 视频处理流程, 多线程性能以及其他性能改进。
+- 更详尽的工具提示，修正错字。
+- 修复错误：无法正确处理可变帧率视频。
+- 修复错误：兼容性测试结束后，waifu2x-caffe进程可能滞留在后台。
+---
 ## [v2.61.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.61.13)
 #### 更新日志:
 - 新特性: 当文件分辨率大于指定分辨率时,自动跳过文件.
