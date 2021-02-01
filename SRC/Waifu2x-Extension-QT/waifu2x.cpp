@@ -179,6 +179,7 @@ void MainWindow::on_pushButton_Start_clicked()
     ETA=0;
     isForceRetryClicked=false;
     ForceRetryCount=1;
+    isForceRetryEnabled=true;
     //============== 界面初始化 ======================
     ui->pushButton_BrowserFile->setEnabled(0);
     ui->comboBox_ImageSaveFormat->setEnabled(0);
@@ -433,7 +434,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 3:
                     {
+                        isForceRetryEnabled=false;
                         Anime4k_GIF(currentRowNumber);
+                        isForceRetryEnabled=true;
                         break;
                     }
                 case 4:
@@ -523,6 +526,7 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 2:
                     {
+                        isForceRetryEnabled=false;
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
                             Anime4k_Video_BySegment(currentRowNumber);
@@ -531,6 +535,7 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Anime4k_Video(currentRowNumber);
                         }
+                        isForceRetryEnabled=true;
                         break;
                     }
                 case 3:
@@ -664,6 +669,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ETA=0;
     TimeCost=0;
     ForceRetryCount=1;
+    isForceRetryEnabled=true;
 }
 
 /*

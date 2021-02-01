@@ -77,10 +77,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.62.13";//软件版本号
+    QString VERSION = "v2.71.01-beta";//软件版本号
     bool isBetaVer = false;
     QString LastStableVer = "v2.62.13";
-    QString LastBetaVer = "v2.62.13";
+    QString LastBetaVer = "v2.71.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -173,6 +173,7 @@ public:
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
     QStringList WaitForEngineIO(QStringList OutPutFilesFullPathList);
     void Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QStringList GPU_SplitFramesFolderPath_List);
+    bool isForceRetryEnabled=true;
     //==========================
     QString Waifu2x_ncnn_vulkan_FolderPath = "";
     QString Waifu2x_ncnn_vulkan_ProgramPath = "";

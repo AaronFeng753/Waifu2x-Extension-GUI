@@ -1299,6 +1299,12 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
 //强制重试
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
+    if(isForceRetryEnabled==false)//使用a4k处理视频和gif时禁用强制重试
+    {
+        emit Send_TextBrowser_NewMessage(tr("Force retry is disabled when using Anime4k to process Video or GIF."));
+        return;
+    }
+    //==========
     ui->pushButton_ForceRetry->setEnabled(0);
     //========
     QtConcurrent::run(this, &MainWindow::isForceRetryClicked_SetTrue_Block_Anime4k);//block a4k引擎线程 防止无效图片污染缓存
@@ -1337,12 +1343,10 @@ void MainWindow::SetEnable_pushButton_ForceRetry_self()
     ui->pushButton_ForceRetry->setEnabled(1);
     return;
 }
-
 void MainWindow::on_pushButton_PayPal_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.paypal.me/aaronfeng753"));
 }
-
 void MainWindow::on_checkBox_AudioDenoise_stateChanged(int arg1)
 {
     if(ui->checkBox_AudioDenoise->isChecked())
@@ -1354,7 +1358,6 @@ void MainWindow::on_checkBox_AudioDenoise_stateChanged(int arg1)
         ui->doubleSpinBox_AudioDenoiseLevel->setEnabled(0);
     }
 }
-
 void MainWindow::on_tabWidget_currentChanged(int index)
 {
     switch(ui->tabWidget->currentIndex())
@@ -1515,7 +1518,6 @@ void MainWindow::on_tabWidget_currentChanged(int index)
             }
     }
 }
-
 void MainWindow::on_checkBox_ProcessVideoBySegment_stateChanged(int arg1)
 {
     if(ui->checkBox_ProcessVideoBySegment->isChecked())
@@ -1529,7 +1531,6 @@ void MainWindow::on_checkBox_ProcessVideoBySegment_stateChanged(int arg1)
         ui->spinBox_SegmentDuration->setEnabled(0);
     }
 }
-
 void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int index)
 {
     switch (ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex())
@@ -1558,7 +1559,6 @@ void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int i
             }
     }
 }
-
 void MainWindow::on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1)
 {
     if(ui->checkBox_EnablePreProcessing_Anime4k->isChecked())
@@ -1582,7 +1582,6 @@ void MainWindow::on_checkBox_EnablePreProcessing_Anime4k_stateChanged(int arg1)
         ui->checkBox_BilateralFilterFaster_Pre_Anime4k->setEnabled(0);
     }
 }
-
 void MainWindow::on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1)
 {
     if(ui->checkBox_EnablePostProcessing_Anime4k->isChecked())
@@ -1606,7 +1605,6 @@ void MainWindow::on_checkBox_EnablePostProcessing_Anime4k_stateChanged(int arg1)
         ui->checkBox_BilateralFilterFaster_Post_Anime4k->setEnabled(0);
     }
 }
-
 void MainWindow::on_checkBox_SpecifyGPU_Anime4k_stateChanged(int arg1)
 {
     if(ui->checkBox_SpecifyGPU_Anime4k->isChecked())
@@ -1622,67 +1620,54 @@ void MainWindow::on_checkBox_SpecifyGPU_Anime4k_stateChanged(int arg1)
         ui->pushButton_VerifyGPUsConfig_Anime4k->setEnabled(0);
     }
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW);
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P);
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_OLD);
 }
-
 void MainWindow::on_checkBox_isCompatible_SRMD_NCNN_Vulkan_clicked()
 {
     ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->setChecked(isCompatible_SRMD_NCNN_Vulkan);
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_Converter_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_Converter->setChecked(isCompatible_Waifu2x_Converter);
 }
-
 void MainWindow::on_checkBox_isCompatible_Anime4k_CPU_clicked()
 {
     ui->checkBox_isCompatible_Anime4k_CPU->setChecked(isCompatible_Anime4k_CPU);
 }
-
 void MainWindow::on_checkBox_isCompatible_Anime4k_GPU_clicked()
 {
     ui->checkBox_isCompatible_Anime4k_GPU->setChecked(isCompatible_Anime4k_GPU);
 }
-
 void MainWindow::on_checkBox_isCompatible_FFmpeg_clicked()
 {
     ui->checkBox_isCompatible_FFmpeg->setChecked(isCompatible_FFmpeg);
 }
-
 void MainWindow::on_checkBox_isCompatible_FFprobe_clicked()
 {
     ui->checkBox_isCompatible_FFprobe->setChecked(isCompatible_FFprobe);
 }
-
 void MainWindow::on_checkBox_isCompatible_ImageMagick_clicked()
 {
     ui->checkBox_isCompatible_ImageMagick->setChecked(isCompatible_ImageMagick);
 }
-
 void MainWindow::on_checkBox_isCompatible_Gifsicle_clicked()
 {
     ui->checkBox_isCompatible_Gifsicle->setChecked(isCompatible_Gifsicle);
 }
-
 void MainWindow::on_checkBox_isCompatible_SoX_clicked()
 {
     ui->checkBox_isCompatible_SoX->setChecked(isCompatible_SoX);
 }
-
 void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
 {
     if(ui->checkBox_GPUMode_Anime4K->isChecked())
@@ -1699,7 +1684,6 @@ void MainWindow::on_checkBox_GPUMode_Anime4K_stateChanged(int arg1)
         on_comboBox_GPGPUModel_A4k_currentIndexChanged(1);
     }
 }
-
 void MainWindow::on_checkBox_ShowInterPro_stateChanged(int arg1)
 {
     if(ui->checkBox_ShowInterPro->isChecked()==false)
@@ -1707,22 +1691,18 @@ void MainWindow::on_checkBox_ShowInterPro_stateChanged(int arg1)
         emit Send_CurrentFileProgress_Stop();
     }
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_CPU_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_Caffe_CPU->setChecked(isCompatible_Waifu2x_Caffe_CPU);
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_GPU_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_Caffe_GPU->setChecked(isCompatible_Waifu2x_Caffe_GPU);
 }
-
 void MainWindow::on_checkBox_isCompatible_Waifu2x_Caffe_cuDNN_clicked()
 {
     ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
 }
-
 void MainWindow::on_pushButton_SplitSize_Add_Waifu2xCaffe_clicked()
 {
     int VAL = ui->spinBox_SplitSize_Waifu2xCaffe->value()*2;
@@ -1731,7 +1711,6 @@ void MainWindow::on_pushButton_SplitSize_Add_Waifu2xCaffe_clicked()
         ui->spinBox_SplitSize_Waifu2xCaffe->setValue(VAL);
     }
 }
-
 void MainWindow::on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked()
 {
     int VAL = ui->spinBox_SplitSize_Waifu2xCaffe->value()/2;
@@ -1740,12 +1719,10 @@ void MainWindow::on_pushButton_SplitSize_Minus_Waifu2xCaffe_clicked()
         ui->spinBox_SplitSize_Waifu2xCaffe->setValue(VAL);
     }
 }
-
 void MainWindow::on_checkBox_isCompatible_Realsr_NCNN_Vulkan_clicked()
 {
     ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
 }
-
 void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
 {
     if(ui->checkBox_ACNet_Anime4K->isChecked())
@@ -1772,7 +1749,6 @@ void MainWindow::on_checkBox_ACNet_Anime4K_stateChanged(int arg1)
     }
     DenoiseLevelSpinboxSetting_Anime4k();
 }
-
 void MainWindow::on_checkBox_HDNMode_Anime4k_stateChanged(int arg1)
 {
     DenoiseLevelSpinboxSetting_Anime4k();
@@ -1807,12 +1783,10 @@ void MainWindow::ExecuteCMD_batFile(QString cmd_str,bool requestAdmin)
     //========
     ExecuteCMD_batFile_QMutex.unlock();
 }
-
 void MainWindow::Del_TempBatFile()
 {
     file_DelDir(Current_Path+"/batFiles_tmp");
 }
-
 void MainWindow::comboBox_UpdateChannel_setCurrentIndex_self(int index)
 {
     comboBox_UpdateChannel_setCurrentIndex_self_QMutex.lock();
@@ -1821,7 +1795,6 @@ void MainWindow::comboBox_UpdateChannel_setCurrentIndex_self(int index)
     isClicked_comboBox_UpdateChannel=true;
     comboBox_UpdateChannel_setCurrentIndex_self_QMutex.unlock();
 }
-
 void MainWindow::on_comboBox_UpdateChannel_currentIndexChanged(int index)
 {
     if(isClicked_comboBox_UpdateChannel)
@@ -1829,7 +1802,6 @@ void MainWindow::on_comboBox_UpdateChannel_currentIndexChanged(int index)
         AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     }
 }
-
 void MainWindow::on_checkBox_ReplaceOriginalFile_stateChanged(int arg1)
 {
     if(ui->checkBox_ReplaceOriginalFile->isChecked())
@@ -1844,7 +1816,6 @@ void MainWindow::on_checkBox_ReplaceOriginalFile_stateChanged(int arg1)
         ui->checkBox_DelOriginal->setEnabled(1);
     }
 }
-
 void MainWindow::checkBox_ReplaceOriginalFile_setEnabled_True_Self()
 {
     if(ui->checkBox_DelOriginal->isChecked()==false && ui->checkBox_OutPath_isEnabled->isChecked()==false)
@@ -1852,7 +1823,6 @@ void MainWindow::checkBox_ReplaceOriginalFile_setEnabled_True_Self()
         ui->checkBox_ReplaceOriginalFile->setEnabled(1);
     }
 }
-
 bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fullpath)
 {
     //检查是否启用替换源文件,以及输出文件是否存在
@@ -1881,7 +1851,6 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
     }
     return true;
 }
-
 void MainWindow::on_checkBox_isCustFontEnable_stateChanged(int arg1)
 {
     if(ui->checkBox_isCustFontEnable->isChecked())
@@ -1897,7 +1866,6 @@ void MainWindow::on_checkBox_isCustFontEnable_stateChanged(int arg1)
         ui->fontComboBox_CustFont->setEnabled(0);
     }
 }
-
 void MainWindow::OutputSettingsArea_setEnabled(bool isEnabled)
 {
     ui->scrollArea_outputPathSettings->setEnabled(isEnabled);
@@ -1911,7 +1879,6 @@ void MainWindow::OutputSettingsArea_setEnabled(bool isEnabled)
         ui->lineEdit_outputPath->setFocusPolicy(Qt::NoFocus);
     }
 }
-
 //事件过滤器
 bool MainWindow::eventFilter(QObject *target, QEvent *event)
 {
@@ -1953,12 +1920,10 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
     //==============
     return false;
 }
-
 void MainWindow::on_pushButton_ResizeFilesListSplitter_clicked()
 {
     ui->splitter_FilesList->setSizes(QList<int>() << 1 << 1 << 1);
 }
-
 void MainWindow::on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index)
 {
     if(ui->comboBox_GPGPUModel_A4k->currentText().toLower().trimmed()=="opencl" && ui->checkBox_GPUMode_Anime4K->isChecked())
@@ -1972,7 +1937,6 @@ void MainWindow::on_comboBox_GPGPUModel_A4k_currentIndexChanged(int index)
         ui->checkBox_OpenCLParallelIO_A4k->setEnabled(0);
     }
 }
-
 void MainWindow::on_checkBox_DisableGPU_converter_stateChanged(int arg1)
 {
     if(ui->checkBox_DisableGPU_converter->isChecked())
@@ -1988,7 +1952,6 @@ void MainWindow::on_checkBox_DisableGPU_converter_stateChanged(int arg1)
         ui->checkBox_MultiGPU_Waifu2xConverter->setEnabled(1);
     }
 }
-
 void MainWindow::on_groupBox_video_settings_clicked()
 {
     if(ui->groupBox_video_settings->isChecked())
