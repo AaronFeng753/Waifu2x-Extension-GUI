@@ -354,6 +354,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
+    int Sub_gif_ThreadNumMax;
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
@@ -361,7 +362,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        int Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
+        Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
         if(Sub_gif_ThreadNumMax>NumOfGPU)Sub_gif_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_gif_ThreadNumRunning++;
@@ -811,6 +812,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
+    int Sub_video_ThreadNumMax;
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
@@ -818,7 +820,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+        Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
         if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
@@ -1283,6 +1285,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             }
             //=========================
             bool Frame_failed = false;//放大失败标志
+            int Sub_video_ThreadNumMax=1;
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
             Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
@@ -1290,7 +1293,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
             {
                 Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-                int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+                Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
                 if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
                 mutex_SubThreadNumRunning.lock();
                 Sub_video_ThreadNumRunning++;
