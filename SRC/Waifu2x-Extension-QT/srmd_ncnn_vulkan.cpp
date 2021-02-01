@@ -394,6 +394,16 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
             emit Send_CurrentFileProgress_progressbar_Add();
         }
         int Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
+        mutex_SubThreadNumRunning.lock();
+        Sub_gif_ThreadNumRunning++;
+        mutex_SubThreadNumRunning.unlock();
+        QString Frame_fileName = Frame_fileName_list.at(i);
+        Sub_Thread_info["Frame_fileName"]=Frame_fileName;
+        QtConcurrent::run(this,&MainWindow::SRMD_NCNN_Vulkan_GIF_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
+        while (Sub_gif_ThreadNumRunning >= Sub_gif_ThreadNumMax)
+        {
+            Delay_msec_sleep(500);
+        }
         if(waifu2x_STOP)
         {
             while (Sub_gif_ThreadNumRunning > 0)
@@ -404,16 +414,6 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             return 0;//如果启用stop位,则直接return
-        }
-        mutex_SubThreadNumRunning.lock();
-        Sub_gif_ThreadNumRunning++;
-        mutex_SubThreadNumRunning.unlock();
-        QString Frame_fileName = Frame_fileName_list.at(i);
-        Sub_Thread_info["Frame_fileName"]=Frame_fileName;
-        QtConcurrent::run(this,&MainWindow::SRMD_NCNN_Vulkan_GIF_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
-        while (Sub_gif_ThreadNumRunning >= Sub_gif_ThreadNumMax)
-        {
-            Delay_msec_sleep(500);
         }
         if(Frame_failed)
         {
@@ -881,16 +881,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
             emit Send_CurrentFileProgress_progressbar_Add();
         }
         int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-        if(waifu2x_STOP)
-        {
-            while (Sub_video_ThreadNumRunning > 0)
-            {
-                Delay_msec_sleep(500);
-            }
-            status = "Interrupted";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-            return 0;//如果启用stop位,则直接return
-        }
         mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
         mutex_SubThreadNumRunning.unlock();
@@ -900,6 +890,16 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
         while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
         {
             Delay_msec_sleep(500);
+        }
+        if(waifu2x_STOP)
+        {
+            while (Sub_video_ThreadNumRunning > 0)
+            {
+                Delay_msec_sleep(500);
+            }
+            status = "Interrupted";
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            return 0;//如果启用stop位,则直接return
         }
         if(Frame_failed)
         {
@@ -1319,16 +1319,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                     emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
                 }
                 int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-                if(waifu2x_STOP)
-                {
-                    while (Sub_video_ThreadNumRunning > 0)
-                    {
-                        Delay_msec_sleep(500);
-                    }
-                    status = "Interrupted";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-                    return 0;//如果启用stop位,则直接return
-                }
                 mutex_SubThreadNumRunning.lock();
                 Sub_video_ThreadNumRunning++;
                 mutex_SubThreadNumRunning.unlock();
@@ -1338,6 +1328,16 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                 while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
                 {
                     Delay_msec_sleep(500);
+                }
+                if(waifu2x_STOP)
+                {
+                    while (Sub_video_ThreadNumRunning > 0)
+                    {
+                        Delay_msec_sleep(500);
+                    }
+                    status = "Interrupted";
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    return 0;//如果启用stop位,则直接return
                 }
                 if(Frame_failed)
                 {

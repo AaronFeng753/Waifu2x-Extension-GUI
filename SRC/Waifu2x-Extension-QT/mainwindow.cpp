@@ -91,6 +91,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_CurrentFileProgress_Stop()), this, SLOT(CurrentFileProgress_Stop()));
     connect(this, SIGNAL(Send_CurrentFileProgress_progressbar_Add()), this, SLOT(CurrentFileProgress_progressbar_Add()));
     connect(this, SIGNAL(Send_CurrentFileProgress_progressbar_Add_SegmentDuration(int)), this, SLOT(CurrentFileProgress_progressbar_Add_SegmentDuration(int)));
+    connect(this, SIGNAL(Send_CurrentFileProgress_progressbar_SetFinishedValue(int)), this, SLOT(CurrentFileProgress_progressbar_SetFinishedValue(int)));
     //======
     TimeCostTimer = new QTimer();
     connect(TimeCostTimer, SIGNAL(timeout()), this, SLOT(TimeSlot()));

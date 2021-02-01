@@ -75,3 +75,28 @@ void MainWindow::CurrentFileProgress_progressbar_Add_SegmentDuration(int Segment
     ui->progressBar_CurrentFile->setValue(TaskNumFinished_CurrentFile);
     ui->label_FrameProgress_CurrentFile->setText(QString::number(TaskNumFinished_CurrentFile,10)+"/"+QString::number(TaskNumTotal_CurrentFile,10));
 }
+/*
+进度条 进度+片段時長
+*/
+void MainWindow::CurrentFileProgress_progressbar_SetFinishedValue(int FinishedValue)
+{
+    TaskNumFinished_CurrentFile=FinishedValue;
+    NewTaskFinished_CurrentFile=true;
+    ui->progressBar_CurrentFile->setValue(TaskNumFinished_CurrentFile);
+    ui->label_FrameProgress_CurrentFile->setText(QString::number(TaskNumFinished_CurrentFile,10)+"/"+QString::number(TaskNumTotal_CurrentFile,10));
+}
+/*
+监视文件夹内文件数量
+*/
+void MainWindow::CurrentFileProgress_WatchFolderFileNum(QString FolderPath)
+{
+    QStringList FilesNameList;
+    do
+    {
+        if(file_isDirExist(FolderPath)==false)return;
+        FilesNameList = file_getFileNames_in_Folder_nofilter(FolderPath);
+        emit Send_CurrentFileProgress_progressbar_SetFinishedValue(FilesNameList.size());
+        Delay_sec_sleep(1);
+    }
+    while(true);
+}

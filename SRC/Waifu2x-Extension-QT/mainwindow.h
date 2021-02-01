@@ -171,6 +171,8 @@ public:
     //================================= Waifu2x ====================================
     QString OutPutFolder_main="";//总输出文件夹
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
+    QStringList WaitForEngineIO(QStringList OutPutFilesFullPathList);
+    void Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QStringList GPU_SplitFramesFolderPath_List);
     //==========================
     QString Waifu2x_ncnn_vulkan_FolderPath = "";
     QString Waifu2x_ncnn_vulkan_ProgramPath = "";
@@ -619,6 +621,8 @@ public slots:
     void CurrentFileProgress_Stop();
     void CurrentFileProgress_progressbar_Add();
     void CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
+    void CurrentFileProgress_progressbar_SetFinishedValue(int FinishedValue);
+    void CurrentFileProgress_WatchFolderFileNum(QString FolderPath);
 
     void Donate_ReplaceQRCode(QString QRCodePath);
 
@@ -956,6 +960,7 @@ signals:
     void Send_CurrentFileProgress_Stop();
     void Send_CurrentFileProgress_progressbar_Add();
     void Send_CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
+    void Send_CurrentFileProgress_progressbar_SetFinishedValue(int FinishedValue);
 
     void Send_Donate_ReplaceQRCode(QString QRCodePath);
 

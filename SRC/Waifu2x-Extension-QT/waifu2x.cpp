@@ -411,6 +411,9 @@ int MainWindow::Waifu2xMainThread()
                 continue;
             }
             //=========
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning=1;//线程数量统计+1
+            mutex_ThreadNumRunning.unlock();
             switch(GIFEngine)
             {
                 case 0:
@@ -444,6 +447,9 @@ int MainWindow::Waifu2xMainThread()
                         break;
                     }
             }
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning=0;//线程数量统计+1
+            mutex_ThreadNumRunning.unlock();
         }
     }
     //=========================================================
@@ -486,6 +492,9 @@ int MainWindow::Waifu2xMainThread()
                 continue;
             }
             //============= 获取时长, 判断是否需要分段处理 =================
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning=1;//线程数量统计+1
+            mutex_ThreadNumRunning.unlock();
             switch(VideoEngine)
             {
                 case 0:
@@ -561,6 +570,9 @@ int MainWindow::Waifu2xMainThread()
                         break;
                     }
             }
+            mutex_ThreadNumRunning.lock();
+            ThreadNumRunning=0;//线程数量统计+1
+            mutex_ThreadNumRunning.unlock();
         }
     }
     if(waifu2x_STOP)
@@ -865,5 +877,67 @@ void MainWindow::PreLoad_Engines_Settings()
     if(ui->comboBox_Engine_Image->currentIndex()==5||ui->comboBox_Engine_GIF->currentIndex()==5||ui->comboBox_Engine_Video->currentIndex()==5)
     {
         Realsr_NCNN_Vulkan_PreLoad_Settings_Str = Realsr_NCNN_Vulkan_PreLoad_Settings();
+    }
+}
+/*
+等待引擎IO结束
+1.读取初始文件列表
+2.获取初始文件大小列表
+3.等待数秒,再次读取文件大小判断是否发生IO,若没有IO则返回文件列表.
+*/
+QStringList MainWindow::WaitForEngineIO(QStringList OutPutFilesFullPathList)
+{
+    QStringList ExistFileList;
+    QString fullpath_tmp;
+    for(int i = 0; i < OutPutFilesFullPathList.size(); i++)
+    {
+        fullpath_tmp= OutPutFilesFullPathList.at(i);
+        if(QFile::exists(fullpath_tmp))
+        {
+            ExistFileList.append(fullpath_tmp);
+        }
+    }
+    QList<qint64> FilesSizeList;
+    for(int i = 0; i < ExistFileList.size(); i++)
+    {
+        QFileInfo finfo(ExistFileList.at(i));
+        FilesSizeList.append(finfo.size());
+    }
+    do
+    {
+        Delay_sec_sleep(3);
+        QList<qint64> FilesSizeList_tmp;
+        for(int i = 0; i < ExistFileList.size(); i++)
+        {
+            QFileInfo finfo(ExistFileList.at(i));
+            FilesSizeList_tmp.append(finfo.size());
+        }
+        if(FilesSizeList_tmp == FilesSizeList)
+        {
+            break;
+        }
+        else
+        {
+            FilesSizeList = FilesSizeList_tmp;
+        }
+    }
+    while (true);
+    return ExistFileList;
+}
+/*
+恢复拆分帧文件夹
+*/
+void MainWindow::Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QStringList GPU_SplitFramesFolderPath_List)
+{
+    for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
+    {
+        QString GPUfolder = GPU_SplitFramesFolderPath_List.at(x);
+        QStringList file_waitformove = file_getFileNames_in_Folder_nofilter(GPUfolder);
+        for(int i = 0; i < file_waitformove.size(); i++)
+        {
+            QString FileName = file_waitformove.at(i);
+            QFile::rename(GPUfolder+"/"+FileName,SplitFramesFolderPath+"/"+FileName);
+        }
+        file_DelDir(GPUfolder);
     }
 }
