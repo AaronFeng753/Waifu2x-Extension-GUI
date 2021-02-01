@@ -314,11 +314,14 @@ int MainWindow::Anime4k_GIF(int rowNum)
         emit Send_CurrentFileProgress_Stop();
     }
     //=======获取显卡信息========
-    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
-    GPU_List.removeDuplicates();
-    GPU_List.removeAll("");
-    int NumOfGPU = GPU_List.count();
-    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==false)NumOfGPU=1;
+    int NumOfGPU = 1;
+    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==true)
+    {
+        QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
+        GPU_List.removeDuplicates();
+        GPU_List.removeAll("");
+        NumOfGPU = GPU_List.count();
+    }
     //============创建显卡文件夹===========
     QStringList GPU_SplitFramesFolderPath_List;
     for(int i = 0; i < NumOfGPU; i++)
@@ -352,12 +355,12 @@ int MainWindow::Anime4k_GIF(int rowNum)
     //=========================
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
+    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-        Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
         int Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
         if(Sub_gif_ThreadNumMax>NumOfGPU)Sub_gif_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
@@ -768,11 +771,14 @@ int MainWindow::Anime4k_Video(int rowNum)
         emit Send_CurrentFileProgress_Stop();
     }
     //=======获取显卡信息========
-    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
-    GPU_List.removeDuplicates();
-    GPU_List.removeAll("");
-    int NumOfGPU = GPU_List.count();
-    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==false)NumOfGPU=1;
+    int NumOfGPU = 1;
+    if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==true)
+    {
+        QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
+        GPU_List.removeDuplicates();
+        GPU_List.removeAll("");
+        NumOfGPU = GPU_List.count();
+    }
     //============创建显卡文件夹===========
     QStringList GPU_SplitFramesFolderPath_List;
     for(int i = 0; i < NumOfGPU; i++)
@@ -806,12 +812,12 @@ int MainWindow::Anime4k_Video(int rowNum)
     //=========================
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
+    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-        Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
         int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
         if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
@@ -1237,11 +1243,14 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                 FileProgressWatch.cancel();
             }
             //=======获取显卡信息========
-            QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
-            GPU_List.removeDuplicates();
-            GPU_List.removeAll("");
-            int NumOfGPU = GPU_List.count();
-            if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==false)NumOfGPU=1;
+            int NumOfGPU = 1;
+            if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==true)
+            {
+                QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
+                GPU_List.removeDuplicates();
+                GPU_List.removeAll("");
+                NumOfGPU = GPU_List.count();
+            }
             //============创建显卡文件夹===========
             QStringList GPU_SplitFramesFolderPath_List;
             for(int i = 0; i < NumOfGPU; i++)
@@ -1275,12 +1284,12 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             //=========================
             bool Frame_failed = false;//放大失败标志
             QMap<QString,QString> Sub_Thread_info;
+            Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+            Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
             //=========================
             for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
             {
                 Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-                Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-                Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
                 int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
                 if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
                 mutex_SubThreadNumRunning.lock();
