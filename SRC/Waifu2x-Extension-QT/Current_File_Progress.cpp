@@ -93,10 +93,33 @@ void MainWindow::CurrentFileProgress_WatchFolderFileNum(QString FolderPath)
     QStringList FilesNameList;
     do
     {
+        Delay_sec_sleep(1);
         if(file_isDirExist(FolderPath)==false)return;
         FilesNameList = file_getFileNames_in_Folder_nofilter(FolderPath);
         emit Send_CurrentFileProgress_progressbar_SetFinishedValue(FilesNameList.size());
+    }
+    while(true);
+}
+/*
+监视文件夹内文件数量
+*/
+void MainWindow::CurrentFileProgress_WatchFolderFileNum_Textbrower(QString SourceFile_fullPath,QString FolderPath,int TotalFileNum)
+{
+    QStringList FilesNameList;
+    int OLD_num=0;
+    int New_num=0;
+    do
+    {
         Delay_sec_sleep(1);
+        //==========
+        if(file_isDirExist(FolderPath)==false)return;
+        //=========
+        New_num = file_getFileNames_in_Folder_nofilter(FolderPath).size();
+        if(New_num!=OLD_num)
+        {
+            OLD_num=New_num;
+            emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale progress:[")+QString::number(New_num,10)+"/"+QString::number(TotalFileNum,10)+tr("] Frames"));
+        }
     }
     while(true);
 }

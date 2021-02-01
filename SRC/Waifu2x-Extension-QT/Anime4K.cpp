@@ -374,6 +374,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
+            FileProgressWatch.cancel();
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -381,6 +382,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
         }
         if(Frame_failed)
         {
+            FileProgressWatch.cancel();
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
             status = "Failed";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -826,6 +828,7 @@ int MainWindow::Anime4k_Video(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
+            FileProgressWatch.cancel();
             Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -833,6 +836,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         }
         if(Frame_failed)
         {
+            FileProgressWatch.cancel();
             Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
             status = "Failed";
@@ -1227,33 +1231,61 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                 }
             }
             //==========开始放大==========================
-            int InterPro_total = 0;
-            int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->isChecked())
+            QFuture<void> FileProgressWatch = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum_Textbrower, SourceFile_fullPath,ScaledFramesFolderPath,Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size());
+            if(ui->checkBox_ShowInterPro->isChecked()==false)
             {
-                InterPro_total = Frame_fileName_list.size();
+                FileProgressWatch.cancel();
             }
-            //===============
-            QMap<QString,QString> Sub_Thread_info;
-            Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
-            Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-            Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
-            //===============
-            bool Frame_failed = false;
-            //===============
-            for(int i = 0; i < Frame_fileName_list.size(); i++)
+            //=======获取显卡信息========
+            QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
+            GPU_List.removeDuplicates();
+            GPU_List.removeAll("");
+            int NumOfGPU = GPU_List.count();
+            if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==false)NumOfGPU=1;
+            //============创建显卡文件夹===========
+            QStringList GPU_SplitFramesFolderPath_List;
+            for(int i = 0; i < NumOfGPU; i++)
             {
-                if(ui->checkBox_ShowInterPro->isChecked())
+                QString GPU_SplitFramesFolderPath = SplitFramesFolderPath+"/"+"GPU_"+QString::number(i);
+                if(file_isDirExist(GPU_SplitFramesFolderPath)==false)
                 {
-                    InterPro_now++;
-                    emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
+                    file_DelDir(GPU_SplitFramesFolderPath);
+                    file_mkDir(GPU_SplitFramesFolderPath);
                 }
+                else
+                {
+                    file_mkDir(GPU_SplitFramesFolderPath);
+                }
+                GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
+            }
+            int TotalFramesNum = Frame_fileName_list.size();
+            int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+            int start_num=0;
+            for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
+            {
+                if(x==GPU_SplitFramesFolderPath_List.size()-1)FramesNumForEachGPU=TotalFramesNum;
+                QStringList file_waitformove = Frame_fileName_list.mid(start_num,FramesNumForEachGPU);
+                for(int i = 0; i < file_waitformove.size(); i++)
+                {
+                    QString FileName = file_waitformove.at(i);
+                    QFile::rename(SplitFramesFolderPath+"/"+FileName,GPU_SplitFramesFolderPath_List.at(x)+"/"+FileName);
+                }
+                start_num+=FramesNumForEachGPU;
+            }
+            //=========================
+            bool Frame_failed = false;//放大失败标志
+            QMap<QString,QString> Sub_Thread_info;
+            //=========================
+            for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
+            {
+                Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
+                Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+                Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
                 int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+                if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
                 mutex_SubThreadNumRunning.lock();
                 Sub_video_ThreadNumRunning++;
                 mutex_SubThreadNumRunning.unlock();
-                QString Frame_fileName = Frame_fileName_list.at(i);
-                Sub_Thread_info["Frame_fileName"]=Frame_fileName;
                 QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
                 while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
                 {
@@ -1265,13 +1297,17 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                     {
                         Delay_msec_sleep(500);
                     }
+                    FileProgressWatch.cancel();
+                    Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                     status = "Interrupted";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     return 0;//如果启用stop位,则直接return
                 }
                 if(Frame_failed)
                 {
-                    emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
+                    FileProgressWatch.cancel();
+                    Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
+                    emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
                     status = "Failed";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     emit Send_progressbar_Add();
@@ -1282,10 +1318,12 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
+            FileProgressWatch.cancel();
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
             if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
             {
+                Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
                 status = "Failed";
                 emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);

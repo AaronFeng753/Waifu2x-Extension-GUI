@@ -623,6 +623,7 @@ public slots:
     void CurrentFileProgress_progressbar_Add_SegmentDuration(int SegmentDuration);
     void CurrentFileProgress_progressbar_SetFinishedValue(int FinishedValue);
     void CurrentFileProgress_WatchFolderFileNum(QString FolderPath);
+    void CurrentFileProgress_WatchFolderFileNum_Textbrower(QString SourceFile_fullPath,QString FolderPath,int TotalFileNum);
 
     void Donate_ReplaceQRCode(QString QRCodePath);
 
