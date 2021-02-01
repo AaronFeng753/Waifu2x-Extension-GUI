@@ -8,6 +8,11 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.62.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.13)
+#### 更新日志:
+- 改进SRMD-NCNN-Vulkan的性能.
+- 修复错误: 使用SRMD-NCNN-Vulkan时的放大倍率错误.
+---
 ## [v2.62.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.62.12)
 #### 更新日志:
 - 加快视频和gif的处理速度。
