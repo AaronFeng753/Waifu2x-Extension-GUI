@@ -35,13 +35,10 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.71.01-beta:
-- Significantly improve the performance of Anime4k engine when processing Video and GIF.
+- Improve the efficiency, speed and stability of Anime4k and Waifu2x-converter when processing Video and GIF.
 
 --------------------------------------------------------------------------
 To do:
-
-   -j <integer>,  --jobs <integer>
-     number of threads launching at the same time
 
    -a <bool>,  --auto-naming <bool>
      Add postfix to output name when output path is not specified.

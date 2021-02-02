@@ -759,49 +759,94 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         }
     }
     //==========开始放大==========================
-    if(ui->checkBox_ShowInterPro->isChecked())
+    emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,(Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size()));
+    QFuture<void> FileProgressWatch = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, ScaledFramesFolderPath);//启动waifu2x 主线程
+    if(ui->checkBox_ShowInterPro->isChecked()==false)
     {
-        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
+        FileProgressWatch.cancel();
+        emit Send_CurrentFileProgress_Stop();
     }
-    //===============
-    QMap<QString,QString> Sub_Thread_info;
-    Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
-    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
-    //===============
-    //===============
-    bool Frame_failed = false;
-    //===============
-    for(int i = 0; i < Frame_fileName_list.size(); i++)
+    //=======获取显卡信息========
+    int NumOfGPU = 1;
+    if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked()==true)
     {
-        if(ui->checkBox_ShowInterPro->isChecked())
+        NumOfGPU=0;
+        for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
         {
-            emit Send_CurrentFileProgress_progressbar_Add();
+            QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
+            if(GPUInfo_tmp["isEnabled"] == "true")
+            {
+                NumOfGPU++;
+            }
         }
-        int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+    }
+    //============创建显卡文件夹===========
+    QStringList GPU_SplitFramesFolderPath_List;
+    for(int i = 0; i < NumOfGPU; i++)
+    {
+        QString GPU_SplitFramesFolderPath = SplitFramesFolderPath+"/"+"GPU_"+QString::number(i);
+        if(file_isDirExist(GPU_SplitFramesFolderPath)==false)
+        {
+            file_DelDir(GPU_SplitFramesFolderPath);
+            file_mkDir(GPU_SplitFramesFolderPath);
+        }
+        else
+        {
+            file_mkDir(GPU_SplitFramesFolderPath);
+        }
+        GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
+    }
+    int TotalFramesNum = Frame_fileName_list.size();
+    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    int start_num=0;
+    for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
+    {
+        if(x==GPU_SplitFramesFolderPath_List.size()-1)FramesNumForEachGPU=TotalFramesNum;
+        QStringList file_waitformove = Frame_fileName_list.mid(start_num,FramesNumForEachGPU);
+        for(int i = 0; i < file_waitformove.size(); i++)
+        {
+            QString FileName = file_waitformove.at(i);
+            QFile::rename(SplitFramesFolderPath+"/"+FileName,GPU_SplitFramesFolderPath_List.at(x)+"/"+FileName);
+        }
+        start_num+=FramesNumForEachGPU;
+    }
+    //=========================
+    bool Frame_failed = false;//放大失败标志
+    int Sub_video_ThreadNumMax;
+    QMap<QString,QString> Sub_Thread_info;
+    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    //=========================
+    for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
+    {
+        Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
+        Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+        if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
         mutex_SubThreadNumRunning.unlock();
-        QString Frame_fileName = Frame_fileName_list.at(i);
-        Sub_Thread_info["Frame_fileName"]=Frame_fileName;
         QtConcurrent::run(this,&MainWindow::Waifu2x_Converter_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
+        while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+        {
+            Delay_msec_sleep(500);
+        }
         if(waifu2x_STOP)
         {
             while (Sub_video_ThreadNumRunning > 0)
             {
                 Delay_msec_sleep(500);
             }
+            FileProgressWatch.cancel();
+            Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             return 0;//如果启用stop位,则直接return
         }
-        while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
-        {
-            Delay_msec_sleep(500);
-        }
         if(Frame_failed)
         {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
+            FileProgressWatch.cancel();
+            Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
             status = "Failed";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
             emit Send_progressbar_Add();
@@ -812,11 +857,13 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     {
         Delay_msec_sleep(500);
     }
+    FileProgressWatch.cancel();
     emit Send_CurrentFileProgress_Stop();
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list.count()>Frame_fileName_list_scaled.count())
+    if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
     {
+        Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         status = "Failed";
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -1195,51 +1242,92 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                 }
             }
             //==========开始放大==========================
-            int InterPro_total = 0;
-            int InterPro_now = 0;
-            if(ui->checkBox_ShowInterPro->isChecked())
+            QFuture<void> FileProgressWatch = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum_Textbrower, SourceFile_fullPath,ScaledFramesFolderPath,Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size());
+            if(ui->checkBox_ShowInterPro->isChecked()==false)
             {
-                InterPro_total = Frame_fileName_list.size();
+                FileProgressWatch.cancel();
             }
-            //===============
-            QMap<QString,QString> Sub_Thread_info;
-            Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
-            Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-            Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
-            //===============
-            bool Frame_failed = false;
-            //===============
-            for(int i = 0; i < Frame_fileName_list.size(); i++)
+            //=======获取显卡信息========
+            int NumOfGPU = 1;
+            if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked()==true)
             {
-                if(ui->checkBox_ShowInterPro->isChecked())
+                NumOfGPU=0;
+                for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
                 {
-                    InterPro_now++;
-                    emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
+                    QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
+                    if(GPUInfo_tmp["isEnabled"] == "true")
+                    {
+                        NumOfGPU++;
+                    }
                 }
-                int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+            }
+            //============创建显卡文件夹===========
+            QStringList GPU_SplitFramesFolderPath_List;
+            for(int i = 0; i < NumOfGPU; i++)
+            {
+                QString GPU_SplitFramesFolderPath = SplitFramesFolderPath+"/"+"GPU_"+QString::number(i);
+                if(file_isDirExist(GPU_SplitFramesFolderPath)==false)
+                {
+                    file_DelDir(GPU_SplitFramesFolderPath);
+                    file_mkDir(GPU_SplitFramesFolderPath);
+                }
+                else
+                {
+                    file_mkDir(GPU_SplitFramesFolderPath);
+                }
+                GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
+            }
+            int TotalFramesNum = Frame_fileName_list.size();
+            int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+            int start_num=0;
+            for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
+            {
+                if(x==GPU_SplitFramesFolderPath_List.size()-1)FramesNumForEachGPU=TotalFramesNum;
+                QStringList file_waitformove = Frame_fileName_list.mid(start_num,FramesNumForEachGPU);
+                for(int i = 0; i < file_waitformove.size(); i++)
+                {
+                    QString FileName = file_waitformove.at(i);
+                    QFile::rename(SplitFramesFolderPath+"/"+FileName,GPU_SplitFramesFolderPath_List.at(x)+"/"+FileName);
+                }
+                start_num+=FramesNumForEachGPU;
+            }
+            //=========================
+            bool Frame_failed = false;//放大失败标志
+            int Sub_video_ThreadNumMax=1;
+            QMap<QString,QString> Sub_Thread_info;
+            Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+            Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+            //=========================
+            for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
+            {
+                Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
+                Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
+                if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
                 mutex_SubThreadNumRunning.lock();
                 Sub_video_ThreadNumRunning++;
                 mutex_SubThreadNumRunning.unlock();
-                QString Frame_fileName = Frame_fileName_list.at(i);
-                Sub_Thread_info["Frame_fileName"]=Frame_fileName;
                 QtConcurrent::run(this,&MainWindow::Waifu2x_Converter_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
+                while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+                {
+                    Delay_msec_sleep(500);
+                }
                 if(waifu2x_STOP)
                 {
                     while (Sub_video_ThreadNumRunning > 0)
                     {
                         Delay_msec_sleep(500);
                     }
+                    FileProgressWatch.cancel();
+                    Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                     status = "Interrupted";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     return 0;//如果启用stop位,则直接return
                 }
-                while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
-                {
-                    Delay_msec_sleep(500);
-                }
                 if(Frame_failed)
                 {
-                    emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
+                    FileProgressWatch.cancel();
+                    Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
+                    emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
                     status = "Failed";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
                     emit Send_progressbar_Add();
@@ -1250,10 +1338,12 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
+            FileProgressWatch.cancel();
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
             if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
             {
+                Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
                 status = "Failed";
                 emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -1370,39 +1460,34 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
 
 int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
 {
+    bool AllFinished;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
-    QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
     //========================================================================
-    QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
-    QString model_path= Waifu2x_folder_path + "/models_rgb";
-    QString InputPath = SplitFramesFolderPath+"/"+Frame_fileName;
-    QString OutputPath = ScaledFramesFolderPath+"/"+Frame_fileName;
-    QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
-    //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
+        ScaleRatio = CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt());
     }
+    //===========
+    QString Denoise_cmd = " --noise-level " + QString::number(ui->spinBox_DenoiseLevel_video->value(), 10);
+    QString program = Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe";
+    //========================================================================
+    QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
+    QStringList OutPutFilesFullPathList;
+    for(int i=0; i<InputFilesNameList.size(); i++)
+    {
+        OutPutFilesFullPathList.append(ScaledFramesFolderPath+"/"+InputFilesNameList.at(i));
+    }
+    int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
+    //=======
+    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
         QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
@@ -1410,27 +1495,64 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
         {
             if(waifu2x_STOP)
             {
+                QStringList FinfishedFileList = WaitForEngineIO(OutPutFilesFullPathList);
                 Waifu2x->close();
+                //============
+                QString file_fullpath_tmp;
+                for(int i=0; i<OutPutFilesFullPathList_size; i++)
+                {
+                    file_fullpath_tmp = OutPutFilesFullPathList.at(i);
+                    if(FinfishedFileList.contains(file_fullpath_tmp))
+                    {
+                        QFileInfo fileinfo(file_fullpath_tmp);
+                        QString file_name = file_getBaseName(file_fullpath_tmp);
+                        QString file_ext = fileinfo.suffix();
+                        QFile::remove(SplitFramesFolderPath + "/" + file_name + "." + file_ext);
+                    }
+                    else
+                    {
+                        QFile::remove(file_fullpath_tmp);
+                    }
+                }
+                //=============
                 mutex_SubThreadNumRunning.lock();
                 *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
                 mutex_SubThreadNumRunning.unlock();
                 return 0;
             }
         }
-        if(QFile::exists(OutputPath))
+        AllFinished = true;
+        for(int i=0; i<OutPutFilesFullPathList_size; i++)
         {
+            if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
+            {
+                if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
+                Delay_sec_sleep(5);
+                emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
+                AllFinished=false;
+                break;
+            }
+        }
+        if(AllFinished)break;
+    }
+    //=========
+    AllFinished = true;
+    for(int i=0; i<OutPutFilesFullPathList_size; i++)
+    {
+        if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
+        {
+            AllFinished=false;
             break;
         }
-        else
-        {
-            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
-            Delay_sec_sleep(5);
-            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
-        }
     }
-    //========
-    if(QFile::exists(OutputPath)==true)QFile::remove(Frame_fileFullPath);
-    if(QFile::exists(OutputPath)==false)*Frame_failed=true;
+    if(AllFinished)
+    {
+        file_DelDir(SplitFramesFolderPath);
+    }
+    else
+    {
+        *Frame_failed=true;
+    }
     //========
     mutex_SubThreadNumRunning.lock();
     *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;

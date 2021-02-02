@@ -1300,9 +1300,9 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
 //强制重试
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
-    if(isForceRetryEnabled==false)//使用a4k处理视频和gif时禁用强制重试
+    if(isForceRetryEnabled==false)//使用a4k或converter处理视频和gif时禁用强制重试
     {
-        emit Send_TextBrowser_NewMessage(tr("Force retry is disabled when using Anime4k to process Video or GIF."));
+        emit Send_TextBrowser_NewMessage(tr("Force retry is disabled when using Anime4k or Waifu2x-converter to process Video or GIF."));
         return;
     }
     //==========
