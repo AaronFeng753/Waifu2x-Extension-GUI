@@ -3037,7 +3037,7 @@ process at the same time.
 
 The actual maximum number of threads is limited by the number
 of CPU logical cores.(And the number of enabled GPUs when using
-Anime4k and Waifu2x-converter.)</string>
+Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3068,7 +3068,7 @@ process at the same time.
 
 The actual maximum number of threads is limited by the number
 of CPU logical cores.(And the number of enabled GPUs when using
-Anime4k and Waifu2x-converter.)</string>
+Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
