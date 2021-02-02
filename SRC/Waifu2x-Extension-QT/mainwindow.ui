@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -3036,7 +3036,8 @@ which will determine how many frames the software will
 process at the same time.
 
 The actual maximum number of threads is limited by the number
-of CPU logical cores.</string>
+of CPU logical cores.(And the number of enabled GPUs when using
+Anime4k and Waifu2x-converter.)</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3066,7 +3067,8 @@ which will determine how many frames the software will
 process at the same time.
 
 The actual maximum number of threads is limited by the number
-of CPU logical cores.</string>
+of CPU logical cores.(And the number of enabled GPUs when using
+Anime4k and Waifu2x-converter.)</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3195,7 +3197,7 @@ of CPU logical cores.</string>
                <enum>QTabWidget::North</enum>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
               <property name="usesScrollButtons">
                <bool>false</bool>

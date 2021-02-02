@@ -39,20 +39,6 @@ v2.71.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-
-   -a <bool>,  --auto-naming <bool>
-     Add postfix to output name when output path is not specified.
-
-     Set 0 to disable this. (0 or 1)
-
-   -r <bool>,  --recursive-directory <bool>
-     Search recursively through directories to find more images to
-     process.
-
-     If this is set to 0 it will only check in the directory specified if
-     the input is a directory instead of an image. (0 or 1)
-
-
 - 当单显卡时整个文件夹一起处理.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
