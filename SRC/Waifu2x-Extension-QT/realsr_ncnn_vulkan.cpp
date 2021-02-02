@@ -1915,13 +1915,13 @@ void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_stateChanged(int arg1)
     if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
     {
         ui->comboBox_GPUID_RealsrNCNNVulkan->setEnabled(0);
-        ui->spinBox_TileSize_RealsrNCNNVulkan->setEnabled(0);
+        ui->frame_TileSize_RealsrNcnnVulkan->setEnabled(0);
         ui->groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan->setEnabled(1);
     }
     else
     {
         ui->comboBox_GPUID_RealsrNCNNVulkan->setEnabled(1);
-        ui->spinBox_TileSize_RealsrNCNNVulkan->setEnabled(1);
+        ui->frame_TileSize_RealsrNcnnVulkan->setEnabled(1);
         ui->groupBox_GPUSettings_MultiGPU_RealsrNcnnVulkan->setEnabled(0);
     }
 }

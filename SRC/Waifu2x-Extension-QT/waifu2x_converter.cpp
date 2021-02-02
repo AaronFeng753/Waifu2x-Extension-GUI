@@ -1805,13 +1805,13 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_stateChanged(int arg1)
     if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
     {
         ui->comboBox_TargetProcessor_converter->setEnabled(0);
-        ui->spinBox_BlockSize_converter->setEnabled(0);
+        ui->frame_BlockSize_W2xConverter->setEnabled(0);
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xConverter->setEnabled(1);
     }
     else
     {
         ui->comboBox_TargetProcessor_converter->setEnabled(1);
-        ui->spinBox_BlockSize_converter->setEnabled(1);
+        ui->frame_BlockSize_W2xConverter->setEnabled(1);
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xConverter->setEnabled(0);
     }
 }

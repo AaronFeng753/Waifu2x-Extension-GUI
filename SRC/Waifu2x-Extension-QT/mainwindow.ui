@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -3197,7 +3197,7 @@ of CPU logical cores.</string>
                <enum>QTabWidget::North</enum>
               </property>
               <property name="currentIndex">
-               <number>4</number>
+               <number>0</number>
               </property>
               <property name="usesScrollButtons">
                <bool>false</bool>
@@ -3378,7 +3378,7 @@ padding:10px;
                  </widget>
                 </item>
                 <item row="1" column="1" colspan="2">
-                 <widget class="QFrame" name="frame_12">
+                 <widget class="QFrame" name="frame_TileSize_W2xNcnnVulkan">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -3564,7 +3564,7 @@ but the effect may not be obvious. It is not recommended to enable it.
                       <number>10</number>
                      </property>
                      <property name="value">
-                      <number>100</number>
+                      <number>128</number>
                      </property>
                     </widget>
                    </item>
@@ -3866,7 +3866,7 @@ padding:10px;
                       <number>10</number>
                      </property>
                      <property name="value">
-                      <number>300</number>
+                      <number>256</number>
                      </property>
                     </widget>
                    </item>
@@ -3962,7 +3962,7 @@ padding:10px;
                  </widget>
                 </item>
                 <item row="0" column="2" colspan="3">
-                 <widget class="QFrame" name="frame_13">
+                 <widget class="QFrame" name="frame_BlockSize_W2xConverter">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -5041,7 +5041,7 @@ padding:10px;
                       <number>10</number>
                      </property>
                      <property name="value">
-                      <number>100</number>
+                      <number>128</number>
                      </property>
                     </widget>
                    </item>
@@ -5124,7 +5124,7 @@ padding:10px;
                  </widget>
                 </item>
                 <item row="2" column="1">
-                 <widget class="QFrame" name="frame_14">
+                 <widget class="QFrame" name="frame_TileSize_SrmdNcnnVulkan">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                     <horstretch>0</horstretch>
@@ -5771,7 +5771,7 @@ padding:10px;
                       <number>10</number>
                      </property>
                      <property name="value">
-                      <number>100</number>
+                      <number>128</number>
                      </property>
                     </widget>
                    </item>
@@ -5826,7 +5826,10 @@ padding:10px;
                  </widget>
                 </item>
                 <item row="1" column="1" colspan="2">
-                 <widget class="QFrame" name="frame_15">
+                 <widget class="QFrame" name="frame_TileSize_RealsrNcnnVulkan">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                     <horstretch>0</horstretch>

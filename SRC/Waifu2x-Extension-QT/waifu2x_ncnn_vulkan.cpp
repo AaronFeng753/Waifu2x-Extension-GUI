@@ -1934,13 +1934,13 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_stateChanged(int arg1)
     if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked())
     {
         ui->comboBox_GPUID->setEnabled(0);
-        ui->spinBox_TileSize->setEnabled(0);
+        ui->frame_TileSize_W2xNcnnVulkan->setEnabled(0);
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(1);
     }
     else
     {
         ui->comboBox_GPUID->setEnabled(1);
-        ui->spinBox_TileSize->setEnabled(1);
+        ui->frame_TileSize_W2xNcnnVulkan->setEnabled(1);
         ui->groupBox_GPUSettings_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
     }
 }

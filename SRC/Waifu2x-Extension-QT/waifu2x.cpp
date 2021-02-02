@@ -443,7 +443,9 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 4:
                     {
+                        isForceRetryEnabled=false;
                         Waifu2x_Caffe_GIF(currentRowNumber);
+                        isForceRetryEnabled=true;
                         break;
                     }
                 case 5:
@@ -556,6 +558,7 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 4:
                     {
+                        isForceRetryEnabled=false;
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
                             Waifu2x_Caffe_Video_BySegment(currentRowNumber);
@@ -564,6 +567,7 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Waifu2x_Caffe_Video(currentRowNumber);
                         }
+                        isForceRetryEnabled=true;
                         break;
                     }
                 case 5:
