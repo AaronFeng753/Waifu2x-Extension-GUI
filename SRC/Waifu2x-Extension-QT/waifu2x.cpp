@@ -938,6 +938,7 @@ void MainWindow::Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QS
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
         QString GPUfolder = GPU_SplitFramesFolderPath_List.at(x);
+        if(file_isDirExist(GPUfolder)==false)continue;
         QStringList file_waitformove = file_getFileNames_in_Folder_nofilter(GPUfolder);
         for(int i = 0; i < file_waitformove.size(); i++)
         {

@@ -482,28 +482,17 @@ Anime4k GIF放大子线程
 */
 int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed)
 {
+    bool AllFinished;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     //========================================================================
-    QString program = Anime4k_ProgramPath;
-    QString InputPath = SplitFramesFolderPath;
-    QString OutputPath = ScaledFramesFolderPath;
-    //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
+        ScaleRatio = CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt());
     }
     //===========
     QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -512,8 +501,9 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     {
         OutPutFilesFullPathList.append(ScaledFramesFolderPath+"/"+InputFilesNameList.at(i));
     }
+    int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_gif + Anime4k_ReadSettings(false);
+    QString cmd = "\"" + Anime4k_ProgramPath + "\" -i \"" + SplitFramesFolderPath + "\" -o \"" + ScaledFramesFolderPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_gif + Anime4k_ReadSettings(false);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -531,8 +521,8 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
                 return 0;
             }
         }
-        bool AllFinished = true;
-        for(int i=0; i<OutPutFilesFullPathList.size(); i++)
+        AllFinished = true;
+        for(int i=0; i<OutPutFilesFullPathList_size; i++)
         {
             if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
             {
@@ -546,8 +536,8 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
         if(AllFinished)break;
     }
     //=========
-    bool AllFinished = true;
-    for(int i=0; i<OutPutFilesFullPathList.size(); i++)
+    AllFinished = true;
+    for(int i=0; i<OutPutFilesFullPathList_size; i++)
     {
         if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
         {
@@ -1454,28 +1444,17 @@ Anime4k视频放大子线程
 */
 int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
 {
+    bool AllFinished=true;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     //===========
     int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
     //========================================================================
-    QString program = Anime4k_ProgramPath;
-    QString InputPath = SplitFramesFolderPath;
-    QString OutputPath = ScaledFramesFolderPath;
-    //======
     if(CustRes_isContained(SourceFile_fullPath))
     {
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(InputPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+InputPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
+        ScaleRatio = CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt());
     }
     //===========
     QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -1484,8 +1463,9 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     {
         OutPutFilesFullPathList.append(ScaledFramesFolderPath+"/"+InputFilesNameList.at(i));
     }
+    int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + program + "\" -i \"" + InputPath + "\" -o \"" + OutputPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_video + Anime4k_ReadSettings(false);
+    QString cmd = "\"" + Anime4k_ProgramPath + "\" -i \"" + SplitFramesFolderPath + "\" -o \"" + ScaledFramesFolderPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_video + Anime4k_ReadSettings(false);
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -1500,7 +1480,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
                 Waifu2x->close();
                 //============
                 QString file_fullpath_tmp;
-                for(int i=0; i<OutPutFilesFullPathList.size(); i++)
+                for(int i=0; i<OutPutFilesFullPathList_size; i++)
                 {
                     file_fullpath_tmp = OutPutFilesFullPathList.at(i);
                     if(FinfishedFileList.contains(file_fullpath_tmp))
@@ -1522,8 +1502,8 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
                 return 0;
             }
         }
-        bool AllFinished = true;
-        for(int i=0; i<OutPutFilesFullPathList.size(); i++)
+        AllFinished = true;
+        for(int i=0; i<OutPutFilesFullPathList_size; i++)
         {
             if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
             {
@@ -1537,8 +1517,8 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
         if(AllFinished)break;
     }
     //=========
-    bool AllFinished = true;
-    for(int i=0; i<OutPutFilesFullPathList.size(); i++)
+    AllFinished = true;
+    for(int i=0; i<OutPutFilesFullPathList_size; i++)
     {
         if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
         {

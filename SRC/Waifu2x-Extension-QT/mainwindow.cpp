@@ -683,6 +683,7 @@ void MainWindow::on_pushButton_clear_textbrowser_clicked()
 {
     ui->textBrowser->clear();
     TextBrowser_StartMes();
+    //==========
 }
 
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
