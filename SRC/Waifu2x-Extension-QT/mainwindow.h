@@ -400,6 +400,8 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    bool FileProgressWatch_isEnabled = true;//是否启用输出文件夹进度监控线程
+
     int ForceRetryCount = 1;
 
     void OutputSettingsArea_setEnabled(bool isEnabled);

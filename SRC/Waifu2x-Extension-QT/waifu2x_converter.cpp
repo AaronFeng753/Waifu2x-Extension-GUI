@@ -308,10 +308,12 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //==========开始放大==========================
     emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
-    QFuture<void> FileProgressWatch = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, ScaledFramesFolderPath);//启动waifu2x 主线程
+    FileProgressWatch_isEnabled=true;
+    QFuture<void> FileProgressWatch_QFuture = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, ScaledFramesFolderPath);//启动waifu2x 主线程
     if(ui->checkBox_ShowInterPro->isChecked()==false)
     {
-        FileProgressWatch.cancel();
+        FileProgressWatch_isEnabled=false;
+        FileProgressWatch_QFuture.cancel();
         emit Send_CurrentFileProgress_Stop();
     }
     //=======获取显卡信息========
@@ -384,7 +386,8 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
-            FileProgressWatch.cancel();
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
             file_DelDir(SplitFramesFolderPath);
             status = "Interrupted";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -392,7 +395,8 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         }
         if(Frame_failed)
         {
-            FileProgressWatch.cancel();
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
             status = "Failed";
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -405,7 +409,8 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     {
         Delay_msec_sleep(500);
     }
-    FileProgressWatch.cancel();
+    FileProgressWatch_isEnabled=false;
+    FileProgressWatch_QFuture.cancel();
     emit Send_CurrentFileProgress_Stop();
     //======================= 检查是否成功放大所有帧 ===========================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
@@ -760,10 +765,12 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     }
     //==========开始放大==========================
     emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,(Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size()));
-    QFuture<void> FileProgressWatch = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, ScaledFramesFolderPath);//启动waifu2x 主线程
+    FileProgressWatch_isEnabled=true;
+    QFuture<void> FileProgressWatch_QFuture = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, ScaledFramesFolderPath);//启动waifu2x 主线程
     if(ui->checkBox_ShowInterPro->isChecked()==false)
     {
-        FileProgressWatch.cancel();
+        FileProgressWatch_isEnabled=false;
+        FileProgressWatch_QFuture.cancel();
         emit Send_CurrentFileProgress_Stop();
     }
     //=======获取显卡信息========
@@ -836,7 +843,8 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
-            FileProgressWatch.cancel();
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
             Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
             status = "Interrupted";
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -844,7 +852,8 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         }
         if(Frame_failed)
         {
-            FileProgressWatch.cancel();
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
             Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
             status = "Failed";
@@ -857,7 +866,8 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     {
         Delay_msec_sleep(500);
     }
-    FileProgressWatch.cancel();
+    FileProgressWatch_isEnabled=false;
+    FileProgressWatch_QFuture.cancel();
     emit Send_CurrentFileProgress_Stop();
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
@@ -1242,10 +1252,12 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                 }
             }
             //==========开始放大==========================
-            QFuture<void> FileProgressWatch = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum_Textbrower, SourceFile_fullPath,ScaledFramesFolderPath,Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size());
+            FileProgressWatch_isEnabled=true;
+            QFuture<void> FileProgressWatch_QFuture = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum_Textbrower, SourceFile_fullPath,ScaledFramesFolderPath,Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size());
             if(ui->checkBox_ShowInterPro->isChecked()==false)
             {
-                FileProgressWatch.cancel();
+                FileProgressWatch_isEnabled=false;
+                FileProgressWatch_QFuture.cancel();
             }
             //=======获取显卡信息========
             int NumOfGPU = 1;
@@ -1317,7 +1329,8 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                     {
                         Delay_msec_sleep(500);
                     }
-                    FileProgressWatch.cancel();
+                    FileProgressWatch_isEnabled=false;
+                    FileProgressWatch_QFuture.cancel();
                     Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                     status = "Interrupted";
                     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
@@ -1325,7 +1338,8 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                 }
                 if(Frame_failed)
                 {
-                    FileProgressWatch.cancel();
+                    FileProgressWatch_isEnabled=false;
+                    FileProgressWatch_QFuture.cancel();
                     Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                     emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
                     status = "Failed";
@@ -1338,7 +1352,8 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             {
                 Delay_msec_sleep(500);
             }
-            FileProgressWatch.cancel();
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
             if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())

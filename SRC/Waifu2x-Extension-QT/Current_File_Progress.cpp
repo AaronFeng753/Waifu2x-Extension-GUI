@@ -93,7 +93,8 @@ void MainWindow::CurrentFileProgress_WatchFolderFileNum(QString FolderPath)
     QStringList FilesNameList;
     do
     {
-        Delay_sec_sleep(1);
+        if(FileProgressWatch_isEnabled==false)return;
+        Delay_msec_sleep(2300);
         if(file_isDirExist(FolderPath)==false)return;
         FilesNameList = file_getFileNames_in_Folder_nofilter(FolderPath);
         emit Send_CurrentFileProgress_progressbar_SetFinishedValue(FilesNameList.size());
@@ -110,7 +111,8 @@ void MainWindow::CurrentFileProgress_WatchFolderFileNum_Textbrower(QString Sourc
     int New_num=0;
     do
     {
-        Delay_sec_sleep(1);
+        if(FileProgressWatch_isEnabled==false)return;
+        Delay_msec_sleep(2300);
         //==========
         if(file_isDirExist(FolderPath)==false)return;
         //=========
