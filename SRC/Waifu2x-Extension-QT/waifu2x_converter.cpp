@@ -347,7 +347,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
     }
     int TotalFramesNum = Frame_fileName_list.size();
-    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
     int start_num=0;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
@@ -804,7 +804,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
     }
     int TotalFramesNum = Frame_fileName_list.size();
-    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
     int start_num=0;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
@@ -1290,7 +1290,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                 GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
             }
             int TotalFramesNum = Frame_fileName_list.size();
-            int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+            int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
             int start_num=0;
             for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
             {

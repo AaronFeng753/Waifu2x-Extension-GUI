@@ -342,6 +342,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     }
     int TotalFramesNum = Frame_fileName_list.size();
     int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
     int start_num=0;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
@@ -795,6 +796,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     int TotalFramesNum = Frame_fileName_list.size();
     int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
     int start_num=0;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
@@ -1273,6 +1275,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             }
             int TotalFramesNum = Frame_fileName_list.size();
             int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+            if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
             int start_num=0;
             for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
             {

@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.71.02-beta:
+- Fix bug: Cannot process video and gif properly when there is only one frame.
+
 v2.71.01-beta:
 - Improve the efficiency, speed and stability of Anime4k, Waifu2x-Caffe and Waifu2x-Converter when processing Video and GIF.
 - GUI fix.
