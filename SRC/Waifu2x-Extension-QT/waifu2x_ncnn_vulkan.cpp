@@ -294,7 +294,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool OptGIF = ui->checkBox_OptGIF->isChecked();
-    int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -875,7 +874,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+    if(Frame_fileName_list_scaled.count()!=NumOfSplitFrames)
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         status = "Failed";
@@ -961,7 +960,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
-    int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
@@ -1254,6 +1252,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
                     file_mkDir(ScaledFramesFolderPath);
                 }
             }
+            //==========开始放大==========================
             //读取放大倍数
             int ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
             if(CustRes_isContained(SourceFile_fullPath))
@@ -1400,7 +1399,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+            if(Frame_fileName_list_scaled.count()!=NumOfSplitFrames)
             {
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
                 status = "Failed";
@@ -1512,155 +1511,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
     //===========================  ==============================
-    return 0;
-}
-
-
-int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
-{
-    QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
-    QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
-    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
-    QString Frame_fileName = Sub_Thread_info["Frame_fileName"];
-    //================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    //========================================================================
-    QString Frame_fileFullPath = SplitFramesFolderPath+"/"+Frame_fileName;
-    //======
-    bool CustRes_isEnabled = false;
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        CustRes_isEnabled = true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(Frame_fileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
-    //=======
-    QFileInfo fileinfo_frame(Frame_fileFullPath);
-    QString Frame_fileName_basename = file_getBaseName(Frame_fileFullPath);
-    QString Frame_fileOutPutPath = ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-    //========================================================================
-    QProcess *Waifu2x = new QProcess();
-    //========
-    QString Waifu2x_folder_path = Waifu2x_ncnn_vulkan_FolderPath;
-    //========
-    QString program = Waifu2x_ncnn_vulkan_ProgramPath;
-    //=========
-    int ScaleRatio_tmp=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio);
-    //===================
-    QString OutputPath_tmp ="";
-    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
-    {
-        bool waifu2x_qprocess_failed = false;
-        QString InputPath_tmp = Frame_fileFullPath;
-        OutputPath_tmp ="";
-        int DenoiseLevel_tmp = DenoiseLevel;
-        for(int i=2; i<=ScaleRatio_tmp; i*=2)
-        {
-            OutputPath_tmp =  ScaledFramesFolderPath+"/"+Frame_fileName_basename+ "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n.png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_ReadSettings();
-            Waifu2x->start(cmd);
-            while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-            while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
-            {
-                if(waifu2x_STOP)
-                {
-                    Waifu2x->close();
-                    if(i>2)
-                    {
-                        QFile::remove(InputPath_tmp);
-                    }
-                    mutex_SubThreadNumRunning.lock();
-                    *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-                    mutex_SubThreadNumRunning.unlock();
-                    return 0;
-                }
-                QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
-                QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
-                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
-                {
-                    waifu2x_qprocess_failed = true;
-                    if(i>2)
-                    {
-                        QFile::remove(InputPath_tmp);
-                    }
-                    QFile::remove(OutputPath_tmp);
-                    break;
-                }
-            }
-            if(waifu2x_qprocess_failed)break;
-            //===============
-            QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
-            QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
-            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
-            {
-                waifu2x_qprocess_failed = true;
-                if(i>2)
-                {
-                    QFile::remove(InputPath_tmp);
-                }
-                QFile::remove(OutputPath_tmp);
-                break;
-            }
-            //===============
-            if(i>2)
-            {
-                QFile::remove(InputPath_tmp);
-            }
-            DenoiseLevel_tmp = -1;
-            InputPath_tmp = OutputPath_tmp;
-        }
-        if(QFile::exists(OutputPath_tmp)&&!waifu2x_qprocess_failed)
-        {
-            break;
-        }
-        else
-        {
-            QFile::remove(OutputPath_tmp);
-            if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
-            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
-            Delay_sec_sleep(5);
-        }
-    }
-    if(QFile::exists(OutputPath_tmp)==false)
-    {
-        *Frame_failed=true;
-        mutex_SubThreadNumRunning.lock();
-        *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-        mutex_SubThreadNumRunning.unlock();
-        return 0;
-    }
-    //============================ 调整大小 ====================================================
-    if(ScaleRatio_tmp != ScaleRatio&&!CustRes_isEnabled)
-    {
-        QImage qimage_original;
-        qimage_original.load(Frame_fileFullPath);
-        int New_height=0;
-        int New_width=0;
-        New_height = qimage_original.height()*ScaleRatio;
-        New_width = qimage_original.width()*ScaleRatio;
-        QImage qimage_adj(OutputPath_tmp);
-        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
-        QImageWriter qimageW_adj;
-        qimageW_adj.setFormat("png");
-        qimageW_adj.setFileName(Frame_fileOutPutPath);
-        if(qimageW_adj.canWrite())
-        {
-            qimageW_adj.write(qimage_adj_scaled);
-            if(Frame_fileOutPutPath!=OutputPath_tmp)QFile::remove(OutputPath_tmp);
-        }
-    }
-    else
-    {
-        Frame_fileOutPutPath = OutputPath_tmp;
-    }
-    QFile::remove(Frame_fileFullPath);
-    QFile::rename(Frame_fileOutPutPath,ScaledFramesFolderPath+"/"+Frame_fileName);
-    //====================
-    mutex_SubThreadNumRunning.lock();
-    *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-    mutex_SubThreadNumRunning.unlock();
-    //========
     return 0;
 }
 /*
@@ -2101,7 +1951,6 @@ QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum)
         int NumOfThreads_PerGPU = ThreadNum/NumOfGPUs_Enabled;
         if(NumOfThreads_PerGPU<1)NumOfThreads_PerGPU=1;
         int LoadAndWrite_tnum = NumOfGPUs_Enabled*NumOfThreads_PerGPU;
-        //1:2,2,2:2
         QString Jobs_cmd = "";
         for(int i=0; i<NumOfGPUs_Enabled; i++)
         {

@@ -39,6 +39,7 @@ v2.71.02-beta:
 - The old version of waifu2x-ncnn-vulkan engine will no longer support the use of multiple graphics cards to process GIF and video.
 - Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
 - Fix bug: Cannot process video and gif properly when there is only one frame.
+- Fix bug: Scale ratio might be incorrect when using srmd-ncnn-vulkan.
 
 v2.71.01-beta:
 - Improve the efficiency, speed and stability of Anime4k, Waifu2x-Caffe and Waifu2x-Converter when processing Video and GIF.
