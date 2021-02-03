@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.71.02-beta:
-- Improve the efficiency, speed and stability of Waifu2x-NCNN-Vulkan when processing Video and GIF.
+- Improve the efficiency, speed and stability of Waifu2x-NCNN-Vulkan and SRMD-NCNN-Vulkan when processing Video and GIF.
 - The old version of waifu2x-ncnn-vulkan engine will no longer support the use of multiple graphics cards to process GIF and video.
 - Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
 - Fix bug: Cannot process video and gif properly when there is only one frame.
