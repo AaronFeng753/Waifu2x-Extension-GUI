@@ -44,6 +44,19 @@ v2.71.01-beta:
 --------------------------------------------------------------------------
 To do:
 - vulkan整个文件夹一起处理.
+
+-t tile-size         tile size (>=32/0=auto, default=0) can be 0,0,0 for multi-gpu
+  -g gpu-id            gpu device to use (default=0) can be 0,1,2 for multi-gpu
+  -j load:proc:save    thread count for load/proc/save (default=1:2:2) can be 1:2,2,2:2 for multi-gpu
+
+按照放大倍数循环
+根据线程和显卡分配参数
+处理完了去掉后辍
+继续循环
+循环结束
+
+视频和gif里添加判断当前是否用的vulkan,如果是则判断当前放大倍数是否需要修改分辨率
+
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------

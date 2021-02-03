@@ -357,21 +357,24 @@ int MainWindow::Anime4k_GIF(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
-    int Sub_gif_ThreadNumMax;
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_video->value());
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+    }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
-        if(Sub_gif_ThreadNumMax>NumOfGPU)Sub_gif_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_gif_ThreadNumRunning++;
         mutex_SubThreadNumRunning.unlock();
         QtConcurrent::run(this,&MainWindow::Anime4k_GIF_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
-        while (Sub_gif_ThreadNumRunning >= Sub_gif_ThreadNumMax)
+        while (Sub_gif_ThreadNumRunning >= NumOfGPU)
         {
             Delay_msec_sleep(500);
         }
@@ -493,13 +496,7 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     //===========
-    int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
-    //========================================================================
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
+    int ScaleRatio = Sub_Thread_info["ScaleRatio"].toInt();
     //===========
     QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     QStringList OutPutFilesFullPathList;
@@ -811,21 +808,24 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
-    int Sub_video_ThreadNumMax;
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_video->value());
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+    }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-        if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
         mutex_SubThreadNumRunning.unlock();
         QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
-        while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+        while (Sub_video_ThreadNumRunning >= NumOfGPU)
         {
             Delay_msec_sleep(500);
         }
@@ -1290,21 +1290,24 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             }
             //=========================
             bool Frame_failed = false;//放大失败标志
-            int Sub_video_ThreadNumMax=1;
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
             Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+            Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_video->value());
+            if(CustRes_isContained(SourceFile_fullPath))
+            {
+                QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+            }
             //=========================
             for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
             {
                 Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-                Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-                if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
                 mutex_SubThreadNumRunning.lock();
                 Sub_video_ThreadNumRunning++;
                 mutex_SubThreadNumRunning.unlock();
                 QtConcurrent::run(this,&MainWindow::Anime4k_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
-                while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+                while (Sub_video_ThreadNumRunning >= NumOfGPU)
                 {
                     Delay_msec_sleep(500);
                 }
@@ -1467,13 +1470,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     //===========
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    //========================================================================
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SplitFramesFolderPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
+    int ScaleRatio = Sub_Thread_info["ScaleRatio"].toInt();
     //===========
     QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     QStringList OutPutFilesFullPathList;

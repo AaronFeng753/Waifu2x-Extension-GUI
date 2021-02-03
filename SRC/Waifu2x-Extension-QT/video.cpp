@@ -866,7 +866,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     if(CustRes_isEnabled)
     {
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
-        if(ui->groupBox_video_settings->isChecked()==false)
+        if(ui->groupBox_video_settings->isChecked()==false || (ui->spinBox_bitrate_vid->value()<1))
         {
             int small_res =0;
             if(CustRes_width<=CustRes_height)

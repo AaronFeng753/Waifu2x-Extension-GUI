@@ -359,7 +359,8 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
         GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
     }
     int TotalFramesNum = Frame_fileName_list.size();
-    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
+    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
     int start_num=0;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
@@ -374,7 +375,6 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
-    int Sub_gif_ThreadNumMax;
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
@@ -382,13 +382,11 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        Sub_gif_ThreadNumMax = ui->spinBox_ThreadNum_gif_internal->value();
-        if(Sub_gif_ThreadNumMax>NumOfGPU)Sub_gif_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_gif_ThreadNumRunning++;
         mutex_SubThreadNumRunning.unlock();
         QtConcurrent::run(this,&MainWindow::Waifu2x_Caffe_GIF_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
-        while (Sub_gif_ThreadNumRunning >= Sub_gif_ThreadNumMax)
+        while (Sub_gif_ThreadNumRunning >= NumOfGPU)
         {
             Delay_msec_sleep(500);
         }
@@ -831,7 +829,8 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
         GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
     }
     int TotalFramesNum = Frame_fileName_list.size();
-    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
+    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
     int start_num=0;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
@@ -846,7 +845,6 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
-    int Sub_video_ThreadNumMax;
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
@@ -854,13 +852,11 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
         Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-        Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-        if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
         mutex_SubThreadNumRunning.lock();
         Sub_video_ThreadNumRunning++;
         mutex_SubThreadNumRunning.unlock();
         QtConcurrent::run(this,&MainWindow::Waifu2x_Caffe_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
-        while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+        while (Sub_video_ThreadNumRunning >= NumOfGPU)
         {
             Delay_msec_sleep(500);
         }
@@ -1312,7 +1308,8 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
                 GPU_SplitFramesFolderPath_List.append(GPU_SplitFramesFolderPath);
             }
             int TotalFramesNum = Frame_fileName_list.size();
-            int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
+            int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+            if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
             int start_num=0;
             for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
             {
@@ -1327,7 +1324,6 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             }
             //=========================
             bool Frame_failed = false;//放大失败标志
-            int Sub_video_ThreadNumMax=1;
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
             Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
@@ -1335,13 +1331,11 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
             {
                 Sub_Thread_info["SplitFramesFolderPath"]=GPU_SplitFramesFolderPath_List.at(i);
-                Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-                if(Sub_video_ThreadNumMax>NumOfGPU)Sub_video_ThreadNumMax=NumOfGPU;
                 mutex_SubThreadNumRunning.lock();
                 Sub_video_ThreadNumRunning++;
                 mutex_SubThreadNumRunning.unlock();
                 QtConcurrent::run(this,&MainWindow::Waifu2x_Caffe_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
-                while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+                while (Sub_video_ThreadNumRunning >= NumOfGPU)
                 {
                     Delay_msec_sleep(500);
                 }

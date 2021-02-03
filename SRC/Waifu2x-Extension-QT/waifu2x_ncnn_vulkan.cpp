@@ -527,14 +527,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_
         CustRes_isEnabled=true;
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
         ScaleRatio = CustRes_CalNewScaleRatio(Frame_fileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+Frame_fileFullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
@@ -1488,14 +1480,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread
         CustRes_isEnabled = true;
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
         ScaleRatio = CustRes_CalNewScaleRatio(Frame_fileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-        if(ScaleRatio==0)
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+Frame_fileFullPath+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            mutex_SubThreadNumRunning.lock();
-            *Sub_video_ThreadNumRunning=*Sub_video_ThreadNumRunning-1;
-            mutex_SubThreadNumRunning.unlock();
-            return 0;
-        }
     }
     //=======
     QFileInfo fileinfo_frame(Frame_fileFullPath);
