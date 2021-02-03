@@ -398,7 +398,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_Settings_str;
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-            while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
+            while(!Waifu2x->waitForFinished(650)&&!QProcess_stop)
             {
                 if(waifu2x_STOP)
                 {
@@ -794,7 +794,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_Settings_str;
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-            while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
+            while(!Waifu2x->waitForFinished(650)&&!QProcess_stop)
             {
                 if(waifu2x_STOP)
                 {
@@ -1315,7 +1315,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
                     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_Settings_str;
                     Waifu2x->start(cmd);
                     while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-                    while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
+                    while(!Waifu2x->waitForFinished(650)&&!QProcess_stop)
                     {
                         if(waifu2x_STOP)
                         {

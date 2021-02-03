@@ -306,6 +306,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
         file_mkDir(ScaledFramesFolderPath);
     }
     //=============================开始放大==========================
+    //启动进度条
     emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,Frame_fileName_list.size());
     FileProgressWatch_isEnabled=true;
     QFuture<void> FileProgressWatch_QFuture = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, ScaledFramesFolderPath);//启动waifu2x 主线程
