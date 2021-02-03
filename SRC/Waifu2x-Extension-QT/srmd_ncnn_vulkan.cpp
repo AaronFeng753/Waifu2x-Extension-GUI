@@ -1311,7 +1311,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             if(ui->checkBox_ShowInterPro->isChecked())
             {
                 int NumOfRounds=0;
-                for(int ScaleRatio_Current_tmp=Start_ScaleRatio_Video; ScaleRatio_Current_tmp<=ScaleRatio_Max; ScaleRatio_Current_tmp*=2)
+                for(int ScaleRatio_Current_tmp=Start_ScaleRatio_Video; ScaleRatio_Current_tmp<=ScaleRatio_Max; ScaleRatio_Current_tmp*=Initial_ScaleRatio)
                 {
                     NumOfRounds++;
                 }

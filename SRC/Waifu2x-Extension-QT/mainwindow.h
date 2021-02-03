@@ -192,12 +192,12 @@ public:
     int Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Realsr放大图片线程
     //Realsr放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Realsr_NCNN_Vulkan_GIF(int rowNum);
-    int Realsr_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //Realsr放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Realsr_NCNN_Vulkan_Video(int rowNum);
     int Realsr_NCNN_Vulkan_Video_BySegment(int rowNum);
-    int Realsr_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Realsr_NCNN_Vulkan_ReadSettings();
+    int Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(int ScaleRatio);
+    QString Realsr_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum);
     //=========================
     int Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel);
     int Anime4k_GIF(int rowNum);
