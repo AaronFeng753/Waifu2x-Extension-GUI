@@ -1902,12 +1902,11 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xNCNNVulkan_clicked()
         if(ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex()!=0)
         {
             QMessageBox *MSG = new QMessageBox();
-            MSG->setWindowTitle(tr("Error"));
-            MSG->setText(tr("Only latest version of Waifu2x-NCNN-Vulkan supports Multi-GPU."));
+            MSG->setWindowTitle(tr("Warning"));
+            MSG->setText(tr("Old versions of Waifu2x-NCNN-Vulkan doesn't support Multi-GPUs when processing Video and GIF."));
             MSG->setIcon(QMessageBox::Warning);
             MSG->setModal(true);
             MSG->show();
-            ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(0);
             return;
         }
     }
@@ -2063,7 +2062,7 @@ int MainWindow::Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(int ScaleRatio)
     return ScaleRatio_tmp;
 }
 /*
-读取配置讯息
+读取配置讯息 Video GIF
 */
 QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum)
 {
@@ -2073,21 +2072,7 @@ QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum)
     {
         Waifu2x_NCNN_Vulkan_Settings_str.append("-x ");
     }
-    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked()==false)
-    {
-        //==========单显卡==========
-        //GPU ID
-        if(ui->comboBox_GPUID->currentText()!="auto")
-        {
-            Waifu2x_NCNN_Vulkan_Settings_str.append("-g "+ui->comboBox_GPUID->currentText()+" ");
-        }
-        //Tile Size
-        Waifu2x_NCNN_Vulkan_Settings_str.append("-t "+QString::number(ui->spinBox_TileSize->value(),10)+" ");
-        //线程数量
-        QString jobs_num_str = QString("%1").arg(ThreadNum);
-        Waifu2x_NCNN_Vulkan_Settings_str.append("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" ");
-    }
-    else
+    if(ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked()==true && ui->comboBox_version_Waifu2xNCNNVulkan->currentIndex()==0)
     {
         //==============多显卡================
         int NumOfGPUs_Available = GPUIDs_List_MultiGPU_Waifu2xNCNNVulkan.size();//获取显卡总数
@@ -2130,6 +2115,20 @@ QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum)
             }
         }
         Waifu2x_NCNN_Vulkan_Settings_str.append(QString("-j %1:").arg(LoadAndWrite_tnum)+Jobs_cmd+QString(":%1 ").arg(LoadAndWrite_tnum));
+    }
+    else
+    {
+        //==========单显卡==========
+        //GPU ID
+        if(ui->comboBox_GPUID->currentText()!="auto" && ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->isChecked()==false)
+        {
+            Waifu2x_NCNN_Vulkan_Settings_str.append("-g "+ui->comboBox_GPUID->currentText()+" ");
+        }
+        //Tile Size
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-t "+QString::number(ui->spinBox_TileSize->value(),10)+" ");
+        //线程数量
+        QString jobs_num_str = QString("%1").arg(ThreadNum);
+        Waifu2x_NCNN_Vulkan_Settings_str.append("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" ");
     }
     //Model
     int ImageStyle = ui->comboBox_ImageStyle->currentIndex();
