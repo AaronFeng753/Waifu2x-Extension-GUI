@@ -1219,6 +1219,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         /*==========================
                处理视频片段的帧
         ==========================*/
+        bool isOverScaled = false;
         if(isScaleComplete==false)
         {
             //============================== 扫描获取文件名 ===============================
@@ -1253,61 +1254,149 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
                     file_mkDir(ScaledFramesFolderPath);
                 }
             }
-            //==========开始放大==========================
-            int InterPro_total = 0;
-            int InterPro_now = 0;
+            //读取放大倍数
+            int ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+            if(CustRes_isContained(SourceFile_fullPath))
+            {
+                QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
+                ScaleRatio_Original = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+            }
+            int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio_Original);
+            isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
+            //读取初始放大倍率
+            int Initial_ScaleRatio = 2;
+            if(!Frame_fileName_list.isEmpty())
+            {
+                QString Full_Path_File = "";
+                for(int i = 0; i < Frame_fileName_list.size(); i++)
+                {
+                    QString tmp = Frame_fileName_list.at(i);
+                    Full_Path_File = SplitFramesFolderPath + "/" + tmp;
+                    QFileInfo finfo(Full_Path_File);
+                    if(finfo.suffix()=="png")break;
+                }
+                QImage qimage_original;
+                qimage_original.load(Full_Path_File);
+                int Frame_height = qimage_original.height();
+                QMap<QString,int> res_map = video_get_Resolution(SourceFile_fullPath);
+                int Video_height = res_map["height"];
+                if(Frame_height>0 && Video_height>0 && Frame_height>=Video_height)//判断是否读取失败
+                {
+                    Initial_ScaleRatio = 2*(Frame_height/Video_height);
+                }
+            }
+            //初始化进度讯息
+            int NumOfSplitFrames = Frame_fileName_list.size()+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size();
+            int CurrentFileProgress_MAX = 0;
+            int CurrentFileProgress_OLD = 0;
+            int CurrentFileProgress_New = 0;
             if(ui->checkBox_ShowInterPro->isChecked())
             {
-                InterPro_total = Frame_fileName_list.size();
-            }
-            //===============
-            QMap<QString,QString> Sub_Thread_info;
-            Sub_Thread_info["SplitFramesFolderPath"]=SplitFramesFolderPath;
-            Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-            Sub_Thread_info["SourceFile_fullPath"]=SourceFile_fullPath;
-            //===============
-            bool Frame_failed = false;
-            //===============
-            for(int i = 0; i < Frame_fileName_list.size(); i++)
-            {
-                if(ui->checkBox_ShowInterPro->isChecked())
+                int NumOfRounds=0;
+                for(int ScaleRatio_Current_tmp=Initial_ScaleRatio; ScaleRatio_Current_tmp<=ScaleRatio_Max; ScaleRatio_Current_tmp*=2)
                 {
-                    InterPro_now++;
-                    emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale and Denoise progress:[")+QString::number(InterPro_now,10)+"/"+QString::number(InterPro_total,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
+                    NumOfRounds++;
                 }
-                int Sub_video_ThreadNumMax = ui->spinBox_ThreadNum_video_internal->value();
-                mutex_SubThreadNumRunning.lock();
-                Sub_video_ThreadNumRunning++;
-                mutex_SubThreadNumRunning.unlock();
-                QString Frame_fileName = Frame_fileName_list.at(i);
-                Sub_Thread_info["Frame_fileName"]=Frame_fileName;
-                QtConcurrent::run(this,&MainWindow::Waifu2x_NCNN_Vulkan_Video_scale,Sub_Thread_info,&Sub_video_ThreadNumRunning,&Frame_failed);
-                if(waifu2x_STOP)
+                CurrentFileProgress_MAX =NumOfSplitFrames*NumOfRounds;
+            }
+            //读取配置讯息
+            QString Waifu2x_NCNN_Vulkan_Settings_str = Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(ui->spinBox_ThreadNum_video_internal->value());
+            QProcess *Waifu2x = new QProcess();
+            QString program = Waifu2x_ncnn_vulkan_ProgramPath;
+            bool waifu2x_qprocess_failed = false;
+            int DenoiseLevel_tmp = DenoiseLevel;
+            DenoiseLevel_tmp = DenoiseLevel;
+            int CountFinishedRounds=0;
+            //====
+            for(int ScaleRatio_Current_tmp=Initial_ScaleRatio; ScaleRatio_Current_tmp<=ScaleRatio_Max && Frame_fileName_list.isEmpty()==false; ScaleRatio_Current_tmp*=2)
+            {
+                for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
                 {
-                    while (Sub_video_ThreadNumRunning > 0)
+                    waifu2x_qprocess_failed = false;
+                    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_Settings_str;
+                    Waifu2x->start(cmd);
+                    while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+                    while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
                     {
-                        Delay_msec_sleep(500);
+                        if(waifu2x_STOP)
+                        {
+                            QStringList FinfishedFileList_FileNames = WaitForEngineIO_NcnnVulkan(ScaledFramesFolderPath);
+                            Waifu2x->close();
+                            //============
+                            QString file_name_tmp;
+                            QStringList FileNames_ScaledFramesFolderPath = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
+                            for(int i=0; i<FileNames_ScaledFramesFolderPath.size(); i++)
+                            {
+                                file_name_tmp = FileNames_ScaledFramesFolderPath.at(i);
+                                if(FinfishedFileList_FileNames.contains(file_name_tmp))
+                                {
+                                    QFile::remove(SplitFramesFolderPath + "/" + file_name_tmp);
+                                }
+                                else
+                                {
+                                    QFile::remove(ScaledFramesFolderPath + "/" + file_name_tmp);
+                                }
+                            }
+                            //=============
+                            status = "Interrupted";
+                            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                            mutex_ThreadNumRunning.lock();
+                            ThreadNumRunning--;
+                            mutex_ThreadNumRunning.unlock();
+                            return 0;
+                        }
+                        if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+                        {
+                            waifu2x_qprocess_failed = true;
+                            break;
+                        }
+                        if(ui->checkBox_ShowInterPro->isChecked())
+                        {
+                            CurrentFileProgress_New = (NumOfSplitFrames*CountFinishedRounds)+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size();
+                            if(CurrentFileProgress_New!=CurrentFileProgress_OLD)
+                            {
+                                emit Send_TextBrowser_NewMessage(tr("File name:[")+SourceFile_fullPath+tr("]  Scale progress:[")+QString::number(CurrentFileProgress_New,10)+"/"+QString::number(CurrentFileProgress_MAX,10)+tr("] Duration progress:[")+QString::number(StartTime,10)+"s/"+QString::number(VideoDuration,10)+"s]");
+                                CurrentFileProgress_OLD=CurrentFileProgress_New;
+                            }
+                        }
                     }
-                    status = "Interrupted";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-                    return 0;//如果启用stop位,则直接return
+                    //===============
+                    if(waifu2x_qprocess_failed)break;
+                    //===============
+                    if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+                    {
+                        waifu2x_qprocess_failed = true;
+                        break;
+                    }
+                    //========= 检测是否成功,是否需要重试 ============
+                    if((NumOfSplitFrames == file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size())&&!waifu2x_qprocess_failed)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        //失败
+                        file_DelDir(ScaledFramesFolderPath);
+                        file_mkDir(ScaledFramesFolderPath);
+                        if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
+                        emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
+                        Delay_sec_sleep(5);
+                    }
                 }
-                while (Sub_video_ThreadNumRunning >= Sub_video_ThreadNumMax)
+                //===========
+                //根据轮数修改参数
+                DenoiseLevel_tmp = -1;
+                if(ScaleRatio_Current_tmp<ScaleRatio_Max)
                 {
-                    Delay_msec_sleep(500);
+                    QStringList SplitFolderList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
+                    for(int x = 0; x < SplitFolderList.size(); x++)
+                    {
+                        QFile::remove(SplitFramesFolderPath+"/"+SplitFolderList.at(x));
+                    }
+                    file_MoveFiles_Folder_NcnnVulkanFolderProcess(ScaledFramesFolderPath, SplitFramesFolderPath, true);
+                    file_mkDir(ScaledFramesFolderPath);
                 }
-                if(Frame_failed)
-                {
-                    emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
-                    status = "Failed";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
-                    emit Send_progressbar_Add();
-                    return 0;//如果启用stop位,则直接return
-                }
-            }
-            while (Sub_video_ThreadNumRunning!=0)
-            {
-                Delay_msec_sleep(500);
+                CountFinishedRounds++;
             }
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
@@ -1335,7 +1424,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         int VideoClipNo = (StartTime+SegmentDuration)/SegmentDuration;
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
-        video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,false);
+        video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
