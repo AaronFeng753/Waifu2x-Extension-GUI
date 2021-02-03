@@ -130,6 +130,7 @@ public:
     bool file_OpenFolder(QString FolderPath);//调用系统资源管理器打开文件夹.
     bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
     bool file_OpenFile(QString FilePath);
+    void file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folder, QString New_folder, bool Delete_);
     //=================================  Table =================================
     void ui_tableViews_setUpdatesEnabled(bool isEnabled);// 启用/禁用 文件列表table的UI更新
 
@@ -172,6 +173,7 @@ public:
     QString OutPutFolder_main="";//总输出文件夹
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
     QStringList WaitForEngineIO(QStringList OutPutFilesFullPathList);
+    QStringList WaitForEngineIO_NcnnVulkan(QString OutputFolderFullPath);
     void Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QStringList GPU_SplitFramesFolderPath_List);
     bool isForceRetryEnabled=true;
     //==========================
@@ -181,12 +183,12 @@ public:
     int Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//vulkan放大图片线程
     //vulakn放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_GIF(int rowNum);
-    int Waifu2x_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //vulkan放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
     int Waifu2x_NCNN_Vulkan_Video(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum);
     int Waifu2x_NCNN_Vulkan_Video_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed);
     QString Waifu2x_NCNN_Vulkan_ReadSettings();
+    QString Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum);
     //===
     int Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Realsr放大图片线程
     //Realsr放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -346,7 +348,7 @@ public:
     int Gif_getDuration(QString gifPath);//获取帧间隔时长
     int Gif_getFrameDigits(QString gifPath);//获取帧数量的位数
     void Gif_splitGif(QString gifPath,QString SplitFramesFolderPath);//拆分gif
-    void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);//组装gif
+    void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
     bool Video_AutoSkip_CustRes(int rowNum);

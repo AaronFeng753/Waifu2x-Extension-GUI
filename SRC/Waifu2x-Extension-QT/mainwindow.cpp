@@ -683,7 +683,6 @@ void MainWindow::on_pushButton_clear_textbrowser_clicked()
 {
     ui->textBrowser->clear();
     TextBrowser_StartMes();
-    //==========
 }
 
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
@@ -1300,9 +1299,9 @@ void MainWindow::on_checkBox_OutPath_isEnabled_stateChanged(int arg1)
 //强制重试
 void MainWindow::on_pushButton_ForceRetry_clicked()
 {
-    if(isForceRetryEnabled==false)//使用a4k,caffe或converter处理视频和gif时禁用强制重试
+    if(isForceRetryEnabled==false)//处理视频和gif时禁用强制重试
     {
-        emit Send_TextBrowser_NewMessage(tr("Force retry is disabled when using Anime4k, Waifu2x-Caffe or Waifu2x-Converter to process Video or GIF."));
+        emit Send_TextBrowser_NewMessage(tr("Force retry is disabled when processing Video or GIF."));
         return;
     }
     //==========
@@ -1541,6 +1540,7 @@ void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int i
                 Waifu2x_ncnn_vulkan_FolderPath = Current_Path + "/waifu2x-ncnn-vulkan";
                 Waifu2x_ncnn_vulkan_ProgramPath = Waifu2x_ncnn_vulkan_FolderPath + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
                 ui->checkBox_TTA_vulkan->setEnabled(1);
+                ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setEnabled(1);
                 return;
             }
         case 1:
@@ -1548,6 +1548,8 @@ void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int i
                 Waifu2x_ncnn_vulkan_FolderPath = Current_Path + "/waifu2x-ncnn-vulkan";
                 Waifu2x_ncnn_vulkan_ProgramPath = Waifu2x_ncnn_vulkan_FolderPath + "/waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe";
                 ui->checkBox_TTA_vulkan->setEnabled(1);
+                ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
+                ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(0);
                 return;
             }
         case 2:
@@ -1556,6 +1558,8 @@ void MainWindow::on_comboBox_version_Waifu2xNCNNVulkan_currentIndexChanged(int i
                 Waifu2x_ncnn_vulkan_ProgramPath = Waifu2x_ncnn_vulkan_FolderPath + "/waifu2x-ncnn-vulkan_waifu2xEX.exe";
                 ui->checkBox_TTA_vulkan->setEnabled(0);
                 ui->checkBox_TTA_vulkan->setChecked(0);
+                ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setEnabled(0);
+                ui->checkBox_MultiGPU_Waifu2xNCNNVulkan->setChecked(0);
                 return;
             }
     }

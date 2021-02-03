@@ -154,8 +154,8 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
             if(i>Initial_ScaleRatio)
             {
                 QFile::remove(InputPath_tmp);
-                DenoiseLevel_tmp = -1;
             }
+            DenoiseLevel_tmp = -1;
             InputPath_tmp = OutputPath_tmp;
         }
         //========= 检测是否成功,是否需要重试 ============
@@ -447,7 +447,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     {
         ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n.gif";
     }
-    Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width);
+    Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width,false,"");
     if(!QFile::exists(ResGIFPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
@@ -598,8 +598,8 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF_scale(QMap<QString, QString> Sub_Thread_inf
             if(i>Initial_ScaleRatio)
             {
                 QFile::remove(InputPath_tmp);
-                DenoiseLevel_tmp = -1;
             }
+            DenoiseLevel_tmp = -1;
             InputPath_tmp = OutputPath_tmp;
         }
         if(QFile::exists(OutputPath_tmp)&&!waifu2x_qprocess_failed)
@@ -1553,8 +1553,8 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_scale(QMap<QString,QString> Sub_Thread_in
             if(i>Initial_ScaleRatio)
             {
                 QFile::remove(InputPath_tmp);
-                DenoiseLevel_tmp = -1;
             }
+            DenoiseLevel_tmp = -1;
             InputPath_tmp = OutputPath_tmp;
         }
         if(QFile::exists(OutputPath_tmp)&&!waifu2x_qprocess_failed)

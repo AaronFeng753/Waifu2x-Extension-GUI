@@ -426,7 +426,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     {
         ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+".gif";
     }
-    Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width);
+    Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width,false,"");
     if(!QFile::exists(ResGIFPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
@@ -507,10 +507,10 @@ int MainWindow::Anime4k_GIF_scale(QMap<QString,QString> Sub_Thread_info,int *Sub
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
     QString cmd = "\"" + Anime4k_ProgramPath + "\" -i \"" + SplitFramesFolderPath + "\" -o \"" + ScaledFramesFolderPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_gif + Anime4k_ReadSettings(false);
+    QProcess *Waifu2x = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -1481,10 +1481,10 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
     QString cmd = "\"" + Anime4k_ProgramPath + "\" -i \"" + SplitFramesFolderPath + "\" -o \"" + ScaledFramesFolderPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_video + Anime4k_ReadSettings(false);
+    QProcess *Waifu2x = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)

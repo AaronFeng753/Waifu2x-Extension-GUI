@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>2</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -3247,7 +3247,9 @@ same time, you need to change [Image style] settings at [Home] tab.
 2.If you wanna get all GPUs running together,
 the number of threads must &gt;= the number of GPUs.
 
-3.You need to [Detect available GPU ID] first.</string>
+3.You need to [Detect available GPU ID] first.
+
+*Only latest version of Waifu2x-NCNN-Vulkan supports Multi-GPU*</string>
                   </property>
                   <property name="text">
                    <string>Enable Multi-GPU</string>

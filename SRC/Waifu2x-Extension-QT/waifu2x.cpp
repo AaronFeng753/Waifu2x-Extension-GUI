@@ -375,6 +375,7 @@ int MainWindow::Waifu2xMainThread()
     //=========================================================
     //                   GIF 线程调度
     //===========================================================
+    isForceRetryEnabled=false;
     if(rowCount_gif>0)
     {
         int GIFEngine = ui->comboBox_Engine_GIF->currentIndex();
@@ -424,9 +425,7 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 1:
                     {
-                        isForceRetryEnabled=false;
                         Waifu2x_Converter_GIF(currentRowNumber);
-                        isForceRetryEnabled=true;
                         break;
                     }
                 case 2:
@@ -436,16 +435,12 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 3:
                     {
-                        isForceRetryEnabled=false;
                         Anime4k_GIF(currentRowNumber);
-                        isForceRetryEnabled=true;
                         break;
                     }
                 case 4:
                     {
-                        isForceRetryEnabled=false;
                         Waifu2x_Caffe_GIF(currentRowNumber);
-                        isForceRetryEnabled=true;
                         break;
                     }
                 case 5:
@@ -518,7 +513,6 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 1:
                     {
-                        isForceRetryEnabled=false;
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
                             Waifu2x_Converter_Video_BySegment(currentRowNumber);
@@ -527,12 +521,10 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Waifu2x_Converter_Video(currentRowNumber);
                         }
-                        isForceRetryEnabled=true;
                         break;
                     }
                 case 2:
                     {
-                        isForceRetryEnabled=false;
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
                             Anime4k_Video_BySegment(currentRowNumber);
@@ -541,7 +533,6 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Anime4k_Video(currentRowNumber);
                         }
-                        isForceRetryEnabled=true;
                         break;
                     }
                 case 3:
@@ -558,7 +549,6 @@ int MainWindow::Waifu2xMainThread()
                     }
                 case 4:
                     {
-                        isForceRetryEnabled=false;
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
                             Waifu2x_Caffe_Video_BySegment(currentRowNumber);
@@ -567,7 +557,6 @@ int MainWindow::Waifu2xMainThread()
                         {
                             Waifu2x_Caffe_Video(currentRowNumber);
                         }
-                        isForceRetryEnabled=true;
                         break;
                     }
                 case 5:
@@ -588,6 +577,7 @@ int MainWindow::Waifu2xMainThread()
             mutex_ThreadNumRunning.unlock();
         }
     }
+    isForceRetryEnabled=true;
     if(waifu2x_STOP)
     {
         waifu2x_STOP_confirm = true;
@@ -938,11 +928,43 @@ QStringList MainWindow::WaitForEngineIO(QStringList OutPutFilesFullPathList)
     while (true);
     return ExistFileList;
 }
+QStringList MainWindow::WaitForEngineIO_NcnnVulkan(QString OutputFolderFullPath)
+{
+    QStringList ExistFileList = file_getFileNames_in_Folder_nofilter(OutputFolderFullPath);
+    QString fullpath_tmp;
+    QList<qint64> FilesSizeList;
+    for(int i = 0; i < ExistFileList.size(); i++)
+    {
+        QFileInfo finfo(OutputFolderFullPath+"/"+ExistFileList.at(i));
+        FilesSizeList.append(finfo.size());
+    }
+    do
+    {
+        Delay_sec_sleep(3);
+        QList<qint64> FilesSizeList_tmp;
+        for(int i = 0; i < ExistFileList.size(); i++)
+        {
+            QFileInfo finfo(OutputFolderFullPath+"/"+ExistFileList.at(i));
+            FilesSizeList_tmp.append(finfo.size());
+        }
+        if(FilesSizeList_tmp == FilesSizeList)
+        {
+            break;
+        }
+        else
+        {
+            FilesSizeList = FilesSizeList_tmp;
+        }
+    }
+    while (true);
+    return ExistFileList;
+}
 /*
 恢复拆分帧文件夹
 */
 void MainWindow::Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QStringList GPU_SplitFramesFolderPath_List)
 {
+    if(file_isDirExist(SplitFramesFolderPath)==false)return;
     for(int x = 0; x < GPU_SplitFramesFolderPath_List.size(); x++)
     {
         QString GPUfolder = GPU_SplitFramesFolderPath_List.at(x);
@@ -951,8 +973,38 @@ void MainWindow::Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QS
         for(int i = 0; i < file_waitformove.size(); i++)
         {
             QString FileName = file_waitformove.at(i);
+            QFile::remove(SplitFramesFolderPath+"/"+FileName);
             QFile::rename(GPUfolder+"/"+FileName,SplitFramesFolderPath+"/"+FileName);
         }
         file_DelDir(GPUfolder);
     }
+}
+/*
+复制一个文件夹的内容到另一个文件夹
+*/
+void MainWindow::file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folder, QString New_folder, bool Delete_)
+{
+    if(file_isDirExist(Old_folder)==false || file_isDirExist(New_folder)==false)return;
+    QStringList file_waitformove = file_getFileNames_in_Folder_nofilter(Old_folder);
+    QString NewName="";
+    QString FileName="";
+    for(int i = 0; i < file_waitformove.size(); i++)
+    {
+        FileName = file_waitformove.at(i);
+        if(FileName.count(".")>1)
+        {
+            NewName = file_getBaseName(Old_folder+"/"+FileName);
+            do
+            {
+                if(NewName.count(".")<2)break;
+                NewName = file_getBaseName(Old_folder+"/"+NewName);
+            }
+            while(true);
+            QFile::rename(Old_folder+"/"+FileName,Old_folder+"/"+NewName);
+            FileName = NewName;
+        }
+        QFile::remove(New_folder+"/"+FileName);
+        QFile::rename(Old_folder+"/"+FileName,New_folder+"/"+FileName);
+    }
+    if(Delete_)file_DelDir(Old_folder);
 }

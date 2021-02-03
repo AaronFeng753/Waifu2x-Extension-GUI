@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.71.02-beta:
+- Improve performance.
+- Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
 - Fix bug: Cannot process video and gif properly when there is only one frame.
 
 v2.71.01-beta:
@@ -49,9 +51,12 @@ To do:
   -g gpu-id            gpu device to use (default=0) can be 0,1,2 for multi-gpu
   -j load:proc:save    thread count for load/proc/save (default=1:2:2) can be 1:2,2,2:2 for multi-gpu
 
+获取基础倍率
 按照放大倍数循环
 根据线程和显卡分配参数
-处理完了去掉后辍
+开跑
+跑完了,复制scale到split
+#w2xVulkan only# 判断当前用的版本,如果为老旧的则读取split文件名列表,把带有两个"."的文件都改名成basename
 继续循环
 循环结束
 

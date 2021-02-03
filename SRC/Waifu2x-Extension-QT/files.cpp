@@ -610,3 +610,5 @@ bool MainWindow::file_OpenFile(QString FilePath)
         return false;
     }
 }
+
+
