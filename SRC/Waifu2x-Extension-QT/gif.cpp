@@ -130,8 +130,15 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
     emit Send_TextBrowser_NewMessage(tr("Start to assemble GIF:[")+ResGifPath+"]");
     //===============================
     QString resize_cmd ="";
-    if(CustRes_isEnabled)
+    if(CustRes_isEnabled || isOverScaled)
     {
+        if(isOverScaled==true)
+        {
+            QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceGifFullPath);
+            int OriginalScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+            CustRes_height = res_map["height"]*OriginalScaleRatio;
+            CustRes_width = res_map["width"]*OriginalScaleRatio;
+        }
         if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
         {
             resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"! ";
@@ -149,36 +156,6 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
             else
             {
                 resize_cmd =" -resize x"+QString::number(CustRes_height,10)+" ";
-            }
-        }
-    }
-    else
-    {
-        //判断是否被过度放大
-        if(isOverScaled==true)
-        {
-            QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceGifFullPath);
-            int OriginalScaleRatio = ui->spinBox_ScaleRatio_gif->value();
-            CustRes_height = res_map["height"]*OriginalScaleRatio;
-            CustRes_width = res_map["width"]*OriginalScaleRatio;
-            if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
-            {
-                resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"! ";
-            }
-            if(CustRes_AspectRatioMode==Qt::KeepAspectRatio)
-            {
-                resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+" ";
-            }
-            if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding)
-            {
-                if(CustRes_width>CustRes_height)
-                {
-                    resize_cmd =" -resize "+QString::number(CustRes_width,10)+" ";
-                }
-                else
-                {
-                    resize_cmd =" -resize x"+QString::number(CustRes_height,10)+" ";
-                }
             }
         }
     }

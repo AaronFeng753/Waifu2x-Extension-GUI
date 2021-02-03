@@ -361,7 +361,7 @@ public:
     //拆分视频
     void video_video2images(QString VideoPath,QString FrameFolderPath,QString AudioPath);
     //组装视频
-    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width);
+    int video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled);
     //读取输出视频的设定参数
     QString video_ReadSettings_OutputVid(QString AudioPath);
     //获取视频比特率

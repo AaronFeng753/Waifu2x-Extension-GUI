@@ -845,7 +845,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
 }
 
-int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width)
+int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled)
 {
     emit Send_TextBrowser_NewMessage(tr("Start assembling video:[")+VideoPath+"]");
     bool Del_DenoisedAudio = false;
@@ -863,8 +863,15 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     //================ 自定义分辨率 ======================
     QString resize_cmd ="";
-    if(CustRes_isEnabled)
+    if(CustRes_isEnabled || isOverScaled)
     {
+        if(isOverScaled==true)
+        {
+            QMap<QString,int> res_map = video_get_Resolution(VideoPath);
+            int scaleratio_orginal = ui->spinBox_ScaleRatio_video->value();
+            CustRes_height = res_map["height"]*scaleratio_orginal;
+            CustRes_width = res_map["width"]*scaleratio_orginal;
+        }
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
         if(ui->groupBox_video_settings->isChecked()==false || (ui->spinBox_bitrate_vid->value()<1))
         {
