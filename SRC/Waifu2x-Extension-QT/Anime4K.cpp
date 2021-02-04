@@ -320,10 +320,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     int NumOfGPU = 1;
     if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==true)
     {
-        QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
-        GPU_List.removeDuplicates();
-        GPU_List.removeAll("");
-        NumOfGPU = GPU_List.count();
+        NumOfGPU = Get_NumOfGPU_Anime4k();
     }
     //============创建显卡文件夹===========
     QStringList GPU_SplitFramesFolderPath_List;
@@ -771,10 +768,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     int NumOfGPU = 1;
     if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==true)
     {
-        QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
-        GPU_List.removeDuplicates();
-        GPU_List.removeAll("");
-        NumOfGPU = GPU_List.count();
+        NumOfGPU = Get_NumOfGPU_Anime4k();
     }
     //============创建显卡文件夹===========
     QStringList GPU_SplitFramesFolderPath_List;
@@ -1253,10 +1247,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             int NumOfGPU = 1;
             if(ui->checkBox_SpecifyGPU_Anime4k->isChecked()==true)
             {
-                QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
-                GPU_List.removeDuplicates();
-                GPU_List.removeAll("");
-                NumOfGPU = GPU_List.count();
+                NumOfGPU = Get_NumOfGPU_Anime4k();
             }
             //============创建显卡文件夹===========
             QStringList GPU_SplitFramesFolderPath_List;
@@ -1726,7 +1717,7 @@ QString MainWindow::Anime4k_GetGPUInfo()
     GPU_List.removeDuplicates();
     GPU_List.removeAll("");
     //====
-    int MAX_GPU_ID_Anime4k = GPU_List.count()-1;
+    int MAX_GPU_ID_Anime4k = GPU_List.size()-1;
     if(GPU_ID_Anime4k_GetGPUInfo>MAX_GPU_ID_Anime4k)
     {
         GPU_ID_Anime4k_GetGPUInfo=0;
@@ -1734,7 +1725,8 @@ QString MainWindow::Anime4k_GetGPUInfo()
     //======
     QString GPUInfo="";
     QStringList PID_DID = GPU_List.at(GPU_ID_Anime4k_GetGPUInfo).split(",");
-    if(PID_DID.count()==2)
+    PID_DID.removeAll("");
+    if(PID_DID.size()==2)
     {
         GPUInfo = "-h "+PID_DID.at(0).trimmed()+" -d "+PID_DID.at(1).trimmed();
     }
@@ -1789,16 +1781,17 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Anime4k_clicked()
     //======
     QString VerRes = "";
     //======
-    for (int i=0; i<GPU_List.count(); i++)
+    for (int i=0; i<GPU_List.size(); i++)
     {
         QStringList PID_DID = GPU_List.at(i).split(",");
-        if(PID_DID.count()==2)
+        PID_DID.removeAll("");
+        if(PID_DID.size()==2)
         {
             VerRes.append("GPU ["+QString::number(i,10)+tr("]: Platform ID:[")+PID_DID.at(0).trimmed()+"]"+tr(" Device ID:[")+PID_DID.at(1).trimmed()+"]\n\n");
         }
         else
         {
-            VerRes.append("Error\n\n");
+            VerRes.append("Error:["+GPU_List.at(i)+"]\n\n");
         }
     }
     //=====
@@ -1910,5 +1903,27 @@ void MainWindow::DenoiseLevelSpinboxSetting_Anime4k()
             ui->label_VideoDenoiseLevel->setToolTip(tr("Due to current settings, you can\'t adjust denoise level."));
         }
     }
+}
+/*
+获取可用显卡数量
+*/
+int MainWindow::Get_NumOfGPU_Anime4k()
+{
+    QStringList GPU_List = ui->lineEdit_GPUs_Anime4k->text().trimmed().remove(" ").remove("　").split(":");
+    GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
+    int GPUNum = 0;
+    QStringList PID_DID;
+    for (int i=0; i<GPU_List.size(); i++)
+    {
+        PID_DID = GPU_List.at(i).split(",");
+        PID_DID.removeAll("");
+        if(PID_DID.size()==2)
+        {
+            GPUNum++;
+        }
+    }
+    if(GPUNum<1)GPUNum=1;
+    return GPUNum;
 }
 

@@ -209,6 +209,7 @@ public:
     QString Anime4k_ReadSettings(bool PreserveAlphaChannel);
     void DenoiseLevelSpinboxSetting_Anime4k();
     QString Anime4k_ProgramPath = Current_Path + "/Anime4K/Anime4K_waifu2xEX.exe";
+    int Get_NumOfGPU_Anime4k();
     //=================================
     int Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//Converter放大图片线程
     //Converter放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
@@ -335,6 +336,7 @@ public:
     int GPU_ID_Waifu2xCaffe_GetGPUInfo = 0;
     QString Waifu2xCaffe_GetGPUInfo();
     QMutex GetGPUInfo_QMutex_Waifu2xCaffe;
+    int Get_NumOfGPU_W2xCaffe();
     //================================ progressbar ===================================
     int Progressbar_MaxVal = 0;//进度条最大值
     int Progressbar_CurrentVal = 0;//进度条当前值

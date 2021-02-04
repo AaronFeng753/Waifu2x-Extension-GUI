@@ -337,10 +337,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     int NumOfGPU = 1;
     if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==true)
     {
-        QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
-        GPU_List.removeDuplicates();
-        GPU_List.removeAll("");
-        NumOfGPU = GPU_List.count();
+        NumOfGPU = Get_NumOfGPU_W2xCaffe();
     }
     //============创建显卡文件夹===========
     QStringList GPU_SplitFramesFolderPath_List;
@@ -807,10 +804,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     int NumOfGPU = 1;
     if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==true)
     {
-        QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
-        GPU_List.removeDuplicates();
-        GPU_List.removeAll("");
-        NumOfGPU = GPU_List.count();
+        NumOfGPU = Get_NumOfGPU_W2xCaffe();
     }
     //============创建显卡文件夹===========
     QStringList GPU_SplitFramesFolderPath_List;
@@ -1286,10 +1280,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             int NumOfGPU = 1;
             if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==true)
             {
-                QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
-                GPU_List.removeDuplicates();
-                GPU_List.removeAll("");
-                NumOfGPU = GPU_List.count();
+                NumOfGPU = Get_NumOfGPU_W2xCaffe();
             }
             //============创建显卡文件夹===========
             QStringList GPU_SplitFramesFolderPath_List;
@@ -1837,6 +1828,7 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
     //======
     QString GPUInfo="";
     QStringList GPUID_BatchSize_SplitSize = GPU_List.at(GPU_ID_Waifu2xCaffe_GetGPUInfo).split(",");
+    GPUID_BatchSize_SplitSize.removeAll("");
     if(GPUID_BatchSize_SplitSize.count()==3)
     {
         GPUInfo = "--gpu "+GPUID_BatchSize_SplitSize.at(0).trimmed()+" -b "+GPUID_BatchSize_SplitSize.at(1).trimmed()+" -c "+GPUID_BatchSize_SplitSize.at(2).trimmed();
@@ -1882,13 +1874,14 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked()
     for (int i=0; i<GPU_List.count(); i++)
     {
         QStringList GPUID_BatchSize_SplitSize = GPU_List.at(i).split(",");
+        GPUID_BatchSize_SplitSize.removeAll("");
         if(GPUID_BatchSize_SplitSize.count()==3)
         {
             VerRes.append("GPU ["+QString::number(i,10)+"]: ID:["+GPUID_BatchSize_SplitSize.at(0).trimmed()+"]"+tr(" Batch Size:[")+GPUID_BatchSize_SplitSize.at(1).trimmed()+"]"+tr(" Split Size:[")+GPUID_BatchSize_SplitSize.at(2).trimmed()+"]\n\n");
         }
         else
         {
-            VerRes.append("Error\n\n");
+            VerRes.append("Error:["+GPU_List.at(i)+"]\n\n");
         }
     }
     //=====
@@ -1905,4 +1898,26 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked()
     MSG->show();
     //======
     emit Send_TextBrowser_NewMessage("\nWaifu2x-caffe GPUs List(user configuration):\n"+VerRes);
+}
+
+int MainWindow::Get_NumOfGPU_W2xCaffe()
+{
+    QStringList GPU_List = ui->lineEdit_MultiGPUInfo_Waifu2xCaffe->text().trimmed().remove(" ").remove("　").split(":");
+    GPU_List.removeDuplicates();
+    GPU_List.removeAll("");
+    int GPUNum = 0;
+    QStringList GPUID_BatchSize_SplitSize;
+    //======
+    for (int i=0; i<GPU_List.size(); i++)
+    {
+        GPUID_BatchSize_SplitSize = GPU_List.at(i).split(",");
+        GPUID_BatchSize_SplitSize.removeAll("");
+        if(GPUID_BatchSize_SplitSize.size()==3)
+        {
+            GPUNum++;
+        }
+    }
+    //=====
+    if(GPUNum<1)GPUNum=1;
+    return GPUNum;
 }

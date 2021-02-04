@@ -40,6 +40,7 @@ v2.71.02-beta:
 - Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
 - Fix bug: Cannot process video and gif properly when there is only one frame.
 - Fix bug: Scale ratio might be incorrect when using srmd-ncnn-vulkan.
+- Multi-GPU fix for waifu2x-caffe and anime4k.
 
 v2.71.01-beta:
 - Improve the efficiency, speed and stability of Anime4k, Waifu2x-Caffe and Waifu2x-Converter when processing Video and GIF.
@@ -47,23 +48,6 @@ v2.71.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-- vulkan整个文件夹一起处理.
-
--t tile-size         tile size (>=32/0=auto, default=0) can be 0,0,0 for multi-gpu
-  -g gpu-id            gpu device to use (default=0) can be 0,1,2 for multi-gpu
-  -j load:proc:save    thread count for load/proc/save (default=1:2:2) can be 1:2,2,2:2 for multi-gpu
-
-获取基础倍率
-按照放大倍数循环
-根据线程和显卡分配参数
-开跑
-跑完了,复制scale到split
-#w2xVulkan only# 判断当前用的版本,如果为老旧的则读取split文件名列表,把带有两个"."的文件都改名成basename
-继续循环
-循环结束
-
-视频和gif里添加判断当前是否用的vulkan,如果是则判断当前放大倍数是否需要修改分辨率
-
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------
@@ -75,9 +59,9 @@ Integrated component:
 - waifu2x-ncnn-vulkan 20210102
 - SRMD-ncnn-Vulkan 20200818
 - realsr-ncnn-vulkan 20200818
-- ImageMagick 7.0.10-59-portable-Q16-x64
+- ImageMagick 7.0.10-61-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-01-24-git-1775688292-full_build
+- FFmpeg&FFprobe 2021-02-02-git-2367affc2c-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3
