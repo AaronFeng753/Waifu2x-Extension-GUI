@@ -315,7 +315,7 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     //获取失败
     if(original_height<=0||original_width<=0)
     {
-        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("]  [Unable to get source image resolution. ]"));
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("] [Unable to get resolution.]"));
         return 0;
     }
     //=====================分别计算高和宽的放大倍数=======================

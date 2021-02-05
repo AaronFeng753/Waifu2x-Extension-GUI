@@ -865,11 +865,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
             bitrate_video_cmd=" -b:v "+QString::number(small_res*6,10)+"k ";
         }
         //=================================================================
-        if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
+        if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio && CustRes_isEnabled==true)
         {
             resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":"+QString::number(CustRes_height,10)+" ";
         }
-        if(CustRes_AspectRatioMode==Qt::KeepAspectRatio)
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatio && CustRes_isEnabled==true)
         {
             if(CustRes_width>=CustRes_height)
             {
@@ -880,7 +880,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
                 resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":-2 ";
             }
         }
-        if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding)
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding && CustRes_isEnabled==true)
         {
             if(CustRes_width>=CustRes_height)
             {

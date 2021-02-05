@@ -140,15 +140,15 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
             CustRes_width = res_map["width"]*OriginalScaleRatio;
             resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"! ";
         }
-        if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
+        if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio && CustRes_isEnabled==true)
         {
             resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"! ";
         }
-        if(CustRes_AspectRatioMode==Qt::KeepAspectRatio)
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatio && CustRes_isEnabled==true)
         {
             resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+" ";
         }
-        if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding)
+        if(CustRes_AspectRatioMode==Qt::KeepAspectRatioByExpanding && CustRes_isEnabled==true)
         {
             if(CustRes_width>CustRes_height)
             {
@@ -161,7 +161,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
         }
     }
     QString program = Current_Path+"/convert_waifu2xEX.exe";
-    QString cmd = "\"" + program + "\" "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 " + "\"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
+    QString cmd = "\"" + program + "\" \"" + ScaledFramesPath + "/*png\" "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 \""+ResGifPath+"\"";
     QProcess *AssembleGIF=new QProcess();
     AssembleGIF->start(cmd);
     while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}

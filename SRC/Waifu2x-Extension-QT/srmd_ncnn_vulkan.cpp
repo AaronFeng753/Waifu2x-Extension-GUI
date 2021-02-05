@@ -127,6 +127,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
                 if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
+                    Waifu2x->close();
                     if(i>Initial_ScaleRatio)
                     {
                         QFile::remove(InputPath_tmp);
@@ -428,6 +429,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
                 if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
+                    Waifu2x->close();
                     break;
                 }
                 if(ui->checkBox_ShowInterPro->isChecked())
@@ -841,6 +843,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
                 if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
+                    Waifu2x->close();
                     break;
                 }
                 if(ui->checkBox_ShowInterPro->isChecked())
@@ -1365,6 +1368,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                         if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
                         {
                             waifu2x_qprocess_failed = true;
+                            Waifu2x->close();
                             break;
                         }
                         if(ui->checkBox_ShowInterPro->isChecked())
