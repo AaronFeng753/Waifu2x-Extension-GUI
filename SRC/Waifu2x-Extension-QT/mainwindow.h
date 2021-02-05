@@ -633,6 +633,8 @@ public slots:
 
     void Donate_ReplaceQRCode(QString QRCodePath);
 
+    void Set_checkBox_DisableResize_gif_Checked();
+
 private slots:
     void on_pushButton_Start_clicked();
 
@@ -970,6 +972,8 @@ signals:
     void Send_CurrentFileProgress_progressbar_SetFinishedValue(int FinishedValue);
 
     void Send_Donate_ReplaceQRCode(QString QRCodePath);
+
+    void Send_Set_checkBox_DisableResize_gif_Checked();
 
 private:
     Ui::MainWindow *ui;

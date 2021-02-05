@@ -53,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tableView_gif->installEventFilter(this);
     ui->tableView_video->installEventFilter(this);
     //===========================================
+    connect(this, SIGNAL(Send_Set_checkBox_DisableResize_gif_Checked()), this, SLOT(Set_checkBox_DisableResize_gif_Checked()));
     connect(this, SIGNAL(Send_Table_EnableSorting(bool)), this, SLOT(Table_EnableSorting(bool)));
     connect(this, SIGNAL(Send_Add_progressBar_CompatibilityTest()), this, SLOT(Add_progressBar_CompatibilityTest()));
     connect(this, SIGNAL(Send_Unable2Connect_RawGithubusercontentCom()), this, SLOT(Unable2Connect_RawGithubusercontentCom()));
@@ -1968,4 +1969,9 @@ void MainWindow::on_groupBox_video_settings_clicked()
         ui->pushButton_encodersList->setEnabled(0);
         ui->pushButton_ResetVideoSettings->setEnabled(0);
     }
+}
+void MainWindow::Set_checkBox_DisableResize_gif_Checked()
+{
+    emit Send_TextBrowser_NewMessage(tr("[Disable \"-resize\"] is automatically enabled to fix compatibility issue and improve performance."));
+    ui->checkBox_DisableResize_gif->setChecked(true);
 }

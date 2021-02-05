@@ -39,6 +39,7 @@ v2.71.12:
 - The OLD version of waifu2x-ncnn-vulkan engine will no longer support the use of multiple graphics cards to process GIF and video.
 - Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
 - Fix bug: Scale ratio might be incorrect when using srmd-ncnn-vulkan.
+- Fix bug: Unable to assemble gif because ImageMagick is not compatible with new AMD GPU driver.
 - Update ImageMagick,FFmpeg&FFprobe.
 
 --------------------------------------------------------------------------

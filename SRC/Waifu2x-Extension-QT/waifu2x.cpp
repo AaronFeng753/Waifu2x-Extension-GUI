@@ -219,6 +219,7 @@ void MainWindow::on_pushButton_Start_clicked()
     on_lineEdit_MultiGPUInfo_Waifu2xCaffe_editingFinished();
     ui->checkBox_ReplaceOriginalFile->setEnabled(0);
     ui->groupBox_CustRes->setEnabled(0);
+    ui->checkBox_DisableResize_gif->setEnabled(0);
     //==========
     TimeCost=0;
     TimeCostTimer->start(1000);
@@ -656,6 +657,7 @@ void MainWindow::Waifu2x_Finished_manual()
     checkBox_ReplaceOriginalFile_setEnabled_True_Self();
     ui->checkBox_AutoDetectAlphaChannel->setEnabled(1);
     ui->groupBox_CustRes->setEnabled(1);
+    ui->checkBox_DisableResize_gif->setEnabled(1);
     //=================== 数值恢复 ================================
     ThreadNumMax = 0;
     ThreadNumRunning = 0;
@@ -669,7 +671,7 @@ void MainWindow::Waifu2x_Finished_manual()
     ForceRetryCount=1;
     isForceRetryEnabled=true;
     //===============
-    KILL_TASK_("convert_waifu2xEX.exe",false);
+    KILL_TASK_("convert_waifu2xEX.exe",true);
 }
 
 /*
@@ -1039,5 +1041,5 @@ bool MainWindow::KILL_TASK_(QString TaskName,bool RequestAdmin)
         ExecuteCMD_batFile("taskkill /f /t /fi \"imagename eq "+TaskName+"\"",true);
         return true;
     }
-    return false;
+    return true;
 }

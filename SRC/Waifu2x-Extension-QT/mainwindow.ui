@@ -7775,45 +7775,6 @@ padding:10px;
                  <property name="spacing">
                   <number>5</number>
                  </property>
-                 <item row="0" column="0">
-                  <widget class="QCheckBox" name="checkBox_UpdatePopup">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="toolTip">
-                    <string>A pop-up window will prompts when an update is detected.</string>
-                   </property>
-                   <property name="text">
-                    <string>Update popup</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QCheckBox" name="checkBox_MinimizeToTaskbar">
-                   <property name="text">
-                    <string>Minimize to taskbar</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
-                   <property name="toolTip">
-                    <string>Settings will be saved automatically when you close the software.</string>
-                   </property>
-                   <property name="text">
-                    <string>Auto save settings</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="3" column="0">
                   <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
                    <property name="toolTip">
@@ -7824,27 +7785,10 @@ padding:10px;
                    </property>
                   </widget>
                  </item>
-                 <item row="4" column="0">
-                  <widget class="QCheckBox" name="checkBox_ScanSubFolders">
-                   <property name="toolTip">
-                    <string>When adding a folder to the file list, scan the files in
-the subfolder and add them to the file list.</string>
-                   </property>
+                 <item row="1" column="0">
+                  <widget class="QCheckBox" name="checkBox_MinimizeToTaskbar">
                    <property name="text">
-                    <string>Scan sub-folders</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0">
-                  <widget class="QCheckBox" name="checkBox_PromptWhenExit">
-                   <property name="text">
-                    <string>Prompt when exit</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
+                    <string>Minimize to taskbar</string>
                    </property>
                   </widget>
                  </item>
@@ -7920,6 +7864,77 @@ the subfolder and add them to the file list.</string>
                      </widget>
                     </item>
                    </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <widget class="QCheckBox" name="checkBox_UpdatePopup">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>A pop-up window will prompts when an update is detected.</string>
+                   </property>
+                   <property name="text">
+                    <string>Update popup</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QCheckBox" name="checkBox_BanGitee">
+                   <property name="toolTip">
+                    <string>Bans downloading anything from Communist China website Gitee.
+
+If you are in China, due to the government ban on raw.githubusercontent.com,
+enabling this will affect auto update.
+
+For detailed information, please read privacy policy.</string>
+                   </property>
+                   <property name="text">
+                    <string>Ban Gitee</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0">
+                  <widget class="QCheckBox" name="checkBox_ScanSubFolders">
+                   <property name="toolTip">
+                    <string>When adding a folder to the file list, scan the files in
+the subfolder and add them to the file list.</string>
+                   </property>
+                   <property name="text">
+                    <string>Scan sub-folders</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0">
+                  <widget class="QCheckBox" name="checkBox_PromptWhenExit">
+                   <property name="text">
+                    <string>Prompt when exit</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0">
+                  <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
+                   <property name="toolTip">
+                    <string>Settings will be saved automatically when you close the software.</string>
+                   </property>
+                   <property name="text">
+                    <string>Auto save settings</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
                   </widget>
                  </item>
                  <item row="7" column="0">
@@ -8006,18 +8021,15 @@ when processing video in segments.</string>
                    </layout>
                   </widget>
                  </item>
-                 <item row="8" column="0">
-                  <widget class="QCheckBox" name="checkBox_BanGitee">
+                 <item row="9" column="0">
+                  <widget class="QCheckBox" name="checkBox_DisableResize_gif">
                    <property name="toolTip">
-                    <string>Bans downloading anything from Communist China website Gitee.
-
-If you are in China, due to the government ban on raw.githubusercontent.com,
-enabling this will affect auto update.
-
-For detailed information, please read privacy policy.</string>
+                    <string>This option will be automatically enabled to improve
+performance when the software detects that your PC has
+compatibility issues with ImageMagick.</string>
                    </property>
                    <property name="text">
-                    <string>Ban Gitee</string>
+                    <string>Disable &quot;-resize&quot;</string>
                    </property>
                   </widget>
                  </item>

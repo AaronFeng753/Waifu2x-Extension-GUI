@@ -2155,23 +2155,23 @@ Therefore, the custom resolution for video has been automatically corrected by t
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1850"/>
-        <location filename="waifu2x.cpp" line="746"/>
+        <location filename="waifu2x.cpp" line="748"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1850"/>
-        <location filename="waifu2x.cpp" line="746"/>
+        <location filename="waifu2x.cpp" line="748"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="681"/>
+        <location filename="waifu2x.cpp" line="683"/>
         <source>Error! Original file [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="681"/>
+        <location filename="waifu2x.cpp" line="683"/>
         <source>] does not exists.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2348,7 +2348,7 @@ Do you wanna update now???</source>
         <location filename="files.cpp" line="535"/>
         <location filename="files.cpp" line="553"/>
         <location filename="files.cpp" line="571"/>
-        <location filename="gif.cpp" line="202"/>
+        <location filename="gif.cpp" line="257"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="36"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="61"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="199"/>
@@ -2389,7 +2389,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1426"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1451"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1486"/>
-        <location filename="video.cpp" line="906"/>
+        <location filename="video.cpp" line="904"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="140"/>
@@ -3257,12 +3257,12 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="906"/>
+        <location filename="video.cpp" line="904"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="952"/>
+        <location filename="video.cpp" line="950"/>
         <source>Finish assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3651,7 +3651,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="202"/>
+        <location filename="gif.cpp" line="257"/>
         <source>]. Error: [Can&apos;t optimize gif.]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3683,27 +3683,27 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="183"/>
+        <location filename="gif.cpp" line="182"/>
         <source>Finish assembling GIF:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="190"/>
+        <location filename="gif.cpp" line="245"/>
         <source>Starting to optimize GIF:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="211"/>
+        <location filename="gif.cpp" line="266"/>
         <source>Failed to optimize gif [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="211"/>
+        <location filename="gif.cpp" line="266"/>
         <source>] to reduce storage usage, the optimized gif file will be deleted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="217"/>
+        <location filename="gif.cpp" line="272"/>
         <source>Finish optimizing GIF:[</source>
         <translation type="unfinished"></translation>
     </message>

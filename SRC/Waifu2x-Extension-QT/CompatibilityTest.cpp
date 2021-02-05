@@ -495,18 +495,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     //=================
     // 杀死滞留的进程
     //=================
-    QProcess Close;
-    Close.start("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"");
-    Close.waitForStarted(5000);
-    Close.waitForFinished(5000);
-    QProcess Get_tasklist;
-    Get_tasklist.start("tasklist /fo csv");
-    while(!Get_tasklist.waitForStarted(100)) {}
-    while(!Get_tasklist.waitForFinished(100)) {}
-    if(Get_tasklist.readAllStandardOutput().contains("waifu2x-caffe_waifu2xEX.exe"))
-    {
-        ExecuteCMD_batFile("taskkill /f /t /fi \"imagename eq waifu2x-caffe_waifu2xEX.exe\"",true);
-    }
+    KILL_TASK_("waifu2x-caffe_waifu2xEX.exe",true);
     //================
     //测试结束
     //================

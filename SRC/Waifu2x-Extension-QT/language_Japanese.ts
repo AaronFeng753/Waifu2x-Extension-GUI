@@ -3425,7 +3425,7 @@ by the software will be used.</source>
         <location filename="files.cpp" line="535"/>
         <location filename="files.cpp" line="553"/>
         <location filename="files.cpp" line="571"/>
-        <location filename="gif.cpp" line="202"/>
+        <location filename="gif.cpp" line="257"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="36"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="61"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="199"/>
@@ -3466,7 +3466,7 @@ by the software will be used.</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1426"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1451"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1486"/>
-        <location filename="video.cpp" line="906"/>
+        <location filename="video.cpp" line="904"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="140"/>
@@ -4077,23 +4077,23 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1850"/>
-        <location filename="waifu2x.cpp" line="746"/>
+        <location filename="waifu2x.cpp" line="748"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1850"/>
-        <location filename="waifu2x.cpp" line="746"/>
+        <location filename="waifu2x.cpp" line="748"/>
         <source>] to [</source>
         <translation>]から[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="681"/>
+        <location filename="waifu2x.cpp" line="683"/>
         <source>Error! Original file [</source>
         <translation>エラー！ 元のファイル[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="681"/>
+        <location filename="waifu2x.cpp" line="683"/>
         <source>] does not exists.</source>
         <translation>]存在しません。</translation>
     </message>
@@ -4873,12 +4873,12 @@ GIF：%2
         <translation>ビデオの組み立てを開始します：[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="906"/>
+        <location filename="video.cpp" line="904"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]。 エラー：[ビデオのフレームレートを取得できません。]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="952"/>
+        <location filename="video.cpp" line="950"/>
         <source>Finish assembling video:[</source>
         <translation>ビデオの組み立てを完了します：[</translation>
     </message>
@@ -5337,7 +5337,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>]。 エラー：[gifを組み立てられません。]</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="202"/>
+        <location filename="gif.cpp" line="257"/>
         <source>]. Error: [Can&apos;t optimize gif.]</source>
         <translation>]。 エラー：[gifを最適化できません。]</translation>
     </message>
@@ -5369,27 +5369,27 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>GIFの組み立てを開始します：[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="183"/>
+        <location filename="gif.cpp" line="182"/>
         <source>Finish assembling GIF:[</source>
         <translation>GIFの組み立てを完了：[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="190"/>
+        <location filename="gif.cpp" line="245"/>
         <source>Starting to optimize GIF:[</source>
         <translation>GIFの最適化を開始:[</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="211"/>
+        <location filename="gif.cpp" line="266"/>
         <source>Failed to optimize gif [</source>
         <translation>ストレージ使用量を減らすためにgif [</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="211"/>
+        <location filename="gif.cpp" line="266"/>
         <source>] to reduce storage usage, the optimized gif file will be deleted.</source>
         <translation>]を最適化できませんでした。最適化されたgifファイルは削除されます。</translation>
     </message>
     <message>
-        <location filename="gif.cpp" line="217"/>
+        <location filename="gif.cpp" line="272"/>
         <source>Finish optimizing GIF:[</source>
         <translation>GIFの最適化を終了:[</translation>
     </message>
