@@ -668,6 +668,8 @@ void MainWindow::Waifu2x_Finished_manual()
     TimeCost=0;
     ForceRetryCount=1;
     isForceRetryEnabled=true;
+    //===============
+    KILL_TASK_("convert_waifu2xEX.exe",false);
 }
 
 /*
@@ -980,7 +982,7 @@ void MainWindow::Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QS
     }
 }
 /*
-复制一个文件夹的内容到另一个文件夹
+复制一个文件夹的内容到另一个文件夹 Ncnn Vulkan
 */
 void MainWindow::file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folder, QString New_folder, bool Delete_)
 {
@@ -1007,4 +1009,35 @@ void MainWindow::file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folde
         QFile::rename(Old_folder+"/"+FileName,New_folder+"/"+FileName);
     }
     if(Delete_)file_DelDir(Old_folder);
+}
+/*
+杀死进程,可选管理员
+*/
+bool MainWindow::KILL_TASK_(QString TaskName,bool RequestAdmin)
+{
+    TaskName=TaskName.trimmed();
+    if(TaskName=="")return false;
+    //===============
+    QProcess Get_tasklist;
+    Get_tasklist.start("tasklist /fo csv");
+    while(!Get_tasklist.waitForStarted(500)) {}
+    while(!Get_tasklist.waitForFinished(500)) {}
+    if(Get_tasklist.readAllStandardOutput().contains(TaskName.toUtf8())==false)
+    {
+        return true;
+    }
+    //===============
+    QProcess Close;
+    Close.start("taskkill /f /t /fi \"imagename eq "+TaskName+"\"");
+    while(!Close.waitForStarted(500)) {}
+    while(!Close.waitForFinished(500)) {}
+    Get_tasklist.start("tasklist /fo csv");
+    while(!Get_tasklist.waitForStarted(500)) {}
+    while(!Get_tasklist.waitForFinished(500)) {}
+    if(Get_tasklist.readAllStandardOutput().contains(TaskName.toUtf8()) && RequestAdmin==true)
+    {
+        ExecuteCMD_batFile("taskkill /f /t /fi \"imagename eq "+TaskName+"\"",true);
+        return true;
+    }
+    return false;
 }

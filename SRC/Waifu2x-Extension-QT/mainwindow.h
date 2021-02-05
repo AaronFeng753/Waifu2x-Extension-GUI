@@ -176,6 +176,7 @@ public:
     QStringList WaitForEngineIO_NcnnVulkan(QString OutputFolderFullPath);
     void Restore_SplitFramesFolderPath(QString SplitFramesFolderPath, QStringList GPU_SplitFramesFolderPath_List);
     bool isForceRetryEnabled=true;
+    bool KILL_TASK_(QString TaskName,bool RequestAdmin);
     //==========================
     QString Waifu2x_ncnn_vulkan_FolderPath = "";
     QString Waifu2x_ncnn_vulkan_ProgramPath = "";

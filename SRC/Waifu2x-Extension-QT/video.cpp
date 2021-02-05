@@ -846,9 +846,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         {
             QMap<QString,int> res_map = video_get_Resolution(VideoPath);
             int scaleratio_orginal = ui->spinBox_ScaleRatio_video->value();
-            CustRes_height = res_map["height"]*scaleratio_orginal;
-            CustRes_width = res_map["width"]*scaleratio_orginal;
-            resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":"+QString::number(CustRes_height,10)+" ";
+            resize_cmd =" -vf scale="+QString::number(res_map["width"]*scaleratio_orginal,10)+":"+QString::number(res_map["height"]*scaleratio_orginal,10)+" ";
         }
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
         if(ui->groupBox_video_settings->isChecked()==false || (ui->spinBox_bitrate_vid->value()<1))
