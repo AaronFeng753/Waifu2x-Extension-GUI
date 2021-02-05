@@ -767,7 +767,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     if(CustRes_isContained(SourceFile_fullPath))
     {
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio_Original = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt());
     }
     int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
@@ -1281,7 +1281,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             if(CustRes_isContained(SourceFile_fullPath))
             {
                 QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-                ScaleRatio_Original = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+                ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt());
             }
             int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
             isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);

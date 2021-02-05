@@ -34,20 +34,16 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.71.02-beta:
+v2.71.12:
 - Significantly improve the efficiency, speed and stability of ALL engines when processing Video and GIF.
 - The OLD version of waifu2x-ncnn-vulkan engine will no longer support the use of multiple graphics cards to process GIF and video.
 - Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
-- Fix bug: Cannot process video and gif properly when there is only one frame.
 - Fix bug: Scale ratio might be incorrect when using srmd-ncnn-vulkan.
-- Multi-GPU fix for waifu2x-caffe and anime4k.
-
-v2.71.01-beta:
-- Improve the efficiency, speed and stability of Anime4k, Waifu2x-Caffe and Waifu2x-Converter when processing Video and GIF.
-- GUI fix.
+- Update ImageMagick,FFmpeg&FFprobe.
 
 --------------------------------------------------------------------------
 To do:
+- 补全翻译
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------

@@ -3249,7 +3249,7 @@ the number of threads must &gt;= the number of GPUs.
 
 3.You need to [Detect available GPU ID] first.
 
-*Only latest version of Waifu2x-NCNN-Vulkan supports Multi-GPU*</string>
+*Only latest version fully supports Multi-GPU*</string>
                   </property>
                   <property name="text">
                    <string>Enable Multi-GPU</string>
@@ -3364,17 +3364,17 @@ padding:10px;
                   </property>
                   <item>
                    <property name="text">
-                    <string>Latest(Only this version supports alpha channel)</string>
+                    <string>Latest(Alpha channel,TTA,Multi-GPU)</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>20200414(fp16p)</string>
+                    <string>20200414-fp16p(TTA,Multi-GPU(Image only))</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>Old</string>
+                    <string>Old(Multi-GPU(Image only))</string>
                    </property>
                   </item>
                  </widget>

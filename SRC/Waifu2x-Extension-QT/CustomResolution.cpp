@@ -291,11 +291,31 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
 {
     QImage qimage_original;
     qimage_original.load(fullpath);
-    int original_height = qimage_original.height();
-    int original_width = qimage_original.width();
+    int original_height = 0;
+    int original_width = 0;
+    //===================== 判断文件类型,获取分辨率 =============================
+    //判断是否为图片或gif
+    QFileInfo fileinfo(fullpath);
+    QString file_ext = fileinfo.suffix();
+    QString Ext_image_str = ui->Ext_image->text();
+    QStringList nameFilters_image = Ext_image_str.split(":");
+    if (nameFilters_image.contains(file_ext.toLower()) || file_ext.toLower()=="gif")
+    {
+        //是图片或gif
+        QMap<QString,int> res_map = Image_Gif_Read_Resolution(fullpath);
+        original_height = res_map["height"];
+        original_width = res_map["width"];
+    }
+    else//不是图片gif就是视频了
+    {
+        QMap<QString,int> res_map = video_get_Resolution(fullpath);
+        original_height = res_map["height"];
+        original_width = res_map["width"];
+    }
+    //获取失败
     if(original_height<=0||original_width<=0)
     {
-        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("]  [ Unable to get source image resolution. ]"));
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("]  [Unable to get source image resolution. ]"));
         return 0;
     }
     //=====================分别计算高和宽的放大倍数=======================

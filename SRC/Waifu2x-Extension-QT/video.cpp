@@ -178,34 +178,11 @@ QMap<QString,int> MainWindow::video_get_Resolution(QString VideoFileFullPath)
             return res_map;
         }
     }
-    //========================================================================================
-    QString FrameImageFullPath="";
-    FrameImageFullPath = file_getBaseName(VideoFileFullPath)+"_GetVideoRes_W2xEX.jpg";
-    QFile::remove(FrameImageFullPath);
-    QString program = Current_Path+"/ffmpeg_waifu2xEX.exe";
-    QProcess vid;
-    vid.start("\""+program+"\" -ss 0 -i \""+VideoFileFullPath+"\" -vframes 1 \""+FrameImageFullPath+"\"");
-    while(!vid.waitForStarted(100)&&!QProcess_stop) {}
-    while(!vid.waitForFinished(100)&&!QProcess_stop) {}
-    QImage qimage_original;
-    qimage_original.load(FrameImageFullPath);
-    int original_height = qimage_original.height();
-    int original_width = qimage_original.width();
-    QFile::remove(FrameImageFullPath);
-    if(original_height<=0||original_width<=0)
-    {
-        emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the resolution of the video. [")+VideoFileFullPath+"]");
-        QMap<QString,int> empty;
-        empty["height"] = 0;
-        empty["width"] = 0;
-        return empty;
-    }
-    //==============================
-    QMap<QString,int> res_map;
-    //读取文件信息
-    res_map["height"] = original_height;
-    res_map["width"] = original_width;
-    return res_map;
+    emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the resolution of the video. [")+VideoFileFullPath+"]");
+    QMap<QString,int> empty;
+    empty["height"] = 0;
+    empty["width"] = 0;
+    return empty;
 }
 
 /*
@@ -865,12 +842,13 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString resize_cmd ="";
     if(CustRes_isEnabled || isOverScaled)
     {
-        if(isOverScaled==true)
+        if(isOverScaled==true && CustRes_isEnabled==false)
         {
             QMap<QString,int> res_map = video_get_Resolution(VideoPath);
             int scaleratio_orginal = ui->spinBox_ScaleRatio_video->value();
             CustRes_height = res_map["height"]*scaleratio_orginal;
             CustRes_width = res_map["width"]*scaleratio_orginal;
+            resize_cmd =" -vf scale="+QString::number(CustRes_width,10)+":"+QString::number(CustRes_height,10)+" ";
         }
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
         if(ui->groupBox_video_settings->isChecked()==false || (ui->spinBox_bitrate_vid->value()<1))

@@ -132,12 +132,13 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
     QString resize_cmd ="";
     if(CustRes_isEnabled || isOverScaled)
     {
-        if(isOverScaled==true)
+        if(isOverScaled==true && CustRes_isEnabled==false)
         {
             QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceGifFullPath);
             int OriginalScaleRatio = ui->spinBox_ScaleRatio_gif->value();
             CustRes_height = res_map["height"]*OriginalScaleRatio;
             CustRes_width = res_map["width"]*OriginalScaleRatio;
+            resize_cmd =" -resize "+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"! ";
         }
         if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio)
         {
