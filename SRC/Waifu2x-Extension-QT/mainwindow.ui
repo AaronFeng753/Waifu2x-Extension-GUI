@@ -8025,8 +8025,8 @@ when processing video in segments.</string>
                   <widget class="QCheckBox" name="checkBox_DisableResize_gif">
                    <property name="toolTip">
                     <string>This option will be automatically enabled to improve
-performance when the software detects that your PC has
-compatibility issues with ImageMagick.</string>
+performance and fix issues when the software detects
+that your PC has compatibility issues with ImageMagick.</string>
                    </property>
                    <property name="text">
                     <string>Disable &quot;-resize&quot;</string>
