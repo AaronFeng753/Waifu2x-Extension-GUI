@@ -1174,13 +1174,14 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
                     正式开始处理
     ============================================
     */
+    int SegmentDuration_tmp=0;
+    int TimeLeft_tmp=0;
     while(VideoDuration>StartTime)
     {
         /*==========================
                 计算视频片段时间
         ==========================*/
-        int SegmentDuration_tmp=0;
-        int TimeLeft_tmp = VideoDuration-StartTime;
+        TimeLeft_tmp = VideoDuration-StartTime;
         if((TimeLeft_tmp)>=SegmentDuration)
         {
             SegmentDuration_tmp = SegmentDuration;
@@ -1372,7 +1373,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = (StartTime+SegmentDuration)/SegmentDuration;
+        int VideoClipNo = (StartTime+SegmentDuration_tmp)/SegmentDuration_tmp;
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,false);
