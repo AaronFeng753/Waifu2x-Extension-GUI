@@ -230,7 +230,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     }
     //==============================
     QStringList VideoClips_Scan_list = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath);
-    int VideoClipsNum = VideoClips_Scan_list.count();
+    int VideoClipsNum = VideoClips_Scan_list.size();
     QStringList VideoClips_fileName_list;
     VideoClips_fileName_list.clear();
     QFileInfo vfinfo(video_mp4_scaled_fullpath);
@@ -733,7 +733,7 @@ QString MainWindow::video_get_fps(QString videoPath)
     }
     //=======================
     QStringList FPS_Nums = FPS_Division.split("/");
-    if(FPS_Nums.count()!=2)
+    if(FPS_Nums.size()!=2)
     {
         return "0.0";
     }

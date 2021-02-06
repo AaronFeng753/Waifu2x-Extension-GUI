@@ -1424,7 +1424,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.count()!=NumOfSplitFrames)
+            if(Frame_fileName_list_scaled.size()!=NumOfSplitFrames)
             {
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
                 status = "Failed";
@@ -1445,7 +1445,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = (StartTime+SegmentDuration_tmp)/SegmentDuration_tmp;
+        int VideoClipNo = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath).size();
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
@@ -1720,7 +1720,7 @@ QMap<QString,QString> MainWindow::RealsrNcnnVulkan_MultiGPU()
 {
     MultiGPU_QMutex_RealsrNcnnVulkan.lock();
     //====
-    int MAX_GPU_ID_RealsrNcnnVulkan = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count()-1;
+    int MAX_GPU_ID_RealsrNcnnVulkan = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.size()-1;
     if(GPU_ID_RealsrNcnnVulkan_MultiGPU>MAX_GPU_ID_RealsrNcnnVulkan)
     {
         GPU_ID_RealsrNcnnVulkan_MultiGPU=0;
@@ -1788,7 +1788,7 @@ void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_clicked()
 {
     if(ui->checkBox_MultiGPU_RealsrNcnnVulkan->isChecked())
     {
-        if(GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count()==0)
+        if(GPUIDs_List_MultiGPU_RealsrNcnnVulkan.size()==0)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Notification"));
@@ -1799,7 +1799,7 @@ void MainWindow::on_checkBox_MultiGPU_RealsrNcnnVulkan_clicked()
             ui->checkBox_MultiGPU_RealsrNcnnVulkan->setChecked(0);
             return;
         }
-        if(GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count()<2)
+        if(GPUIDs_List_MultiGPU_RealsrNcnnVulkan.size()<2)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Error"));
@@ -1837,7 +1837,7 @@ void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_RealsrNcnnVulkan_click
     }
     GPUIDs_List_MultiGPU_RealsrNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_RealsrNcnnVulkan->currentIndex(),GPUInfo);
     int enabledGPUs = 0;
-    for (int i=0; i<GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count(); i++)
+    for (int i=0; i<GPUIDs_List_MultiGPU_RealsrNcnnVulkan.size(); i++)
     {
         QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.at(i);
         if(GPUInfo_tmp["isEnabled"] == "true")
@@ -1869,7 +1869,7 @@ void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_RealsrNcnnVulkan_valueC
 
 void MainWindow::on_pushButton_ShowMultiGPUSettings_RealsrNcnnVulkan_clicked()
 {
-    int Max_GPU_ID = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.count();
+    int Max_GPU_ID = GPUIDs_List_MultiGPU_RealsrNcnnVulkan.size();
     QString MultiGPUSettings_str="";
     for(int GPU_ID=0; GPU_ID<Max_GPU_ID; GPU_ID++)
     {

@@ -421,7 +421,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     emit Send_CurrentFileProgress_Stop();
     //======================= 检查是否成功放大所有帧 ===========================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
+    if(Frame_fileName_list.size()!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
         status = "Failed";
@@ -888,7 +888,7 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     emit Send_CurrentFileProgress_Stop();
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+    if(Frame_fileName_list_scaled.size()<Frame_fileName_list.size())
     {
         Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
@@ -1364,7 +1364,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             FileProgressWatch_QFuture.cancel();
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+            if(Frame_fileName_list_scaled.size()<Frame_fileName_list.size())
             {
                 Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
@@ -1386,7 +1386,7 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = (StartTime+SegmentDuration_tmp)/SegmentDuration_tmp;
+        int VideoClipNo = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath).size();
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,false);
@@ -1821,7 +1821,7 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
     GPU_List.removeDuplicates();
     GPU_List.removeAll("");
     //====
-    int MAX_GPU_ID_Waifu2xCaffe = GPU_List.count()-1;
+    int MAX_GPU_ID_Waifu2xCaffe = GPU_List.size()-1;
     if(GPU_ID_Waifu2xCaffe_GetGPUInfo>MAX_GPU_ID_Waifu2xCaffe)
     {
         GPU_ID_Waifu2xCaffe_GetGPUInfo=0;
@@ -1830,7 +1830,7 @@ QString MainWindow::Waifu2xCaffe_GetGPUInfo()
     QString GPUInfo="";
     QStringList GPUID_BatchSize_SplitSize = GPU_List.at(GPU_ID_Waifu2xCaffe_GetGPUInfo).split(",");
     GPUID_BatchSize_SplitSize.removeAll("");
-    if(GPUID_BatchSize_SplitSize.count()==3)
+    if(GPUID_BatchSize_SplitSize.size()==3)
     {
         GPUInfo = "--gpu "+GPUID_BatchSize_SplitSize.at(0).trimmed()+" -b "+GPUID_BatchSize_SplitSize.at(1).trimmed()+" -c "+GPUID_BatchSize_SplitSize.at(2).trimmed();
     }
@@ -1872,11 +1872,11 @@ void MainWindow::on_pushButton_VerifyGPUsConfig_Waifu2xCaffe_clicked()
     //======
     QString VerRes = "";
     //======
-    for (int i=0; i<GPU_List.count(); i++)
+    for (int i=0; i<GPU_List.size(); i++)
     {
         QStringList GPUID_BatchSize_SplitSize = GPU_List.at(i).split(",");
         GPUID_BatchSize_SplitSize.removeAll("");
-        if(GPUID_BatchSize_SplitSize.count()==3)
+        if(GPUID_BatchSize_SplitSize.size()==3)
         {
             VerRes.append("GPU ["+QString::number(i,10)+"]: ID:["+GPUID_BatchSize_SplitSize.at(0).trimmed()+"]"+tr(" Batch Size:[")+GPUID_BatchSize_SplitSize.at(1).trimmed()+"]"+tr(" Split Size:[")+GPUID_BatchSize_SplitSize.at(2).trimmed()+"]\n\n");
         }

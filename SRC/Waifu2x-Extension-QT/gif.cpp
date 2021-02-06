@@ -61,7 +61,7 @@ int MainWindow::Gif_getDuration(QString gifPath)
     if(FPS_Division!="")
     {
         QStringList FPS_Nums = FPS_Division.split("/");
-        if(FPS_Nums.count()==2)
+        if(FPS_Nums.size()==2)
         {
             double FPS_Num_0 = FPS_Nums.at(0).toDouble();
             double FPS_Num_1 = FPS_Nums.at(1).toDouble();

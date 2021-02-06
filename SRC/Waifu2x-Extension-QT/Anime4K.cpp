@@ -410,7 +410,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     emit Send_CurrentFileProgress_Stop();
     //======================= 检查是否成功放大所有帧 ===========================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
+    if(Frame_fileName_list.size()!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
         status = "Failed";
@@ -858,7 +858,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     emit Send_CurrentFileProgress_Stop();
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+    if(Frame_fileName_list_scaled.size()<Frame_fileName_list.size())
     {
         Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
@@ -1337,7 +1337,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             FileProgressWatch_QFuture.cancel();
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+            if(Frame_fileName_list_scaled.size()<Frame_fileName_list.size())
             {
                 Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
@@ -1359,7 +1359,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = (StartTime+SegmentDuration_tmp)/SegmentDuration_tmp;
+        int VideoClipNo = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath).size();
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,false);

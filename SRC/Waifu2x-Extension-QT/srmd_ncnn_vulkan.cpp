@@ -477,7 +477,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
     //======================= 检查是否成功放大所有帧 ===========================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(NumOfSplitFrames!=Frame_fileName_list_scaled.count())
+    if(NumOfSplitFrames!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
         status = "Failed";
@@ -892,7 +892,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list_scaled.count()!=NumOfSplitFrames)
+    if(Frame_fileName_list_scaled.size()!=NumOfSplitFrames)
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         status = "Failed";
@@ -1422,7 +1422,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.count()!=NumOfSplitFrames)
+            if(Frame_fileName_list_scaled.size()!=NumOfSplitFrames)
             {
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
                 status = "Failed";
@@ -1443,7 +1443,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = (StartTime+SegmentDuration_tmp)/SegmentDuration_tmp;
+        int VideoClipNo = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath).size();
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
@@ -1693,7 +1693,7 @@ QMap<QString,QString> MainWindow::SrmdNcnnVulkan_MultiGPU()
 {
     MultiGPU_QMutex_SrmdNcnnVulkan.lock();
     //====
-    int MAX_GPU_ID_SrmdNcnnVulkan = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()-1;
+    int MAX_GPU_ID_SrmdNcnnVulkan = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.size()-1;
     if(GPU_ID_SrmdNcnnVulkan_MultiGPU>MAX_GPU_ID_SrmdNcnnVulkan)
     {
         GPU_ID_SrmdNcnnVulkan_MultiGPU=0;
@@ -1759,7 +1759,7 @@ void MainWindow::on_checkBox_MultiGPU_SrmdNCNNVulkan_clicked()
 {
     if(ui->checkBox_MultiGPU_SrmdNCNNVulkan->isChecked())
     {
-        if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()==0)
+        if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.size()==0)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Notification"));
@@ -1770,7 +1770,7 @@ void MainWindow::on_checkBox_MultiGPU_SrmdNCNNVulkan_clicked()
             ui->checkBox_MultiGPU_SrmdNCNNVulkan->setChecked(0);
             return;
         }
-        if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count()<2)
+        if(GPUIDs_List_MultiGPU_SrmdNcnnVulkan.size()<2)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Error"));
@@ -1797,7 +1797,7 @@ void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_SrmdNCNNVulkan_clicked
     }
     GPUIDs_List_MultiGPU_SrmdNcnnVulkan.replace(ui->comboBox_GPUIDs_MultiGPU_SrmdNCNNVulkan->currentIndex(),GPUInfo);
     int enabledGPUs = 0;
-    for (int i=0; i<GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count(); i++)
+    for (int i=0; i<GPUIDs_List_MultiGPU_SrmdNcnnVulkan.size(); i++)
     {
         QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.at(i);
         if(GPUInfo_tmp["isEnabled"] == "true")
@@ -1840,7 +1840,7 @@ void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_SrmdNCNNVulkan_valueCha
 
 void MainWindow::on_pushButton_ShowMultiGPUSettings_SrmdNCNNVulkan_clicked()
 {
-    int Max_GPU_ID = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.count();
+    int Max_GPU_ID = GPUIDs_List_MultiGPU_SrmdNcnnVulkan.size();
     QString MultiGPUSettings_str="";
     for(int GPU_ID=0; GPU_ID<Max_GPU_ID; GPU_ID++)
     {

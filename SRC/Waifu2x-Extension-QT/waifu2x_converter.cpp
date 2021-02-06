@@ -321,7 +321,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked()==true)
     {
         NumOfGPU=0;
-        for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
+        for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.size(); i++)
         {
             QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
             if(GPUInfo_tmp["isEnabled"] == "true")
@@ -412,7 +412,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     emit Send_CurrentFileProgress_Stop();
     //======================= 检查是否成功放大所有帧 ===========================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list.count()!=Frame_fileName_list_scaled.count())
+    if(Frame_fileName_list.size()!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
         status = "Failed";
@@ -776,7 +776,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked()==true)
     {
         NumOfGPU=0;
-        for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
+        for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.size(); i++)
         {
             QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
             if(GPUInfo_tmp["isEnabled"] == "true")
@@ -867,7 +867,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     emit Send_CurrentFileProgress_Stop();
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+    if(Frame_fileName_list_scaled.size()<Frame_fileName_list.size())
     {
         Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
@@ -1261,7 +1261,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked()==true)
             {
                 NumOfGPU=0;
-                for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
+                for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.size(); i++)
                 {
                     QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
                     if(GPUInfo_tmp["isEnabled"] == "true")
@@ -1351,7 +1351,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             FileProgressWatch_QFuture.cancel();
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.count()<Frame_fileName_list.count())
+            if(Frame_fileName_list_scaled.size()<Frame_fileName_list.size())
             {
                 Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
@@ -1373,7 +1373,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = (StartTime+SegmentDuration_tmp)/SegmentDuration_tmp;
+        int VideoClipNo = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath).size();
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,false);
@@ -1749,7 +1749,7 @@ QMap<QString,QString> MainWindow::Waifu2xConverter_MultiGPU()
 {
     MultiGPU_QMutex_Waifu2xConverter.lock();
     //====
-    int MAX_GPU_ID_Waifu2xConverter = GPUIDs_List_MultiGPU_Waifu2xConverter.count()-1;
+    int MAX_GPU_ID_Waifu2xConverter = GPUIDs_List_MultiGPU_Waifu2xConverter.size()-1;
     if(GPU_ID_Waifu2xConverter_MultiGPU>MAX_GPU_ID_Waifu2xConverter)
     {
         GPU_ID_Waifu2xConverter_MultiGPU=0;
@@ -1815,7 +1815,7 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_clicked()
 {
     if(ui->checkBox_MultiGPU_Waifu2xConverter->isChecked())
     {
-        if(GPUIDs_List_MultiGPU_Waifu2xConverter.count()==0)
+        if(GPUIDs_List_MultiGPU_Waifu2xConverter.size()==0)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Notification"));
@@ -1826,7 +1826,7 @@ void MainWindow::on_checkBox_MultiGPU_Waifu2xConverter_clicked()
             ui->checkBox_MultiGPU_Waifu2xConverter->setChecked(0);
             return;
         }
-        if(GPUIDs_List_MultiGPU_Waifu2xConverter.count()<2)
+        if(GPUIDs_List_MultiGPU_Waifu2xConverter.size()<2)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Error"));
@@ -1864,7 +1864,7 @@ void MainWindow::on_checkBox_isEnable_CurrentGPU_MultiGPU_Waifu2xConverter_click
     }
     GPUIDs_List_MultiGPU_Waifu2xConverter.replace(ui->comboBox_GPUIDs_MultiGPU_Waifu2xConverter->currentIndex(),GPUInfo);
     int enabledGPUs = 0;
-    for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.count(); i++)
+    for (int i=0; i<GPUIDs_List_MultiGPU_Waifu2xConverter.size(); i++)
     {
         QMap<QString,QString> GPUInfo_tmp = GPUIDs_List_MultiGPU_Waifu2xConverter.at(i);
         if(GPUInfo_tmp["isEnabled"] == "true")
@@ -1896,7 +1896,8 @@ void MainWindow::on_spinBox_TileSize_CurrentGPU_MultiGPU_Waifu2xConverter_valueC
 
 void MainWindow::on_pushButton_ShowMultiGPUSettings_Waifu2xConverter_clicked()
 {
-    int Max_GPU_ID = GPUIDs_List_MultiGPU_Waifu2xConverter.count();
+    int Max_GPU_ID = GPUIDs_List_MultiGPU_Waifu2xConverter.size();
+    GPUIDs_List_MultiGPU_Waifu2xConverter.size();
     QString MultiGPUSettings_str="";
     for(int GPU_ID=0; GPU_ID<Max_GPU_ID; GPU_ID++)
     {
