@@ -230,7 +230,6 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     }
     //==============================
     QStringList VideoClips_Scan_list = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath);
-    int VideoClipsNum = VideoClips_Scan_list.size();
     QStringList VideoClips_fileName_list;
     VideoClips_fileName_list.clear();
     QFileInfo vfinfo(video_mp4_scaled_fullpath);
@@ -238,7 +237,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     /*
     生成视频片段文件完整路径QStringList
     */
-    for (int VideoNameNo = 1; VideoNameNo<=VideoClipsNum; VideoNameNo++)
+    for (int VideoNameNo = 0; VideoNameNo<VideoClips_Scan_list.size(); VideoNameNo++)
     {
         QString VideoClip_FullPath_tmp = VideoClipsFolderPath+"/"+QString::number(VideoNameNo,10)+".mp4";
         if(QFile::exists(VideoClip_FullPath_tmp))
