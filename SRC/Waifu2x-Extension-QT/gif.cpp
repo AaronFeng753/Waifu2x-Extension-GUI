@@ -203,21 +203,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
             New_width = CustRes_width;
             New_height = CustRes_height;
         }
-        QStringList Frames_QStringList = file_getFileNames_in_Folder_nofilter(ScaledFramesPath);
-        for(int i=0; i<Frames_QStringList.size(); i++)
-        {
-            QString OutPut_Path = ScaledFramesPath+"/"+Frames_QStringList.at(i);
-            QImage qimage_adj(OutPut_Path);
-            //读取放大后的图片并调整大小
-            QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
-            QImageWriter qimageW_adj;
-            qimageW_adj.setFormat("png");
-            qimageW_adj.setFileName(OutPut_Path);
-            if(qimageW_adj.canWrite())
-            {
-                qimageW_adj.write(qimage_adj_scaled);
-            }
-        }
+        ImagesResize_Folder_MultiThread(New_width,New_height,ScaledFramesPath);
     }
     QString cmd = "\"" + program + "\" \"" + ScaledFramesPath + "/*png\" -delay " + QString::number(Duration, 10) + " -loop 0 \""+ResGifPath+"\"";
     QProcess *AssembleGIF_1=new QProcess();

@@ -19,6 +19,61 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+多线程调整文件夹内图片大小
+*/
+void MainWindow::ImagesResize_Folder_MultiThread(int New_width,int New_height,QString ImagesFolderPath)
+{
+    if(file_isDirExist(ImagesFolderPath)==false)return;
+    //====
+    QMutex_ResizeImage_MultiThread.lock();
+    //=====
+    TotalNumOfThreads_ImagesResize_Folder_MultiThread = QThread::idealThreadCount()/2;
+    if(TotalNumOfThreads_ImagesResize_Folder_MultiThread<1)TotalNumOfThreads_ImagesResize_Folder_MultiThread=1;
+    RunningNumOfThreads_ImagesResize_Folder_MultiThread=0;
+    //=====
+    QMutex_ResizeImage_MultiThread.unlock();
+    //================
+    QStringList Frames_QStringList = file_getFileNames_in_Folder_nofilter(ImagesFolderPath);
+    if(Frames_QStringList.isEmpty())return;
+    for(int i=0; i<Frames_QStringList.size(); i++)
+    {
+        QString OutPut_Path = ImagesFolderPath+"/"+Frames_QStringList.at(i);
+        //====
+        QMutex_ResizeImage_MultiThread.lock();
+        RunningNumOfThreads_ImagesResize_Folder_MultiThread++;
+        QMutex_ResizeImage_MultiThread.unlock();
+        //====
+        QtConcurrent::run(this,&MainWindow::ResizeImage_MultiThread,New_width,New_height,OutPut_Path);
+        while(RunningNumOfThreads_ImagesResize_Folder_MultiThread>=TotalNumOfThreads_ImagesResize_Folder_MultiThread)
+        {
+            Delay_msec_sleep(300);
+        }
+    }
+    while(RunningNumOfThreads_ImagesResize_Folder_MultiThread>0)
+    {
+        Delay_msec_sleep(300);
+    }
+    return;
+}
+
+void MainWindow::ResizeImage_MultiThread(int New_width,int New_height,QString ImagesPath)
+{
+    QImage qimage_adj(ImagesPath);
+    QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
+    QImageWriter qimageW_adj;
+    qimageW_adj.setFormat("png");
+    qimageW_adj.setFileName(ImagesPath);
+    if(qimageW_adj.canWrite())
+    {
+        qimageW_adj.write(qimage_adj_scaled);
+    }
+    QMutex_ResizeImage_MultiThread.lock();
+    RunningNumOfThreads_ImagesResize_Folder_MultiThread--;
+    QMutex_ResizeImage_MultiThread.unlock();
+    return;
+}
+
+/*
 根据分辨率判断是否跳过
 true = 跳过
 */

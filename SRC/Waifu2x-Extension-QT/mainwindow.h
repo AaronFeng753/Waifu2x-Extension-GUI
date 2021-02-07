@@ -58,6 +58,7 @@
 #include <QRandomGenerator>
 #include <QScrollBar>
 #include <QThread>
+#include <QThreadPool>
 
 typedef QList<QMap<QString, QString>> QList_QMap_QStrQStr;
 Q_DECLARE_METATYPE(QList_QMap_QStrQStr)
@@ -536,6 +537,12 @@ public:
     QString HDNDenoiseLevel_video = "";
     //================== 计算临时放大倍率 ====================
     int Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(int ScaleRatio);
+    //================== 多线程调整图片大小 =========================
+    void ImagesResize_Folder_MultiThread(int New_width,int New_height,QString ImagesFolderPath);
+    int TotalNumOfThreads_ImagesResize_Folder_MultiThread;
+    int RunningNumOfThreads_ImagesResize_Folder_MultiThread;
+    QMutex QMutex_ResizeImage_MultiThread;
+    void ResizeImage_MultiThread(int New_width,int New_height,QString ImagesPath);
     //=============
     ~MainWindow();
 

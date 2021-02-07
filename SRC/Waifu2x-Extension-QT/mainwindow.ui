@@ -3035,9 +3035,9 @@ it might cause the software to crash.</string>
 which will determine how many frames the software will
 process at the same time.
 
-The actual maximum number of threads is limited by the number
-of CPU logical cores.(And the number of enabled GPUs when using
-Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</string>
+The actual maximum number of threads is limited by the 
+number of enabled GPUs when using Anime4k, Waifu2x-Caffe
+and Waifu2x-converter.(Only when processing GIF and Video)</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3066,9 +3066,9 @@ Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</string>
 which will determine how many frames the software will
 process at the same time.
 
-The actual maximum number of threads is limited by the number
-of CPU logical cores.(And the number of enabled GPUs when using
-Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</string>
+The actual maximum number of threads is limited by the 
+number of enabled GPUs when using Anime4k, Waifu2x-Caffe
+and Waifu2x-converter.(Only when processing GIF and Video)</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>
@@ -3117,10 +3117,7 @@ Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</string>
                  <property name="toolTip">
                   <string>The number of threads that the software processes Image,
 which will determine how many images the software will
-process at the same time.
-
-The actual maximum number of threads is limited by the number
-of CPU logical cores.</string>
+process at the same time.</string>
                  </property>
                  <property name="minimum">
                   <number>1</number>

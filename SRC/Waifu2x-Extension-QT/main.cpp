@@ -35,8 +35,10 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.71.21-beta:
+- The maximum number of threads will no longer be limited by the number of CPU logical cores.
 - Fix bug: Modifying the duration of the video clip after pausing and then continuing processing will cause the video sequence to be disordered.
 
+- 最大线程数量将不再受到CPU逻辑核心数量的限制.
 - 修复bug: 暂停后修改视频片段时长然后继续处理会造成视频顺序错乱.
 
 v2.71.12:
