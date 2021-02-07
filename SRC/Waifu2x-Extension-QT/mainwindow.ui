@@ -4144,7 +4144,8 @@ enabling [GPU Mode] can greatly increase the processing speed.
                       </sizepolicy>
                      </property>
                      <property name="toolTip">
-                      <string>OpenCL parallel IO command queue</string>
+                      <string>OpenCL parallel IO command queue
+*Enable this might cause compatibility problem*</string>
                      </property>
                      <property name="text">
                       <string>OpenCL parallel IO</string>
