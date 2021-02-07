@@ -26,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     qRegisterMetaTypeStreamOperators<QList_QMap_QStrQStr >("QList_QMap_QStrQStr");
-    QThreadPool::globalInstance()->setMaxThreadCount(62);
+    QThreadPool::globalInstance()->setMaxThreadCount(62);//解除全局线程池的最大线程数量限制
     //==============
     this->setWindowTitle("Waifu2x-Extension-GUI "+VERSION+" by Aaron Feng");
     //==============

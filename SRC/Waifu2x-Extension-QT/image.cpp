@@ -28,6 +28,7 @@ void MainWindow::ImagesResize_Folder_MultiThread(int New_width,int New_height,QS
     QMutex_ResizeImage_MultiThread.lock();
     //=====
     TotalNumOfThreads_ImagesResize_Folder_MultiThread = QThread::idealThreadCount()/2;
+    if(TotalNumOfThreads_ImagesResize_Folder_MultiThread>32)TotalNumOfThreads_ImagesResize_Folder_MultiThread=32;
     if(TotalNumOfThreads_ImagesResize_Folder_MultiThread<1)TotalNumOfThreads_ImagesResize_Folder_MultiThread=1;
     RunningNumOfThreads_ImagesResize_Folder_MultiThread=0;
     //=====
