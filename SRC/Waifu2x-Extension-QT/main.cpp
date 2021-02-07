@@ -36,25 +36,12 @@ Change log:
 
 v2.71.21-beta:
 - The maximum number of threads will no longer be limited by the number of CPU logical cores.
+- Speed up the assembly of GIF.
 - Fix bug: Modifying the duration of the video clip after pausing and then continuing processing will cause the video sequence to be disordered.
 
 - 最大线程数量将不再受到CPU逻辑核心数量的限制.
+- 加快组装GIF的速度.
 - 修复bug: 暂停后修改视频片段时长然后继续处理会造成视频顺序错乱.
-
-v2.71.12:
-- Significantly improve the efficiency, speed and stability of ALL engines when processing Video and GIF.
-- The OLD version of waifu2x-ncnn-vulkan engine will no longer support the use of multiple graphics cards to process GIF and video.
-- Fix bug: When custom resolution and video settings are enabled and the video stream bit rate is left 0, the video stream bit rate cannot be calculated normally.
-- Fix bug: Scale ratio might be incorrect when using srmd-ncnn-vulkan.
-- Fix bug: Unable to assemble gif because ImageMagick is not compatible with new AMD GPU driver.
-- Update ImageMagick,FFmpeg&FFprobe.
-
-- 重写大量代码,大幅提升所有引擎在处理视频和GIF时的效率,速度和稳定性.
-- 旧版本的waifu2x-ncnn-vulkan引擎不再支持使用多显卡处理视频和GIF.
-- 修复bug: 某些情况下无法正确计算视频的比特率.
-- 修复bug: 使用srmd-ncnn-vulkan时放大倍率可能不准确.
-- 修复bug: 因ImageMagick与新版AMD显卡驱动不兼容而无法组装GIF.
-- 更新ImageMagick,FFmpeg&FFprobe.
 
 --------------------------------------------------------------------------
 To do:

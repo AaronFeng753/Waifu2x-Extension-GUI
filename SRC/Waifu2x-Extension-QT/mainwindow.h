@@ -79,7 +79,7 @@ public:
     void changeEvent(QEvent *e);
     //=======================
     QString VERSION = "v2.71.21-beta";//软件版本号
-    bool isBetaVer = false;
+    bool isBetaVer = true;
     QString LastStableVer = "v2.71.12";
     QString LastBetaVer = "v2.71.21-beta";
     //=======================
