@@ -3513,45 +3513,45 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="153"/>
+        <location filename="image.cpp" line="154"/>
         <source>ERROR! Unable to read the resolution of the GIF. [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="243"/>
-        <location filename="image.cpp" line="309"/>
-        <location filename="image.cpp" line="320"/>
-        <location filename="image.cpp" line="343"/>
+        <location filename="image.cpp" line="244"/>
+        <location filename="image.cpp" line="310"/>
+        <location filename="image.cpp" line="321"/>
+        <location filename="image.cpp" line="344"/>
         <source>Error: Can&apos;t convert [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="243"/>
+        <location filename="image.cpp" line="244"/>
         <source>] to </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="281"/>
+        <location filename="image.cpp" line="282"/>
         <source>Error: Can&apos;t pre-process [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="281"/>
+        <location filename="image.cpp" line="282"/>
         <source>]. File doesn&apos;t exists.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="309"/>
+        <location filename="image.cpp" line="310"/>
         <source>] to Webp. The pre-process will be skipped and try to process the original image directly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="320"/>
+        <location filename="image.cpp" line="321"/>
         <source>] back to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="image.cpp" line="343"/>
+        <location filename="image.cpp" line="344"/>
         <source>] to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation type="unfinished"></translation>
     </message>

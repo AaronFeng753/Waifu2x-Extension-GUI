@@ -715,12 +715,12 @@ process at the same time.
 The actual maximum number of threads is limited by the number
 of CPU logical cores.(And the number of enabled GPUs when using
 Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</oldsource>
-        <translation type="unfinished">ソフトウェアがビデオを処理するスレッドの数。これにより、
-ソフトウェアが同時に処理するフレームの数が決まります。
+        <translation>ソフトウェアがビデオを処理するスレッドの数。これにより
+、ソフトウェアが同時に処理するフレームの数が決まります。
 
-スレッドの実際の最大数は、CPU論理コアの数によって制限されます
-（およびAnime4k、Waifu2x-Caffe、およびWaifu2x-converterを使用
-する場合に有効なGPUの数）</translation>
+スレッドの実際の最大数は、Anime4k、Waifu2x-Caffe、およ
+びWaifu2x-converterを使用する場合に有効なGPUの数によっ
+て制限されます（GIFおよびビデオを処理する場合のみ）</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3374"/>
@@ -731,7 +731,8 @@ Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</oldsource>
         <location filename="mainwindow.ui" line="4144"/>
         <source>OpenCL parallel IO command queue
 *Enable this might cause compatibility problem*</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenCLパラレルIOコマンドキュー
+*これを有効にすると、互換性の問題が発生する可能性があります*</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4362"/>
@@ -819,10 +820,8 @@ process at the same time.
 
 The actual maximum number of threads is limited by the number
 of CPU logical cores.</oldsource>
-        <translation type="unfinished">ソフトウェアがImageを処理するスレッドの数。これにより、ソ
-フトウェアが同時に処理する画像の数が決まります。
-
-スレッドの実際の最大数は、CPU論理コアの数によって制限されます。</translation>
+        <translation>ソフトウェアがImageを処理するスレッドの数。これにより、ソ
+フトウェアが同時に処理する画像の数が決まります。</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4908"/>
@@ -2405,11 +2404,12 @@ process at the same time.
 The actual maximum number of threads is limited by the number
 of CPU logical cores.(And the number of enabled GPUs when using
 Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</oldsource>
-        <translation type="unfinished">ソフトウェアがGIFを処理するスレッドの数。これにより、ソフトウェア
-が同時に処理するフレームの数が決まります.
+        <translation>ソフトウェアがGIFを処理するスレッドの数。これにより、
+ソフトウェアが同時に処理するフレームの数が決まります。
 
-スレッドの実際の最大数は、CPU論理コアの数によって制限されます（および
-Anime4k、Waifu2x-Caffe、およびWaifu2x-converterを使用する場合に有効なGPUの数）</translation>
+スレッドの実際の最大数は、Anime4k、Waifu2x-Caffe、およ
+びWaifu2x-converterを使用する場合に有効なGPUの数によって
+制限されます（GIFおよびビデオを処理する場合のみ）</translation>
     </message>
     <message>
         <source>Select the engine for processing Video. 
@@ -5147,45 +5147,45 @@ GIF：%2
         <translation type="vanished">]にアルファチャネルが含まれていることが検出されたため、結果の画像は強制的にPNGとして保存されます。</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="153"/>
+        <location filename="image.cpp" line="154"/>
         <source>ERROR! Unable to read the resolution of the GIF. [</source>
         <translation>エラー！ GIFの解像度を読み取ることができません。 [</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="243"/>
-        <location filename="image.cpp" line="309"/>
-        <location filename="image.cpp" line="320"/>
-        <location filename="image.cpp" line="343"/>
+        <location filename="image.cpp" line="244"/>
+        <location filename="image.cpp" line="310"/>
+        <location filename="image.cpp" line="321"/>
+        <location filename="image.cpp" line="344"/>
         <source>Error: Can&apos;t convert [</source>
         <translation>エラー：[</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="243"/>
+        <location filename="image.cpp" line="244"/>
         <source>] to </source>
         <translation>] を </translation>
     </message>
     <message>
-        <location filename="image.cpp" line="281"/>
+        <location filename="image.cpp" line="282"/>
         <source>Error: Can&apos;t pre-process [</source>
         <translation>エラー：[</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="281"/>
+        <location filename="image.cpp" line="282"/>
         <source>]. File doesn&apos;t exists.</source>
         <translation>]を前処理できません。 ファイルが存在しません。</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="309"/>
+        <location filename="image.cpp" line="310"/>
         <source>] to Webp. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>]をWebpに変換できません。 前処理はスキップされ、元の画像を直接処理しようとします。</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="320"/>
+        <location filename="image.cpp" line="321"/>
         <source>] back to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>]をPNGに戻すことはできません。 前処理はスキップされ、元の画像を直接処理しようとします。</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="343"/>
+        <location filename="image.cpp" line="344"/>
         <source>] to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>]をPNGに変換できません。 前処理はスキップされ、元の画像を直接処理しようとします。</translation>
     </message>

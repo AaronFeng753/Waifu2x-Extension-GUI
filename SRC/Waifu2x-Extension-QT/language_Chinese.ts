@@ -758,9 +758,7 @@ process at the same time.
 
 The actual maximum number of threads is limited by the number
 of CPU logical cores.</oldsource>
-        <translation type="unfinished">软件处理图片时的线程数量,这将决定软件会同时处理多少照片.
-
-实际的线程数量最大值受到逻辑处理器数量的限制.</translation>
+        <translation>软件处理图片时的线程数量,这将决定软件会同时处理多少照片.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3374"/>
@@ -1213,11 +1211,11 @@ process at the same time.
 The actual maximum number of threads is limited by the number
 of CPU logical cores.(And the number of enabled GPUs when using
 Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</oldsource>
-        <translation type="unfinished">软件处理GIF时的线程数量,这将决定软件会同时处理多少帧.
+        <translation>软件处理GIF时的线程数量,这将决定软件会同时处理多少帧.
 
-实际的线程数量最大值受到逻辑处理器数量的限制.
-(以及在使用Anime4k,Waifu2x-Caffe和
-Waifu2x-converter时启用的显卡数量)</translation>
+使用Anime4k,Waifu2x-Caffe和Waifu2x-converter时实际的
+线程数量最大值受到启用的显卡数量的限制.
+(仅在处理GIF和视频时)</translation>
     </message>
     <message>
         <source>Select the engine for processing Video. 
@@ -2080,11 +2078,11 @@ process at the same time.
 The actual maximum number of threads is limited by the number
 of CPU logical cores.(And the number of enabled GPUs when using
 Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</oldsource>
-        <translation type="unfinished">软件处理视频时的线程数量,这将决定软件会同时处理多少帧.
+        <translation>软件处理视频时的线程数量,这将决定软件会同时处理多少帧.
 
-实际的线程数量最大值受到逻辑处理器数量的限制.
-(以及在使用Anime4k,Waifu2x-Caffe和
-Waifu2x-converter时启用的显卡数量)</translation>
+使用Anime4k,Waifu2x-Caffe和Waifu2x-converter时实际的
+线程数量最大值受到启用的显卡数量的限制.
+(仅在处理GIF和视频时)</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="3242"/>
@@ -2128,7 +2126,8 @@ supports Multi-GPU*</oldsource>
         <location filename="mainwindow.ui" line="4144"/>
         <source>OpenCL parallel IO command queue
 *Enable this might cause compatibility problem*</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenCL并行IO命令队列
+*启用本选项可能导致兼容性问题*</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6395"/>
@@ -5213,45 +5212,45 @@ Waifu2x-converter处理器列表:
         <translation type="vanished">] 包含 Alpha 通道, 所以结果图片将会被强制保存为 PNG.</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="153"/>
+        <location filename="image.cpp" line="154"/>
         <source>ERROR! Unable to read the resolution of the GIF. [</source>
         <translation>错误! 无法读取GIF的分辨率. [</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="243"/>
-        <location filename="image.cpp" line="309"/>
-        <location filename="image.cpp" line="320"/>
-        <location filename="image.cpp" line="343"/>
+        <location filename="image.cpp" line="244"/>
+        <location filename="image.cpp" line="310"/>
+        <location filename="image.cpp" line="321"/>
+        <location filename="image.cpp" line="344"/>
         <source>Error: Can&apos;t convert [</source>
         <translation>错误: 无法将 [</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="243"/>
+        <location filename="image.cpp" line="244"/>
         <source>] to </source>
         <translation>] 转换为 </translation>
     </message>
     <message>
-        <location filename="image.cpp" line="281"/>
+        <location filename="image.cpp" line="282"/>
         <source>Error: Can&apos;t pre-process [</source>
         <translation>错误: 无法预处理 [</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="281"/>
+        <location filename="image.cpp" line="282"/>
         <source>]. File doesn&apos;t exists.</source>
         <translation>]. 文件不存在.</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="309"/>
+        <location filename="image.cpp" line="310"/>
         <source>] to Webp. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>] 到Webp. 将会跳过预处理并尝试直接处理原图.</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="320"/>
+        <location filename="image.cpp" line="321"/>
         <source>] back to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>] 回到PNG. 预处理将会被跳过并尝试直接处理原图.</translation>
     </message>
     <message>
-        <location filename="image.cpp" line="343"/>
+        <location filename="image.cpp" line="344"/>
         <source>] to PNG. The pre-process will be skipped and try to process the original image directly.</source>
         <translation>] 转换为 PNG. 将跳过预处理并直接处理原始图像.</translation>
     </message>

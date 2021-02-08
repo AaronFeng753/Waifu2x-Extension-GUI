@@ -34,6 +34,13 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v2.71.22-beta:
+- Complete translation.
+- Limit the number of threads for scaling images to 32.
+
+- 补全翻译.
+- 限制缩放图片的线程数量到32.
+
 v2.71.21-beta:
 - The maximum number of threads will no longer be limited by the number of CPU logical cores.
 - Speed up the assembly of GIF.
