@@ -34,29 +34,29 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.71.22-beta:
-- Complete translation.
-- Limit the number of threads for scaling images to 32.
-- Fix bug: Hotkey for Remove from list is still enabled when processing files.
-- Fix bug: [Time remaining] and [ETA] are still bing calculated even though they are not being displayed.
-
-- 补全翻译.
-- 限制缩放图片的线程数量到32.
-- 修复bug: 即便在处理文件时,从列表中移除文件的热键依旧可用.
-- 修复bug: 即使[剩余时间]和[预计完成时间]没有被显示,但是仍旧被计算.
-
-v2.71.21-beta:
+v2.71.22:
 - The maximum number of threads will no longer be limited by the number of CPU logical cores.
 - Speed up the assembly of GIF.
 - Fix bug: Modifying the duration of the video clip after pausing and then continuing processing will cause the video sequence to be disordered.
+- Fix bug: Hotkey for Remove from list is still enabled when processing files.
+- Fix bug: [Time remaining] and [ETA] are still bing calculated even though they are not being displayed.
+Recent changes:
+- Significantly improve the efficiency, speed and stability of ALL engines when processing Video and GIF.
+- The OLD version of waifu2x-ncnn-vulkan engine will no longer support the use of multiple graphics cards to process GIF and video.
+- Update ImageMagick,FFmpeg&FFprobe.
 
 - 最大线程数量将不再受到CPU逻辑核心数量的限制.
 - 加快组装GIF的速度.
+- 修复bug: 即便在处理文件时,从列表中移除文件的热键依旧可用.
+- 修复bug: 即使[剩余时间]和[预计完成时间]没有被显示,但是仍旧被计算.
 - 修复bug: 暂停后修改视频片段时长然后继续处理会造成视频顺序错乱.
+近期更新:
+- 重写大量代码,大幅提升所有引擎在处理视频和GIF时的效率,速度和稳定性.
+- 旧版本的waifu2x-ncnn-vulkan引擎不再支持使用多显卡处理视频和GIF.
+- 更新ImageMagick,FFmpeg&FFprobe.
 
 --------------------------------------------------------------------------
 To do:
-- 补全翻译
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------

@@ -2168,23 +2168,23 @@ Therefore, the custom resolution for video has been automatically corrected by t
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1852"/>
-        <location filename="waifu2x.cpp" line="750"/>
+        <location filename="waifu2x.cpp" line="731"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1852"/>
-        <location filename="waifu2x.cpp" line="750"/>
+        <location filename="waifu2x.cpp" line="731"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="666"/>
         <source>Error! Original file [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="666"/>
         <source>] does not exists.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2768,8 +2768,8 @@ Anime4k GPUs List(user configuration):</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="256"/>
-        <location filename="mainwindow.cpp" line="291"/>
+        <location filename="mainwindow.cpp" line="258"/>
+        <location filename="mainwindow.cpp" line="293"/>
         <source>Time remaining:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2874,13 +2874,13 @@ Otherwise, this software may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1976"/>
+        <location filename="mainwindow.cpp" line="1979"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="234"/>
-        <location filename="mainwindow.cpp" line="271"/>
+        <location filename="mainwindow.cpp" line="236"/>
+        <location filename="mainwindow.cpp" line="273"/>
         <source>Time taken:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3290,8 +3290,8 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="609"/>
-        <location filename="waifu2x.cpp" line="610"/>
+        <location filename="waifu2x.cpp" line="590"/>
+        <location filename="waifu2x.cpp" line="591"/>
         <source>Process finished.</source>
         <translation type="unfinished"></translation>
     </message>

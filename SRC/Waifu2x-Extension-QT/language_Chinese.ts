@@ -3641,23 +3641,23 @@ Therefore, the custom resolution for video has been automatically corrected by t
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1852"/>
-        <location filename="waifu2x.cpp" line="750"/>
+        <location filename="waifu2x.cpp" line="731"/>
         <source>Error! Failed to move [</source>
         <translation>错误! 无法移动 [</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1852"/>
-        <location filename="waifu2x.cpp" line="750"/>
+        <location filename="waifu2x.cpp" line="731"/>
         <source>] to [</source>
         <translation>] 到 [</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="666"/>
         <source>Error! Original file [</source>
         <translation>错误! 源文件 [</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="666"/>
         <source>] does not exists.</source>
         <translation>] 不存在.</translation>
     </message>
@@ -4316,8 +4316,8 @@ Anime4k 显卡列表(用户配置):
         <translation type="vanished">耗时:[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="256"/>
-        <location filename="mainwindow.cpp" line="291"/>
+        <location filename="mainwindow.cpp" line="258"/>
+        <location filename="mainwindow.cpp" line="293"/>
         <source>Time remaining:[</source>
         <translation>剩余时间:[</translation>
     </message>
@@ -4568,8 +4568,8 @@ Otherwise, this software may not work properly.</source>
 否则, 本软件将无法很正常运行.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="234"/>
-        <location filename="mainwindow.cpp" line="271"/>
+        <location filename="mainwindow.cpp" line="236"/>
+        <location filename="mainwindow.cpp" line="273"/>
         <source>Time taken:[</source>
         <translation>耗时:[</translation>
     </message>
@@ -4648,7 +4648,7 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
         <translation>无法在处理视频和GIF时使用强制重试.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1976"/>
+        <location filename="mainwindow.cpp" line="1979"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation>自动启用[禁用 &quot;-resize&quot;]以修复兼容性问题和改善性能.</translation>
     </message>
@@ -4993,8 +4993,8 @@ Waifu2x-converter处理器列表:
         <translation type="vanished">计算机将于60秒后自动关机!</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="609"/>
-        <location filename="waifu2x.cpp" line="610"/>
+        <location filename="waifu2x.cpp" line="590"/>
+        <location filename="waifu2x.cpp" line="591"/>
         <source>Process finished.</source>
         <translation>处理完成.</translation>
     </message>

@@ -4096,23 +4096,23 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1852"/>
-        <location filename="waifu2x.cpp" line="750"/>
+        <location filename="waifu2x.cpp" line="731"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
         <location filename="mainwindow.cpp" line="1852"/>
-        <location filename="waifu2x.cpp" line="750"/>
+        <location filename="waifu2x.cpp" line="731"/>
         <source>] to [</source>
         <translation>]から[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="666"/>
         <source>Error! Original file [</source>
         <translation>エラー！ 元のファイル[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="685"/>
+        <location filename="waifu2x.cpp" line="666"/>
         <source>] does not exists.</source>
         <translation>]存在しません。</translation>
     </message>
@@ -4172,8 +4172,8 @@ Do you wanna update now???</source>
         <translation type="vanished">時間費用：[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="256"/>
-        <location filename="mainwindow.cpp" line="291"/>
+        <location filename="mainwindow.cpp" line="258"/>
+        <location filename="mainwindow.cpp" line="293"/>
         <source>Time remaining:[</source>
         <translation>残り時間：[</translation>
     </message>
@@ -4258,7 +4258,7 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
         <translation>ビデオまたはGIFを処理する場合、強制再試行は無効になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1976"/>
+        <location filename="mainwindow.cpp" line="1979"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation>[「-resize」を無効にする]は自動的に有効になり、互換性の問題を修正してパフォーマンスを向上させます。</translation>
     </message>
@@ -4423,8 +4423,8 @@ Otherwise, this software may not work properly.</source>
 そうしないと、このソフトウェアが正しく動作しない可能性があります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="234"/>
-        <location filename="mainwindow.cpp" line="271"/>
+        <location filename="mainwindow.cpp" line="236"/>
+        <location filename="mainwindow.cpp" line="273"/>
         <source>Time taken:[</source>
         <translation>所要時間：[</translation>
     </message>
@@ -4928,8 +4928,8 @@ GIF：%2
         <translation type="vanished">コンピューターは60秒で自動的にシャットダウンします！</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="609"/>
-        <location filename="waifu2x.cpp" line="610"/>
+        <location filename="waifu2x.cpp" line="590"/>
+        <location filename="waifu2x.cpp" line="591"/>
         <source>Process finished.</source>
         <translation>プロセスが終了しました。</translation>
     </message>
