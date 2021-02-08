@@ -297,10 +297,6 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_NCNN_Vulkan_Image, currentRowNumber, false);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(750);
-                        }
                         break;
                     }
                 case 1:
@@ -309,10 +305,6 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Converter_Image, currentRowNumber, false);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(750);
-                        }
                         break;
                     }
                 case 2:
@@ -321,10 +313,6 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::SRMD_NCNN_Vulkan_Image, currentRowNumber, false);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(750);
-                        }
                         break;
                     }
                 case 3:
@@ -333,10 +321,6 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Anime4k_Image, currentRowNumber, false);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(750);
-                        }
                         break;
                     }
                 case 4:
@@ -345,10 +329,6 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Waifu2x_Caffe_Image, currentRowNumber, false);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(750);
-                        }
                         break;
                     }
                 case 5:
@@ -357,12 +337,13 @@ int MainWindow::Waifu2xMainThread()
                         ThreadNumRunning++;//线程数量统计+1
                         mutex_ThreadNumRunning.unlock();
                         QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, currentRowNumber, false);
-                        while (ThreadNumRunning >= ThreadNumMax)
-                        {
-                            Delay_msec_sleep(750);
-                        }
                         break;
                     }
+            }
+            //================
+            while (ThreadNumRunning >= ThreadNumMax)
+            {
+                Delay_msec_sleep(750);
             }
         }
     }

@@ -226,25 +226,27 @@ void MainWindow::changeEvent(QEvent *e)
         }
     }
 }
-
+/*
+计时器到时执行的代码
+*/
 void MainWindow::TimeSlot()
 {
     TimeCost++;
     //====================总进度==================
     QString TimeCostStr = tr("Time taken:[")+Seconds2hms(TimeCost)+"]";
     ui->label_TimeCost->setText(TimeCostStr);
-    if(ui->label_TimeRemain_CurrentFile->isVisible())
+    if(ui->label_TimeRemain->isVisible())
     {
-        int TaskNumFinished_tmp = TaskNumFinished;
+        long unsigned int TaskNumFinished_tmp = TaskNumFinished;
         long unsigned int TimeCost_tmp = TimeCost;
-        int TaskNumTotal_tmp = TaskNumTotal;
+        long unsigned int TaskNumTotal_tmp = TaskNumTotal;
         if(TaskNumFinished_tmp>0&&TimeCost_tmp>0&&TaskNumTotal_tmp>0)
         {
             if(NewTaskFinished)
             {
                 NewTaskFinished=false;
                 long unsigned int avgTimeCost = TimeCost_tmp/TaskNumFinished_tmp;
-                ETA = int(avgTimeCost*(TaskNumTotal_tmp-TaskNumFinished_tmp));
+                ETA = avgTimeCost*(TaskNumTotal_tmp-TaskNumFinished_tmp);
             }
             else
             {
@@ -270,16 +272,16 @@ void MainWindow::TimeSlot()
         TimeCost_CurrentFile++;
         QString TimeCostStr_CurrentFile = tr("Time taken:[")+Seconds2hms(TimeCost_CurrentFile)+"]";
         ui->label_TimeCost_CurrentFile->setText(TimeCostStr_CurrentFile);
-        int TaskNumFinished_tmp_CurrentFile = TaskNumFinished_CurrentFile;
+        long unsigned int TaskNumFinished_tmp_CurrentFile = TaskNumFinished_CurrentFile;
         long unsigned int TimeCost_tmp_CurrentFile = TimeCost_CurrentFile;
-        int TaskNumTotal_tmp_CurrentFile = TaskNumTotal_CurrentFile;
+        long unsigned int TaskNumTotal_tmp_CurrentFile = TaskNumTotal_CurrentFile;
         if(TaskNumFinished_tmp_CurrentFile>0&&TimeCost_tmp_CurrentFile>0&&TaskNumTotal_tmp_CurrentFile>0)
         {
             if(NewTaskFinished_CurrentFile)
             {
                 NewTaskFinished_CurrentFile=false;
                 long unsigned int avgTimeCost_CurrentFile = TimeCost_tmp_CurrentFile/TaskNumFinished_tmp_CurrentFile;
-                ETA_CurrentFile = int(avgTimeCost_CurrentFile*(TaskNumTotal_tmp_CurrentFile-TaskNumFinished_tmp_CurrentFile));
+                ETA_CurrentFile = avgTimeCost_CurrentFile*(TaskNumTotal_tmp_CurrentFile-TaskNumFinished_tmp_CurrentFile);
             }
             else
             {
@@ -303,11 +305,9 @@ void MainWindow::TimeSlot()
 QString MainWindow::Seconds2hms(long unsigned int seconds)
 {
     if(seconds<=0)return "0:0:0";
-    long unsigned int mm = 60;
-    long unsigned int hh = mm * 60;
-    long unsigned int hour = seconds / hh;
-    long unsigned int min = (seconds-hour*hh)/mm;
-    long unsigned int sec = seconds - hour*hh - min*mm;
+    long unsigned int hour = seconds / 3600;
+    long unsigned int min = (seconds-(hour*3600))/60;
+    long unsigned int sec = seconds - hour*3600 - min*60;
     return QString::number(hour,10)+":"+QString::number(min,10)+":"+QString::number(sec,10);
 }
 
@@ -1894,7 +1894,10 @@ bool MainWindow::eventFilter(QObject *target, QEvent *event)
             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
             if (keyEvent->key() == Qt::Key_Delete)
             {
-                on_pushButton_RemoveItem_clicked();
+                if(RemoveFile_FilesList_QAction_FileList->isEnabled())
+                {
+                    on_pushButton_RemoveItem_clicked();
+                }
                 return true;
             }
             if ((keyEvent->modifiers() == Qt::ControlModifier) && (keyEvent->key() == Qt::Key_A))

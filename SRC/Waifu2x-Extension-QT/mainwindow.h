@@ -429,8 +429,8 @@ public:
     QTimer *TimeCostTimer;//计算耗时的timer
     long unsigned int TimeCost = 0;//已消耗时间
     QString Seconds2hms(long unsigned int seconds);//秒 转 时:分:秒
-    int TaskNumTotal=0;//总任务数量(需要处理的文件)
-    int TaskNumFinished=0;//处理完的文件数量
+    long unsigned int TaskNumTotal=0;//总任务数量(需要处理的文件)
+    long unsigned int TaskNumFinished=0;//处理完的文件数量
     bool NewTaskFinished=false;//新任务被完成之标记
     long unsigned int ETA=0;//ETA时间(s)
 
@@ -459,8 +459,8 @@ public:
     bool isAlreadyClosed=false;
     //================== 处理当前文件的进度 =========================
     long unsigned int TimeCost_CurrentFile =0;
-    int TaskNumTotal_CurrentFile=0;
-    int TaskNumFinished_CurrentFile=0;
+    long unsigned int TaskNumTotal_CurrentFile=0;
+    long unsigned int TaskNumFinished_CurrentFile=0;
     bool NewTaskFinished_CurrentFile=false;
     long unsigned int ETA_CurrentFile=0;
     bool isStart_CurrentFile=false;

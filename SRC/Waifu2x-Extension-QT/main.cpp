@@ -37,9 +37,13 @@ Change log:
 v2.71.22-beta:
 - Complete translation.
 - Limit the number of threads for scaling images to 32.
+- Fix bug: Hotkey for Remove from list is still enabled when processing files.
+- Fix bug: [Time remaining] and [ETA] are still bing calculated even though they are not being displayed.
 
 - 补全翻译.
 - 限制缩放图片的线程数量到32.
+- 修复bug: 即便在处理文件时,从列表中移除文件的热键依旧可用.
+- 修复bug: 即使[剩余时间]和[预计完成时间]没有被显示,但是仍旧被计算.
 
 v2.71.21-beta:
 - The maximum number of threads will no longer be limited by the number of CPU logical cores.
