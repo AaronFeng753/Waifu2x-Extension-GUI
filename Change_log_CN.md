@@ -8,6 +8,16 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v2.71.22](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.71.22)
+#### 更新日志:
+- 最大线程数量将不再受到CPU逻辑核心数量的限制.
+- 加快组装GIF的速度.
+- 停止处理文件后，杀死滞留在后台的子进程。
+- 修复bug: 当使用Anime4k时,GIF放大倍率错误.
+- 修复bug: 即便在处理文件时,从列表中移除文件的热键依旧可用.
+- 修复bug: 即使[剩余时间]和[预计完成时间]没有被显示,但是仍旧被计算.
+- 修复bug: 暂停后修改视频片段时长然后继续处理会造成视频顺序错乱.
+---
 ## [v2.71.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.71.12)
 #### 更新日志:
 - 重写大量代码,大幅提升所有引擎在处理视频和GIF时的效率,速度和稳定性.
