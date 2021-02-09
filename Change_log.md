@@ -4,6 +4,16 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v2.71.22](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.71.22)
+#### Change log:
+- The maximum number of threads will no longer be limited by the number of CPU logical cores.
+- Speed up the assembly of GIF.
+- Kill the sub process that is stuck in the background after stopping processing the file.
+- Fix bug: Gif scale ratio is wrong when using Anime4k.
+- Fix bug: Modifying the duration of the video clip after pausing and then continuing processing will cause the video sequence to be disordered.
+- Fix bug: Hotkey for Remove from list is still enabled when processing files.
+- Fix bug: [Time remaining] and [ETA] are still bing calculated even though they are not being displayed.
+---
 ## [v2.71.12](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.71.12)
 #### Change log:
 - Significantly improve the efficiency, speed and stability of ALL engines when processing Video and GIF.
