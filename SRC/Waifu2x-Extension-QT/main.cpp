@@ -38,6 +38,7 @@ v2.71.22:
 - The maximum number of threads will no longer be limited by the number of CPU logical cores.
 - Speed up the assembly of GIF.
 - Kill the sub process that is stuck in the background after stopping processing the file.
+- Fix bug: Gif scale ratio is wrong when using Anime4k.
 - Fix bug: Modifying the duration of the video clip after pausing and then continuing processing will cause the video sequence to be disordered.
 - Fix bug: Hotkey for Remove from list is still enabled when processing files.
 - Fix bug: [Time remaining] and [ETA] are still bing calculated even though they are not being displayed.
@@ -49,6 +50,7 @@ Recent changes:
 - 最大线程数量将不再受到CPU逻辑核心数量的限制.
 - 加快组装GIF的速度.
 - 停止处理文件后，杀死滞留在后台的子进程。
+- 修复bug: 当使用Anime4k时,GIF放大倍率错误.
 - 修复bug: 即便在处理文件时,从列表中移除文件的热键依旧可用.
 - 修复bug: 即使[剩余时间]和[预计完成时间]没有被显示,但是仍旧被计算.
 - 修复bug: 暂停后修改视频片段时长然后继续处理会造成视频顺序错乱.
