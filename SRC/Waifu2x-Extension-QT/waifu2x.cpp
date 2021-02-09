@@ -1059,6 +1059,10 @@ bool MainWindow::KILL_TASK_QStringList(QStringList TaskNameList,bool RequestAdmi
     {
         CMD_commands.append("taskkill /f /t /fi \"imagename eq "+TaskNameList_tmp.at(i)+"\"\n");
     }
+    if(RequestAdmin==true)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Please grant administrator permissions to kill sub processes stuck in the background."));
+    }
     ExecuteCMD_batFile(CMD_commands,RequestAdmin);
     //===============
     return true;
