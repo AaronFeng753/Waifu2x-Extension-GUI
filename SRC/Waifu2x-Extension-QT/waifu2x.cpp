@@ -998,8 +998,7 @@ void MainWindow::file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folde
     if(Delete_)file_DelDir(Old_folder);
 }
 /*
-杀死进程,可选管理员
-*/
+//杀死进程,可选管理员
 bool MainWindow::KILL_TASK_(QString TaskName,bool RequestAdmin)
 {
     TaskName=TaskName.trimmed();
@@ -1027,7 +1026,10 @@ bool MainWindow::KILL_TASK_(QString TaskName,bool RequestAdmin)
         return true;
     }
     return true;
-}
+}*/
+/*
+杀死进程列表,可选管理员
+*/
 bool MainWindow::KILL_TASK_QStringList(QStringList TaskNameList,bool RequestAdmin)
 {
     TaskNameList.removeAll("");
