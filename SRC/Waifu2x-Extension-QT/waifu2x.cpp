@@ -651,8 +651,12 @@ void MainWindow::Waifu2x_Finished_manual()
     TimeCost=0;
     ForceRetryCount=1;
     isForceRetryEnabled=true;
-    //===============
-    KILL_TASK_("convert_waifu2xEX.exe",true);
+    //================= 杀死卡死在后台的进程 =================
+    QStringList TaskNameList;
+    TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
+                 <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
+                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe";
+    KILL_TASK_QStringList(TaskNameList,true);
 }
 
 /*
@@ -1022,5 +1026,38 @@ bool MainWindow::KILL_TASK_(QString TaskName,bool RequestAdmin)
         ExecuteCMD_batFile("taskkill /f /t /fi \"imagename eq "+TaskName+"\"",true);
         return true;
     }
+    return true;
+}
+bool MainWindow::KILL_TASK_QStringList(QStringList TaskNameList,bool RequestAdmin)
+{
+    TaskNameList.removeAll("");
+    if(TaskNameList.isEmpty())return false;
+    //===============
+    QProcess Get_tasklist;
+    Get_tasklist.start("tasklist /fo csv");
+    while(!Get_tasklist.waitForStarted(500)) {}
+    while(!Get_tasklist.waitForFinished(500)) {}
+    QString RunningTaskList = Get_tasklist.readAllStandardOutput();
+    //===
+    QString TaskName_tmp;
+    QStringList TaskNameList_tmp = TaskNameList;
+    //===
+    for(int i=0; i<TaskNameList.size(); i++)
+    {
+        TaskName_tmp = TaskNameList.at(i);
+        if(RunningTaskList.contains(TaskName_tmp)==false)
+        {
+            TaskNameList_tmp.removeAll(TaskName_tmp);
+        }
+    }
+    if(TaskNameList_tmp.isEmpty())return true;
+    //===============
+    QString CMD_commands = "";
+    for(int i=0; i<TaskNameList_tmp.size(); i++)
+    {
+        CMD_commands.append("taskkill /f /t /fi \"imagename eq "+TaskNameList_tmp.at(i)+"\"\n");
+    }
+    ExecuteCMD_batFile(CMD_commands,RequestAdmin);
+    //===============
     return true;
 }
