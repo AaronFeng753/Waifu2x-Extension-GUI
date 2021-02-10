@@ -181,6 +181,7 @@ void MainWindow::on_pushButton_Start_clicked()
     ForceRetryCount=1;
     isForceRetryEnabled=true;
     //============== 界面初始化 ======================
+    ui->groupBox_FrameInterpolation->setEnabled(0);
     ui->pushButton_BrowserFile->setEnabled(0);
     ui->comboBox_ImageSaveFormat->setEnabled(0);
     ui->spinBox_ImageQualityLevel->setEnabled(0);
@@ -597,6 +598,7 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
+    ui->groupBox_FrameInterpolation->setEnabled(1);
     ui->pushButton_BrowserFile->setEnabled(1);
     ui->comboBox_ImageSaveFormat->setEnabled(1);
     on_comboBox_ImageSaveFormat_currentIndexChanged(1);
@@ -655,7 +657,7 @@ void MainWindow::Waifu2x_Finished_manual()
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
-                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe";
+                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe";
     KILL_TASK_QStringList(TaskNameList,true);
 }
 

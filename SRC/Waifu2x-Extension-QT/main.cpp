@@ -35,10 +35,15 @@ int main(int argc, char *argv[])
 Change log:
 
 v2.72.01-beta:
-- Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan
+- Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
+- Fix bug: Failure detection for NCNN-Vulkan engines doesn't work as intended when processing GIF and Video.
+
+- 更新Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
+- 修复bug: 處理GIF和視頻時，NCNN-Vulkan引擎的故障檢測無法正常工作。
 
 --------------------------------------------------------------------------
 To do:
+- Frame Interpolation
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------

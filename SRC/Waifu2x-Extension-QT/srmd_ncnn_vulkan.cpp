@@ -438,8 +438,6 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
                 }
             }
             //===============
-            if(waifu2x_qprocess_failed)break;
-            //===============
             if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
@@ -852,8 +850,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
                 }
             }
             //===============
-            if(waifu2x_qprocess_failed)break;
-            //===============
             if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
@@ -979,7 +975,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
-    int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
@@ -1382,8 +1377,6 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
                             }
                         }
                     }
-                    //===============
-                    if(waifu2x_qprocess_failed)break;
                     //===============
                     if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
                     {

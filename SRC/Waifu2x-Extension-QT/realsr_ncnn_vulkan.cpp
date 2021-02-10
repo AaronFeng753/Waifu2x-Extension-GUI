@@ -451,8 +451,6 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
                 }
             }
             //===============
-            if(waifu2x_qprocess_failed)break;
-            //===============
             if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
@@ -861,8 +859,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
                     emit Send_CurrentFileProgress_progressbar_SetFinishedValue((NumOfSplitFrames*CountFinishedRounds)+file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size());
                 }
             }
-            //===============
-            if(waifu2x_qprocess_failed)break;
             //===============
             if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
             {
@@ -1385,8 +1381,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                             }
                         }
                     }
-                    //===============
-                    if(waifu2x_qprocess_failed)break;
                     //===============
                     if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
                     {

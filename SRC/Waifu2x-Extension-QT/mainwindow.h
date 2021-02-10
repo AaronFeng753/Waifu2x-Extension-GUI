@@ -272,6 +272,10 @@ public:
     QStringList Available_GPUID_Realsr_ncnn_vulkan;//可用GPU ID列表
 
     void ListGPUs_Anime4k();//列出可用显卡 Anime4k
+
+    int RefiNcnnVulkan_DetectGPU();//检测可用gpu(for vulkan)
+    QStringList Available_GPUID_RefiNcnnVulkan;//可用GPU ID列表
+
     //======================== 图片处理 ================================
     bool Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif);
     QMap<QString,int> Image_Gif_Read_Resolution(QString SourceFileFullPath);//获取图片&GIF分辨率
@@ -354,6 +358,8 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    QString FrameInterpolation_ReadConfig();
+    bool FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits);
     bool Video_AutoSkip_CustRes(int rowNum);
     int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率
@@ -594,6 +600,8 @@ public slots:
     int Waifu2x_DetectGPU_finished();//检测可用gpu结束后的执行的槽函数
 
     int Realsr_ncnn_vulkan_DetectGPU_finished();//检测可用gpu结束后的执行的槽函数
+
+    int RefiNcnnVulkan_DetectGPU_finished();
 
     int CheckUpadte_NewUpdate(QString update_str,QString Change_log);//检测到更新的弹窗代码
 
@@ -914,6 +922,8 @@ private slots:
 
     void on_groupBox_video_settings_clicked();
 
+    void on_pushButton_DetectGPU_VFI_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 
@@ -942,6 +952,7 @@ signals:
     void Send_Waifu2x_DetectGPU_finished();
 
     void Send_Realsr_ncnn_vulkan_DetectGPU_finished();
+    void Send_RefiNcnnVulkan_DetectGPU_finished();
 
     void Send_CheckUpadte_NewUpdate(QString, QString);
 

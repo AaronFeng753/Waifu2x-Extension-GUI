@@ -903,6 +903,14 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+VideoPath+tr("]. Error: [Unable to get video frame rate.]"));
         return 0;
     }
+    //=============== 补帧 ===============
+    QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
+    if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp,FrameNumDigits)==true)
+    {
+        ScaledFrameFolderPath = VFI_FolderPath_tmp;
+        QStringList FPS_Nums = fps.split("/");
+        fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+    }
     //=============== 音频降噪 ========================
     if((ui->checkBox_AudioDenoise->isChecked())&&QFile::exists(AudioPath))
     {
@@ -945,6 +953,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);
+    file_DelDir(VFI_FolderPath_tmp);
     //==============================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;
@@ -996,3 +1005,165 @@ QString MainWindow::video_ReadSettings_OutputVid(QString AudioPath)
     //=======
     return OutputVideoSettings;
 }
+
+bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits)
+{
+    if(ui->groupBox_FrameInterpolation->isChecked()==false)return false;
+    //==========
+    if(SourcePath.right(1)=="/")
+    {
+        SourcePath = SourcePath.left(SourcePath.length() - 1);
+    }
+    if(OutputPath.right(1)=="/")
+    {
+        OutputPath = OutputPath.left(OutputPath.length() - 1);
+    }
+    if(file_isDirExist(SourcePath)==false)return false;
+    file_DelDir(OutputPath);
+    file_mkDir(OutputPath);
+    //========
+    for(int retry=0; retry<ui->spinBox_retry->value(); retry++)
+    {
+        QProcess FrameInterpolation_QProcess;
+        QString rife_ncnn_vulkan_ProgramPath = Current_Path+"/rife-ncnn-vulkan/rife-ncnn-vulkan_waifu2xEX.exe";
+        QString CMD ="\""+rife_ncnn_vulkan_ProgramPath+"\" -i \""+SourcePath.replace("%","%%")+"\" -o \""+OutputPath.replace("%","%%")+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig();
+        FrameInterpolation_QProcess.start(CMD);
+        while(!FrameInterpolation_QProcess.waitForStarted(100)&&!QProcess_stop) {}
+        while(!FrameInterpolation_QProcess.waitForFinished(100)&&!QProcess_stop) {}
+        //========= 检测是否成功,是否需要重试 ============
+        if(file_getFileNames_in_Folder_nofilter(SourcePath).size()*2 == file_getFileNames_in_Folder_nofilter(OutputPath).size())
+        {
+            return true;
+        }
+        else
+        {
+            file_DelDir(OutputPath);
+            if(retry==(ui->spinBox_retry->value()-1))return false;
+            file_mkDir(OutputPath);
+            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
+            Delay_sec_sleep(5);
+        }
+    }
+    return false;
+}
+
+QString MainWindow::FrameInterpolation_ReadConfig()
+{
+    QString VFI_Config = " ";
+    //TTA
+    if(ui->checkBox_TTA_VFI->isChecked())
+    {
+        VFI_Config.append("-x ");
+    }
+    //UHD
+    if(ui->checkBox_UHD_VFI->isChecked())
+    {
+        VFI_Config.append("-u ");
+    }
+    //GPU & 多线程
+    if(ui->checkBox_MultiGPU_VFI->isChecked()==false)
+    {
+        //单显卡
+        //GPU ID
+        if(ui->comboBox_GPUID_VFI->currentText().trimmed().toLower()!="auto")
+        {
+            VFI_Config.append("-g "+ui->comboBox_GPUID_VFI->currentText().trimmed()+" ");
+        }
+        //线程数量
+        QString jobs_num_str = QString("%1").arg(ui->spinBox_NumOfThreads_VFI->value());
+        VFI_Config.append(QString("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" "));
+    }
+    //模型
+    VFI_Config.append("-m "+Current_Path+"/rife-ncnn-vulkan/"+ui->comboBox_Model_VFI->currentText().trimmed()+" ");
+    //========================
+    return VFI_Config;
+}
+
+/*
+================================================================================
+                    REFI NCNN VULKAN 检测可用GPU
+=================================================================================
+*/
+
+void MainWindow::on_pushButton_DetectGPU_VFI_clicked()
+{
+    //====
+    ui->pushButton_DetectGPU_VFI->setText(tr("Detecting, please wait..."));
+    //====
+    ui->pushButton_Start->setEnabled(0);
+    ui->comboBox_GPUID_VFI->setEnabled(0);
+    Available_GPUID_RefiNcnnVulkan.clear();
+    QtConcurrent::run(this, &MainWindow::RefiNcnnVulkan_DetectGPU);
+}
+
+int MainWindow::RefiNcnnVulkan_DetectGPU()
+{
+    emit Send_TextBrowser_NewMessage(tr("Detecting available GPU, please wait."));
+    //===============
+    QString InputPath = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString InputPath_1 = Current_Path + "/Compatibility_Test/Compatibility_Test_1.jpg";
+    QString OutputPath = Current_Path + "/Compatibility_Test/res.png";
+    QFile::remove(OutputPath);
+    //==============
+    QString rife_ncnn_vulkan_ProgramPath = Current_Path+"/rife-ncnn-vulkan/rife-ncnn-vulkan_waifu2xEX.exe";
+    //=========
+    int GPU_ID=-1;
+    //=========
+    while(true)
+    {
+        QFile::remove(OutputPath);
+        QProcess *Waifu2x = new QProcess();
+        QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
+        QString cmd = "\"" + rife_ncnn_vulkan_ProgramPath + "\"" + " -0 " + "\"" + InputPath + "\"" + " -1 " + "\"" + InputPath_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 " + gpu_str + " -m "+Current_Path+"/rife-ncnn-vulkan/rife-HD";
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
+        if(QFile::exists(OutputPath))
+        {
+            Available_GPUID_RefiNcnnVulkan.append(QString::number(GPU_ID,10));
+            GPU_ID++;
+            QFile::remove(OutputPath);
+        }
+        else
+        {
+            if(GPU_ID > -1)
+            {
+                break;
+            }
+            else
+            {
+                GPU_ID++;
+            }
+        }
+    }
+    QFile::remove(OutputPath);
+    //===============
+    emit Send_TextBrowser_NewMessage(tr("Detection is complete!"));
+    if(Available_GPUID_RefiNcnnVulkan.isEmpty())
+    {
+        Send_TextBrowser_NewMessage(tr("No available GPU ID detected!"));
+    }
+    emit Send_RefiNcnnVulkan_DetectGPU_finished();
+    return 0;
+}
+
+int MainWindow::RefiNcnnVulkan_DetectGPU_finished()
+{
+    ui->pushButton_Start->setEnabled(1);
+    if(ui->checkBox_MultiGPU_VFI->isChecked()==false)ui->comboBox_GPUID_VFI->setEnabled(1);
+    //====
+    ui->comboBox_GPUID_VFI->clear();
+    ui->comboBox_GPUID_VFI->addItem("auto");
+    if(!Available_GPUID_RefiNcnnVulkan.isEmpty())
+    {
+        for(int i=0; i<Available_GPUID_RefiNcnnVulkan.size(); i++)
+        {
+            ui->comboBox_GPUID_VFI->addItem(Available_GPUID_RefiNcnnVulkan.at(i));
+        }
+    }
+    //====
+    ui->pushButton_DetectGPU_VFI->setText(tr("Detect available GPU ID"));
+    //====
+    return 0;
+}
+
