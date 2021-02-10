@@ -2005,3 +2005,35 @@ QString MainWindow::Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(int ThreadNum)
     Waifu2x_NCNN_Vulkan_Settings_str.append("-m \""+model_path+"\" ");
     return Waifu2x_NCNN_Vulkan_Settings_str;
 }
+/*
+计算 实际输入CMD的放大倍率 列表
+*/
+/*
+QList<int> MainWindow::Calculate_CMD_ScaleRatio_List_W2xNCNNVulkan(int ScaleRatio)
+{
+    QList<int> CMD_ScaleRatio_List;
+    int ScaleRatio_MAX = Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio);
+    if(ScaleRatio_MAX<=32)
+    {
+        CMD_ScaleRatio_List.append(ScaleRatio_MAX);
+        return CMD_ScaleRatio_List;
+    }
+    int ScaleRatio_MAX_tmp = ScaleRatio_MAX/32;
+    CMD_ScaleRatio_List.append(32);
+    do
+    {
+        if(ScaleRatio_MAX_tmp/32 > 1)
+        {
+            ScaleRatio_MAX_tmp/=32;
+            CMD_ScaleRatio_List.append(32);
+        }
+        else
+        {
+            CMD_ScaleRatio_List.append(ScaleRatio_MAX_tmp);
+            break;
+        }
+    }
+    while(true);
+    return CMD_ScaleRatio_List;
+}
+*/
