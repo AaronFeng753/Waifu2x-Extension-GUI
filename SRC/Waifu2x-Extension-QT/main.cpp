@@ -38,7 +38,7 @@ v3.11.02-beta:
 - New Feature: Video frame interpolation using cain-ncnn-vulkan(@nihui).
 - Add tool tips.
 - Fix bug: Video frame interpolation engines won't work when there are special characters in the installation path.
-- Fix bug: Video frame interpolation settings is not saved in the video configuration file.
+- Fix bug: Video frame interpolation setting is not saved in the video configuration file.
 
 v3.11.01-beta:
 - New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
