@@ -56,7 +56,7 @@ Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / Rea
 Built-in Video frame interpolation algorithms:
 RIFE
 
-Built-in image processing engines:
+Built-in Video frame interpolation engines:
 rife-ncnn-vulkan
 ```
 
