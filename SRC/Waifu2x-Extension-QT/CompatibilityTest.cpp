@@ -500,7 +500,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QString InputPath_RifeNcnnVulkan_1 = Current_Path + "/Compatibility_Test/Compatibility_Test_1.jpg";
     QFile::remove(OutputPath);
     QString rife_ncnn_vulkan_ProgramPath = Current_Path+"/rife-ncnn-vulkan/rife-ncnn-vulkan_waifu2xEX.exe";
-    cmd = "\"" + rife_ncnn_vulkan_ProgramPath + "\"" + " -0 " + "\"" + InputPath_RifeNcnnVulkan_0 + "\"" + " -1 " + "\"" + InputPath_RifeNcnnVulkan_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 -m "+Current_Path+"/rife-ncnn-vulkan/rife-HD";
+    cmd = "\"" + rife_ncnn_vulkan_ProgramPath + "\"" + " -0 " + "\"" + InputPath_RifeNcnnVulkan_0 + "\"" + " -1 " + "\"" + InputPath_RifeNcnnVulkan_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 -m \""+Current_Path+"/rife-ncnn-vulkan/rife-HD\"";
     for(int CompatTest_retry=0; CompatTest_retry<3; CompatTest_retry++)
     {
         RifeNcnnVulkan_QProcess->start(cmd);
@@ -527,7 +527,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QProcess *CainNcnnVulkan_QProcess = new QProcess();
     QFile::remove(OutputPath);
     QString cain_ncnn_vulkan_ProgramPath = Current_Path+"/cain-ncnn-vulkan/cain-ncnn-vulkan_waifu2xEX.exe";
-    cmd = "\"" + cain_ncnn_vulkan_ProgramPath + "\"" + " -0 " + "\"" + InputPath_RifeNcnnVulkan_0 + "\"" + " -1 " + "\"" + InputPath_RifeNcnnVulkan_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 -m "+Current_Path+"/cain-ncnn-vulkan/cain";
+    cmd = "\"" + cain_ncnn_vulkan_ProgramPath + "\"" + " -0 " + "\"" + InputPath_RifeNcnnVulkan_0 + "\"" + " -1 " + "\"" + InputPath_RifeNcnnVulkan_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 -m \""+Current_Path+"/cain-ncnn-vulkan/cain\"";
     for(int CompatTest_retry=0; CompatTest_retry<3; CompatTest_retry++)
     {
         CainNcnnVulkan_QProcess->start(cmd);

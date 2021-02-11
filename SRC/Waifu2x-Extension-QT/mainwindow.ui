@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -7075,6 +7075,12 @@ likelihood of removing wanted components of the audio signal.</string>
                </item>
                <item row="2" column="0">
                 <widget class="QCheckBox" name="checkBox_TTA_VFI">
+                 <property name="toolTip">
+                  <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                 </property>
                  <property name="text">
                   <string>TTA Mode</string>
                  </property>
@@ -7152,6 +7158,9 @@ likelihood of removing wanted components of the audio signal.</string>
                </item>
                <item row="5" column="1">
                 <widget class="QComboBox" name="comboBox_GPUID_VFI">
+                 <property name="toolTip">
+                  <string>&quot;-1&quot; is CPU, others are GPUs</string>
+                 </property>
                  <item>
                   <property name="text">
                    <string notr="true">auto</string>

@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.02-beta:
+- New Feature: Video frame interpolation using cain-ncnn-vulkan(@nihui).
+- Add tool tips.
+- Fix bug: Video frame interpolation engines won't work when there are special characters in the installation path.
 - Fix bug: Video frame interpolation settings is not saved in the video configuration file.
 
 v3.11.01-beta:

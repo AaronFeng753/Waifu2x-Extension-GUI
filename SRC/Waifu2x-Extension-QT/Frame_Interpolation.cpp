@@ -180,12 +180,12 @@ QString MainWindow::FrameInterpolation_ReadConfig()
     {
         case 0:
             {
-                VFI_Config.append("-m "+Current_Path+"/rife-ncnn-vulkan/"+ui->comboBox_Model_VFI->currentText().trimmed()+" ");
+                VFI_Config.append("-m \""+Current_Path+"/rife-ncnn-vulkan/"+ui->comboBox_Model_VFI->currentText().trimmed()+"\" ");
                 break;
             }
         case 1:
             {
-                VFI_Config.append("-m "+Current_Path+"/cain-ncnn-vulkan/cain ");
+                VFI_Config.append("-m \""+Current_Path+"/cain-ncnn-vulkan/cain\" ");
                 break;
             }
     }
@@ -245,7 +245,7 @@ int MainWindow::FrameInterpolation_DetectGPU()
         QFile::remove(OutputPath);
         QProcess *Waifu2x = new QProcess();
         QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
-        QString cmd = "\"" + FrameInterpolation_ProgramPath + "\"" + " -0 " + "\"" + InputPath + "\"" + " -1 " + "\"" + InputPath_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 " + gpu_str + " -m "+FrameInterpolation_ModelPath;
+        QString cmd = "\"" + FrameInterpolation_ProgramPath + "\"" + " -0 " + "\"" + InputPath + "\"" + " -1 " + "\"" + InputPath_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 " + gpu_str + " -m \""+FrameInterpolation_ModelPath+"\"";
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
