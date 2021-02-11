@@ -690,10 +690,8 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
 
 void MainWindow::on_pushButton_clear_textbrowser_clicked()
 {
-    //ui->textBrowser->clear();
-    //TextBrowser_StartMes();
-    //====
-    emit Send_TextBrowser_NewMessage(FrameInterpolation_ReadConfig());
+    ui->textBrowser->clear();
+    TextBrowser_StartMes();
 }
 
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)

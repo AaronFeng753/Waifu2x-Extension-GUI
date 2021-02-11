@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.03-beta:
+- Remove temporary code for debug.
+
 v3.11.02-beta:
 - New Feature: Video frame interpolation using cain-ncnn-vulkan(@nihui).
 - Add tool tips.
