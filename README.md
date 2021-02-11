@@ -37,6 +37,7 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 ### ✨Key features:
 - #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
 - #### 😍Full image style support: Multiple built-in algorithms, 2D anime, or your daily photos & videos, this software can handle all of them.
+- #### 🎞Video frame interpolation(beta): Automatically use AI to interpolate frames after enlarge the video.
 - #### ✅Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
 - 📊Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
 - 🚀🚀🚀Multi-GPU support: Multi-GPU support for ALL built-in engines.
