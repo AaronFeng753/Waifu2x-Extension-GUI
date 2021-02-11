@@ -41,6 +41,7 @@ SOURCES += \
     CustomResolution.cpp \
     Donate.cpp \
     Finish_Action.cpp \
+    Frame_Interpolation.cpp \
     Right-click_Menu.cpp \
     SystemTrayIcon.cpp \
     Web_Activities.cpp \

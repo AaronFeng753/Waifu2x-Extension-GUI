@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.02-beta:
+- Fix bug: enable Video frame interpolation, pause, disable Video frame interpolation, start, gonna casue error.
+
 v3.11.01-beta:
 - New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
 - Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
