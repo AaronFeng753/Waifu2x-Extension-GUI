@@ -35,7 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.03-beta:
+- Add failure detection for frame interpolation.
 - Remove temporary code for debug.
+- Fix bug: If frame interpolation failed in the middle of processing video by segment, clip with wrong frame rate gonna be generated.
 
 v3.11.02-beta:
 - New Feature: Video frame interpolation using cain-ncnn-vulkan(@nihui).

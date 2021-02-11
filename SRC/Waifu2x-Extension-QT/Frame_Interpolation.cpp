@@ -34,6 +34,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
     if(file_isDirExist(SourcePath)==false)return false;
     file_DelDir(OutputPath);
     file_mkDir(OutputPath);
+    //=======
+    emit Send_TextBrowser_NewMessage(tr("Starting to interpolate frames in:[")+SourcePath+"]");
     //========
     int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
     int FileNum_New = 0;
@@ -55,13 +57,29 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
     }
     QString CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath.replace("%","%%")+"\" -o \""+OutputPath.replace("%","%%")+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig();
     //========
+    bool FrameInterpolation_QProcess_failed = false;
+    QString ErrorMSG="";
+    QString StanderMSG="";
     for(int retry=0; retry<ui->spinBox_retry->value(); retry++)
     {
+        FrameInterpolation_QProcess_failed = false;
+        ErrorMSG="";
+        StanderMSG="";
+        //=====
         QProcess FrameInterpolation_QProcess;
         FrameInterpolation_QProcess.start(CMD);
-        while(!FrameInterpolation_QProcess.waitForStarted(100)&&!QProcess_stop) {}
-        while(!FrameInterpolation_QProcess.waitForFinished(100)&&!QProcess_stop)
+        while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
+        while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
         {
+            ErrorMSG = FrameInterpolation_QProcess.readAllStandardError().toLower();
+            StanderMSG = FrameInterpolation_QProcess.readAllStandardOutput().toLower();
+            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+            {
+                FrameInterpolation_QProcess_failed = true;
+                FrameInterpolation_QProcess.close();
+                file_DelDir(OutputPath);
+                break;
+            }
             if(ui->checkBox_ShowInterPro->isChecked())
             {
                 FileNum_New = file_getFileNames_in_Folder_nofilter(OutputPath).size();
@@ -72,20 +90,40 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
                 }
             }
         }
-        //========= 检测是否成功,是否需要重试 ============
-        if(file_getFileNames_in_Folder_nofilter(SourcePath).size()*2 == file_getFileNames_in_Folder_nofilter(OutputPath).size())
+        if(FrameInterpolation_QProcess_failed==false)
         {
+            ErrorMSG = FrameInterpolation_QProcess.readAllStandardError().toLower();
+            StanderMSG = FrameInterpolation_QProcess.readAllStandardOutput().toLower();
+            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+            {
+                FrameInterpolation_QProcess_failed = true;
+                file_DelDir(OutputPath);
+            }
+        }
+        //========= 检测是否成功,是否需要重试 ============
+        if(FrameInterpolation_QProcess_failed==false && (file_getFileNames_in_Folder_nofilter(SourcePath).size()*2 == file_getFileNames_in_Folder_nofilter(OutputPath).size()))
+        {
+            emit Send_TextBrowser_NewMessage(tr("Finish interpolating frames in:[")+SourcePath+"]");
+            //=======
+            FrameInterpolation_QProcess.close();
             return true;
         }
         else
         {
             file_DelDir(OutputPath);
-            if(retry==(ui->spinBox_retry->value()-1))return false;
+            FrameInterpolation_QProcess.close();
+            if(retry==(ui->spinBox_retry->value()-1))
+            {
+                break;
+            }
             file_mkDir(OutputPath);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
         }
     }
+    //=======
+    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames in:[")+SourcePath+"]");
+    //=======
     return false;
 }
 

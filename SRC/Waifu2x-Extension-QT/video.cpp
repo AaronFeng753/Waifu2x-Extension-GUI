@@ -922,6 +922,20 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
             QStringList FPS_Nums = fps.split("/");
             fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
         }
+        else
+        {
+            if(ui->checkBox_ProcessVideoBySegment->isChecked()==true)
+            {
+                file_DelDir(VFI_FolderPath_tmp);
+                emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                return 0;
+            }
+            else
+            {
+                file_DelDir(VFI_FolderPath_tmp);
+                emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
+            }
+        }
     }
     //=============== 音频降噪 ========================
     if((ui->checkBox_AudioDenoise->isChecked())&&QFile::exists(AudioPath))
