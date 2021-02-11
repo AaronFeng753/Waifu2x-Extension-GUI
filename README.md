@@ -150,6 +150,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
 - rife-ncnn-vulkan: https://github.com/nihui/rife-ncnn-vulkan
+- RIFE Video Frame Interpolation: https://github.com/hzwer/arXiv2020-RIFE
 - SoX: http://sox.sourceforge.net/
 - SRMD: https://github.com/cszn/SRMD
 - SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
