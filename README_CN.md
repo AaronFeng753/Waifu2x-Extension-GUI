@@ -137,6 +137,8 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
+- cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
+- Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
 - FFmpeg: https://ffmpeg.org/
 - FFmpeg Builds - gyan.dev: https://www.gyan.dev/ffmpeg/builds/
 - FFmpeg Builds - Zeranoe(该网站已停止运营): https://ffmpeg.zeranoe.com/builds/
