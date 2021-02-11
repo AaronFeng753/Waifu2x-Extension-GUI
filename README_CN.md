@@ -58,6 +58,12 @@ Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
 内置图像处理引擎:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
+
+内置插帧算法:
+RIFE
+
+内置插帧引擎:
+rife-ncnn-vulkan
 ```
 
 #### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
