@@ -85,7 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
-    connect(this, SIGNAL(Send_RefiNcnnVulkan_DetectGPU_finished()), this, SLOT(RefiNcnnVulkan_DetectGPU_finished()));
+    connect(this, SIGNAL(Send_FrameInterpolation_DetectGPU_finished()), this, SLOT(FrameInterpolation_DetectGPU_finished()));
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString,bool)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString,bool)));
     connect(this, SIGNAL(Send_Settings_Save()), this, SLOT(Settings_Save()));
     connect(this, SIGNAL(Send_video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)), this, SLOT(video_write_Progress_ProcessBySegment(QString,int,bool,bool,int)));
@@ -211,7 +211,7 @@ int MainWindow::Force_close()
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
-                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"wget_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe";
+                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"wget_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe";
     KILL_TASK_QStringList(TaskNameList,true);
     //===========
     QProcess Close;
@@ -1995,15 +1995,4 @@ void MainWindow::Set_checkBox_DisableResize_gif_Checked()
     ui->checkBox_DisableResize_gif->setChecked(true);
 }
 
-void MainWindow::on_groupBox_FrameInterpolation_clicked()
-{
-    if(ui->groupBox_FrameInterpolation->isChecked())
-    {
-        on_checkBox_MultiGPU_VFI_stateChanged(1);
-    }
-}
 
-void MainWindow::on_checkBox_isCompatible_RifeNcnnVulkan_clicked()
-{
-    ui->checkBox_isCompatible_RifeNcnnVulkan->setChecked(isCompatible_RifeNcnnVulkan);
-}

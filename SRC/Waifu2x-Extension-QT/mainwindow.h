@@ -273,9 +273,8 @@ public:
 
     void ListGPUs_Anime4k();//列出可用显卡 Anime4k
 
-    int RefiNcnnVulkan_DetectGPU();//检测可用gpu(for vulkan)
-    QStringList Available_GPUID_RefiNcnnVulkan;//可用GPU ID列表
-
+    int FrameInterpolation_DetectGPU();//检测可用gpu(for vulkan)
+    QStringList Available_GPUID_FrameInterpolation;//可用GPU ID列表
     //======================== 图片处理 ================================
     bool Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif);
     QMap<QString,int> Image_Gif_Read_Resolution(QString SourceFileFullPath);//获取图片&GIF分辨率
@@ -306,6 +305,7 @@ public:
     bool isCompatible_Waifu2x_Caffe_cuDNN=false;
     bool isCompatible_Realsr_NCNN_Vulkan=false;
     bool isCompatible_RifeNcnnVulkan=false;
+    bool isCompatible_CainNcnnVulkan=false;
     //============================== 多显卡 ==========================================
     //waifu2x-ncnn-vulkan
     int GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = 0;
@@ -359,6 +359,7 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    int Old_FrameInterpolation_Engine_Index=0;
     QString FrameInterpolation_ReadConfig();
     bool FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits);
     bool Video_AutoSkip_CustRes(int rowNum);
@@ -602,7 +603,7 @@ public slots:
 
     int Realsr_ncnn_vulkan_DetectGPU_finished();//检测可用gpu结束后的执行的槽函数
 
-    int RefiNcnnVulkan_DetectGPU_finished();
+    int FrameInterpolation_DetectGPU_finished();
 
     int CheckUpadte_NewUpdate(QString update_str,QString Change_log);//检测到更新的弹窗代码
 
@@ -933,6 +934,10 @@ private slots:
 
     void on_checkBox_isCompatible_RifeNcnnVulkan_clicked();
 
+    void on_comboBox_Engine_VFI_currentIndexChanged(int index);
+
+    void on_checkBox_isCompatible_CainNcnnVulkan_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 
@@ -961,7 +966,7 @@ signals:
     void Send_Waifu2x_DetectGPU_finished();
 
     void Send_Realsr_ncnn_vulkan_DetectGPU_finished();
-    void Send_RefiNcnnVulkan_DetectGPU_finished();
+    void Send_FrameInterpolation_DetectGPU_finished();
 
     void Send_CheckUpadte_NewUpdate(QString, QString);
 

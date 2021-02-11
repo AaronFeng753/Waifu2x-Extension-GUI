@@ -219,6 +219,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_isCompatible_Waifu2x_Caffe_cuDNN", ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_Realsr_NCNN_Vulkan", ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_RifeNcnnVulkan", ui->checkBox_isCompatible_RifeNcnnVulkan->isChecked());
+    configIniWrite->setValue("/settings/checkBox_isCompatible_CainNcnnVulkan", ui->checkBox_isCompatible_CainNcnnVulkan->isChecked());
     //======================== 存储VFI 设定 ========================
     configIniWrite->setValue("/settings/groupBox_FrameInterpolation", ui->groupBox_FrameInterpolation->isChecked());
     configIniWrite->setValue("/settings/checkBox_MultiGPU_VFI", ui->checkBox_MultiGPU_VFI->isChecked());
@@ -226,9 +227,10 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_UHD_VFI", ui->checkBox_UHD_VFI->isChecked());
     configIniWrite->setValue("/settings/comboBox_Model_VFI", ui->comboBox_Model_VFI->currentIndex());
     configIniWrite->setValue("/settings/comboBox_GPUID_VFI", ui->comboBox_GPUID_VFI->currentIndex());
-    configIniWrite->setValue("/settings/Available_GPUID_RefiNcnnVulkan", Available_GPUID_RefiNcnnVulkan);
+    configIniWrite->setValue("/settings/Available_GPUID_FrameInterpolation", Available_GPUID_FrameInterpolation);
     configIniWrite->setValue("/settings/lineEdit_MultiGPU_IDs_VFI", ui->lineEdit_MultiGPU_IDs_VFI->text());
     configIniWrite->setValue("/settings/spinBox_NumOfThreads_VFI", ui->spinBox_NumOfThreads_VFI->value());
+    configIniWrite->setValue("/settings/comboBox_Engine_VFI", ui->comboBox_Engine_VFI->currentIndex());
     //========
     return 0;
 }
@@ -480,6 +482,7 @@ int MainWindow::Settings_Read_Apply()
     isCompatible_Waifu2x_Caffe_cuDNN = Settings_Read_value("/settings/checkBox_isCompatible_Waifu2x_Caffe_cuDNN").toBool();
     isCompatible_Realsr_NCNN_Vulkan = Settings_Read_value("/settings/checkBox_isCompatible_Realsr_NCNN_Vulkan").toBool();
     isCompatible_RifeNcnnVulkan = Settings_Read_value("/settings/checkBox_isCompatible_RifeNcnnVulkan").toBool();
+    isCompatible_CainNcnnVulkan = Settings_Read_value("/settings/checkBox_isCompatible_CainNcnnVulkan").toBool();
     //===
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW);
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P);
@@ -498,17 +501,20 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
     ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
     ui->checkBox_isCompatible_RifeNcnnVulkan->setChecked(isCompatible_RifeNcnnVulkan);
+    ui->checkBox_isCompatible_CainNcnnVulkan->setChecked(isCompatible_CainNcnnVulkan);
     //======================== 加载 VFI 设定 ========================
     ui->groupBox_FrameInterpolation->setChecked(Settings_Read_value("/settings/groupBox_FrameInterpolation").toBool());
     ui->checkBox_MultiGPU_VFI->setChecked(Settings_Read_value("/settings/checkBox_MultiGPU_VFI").toBool());
     ui->checkBox_TTA_VFI->setChecked(Settings_Read_value("/settings/checkBox_TTA_VFI").toBool());
     ui->checkBox_UHD_VFI->setChecked(Settings_Read_value("/settings/checkBox_UHD_VFI").toBool());
     ui->comboBox_Model_VFI->setCurrentIndex(Settings_Read_value("/settings/comboBox_Model_VFI").toInt());
-    Available_GPUID_RefiNcnnVulkan = Settings_Read_value("/settings/Available_GPUID_RefiNcnnVulkan").toStringList();
-    RefiNcnnVulkan_DetectGPU_finished();
+    Available_GPUID_FrameInterpolation = Settings_Read_value("/settings/Available_GPUID_FrameInterpolation").toStringList();
+    FrameInterpolation_DetectGPU_finished();
     ui->comboBox_GPUID_VFI->setCurrentIndex(Settings_Read_value("/settings/comboBox_GPUID_VFI").toInt());
     ui->lineEdit_MultiGPU_IDs_VFI->setText(Settings_Read_value("/settings/lineEdit_MultiGPU_IDs_VFI").toString());
     ui->spinBox_NumOfThreads_VFI->setValue(Settings_Read_value("/settings/spinBox_NumOfThreads_VFI").toInt());
+    Old_FrameInterpolation_Engine_Index = Settings_Read_value("/settings/comboBox_Engine_VFI").toInt();
+    ui->comboBox_Engine_VFI->setCurrentIndex(Old_FrameInterpolation_Engine_Index);
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(Settings_Read_value("/settings/Language").toInt());
     on_comboBox_language_currentIndexChanged(0);

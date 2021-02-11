@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.02-beta:
-- Fix bug: enable Video frame interpolation, pause, disable Video frame interpolation, start, gonna casue error.
+- Fix bug: Video frame interpolation settings is not saved in the video configuration file.
 
 v3.11.01-beta:
 - New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
@@ -66,6 +66,8 @@ Integrated component:
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3
+- rife-ncnn-vulkan 20210210
+- cain-ncnn-vulkan 20210210
 ---------------------------------------------------------------------------
 Icons made by :
 Freepik (https://www.flaticon.com/authors/freepik) From Flaticon : https://www.flaticon.com/
