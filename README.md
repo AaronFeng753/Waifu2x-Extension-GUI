@@ -32,7 +32,7 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 
 # What is Waifu2x-Extension-GUI?
 
-### `Image` & `GIF` & `Video` Super-Resolution and `Video` frame interpolation using Deep Convolutional Neural Networks.
+### `Image` & `GIF` & `Video` Super-Resolution and Video `Frame Interpolation` using Deep Convolutional Neural Networks.
 
 ### ✨Key features:
 - #### 📺Multimedia support: Supports processing Image & GIF & Video at the same time.
