@@ -34,10 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v2.72.01-beta:
+v3.10.01-beta:
+- New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
 - Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
 - Fix bug: Failure detection for NCNN-Vulkan engines doesn't work as intended when processing GIF and Video.
 
+- 新特性: 使用rife-ncnn-vulkan(@nihui)对视频进行插帧.
 - 更新Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
 - 修复bug: 處理GIF和視頻時，NCNN-Vulkan引擎的故障檢測無法正常工作。
 

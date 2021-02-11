@@ -690,8 +690,10 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
 
 void MainWindow::on_pushButton_clear_textbrowser_clicked()
 {
-    ui->textBrowser->clear();
-    TextBrowser_StartMes();
+    //ui->textBrowser->clear();
+    //TextBrowser_StartMes();
+    //====
+    emit Send_TextBrowser_NewMessage(FrameInterpolation_ReadConfig());
 }
 
 void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
@@ -1993,4 +1995,10 @@ void MainWindow::Set_checkBox_DisableResize_gif_Checked()
     ui->checkBox_DisableResize_gif->setChecked(true);
 }
 
-
+void MainWindow::on_groupBox_FrameInterpolation_clicked()
+{
+    if(ui->groupBox_FrameInterpolation->isChecked())
+    {
+        on_checkBox_MultiGPU_VFI_stateChanged(1);
+    }
+}

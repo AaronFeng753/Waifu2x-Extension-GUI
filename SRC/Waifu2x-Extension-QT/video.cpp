@@ -905,11 +905,22 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     //=============== 补帧 ===============
     QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
-    if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp,FrameNumDigits)==true)
+    if(ui->groupBox_FrameInterpolation->isChecked()==true && file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
     {
+        FrameNumDigits++;
         ScaledFrameFolderPath = VFI_FolderPath_tmp;
         QStringList FPS_Nums = fps.split("/");
         fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+    }
+    else
+    {
+        if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp,FrameNumDigits)==true)
+        {
+            FrameNumDigits++;
+            ScaledFrameFolderPath = VFI_FolderPath_tmp;
+            QStringList FPS_Nums = fps.split("/");
+            fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+        }
     }
     //=============== 音频降噪 ========================
     if((ui->checkBox_AudioDenoise->isChecked())&&QFile::exists(AudioPath))
@@ -953,7 +964,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);
-    file_DelDir(VFI_FolderPath_tmp);
+    if(ui->checkBox_KeepVideoCache->isChecked() == false || ui->checkBox_ProcessVideoBySegment->isChecked())file_DelDir(VFI_FolderPath_tmp);
     //==============================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;
@@ -1009,6 +1020,7 @@ QString MainWindow::video_ReadSettings_OutputVid(QString AudioPath)
 bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits)
 {
     if(ui->groupBox_FrameInterpolation->isChecked()==false)return false;
+    FrameNumDigits++;
     //==========
     if(SourcePath.right(1)=="/")
     {
@@ -1022,6 +1034,10 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
     file_DelDir(OutputPath);
     file_mkDir(OutputPath);
     //========
+    int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
+    int FileNum_New = 0;
+    int FileNum_Old = 0;
+    //========
     for(int retry=0; retry<ui->spinBox_retry->value(); retry++)
     {
         QProcess FrameInterpolation_QProcess;
@@ -1029,7 +1045,18 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
         QString CMD ="\""+rife_ncnn_vulkan_ProgramPath+"\" -i \""+SourcePath.replace("%","%%")+"\" -o \""+OutputPath.replace("%","%%")+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig();
         FrameInterpolation_QProcess.start(CMD);
         while(!FrameInterpolation_QProcess.waitForStarted(100)&&!QProcess_stop) {}
-        while(!FrameInterpolation_QProcess.waitForFinished(100)&&!QProcess_stop) {}
+        while(!FrameInterpolation_QProcess.waitForFinished(100)&&!QProcess_stop)
+        {
+            if(ui->checkBox_ShowInterPro->isChecked())
+            {
+                FileNum_New = file_getFileNames_in_Folder_nofilter(OutputPath).size();
+                if(FileNum_New!=FileNum_Old)
+                {
+                    emit Send_TextBrowser_NewMessage(tr("Interpolating frames in:[")+SourcePath+tr("] Progress:[")+QString::number(FileNum_New,10)+"/"+QString::number(FileNum_MAX,10)+"]");
+                    FileNum_Old=FileNum_New;
+                }
+            }
+        }
         //========= 检测是否成功,是否需要重试 ============
         if(file_getFileNames_in_Folder_nofilter(SourcePath).size()*2 == file_getFileNames_in_Folder_nofilter(OutputPath).size())
         {
@@ -1073,6 +1100,63 @@ QString MainWindow::FrameInterpolation_ReadConfig()
         QString jobs_num_str = QString("%1").arg(ui->spinBox_NumOfThreads_VFI->value());
         VFI_Config.append(QString("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" "));
     }
+    else
+    {
+        //多显卡
+        //GPU ID
+        QString GPU_IDs_str = ui->lineEdit_MultiGPU_IDs_VFI->text().trimmed().trimmed().replace("，",",").remove(" ").remove("　");
+        if(GPU_IDs_str.right(1)==",")
+        {
+            GPU_IDs_str = GPU_IDs_str.left(GPU_IDs_str.length() - 1);
+        }
+        QStringList GPU_IDs_StrList = GPU_IDs_str.split(",");
+        GPU_IDs_StrList.removeAll("");
+        GPU_IDs_StrList.removeDuplicates();
+        if(GPU_IDs_StrList.isEmpty())
+        {
+            QString jobs_num_str = QString("%1").arg(ui->spinBox_NumOfThreads_VFI->value());
+            VFI_Config.append(QString("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" "));
+        }
+        else
+        {
+            //===
+            GPU_IDs_str = "";
+            for(int i=0; i<GPU_IDs_StrList.size(); i++)
+            {
+                if(i==0)
+                {
+                    GPU_IDs_str.append(GPU_IDs_StrList.at(i));
+                }
+                else
+                {
+                    GPU_IDs_str.append(","+GPU_IDs_StrList.at(i));
+                }
+            }
+            VFI_Config.append("-g "+GPU_IDs_str+" ");
+            //线程数量
+            int NumOfThreads_AVG = ui->spinBox_NumOfThreads_VFI->value() / GPU_IDs_StrList.size();
+            if(NumOfThreads_AVG<1)NumOfThreads_AVG=1;
+            int NumOfThreads_Total = NumOfThreads_AVG * GPU_IDs_StrList.size();
+            //===
+            QString NumOfThreads_AVG_str = QString("%1").arg(NumOfThreads_AVG);
+            QString NumOfThreads_Total_str = QString("%1").arg(NumOfThreads_Total);
+            //===
+            QString Jobs_Str = "";
+            for(int i=0; i<GPU_IDs_StrList.size(); i++)
+            {
+                if(i==0)
+                {
+                    Jobs_Str.append(NumOfThreads_AVG_str);
+                }
+                else
+                {
+                    Jobs_Str.append(","+NumOfThreads_AVG_str);
+                }
+            }
+            //===
+            VFI_Config.append(QString("-j "+NumOfThreads_Total_str+":"+Jobs_Str+":"+NumOfThreads_Total_str+" "));
+        }
+    }
     //模型
     VFI_Config.append("-m "+Current_Path+"/rife-ncnn-vulkan/"+ui->comboBox_Model_VFI->currentText().trimmed()+" ");
     //========================
@@ -1092,6 +1176,7 @@ void MainWindow::on_pushButton_DetectGPU_VFI_clicked()
     //====
     ui->pushButton_Start->setEnabled(0);
     ui->comboBox_GPUID_VFI->setEnabled(0);
+    ui->pushButton_DetectGPU_VFI->setEnabled(0);
     Available_GPUID_RefiNcnnVulkan.clear();
     QtConcurrent::run(this, &MainWindow::RefiNcnnVulkan_DetectGPU);
 }
@@ -1150,20 +1235,46 @@ int MainWindow::RefiNcnnVulkan_DetectGPU()
 int MainWindow::RefiNcnnVulkan_DetectGPU_finished()
 {
     ui->pushButton_Start->setEnabled(1);
+    ui->pushButton_DetectGPU_VFI->setEnabled(1);
     if(ui->checkBox_MultiGPU_VFI->isChecked()==false)ui->comboBox_GPUID_VFI->setEnabled(1);
     //====
     ui->comboBox_GPUID_VFI->clear();
     ui->comboBox_GPUID_VFI->addItem("auto");
     if(!Available_GPUID_RefiNcnnVulkan.isEmpty())
     {
+        QString AvaIDs_Str=tr("Available GPU IDs for Refi-Ncnn-Vulkan:[");
         for(int i=0; i<Available_GPUID_RefiNcnnVulkan.size(); i++)
         {
             ui->comboBox_GPUID_VFI->addItem(Available_GPUID_RefiNcnnVulkan.at(i));
+            if(i == (Available_GPUID_RefiNcnnVulkan.size()-1))
+            {
+                AvaIDs_Str.append(Available_GPUID_RefiNcnnVulkan.at(i));
+            }
+            else
+            {
+                AvaIDs_Str.append(Available_GPUID_RefiNcnnVulkan.at(i)+",");
+            }
         }
+        AvaIDs_Str.append("]");
+        emit Send_TextBrowser_NewMessage(AvaIDs_Str);
     }
     //====
     ui->pushButton_DetectGPU_VFI->setText(tr("Detect available GPU ID"));
     //====
     return 0;
+}
+
+void MainWindow::on_lineEdit_MultiGPU_IDs_VFI_editingFinished()
+{
+    QString TMP_str = ui->lineEdit_MultiGPU_IDs_VFI->text();
+    TMP_str = TMP_str.trimmed().replace("，",",").remove(" ").remove("　");
+    ui->lineEdit_MultiGPU_IDs_VFI->setText(TMP_str);
+}
+
+void MainWindow::on_checkBox_MultiGPU_VFI_stateChanged(int arg1)
+{
+    bool tmp_bool = ui->checkBox_MultiGPU_VFI->isChecked();
+    ui->comboBox_GPUID_VFI->setEnabled(!tmp_bool);
+    ui->lineEdit_MultiGPU_IDs_VFI->setEnabled(tmp_bool);
 }
 

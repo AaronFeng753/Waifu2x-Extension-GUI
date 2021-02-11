@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v2.72.01-beta";//软件版本号
+    QString VERSION = "v3.10.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.71.22";
-    QString LastBetaVer = "v2.72.01-beta";
+    QString LastBetaVer = "v3.10.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -923,6 +923,12 @@ private slots:
     void on_groupBox_video_settings_clicked();
 
     void on_pushButton_DetectGPU_VFI_clicked();
+
+    void on_lineEdit_MultiGPU_IDs_VFI_editingFinished();
+
+    void on_checkBox_MultiGPU_VFI_stateChanged(int arg1);
+
+    void on_groupBox_FrameInterpolation_clicked();
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
