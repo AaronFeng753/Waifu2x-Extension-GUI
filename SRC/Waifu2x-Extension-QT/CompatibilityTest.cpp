@@ -492,6 +492,35 @@ int MainWindow::Waifu2x_Compatibility_Test()
     }
     QFile::remove(SoX_OutputPath);
     emit Send_Add_progressBar_CompatibilityTest();
+    //==========================================
+    //                 Rife-NCNN-Vulkan
+    //==========================================
+    QProcess *RifeNcnnVulkan_QProcess = new QProcess();
+    QString InputPath_RifeNcnnVulkan_0 = Current_Path + "/Compatibility_Test/Compatibility_Test.jpg";
+    QString InputPath_RifeNcnnVulkan_1 = Current_Path + "/Compatibility_Test/Compatibility_Test_1.jpg";
+    QFile::remove(OutputPath);
+    QString rife_ncnn_vulkan_ProgramPath = Current_Path+"/rife-ncnn-vulkan/rife-ncnn-vulkan_waifu2xEX.exe";
+    cmd = "\"" + rife_ncnn_vulkan_ProgramPath + "\"" + " -0 " + "\"" + InputPath_RifeNcnnVulkan_0 + "\"" + " -1 " + "\"" + InputPath_RifeNcnnVulkan_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 -m "+Current_Path+"/rife-ncnn-vulkan/rife-HD";
+    for(int CompatTest_retry=0; CompatTest_retry<3; CompatTest_retry++)
+    {
+        RifeNcnnVulkan_QProcess->start(cmd);
+        if(RifeNcnnVulkan_QProcess->waitForStarted(30000))
+        {
+            while(!RifeNcnnVulkan_QProcess->waitForFinished(100)&&!QProcess_stop) {}
+        }
+        if(QFile::exists(OutputPath))break;
+    }
+    if(QFile::exists(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Rife-NCNN-Vulkan: Yes."));
+        isCompatible_RifeNcnnVulkan=true;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with Rife-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]"));
+        isCompatible_RifeNcnnVulkan=false;
+    }
+    QFile::remove(OutputPath);
     //=================
     // 杀死滞留的进程
     //=================
@@ -528,6 +557,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->checkBox_isCompatible_Waifu2x_Caffe_GPU->setChecked(isCompatible_Waifu2x_Caffe_GPU);
     ui->checkBox_isCompatible_Waifu2x_Caffe_cuDNN->setChecked(isCompatible_Waifu2x_Caffe_cuDNN);
     ui->checkBox_isCompatible_Realsr_NCNN_Vulkan->setChecked(isCompatible_Realsr_NCNN_Vulkan);
+    ui->checkBox_isCompatible_RifeNcnnVulkan->setChecked(isCompatible_RifeNcnnVulkan);
     //解除界面管制
     Finish_progressBar_CompatibilityTest();
     ui->tab_Home->setEnabled(1);
@@ -745,7 +775,7 @@ void MainWindow::Init_progressBar_CompatibilityTest()
 {
     ui->progressBar_CompatibilityTest->setEnabled(1);
     ui->progressBar_CompatibilityTest->setVisible(1);
-    ui->progressBar_CompatibilityTest->setRange(0,16);
+    ui->progressBar_CompatibilityTest->setRange(0,17);
     ui->progressBar_CompatibilityTest->setValue(0);
 }
 //进度+1 -兼容性测试进度条

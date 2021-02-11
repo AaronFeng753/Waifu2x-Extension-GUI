@@ -2002,3 +2002,8 @@ void MainWindow::on_groupBox_FrameInterpolation_clicked()
         on_checkBox_MultiGPU_VFI_stateChanged(1);
     }
 }
+
+void MainWindow::on_checkBox_isCompatible_RifeNcnnVulkan_clicked()
+{
+    ui->checkBox_isCompatible_RifeNcnnVulkan->setChecked(isCompatible_RifeNcnnVulkan);
+}

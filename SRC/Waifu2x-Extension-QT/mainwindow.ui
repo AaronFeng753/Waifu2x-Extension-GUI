@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1089</width>
-    <height>724</height>
+    <height>744</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>4</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -7009,7 +7009,7 @@ likelihood of removing wanted components of the audio signal.</string>
          <item row="1" column="0" colspan="2">
           <widget class="QGroupBox" name="groupBox_FrameInterpolation">
            <property name="title">
-            <string>Frame Interpolation(RIFE-NCNN-Vulkan)</string>
+            <string>Frame Interpolation (Powered by RIFE-NCNN-Vulkan)</string>
            </property>
            <property name="checkable">
             <bool>true</bool>
@@ -7149,7 +7149,15 @@ padding:10px;
              </widget>
             </item>
             <item row="4" column="1" colspan="2">
-             <widget class="QLineEdit" name="lineEdit_MultiGPU_IDs_VFI"/>
+             <widget class="QLineEdit" name="lineEdit_MultiGPU_IDs_VFI">
+              <property name="toolTip">
+               <string>Format: GPU ID,GPU ID
+
+Example: 0,1
+
+You must follow the format,otherwise the software may crash.</string>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
@@ -8359,7 +8367,7 @@ when processing video in segments.</string>
                           <number>999999999</number>
                          </property>
                          <property name="value">
-                          <number>10</number>
+                          <number>30</number>
                          </property>
                         </widget>
                        </item>
@@ -8565,48 +8573,8 @@ when processing video in segments.</string>
             <property name="bottomMargin">
              <number>6</number>
             </property>
-            <item row="11" column="0" colspan="4">
-             <widget class="QLabel" name="label_2">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>210</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>16777215</width>
-                <height>210</height>
-               </size>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::Box</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Sunken</enum>
-              </property>
-              <property name="text">
-               <string>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] must be compatible with your computer, to make sure you can use all functions in this software.
-
-And if one of the engines is compatible with your PC, you can use all the functions of this software.
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-              </property>
-              <property name="wordWrap">
-               <bool>true</bool>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Anime4k_CPU">
+            <item row="1" column="2">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD">
               <property name="enabled">
                <bool>true</bool>
               </property>
@@ -8622,59 +8590,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
 }</string>
               </property>
               <property name="text">
-               <string notr="true">Anime4K(CPU)</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QCheckBox" name="checkBox_isCompatible_SRMD_NCNN_Vulkan">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
-              </property>
-              <property name="toolTip">
-               <string>Image processing engine.</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QCheckBox:disabled{
-	color: rgb(0, 0, 0);
-}</string>
-              </property>
-              <property name="text">
-               <string notr="true">SRMD-ncnn-vulkan</string>
-              </property>
-             </widget>
-            </item>
-            <item row="3" column="1">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_CPU">
-              <property name="toolTip">
-               <string>Image processing engine.</string>
-              </property>
-              <property name="text">
-               <string notr="true">Waifu2x-caffe(CPU)</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P">
-              <property name="enabled">
-               <bool>true</bool>
-              </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
-              </property>
-              <property name="toolTip">
-               <string>Image processing engine.</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QCheckBox:disabled{
-	color: rgb(0, 0, 0);
-}</string>
-              </property>
-              <property name="text">
-               <string notr="true">Waifu2x-ncnn-vulkan(20200414(fp16p))</string>
+               <string>Waifu2x-ncnn-vulkan(OLD)</string>
               </property>
              </widget>
             </item>
@@ -8705,64 +8621,63 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
              </widget>
             </item>
-            <item row="5" column="0" colspan="4">
-             <widget class="Line" name="line_16">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
+            <item row="4" column="1">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Realsr_NCNN_Vulkan">
+              <property name="toolTip">
+               <string>Image processing engine.</string>
+              </property>
+              <property name="text">
+               <string notr="true">Realsr-ncnn-vulkan</string>
               </property>
              </widget>
             </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_58">
+            <item row="12" column="0" colspan="4">
+             <widget class="QLabel" name="label_2">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>210</height>
+               </size>
+              </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>30</height>
+                <height>210</height>
                </size>
               </property>
-              <property name="text">
-               <string>Engines:</string>
+              <property name="frameShape">
+               <enum>QFrame::Box</enum>
               </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_cuDNN">
-              <property name="toolTip">
-               <string>Image processing engine.</string>
+              <property name="frameShadow">
+               <enum>QFrame::Sunken</enum>
               </property>
               <property name="text">
-               <string notr="true">Waifu2x-caffe(cuDNN)</string>
+               <string>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
+
+And if one of the Super-Resolution engines is compatible with your PC, you can use all the functions of this software.
+
+waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
+waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
+Anime4k  [ Speed:★★★  Image Quality:★ ]
+srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
+waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
+Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD">
-              <property name="enabled">
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <property name="wordWrap">
                <bool>true</bool>
               </property>
-              <property name="focusPolicy">
-               <enum>Qt::NoFocus</enum>
-              </property>
-              <property name="toolTip">
-               <string>Image processing engine.</string>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">QCheckBox:disabled{
-	color: rgb(0, 0, 0);
-}</string>
-              </property>
-              <property name="text">
-               <string>Waifu2x-ncnn-vulkan(OLD)</string>
-              </property>
              </widget>
             </item>
-            <item row="7" column="1">
-             <widget class="QCheckBox" name="checkBox_isCompatible_ImageMagick">
+            <item row="8" column="0">
+             <widget class="QCheckBox" name="checkBox_isCompatible_FFprobe">
               <property name="toolTip">
-               <string>For processing Image and GIF.</string>
+               <string>For processing Video and Gif.</string>
               </property>
               <property name="text">
-               <string notr="true">ImageMagick</string>
+               <string notr="true">FFprobe</string>
               </property>
              </widget>
             </item>
@@ -8796,6 +8711,27 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
              </widget>
             </item>
+            <item row="1" column="1">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="toolTip">
+               <string>Image processing engine.</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QCheckBox:disabled{
+	color: rgb(0, 0, 0);
+}</string>
+              </property>
+              <property name="text">
+               <string notr="true">Waifu2x-ncnn-vulkan(20200414(fp16p))</string>
+              </property>
+             </widget>
+            </item>
             <item row="7" column="2">
              <widget class="QCheckBox" name="checkBox_isCompatible_Gifsicle">
               <property name="toolTip">
@@ -8803,6 +8739,54 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
               <property name="text">
                <string notr="true">Gifsicle</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QCheckBox" name="checkBox_isCompatible_SRMD_NCNN_Vulkan">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="toolTip">
+               <string>Image processing engine.</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QCheckBox:disabled{
+	color: rgb(0, 0, 0);
+}</string>
+              </property>
+              <property name="text">
+               <string notr="true">SRMD-ncnn-vulkan</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0" colspan="4">
+             <widget class="Line" name="line_16">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QCheckBox" name="checkBox_isCompatible_ImageMagick">
+              <property name="toolTip">
+               <string>For processing Image and GIF.</string>
+              </property>
+              <property name="text">
+               <string notr="true">ImageMagick</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QCheckBox" name="checkBox_isCompatible_SoX">
+              <property name="toolTip">
+               <string>For audio denoise(video).</string>
+              </property>
+              <property name="text">
+               <string notr="true">SoX</string>
               </property>
              </widget>
             </item>
@@ -8827,23 +8811,13 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
              </widget>
             </item>
-            <item row="3" column="2">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_GPU">
+            <item row="3" column="1">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_CPU">
               <property name="toolTip">
                <string>Image processing engine.</string>
               </property>
               <property name="text">
-               <string notr="true">Waifu2x-caffe(GPU)</string>
-              </property>
-             </widget>
-            </item>
-            <item row="8" column="0">
-             <widget class="QCheckBox" name="checkBox_isCompatible_FFprobe">
-              <property name="toolTip">
-               <string>For processing Video and Gif.</string>
-              </property>
-              <property name="text">
-               <string notr="true">FFprobe</string>
+               <string notr="true">Waifu2x-caffe(CPU)</string>
               </property>
              </widget>
             </item>
@@ -8860,23 +8834,26 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
              </widget>
             </item>
-            <item row="4" column="1">
-             <widget class="QCheckBox" name="checkBox_isCompatible_Realsr_NCNN_Vulkan">
+            <item row="3" column="2">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_GPU">
               <property name="toolTip">
                <string>Image processing engine.</string>
               </property>
               <property name="text">
-               <string notr="true">Realsr-ncnn-vulkan</string>
+               <string notr="true">Waifu2x-caffe(GPU)</string>
               </property>
              </widget>
             </item>
-            <item row="7" column="0">
-             <widget class="QCheckBox" name="checkBox_isCompatible_SoX">
-              <property name="toolTip">
-               <string>For audio denoise(video).</string>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_58">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
               </property>
               <property name="text">
-               <string notr="true">SoX</string>
+               <string>Super-Resolution Engines:</string>
               </property>
              </widget>
             </item>
@@ -8887,6 +8864,58 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
               <property name="text">
                <string notr="true">FFmpeg</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Anime4k_CPU">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::NoFocus</enum>
+              </property>
+              <property name="toolTip">
+               <string>Image processing engine.</string>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QCheckBox:disabled{
+	color: rgb(0, 0, 0);
+}</string>
+              </property>
+              <property name="text">
+               <string notr="true">Anime4K(CPU)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_cuDNN">
+              <property name="toolTip">
+               <string>Image processing engine.</string>
+              </property>
+              <property name="text">
+               <string notr="true">Waifu2x-caffe(cuDNN)</string>
+              </property>
+             </widget>
+            </item>
+            <item row="9" column="0" colspan="4">
+             <widget class="Line" name="line_19">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="0">
+             <widget class="QLabel" name="label_36">
+              <property name="text">
+               <string>Frame Interpolation Engines:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="0">
+             <widget class="QCheckBox" name="checkBox_isCompatible_RifeNcnnVulkan">
+              <property name="text">
+               <string notr="true">RIFE-NCNN-Vulkan</string>
               </property>
              </widget>
             </item>
@@ -8948,7 +8977,7 @@ padding:10px;
             </sizepolicy>
            </property>
            <property name="maximum">
-            <number>16</number>
+            <number>17</number>
            </property>
            <property name="value">
             <number>0</number>

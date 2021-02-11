@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.10.01-beta";//软件版本号
+    QString VERSION = "v3.11.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v2.71.22";
-    QString LastBetaVer = "v3.10.01-beta";
+    QString LastBetaVer = "v3.11.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -305,6 +305,7 @@ public:
     bool isCompatible_Waifu2x_Caffe_GPU=false;
     bool isCompatible_Waifu2x_Caffe_cuDNN=false;
     bool isCompatible_Realsr_NCNN_Vulkan=false;
+    bool isCompatible_RifeNcnnVulkan=false;
     //============================== 多显卡 ==========================================
     //waifu2x-ncnn-vulkan
     int GPU_ID_Waifu2x_NCNN_Vulkan_MultiGPU = 0;
@@ -929,6 +930,8 @@ private slots:
     void on_checkBox_MultiGPU_VFI_stateChanged(int arg1);
 
     void on_groupBox_FrameInterpolation_clicked();
+
+    void on_checkBox_isCompatible_RifeNcnnVulkan_clicked();
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
