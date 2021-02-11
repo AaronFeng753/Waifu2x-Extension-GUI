@@ -52,6 +52,12 @@ Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
 Built-in image processing engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
+
+Built-in Video frame interpolation algorithms:
+RIFE
+
+Built-in image processing engines:
+rife-ncnn-vulkan
 ```
 
 #### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
