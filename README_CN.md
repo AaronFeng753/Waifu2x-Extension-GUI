@@ -4,7 +4,7 @@
 
 <h2 align="center"> Waifu2x-Extension-GUI </h2>
 
-<h3 align="center"> 使用机器学习放大 图片/视频/GIF </h3>
+<h3 align="center"> 使用机器学习放大 图片/视频/GIF 以及视频补帧. </h3>
 
 <p align="center">
 <img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20stable%20release&style=flat-square&color=brightgreen">
