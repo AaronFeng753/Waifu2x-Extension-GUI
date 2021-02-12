@@ -608,6 +608,18 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
         MSG->setModal(true);
         MSG->show();
     }
+    /*
+    判断插帧引擎是否全部不兼容
+    */
+    if(isCompatible_RifeNcnnVulkan==false && isCompatible_CainNcnnVulkan==false)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Notification"));
+        MSG->setText(tr("All of the Frame Interpolation engines are not compatible with your PC, so you will not be able to use the Frame Interpolation function."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(true);
+        MSG->show();
+    }
     //========== 提示是否需要自动调整引擎设定 ==========
     QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")), QString(tr("Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?")));
     Msg.setIcon(QMessageBox::Information);
@@ -619,6 +631,20 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
         /*
         * 协助用户调整引擎设定:
         */
+        //插帧引擎
+        if(isCompatible_RifeNcnnVulkan==true || isCompatible_CainNcnnVulkan==true)
+        {
+            if(isCompatible_RifeNcnnVulkan)
+            {
+                ui->comboBox_Engine_VFI->setCurrentIndex(0);
+                on_comboBox_Engine_VFI_currentIndexChanged(0);
+            }
+            else
+            {
+                ui->comboBox_Engine_VFI->setCurrentIndex(1);
+                on_comboBox_Engine_VFI_currentIndexChanged(0);
+            }
+        }
         //========== 检查waifu2x-ncnn-vulkan 最新版 的兼容性 ===============
         if(isCompatible_Waifu2x_NCNN_Vulkan_NEW==true)
         {
