@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.03-beta:
+- Add auto adjust for number of threads of frame interpolation.
 - Add failure detection for frame interpolation.
 - Remove temporary code for debug.
 - Fix bug: If frame interpolation failed in the middle of processing video by segment, clip with wrong frame rate gonna be generated.

@@ -36,6 +36,11 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
     file_mkDir(OutputPath);
     //=======
     emit Send_TextBrowser_NewMessage(tr("Starting to interpolate frames in:[")+SourcePath+"]");
+    //=======
+    if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true)
+    {
+        if(ui->spinBox_retry->value()<5)ui->spinBox_retry->setValue(6);
+    }
     //========
     int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
     int FileNum_New = 0;
@@ -115,6 +120,10 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
             if(retry==(ui->spinBox_retry->value()-1))
             {
                 break;
+            }
+            if(retry>=2 && ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true)
+            {
+                ui->spinBox_NumOfThreads_VFI->setValue(1);
             }
             file_mkDir(OutputPath);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
