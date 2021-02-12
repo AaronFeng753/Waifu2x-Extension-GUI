@@ -641,7 +641,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
         QString EngineName_old = configIniRead->value("/VideoConfiguration/EngineName").toString();
         bool isProcessBySegment_old = configIniRead->value("/VideoConfiguration/isProcessBySegment").toBool();
-        bool isVideoFrameInterpolationEnabled_old = configIniRead->value("/VideoConfiguration/isVideoFrameInterpolationEnabled_old").toBool();
+        bool isVideoFrameInterpolationEnabled_old = configIniRead->value("/VideoConfiguration/isVideoFrameInterpolationEnabled").toBool();
         //=================== 比对信息 ================================
         if(EngineName_old=="realsr-ncnn-vulkan")
         {
@@ -1058,7 +1058,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
         QString EngineName_old = configIniRead->value("/VideoConfiguration/EngineName").toString();
         bool isProcessBySegment_old = configIniRead->value("/VideoConfiguration/isProcessBySegment").toBool();
-        bool isVideoFrameInterpolationEnabled_old = configIniRead->value("/VideoConfiguration/isVideoFrameInterpolationEnabled_old").toBool();
+        bool isVideoFrameInterpolationEnabled_old = configIniRead->value("/VideoConfiguration/isVideoFrameInterpolationEnabled").toBool();
         //=================== 比对信息 ================================
         if(EngineName_old=="realsr-ncnn-vulkan")
         {
