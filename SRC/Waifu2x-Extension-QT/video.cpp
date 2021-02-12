@@ -924,7 +924,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         }
         else
         {
-            if(ui->checkBox_ProcessVideoBySegment->isChecked()==true)
+            if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
             {
                 file_DelDir(VFI_FolderPath_tmp);
                 emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
@@ -960,7 +960,17 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QProcess images2video;
     images2video.start(CMD);
     while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
-    while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
+    while(!images2video.waitForFinished(100)&&!QProcess_stop)
+    {
+        if(waifu2x_STOP)
+        {
+            images2video.close();
+            QFile::remove(video_mp4_scaled_fullpath);
+            file_DelDir(VFI_FolderPath_tmp);
+            if(Del_DenoisedAudio)QFile::remove(AudioPath);
+            return 0;
+        }
+    }
     //============== 尝试在Win7下可能兼容的指令 ================================
     if(!QFile::exists(video_mp4_scaled_fullpath))
     {
@@ -975,7 +985,17 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         QProcess images2video;
         images2video.start(CMD);
         while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
-        while(!images2video.waitForFinished(100)&&!QProcess_stop) {}
+        while(!images2video.waitForFinished(100)&&!QProcess_stop)
+        {
+            if(waifu2x_STOP)
+            {
+                images2video.close();
+                QFile::remove(video_mp4_scaled_fullpath);
+                file_DelDir(VFI_FolderPath_tmp);
+                if(Del_DenoisedAudio)QFile::remove(AudioPath);
+                return 0;
+            }
+        }
     }
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);

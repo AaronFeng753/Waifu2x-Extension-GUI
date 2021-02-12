@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.03-beta:
+- New Feature: Now you can skip the super-resolution, only interpolate video frames by enable [Frame Interpolation only(Video)].
+- Add pause support for frame interpolation.
 - Add auto adjust for number of threads of frame interpolation.
 - Add failure detection for frame interpolation.
 - Remove temporary code for debug.

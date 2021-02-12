@@ -180,7 +180,9 @@ void MainWindow::on_pushButton_Start_clicked()
     isForceRetryClicked=false;
     ForceRetryCount=1;
     isForceRetryEnabled=true;
+    isSuccessiveFailuresDetected_VFI=false;
     //============== 界面初始化 ======================
+    ui->checkBox_FrameInterpolationOnly_Video->setEnabled(0);
     ui->groupBox_FrameInterpolation->setEnabled(0);
     ui->pushButton_BrowserFile->setEnabled(0);
     ui->comboBox_ImageSaveFormat->setEnabled(0);
@@ -480,6 +482,7 @@ int MainWindow::Waifu2xMainThread()
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=1;//线程数量统计+1
             mutex_ThreadNumRunning.unlock();
+            if(ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)VideoEngine=99;
             switch(VideoEngine)
             {
                 case 0:
@@ -554,6 +557,18 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
+                case 99:
+                    {
+                        if(video_isNeedProcessBySegment(currentRowNumber))
+                        {
+                            FrameInterpolation_Video_BySegment(currentRowNumber);
+                        }
+                        else
+                        {
+                            FrameInterpolation_Video(currentRowNumber);
+                        }
+                        break;
+                    }
             }
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=0;//线程数量统计+1
@@ -598,6 +613,7 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
+    ui->checkBox_FrameInterpolationOnly_Video->setEnabled(1);
     ui->groupBox_FrameInterpolation->setEnabled(1);
     ui->pushButton_BrowserFile->setEnabled(1);
     ui->comboBox_ImageSaveFormat->setEnabled(1);
@@ -653,6 +669,7 @@ void MainWindow::Waifu2x_Finished_manual()
     TimeCost=0;
     ForceRetryCount=1;
     isForceRetryEnabled=true;
+    isSuccessiveFailuresDetected_VFI=false;
     //================= 杀死卡死在后台的进程 =================
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"

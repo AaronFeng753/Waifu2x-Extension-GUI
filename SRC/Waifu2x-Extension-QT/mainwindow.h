@@ -359,6 +359,9 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    bool isSuccessiveFailuresDetected_VFI=false;
+    int FrameInterpolation_Video_BySegment(int rowNum);
+    int FrameInterpolation_Video(int rowNum);
     int Old_FrameInterpolation_Engine_Index=0;
     QString FrameInterpolation_ReadConfig();
     bool FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits);
@@ -937,6 +940,8 @@ private slots:
     void on_comboBox_Engine_VFI_currentIndexChanged(int index);
 
     void on_checkBox_isCompatible_CainNcnnVulkan_clicked();
+
+    void on_checkBox_FrameInterpolationOnly_Video_stateChanged(int arg1);
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
