@@ -450,10 +450,9 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
 /*
 视频补帧
 */
-bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits)
+bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
 {
     if(ui->groupBox_FrameInterpolation->isChecked()==false)return false;
-    FrameNumDigits++;
     //==========
     if(SourcePath.right(1)=="/")
     {
@@ -498,6 +497,9 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath,int Fr
     bool FrameInterpolation_QProcess_failed = false;
     QString ErrorMSG="";
     QString StanderMSG="";
+    int FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(SourcePath).size()*2));
+    emit Send_TextBrowser_NewMessage(QString("FrameNumDigits:%1").arg(FrameNumDigits));
+    //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+retry_add); retry++)
     {
         FrameInterpolation_QProcess_failed = false;

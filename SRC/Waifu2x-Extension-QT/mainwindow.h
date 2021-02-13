@@ -359,12 +359,13 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    int CalNumDigits(int input_num);
     bool isSuccessiveFailuresDetected_VFI=false;
     int FrameInterpolation_Video_BySegment(int rowNum);
     int FrameInterpolation_Video(int rowNum);
     int Old_FrameInterpolation_Engine_Index=0;
     QString FrameInterpolation_ReadConfig();
-    bool FrameInterpolation(QString SourcePath,QString OutputPath,int FrameNumDigits);
+    bool FrameInterpolation(QString SourcePath,QString OutputPath);
     bool Video_AutoSkip_CustRes(int rowNum);
     int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率

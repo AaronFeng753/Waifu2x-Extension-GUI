@@ -19,6 +19,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+计算数字的位数
+*/
+int MainWindow::CalNumDigits(int input_num)
+{
+    int frameNumDigits=1+(int)log10(input_num);
+    return frameNumDigits;
+}
+
+/*
 判断视频是否是可变帧率的
 */
 bool MainWindow::video_isVFR(QString videoPath)
@@ -908,16 +917,16 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
     if(ui->groupBox_FrameInterpolation->isChecked()==true && file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
     {
-        FrameNumDigits++;
+        FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
         ScaledFrameFolderPath = VFI_FolderPath_tmp;
         QStringList FPS_Nums = fps.split("/");
         fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
     }
     else
     {
-        if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp,FrameNumDigits)==true)
+        if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp)==true)
         {
-            FrameNumDigits++;
+            FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
             ScaledFrameFolderPath = VFI_FolderPath_tmp;
             QStringList FPS_Nums = fps.split("/");
             fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
