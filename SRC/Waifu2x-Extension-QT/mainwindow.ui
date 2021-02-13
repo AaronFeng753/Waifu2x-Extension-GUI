@@ -9043,7 +9043,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
             <item row="11" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_CainNcnnVulkan">
               <property name="text">
-               <string>CAIN-NCNN-Vulkan</string>
+               <string notr="true">CAIN-NCNN-Vulkan</string>
               </property>
              </widget>
             </item>

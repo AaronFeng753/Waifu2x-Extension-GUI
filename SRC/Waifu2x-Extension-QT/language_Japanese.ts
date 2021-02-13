@@ -45,7 +45,7 @@
 (フォルダ)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2015"/>
+        <location filename="mainwindow.ui" line="2021"/>
         <source>When this option is enabled, the output file 
 will be moved to the path you specified. 
 Otherwise, it will be saved in the same 
@@ -66,8 +66,8 @@ folder as the source file.</oldsource>
 が有効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2024"/>
-        <location filename="mainwindow.ui" line="6995"/>
+        <location filename="mainwindow.ui" line="2030"/>
+        <location filename="mainwindow.ui" line="7011"/>
         <source>Enabled</source>
         <translation>有効</translation>
     </message>
@@ -100,8 +100,8 @@ folder as the source file.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1543"/>
-        <location filename="mainwindow.cpp" line="732"/>
-        <location filename="mainwindow.cpp" line="796"/>
+        <location filename="mainwindow.cpp" line="730"/>
+        <location filename="mainwindow.cpp" line="794"/>
         <source>Hide settings</source>
         <translation>設定を非表示にする</translation>
     </message>
@@ -170,8 +170,8 @@ display the window, double-click to maximize the window.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1586"/>
-        <location filename="mainwindow.cpp" line="809"/>
-        <location filename="mainwindow.cpp" line="1067"/>
+        <location filename="mainwindow.cpp" line="807"/>
+        <location filename="mainwindow.cpp" line="1065"/>
         <source>Hide Text Browser</source>
         <translation>テキスト ブラウザを非表示にする</translation>
     </message>
@@ -251,7 +251,7 @@ into a directory that can run normally without administrator rights.</oldsource>
         <location filename="mainwindow.ui" line="629"/>
         <location filename="mainwindow.ui" line="726"/>
         <location filename="Current_File_Progress.cpp" line="34"/>
-        <location filename="waifu2x.cpp" line="208"/>
+        <location filename="waifu2x.cpp" line="210"/>
         <source>Time remaining:NULL</source>
         <translation>残り時間:NULL</translation>
     </message>
@@ -259,7 +259,7 @@ into a directory that can run normally without administrator rights.</oldsource>
         <location filename="mainwindow.ui" line="440"/>
         <location filename="mainwindow.ui" line="703"/>
         <location filename="Current_File_Progress.cpp" line="36"/>
-        <location filename="waifu2x.cpp" line="207"/>
+        <location filename="waifu2x.cpp" line="209"/>
         <source>ETA:NULL</source>
         <translation>イータ:NULL</translation>
     </message>
@@ -281,17 +281,17 @@ into a directory that can run normally without administrator rights.</oldsource>
         <translation type="vanished">時間コスト:NULL</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9203"/>
+        <location filename="mainwindow.ui" line="9239"/>
         <source>Clear text browser.</source>
         <translation>クリア テキスト ブラウザ。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9236"/>
+        <location filename="mainwindow.ui" line="9272"/>
         <source>Clear</source>
         <translation>クリア</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9266"/>
+        <location filename="mainwindow.ui" line="9302"/>
         <source>Font size:</source>
         <translation>フォントサイズ:</translation>
     </message>
@@ -334,44 +334,44 @@ will not be interrupted and will continue.</oldsource>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2541"/>
+        <location filename="mainwindow.ui" line="2557"/>
         <source>Scale ratio and Denoise level</source>
         <translation>スケール比とノイズ除去レベル</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2609"/>
+        <location filename="mainwindow.ui" line="2625"/>
         <source>GIF Denoise level:</source>
         <translation>GIFノイズレベル:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2593"/>
-        <location filename="mainwindow.ui" line="2666"/>
-        <location filename="mainwindow.ui" line="2742"/>
+        <location filename="mainwindow.ui" line="2609"/>
+        <location filename="mainwindow.ui" line="2682"/>
+        <location filename="mainwindow.ui" line="2758"/>
         <source>Range: 1 ~ 999999999</source>
         <translation>範囲:1~99999999</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2669"/>
+        <location filename="mainwindow.ui" line="2685"/>
         <source>Image Scale ratio:</source>
         <translation>画像のスケール比:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2695"/>
+        <location filename="mainwindow.ui" line="2711"/>
         <source>Video Denoise level:</source>
         <translation>ビデオノイズ除去レベル:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2745"/>
+        <location filename="mainwindow.ui" line="2761"/>
         <source>Video Scale ratio:</source>
         <translation>ビデオスケール比:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2596"/>
+        <location filename="mainwindow.ui" line="2612"/>
         <source>GIF Scale ratio:</source>
         <translation>GIF のスケール比:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2682"/>
+        <location filename="mainwindow.ui" line="2698"/>
         <source>Image Denoise level:</source>
         <translation>イメージノイズ除去レベル:</translation>
     </message>
@@ -394,7 +394,7 @@ It is recommended to enable this option.</source>
 このオプションを有効にすることをお勧めします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2341"/>
+        <location filename="mainwindow.ui" line="2482"/>
         <source>Optimize &quot;.gif&quot;</source>
         <translation>「.gif」を最適化する</translation>
     </message>
@@ -405,7 +405,7 @@ It is recommended to enable this option.</source>
 &#xa0; 処理プロセスが再び開始されると、再び処理されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2439"/>
+        <location filename="mainwindow.ui" line="2275"/>
         <source>Re-process finished files</source>
         <translation>完成したファイルを再処理する</translation>
     </message>
@@ -422,17 +422,17 @@ It is recommended to enable this option.</source>
         <translation type="vanished">リスト内のすべてのファイルが処理されたときに通知音を再生します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8535"/>
+        <location filename="mainwindow.ui" line="8571"/>
         <source>Notification sound</source>
         <translation>通知音</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8545"/>
+        <location filename="mainwindow.ui" line="8581"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation>テキストブラウザー内のGIFおよびビデオプロセスの内部スケールおよびノイズ除去の進行状況を出力します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8548"/>
+        <location filename="mainwindow.ui" line="8584"/>
         <source>Show internal progress</source>
         <translation>内部の進捗状況を表示する</translation>
     </message>
@@ -441,7 +441,7 @@ It is recommended to enable this option.</source>
         <translation type="vanished">処理が完了したら、元のファイルを削除します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2365"/>
+        <location filename="mainwindow.ui" line="2506"/>
         <source>Delete original files</source>
         <translation>元のファイルを削除する</translation>
     </message>
@@ -478,17 +478,17 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8843"/>
+        <location filename="mainwindow.ui" line="8879"/>
         <source>For processing Image and GIF.</source>
         <translation>画像やGIFの処理に。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8744"/>
+        <location filename="mainwindow.ui" line="8780"/>
         <source>For processing Video and Gif.</source>
         <translation>ビデオとGifの処理用。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8722"/>
+        <location filename="mainwindow.ui" line="8758"/>
         <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the Super-Resolution engines is compatible with your PC, you can use all the functions of this software.
@@ -499,26 +499,30 @@ Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
 Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
-        <translation type="unfinished"></translation>
+        <translation>[FFmpeg、FFprobe、ImageMagick、Gifsicle、SoX]およびフレーム補間エンジンの1つは、このソフトウェアのすべての機能を使用できるようにするために、コンピューターと互換性がある必要があります。
+
+また、超解像エンジンの1つがPCと互換性がある場合は、このソフトウェアのすべての機能を使用できます。
+
+waifu2x-ncnn-vulkan [速度：★★画質：★★★]
+waifu2x-converter [速度：★☆画質：★★☆]
+Anime4k [速度：★★★画質：★]
+srmd-ncnn-vulkan [速度：★☆画質：★★★]
+waifu2x-caffe [速度：★☆画質：★★★]
+Realsr-ncnn-vulkan [速度：☆画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8935"/>
+        <location filename="mainwindow.ui" line="8971"/>
         <source>Super-Resolution Engines:</source>
-        <translation type="unfinished"></translation>
+        <translation>超解像エンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8996"/>
+        <location filename="mainwindow.ui" line="9032"/>
         <source>Frame Interpolation Engines:</source>
-        <translation type="unfinished"></translation>
+        <translation>フレーム補間エンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9010"/>
-        <source>CAIN-NCNN-Vulkan</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="9263"/>
-        <location filename="mainwindow.ui" line="9279"/>
+        <location filename="mainwindow.ui" line="9299"/>
+        <location filename="mainwindow.ui" line="9315"/>
         <source>Change the font size of the text browser.</source>
         <translation>テキストブラウザのフォントサイズを変更します。</translation>
     </message>
@@ -526,7 +530,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <location filename="mainwindow.ui" line="484"/>
         <location filename="mainwindow.ui" line="742"/>
         <location filename="Current_File_Progress.cpp" line="35"/>
-        <location filename="waifu2x.cpp" line="206"/>
+        <location filename="waifu2x.cpp" line="208"/>
         <source>Time taken:NULL</source>
         <translation>所要時間：NULL</translation>
     </message>
@@ -567,30 +571,30 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation>ファイルを参照して追加します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1681"/>
-        <location filename="mainwindow.ui" line="1763"/>
+        <location filename="mainwindow.ui" line="1760"/>
+        <location filename="mainwindow.ui" line="1776"/>
         <source> pixels</source>
         <translation> ピクセル</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1720"/>
+        <location filename="mainwindow.ui" line="1704"/>
         <source>Aspect Ratio:</source>
         <translation>アスペクト比：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1808"/>
+        <location filename="mainwindow.ui" line="1902"/>
         <source>Automatically skip file when its resolution
 is larger than the specified resolution.</source>
         <translation>解像度が指定された解像度よりも大きい場合、ファ
 イルを自動的にスキップします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1812"/>
+        <location filename="mainwindow.ui" line="1906"/>
         <source>Auto Skip</source>
         <translation>自動スキップ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2335"/>
+        <location filename="mainwindow.ui" line="2476"/>
         <source>Optimizing the scaled gif will slightly reduce the
 image quality, but it can reduce the GIF file size.
 
@@ -601,7 +605,7 @@ It is recommended to enable this option.</source>
 このオプションを有効にすることをお勧めします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2357"/>
+        <location filename="mainwindow.ui" line="2498"/>
         <source>Delete the original file after processing is complete.
 
 *This option will be deactivated when [Replace original
@@ -616,16 +620,16 @@ file] is enabled*
 [その他のオプションを表示するには、ここをクリックしてください]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2435"/>
+        <location filename="mainwindow.ui" line="2271"/>
         <source>When there are finished files in the list, the finished files will
 be processed again when the processing process is started again.</source>
         <translation>リストに完成ファイルがある場合、処理プロセスが再開されると、完成ファイ
 ルが再度処理されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2632"/>
-        <location filename="mainwindow.ui" line="2708"/>
-        <location filename="mainwindow.ui" line="2786"/>
+        <location filename="mainwindow.ui" line="2648"/>
+        <location filename="mainwindow.ui" line="2724"/>
+        <location filename="mainwindow.ui" line="2802"/>
         <source>Range: 1 ~ 999999999
 
 !Warning! When the [Scale ratio] is too large,
@@ -650,12 +654,12 @@ resolution in the Additional settings.</source>
         <translation type="vanished">出力パスはフォルダでなければなりません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2063"/>
+        <location filename="mainwindow.ui" line="2069"/>
         <source>Keep original file name</source>
         <translation>元のファイル名を保持</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2040"/>
+        <location filename="mainwindow.ui" line="2046"/>
         <source>When this option is enabled, the output file will
 replace the file with the same name as the output
 file that exists in the output path.</source>
@@ -663,7 +667,7 @@ file that exists in the output path.</source>
 パスに存在する出力ファイルと同じ名前のファイルを置き換えます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2045"/>
+        <location filename="mainwindow.ui" line="2051"/>
         <source>Overwrite</source>
         <translation>上書き</translation>
     </message>
@@ -696,39 +700,39 @@ file] is enabled*</source>
 が有効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2402"/>
+        <location filename="mainwindow.ui" line="2513"/>
         <source>Select the action to be executed automatically
 after processing all files in the file list.</source>
         <translation>ファイルリストのすべてのファイルを処理した後に自動
 的に実行されるアクションを選択します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2407"/>
+        <location filename="mainwindow.ui" line="2518"/>
         <source>Do nothing(when finished)</source>
         <translation>何もしない（終了時）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2412"/>
+        <location filename="mainwindow.ui" line="2523"/>
         <source>Shut down</source>
         <translation>シャットダウン</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2417"/>
+        <location filename="mainwindow.ui" line="2528"/>
         <source>Sleep</source>
         <translation>睡眠</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2422"/>
+        <location filename="mainwindow.ui" line="2533"/>
         <source>Hibernate</source>
         <translation>ハイバネート</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2427"/>
+        <location filename="mainwindow.ui" line="2538"/>
         <source>Restart</source>
         <translation>再起動</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3065"/>
+        <location filename="mainwindow.ui" line="3081"/>
         <source>The number of threads that the software processes Video,
 which will determine how many frames the software will
 process at the same time.
@@ -751,19 +755,19 @@ Anime4k, Waifu2x-Caffe and Waifu2x-converter.)</oldsource>
 て制限されます（GIFおよびビデオを処理する場合のみ）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3374"/>
+        <location filename="mainwindow.ui" line="3390"/>
         <source>Old(Multi-GPU(Image only))</source>
         <translation>Old（マルチGPU（画像のみ））</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4144"/>
+        <location filename="mainwindow.ui" line="4160"/>
         <source>OpenCL parallel IO command queue
 *Enable this might cause compatibility problem*</source>
         <translation>OpenCLパラレルIOコマンドキュー
 *これを有効にすると、互換性の問題が発生する可能性があります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4362"/>
+        <location filename="mainwindow.ui" line="4378"/>
         <source>GPGPU model.
 
 Only NVIDIA products support CUDA.</source>
@@ -772,7 +776,7 @@ Only NVIDIA products support CUDA.</source>
 NVIDIA製品のみがCUDAをサポートしています。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6281"/>
+        <location filename="mainwindow.ui" line="6297"/>
         <source>Select the engine for processing Image. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -801,7 +805,7 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3207"/>
+        <location filename="mainwindow.ui" line="3223"/>
         <source>Waifu2x-NCNN-Vulkan:
 
 - Supports [2D Anime] and [3D Real-life] image style. But not at the
@@ -838,7 +842,7 @@ of CPU logical cores.</oldsource>
 スレッドの実際の最大数は、CPU論理コアの数によって制限されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3118"/>
+        <location filename="mainwindow.ui" line="3134"/>
         <source>The number of threads that the software processes Image,
 which will determine how many images the software will
 process at the same time.</source>
@@ -852,8 +856,8 @@ of CPU logical cores.</oldsource>
 フトウェアが同時に処理する画像の数が決まります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4908"/>
-        <location filename="mainwindow.ui" line="5917"/>
+        <location filename="mainwindow.ui" line="4924"/>
+        <location filename="mainwindow.ui" line="5933"/>
         <source>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
@@ -872,14 +876,26 @@ the number of threads must &gt;= the number of GPUs.</oldsource>
 3. [利用可能なGPU IDを検出する]を最初に行う必要があります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3252"/>
-        <location filename="mainwindow.ui" line="4916"/>
-        <location filename="mainwindow.ui" line="5925"/>
+        <location filename="mainwindow.ui" line="3268"/>
+        <location filename="mainwindow.ui" line="4932"/>
+        <location filename="mainwindow.ui" line="5941"/>
         <source>Enable Multi-GPU</source>
         <translation>マルチGPUを有効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3242"/>
+        <location filename="mainwindow.ui" line="2392"/>
+        <source>Skip the super-resolution, only interpolate video frames.
+*Only taken effect when processing video*</source>
+        <translation>超解像をスキップし、ビデオフレームのみを補間します。
+*ビデオの処理時にのみ有効になります*</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="2399"/>
+        <source>Frame Interpolation only(Video)</source>
+        <translation>フレーム補間のみ（ビデオ）</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="3258"/>
         <source>1.You need at least 2 available GPUs.
 
 2.If you wanna get all GPUs running together,
@@ -907,46 +923,46 @@ supports Multi-GPU*</oldsource>
 *最新バージョンのみがMulti-GPUを完全にサポートします*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3287"/>
+        <location filename="mainwindow.ui" line="3303"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.
 ★ &quot;-1&quot; is CPU,others are GPUs ★</source>
         <translation>「waifu2x-ncnn-vulkan」エンジンを有効にするときに使用するGPUを選択します。
 ★「-1」はCPU、その他はGPUです★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3364"/>
+        <location filename="mainwindow.ui" line="3380"/>
         <source>Latest(Alpha channel,TTA,Multi-GPU)</source>
         <translation>最新（アルファチャネル、TTA、マルチGPU）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3369"/>
+        <location filename="mainwindow.ui" line="3385"/>
         <source>20200414-fp16p(TTA,Multi-GPU(Image only))</source>
         <oldsource>20200414(TTA,Multi-GPU(Image only))</oldsource>
         <translation>20200414-fp16p（TTA、Multi-GPU（画像のみ））</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3529"/>
-        <location filename="mainwindow.ui" line="4938"/>
-        <location filename="mainwindow.ui" line="5664"/>
+        <location filename="mainwindow.ui" line="3545"/>
+        <location filename="mainwindow.ui" line="4954"/>
+        <location filename="mainwindow.ui" line="5680"/>
         <source>GPU Settings(Multi-GPU)</source>
         <translation>GPU設定（マルチGPU）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3589"/>
-        <location filename="mainwindow.ui" line="4995"/>
-        <location filename="mainwindow.ui" line="5718"/>
+        <location filename="mainwindow.ui" line="3605"/>
+        <location filename="mainwindow.ui" line="5011"/>
+        <location filename="mainwindow.ui" line="5734"/>
         <source>Show current Multi-GPU settings.</source>
         <translation>現在のマルチGPU設定を表示します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3622"/>
-        <location filename="mainwindow.ui" line="5028"/>
-        <location filename="mainwindow.ui" line="5751"/>
+        <location filename="mainwindow.ui" line="3638"/>
+        <location filename="mainwindow.ui" line="5044"/>
+        <location filename="mainwindow.ui" line="5767"/>
         <source>Show GPUs Settings</source>
         <translation>GPU設定を表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3675"/>
+        <location filename="mainwindow.ui" line="3691"/>
         <source>Waifu2x-Converter:
 
 - Only supports [2D Anime] image style.
@@ -959,12 +975,12 @@ supports Multi-GPU*</oldsource>
 -[速度：★☆画質：★★☆]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3746"/>
+        <location filename="mainwindow.ui" line="3762"/>
         <source>Processor Settings(Multi-Processor)</source>
         <translation>プロセッサ設定（マルチプロセッサ）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3810"/>
+        <location filename="mainwindow.ui" line="3826"/>
         <location filename="waifu2x_converter.cpp" line="1921"/>
         <source>Processor ID:</source>
         <translation>プロセッサーID：</translation>
@@ -974,22 +990,22 @@ supports Multi-GPU*</oldsource>
         <translation type="vanished">OpenCLパラレルIOコマンドキュー</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4148"/>
+        <location filename="mainwindow.ui" line="4164"/>
         <source>OpenCL parallel IO</source>
         <translation>OpenCLパラレルIO</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4187"/>
+        <location filename="mainwindow.ui" line="4203"/>
         <source>Number of OpenCL command queues</source>
         <translation>OpenCLコマンドキューの数</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4200"/>
+        <location filename="mainwindow.ui" line="4216"/>
         <source>OpenCL command queues:</source>
         <translation>OpenCLコマンドキュー：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4236"/>
+        <location filename="mainwindow.ui" line="4252"/>
         <source>Enable HDN mode for ACNet.
 Will improve image quality.
 
@@ -1002,7 +1018,7 @@ when [ACNet] is disabled*</source>
 になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2381"/>
+        <location filename="mainwindow.ui" line="2291"/>
         <source>After processing the file, directly replace
 the original file with the result file.
 (And keep the original file name.)
@@ -1034,7 +1050,7 @@ when [Save as &quot;.jpg&quot;] is disabled*</source>
 が無効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7399"/>
+        <location filename="mainwindow.ui" line="7435"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.</source>
         <oldsource>When the alpha channel is detected in the picture, software will
@@ -1060,7 +1076,7 @@ path] or [Delete original files] is enabled*</source>
 が有効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9059"/>
+        <location filename="mainwindow.ui" line="9095"/>
         <location filename="CompatibilityTest.cpp" line="596"/>
         <source>Start compatibility test</source>
         <translation>互換性テストを開始します</translation>
@@ -1076,12 +1092,12 @@ the number of threads must &gt;= the number of processors.</source>
 スレッド数はプロセッサ数以上でなければなりません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3899"/>
+        <location filename="mainwindow.ui" line="3915"/>
         <source>Enable Multi-Processor</source>
         <translation>マルチプロセッサを有効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4475"/>
+        <location filename="mainwindow.ui" line="4491"/>
         <source>You can specify multiple GPUs to fully 
 utilize the capabilities of your PC.
 (If there are multiple GPUs available.)</source>
@@ -1090,12 +1106,12 @@ utilize the capabilities of your PC.
 （利用可能なGPUが複数ある場合）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4480"/>
+        <location filename="mainwindow.ui" line="4496"/>
         <source>Specify GPUs</source>
         <translation>GPUを指定する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4446"/>
+        <location filename="mainwindow.ui" line="4462"/>
         <source>Format: Platform ID,Device ID:
 
 Example: 0,0:0,1:1,0:
@@ -1115,7 +1131,7 @@ the number of threads must &gt;= the number of GPUs.</source>
 の数はGPUの数以上でなければなりません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4862"/>
+        <location filename="mainwindow.ui" line="4878"/>
         <source>SRMD-NCNN-Vulkan:
 
 - Supports [2D Anime] and [3D Real-life] image style at the same time.
@@ -1152,7 +1168,7 @@ the number of threads must &gt;= the number of GPUs.</source>
 -[速度：★★★画質：★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5247"/>
+        <location filename="mainwindow.ui" line="5263"/>
         <source>Waifu2x-Caffe:
 
 - Supports [2D Anime] and [3D Real-life] image style. But not at the
@@ -1195,7 +1211,7 @@ PCが[GPU（またはcuDNN）と互換性がある場合にのみ、このエン
         <translation type="vanished">Realsr-ncnn-vulkan（実験機能）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5606"/>
+        <location filename="mainwindow.ui" line="5622"/>
         <source>RealSR-NCNN-Vulkan:
 
 - Only support [3D Real-life] image style.
@@ -1225,7 +1241,7 @@ PCが[GPU（またはcuDNN）と互換性がある場合にのみ、このエン
 -[速度：☆画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5880"/>
+        <location filename="mainwindow.ui" line="5896"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means Realsr will use more GPU memory and run faster.
 Smaller tile size means Realsr will use less GPU memory and run slower.</source>
@@ -1234,22 +1250,22 @@ Smaller tile size means Realsr will use less GPU memory and run slower.</source>
 タイルサイズが小さいほど、Realsrが使用するGPUメモリが少なくなり、実行速度が遅くなります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5636"/>
+        <location filename="mainwindow.ui" line="5652"/>
         <source>models-DF2K_JPEG(Supports denoise)</source>
         <translation>models-DF2K_JPEG（ノイズ除去をサポート）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5641"/>
+        <location filename="mainwindow.ui" line="5657"/>
         <source>models-DF2K(Does NOT supports denoise)</source>
         <translation>models-DF2K(ノイズ除去をサポートしていません)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5935"/>
+        <location filename="mainwindow.ui" line="5951"/>
         <source>Select the GPU to use when enabling the &quot;Realsr-ncnn-vulkan&quot; engine.</source>
         <translation>「Realsr-ncnn-vulkan」エンジンを有効にするときに使用するGPUを選択します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6113"/>
+        <location filename="mainwindow.ui" line="6129"/>
         <source>Select the engine for processing GIF. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -1268,7 +1284,7 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6194"/>
+        <location filename="mainwindow.ui" line="6210"/>
         <source>Select the engine for processing Video. 
 
 waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
@@ -1287,7 +1303,7 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2900"/>
+        <location filename="mainwindow.ui" line="2916"/>
         <source>Number of threads</source>
         <translation>スレッド数</translation>
     </message>
@@ -1300,15 +1316,15 @@ Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
         <translation type="vanished">合計：1</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3014"/>
-        <location filename="mainwindow.ui" line="6175"/>
-        <location filename="mainwindow.ui" line="7363"/>
+        <location filename="mainwindow.ui" line="3030"/>
+        <location filename="mainwindow.ui" line="6191"/>
+        <location filename="mainwindow.ui" line="7399"/>
         <source>Video:</source>
         <translation>ビデオ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3105"/>
-        <location filename="mainwindow.ui" line="6094"/>
+        <location filename="mainwindow.ui" line="3121"/>
+        <location filename="mainwindow.ui" line="6110"/>
         <source>GIF:</source>
         <translation>GIF：</translation>
     </message>
@@ -1317,9 +1333,9 @@ Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
         <translation type="vanished">内部：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2985"/>
-        <location filename="mainwindow.ui" line="6256"/>
-        <location filename="mainwindow.ui" line="7315"/>
+        <location filename="mainwindow.ui" line="3001"/>
+        <location filename="mainwindow.ui" line="6272"/>
+        <location filename="mainwindow.ui" line="7351"/>
         <source>Image:</source>
         <translation>画像：</translation>
     </message>
@@ -1333,7 +1349,7 @@ Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
         <translation>カスタム解像度</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1821"/>
+        <location filename="mainwindow.ui" line="1794"/>
         <source>1.Set the height and width of the resolution.
 2.Select a file in the file list.
 3.Click the Apply button to set the resolution.
@@ -1351,12 +1367,12 @@ already have custom resolution applied.★</source>
 スケール比は適用されません。★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1859"/>
+        <location filename="mainwindow.ui" line="1832"/>
         <source>Apply</source>
         <translation>適用する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1801"/>
+        <location filename="mainwindow.ui" line="1753"/>
         <source>Height:</source>
         <translation>高さ：</translation>
     </message>
@@ -1366,19 +1382,19 @@ already have custom resolution applied.★</source>
         <translation>幅：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1866"/>
+        <location filename="mainwindow.ui" line="1839"/>
         <source>1.Select a file in the file list.
 2.Click the Cancel button to cancel the custom resolution.</source>
         <translation>1.ファイルリストからファイルを選択します。
 2. [キャンセル]ボタンをクリックして、カスタム解像度をキャンセルします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1914"/>
+        <location filename="mainwindow.ui" line="1887"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1785"/>
+        <location filename="mainwindow.ui" line="1919"/>
         <source>Valid for all files.</source>
         <translation>すべてのファイルに有効です。</translation>
     </message>
@@ -1387,7 +1403,7 @@ already have custom resolution applied.★</source>
         <translation type="vanished">すべて</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3164"/>
+        <location filename="mainwindow.ui" line="3180"/>
         <source>Engine</source>
         <translation>エンジン</translation>
     </message>
@@ -1422,12 +1438,12 @@ waifu2x-converterのみがアルファチャネルをサポートします。
         <translation type="vanished">古いバージョン</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8102"/>
+        <location filename="mainwindow.ui" line="8138"/>
         <source>Update popup</source>
         <translation>ポップアップを更新</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8348"/>
+        <location filename="mainwindow.ui" line="8384"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
@@ -1444,17 +1460,17 @@ will increase the time required to process video.</source>
         <translation type="vanished">s</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8407"/>
+        <location filename="mainwindow.ui" line="8443"/>
         <source>Segment duration:</source>
         <translation>ビデオクリップの長さ:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8141"/>
+        <location filename="mainwindow.ui" line="8177"/>
         <source>Prompt when exit</source>
         <translation>終了時にプロンプト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8571"/>
+        <location filename="mainwindow.ui" line="8607"/>
         <source>Keep video cache</source>
         <translation>ビデオキャッシュを保持する</translation>
     </message>
@@ -1463,22 +1479,22 @@ will increase the time required to process video.</source>
         <translation type="vanished">実験的な機能は、ビデオを処理するときのハードディスク領域の占有を減らすことができます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8353"/>
+        <location filename="mainwindow.ui" line="8389"/>
         <source>Process video by segment</source>
         <translation>セグメントごとにビデオを処理する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6918"/>
+        <location filename="mainwindow.ui" line="6934"/>
         <source>Audio denoise(for video)</source>
         <translation>オーディオノイズ除去（ビデオ用）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6982"/>
+        <location filename="mainwindow.ui" line="6998"/>
         <source>Denoise level:</source>
         <translation>ノイズ除去レベル：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6945"/>
+        <location filename="mainwindow.ui" line="6961"/>
         <source>How much noise should be removed is specified by amount-a 
 number between 0.01 and 1 with a default of 0.25. Higher 
 numbers will remove more noise but present a greater 
@@ -1535,7 +1551,7 @@ waifu2x-converterエンジンのみがアルファチャネル（透明画像）
         <translation type="vanished">waifu2x-ncnn</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3480"/>
+        <location filename="mainwindow.ui" line="3496"/>
         <source>We recommend you use the default &quot;upconv_7&quot; model.
 Only &quot;upconv_7&quot; model supports image style switching.
 &quot;cunet&quot; model only supports 2D anime image style, 
@@ -1546,9 +1562,9 @@ and it&apos;s much more slower than &quot;upconv_7&quot; model.</source>
 また、「upconv_7」モデルよりもはるかに低速です。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3235"/>
-        <location filename="mainwindow.ui" line="5957"/>
-        <location filename="mainwindow.ui" line="7099"/>
+        <location filename="mainwindow.ui" line="3251"/>
+        <location filename="mainwindow.ui" line="5973"/>
+        <location filename="mainwindow.ui" line="7081"/>
         <source>Model:</source>
         <translation>モデル：</translation>
     </message>
@@ -1612,8 +1628,8 @@ waifu2x-converterエンジンのみがアルファチャネル（透明画像）
 互換性テストを実行して、PCと互換性のあるエンジンを確認できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2452"/>
-        <location filename="mainwindow.ui" line="2474"/>
+        <location filename="mainwindow.ui" line="2412"/>
+        <location filename="mainwindow.ui" line="2454"/>
         <source>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
@@ -1631,7 +1647,7 @@ SRMD-ncnn-vulkanは、設定を変更せずにすべての画像スタイルを�
         <translation type="vanished">画像スタイル：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3271"/>
+        <location filename="mainwindow.ui" line="3287"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.
@@ -1646,12 +1662,12 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
 （「waifu2x-ncnn-vulkan」エンジンを使用する場合にのみ機能します。）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3277"/>
-        <location filename="mainwindow.ui" line="3635"/>
-        <location filename="mainwindow.ui" line="4978"/>
-        <location filename="mainwindow.ui" line="5217"/>
-        <location filename="mainwindow.ui" line="5708"/>
-        <location filename="mainwindow.ui" line="5983"/>
+        <location filename="mainwindow.ui" line="3293"/>
+        <location filename="mainwindow.ui" line="3651"/>
+        <location filename="mainwindow.ui" line="4994"/>
+        <location filename="mainwindow.ui" line="5233"/>
+        <location filename="mainwindow.ui" line="5724"/>
+        <location filename="mainwindow.ui" line="5999"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1887"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1857"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1868"/>
@@ -1659,19 +1675,19 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <translation>タイルサイズ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2484"/>
-        <location filename="mainwindow.ui" line="2517"/>
+        <location filename="mainwindow.ui" line="2136"/>
+        <location filename="mainwindow.ui" line="2422"/>
         <source>2D Anime</source>
         <translation>2Dアニメ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2489"/>
-        <location filename="mainwindow.ui" line="2522"/>
+        <location filename="mainwindow.ui" line="2141"/>
+        <location filename="mainwindow.ui" line="2427"/>
         <source>3D Real-life</source>
         <translation>3Dリアルライフ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3437"/>
+        <location filename="mainwindow.ui" line="3453"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
@@ -1683,28 +1699,28 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsou
 タイルサイズが小さいと、waifu2xが使用するGPUメモリが少なくなり、実行速度が遅くなります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3303"/>
+        <location filename="mainwindow.ui" line="3319"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-ncnn-vulkan&quot; engine.</source>
         <translation>「waifu2x-ncnn-vulkan」エンジンを有効にするときに使用するGPUを選択します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3306"/>
-        <location filename="mainwindow.ui" line="3651"/>
-        <location filename="mainwindow.ui" line="4895"/>
-        <location filename="mainwindow.ui" line="5057"/>
-        <location filename="mainwindow.ui" line="5291"/>
-        <location filename="mainwindow.ui" line="5692"/>
-        <location filename="mainwindow.ui" line="5950"/>
-        <location filename="mainwindow.ui" line="7155"/>
+        <location filename="mainwindow.ui" line="3322"/>
+        <location filename="mainwindow.ui" line="3667"/>
+        <location filename="mainwindow.ui" line="4911"/>
+        <location filename="mainwindow.ui" line="5073"/>
+        <location filename="mainwindow.ui" line="5307"/>
+        <location filename="mainwindow.ui" line="5708"/>
+        <location filename="mainwindow.ui" line="5966"/>
+        <location filename="mainwindow.ui" line="7067"/>
         <source>GPU ID:</source>
         <translation>GPU ID:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3353"/>
-        <location filename="mainwindow.ui" line="5122"/>
-        <location filename="mainwindow.ui" line="5824"/>
+        <location filename="mainwindow.ui" line="3369"/>
+        <location filename="mainwindow.ui" line="5138"/>
+        <location filename="mainwindow.ui" line="5840"/>
         <location filename="mainwindow.ui" line="7204"/>
-        <location filename="Frame_Interpolation.cpp" line="308"/>
+        <location filename="Frame_Interpolation.cpp" line="799"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1714"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1636"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1621"/>
@@ -1712,11 +1728,11 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsou
         <translation>利用可能なGPU IDを検出</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3906"/>
-        <location filename="mainwindow.ui" line="5230"/>
-        <location filename="mainwindow.ui" line="5314"/>
-        <location filename="mainwindow.ui" line="5964"/>
-        <location filename="mainwindow.ui" line="7079"/>
+        <location filename="mainwindow.ui" line="3922"/>
+        <location filename="mainwindow.ui" line="5246"/>
+        <location filename="mainwindow.ui" line="5330"/>
+        <location filename="mainwindow.ui" line="5980"/>
+        <location filename="mainwindow.ui" line="7225"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -1747,41 +1763,41 @@ you can try to enable the older version of the engine.</source>
         <translation type="vanished">waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4043"/>
+        <location filename="mainwindow.ui" line="4059"/>
         <source>Force to use OpenCL on Intel Platform.</source>
         <translation>IntelプラットフォームでOpenCLを強制的に使用します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4046"/>
+        <location filename="mainwindow.ui" line="4062"/>
         <source>Force OpenCL</source>
         <translation>OpenCLを強制する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3711"/>
-        <location filename="mainwindow.ui" line="3826"/>
+        <location filename="mainwindow.ui" line="3727"/>
+        <location filename="mainwindow.ui" line="3842"/>
         <location filename="waifu2x_converter.cpp" line="1921"/>
         <source>Block size:</source>
         <translation>ブロックサイズ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3919"/>
+        <location filename="mainwindow.ui" line="3935"/>
         <source>Disable GPU</source>
         <translation>GPUを無効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3724"/>
+        <location filename="mainwindow.ui" line="3740"/>
         <source>Target processor:</source>
         <translation>ターゲットプロセッサ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3959"/>
+        <location filename="mainwindow.ui" line="3975"/>
         <location filename="waifu2x_converter.cpp" line="1682"/>
         <source>Dump processor list</source>
         <translation>プロセッサリストのダンプ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3706"/>
-        <location filename="mainwindow.ui" line="4006"/>
+        <location filename="mainwindow.ui" line="3722"/>
+        <location filename="mainwindow.ui" line="4022"/>
         <source>Block size: This value will affects GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</source>
@@ -1797,13 +1813,13 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</oldso
         <translation type="vanished">srmd-ncnn-vulkan</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5077"/>
+        <location filename="mainwindow.ui" line="5093"/>
         <source>Select the GPU to use when enabling the &quot;srmd-ncnn-vulkan&quot; engine.</source>
         <translation>「srmd-ncnn-vulkan」エンジンを有効にするときに使用するGPUを選択します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5175"/>
-        <location filename="mainwindow.ui" line="5212"/>
+        <location filename="mainwindow.ui" line="5191"/>
+        <location filename="mainwindow.ui" line="5228"/>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means SRMD will use more GPU memory and run faster.
 Smaller tile size means SRMD will use less GPU memory and run slower.</source>
@@ -1815,7 +1831,7 @@ Smaller tile size means SRMD will use less GPU memory and run slower.</oldsource
 タイルサイズが小さいほど、SRMDが使用するGPUメモリが少なくなり、実行速度が遅くなります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3500"/>
+        <location filename="mainwindow.ui" line="3516"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -1841,12 +1857,12 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="vanished">★★ 寄付 ★★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9026"/>
+        <location filename="mainwindow.ui" line="9062"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>互換性テストを実行して、コンピューターが互換性のあるエンジンを確認します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8607"/>
+        <location filename="mainwindow.ui" line="8643"/>
         <source>Compatibility test</source>
         <translation>互換性テスト</translation>
     </message>
@@ -1868,17 +1884,17 @@ path] or [Delete original files] is enabled*</source>
 が有効になっている場合は無効になります*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7828"/>
+        <location filename="mainwindow.ui" line="7864"/>
         <source>Wiki</source>
         <translation>Wiki</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7908"/>
+        <location filename="mainwindow.ui" line="7944"/>
         <source>Check update</source>
         <translation>更新を確認する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7253"/>
+        <location filename="mainwindow.ui" line="7289"/>
         <source>Additional settings</source>
         <translation>追加の設定</translation>
     </message>
@@ -1891,13 +1907,13 @@ path] or [Delete original files] is enabled*</source>
         <translation type="vanished">Readme</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7945"/>
-        <location filename="mainwindow.cpp" line="884"/>
+        <location filename="mainwindow.ui" line="7981"/>
+        <location filename="mainwindow.cpp" line="882"/>
         <source>About</source>
         <translation>について</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7788"/>
+        <location filename="mainwindow.ui" line="7824"/>
         <source>Report issue</source>
         <translation>問題を報告する</translation>
     </message>
@@ -1912,12 +1928,12 @@ WARNING: The original file will be DELETED.</source>
 警告：元のファイルは削除されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7746"/>
+        <location filename="mainwindow.ui" line="7782"/>
         <source>Save settings</source>
         <translation>設定を保存する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7865"/>
+        <location filename="mainwindow.ui" line="7901"/>
         <source>Reset settings</source>
         <translation>設定をリセット</translation>
     </message>
@@ -1938,7 +1954,7 @@ WARNING: The original file will be DELETED.</source>
         <translation type="vanished">更新を自動的に確認する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8302"/>
+        <location filename="mainwindow.ui" line="8338"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation>ファイル処理ステータスが変更されると、ファイルリストが自動的にスクロールします。</translation>
     </message>
@@ -1947,18 +1963,18 @@ WARNING: The original file will be DELETED.</source>
         <translation type="vanished">ファイルリストは自動的にスクロールします</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8151"/>
+        <location filename="mainwindow.ui" line="8187"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation>ソフトウェアを閉じると、設定は自動的に保存されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8154"/>
+        <location filename="mainwindow.ui" line="8190"/>
         <source>Auto save settings</source>
         <translation>自動保存設定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8402"/>
-        <location filename="mainwindow.ui" line="8420"/>
+        <location filename="mainwindow.ui" line="8438"/>
+        <location filename="mainwindow.ui" line="8456"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1975,43 +1991,43 @@ when processing video in segments.</source>
         <translation type="vanished">パス設定を常に非表示にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8002"/>
+        <location filename="mainwindow.ui" line="8038"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation>[テキストブラウザ]は、ソフトウェアの起動時に自動的に非表示になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8005"/>
+        <location filename="mainwindow.ui" line="8041"/>
         <source>Always hide Text Browser</source>
         <translation>テキストブラウザを常に非表示にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8522"/>
+        <location filename="mainwindow.ui" line="8558"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation>[設定]は、ソフトウェアの起動時に自動的に非表示になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8525"/>
+        <location filename="mainwindow.ui" line="8561"/>
         <source>Always hide Settings</source>
         <translation>設定を常に非表示にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8131"/>
+        <location filename="mainwindow.ui" line="8167"/>
         <source>Scan sub-folders</source>
         <translation>サブフォルダーをスキャンする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8558"/>
+        <location filename="mainwindow.ui" line="8594"/>
         <source>Interactive file list</source>
         <translation>インタラクティブファイルリスト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8061"/>
+        <location filename="mainwindow.ui" line="8097"/>
         <source>Retry:</source>
         <translation>リトライ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8248"/>
-        <location filename="mainwindow.ui" line="8268"/>
+        <location filename="mainwindow.ui" line="8284"/>
+        <location filename="mainwindow.ui" line="8304"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation>変更後にソフトウェアを再起動することをお勧めします
@@ -2032,17 +2048,17 @@ the language for the language settings to fully take effect.</source>
 （カスタム解像度）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1788"/>
+        <location filename="mainwindow.ui" line="1922"/>
         <source>Apply to all</source>
         <translation>すべてに適用</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1938"/>
+        <location filename="mainwindow.ui" line="1944"/>
         <source>Output path(Folder):</source>
         <translation>出力パス(フォルダー):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2864"/>
+        <location filename="mainwindow.ui" line="2880"/>
         <source>Engine settings</source>
         <translation>エンジン設定</translation>
     </message>
@@ -2055,7 +2071,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8942"/>
+        <location filename="mainwindow.ui" line="8978"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>ビデオの処理用。</translation>
@@ -2081,7 +2097,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="vanished">デバイスID：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4352"/>
+        <location filename="mainwindow.ui" line="4368"/>
         <source>List GPUs</source>
         <translation>GPUの一覧表示</translation>
     </message>
@@ -2106,27 +2122,27 @@ srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]
 PCに対応しています。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6358"/>
+        <location filename="mainwindow.ui" line="6374"/>
         <source>Video settings</source>
         <translation>ビデオ設定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6382"/>
+        <location filename="mainwindow.ui" line="6398"/>
         <source>Video Settings</source>
         <translation>ビデオ設定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6411"/>
+        <location filename="mainwindow.ui" line="6427"/>
         <source>Output video</source>
         <translation>ビデオを出力する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6598"/>
+        <location filename="mainwindow.ui" line="6614"/>
         <source>When convert video to mp4</source>
         <translation>ビデオをmp4に変換するとき</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6726"/>
+        <location filename="mainwindow.ui" line="6742"/>
         <source>When this is enabled, ffmpeg will copy the video part of
 the original video directly to the mp4, may cause error.
 
@@ -2136,7 +2152,7 @@ Command: -vcodec copy</source>
 コマンド：-vcodec copy</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6753"/>
+        <location filename="mainwindow.ui" line="6769"/>
         <source>When this is enabled, ffmpeg will copy the audio part of
 the original video directly to the mp4, may cause error.
 
@@ -2146,59 +2162,63 @@ Command: -acodec copy</source>
 コマンド：-acodec copy</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6880"/>
+        <location filename="mainwindow.ui" line="6896"/>
         <source>List Available Encoders</source>
         <translation>利用可能なエンコーダーのリスト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7012"/>
+        <location filename="mainwindow.ui" line="7028"/>
         <source>Frame Interpolation</source>
-        <translation type="unfinished"></translation>
+        <translation>フレーム補間</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7051"/>
+        <location filename="mainwindow.ui" line="7118"/>
         <source>Frame Interpolation Engine:</source>
-        <translation type="unfinished"></translation>
+        <translation>フレーム補間エンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7085"/>
+        <location filename="mainwindow.ui" line="7231"/>
         <source>TTA Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>TTAモード</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7092"/>
+        <location filename="mainwindow.ui" line="7125"/>
         <source>UHD Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>UHDモード</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7138"/>
+        <location filename="mainwindow.ui" line="7099"/>
         <source>Number of threads:</source>
-        <translation type="unfinished"></translation>
+        <translation>スレッド数：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7162"/>
+        <location filename="mainwindow.ui" line="7106"/>
         <source>&quot;-1&quot; is CPU, others are GPUs</source>
-        <translation type="unfinished"></translation>
+        <translation>「-1」はCPU、その他はGPUです</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7211"/>
+        <location filename="mainwindow.ui" line="7238"/>
         <source>Multi GPU</source>
-        <translation type="unfinished"></translation>
+        <translation>マルチGPU</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7218"/>
+        <location filename="mainwindow.ui" line="7088"/>
         <source>Format: GPU ID,GPU ID
 
 Example: 0,1
 
 You must follow the format,otherwise the software may crash.</source>
-        <translation type="unfinished"></translation>
+        <translation>フォーマット：GPU ID,GPU ID
+
+例：0,1
+
+形式に従う必要があります。従わないと、ソフトウェアがクラッシュする可能性があります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7305"/>
-        <location filename="mainwindow.ui" line="7353"/>
-        <location filename="mainwindow.ui" line="7379"/>
-        <location filename="mainwindow.ui" line="7422"/>
+        <location filename="mainwindow.ui" line="7341"/>
+        <location filename="mainwindow.ui" line="7389"/>
+        <location filename="mainwindow.ui" line="7415"/>
+        <location filename="mainwindow.ui" line="7458"/>
         <source>When you find that the file format you want to process cannot 
 be added to the file list, you can add the file extension yourself 
 in the additional settings.
@@ -2217,17 +2237,17 @@ be processed successfully)</source>
 正常に処理される）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7327"/>
+        <location filename="mainwindow.ui" line="7363"/>
         <source>Pre-process all images</source>
         <translation>すべての画像を前処理する</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8425"/>
+        <location filename="mainwindow.ui" line="8461"/>
         <source> secs</source>
         <translation> 秒</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8112"/>
+        <location filename="mainwindow.ui" line="8148"/>
         <source>Bans downloading anything from Communist China website Gitee.
 
 If you are in China, due to the government ban on raw.githubusercontent.com,
@@ -2242,12 +2262,12 @@ For detailed information, please read privacy policy.</source>
 詳細については、プライバシーポリシーをお読みください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8305"/>
+        <location filename="mainwindow.ui" line="8341"/>
         <source>Automatic file list scrolling</source>
         <translation>自動ファイルリストスクロール</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8532"/>
+        <location filename="mainwindow.ui" line="8568"/>
         <source>Play Notification sound.</source>
         <translation>通知音を再生します。</translation>
     </message>
@@ -2256,17 +2276,17 @@ For detailed information, please read privacy policy.</source>
         <translation type="vanished">アスペクト比(カスタム解像度):</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1743"/>
+        <location filename="mainwindow.ui" line="1727"/>
         <source>Ignore Aspect Ratio</source>
         <translation>アスペクト比を無視</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1748"/>
+        <location filename="mainwindow.ui" line="1732"/>
         <source>Keep Aspect Ratio</source>
         <translation>アスペクト比を維持</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1753"/>
+        <location filename="mainwindow.ui" line="1737"/>
         <source>Keep Aspect Ratio By Expanding</source>
         <translation>拡大してアスペクト比を維持</translation>
     </message>
@@ -2289,7 +2309,7 @@ waifu2x-converterエンジンに互換性があることを確認してくださ
 このオプションを有効にする前に、PCを使用してください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7403"/>
+        <location filename="mainwindow.ui" line="7439"/>
         <source>Auto detect Alpha channel</source>
         <translation>アルファチャネルを自動検出</translation>
     </message>
@@ -2298,7 +2318,7 @@ waifu2x-converterエンジンに互換性があることを確認してくださ
         <translation type="vanished">アルファチャネルのエンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8628"/>
+        <location filename="mainwindow.ui" line="8664"/>
         <source>Compatibility test results</source>
         <translation>互換性テストの結果</translation>
     </message>
@@ -2329,7 +2349,7 @@ Anime4k  [速度：★★★  画質：★]
 srmd-ncnn-vulkan  [速度：★☆  画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8853"/>
+        <location filename="mainwindow.ui" line="8889"/>
         <source>For audio denoise(video).</source>
         <translation>オーディオのノイズ除去（ビデオ）。</translation>
     </message>
@@ -2352,7 +2372,7 @@ Anime4k  [ 速度:★★★  画質:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8660"/>
+        <location filename="mainwindow.ui" line="8696"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(古いバージョン)</translation>
     </message>
@@ -2361,17 +2381,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8652"/>
-        <location filename="mainwindow.ui" line="8673"/>
-        <location filename="mainwindow.ui" line="8694"/>
-        <location filename="mainwindow.ui" line="8766"/>
-        <location filename="mainwindow.ui" line="8790"/>
-        <location filename="mainwindow.ui" line="8821"/>
-        <location filename="mainwindow.ui" line="8869"/>
-        <location filename="mainwindow.ui" line="8884"/>
-        <location filename="mainwindow.ui" line="8913"/>
-        <location filename="mainwindow.ui" line="8958"/>
-        <location filename="mainwindow.ui" line="8973"/>
+        <location filename="mainwindow.ui" line="8688"/>
+        <location filename="mainwindow.ui" line="8709"/>
+        <location filename="mainwindow.ui" line="8730"/>
+        <location filename="mainwindow.ui" line="8802"/>
+        <location filename="mainwindow.ui" line="8826"/>
+        <location filename="mainwindow.ui" line="8857"/>
+        <location filename="mainwindow.ui" line="8905"/>
+        <location filename="mainwindow.ui" line="8920"/>
+        <location filename="mainwindow.ui" line="8949"/>
+        <location filename="mainwindow.ui" line="8994"/>
+        <location filename="mainwindow.ui" line="9009"/>
         <source>Image processing engine.</source>
         <translation>画像処理エンジン。</translation>
     </message>
@@ -2400,7 +2420,7 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8805"/>
+        <location filename="mainwindow.ui" line="8841"/>
         <source>For processing GIF.</source>
         <translation>GIFの処理用。</translation>
     </message>
@@ -2429,7 +2449,7 @@ waifu2x-caffe [速度：★  画質：★★★]</translation>
         <translation type="vanished">Waifu2x-ncnn-vulkan(新しいバージョン)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7281"/>
+        <location filename="mainwindow.ui" line="7317"/>
         <source>Input file extensions</source>
         <translation>入力ファイル拡張子</translation>
     </message>
@@ -2466,7 +2486,7 @@ will process at the same time.</source>
 同時に処理します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3034"/>
+        <location filename="mainwindow.ui" line="3050"/>
         <source>The number of threads that the software processes GIF,
 which will determine how many frames the software will
 process at the same time.
@@ -2509,22 +2529,22 @@ srmd-ncnn-vulkan  [ 速度:★★  画質:★★★ ]
         <translation type="vanished">Anime4K</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4624"/>
+        <location filename="mainwindow.ui" line="4640"/>
         <source>Strength for pushing gradient,range 0 to 1,higher for sharper.</source>
         <translation>勾配を押す強さ。範囲は0〜1で、高いほどシャープになります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4627"/>
+        <location filename="mainwindow.ui" line="4643"/>
         <source>Push gradient strength:</source>
         <translation>プッシュ勾配の強さ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4537"/>
+        <location filename="mainwindow.ui" line="4553"/>
         <source>Passes for processing.</source>
         <translation>処理に渡されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2458"/>
+        <location filename="mainwindow.ui" line="2460"/>
         <source>Image Style(waifu2x-ncnn-vulkan):</source>
         <translation>画像スタイル(waifu2x-ncnn-vulkan):</translation>
     </message>
@@ -2537,7 +2557,7 @@ Waifu2x-converterとAnime4kは、「2D Anime」画像スタイルのみをサポ
 SRMD-ncnn-vulkanは、設定を変更せずにすべての画像スタイルをサポートできます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2503"/>
+        <location filename="mainwindow.ui" line="2441"/>
         <source>Image Style(waifu2x-caffe):</source>
         <translation>画像スタイル（waifu2x-caffe）：</translation>
     </message>
@@ -2581,12 +2601,12 @@ PCに対応しています。</translation>
         <translation type="vanished">waifu2x-caffe(実験的機能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3492"/>
+        <location filename="mainwindow.ui" line="3508"/>
         <source>cunet(Only support 2D Anime)</source>
         <translation>cunet(2Dアニメのみサポート)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4078"/>
+        <location filename="mainwindow.ui" line="4094"/>
         <source>Anime4K:
 
 - Only supports [2D Anime] image style.
@@ -2615,78 +2635,78 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [速度：★★★画質：★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4540"/>
+        <location filename="mainwindow.ui" line="4556"/>
         <source>Passes:</source>
         <translation>パス：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4566"/>
+        <location filename="mainwindow.ui" line="4582"/>
         <source>Limit the number of color pushes.</source>
         <translation>カラープッシュの数を制限します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4569"/>
+        <location filename="mainwindow.ui" line="4585"/>
         <source>Push color count:</source>
         <translation>プッシュカラーカウント：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4595"/>
+        <location filename="mainwindow.ui" line="4611"/>
         <source>Strength for pushing color,range 0 to 1,higher for thinner.</source>
         <translation>色を押すための強度。範囲は0〜1で、薄いほど高くなります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4598"/>
+        <location filename="mainwindow.ui" line="4614"/>
         <source>Push color strength:</source>
         <translation>プッシュカラー強度：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4161"/>
+        <location filename="mainwindow.ui" line="4177"/>
         <source>Faster but maybe low quality.</source>
         <translation>より高速ですが、低品質かもしれません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4164"/>
+        <location filename="mainwindow.ui" line="4180"/>
         <source>Fast mode</source>
         <translation>高速モード</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4661"/>
+        <location filename="mainwindow.ui" line="4677"/>
         <source>Pre-processing</source>
         <translation>前処理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4724"/>
-        <location filename="mainwindow.ui" line="4826"/>
+        <location filename="mainwindow.ui" line="4740"/>
+        <location filename="mainwindow.ui" line="4842"/>
         <source>Bilateral filter</source>
         <translation>バイラテラルフィルター</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4717"/>
-        <location filename="mainwindow.ui" line="4819"/>
+        <location filename="mainwindow.ui" line="4733"/>
+        <location filename="mainwindow.ui" line="4835"/>
         <source>Gaussian blur</source>
         <translation>ガウスぼかし</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4700"/>
-        <location filename="mainwindow.ui" line="4836"/>
+        <location filename="mainwindow.ui" line="4716"/>
+        <location filename="mainwindow.ui" line="4852"/>
         <source>Gaussian blur weak</source>
         <translation>ガウスぼかしが弱い</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4686"/>
-        <location filename="mainwindow.ui" line="4802"/>
+        <location filename="mainwindow.ui" line="4702"/>
+        <location filename="mainwindow.ui" line="4818"/>
         <source>Mean blur</source>
         <translation>平均ぼかし</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4731"/>
-        <location filename="mainwindow.ui" line="4846"/>
+        <location filename="mainwindow.ui" line="4747"/>
+        <location filename="mainwindow.ui" line="4862"/>
         <source>Bilateral filter faster</source>
         <translation>バイラテラルフィルターの高速化</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4707"/>
-        <location filename="mainwindow.ui" line="4809"/>
+        <location filename="mainwindow.ui" line="4723"/>
+        <location filename="mainwindow.ui" line="4825"/>
         <source>CAS Sharpening</source>
         <translation>CASシャープ</translation>
     </message>
@@ -2706,7 +2726,7 @@ Right click to show more options.</source>
 右クリックして、その他のオプションを表示します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="1968"/>
+        <location filename="mainwindow.ui" line="1974"/>
         <source>Output path must be a Folder.
 
 [Right click here to show more options]</source>
@@ -2716,7 +2736,7 @@ Right click to show more options.</source>
 をクリックしてください]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2079"/>
+        <location filename="mainwindow.ui" line="2085"/>
         <source>Keep parent folder</source>
         <translation>親フォルダを保持する</translation>
     </message>
@@ -2742,33 +2762,33 @@ original files] is disabled*</oldsource>
 ※［元のファイル削除］を無効にすると無効になります※</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4693"/>
-        <location filename="mainwindow.ui" line="4795"/>
+        <location filename="mainwindow.ui" line="4709"/>
+        <location filename="mainwindow.ui" line="4811"/>
         <source>Median blur</source>
         <translation>中央ぼかし</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4741"/>
+        <location filename="mainwindow.ui" line="4757"/>
         <source>Enable Pre-processing</source>
         <translation>前処理を有効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4757"/>
+        <location filename="mainwindow.ui" line="4773"/>
         <source>Post-processing</source>
         <translation>後処理</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4778"/>
+        <location filename="mainwindow.ui" line="4794"/>
         <source>Enable Post-processing</source>
         <translation>後処理を有効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4303"/>
+        <location filename="mainwindow.ui" line="4319"/>
         <source>Enable GPU acceleration.</source>
         <translation>GPUアクセラレーションを有効にします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4306"/>
+        <location filename="mainwindow.ui" line="4322"/>
         <source>GPU Mode</source>
         <translation>GPUモード</translation>
     </message>
@@ -2782,8 +2802,8 @@ original files] is disabled*</oldsource>
         <translation type="vanished">Waifu2x-Caffe(実験的機能)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5279"/>
-        <location filename="mainwindow.ui" line="5360"/>
+        <location filename="mainwindow.ui" line="5295"/>
+        <location filename="mainwindow.ui" line="5376"/>
         <source>Split size: This value will affects GPU memory usage.
 Larger Split size means waifu2x will use more GPU memory and run faster.
 Smaller Split size means waifu2x will use less GPU memory and run slower.</source>
@@ -2795,43 +2815,43 @@ Smaller Split size means waifu2x will use less GPU memory and run slower.</oldso
 スプリットサイズが小さいほど、waifu2xは使用するGPUメモリが少なくなり、実行速度が遅くなります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5486"/>
+        <location filename="mainwindow.ui" line="5502"/>
         <source>Process mode:</source>
         <translation>処理モード：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5561"/>
+        <location filename="mainwindow.ui" line="5577"/>
         <source>2D Anime Model:</source>
         <translation>2Dアニメモデル：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5410"/>
+        <location filename="mainwindow.ui" line="5426"/>
         <source>Model for processing 2D Anime style image.</source>
         <translation>2Dアニメ風画像処理モデル。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5327"/>
+        <location filename="mainwindow.ui" line="5343"/>
         <source>Model for processing 3D Real-life style image.</source>
         <translation>3Dリアルなスタイルの画像を処理するためのモデル。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5334"/>
+        <location filename="mainwindow.ui" line="5350"/>
         <source>upconv_7_photo</source>
         <translation>upconv_7_photo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5339"/>
+        <location filename="mainwindow.ui" line="5355"/>
         <source>photo</source>
         <translation>photo</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5284"/>
+        <location filename="mainwindow.ui" line="5300"/>
         <source>Split size:</source>
         <translation>分割サイズ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5458"/>
-        <location filename="mainwindow.ui" line="5568"/>
+        <location filename="mainwindow.ui" line="5474"/>
+        <location filename="mainwindow.ui" line="5584"/>
         <source>The batch size defines the number of samples that 
 will be propagated through the network.</source>
         <translation>バッチサイズは、ネットワークを介して伝播されるサンプルの数を定義します。</translation>
@@ -2847,8 +2867,8 @@ will be propagated through the network.</source>
         <translation type="vanished">リスト内のファイルの数。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2497"/>
-        <location filename="mainwindow.ui" line="2510"/>
+        <location filename="mainwindow.ui" line="2129"/>
+        <location filename="mainwindow.ui" line="2435"/>
         <source>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
@@ -2897,7 +2917,7 @@ Anime4Kエンジンはアルファチャネルをサポートしていません�
         <translation type="vanished">古いバージョン</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4216"/>
+        <location filename="mainwindow.ui" line="4232"/>
         <source>Enable ACNet.
 Will improve image quality.</source>
         <translation>ACNetを有効にします。
@@ -2910,47 +2930,47 @@ Will improve image quality.</source>
 画質が向上します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4243"/>
+        <location filename="mainwindow.ui" line="4259"/>
         <source>HDN mode</source>
         <translation>HDNモード</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5572"/>
+        <location filename="mainwindow.ui" line="5588"/>
         <source>Batch size:</source>
         <translation>バッチサイズ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5579"/>
+        <location filename="mainwindow.ui" line="5595"/>
         <source>3D Real-life Model:</source>
         <translation>3D実生活モデル：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5347"/>
+        <location filename="mainwindow.ui" line="5363"/>
         <source>Select the GPU to use when enabling the &quot;waifu2x-caffe&quot; engine.</source>
         <translation>「waifu2x-caffe」エンジンを有効にするときに使用するGPUを選択します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5592"/>
+        <location filename="mainwindow.ui" line="5608"/>
         <source>Decrease split size.</source>
         <translation>分割サイズを減らします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5304"/>
+        <location filename="mainwindow.ui" line="5320"/>
         <source>Increase split size.</source>
         <translation>分割サイズを増やします。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3764"/>
+        <location filename="mainwindow.ui" line="3780"/>
         <source>Show current Multi-Processor settings.</source>
         <translation>現在のマルチプロセッサ設定を表示します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3797"/>
+        <location filename="mainwindow.ui" line="3813"/>
         <source>Show Processor Settings</source>
         <translation>プロセッサ設定を表示</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3891"/>
+        <location filename="mainwindow.ui" line="3907"/>
         <source>1.You need at least 2 available processors.
 
 2.If you wanna get all processors running together,
@@ -2997,41 +3017,41 @@ enabling [GPU Mode] can greatly increase the processing speed.
 - [速度：★★★ 画質：★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4738"/>
+        <location filename="mainwindow.ui" line="4754"/>
         <source>Apply filters to image before process it.</source>
         <translation>処理する前に画像にフィルターを適用します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4775"/>
+        <location filename="mainwindow.ui" line="4791"/>
         <source>Add filters to the image after processing it.</source>
         <translation>処理後に画像にフィルターを追加します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4397"/>
-        <location filename="mainwindow.ui" line="5521"/>
+        <location filename="mainwindow.ui" line="4413"/>
+        <location filename="mainwindow.ui" line="5537"/>
         <source>Verify your GPUs configuration.</source>
         <translation>GPU構成を確認します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="4430"/>
-        <location filename="mainwindow.ui" line="5554"/>
+        <location filename="mainwindow.ui" line="4446"/>
+        <location filename="mainwindow.ui" line="5570"/>
         <source>Verify</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5475"/>
+        <location filename="mainwindow.ui" line="5491"/>
         <source>You need to switch [Process mode] to
 [GPU] or [cuDNN] to enable Multi-GPU.</source>
         <translation>マルチGPUを有効にするには、[処理モード]
 を[GPU]または[cuDNN]に切り替える必要があります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5479"/>
+        <location filename="mainwindow.ui" line="5495"/>
         <source>Multi-GPU:</source>
         <translation>マルチGPU：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="5390"/>
+        <location filename="mainwindow.ui" line="5406"/>
         <source>Format: GPU ID,Batch size,Split size:
 
 Example: 0,1,128:1,2,64:2,1,128:
@@ -3051,28 +3071,28 @@ the number of threads must &gt;= the number of GPUs.</source>
 の数はGPUの数以上でなければなりません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6507"/>
-        <location filename="mainwindow.ui" line="6529"/>
-        <location filename="mainwindow.ui" line="6675"/>
-        <location filename="mainwindow.ui" line="6704"/>
+        <location filename="mainwindow.ui" line="6523"/>
+        <location filename="mainwindow.ui" line="6545"/>
+        <location filename="mainwindow.ui" line="6691"/>
+        <location filename="mainwindow.ui" line="6720"/>
         <source>If you set it to 0, software will use auto settings.</source>
         <translation>0に設定すると、ソフトウェアは自動設定を使用します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6491"/>
-        <location filename="mainwindow.ui" line="6659"/>
+        <location filename="mainwindow.ui" line="6507"/>
+        <location filename="mainwindow.ui" line="6675"/>
         <source>You can enter ffmpeg instructions here.</source>
         <translation>ここにffmpegの手順を入力できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6417"/>
-        <location filename="mainwindow.ui" line="6565"/>
-        <location filename="mainwindow.ui" line="6582"/>
+        <location filename="mainwindow.ui" line="6433"/>
+        <location filename="mainwindow.ui" line="6581"/>
+        <location filename="mainwindow.ui" line="6598"/>
         <source>If you leave it empty, software will use auto settings.</source>
         <translation>空のままにすると、ソフトウェアは自動設定を使用します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7445"/>
+        <location filename="mainwindow.ui" line="7481"/>
         <source>This software already can intelligently detect whether the Alpha channel is lost,
 and automatically reprocess the picture. And image will be pre-processed during the 
 reporcess so the alpha channel won&apos;t lost again.
@@ -3087,12 +3107,12 @@ frequently occurs when processing images, you can enable this option to save tim
 オプションを有効にして時間を節約できます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7453"/>
+        <location filename="mainwindow.ui" line="7489"/>
         <source>Always pre-process images with Alpha Channel</source>
         <translation>常にアルファチャネルで画像を前処理します</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7322"/>
+        <location filename="mainwindow.ui" line="7358"/>
         <source>Convert every image to PNG before processing it.
 Enabling this option will improve compatibility. However, it will
 increase the time and storage space required to process image.</source>
@@ -3105,13 +3125,13 @@ increase the time and storage space required to process image.</source>
         <translation type="vanished">前処理画像</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2293"/>
+        <location filename="mainwindow.ui" line="2358"/>
         <source>Image quality:</source>
         <translation>画質：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2172"/>
-        <location filename="mainwindow.ui" line="2300"/>
+        <location filename="mainwindow.ui" line="2191"/>
+        <location filename="mainwindow.ui" line="2365"/>
         <source>Only takes effect when processing Static Image.
 
 Will NOT take effect when processing Video and GIF.</source>
@@ -3120,17 +3140,29 @@ Will NOT take effect when processing Video and GIF.</source>
 ビデオとGIFの処理時には有効になりません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2165"/>
+        <location filename="mainwindow.ui" line="2261"/>
         <source>Save image as:</source>
         <translation>画像を保存します：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8099"/>
+        <location filename="mainwindow.ui" line="7251"/>
+        <source>When successive failures are detected, the number
+of threads will be adjusted automatically.</source>
+        <translation>連続した障害が検出されると、スレ
+ッドの数が自動的に調整されます。</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="7255"/>
+        <source>Auto adjust</source>
+        <translation>自動調整</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="8135"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation>更新が検出されると、ポップアップウィンドウが表示されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8164"/>
+        <location filename="mainwindow.ui" line="8200"/>
         <source>This option will be automatically enabled to improve
 performance and fix issues when the software detects
 that your PC has compatibility issues with ImageMagick.</source>
@@ -3142,32 +3174,32 @@ compatibility issues with ImageMagick.</oldsource>
 を修正するために自動的に有効になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8169"/>
+        <location filename="mainwindow.ui" line="8205"/>
         <source>Disable &quot;-resize&quot;</source>
         <translation>「-resize」を無効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8489"/>
+        <location filename="mainwindow.ui" line="8525"/>
         <source>Update channel:</source>
         <translation>チャンネルを更新：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8506"/>
+        <location filename="mainwindow.ui" line="8542"/>
         <source>Stable</source>
         <translation>安定</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8511"/>
+        <location filename="mainwindow.ui" line="8547"/>
         <source>Beta</source>
         <translation>ベータ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8012"/>
+        <location filename="mainwindow.ui" line="8048"/>
         <source>Minimize to taskbar</source>
         <translation>タスクバーに最小化</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7557"/>
+        <location filename="mainwindow.ui" line="7593"/>
         <source>Enable Custom Font Settings.</source>
         <translation>カスタムフォント設定を有効にします。</translation>
     </message>
@@ -3196,7 +3228,7 @@ For detailed information, please read privacy policy.</oldsource>
 詳しくはプライバシーポリシーをご覧ください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8120"/>
+        <location filename="mainwindow.ui" line="8156"/>
         <source>Ban Gitee</source>
         <translation>禁止Gitee</translation>
     </message>
@@ -3211,17 +3243,17 @@ WARNING: The original file will be permanently DELETED.</source>
 警告：元のファイルは完全に削除されます。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="2393"/>
+        <location filename="mainwindow.ui" line="2303"/>
         <source>Replace original file</source>
         <translation>元のファイルを置き換える</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7706"/>
+        <location filename="mainwindow.ui" line="7742"/>
         <source>Official website</source>
         <translation>公式ウェブサイト</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7795"/>
+        <location filename="mainwindow.ui" line="7831"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation>Waifu2x-Extension-GUIオンラインwikiを開きます。</translation>
     </message>
@@ -3248,7 +3280,7 @@ waifu2x-caffe [速度：★☆ 画質：★★★]
 Realsr-ncnn-vulkan [速度：☆ 画質：★★★]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8681"/>
+        <location filename="mainwindow.ui" line="8717"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan（最新バージョン）</translation>
     </message>
@@ -3305,50 +3337,50 @@ waifu2x-caffe [速度：★☆  画質：★★★]
 PCに対応しています。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8058"/>
-        <location filename="mainwindow.ui" line="8074"/>
+        <location filename="mainwindow.ui" line="8094"/>
+        <location filename="mainwindow.ui" line="8110"/>
         <source>The number of retries when an image (or frame) processing fails.</source>
         <oldsource>The number of retries when failed to processing a image (or frame).</oldsource>
         <translation>画像（またはフレーム）の処理に失敗した場合の再試行回数.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8127"/>
+        <location filename="mainwindow.ui" line="8163"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation>フォルダをファイルリストに追加する場合は、サブフォルダ
 内のファイルをスキャンして、ファイルリストに追加します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8568"/>
+        <location filename="mainwindow.ui" line="8604"/>
         <source>Keep video cache after processing the video.</source>
         <translation>ビデオの処理後もビデオキャッシュを保持します。</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7466"/>
+        <location filename="mainwindow.ui" line="7502"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation>カスタムフォント設定（ソフトウェアを再起動して有効にします）</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7567"/>
+        <location filename="mainwindow.ui" line="7603"/>
         <source>Custom font size:</source>
         <translation>カスタムフォントサイズ：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3579"/>
-        <location filename="mainwindow.ui" line="3849"/>
-        <location filename="mainwindow.ui" line="4962"/>
-        <location filename="mainwindow.ui" line="5676"/>
-        <location filename="mainwindow.ui" line="7560"/>
+        <location filename="mainwindow.ui" line="3595"/>
+        <location filename="mainwindow.ui" line="3865"/>
+        <location filename="mainwindow.ui" line="4978"/>
+        <location filename="mainwindow.ui" line="5692"/>
+        <location filename="mainwindow.ui" line="7596"/>
         <source>Enable</source>
         <translation>有効にする</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7577"/>
+        <location filename="mainwindow.ui" line="7613"/>
         <source>Custom font:</source>
         <translation>カスタムフォント：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7544"/>
+        <location filename="mainwindow.ui" line="7580"/>
         <source>Save Custom Font Settings</source>
         <translation>カスタムフォント設定を保存</translation>
     </message>
@@ -3401,7 +3433,7 @@ waifu2x-caffe  [ 速度:★☆  画質:★★★ ]</translation>
         <translation type="vanished">エンジン：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8906"/>
+        <location filename="mainwindow.ui" line="8942"/>
         <source>Plugins:</source>
         <translation>プラグイン：</translation>
     </message>
@@ -3410,8 +3442,8 @@ waifu2x-caffe  [ 速度:★☆  画質:★★★ ]</translation>
         <translation type="vanished">ビデオ</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6804"/>
-        <location filename="mainwindow.ui" line="6837"/>
+        <location filename="mainwindow.ui" line="6820"/>
+        <location filename="mainwindow.ui" line="6853"/>
         <source>Reset video settings</source>
         <translation>ビデオ設定をリセットする</translation>
     </message>
@@ -3438,13 +3470,13 @@ by the software will be used.</source>
         <translation type="vanished">出力</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6434"/>
+        <location filename="mainwindow.ui" line="6450"/>
         <source>Encoder(video):</source>
         <translation>エンコーダー（ビデオ）：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6427"/>
-        <location filename="mainwindow.ui" line="6697"/>
+        <location filename="mainwindow.ui" line="6443"/>
+        <location filename="mainwindow.ui" line="6713"/>
         <source>Bitrate(video):</source>
         <translation>ビットレート（ビデオ）：</translation>
     </message>
@@ -3453,24 +3485,24 @@ by the software will be used.</source>
         <translation type="vanished">K</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6551"/>
+        <location filename="mainwindow.ui" line="6567"/>
         <source>Encoder(audio):</source>
         <translation>エンコーダー（オーディオ）：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6441"/>
-        <location filename="mainwindow.ui" line="6739"/>
+        <location filename="mainwindow.ui" line="6457"/>
+        <location filename="mainwindow.ui" line="6755"/>
         <source>Bitrate(audio):</source>
         <translation>ビットレート（オーディオ）：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6575"/>
+        <location filename="mainwindow.ui" line="6591"/>
         <source>Pixel format:</source>
         <translation>ピクセル形式：</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="6484"/>
-        <location filename="mainwindow.ui" line="6652"/>
+        <location filename="mainwindow.ui" line="6500"/>
+        <location filename="mainwindow.ui" line="6668"/>
         <source>Extra command:</source>
         <translation>追加コマンド：</translation>
     </message>
@@ -3517,6 +3549,15 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="1387"/>
         <location filename="Anime4K.cpp" line="1422"/>
         <location filename="CustomResolution.cpp" line="318"/>
+        <location filename="Frame_Interpolation.cpp" line="34"/>
+        <location filename="Frame_Interpolation.cpp" line="50"/>
+        <location filename="Frame_Interpolation.cpp" line="216"/>
+        <location filename="Frame_Interpolation.cpp" line="242"/>
+        <location filename="Frame_Interpolation.cpp" line="270"/>
+        <location filename="Frame_Interpolation.cpp" line="337"/>
+        <location filename="Frame_Interpolation.cpp" line="353"/>
+        <location filename="Frame_Interpolation.cpp" line="379"/>
+        <location filename="Frame_Interpolation.cpp" line="398"/>
         <location filename="files.cpp" line="535"/>
         <location filename="files.cpp" line="553"/>
         <location filename="files.cpp" line="571"/>
@@ -3635,6 +3676,8 @@ by the software will be used.</source>
         <location filename="Anime4K.cpp" line="249"/>
         <location filename="Anime4K.cpp" line="587"/>
         <location filename="Anime4K.cpp" line="967"/>
+        <location filename="Frame_Interpolation.cpp" line="34"/>
+        <location filename="Frame_Interpolation.cpp" line="337"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="36"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="334"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="592"/>
@@ -3683,6 +3726,7 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="697"/>
         <location filename="Anime4K.cpp" line="1097"/>
+        <location filename="Frame_Interpolation.cpp" line="97"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="703"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1129"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="690"/>
@@ -3699,6 +3743,7 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="697"/>
         <location filename="Anime4K.cpp" line="1097"/>
+        <location filename="Frame_Interpolation.cpp" line="97"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="703"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1129"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="690"/>
@@ -3739,6 +3784,8 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="614"/>
         <location filename="Anime4K.cpp" line="994"/>
+        <location filename="Frame_Interpolation.cpp" line="50"/>
+        <location filename="Frame_Interpolation.cpp" line="353"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="619"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1026"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="605"/>
@@ -3755,6 +3802,8 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="744"/>
         <location filename="Anime4K.cpp" line="1229"/>
+        <location filename="Frame_Interpolation.cpp" line="216"/>
+        <location filename="Frame_Interpolation.cpp" line="379"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="748"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1262"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="735"/>
@@ -3864,6 +3913,8 @@ Anime4k GPUリスト（ユーザー構成）：
     <message>
         <location filename="Anime4K.cpp" line="895"/>
         <location filename="Anime4K.cpp" line="1387"/>
+        <location filename="Frame_Interpolation.cpp" line="242"/>
+        <location filename="Frame_Interpolation.cpp" line="398"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="927"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1458"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="918"/>
@@ -3886,6 +3937,7 @@ Anime4k GPUリスト（ユーザー構成）：
     </message>
     <message>
         <location filename="Anime4K.cpp" line="1422"/>
+        <location filename="Frame_Interpolation.cpp" line="270"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1493"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1490"/>
         <location filename="waifu2x_caffe.cpp" line="1440"/>
@@ -3907,7 +3959,7 @@ Anime4k GPUリスト（ユーザー構成）：
         <location filename="Anime4K.cpp" line="111"/>
         <location filename="Anime4K.cpp" line="535"/>
         <location filename="Anime4K.cpp" line="1539"/>
-        <location filename="Frame_Interpolation.cpp" line="85"/>
+        <location filename="Frame_Interpolation.cpp" line="568"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="188"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="470"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="884"/>
@@ -3949,9 +4001,9 @@ Anime4k GPUリスト（ユーザー構成）：
         <location filename="Right-click_Menu.cpp" line="140"/>
         <location filename="Right-click_Menu.cpp" line="292"/>
         <location filename="mainwindow.cpp" line="121"/>
-        <location filename="mainwindow.cpp" line="769"/>
-        <location filename="mainwindow.cpp" line="820"/>
-        <location filename="mainwindow.cpp" line="849"/>
+        <location filename="mainwindow.cpp" line="767"/>
+        <location filename="mainwindow.cpp" line="818"/>
+        <location filename="mainwindow.cpp" line="847"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1809"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1779"/>
         <location filename="table.cpp" line="567"/>
@@ -3978,7 +4030,7 @@ Anime4k GPUリスト（ユーザー構成）：
         <location filename="files.cpp" line="105"/>
         <location filename="mainwindow.cpp" line="395"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1859"/>
-        <location filename="settings.cpp" line="609"/>
+        <location filename="settings.cpp" line="613"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1818"/>
         <location filename="waifu2x_converter.cpp" line="1892"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1764"/>
@@ -4132,7 +4184,7 @@ Do you wanna update now???</source>
     <message>
         <location filename="checkupdate.cpp" line="156"/>
         <location filename="mainwindow.cpp" line="159"/>
-        <location filename="settings.cpp" line="611"/>
+        <location filename="settings.cpp" line="615"/>
         <source>YES</source>
         <translation>はい</translation>
     </message>
@@ -4149,15 +4201,15 @@ Do you wanna update now???</source>
         <location filename="checkupdate.cpp" line="148"/>
         <location filename="checkupdate.cpp" line="157"/>
         <location filename="mainwindow.cpp" line="160"/>
-        <location filename="settings.cpp" line="612"/>
+        <location filename="settings.cpp" line="616"/>
         <source>NO</source>
         <translation>いいえ</translation>
     </message>
     <message>
         <location filename="files.cpp" line="51"/>
         <location filename="files.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="1021"/>
-        <location filename="mainwindow.cpp" line="1022"/>
+        <location filename="mainwindow.cpp" line="1019"/>
+        <location filename="mainwindow.cpp" line="1020"/>
         <source>Adding files, please wait.</source>
         <translation>ファイルを追加しています。しばらくお待ちください。</translation>
     </message>
@@ -4172,24 +4224,24 @@ Do you wanna update now???</source>
         <translation>ファイル形式はサポートされていません。サポートされているファイル形式を入力するか、自分でファイル拡張子を追加してください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1867"/>
-        <location filename="waifu2x.cpp" line="737"/>
+        <location filename="mainwindow.cpp" line="1865"/>
+        <location filename="waifu2x.cpp" line="754"/>
         <source>Error! Failed to move [</source>
         <translation>エラー！ 移動できませんでした[</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1867"/>
-        <location filename="waifu2x.cpp" line="737"/>
+        <location filename="mainwindow.cpp" line="1865"/>
+        <location filename="waifu2x.cpp" line="754"/>
         <source>] to [</source>
         <translation>]から[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="672"/>
+        <location filename="waifu2x.cpp" line="689"/>
         <source>Error! Original file [</source>
         <translation>エラー！ 元のファイル[</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="672"/>
+        <location filename="waifu2x.cpp" line="689"/>
         <source>] does not exists.</source>
         <translation>]存在しません。</translation>
     </message>
@@ -4206,18 +4258,19 @@ Do you wanna update now???</source>
     </message>
     <message>
         <location filename="CompatibilityTest.cpp" line="605"/>
-        <location filename="CompatibilityTest.cpp" line="612"/>
-        <location filename="CompatibilityTest.cpp" line="779"/>
-        <location filename="CompatibilityTest.cpp" line="790"/>
+        <location filename="CompatibilityTest.cpp" line="617"/>
+        <location filename="CompatibilityTest.cpp" line="624"/>
+        <location filename="CompatibilityTest.cpp" line="805"/>
+        <location filename="CompatibilityTest.cpp" line="816"/>
         <location filename="Finish_Action.cpp" line="109"/>
         <location filename="SystemTrayIcon.cpp" line="111"/>
         <location filename="Web_Activities.cpp" line="82"/>
         <location filename="mainwindow.cpp" line="157"/>
-        <location filename="mainwindow.cpp" line="942"/>
-        <location filename="mainwindow.cpp" line="1239"/>
+        <location filename="mainwindow.cpp" line="940"/>
+        <location filename="mainwindow.cpp" line="1237"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1798"/>
-        <location filename="settings.cpp" line="597"/>
-        <location filename="settings.cpp" line="621"/>
+        <location filename="settings.cpp" line="601"/>
+        <location filename="settings.cpp" line="625"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1768"/>
         <location filename="table.cpp" line="614"/>
         <location filename="waifu2x_converter.cpp" line="1831"/>
@@ -4289,12 +4342,12 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
 ヒント：完成したファイルを再処理する場合は、[完成したファイルの再処理]を有効にできます。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="227"/>
+        <location filename="waifu2x.cpp" line="229"/>
         <source>Start processing files.</source>
         <translation>ファイルの処理を開始します。</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="1066"/>
+        <location filename="waifu2x.cpp" line="1083"/>
         <source>Please grant administrator permissions to kill sub processes stuck in the background.</source>
         <translation>バックグラウンドでスタックしているサブプロセスを強制終了する権限を管理者に付与してください。</translation>
     </message>
@@ -4309,38 +4362,38 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
         <translation>ファイルの処理が停止しました。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="843"/>
+        <location filename="mainwindow.cpp" line="841"/>
         <source>Loading list, please wait.</source>
         <translation>リストを読み込んでいます。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1227"/>
+        <location filename="mainwindow.cpp" line="1225"/>
         <source>- This software is free, if you find anyone selling this software, please report the seller.
 </source>
         <translation>-このソフトウェアは無料です。このソフトウェアを販売している人を見つけた場合は、販売者に報告してください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1228"/>
+        <location filename="mainwindow.cpp" line="1226"/>
         <source>- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation>-このソフトウェアは無料でオープンソースであり、GNU Affero General Public Licensev3.0の下でライセンスされています。 このソフトウェアを使用した結果はすべてユーザーが負担し、開発者は一切の責任を負いません。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1229"/>
+        <location filename="mainwindow.cpp" line="1227"/>
         <source>- If you like this software, please donate to support the developer, thank you!
 </source>
         <translation>-このソフトウェアが気に入ったら、開発者をサポートするために寄付してください、ありがとう！
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1315"/>
+        <location filename="mainwindow.cpp" line="1313"/>
         <source>Force retry is disabled when processing Video or GIF.</source>
         <translation>ビデオまたはGIFを処理する場合、強制再試行は無効になります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1994"/>
+        <location filename="mainwindow.cpp" line="1992"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation>[「-resize」を無効にする]は自動的に有効になり、互換性の問題を修正してパフォーマンスを向上させます。</translation>
     </message>
@@ -4355,17 +4408,17 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
         <translation>エラー！ 通知音ファイルがありません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="770"/>
+        <location filename="mainwindow.cpp" line="768"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation>言語ファイルがありません。このプログラムを再インストールしてください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="821"/>
+        <location filename="mainwindow.cpp" line="819"/>
         <source>Language file cannot be loaded properly.</source>
         <translation>言語ファイルを正しく読み込めません。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="943"/>
+        <location filename="mainwindow.cpp" line="941"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
@@ -4552,9 +4605,9 @@ Otherwise, this software may not work properly.</source>
         <translation>テストしています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="726"/>
-        <location filename="mainwindow.cpp" line="790"/>
-        <location filename="mainwindow.cpp" line="930"/>
+        <location filename="mainwindow.cpp" line="724"/>
+        <location filename="mainwindow.cpp" line="788"/>
+        <location filename="mainwindow.cpp" line="928"/>
         <source>Show settings</source>
         <translation>設定を表示</translation>
     </message>
@@ -4577,12 +4630,12 @@ Otherwise, this software may not work properly.</source>
         <translation>ファイルに書き込みます。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="842"/>
+        <location filename="mainwindow.cpp" line="840"/>
         <source>Please wait while reading the file.</source>
         <translation>ファイルの読み取り中にお待ちください。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="850"/>
+        <location filename="mainwindow.cpp" line="848"/>
         <location filename="table.cpp" line="627"/>
         <source>Cannot find the saved Files List!</source>
         <translation>保存されたファイルリストが見つかりません！</translation>
@@ -4624,14 +4677,14 @@ If you like the software, please donate to support the developers to ensure the 
         <translation type="vanished">ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="996"/>
+        <location filename="mainwindow.cpp" line="994"/>
         <source>All file(</source>
         <translation>すべてのファイル（</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="803"/>
-        <location filename="mainwindow.cpp" line="1061"/>
-        <location filename="mainwindow.cpp" line="1077"/>
+        <location filename="mainwindow.cpp" line="801"/>
+        <location filename="mainwindow.cpp" line="1059"/>
+        <location filename="mainwindow.cpp" line="1075"/>
         <source>Show Text Browser</source>
         <translation>テキストブラウザを表示</translation>
     </message>
@@ -4649,19 +4702,19 @@ Otherwise, this software may not work properly.</source>
 そうしないと、このソフトウェアが正しく動作しない可能性があります。</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="996"/>
+        <location filename="mainwindow.cpp" line="994"/>
         <source>Select files</source>
         <translation>ファイルを選択</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1225"/>
+        <location filename="mainwindow.cpp" line="1223"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation>- ソフトウェアを使用する前にWikiをお読みください。
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1226"/>
+        <location filename="mainwindow.cpp" line="1224"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation>- ソフトウェアのフォント表示に問題がある場合は、追加設定でフォントを変更できます。
@@ -4680,12 +4733,12 @@ Otherwise, this software may not work properly.</source>
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1232"/>
+        <location filename="mainwindow.cpp" line="1230"/>
         <source>!!! Tips !!!</source>
         <translation>!!! プロンプト !!!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1240"/>
+        <location filename="mainwindow.cpp" line="1238"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation>ソフトウェアを初めて起動したことが検出されたため、互換性テストが自動的に実行されます。 しばらく待ってから、テスト結果を確認してください。</translation>
     </message>
@@ -4737,7 +4790,7 @@ Waifu2x-converterプロセッサリスト:
         <translation>少なくとも2つのプロセッサを有効にする必要があります!!</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="272"/>
+        <location filename="Frame_Interpolation.cpp" line="763"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1679"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1604"/>
         <location filename="waifu2x_converter.cpp" line="1654"/>
@@ -4754,22 +4807,22 @@ Waifu2x-converterプロセッサリスト:
         <translation type="vanished">利用可能なプロセッサが検出されません！</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1348"/>
+        <location filename="mainwindow.cpp" line="1346"/>
         <source>Force retry.</source>
         <translation>強制的に再試行します。</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="598"/>
+        <location filename="settings.cpp" line="602"/>
         <source>Settings saved successfully!</source>
         <translation>設定が正常に保存されました！</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="609"/>
+        <location filename="settings.cpp" line="613"/>
         <source>Do you really wanna RESET all the settings?</source>
         <translation>本当にすべての設定をリセットしますか？</translation>
     </message>
     <message>
-        <location filename="settings.cpp" line="622"/>
+        <location filename="settings.cpp" line="626"/>
         <source>The settings file has been reset, please restart the software manually for the default settings to take effect.</source>
         <translation>設定ファイルがリセットされました。デフォルト設定を有効にするには、ソフトウェアを手動で再起動してください。</translation>
     </message>
@@ -4985,7 +5038,18 @@ GIF：%2
         <translation>]。 エラー：[ビデオのフレームレートを取得できません。]</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="970"/>
+        <location filename="video.cpp" line="930"/>
+        <location filename="video.cpp" line="936"/>
+        <source>Failed to interpolate frames of video:[</source>
+        <translation>ビデオのフレームの補間に失敗しました：[</translation>
+    </message>
+    <message>
+        <location filename="video.cpp" line="936"/>
+        <source>]. Gonna generate a video without frame Interpolation.</source>
+        <translation>]。 フレーム補間なしでビデオを生成します。</translation>
+    </message>
+    <message>
+        <location filename="video.cpp" line="1004"/>
         <source>Finish assembling video:[</source>
         <translation>ビデオの組み立てを完了します：[</translation>
     </message>
@@ -5011,8 +5075,8 @@ GIF：%2
         <translation type="vanished">コンピューターは60秒で自動的にシャットダウンします！</translation>
     </message>
     <message>
-        <location filename="waifu2x.cpp" line="591"/>
-        <location filename="waifu2x.cpp" line="592"/>
+        <location filename="waifu2x.cpp" line="606"/>
+        <location filename="waifu2x.cpp" line="607"/>
         <source>Process finished.</source>
         <translation>プロセスが終了しました。</translation>
     </message>
@@ -5218,22 +5282,22 @@ GIF：%2
     <message>
         <location filename="CompatibilityTest.cpp" line="515"/>
         <source>Compatible with Rife-NCNN-Vulkan: Yes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Rife-NCNN-Vulkanとの互換性：はい。</translation>
     </message>
     <message>
         <location filename="CompatibilityTest.cpp" line="520"/>
         <source>Compatible with Rife-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
-        <translation type="unfinished"></translation>
+        <translation>Rife-NCNN-Vulkanとの互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
     </message>
     <message>
         <location filename="CompatibilityTest.cpp" line="542"/>
         <source>Compatible with Cain-NCNN-Vulkan: Yes.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cain-NCNN-Vulkanと互換性があります：はい。</translation>
     </message>
     <message>
         <location filename="CompatibilityTest.cpp" line="547"/>
         <source>Compatible with Cain-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
-        <translation type="unfinished"></translation>
+        <translation>Cain-NCNN-Vulkanとの互換性：いいえ。[アドバイス：gpuドライバーを再インストールするか、最新のものに更新してください。]</translation>
     </message>
     <message>
         <location filename="CompatibilityTest.cpp" line="562"/>
@@ -5306,22 +5370,27 @@ You can try to re-install this software, this might solve the problem.</source>
 このソフトウェアを再インストールしてみてください。これで問題が解決する可能性があります。</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="612"/>
+        <location filename="CompatibilityTest.cpp" line="618"/>
+        <source>All of the Frame Interpolation engines are not compatible with your PC, so you will not be able to use the Frame Interpolation function.</source>
+        <translation>すべてのフレーム補間エンジンはPCと互換性がないため、フレーム補間機能を使用することはできません。</translation>
+    </message>
+    <message>
+        <location filename="CompatibilityTest.cpp" line="624"/>
         <source>Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?</source>
         <translation>互換性テストの結果に基づいて、エンジン設定を自動的に調整するソフトウェアが必要ですか？</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="614"/>
+        <location filename="CompatibilityTest.cpp" line="626"/>
         <source>Yes</source>
         <translation>はい</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="615"/>
+        <location filename="CompatibilityTest.cpp" line="627"/>
         <source>No</source>
         <translation>いいえ</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="780"/>
+        <location filename="CompatibilityTest.cpp" line="806"/>
         <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
 
 First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
@@ -5342,7 +5411,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">ヒント：これらのエンジンのいずれか：[waifu2x-ncnn-vulkan、waifu2x-converter、srmd-ncnn-vulkan]がコンピューターと互換性がある場合、このソフトウェアのすべての機能を使用できます。</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="791"/>
+        <location filename="CompatibilityTest.cpp" line="817"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation>互換性テストが完了しました。 テスト結果を確認し、テスト結果に基づいてエンジン設定を構成してください。</translation>
     </message>
@@ -5351,17 +5420,32 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">互換性テストが完了しました。 テキストボックスでテスト結果を確認し、テスト結果に基づいてエンジン設定を構成してください。</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="70"/>
+        <location filename="Frame_Interpolation.cpp" line="470"/>
+        <source>Starting to interpolate frames in:[</source>
+        <translation>次のフレームの補間を開始します：[</translation>
+    </message>
+    <message>
+        <location filename="Frame_Interpolation.cpp" line="535"/>
         <source>Interpolating frames in:[</source>
-        <translation type="unfinished"></translation>
+        <translation>フレームの補間：[</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="70"/>
+        <location filename="Frame_Interpolation.cpp" line="535"/>
         <source>] Progress:[</source>
-        <translation type="unfinished"></translation>
+        <translation>]進行状況：[</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="205"/>
+        <location filename="Frame_Interpolation.cpp" line="553"/>
+        <source>Finish interpolating frames in:[</source>
+        <translation>次のフレームの補間を終了します：[</translation>
+    </message>
+    <message>
+        <location filename="Frame_Interpolation.cpp" line="573"/>
+        <source>Failed to interpolate frames in:[</source>
+        <translation>次のフレームの補間に失敗しました：[</translation>
+    </message>
+    <message>
+        <location filename="Frame_Interpolation.cpp" line="696"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1621"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1548"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1533"/>
@@ -5369,7 +5453,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>確認しています。お待ちください...</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="216"/>
+        <location filename="Frame_Interpolation.cpp" line="707"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1638"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1563"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1548"/>
@@ -5377,7 +5461,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>利用可能なGPUを検出しています。しばらくお待ちください。</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="275"/>
+        <location filename="Frame_Interpolation.cpp" line="766"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1682"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1607"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1592"/>
@@ -5385,9 +5469,9 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>利用可能なGPU IDが検出されません！</translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="291"/>
+        <location filename="Frame_Interpolation.cpp" line="782"/>
         <source>Available GPU IDs for current Frame Interpolation engine:[</source>
-        <translation type="unfinished"></translation>
+        <translation>現在のフレーム補間エンジンで使用可能なGPUID：[</translation>
     </message>
     <message>
         <location filename="realsr_ncnn_vulkan.cpp" line="1799"/>
@@ -5540,7 +5624,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation>GIFの最適化を終了:[</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="3313"/>
+        <location filename="mainwindow.ui" line="3329"/>
         <location filename="textBrowser.cpp" line="50"/>
         <source>Version:</source>
         <translation>バージョン:</translation>
