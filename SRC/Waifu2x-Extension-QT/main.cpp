@@ -34,6 +34,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.14:
+- Complete translation.
+- [Verify] button for Frame Interpolation.
+
 v3.11.03-beta:
 - New Feature: Now you can skip the super-resolution, only interpolate video frames by enable [Frame Interpolation only(Video)].
 - Add pause support for frame interpolation.
