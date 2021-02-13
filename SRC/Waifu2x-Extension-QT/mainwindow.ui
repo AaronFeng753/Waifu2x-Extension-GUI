@@ -2390,6 +2390,9 @@ Will NOT take effect when processing Video and GIF.</string>
                     </property>
                     <property name="toolTip">
                      <string>Skip the super-resolution, only interpolate video frames.
+You can modify the settings of Frame Interpolation in the
+[Video settings] tab.
+
 *Only taken effect when processing video*</string>
                     </property>
                     <property name="styleSheet">
