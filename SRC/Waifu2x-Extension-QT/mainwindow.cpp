@@ -1993,4 +1993,3 @@ void MainWindow::Set_checkBox_DisableResize_gif_Checked()
     ui->checkBox_DisableResize_gif->setChecked(true);
 }
 
-

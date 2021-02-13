@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1059</width>
+    <width>1096</width>
     <height>748</height>
    </rect>
   </property>
@@ -2123,24 +2123,121 @@ file that exists in the output path.</string>
                   <property name="bottomMargin">
                    <number>6</number>
                   </property>
-                  <item row="6" column="1">
-                   <widget class="QComboBox" name="comboBox_ImageStyle_Waifu2xCaffe">
+                  <item row="1" column="1">
+                   <widget class="QFrame" name="frame_2">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>45</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_45">
+                     <property name="sizeConstraint">
+                      <enum>QLayout::SetDefaultConstraint</enum>
+                     </property>
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="spacing">
+                      <number>7</number>
+                     </property>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_63">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Image quality:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="2" column="0">
+                      <widget class="QSpinBox" name="spinBox_ImageQualityLevel">
+                       <property name="toolTip">
+                        <string>Only takes effect when processing Static Image.
+
+Will NOT take effect when processing Video and GIF.</string>
+                       </property>
+                       <property name="minimum">
+                        <number>1</number>
+                       </property>
+                       <property name="maximum">
+                        <number>100</number>
+                       </property>
+                       <property name="value">
+                        <number>100</number>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="7" column="0">
+                   <widget class="QLabel" name="label_ImageStyle_W2xNCNNVulkan">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
+Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
+Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
+SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    </property>
+                    <property name="text">
+                     <string>Image Style(waifu2x-ncnn-vulkan):</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="8" column="0">
+                   <widget class="QLabel" name="label_ImageStyle_W2xCaffe">
                     <property name="toolTip">
                      <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                     </property>
-                    <item>
-                     <property name="text">
-                      <string>2D Anime</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>3D Real-life</string>
-                     </property>
-                    </item>
+                    <property name="text">
+                     <string>Image Style(waifu2x-caffe):</string>
+                    </property>
                    </widget>
                   </item>
                   <item row="1" column="0">
@@ -2154,10 +2251,16 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>45</height>
+                     </size>
+                    </property>
                     <property name="maximumSize">
                      <size>
                       <width>16777215</width>
-                      <height>45</height>
+                      <height>16777215</height>
                      </size>
                     </property>
                     <property name="frameShape">
@@ -2265,145 +2368,7 @@ Will NOT take effect when processing Video and GIF.</string>
                     </layout>
                    </widget>
                   </item>
-                  <item row="0" column="1">
-                   <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
-                    <property name="toolTip">
-                     <string>When there are finished files in the list, the finished files will
-be processed again when the processing process is started again.</string>
-                    </property>
-                    <property name="text">
-                     <string>Re-process finished files</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="1">
-                   <widget class="QCheckBox" name="checkBox_ReplaceOriginalFile">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="contextMenuPolicy">
-                     <enum>Qt::ActionsContextMenu</enum>
-                    </property>
-                    <property name="toolTip">
-                     <string>After processing the file, directly replace
-the original file with the result file.
-(And keep the original file name.)
-
-WARNING: The original file will be DELETED.
-
-*This option will be deactivated when [Output
-path] or [Delete original files] is enabled*
-
-[Right click here to show more options]</string>
-                    </property>
-                    <property name="text">
-                     <string>Replace original file</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="1">
-                   <widget class="QFrame" name="frame_2">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>16777215</width>
-                      <height>45</height>
-                     </size>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_45">
-                     <property name="sizeConstraint">
-                      <enum>QLayout::SetDefaultConstraint</enum>
-                     </property>
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="spacing">
-                      <number>7</number>
-                     </property>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label_63">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string>Image quality:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="2" column="0">
-                      <widget class="QSpinBox" name="spinBox_ImageQualityLevel">
-                       <property name="toolTip">
-                        <string>Only takes effect when processing Static Image.
-
-Will NOT take effect when processing Video and GIF.</string>
-                       </property>
-                       <property name="minimum">
-                        <number>1</number>
-                       </property>
-                       <property name="maximum">
-                        <number>100</number>
-                       </property>
-                       <property name="value">
-                        <number>100</number>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item row="0" column="0">
-                   <widget class="QCheckBox" name="checkBox_FrameInterpolationOnly_Video">
-                    <property name="font">
-                     <font>
-                      <weight>50</weight>
-                      <bold>false</bold>
-                     </font>
-                    </property>
-                    <property name="toolTip">
-                     <string>Skip the super-resolution, only interpolate video frames.
-You can modify the settings of Frame Interpolation in the
-[Video settings] tab.
-
-*Only taken effect when processing video*</string>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(33, 85, 255);</string>
-                    </property>
-                    <property name="text">
-                     <string>Frame Interpolation only(Video)</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="5" column="1">
+                  <item row="7" column="1">
                    <widget class="QComboBox" name="comboBox_ImageStyle">
                     <property name="minimumSize">
                      <size>
@@ -2432,85 +2397,140 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                     </item>
                    </widget>
                   </item>
-                  <item row="6" column="0">
-                   <widget class="QLabel" name="label_ImageStyle_W2xCaffe">
+                  <item row="8" column="1">
+                   <widget class="QComboBox" name="comboBox_ImageStyle_Waifu2xCaffe">
                     <property name="toolTip">
                      <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
 Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
 Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
 SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
                     </property>
-                    <property name="text">
-                     <string>Image Style(waifu2x-caffe):</string>
-                    </property>
+                    <item>
+                     <property name="text">
+                      <string>2D Anime</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>3D Real-life</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
-                  <item row="5" column="0">
-                   <widget class="QLabel" name="label_ImageStyle_W2xNCNNVulkan">
-                    <property name="maximumSize">
+                  <item row="4" column="0" colspan="2">
+                   <widget class="QFrame" name="frame_13">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
                      <size>
-                      <width>16777215</width>
-                      <height>16777215</height>
+                      <width>0</width>
+                      <height>0</height>
                      </size>
                     </property>
-                    <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
                     </property>
-                    <property name="text">
-                     <string>Image Style(waifu2x-ncnn-vulkan):</string>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
                     </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="3" column="0">
-                   <widget class="QCheckBox" name="checkBox_OptGIF">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="toolTip">
-                     <string>Optimizing the scaled gif will slightly reduce the
-image quality, but it can reduce the GIF file size.
-
-It is recommended to enable this option.</string>
-                    </property>
-                    <property name="text">
-                     <string>Optimize &quot;.gif&quot;</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="4" column="0">
-                   <widget class="QCheckBox" name="checkBox_DelOriginal">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="contextMenuPolicy">
-                     <enum>Qt::ActionsContextMenu</enum>
-                    </property>
-                    <property name="toolTip">
-                     <string>Delete the original file after processing is complete.
+                    <layout class="QGridLayout" name="gridLayout_66">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="horizontalSpacing">
+                      <number>3</number>
+                     </property>
+                     <property name="verticalSpacing">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="1">
+                      <widget class="QCheckBox" name="checkBox_DelOriginal">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="contextMenuPolicy">
+                        <enum>Qt::ActionsContextMenu</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>Delete the original file after processing is complete.
 
 *This option will be deactivated when [Replace original
 file] is enabled*
 
 [Right click here to show more options]</string>
-                    </property>
-                    <property name="text">
-                     <string>Delete original files</string>
-                    </property>
+                       </property>
+                       <property name="text">
+                        <string>Delete original files</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="2">
+                      <widget class="QCheckBox" name="checkBox_ReplaceOriginalFile">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="contextMenuPolicy">
+                        <enum>Qt::ActionsContextMenu</enum>
+                       </property>
+                       <property name="toolTip">
+                        <string>After processing the file, directly replace
+the original file with the result file.
+(And keep the original file name.)
+
+WARNING: The original file will be DELETED.
+
+*This option will be deactivated when [Output
+path] or [Delete original files] is enabled*
+
+[Right click here to show more options]</string>
+                       </property>
+                       <property name="text">
+                        <string>Replace original file</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QCheckBox" name="checkBox_OptGIF">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="toolTip">
+                        <string>Optimizing the scaled gif will slightly reduce the
+image quality, but it can reduce the GIF file size.
+
+It is recommended to enable this option.</string>
+                       </property>
+                       <property name="text">
+                        <string>Optimize &quot;.gif&quot;</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </widget>
                   </item>
-                  <item row="3" column="1">
+                  <item row="5" column="0">
                    <widget class="QComboBox" name="comboBox_FinishAction">
                     <property name="toolTip">
                      <string>Select the action to be executed automatically
@@ -2541,6 +2561,59 @@ after processing all files in the file list.</string>
                       <string>Restart</string>
                      </property>
                     </item>
+                   </widget>
+                  </item>
+                  <item row="5" column="1">
+                   <widget class="QCheckBox" name="checkBox_ReProcFinFiles">
+                    <property name="toolTip">
+                     <string>When there are finished files in the list, the finished files will
+be processed again when the processing process is started again.</string>
+                    </property>
+                    <property name="text">
+                     <string>Re-process finished files</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QCheckBox" name="checkBox_FrameInterpolationOnly_Video">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <weight>50</weight>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="toolTip">
+                     <string>Skip the super-resolution, only interpolate video frames.
+You can modify the settings of Frame Interpolation in the
+[Video settings] tab.
+
+*Only taken effect when processing video*</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Frame Interpolation only(Video)</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QCheckBox" name="checkBox_EnableVFI_Home">
+                    <property name="toolTip">
+                     <string>You can modify the settings of Frame Interpolation
+in the [Video settings] tab.
+
+*Only taken effect when processing video*</string>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(33, 85, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Video Frame Interpolation</string>
+                    </property>
                    </widget>
                   </item>
                  </layout>

@@ -182,6 +182,7 @@ void MainWindow::on_pushButton_Start_clicked()
     isForceRetryEnabled=true;
     isSuccessiveFailuresDetected_VFI=false;
     //============== 界面初始化 ======================
+    ui->checkBox_EnableVFI_Home->setEnabled(0);
     ui->checkBox_FrameInterpolationOnly_Video->setEnabled(0);
     ui->groupBox_FrameInterpolation->setEnabled(0);
     ui->pushButton_BrowserFile->setEnabled(0);
@@ -613,7 +614,8 @@ void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
     //================== 界面恢复 ===============================
-    ui->checkBox_FrameInterpolationOnly_Video->setEnabled(1);
+    ui->checkBox_EnableVFI_Home->setEnabled(1);
+    if(ui->groupBox_FrameInterpolation->isChecked())ui->checkBox_FrameInterpolationOnly_Video->setEnabled(1);
     ui->groupBox_FrameInterpolation->setEnabled(1);
     ui->pushButton_BrowserFile->setEnabled(1);
     ui->comboBox_ImageSaveFormat->setEnabled(1);

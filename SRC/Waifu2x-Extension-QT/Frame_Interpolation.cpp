@@ -822,9 +822,28 @@ void MainWindow::on_groupBox_FrameInterpolation_clicked()
     on_checkBox_MultiGPU_VFI_stateChanged(0);
     if(ui->groupBox_FrameInterpolation->isChecked()==false)
     {
+        ui->checkBox_FrameInterpolationOnly_Video->setEnabled(0);
         ui->checkBox_FrameInterpolationOnly_Video->setChecked(0);
     }
+    else
+    {
+        ui->checkBox_FrameInterpolationOnly_Video->setEnabled(1);
+    }
+    if(ui->checkBox_EnableVFI_Home->isChecked() != ui->groupBox_FrameInterpolation->isChecked())
+    {
+        ui->checkBox_EnableVFI_Home->setChecked(ui->groupBox_FrameInterpolation->isChecked());
+    }
 }
+
+void MainWindow::on_checkBox_EnableVFI_Home_clicked()
+{
+    if(ui->checkBox_EnableVFI_Home->isChecked() != ui->groupBox_FrameInterpolation->isChecked())
+    {
+        ui->groupBox_FrameInterpolation->setChecked(ui->checkBox_EnableVFI_Home->isChecked());
+        on_groupBox_FrameInterpolation_clicked();
+    }
+}
+
 
 void MainWindow::on_checkBox_isCompatible_RifeNcnnVulkan_clicked()
 {
@@ -859,15 +878,6 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         ui->comboBox_Model_VFI->setEnabled(0);
     }
     Old_FrameInterpolation_Engine_Index = ui->comboBox_Engine_VFI->currentIndex();
-}
-
-void MainWindow::on_checkBox_FrameInterpolationOnly_Video_stateChanged(int arg1)
-{
-    if(ui->checkBox_FrameInterpolationOnly_Video->isChecked())
-    {
-        ui->groupBox_FrameInterpolation->setChecked(1);
-        on_groupBox_FrameInterpolation_clicked();
-    }
 }
 
 void MainWindow::on_pushButton_Verify_MultiGPU_VFI_clicked()
