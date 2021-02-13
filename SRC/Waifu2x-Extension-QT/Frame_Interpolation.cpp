@@ -869,3 +869,33 @@ void MainWindow::on_checkBox_FrameInterpolationOnly_Video_stateChanged(int arg1)
         on_groupBox_FrameInterpolation_clicked();
     }
 }
+
+void MainWindow::on_pushButton_Verify_MultiGPU_VFI_clicked()
+{
+    QString VerRes = "";
+    //======
+    QString GPU_IDs_str = ui->lineEdit_MultiGPU_IDs_VFI->text().trimmed().trimmed().replace("，",",").remove(" ").remove("　");
+    if(GPU_IDs_str.right(1)==",")
+    {
+        GPU_IDs_str = GPU_IDs_str.left(GPU_IDs_str.length() - 1);
+    }
+    QStringList GPU_IDs_StrList = GPU_IDs_str.split(",");
+    GPU_IDs_StrList.removeAll("");
+    GPU_IDs_StrList.removeDuplicates();
+    for(int i=0; i<GPU_IDs_StrList.size(); i++)
+    {
+        VerRes.append("GPU ["+QString::number(i,10)+"]: ID:["+GPU_IDs_StrList.at(i)+"]\n\n");
+    }
+    //=====
+    if(VerRes=="")
+    {
+        VerRes=tr("Current configuration is wrong or empty.");
+    }
+    //======
+    QMessageBox *MSG = new QMessageBox();
+    MSG->setWindowTitle(tr("GPUs List"));
+    MSG->setText(VerRes);
+    MSG->setIcon(QMessageBox::Information);
+    MSG->setModal(true);
+    MSG->show();
+}

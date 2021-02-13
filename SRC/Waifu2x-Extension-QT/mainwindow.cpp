@@ -1992,3 +1992,5 @@ void MainWindow::Set_checkBox_DisableResize_gif_Checked()
     emit Send_TextBrowser_NewMessage(tr("[Disable \"-resize\"] is automatically enabled to fix compatibility issue and improve performance."));
     ui->checkBox_DisableResize_gif->setChecked(true);
 }
+
+

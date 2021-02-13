@@ -943,6 +943,8 @@ private slots:
 
     void on_checkBox_FrameInterpolationOnly_Video_stateChanged(int arg1);
 
+    void on_pushButton_Verify_MultiGPU_VFI_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 

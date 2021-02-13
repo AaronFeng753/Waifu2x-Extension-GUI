@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1089</width>
+    <width>1059</width>
     <height>748</height>
    </rect>
   </property>
@@ -6373,7 +6373,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
         <attribute name="title">
          <string>Video settings</string>
         </attribute>
-        <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0">
+        <layout class="QGridLayout" name="gridLayout_2" columnstretch="30,70">
          <property name="leftMargin">
           <number>6</number>
          </property>
@@ -7034,6 +7034,21 @@ likelihood of removing wanted components of the audio signal.</string>
             <bool>false</bool>
            </property>
            <layout class="QGridLayout" name="gridLayout_64">
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
             <item row="0" column="0">
              <widget class="QFrame" name="frame_FrameInterpolation">
               <property name="enabled">
@@ -7061,10 +7076,30 @@ likelihood of removing wanted components of the audio signal.</string>
                <property name="bottomMargin">
                 <number>0</number>
                </property>
+               <item row="5" column="0">
+                <widget class="QLabel" name="label_28">
+                 <property name="text">
+                  <string>Number of threads:</string>
+                 </property>
+                </widget>
+               </item>
                <item row="7" column="0">
                 <widget class="QLabel" name="label_30">
                  <property name="text">
                   <string>GPU ID:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="8" column="0">
+                <widget class="QCheckBox" name="checkBox_MultiGPU_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Multi GPU</string>
                  </property>
                 </widget>
                </item>
@@ -7075,15 +7110,34 @@ likelihood of removing wanted components of the audio signal.</string>
                  </property>
                 </widget>
                </item>
-               <item row="3" column="0">
-                <widget class="QLabel" name="label_3">
+               <item row="5" column="2">
+                <widget class="QCheckBox" name="checkBox_AutoAdjustNumOfThreads_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>When successive failures are detected, the number
+of threads will be adjusted automatically.</string>
+                 </property>
                  <property name="text">
-                  <string>Model:</string>
+                  <string>Auto adjust</string>
+                 </property>
+                 <property name="checked">
+                  <bool>true</bool>
                  </property>
                 </widget>
                </item>
-               <item row="8" column="1" colspan="2">
+               <item row="8" column="1">
                 <widget class="QLineEdit" name="lineEdit_MultiGPU_IDs_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="toolTip">
                   <string>Format: GPU ID,GPU ID
 
@@ -7093,36 +7147,49 @@ You must follow the format,otherwise the software may crash.</string>
                  </property>
                 </widget>
                </item>
-               <item row="5" column="0">
-                <widget class="QLabel" name="label_28">
-                 <property name="text">
-                  <string>Number of threads:</string>
+               <item row="8" column="2">
+                <widget class="QPushButton" name="pushButton_Verify_MultiGPU_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
                  </property>
-                </widget>
-               </item>
-               <item row="7" column="1">
-                <widget class="QComboBox" name="comboBox_GPUID_VFI">
                  <property name="toolTip">
-                  <string>&quot;-1&quot; is CPU, others are GPUs</string>
+                  <string>Verify your Multi GPU configuration.</string>
                  </property>
-                 <item>
-                  <property name="text">
-                   <string notr="true">auto</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item row="0" column="0">
-                <widget class="QLabel" name="label_37">
-                 <property name="text">
-                  <string>Frame Interpolation Engine:</string>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
                  </property>
-                </widget>
-               </item>
-               <item row="2" column="1">
-                <widget class="QCheckBox" name="checkBox_UHD_VFI">
                  <property name="text">
-                  <string>UHD Mode</string>
+                  <string>Verify</string>
                  </property>
                 </widget>
                </item>
@@ -7158,8 +7225,21 @@ You must follow the format,otherwise the software may crash.</string>
                  </item>
                 </widget>
                </item>
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_37">
+                 <property name="text">
+                  <string>Frame Interpolation Engine:</string>
+                 </property>
+                </widget>
+               </item>
                <item row="5" column="1">
                 <widget class="QSpinBox" name="spinBox_NumOfThreads_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="minimum">
                   <number>1</number>
                  </property>
@@ -7168,8 +7248,46 @@ You must follow the format,otherwise the software may crash.</string>
                  </property>
                 </widget>
                </item>
+               <item row="2" column="0">
+                <widget class="QCheckBox" name="checkBox_TTA_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="toolTip">
+                  <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                 </property>
+                 <property name="text">
+                  <string>TTA Mode</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1" colspan="2">
+                <widget class="QCheckBox" name="checkBox_UHD_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>UHD Mode</string>
+                 </property>
+                </widget>
+               </item>
                <item row="7" column="2">
                 <widget class="QPushButton" name="pushButton_DetectGPU_VFI">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="styleSheet">
                   <string notr="true">QPushButton{
 background-color: rgb(52, 152, 219);
@@ -7205,6 +7323,25 @@ padding:10px;
                  </property>
                 </widget>
                </item>
+               <item row="7" column="1">
+                <widget class="QComboBox" name="comboBox_GPUID_VFI">
+                 <property name="toolTip">
+                  <string>&quot;-1&quot; is CPU, others are GPUs</string>
+                 </property>
+                 <item>
+                  <property name="text">
+                   <string notr="true">auto</string>
+                  </property>
+                 </item>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_3">
+                 <property name="text">
+                  <string>Model:</string>
+                 </property>
+                </widget>
+               </item>
                <item row="0" column="1" colspan="2">
                 <widget class="QComboBox" name="comboBox_Engine_VFI">
                  <item>
@@ -7217,46 +7354,6 @@ padding:10px;
                    <string notr="true">cain-ncnn-vulkan</string>
                   </property>
                  </item>
-                </widget>
-               </item>
-               <item row="2" column="0">
-                <widget class="QCheckBox" name="checkBox_TTA_VFI">
-                 <property name="toolTip">
-                  <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                 </property>
-                 <property name="text">
-                  <string>TTA Mode</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="8" column="0">
-                <widget class="QCheckBox" name="checkBox_MultiGPU_VFI">
-                 <property name="text">
-                  <string>Multi GPU</string>
-                 </property>
-                </widget>
-               </item>
-               <item row="5" column="2">
-                <widget class="QCheckBox" name="checkBox_AutoAdjustNumOfThreads_VFI">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>When successive failures are detected, the number
-of threads will be adjusted automatically.</string>
-                 </property>
-                 <property name="text">
-                  <string>Auto adjust</string>
-                 </property>
-                 <property name="checked">
-                  <bool>true</bool>
-                 </property>
                 </widget>
                </item>
               </layout>
