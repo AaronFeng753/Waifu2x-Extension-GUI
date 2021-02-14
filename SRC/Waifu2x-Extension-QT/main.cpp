@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.05-beta:
+- Fix bug: Unable to use [Process video by segment] when Frame Interpolation is disabled.
+
 v3.11.04-beta:
 - Add a shortcut for enable Frame Interpolation in home tab.
 - [Verify] button for Frame Interpolation.

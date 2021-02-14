@@ -452,8 +452,6 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
 */
 bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
 {
-    if(ui->groupBox_FrameInterpolation->isChecked()==false)return false;
-    //==========
     if(SourcePath.right(1)=="/")
     {
         SourcePath = SourcePath.left(SourcePath.length() - 1);
