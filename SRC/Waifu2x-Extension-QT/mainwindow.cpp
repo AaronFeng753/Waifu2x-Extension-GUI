@@ -358,7 +358,7 @@ void MainWindow::on_pushButton_Stop_clicked()
     ui->pushButton_Stop->setVisible(0);//隐藏stop button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
-    QFuture<void> f1 = QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
+    QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
 }
 /*
 等待处理线程完全停止
@@ -370,14 +370,18 @@ void MainWindow::Wait_waifu2x_stop()
         if(waifu2x_STOP_confirm||ThreadNumRunning==0)
         {
             waifu2x_STOP_confirm = false;
+            Waifu2xMain.waitForFinished();
+            while(true)
+            {
+                if(Waifu2xMain.isRunning()==false)break;
+                Delay_msec_sleep(300);
+            }
             emit TextBrowser_NewMessage(tr("Processing of files has stopped."));
             QtConcurrent::run(this, &MainWindow::Play_NFSound);//成功暂停,播放提示音
             break;
         }
         Delay_msec_sleep(300);
     }
-    Waifu2xMain.cancel();
-    Waifu2xMain.waitForFinished();
     emit Send_Waifu2x_Finished_manual();
 }
 /*
