@@ -34,9 +34,11 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v3.11.14:
-- Complete translation.
+v3.11.04-beta:
+- Add a shortcut for enable Frame Interpolation in home tab.
 - [Verify] button for Frame Interpolation.
+- Complete translation.
+- Other improvements.
 
 v3.11.03-beta:
 - New Feature: Now you can skip the super-resolution, only interpolate video frames by enable [Frame Interpolation only(Video)].

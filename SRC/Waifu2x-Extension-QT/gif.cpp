@@ -24,7 +24,7 @@
 */
 int MainWindow::Gif_getDuration(QString gifPath)
 {
-    //========================= 调用ffprobe读取视频信息 ======================
+    //========================= 调用ffprobe读取GIF信息 ======================
     QProcess *Get_GifAvgFPS_process = new QProcess();
     QString cmd = "\""+Current_Path+"/ffprobe_waifu2xEX.exe\" -i \""+gifPath+"\" -select_streams v -show_streams -v quiet -print_format ini -show_format";
     Get_GifAvgFPS_process->start(cmd);

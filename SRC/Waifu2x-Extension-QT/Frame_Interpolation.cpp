@@ -558,14 +558,22 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         else
         {
             file_DelDir(OutputPath);
+            //===
+            if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6)
+            {
+                retry_add = 6-ui->spinBox_retry->value();
+            }
+            //===
             if(retry==(ui->spinBox_retry->value()+retry_add-1))
             {
                 break;
             }
+            //===
             if(retry>=2 && ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true)
             {
                 isSuccessiveFailuresDetected_VFI=true;
             }
+            //===
             file_mkDir(OutputPath);
             emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
             Delay_sec_sleep(5);
