@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.06-beta:
+- Update GUI.
 - Optimize performance.
 - Fix bug: Extra commands for video are not loaded when [Process video by segment] is enabled.
 - Fix bug: [Automatic file list scrolling] not working normally after user rearrange the files list.
