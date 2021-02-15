@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -1624,13 +1624,371 @@ padding:10px;
              <property name="bottomMargin">
               <number>6</number>
              </property>
-             <item row="0" column="0">
-              <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="1,1,1">
+             <item row="1" column="1">
+              <widget class="QGroupBox" name="groupBox_ScaleRaton_DenoiseLevel">
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>75</height>
+                </size>
+               </property>
+               <property name="title">
+                <string>Scale ratio and Denoise level</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="flat">
+                <bool>true</bool>
+               </property>
+               <layout class="QGridLayout" name="gridLayout">
+                <property name="leftMargin">
+                 <number>6</number>
+                </property>
+                <property name="topMargin">
+                 <number>6</number>
+                </property>
+                <property name="rightMargin">
+                 <number>6</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>6</number>
+                </property>
+                <item row="0" column="6" rowspan="2">
+                 <widget class="Line" name="line_4">
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="5">
+                 <widget class="QSpinBox" name="spinBox_ScaleRatio_gif">
+                  <property name="cursor">
+                   <cursorShape>ArrowCursor</cursorShape>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::WheelFocus</enum>
+                  </property>
+                  <property name="toolTip">
+                   <string>Range: 1 ~ 999999999
+
+!Warning! When the [Scale ratio] is too large,
+it might cause the software to crash.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                  <property name="displayIntegerBase">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="4">
+                 <widget class="QLabel" name="label_GIFDenoiseLevel">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string>GIF Denoise level:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="5">
+                 <widget class="QSpinBox" name="spinBox_DenoiseLevel_gif">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::WheelFocus</enum>
+                  </property>
+                  <property name="minimum">
+                   <number>-1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>3</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                  <property name="displayIntegerBase">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="9" rowspan="2">
+                 <spacer name="horizontalSpacer_15">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item row="0" column="4">
+                 <widget class="QLabel" name="label_16">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>Range: 1 ~ 999999999</string>
+                  </property>
+                  <property name="text">
+                   <string>GIF Scale ratio:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="label_ImageDenoiseLevel">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string>Image Denoise level:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="8">
+                 <widget class="QSpinBox" name="spinBox_DenoiseLevel_video">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::WheelFocus</enum>
+                  </property>
+                  <property name="minimum">
+                   <number>-1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>3</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                  <property name="displayIntegerBase">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="7">
+                 <widget class="QLabel" name="label_17">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>Range: 1 ~ 999999999</string>
+                  </property>
+                  <property name="text">
+                   <string>Video Scale ratio:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QSpinBox" name="spinBox_DenoiseLevel_image">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::WheelFocus</enum>
+                  </property>
+                  <property name="minimum">
+                   <number>-1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>3</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                  <property name="displayIntegerBase">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="label">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="toolTip">
+                   <string>Range: 1 ~ 999999999</string>
+                  </property>
+                  <property name="text">
+                   <string>Image Scale ratio:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="8">
+                 <widget class="QSpinBox" name="spinBox_ScaleRatio_video">
+                  <property name="cursor">
+                   <cursorShape>ArrowCursor</cursorShape>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::WheelFocus</enum>
+                  </property>
+                  <property name="toolTip">
+                   <string>Range: 1 ~ 999999999
+
+!Warning! When the [Scale ratio] is too large,
+it might cause the software to crash.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                  <property name="displayIntegerBase">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QSpinBox" name="spinBox_ScaleRatio_image">
+                  <property name="cursor">
+                   <cursorShape>ArrowCursor</cursorShape>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::WheelFocus</enum>
+                  </property>
+                  <property name="toolTip">
+                   <string>Range: 1 ~ 999999999
+
+!Warning! When the [Scale ratio] is too large,
+it might cause the software to crash.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>999999999</number>
+                  </property>
+                  <property name="singleStep">
+                   <number>1</number>
+                  </property>
+                  <property name="stepType">
+                   <enum>QAbstractSpinBox::DefaultStepType</enum>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                  <property name="displayIntegerBase">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3" rowspan="2">
+                 <widget class="Line" name="line_3">
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="7">
+                 <widget class="QLabel" name="label_VideoDenoiseLevel">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="text">
+                   <string>Video Denoise level:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0" rowspan="2">
+                 <spacer name="horizontalSpacer_16">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="3">
+              <layout class="QHBoxLayout" name="horizontalLayout_8" stretch="0,0,0">
                <property name="spacing">
                 <number>5</number>
                </property>
                <item>
                 <widget class="QGroupBox" name="groupBox_CustRes">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="maximumSize">
                   <size>
                    <width>16777215</width>
@@ -1927,176 +2285,9 @@ is larger than the specified resolution.</string>
                 </widget>
                </item>
                <item>
-                <widget class="QGroupBox" name="groupBox_OutPut">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="title">
-                  <string>Output path(Folder):</string>
-                 </property>
-                 <property name="checkable">
-                  <bool>false</bool>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_23">
-                  <property name="leftMargin">
-                   <number>6</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>6</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>6</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>6</number>
-                  </property>
-                  <item row="0" column="0" colspan="3">
-                   <widget class="QLineEdit" name="lineEdit_outputPath">
-                    <property name="enabled">
-                     <bool>false</bool>
-                    </property>
-                    <property name="focusPolicy">
-                     <enum>Qt::StrongFocus</enum>
-                    </property>
-                    <property name="contextMenuPolicy">
-                     <enum>Qt::ActionsContextMenu</enum>
-                    </property>
-                    <property name="toolTip">
-                     <string>Output path must be a Folder.
-
-[Right click here to show more options]</string>
-                    </property>
-                    <property name="text">
-                     <string notr="true"/>
-                    </property>
-                    <property name="clearButtonEnabled">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="1" column="0" rowspan="3" colspan="3">
-                   <widget class="QScrollArea" name="scrollArea_outputPathSettings">
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(255, 255, 255);</string>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Sunken</enum>
-                    </property>
-                    <property name="sizeAdjustPolicy">
-                     <enum>QAbstractScrollArea::AdjustIgnored</enum>
-                    </property>
-                    <property name="widgetResizable">
-                     <bool>true</bool>
-                    </property>
-                    <widget class="QWidget" name="scrollAreaWidgetContents">
-                     <property name="geometry">
-                      <rect>
-                       <x>0</x>
-                       <y>0</y>
-                       <width>233</width>
-                       <height>113</height>
-                      </rect>
-                     </property>
-                     <layout class="QGridLayout" name="gridLayout_37">
-                      <item row="0" column="0">
-                       <layout class="QHBoxLayout" name="horizontalLayout_5">
-                        <item>
-                         <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="toolTip">
-                           <string>When this option is enabled, the output file 
-will be moved to the path you specified. 
-Otherwise, it will be saved in the same 
-folder as the source file.
-
-*This option will be deactivated when [Replace
-original file] is enabled*</string>
-                          </property>
-                          <property name="text">
-                           <string>Enabled</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
-                          <property name="enabled">
-                           <bool>false</bool>
-                          </property>
-                          <property name="sizePolicy">
-                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                            <horstretch>0</horstretch>
-                            <verstretch>0</verstretch>
-                           </sizepolicy>
-                          </property>
-                          <property name="toolTip">
-                           <string>When this option is enabled, the output file will
-replace the file with the same name as the output
-file that exists in the output path.</string>
-                          </property>
-                          <property name="text">
-                           <string>Overwrite</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </item>
-                      <item row="1" column="0">
-                       <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
-                        <property name="enabled">
-                         <bool>false</bool>
-                        </property>
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="text">
-                         <string>Keep original file name</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item row="2" column="0">
-                       <widget class="QCheckBox" name="checkBox_KeepParentFolder">
-                        <property name="enabled">
-                         <bool>false</bool>
-                        </property>
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="text">
-                         <string>Keep parent folder</string>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </widget>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
                 <widget class="QGroupBox" name="groupBox_2">
                  <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                    <horstretch>0</horstretch>
                    <verstretch>0</verstretch>
                   </sizepolicy>
@@ -2625,327 +2816,187 @@ the super-resolution, only interpolate video frames.
                  </layout>
                 </widget>
                </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_OutPut">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="title">
+                  <string>Output path(Folder):</string>
+                 </property>
+                 <property name="checkable">
+                  <bool>false</bool>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_23">
+                  <property name="leftMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>6</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>6</number>
+                  </property>
+                  <item row="0" column="0" colspan="3">
+                   <widget class="QLineEdit" name="lineEdit_outputPath">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="focusPolicy">
+                     <enum>Qt::StrongFocus</enum>
+                    </property>
+                    <property name="contextMenuPolicy">
+                     <enum>Qt::ActionsContextMenu</enum>
+                    </property>
+                    <property name="toolTip">
+                     <string>Output path must be a Folder.
+
+[Right click here to show more options]</string>
+                    </property>
+                    <property name="text">
+                     <string notr="true"/>
+                    </property>
+                    <property name="clearButtonEnabled">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0" rowspan="3" colspan="3">
+                   <widget class="QScrollArea" name="scrollArea_outputPathSettings">
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Sunken</enum>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>233</width>
+                       <height>113</height>
+                      </rect>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_37">
+                      <item row="1" column="0">
+                       <layout class="QHBoxLayout" name="horizontalLayout_5">
+                        <item>
+                         <widget class="QCheckBox" name="checkBox_OutPath_isEnabled">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="toolTip">
+                           <string>When this option is enabled, the output file 
+will be moved to the path you specified. 
+Otherwise, it will be saved in the same 
+folder as the source file.
+
+*This option will be deactivated when [Replace
+original file] is enabled*</string>
+                          </property>
+                          <property name="text">
+                           <string>Enabled</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QCheckBox" name="checkBox_OutPath_Overwrite">
+                          <property name="enabled">
+                           <bool>false</bool>
+                          </property>
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="toolTip">
+                           <string>When this option is enabled, the output file will
+replace the file with the same name as the output
+file that exists in the output path.</string>
+                          </property>
+                          <property name="text">
+                           <string>Overwrite</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <spacer name="horizontalSpacer_17">
+                          <property name="orientation">
+                           <enum>Qt::Horizontal</enum>
+                          </property>
+                          <property name="sizeHint" stdset="0">
+                           <size>
+                            <width>40</width>
+                            <height>20</height>
+                           </size>
+                          </property>
+                         </spacer>
+                        </item>
+                       </layout>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="text">
+                         <string>Keep original file name</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QCheckBox" name="checkBox_KeepParentFolder">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="text">
+                         <string>Keep parent folder</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
               </layout>
-             </item>
-             <item row="1" column="0">
-              <widget class="QGroupBox" name="groupBox_ScaleRaton_DenoiseLevel">
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>75</height>
-                </size>
-               </property>
-               <property name="title">
-                <string>Scale ratio and Denoise level</string>
-               </property>
-               <layout class="QGridLayout" name="gridLayout">
-                <property name="leftMargin">
-                 <number>6</number>
-                </property>
-                <property name="topMargin">
-                 <number>6</number>
-                </property>
-                <property name="rightMargin">
-                 <number>6</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>6</number>
-                </property>
-                <item row="1" column="7">
-                 <widget class="QSpinBox" name="spinBox_DenoiseLevel_video">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::WheelFocus</enum>
-                  </property>
-                  <property name="minimum">
-                   <number>-1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>3</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                  <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
-                  </property>
-                  <property name="value">
-                   <number>2</number>
-                  </property>
-                  <property name="displayIntegerBase">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QLabel" name="label_16">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="toolTip">
-                   <string>Range: 1 ~ 999999999</string>
-                  </property>
-                  <property name="text">
-                   <string>GIF Scale ratio:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="3">
-                 <widget class="QLabel" name="label_GIFDenoiseLevel">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>GIF Denoise level:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="5" rowspan="2">
-                 <widget class="Line" name="line_4">
-                  <property name="frameShadow">
-                   <enum>QFrame::Sunken</enum>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="4">
-                 <widget class="QSpinBox" name="spinBox_ScaleRatio_gif">
-                  <property name="cursor">
-                   <cursorShape>ArrowCursor</cursorShape>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::WheelFocus</enum>
-                  </property>
-                  <property name="toolTip">
-                   <string>Range: 1 ~ 999999999
-
-!Warning! When the [Scale ratio] is too large,
-it might cause the software to crash.</string>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                  <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
-                  </property>
-                  <property name="value">
-                   <number>2</number>
-                  </property>
-                  <property name="displayIntegerBase">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="0">
-                 <widget class="QLabel" name="label">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="toolTip">
-                   <string>Range: 1 ~ 999999999</string>
-                  </property>
-                  <property name="text">
-                   <string>Image Scale ratio:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_ImageDenoiseLevel">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>Image Denoise level:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="6">
-                 <widget class="QLabel" name="label_VideoDenoiseLevel">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string>Video Denoise level:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QSpinBox" name="spinBox_ScaleRatio_image">
-                  <property name="cursor">
-                   <cursorShape>ArrowCursor</cursorShape>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::WheelFocus</enum>
-                  </property>
-                  <property name="toolTip">
-                   <string>Range: 1 ~ 999999999
-
-!Warning! When the [Scale ratio] is too large,
-it might cause the software to crash.</string>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                  <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
-                  </property>
-                  <property name="value">
-                   <number>2</number>
-                  </property>
-                  <property name="displayIntegerBase">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="6">
-                 <widget class="QLabel" name="label_17">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="toolTip">
-                   <string>Range: 1 ~ 999999999</string>
-                  </property>
-                  <property name="text">
-                   <string>Video Scale ratio:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1">
-                 <widget class="QSpinBox" name="spinBox_DenoiseLevel_image">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::WheelFocus</enum>
-                  </property>
-                  <property name="minimum">
-                   <number>-1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>3</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                  <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
-                  </property>
-                  <property name="value">
-                   <number>2</number>
-                  </property>
-                  <property name="displayIntegerBase">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="7">
-                 <widget class="QSpinBox" name="spinBox_ScaleRatio_video">
-                  <property name="cursor">
-                   <cursorShape>ArrowCursor</cursorShape>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::WheelFocus</enum>
-                  </property>
-                  <property name="toolTip">
-                   <string>Range: 1 ~ 999999999
-
-!Warning! When the [Scale ratio] is too large,
-it might cause the software to crash.</string>
-                  </property>
-                  <property name="minimum">
-                   <number>1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>999999999</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                  <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
-                  </property>
-                  <property name="value">
-                   <number>2</number>
-                  </property>
-                  <property name="displayIntegerBase">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="4">
-                 <widget class="QSpinBox" name="spinBox_DenoiseLevel_gif">
-                  <property name="enabled">
-                   <bool>true</bool>
-                  </property>
-                  <property name="focusPolicy">
-                   <enum>Qt::WheelFocus</enum>
-                  </property>
-                  <property name="minimum">
-                   <number>-1</number>
-                  </property>
-                  <property name="maximum">
-                   <number>3</number>
-                  </property>
-                  <property name="singleStep">
-                   <number>1</number>
-                  </property>
-                  <property name="stepType">
-                   <enum>QAbstractSpinBox::DefaultStepType</enum>
-                  </property>
-                  <property name="value">
-                   <number>2</number>
-                  </property>
-                  <property name="displayIntegerBase">
-                   <number>10</number>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2" rowspan="2">
-                 <widget class="Line" name="line_3">
-                  <property name="frameShadow">
-                   <enum>QFrame::Sunken</enum>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
              </item>
             </layout>
            </widget>
@@ -6455,21 +6506,676 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
         <attribute name="title">
          <string>Video settings</string>
         </attribute>
-        <layout class="QGridLayout" name="gridLayout_2" columnstretch="30,70">
+        <layout class="QGridLayout" name="gridLayout_2">
          <property name="leftMargin">
-          <number>6</number>
+          <number>5</number>
          </property>
          <property name="topMargin">
-          <number>6</number>
+          <number>5</number>
          </property>
          <property name="rightMargin">
-          <number>6</number>
+          <number>5</number>
          </property>
          <property name="bottomMargin">
-          <number>6</number>
+          <number>5</number>
          </property>
-         <item row="2" column="0" colspan="2">
+         <property name="horizontalSpacing">
+          <number>0</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>5</number>
+         </property>
+         <item row="0" column="3" rowspan="3">
+          <spacer name="horizontalSpacer_14">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>83</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="2">
+          <spacer name="horizontalSpacer_13">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>226</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="0">
+          <widget class="QGroupBox" name="groupBox_AudioDenoise">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>55</height>
+            </size>
+           </property>
+           <property name="title">
+            <string>Audio denoise(for video)</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_16">
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <item row="0" column="1">
+             <widget class="QDoubleSpinBox" name="doubleSpinBox_AudioDenoiseLevel">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>80</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="toolTip">
+               <string>How much noise should be removed is specified by amount-a 
+number between 0.01 and 1 with a default of 0.25. Higher 
+numbers will remove more noise but present a greater 
+likelihood of removing wanted components of the audio signal.</string>
+              </property>
+              <property name="decimals">
+               <number>2</number>
+              </property>
+              <property name="minimum">
+               <double>0.010000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>1.000000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>0.010000000000000</double>
+              </property>
+              <property name="value">
+               <double>0.200000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_46">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Denoise level:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="3">
+             <widget class="QCheckBox" name="checkBox_AudioDenoise">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>Enabled</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="Line" name="line_7">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QGroupBox" name="groupBox_FrameInterpolation">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="title">
+            <string>Frame Interpolation</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_64">
+            <property name="leftMargin">
+             <number>6</number>
+            </property>
+            <property name="topMargin">
+             <number>6</number>
+            </property>
+            <property name="rightMargin">
+             <number>6</number>
+            </property>
+            <property name="bottomMargin">
+             <number>6</number>
+            </property>
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item row="0" column="0">
+             <widget class="QFrame" name="frame_FrameInterpolation">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="frameShape">
+               <enum>QFrame::NoFrame</enum>
+              </property>
+              <property name="frameShadow">
+               <enum>QFrame::Raised</enum>
+              </property>
+              <property name="lineWidth">
+               <number>0</number>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_68">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item row="1" column="0" colspan="3">
+                <widget class="Line" name="line_27">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="2" column="1" rowspan="2">
+                <widget class="Line" name="line_29">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="0" colspan="3">
+                <widget class="QFrame" name="frame_15">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="frameShape">
+                  <enum>QFrame::NoFrame</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_67">
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="6">
+                   <widget class="QCheckBox" name="checkBox_UHD_VFI">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>UHD Mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="3">
+                   <widget class="QFrame" name="frame_14">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_65">
+                     <property name="leftMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="topMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="rightMargin">
+                      <number>0</number>
+                     </property>
+                     <property name="bottomMargin">
+                      <number>0</number>
+                     </property>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_37">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Frame Interpolation Engine:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="1">
+                      <widget class="QComboBox" name="comboBox_Engine_VFI">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <item>
+                        <property name="text">
+                         <string notr="true">rife-ncnn-vulkan</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">cain-ncnn-vulkan</string>
+                        </property>
+                       </item>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="Line" name="line_28">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="5">
+                   <widget class="QCheckBox" name="checkBox_TTA_VFI">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="toolTip">
+                     <string>TTA(Test-Time Augmentation):
+The processing time is eight times longer than when unchecked, 
+and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
+but the effect may not be obvious. It is not recommended to enable it.</string>
+                    </property>
+                    <property name="text">
+                     <string>TTA Mode</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="7">
+                   <spacer name="horizontalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_9">
+                 <item>
+                  <widget class="QLabel" name="label_28">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Number of threads:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="spinBox_NumOfThreads_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimum">
+                    <number>1</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_AutoAdjustNumOfThreads_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>When successive failures are detected, the number
+of threads will be adjusted automatically.</string>
+                   </property>
+                   <property name="text">
+                    <string>Auto adjust</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="3" column="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QCheckBox" name="checkBox_MultiGPU_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Multi GPU</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_MultiGPU_IDs_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Format: GPU ID,GPU ID
+
+Example: 0,1
+
+You must follow the format,otherwise the software may crash.</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_Verify_MultiGPU_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Verify your Multi GPU configuration.</string>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
+background-color: rgb(178, 58, 238);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(191, 62, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(154, 50, 205);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Verify</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="label_30">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>GPU ID:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_GPUID_VFI">
+                   <property name="toolTip">
+                    <string>&quot;-1&quot; is CPU, others are GPUs</string>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string notr="true">auto</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_DetectGPU_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton{
+background-color: rgb(52, 152, 219);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:hover{
+background-color: rgb(60, 177, 255);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:pressed{
+background-color: rgb(45, 134, 193);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}
+QPushButton:disabled{
+background-color: rgb(166, 166, 166);
+color: rgb(255, 255, 255);
+border-style:outset;
+border-radius:8px;
+padding:10px;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Detect available GPU ID</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="2" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Model:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_Model_VFI">
+                   <property name="currentIndex">
+                    <number>4</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-anime</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-HD</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-UHD</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-v2</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <spacer name="horizontalSpacer_11">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>673</width>
+             <height>45</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="0" colspan="3">
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="2" column="0" colspan="3">
           <widget class="QGroupBox" name="groupBox_video_settings">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
            <property name="maximumSize">
             <size>
              <width>16777215</width>
@@ -6827,7 +7533,7 @@ the original video directly to the mp4, may cause error.
 Command: -vcodec copy</string>
                    </property>
                    <property name="text">
-                    <string notr="true">Copy video stream</string>
+                    <string>Copy video stream</string>
                    </property>
                   </widget>
                  </item>
@@ -6854,7 +7560,7 @@ the original video directly to the mp4, may cause error.
 Command: -acodec copy</string>
                    </property>
                    <property name="text">
-                    <string notr="true">Copy audio stream</string>
+                    <string>Copy audio stream</string>
                    </property>
                   </widget>
                  </item>
@@ -6997,604 +7703,6 @@ padding:10px;
             </item>
            </layout>
           </widget>
-         </item>
-         <item row="0" column="0">
-          <widget class="QGroupBox" name="groupBox_AudioDenoise">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>55</height>
-            </size>
-           </property>
-           <property name="title">
-            <string>Audio denoise(for video)</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_16">
-            <property name="leftMargin">
-             <number>6</number>
-            </property>
-            <property name="topMargin">
-             <number>6</number>
-            </property>
-            <property name="rightMargin">
-             <number>6</number>
-            </property>
-            <property name="bottomMargin">
-             <number>6</number>
-            </property>
-            <item row="0" column="1">
-             <widget class="QDoubleSpinBox" name="doubleSpinBox_AudioDenoiseLevel">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="toolTip">
-               <string>How much noise should be removed is specified by amount-a 
-number between 0.01 and 1 with a default of 0.25. Higher 
-numbers will remove more noise but present a greater 
-likelihood of removing wanted components of the audio signal.</string>
-              </property>
-              <property name="decimals">
-               <number>2</number>
-              </property>
-              <property name="minimum">
-               <double>0.010000000000000</double>
-              </property>
-              <property name="maximum">
-               <double>1.000000000000000</double>
-              </property>
-              <property name="singleStep">
-               <double>0.010000000000000</double>
-              </property>
-              <property name="value">
-               <double>0.200000000000000</double>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label_46">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>0</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Denoise level:</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QCheckBox" name="checkBox_AudioDenoise">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text">
-               <string>Enabled</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="Line" name="line_7">
-              <property name="orientation">
-               <enum>Qt::Vertical</enum>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="1" column="0" colspan="2">
-          <widget class="QGroupBox" name="groupBox_FrameInterpolation">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="title">
-            <string>Frame Interpolation</string>
-           </property>
-           <property name="checkable">
-            <bool>true</bool>
-           </property>
-           <property name="checked">
-            <bool>false</bool>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_64">
-            <property name="leftMargin">
-             <number>6</number>
-            </property>
-            <property name="topMargin">
-             <number>6</number>
-            </property>
-            <property name="rightMargin">
-             <number>6</number>
-            </property>
-            <property name="bottomMargin">
-             <number>6</number>
-            </property>
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item row="0" column="0">
-             <widget class="QFrame" name="frame_FrameInterpolation">
-              <property name="enabled">
-               <bool>false</bool>
-              </property>
-              <property name="frameShape">
-               <enum>QFrame::NoFrame</enum>
-              </property>
-              <property name="frameShadow">
-               <enum>QFrame::Raised</enum>
-              </property>
-              <property name="lineWidth">
-               <number>0</number>
-              </property>
-              <layout class="QGridLayout" name="gridLayout_68">
-               <property name="leftMargin">
-                <number>0</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <property name="rightMargin">
-                <number>0</number>
-               </property>
-               <property name="bottomMargin">
-                <number>0</number>
-               </property>
-               <item row="1" column="0" colspan="3">
-                <widget class="Line" name="line_27">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1" rowspan="2">
-                <widget class="Line" name="line_29">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="0" colspan="3">
-                <widget class="QFrame" name="frame_15">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::NoFrame</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QGridLayout" name="gridLayout_67">
-                  <property name="leftMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="rightMargin">
-                   <number>0</number>
-                  </property>
-                  <property name="bottomMargin">
-                   <number>0</number>
-                  </property>
-                  <item row="0" column="5">
-                   <widget class="QCheckBox" name="checkBox_TTA_VFI">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="toolTip">
-                     <string>TTA(Test-Time Augmentation):
-The processing time is eight times longer than when unchecked, 
-and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
-                    </property>
-                    <property name="text">
-                     <string>TTA Mode</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="7">
-                   <spacer name="horizontalSpacer_12">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item row="0" column="4">
-                   <widget class="Line" name="line_28">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="6">
-                   <widget class="QCheckBox" name="checkBox_UHD_VFI">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="text">
-                     <string>UHD Mode</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item row="0" column="3">
-                   <widget class="QFrame" name="frame_14">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::NoFrame</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QGridLayout" name="gridLayout_65">
-                     <property name="leftMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="topMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="rightMargin">
-                      <number>0</number>
-                     </property>
-                     <property name="bottomMargin">
-                      <number>0</number>
-                     </property>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="label_37">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="text">
-                        <string>Frame Interpolation Engine:</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="0" column="1">
-                      <widget class="QComboBox" name="comboBox_Engine_VFI">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <item>
-                        <property name="text">
-                         <string notr="true">rife-ncnn-vulkan</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string notr="true">cain-ncnn-vulkan</string>
-                        </property>
-                       </item>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item row="3" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout_9">
-                 <item>
-                  <widget class="QLabel" name="label_28">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Number of threads:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QSpinBox" name="spinBox_NumOfThreads_VFI">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimum">
-                    <number>1</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_AutoAdjustNumOfThreads_VFI">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="toolTip">
-                    <string>When successive failures are detected, the number
-of threads will be adjusted automatically.</string>
-                   </property>
-                   <property name="text">
-                    <string>Auto adjust</string>
-                   </property>
-                   <property name="checked">
-                    <bool>true</bool>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="3" column="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_6">
-                 <item>
-                  <widget class="QCheckBox" name="checkBox_MultiGPU_VFI">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Multi GPU</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLineEdit" name="lineEdit_MultiGPU_IDs_VFI">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="toolTip">
-                    <string>Format: GPU ID,GPU ID
-
-Example: 0,1
-
-You must follow the format,otherwise the software may crash.</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_Verify_MultiGPU_VFI">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="toolTip">
-                    <string>Verify your Multi GPU configuration.</string>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QPushButton{
-background-color: rgb(178, 58, 238);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(191, 62, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(154, 50, 205);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                   </property>
-                   <property name="text">
-                    <string>Verify</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="2" column="2">
-                <layout class="QHBoxLayout" name="horizontalLayout_4">
-                 <item>
-                  <widget class="QLabel" name="label_30">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>GPU ID:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboBox_GPUID_VFI">
-                   <property name="toolTip">
-                    <string>&quot;-1&quot; is CPU, others are GPUs</string>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string notr="true">auto</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_DetectGPU_VFI">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">QPushButton{
-background-color: rgb(52, 152, 219);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:hover{
-background-color: rgb(60, 177, 255);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:pressed{
-background-color: rgb(45, 134, 193);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}
-QPushButton:disabled{
-background-color: rgb(166, 166, 166);
-color: rgb(255, 255, 255);
-border-style:outset;
-border-radius:8px;
-padding:10px;
-}</string>
-                   </property>
-                   <property name="text">
-                    <string>Detect available GPU ID</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="2" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout_11">
-                 <item>
-                  <widget class="QLabel" name="label_3">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Model:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboBox_Model_VFI">
-                   <property name="currentIndex">
-                    <number>4</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-anime</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-HD</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-UHD</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-v2</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <spacer name="horizontalSpacer_11">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </widget>
