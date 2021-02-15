@@ -473,7 +473,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     }
     //==== 检查是否正在使用rife,若使用则检测是否需要启用uhd模式 ====
     bool isUhdInput=false;
-    if(ui->comboBox_Engine_VFI->currentIndex()==0)
+    if(ui->comboBox_Engine_VFI->currentIndex()==0 && ui->checkBox_UHD_VFI->isChecked()==false)
     {
         QStringList SourceImagesNames = file_getFileNames_in_Folder_nofilter(SourcePath);
         QString ImgName_tmp;
@@ -497,6 +497,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
             }
         }
     }
+    if(isUhdInput)Send_TextBrowser_NewMessage(tr("UHD input detected, UHD Mode is automatically enabled."));
     //========
     int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
     int FileNum_New = 0;
