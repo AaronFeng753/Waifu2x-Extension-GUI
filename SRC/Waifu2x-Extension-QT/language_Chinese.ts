@@ -5077,7 +5077,7 @@ Waifu2x-converter处理器列表:
         <location filename="video.cpp" line="448"/>
         <location filename="video.cpp" line="490"/>
         <source>] to CFR MP4.</source>
-        <translation type="unfinished"></translation>
+        <translation>] 到 CFR MP4.</translation>
     </message>
     <message>
         <source>] to mp4</source>

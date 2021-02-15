@@ -5014,7 +5014,7 @@ GIF：%2
         <location filename="video.cpp" line="448"/>
         <location filename="video.cpp" line="490"/>
         <source>] to CFR MP4.</source>
-        <translation type="unfinished"></translation>
+        <translation>]をCFRMP4に変換します.</translation>
     </message>
     <message>
         <source>] to mp4</source>
