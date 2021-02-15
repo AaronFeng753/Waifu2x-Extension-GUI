@@ -34,6 +34,11 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.06-beta:
+- Optimize performance.
+- Fix bug: Extra commands for video are not loaded when [Process video by segment] is enabled.
+- Fix bug: [Automatic file list scrolling] not working normally after user rearrange the files list.
+
 v3.11.05-beta:
 - Fix bug: Unable to use [Process video by segment] when Frame Interpolation is disabled.
 
@@ -69,7 +74,7 @@ v3.11.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-- Frame Interpolation
+- 添加一个快速剪切视频的小工具
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------

@@ -5,15 +5,15 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="1543"/>
-        <location filename="mainwindow.cpp" line="730"/>
-        <location filename="mainwindow.cpp" line="794"/>
+        <location filename="mainwindow.cpp" line="734"/>
+        <location filename="mainwindow.cpp" line="798"/>
         <source>Hide settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="1056"/>
         <location filename="files.cpp" line="94"/>
-        <location filename="table.cpp" line="824"/>
+        <location filename="table.cpp" line="800"/>
         <source>Drag and drop files or folders here
 (Image, GIF and Video)</source>
         <translation type="unfinished"></translation>
@@ -1131,7 +1131,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <location filename="mainwindow.ui" line="5214"/>
         <location filename="mainwindow.ui" line="5916"/>
         <location filename="mainwindow.ui" line="7398"/>
-        <location filename="Frame_Interpolation.cpp" line="799"/>
+        <location filename="Frame_Interpolation.cpp" line="807"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1714"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1636"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1621"/>
@@ -1153,8 +1153,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     </message>
     <message>
         <location filename="mainwindow.ui" line="1586"/>
-        <location filename="mainwindow.cpp" line="807"/>
-        <location filename="mainwindow.cpp" line="1065"/>
+        <location filename="mainwindow.cpp" line="811"/>
+        <location filename="mainwindow.cpp" line="1069"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1825,7 +1825,7 @@ Will improve image quality.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="8154"/>
-        <location filename="mainwindow.cpp" line="882"/>
+        <location filename="mainwindow.cpp" line="886"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2159,25 +2159,25 @@ Video: %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="611"/>
-        <location filename="table.cpp" line="615"/>
+        <location filename="table.cpp" line="587"/>
+        <location filename="table.cpp" line="591"/>
         <source>File list saved successfully!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="661"/>
-        <location filename="table.cpp" line="698"/>
-        <location filename="table.cpp" line="735"/>
+        <location filename="table.cpp" line="637"/>
+        <location filename="table.cpp" line="674"/>
+        <location filename="table.cpp" line="711"/>
         <source>[Failed]--[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="810"/>
+        <location filename="table.cpp" line="786"/>
         <source>File list update is complete!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="818"/>
+        <location filename="table.cpp" line="794"/>
         <source>The file list saved last time is empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2189,12 +2189,12 @@ Video: %3</source>
         <location filename="Right-click_Menu.cpp" line="140"/>
         <location filename="Right-click_Menu.cpp" line="292"/>
         <location filename="mainwindow.cpp" line="121"/>
-        <location filename="mainwindow.cpp" line="767"/>
-        <location filename="mainwindow.cpp" line="818"/>
-        <location filename="mainwindow.cpp" line="847"/>
+        <location filename="mainwindow.cpp" line="771"/>
+        <location filename="mainwindow.cpp" line="822"/>
+        <location filename="mainwindow.cpp" line="851"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1809"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1779"/>
-        <location filename="table.cpp" line="567"/>
+        <location filename="table.cpp" line="543"/>
         <location filename="waifu2x.cpp" line="37"/>
         <location filename="waifu2x.cpp" line="62"/>
         <location filename="waifu2x.cpp" line="78"/>
@@ -2217,7 +2217,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="CustomResolution.cpp" line="220"/>
         <location filename="Right-click_Menu.cpp" line="207"/>
         <location filename="Right-click_Menu.cpp" line="253"/>
-        <location filename="mainwindow.cpp" line="396"/>
+        <location filename="mainwindow.cpp" line="400"/>
         <source>No items are currently selected.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2232,7 +2232,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="Right-click_Menu.cpp" line="206"/>
         <location filename="Right-click_Menu.cpp" line="252"/>
         <location filename="files.cpp" line="105"/>
-        <location filename="mainwindow.cpp" line="395"/>
+        <location filename="mainwindow.cpp" line="399"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1859"/>
         <location filename="settings.cpp" line="613"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1818"/>
@@ -2251,8 +2251,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
     <message>
         <location filename="files.cpp" line="51"/>
         <location filename="files.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="1019"/>
-        <location filename="mainwindow.cpp" line="1020"/>
+        <location filename="mainwindow.cpp" line="1023"/>
+        <location filename="mainwindow.cpp" line="1024"/>
         <source>Adding files, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2267,13 +2267,13 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1865"/>
+        <location filename="mainwindow.cpp" line="1869"/>
         <location filename="waifu2x.cpp" line="756"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1865"/>
+        <location filename="mainwindow.cpp" line="1869"/>
         <location filename="waifu2x.cpp" line="756"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
@@ -2305,13 +2305,13 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="SystemTrayIcon.cpp" line="111"/>
         <location filename="Web_Activities.cpp" line="82"/>
         <location filename="mainwindow.cpp" line="157"/>
-        <location filename="mainwindow.cpp" line="940"/>
-        <location filename="mainwindow.cpp" line="1237"/>
+        <location filename="mainwindow.cpp" line="944"/>
+        <location filename="mainwindow.cpp" line="1241"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1798"/>
         <location filename="settings.cpp" line="601"/>
         <location filename="settings.cpp" line="625"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1768"/>
-        <location filename="table.cpp" line="614"/>
+        <location filename="table.cpp" line="590"/>
         <location filename="waifu2x_converter.cpp" line="1831"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1742"/>
         <source>Notification</source>
@@ -2512,7 +2512,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1430"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1455"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1490"/>
-        <location filename="video.cpp" line="904"/>
+        <location filename="video.cpp" line="917"/>
         <location filename="waifu2x_caffe.cpp" line="36"/>
         <location filename="waifu2x_caffe.cpp" line="59"/>
         <location filename="waifu2x_caffe.cpp" line="140"/>
@@ -2759,7 +2759,7 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     </message>
     <message>
         <location filename="Anime4K.cpp" line="1820"/>
-        <location filename="Frame_Interpolation.cpp" line="902"/>
+        <location filename="Frame_Interpolation.cpp" line="910"/>
         <source>Current configuration is wrong or empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2863,7 +2863,7 @@ Anime4k GPUs List(user configuration):</oldsource>
         <location filename="Anime4K.cpp" line="111"/>
         <location filename="Anime4K.cpp" line="535"/>
         <location filename="Anime4K.cpp" line="1539"/>
-        <location filename="Frame_Interpolation.cpp" line="568"/>
+        <location filename="Frame_Interpolation.cpp" line="576"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="188"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="470"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="884"/>
@@ -2935,7 +2935,7 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="373"/>
+        <location filename="mainwindow.cpp" line="379"/>
         <source>Processing of files has stopped.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2954,55 +2954,55 @@ Otherwise, this software may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="768"/>
+        <location filename="mainwindow.cpp" line="772"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="819"/>
+        <location filename="mainwindow.cpp" line="823"/>
         <source>Language file cannot be loaded properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="841"/>
+        <location filename="mainwindow.cpp" line="845"/>
         <source>Loading list, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="994"/>
+        <location filename="mainwindow.cpp" line="998"/>
         <source>Select files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1225"/>
+        <location filename="mainwindow.cpp" line="1229"/>
         <source>- This software is free, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1226"/>
+        <location filename="mainwindow.cpp" line="1230"/>
         <source>- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1227"/>
+        <location filename="mainwindow.cpp" line="1231"/>
         <source>- If you like this software, please donate to support the developer, thank you!
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1238"/>
+        <location filename="mainwindow.cpp" line="1242"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1313"/>
+        <location filename="mainwindow.cpp" line="1317"/>
         <source>Force retry is disabled when processing Video or GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1992"/>
+        <location filename="mainwindow.cpp" line="1996"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3020,53 +3020,53 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="481"/>
+        <location filename="mainwindow.cpp" line="485"/>
         <source>Error! Notification sound file is missing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="522"/>
-        <location filename="mainwindow.cpp" line="523"/>
-        <location filename="mainwindow.cpp" line="554"/>
-        <location filename="mainwindow.cpp" line="555"/>
-        <location filename="mainwindow.cpp" line="582"/>
-        <location filename="mainwindow.cpp" line="583"/>
-        <location filename="mainwindow.cpp" line="614"/>
-        <location filename="mainwindow.cpp" line="615"/>
-        <location filename="mainwindow.cpp" line="641"/>
-        <location filename="mainwindow.cpp" line="642"/>
-        <location filename="mainwindow.cpp" line="673"/>
-        <location filename="mainwindow.cpp" line="674"/>
+        <location filename="mainwindow.cpp" line="526"/>
+        <location filename="mainwindow.cpp" line="527"/>
+        <location filename="mainwindow.cpp" line="558"/>
+        <location filename="mainwindow.cpp" line="559"/>
+        <location filename="mainwindow.cpp" line="586"/>
+        <location filename="mainwindow.cpp" line="587"/>
+        <location filename="mainwindow.cpp" line="618"/>
+        <location filename="mainwindow.cpp" line="619"/>
+        <location filename="mainwindow.cpp" line="645"/>
+        <location filename="mainwindow.cpp" line="646"/>
+        <location filename="mainwindow.cpp" line="677"/>
+        <location filename="mainwindow.cpp" line="678"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="531"/>
-        <location filename="mainwindow.cpp" line="532"/>
-        <location filename="mainwindow.cpp" line="591"/>
-        <location filename="mainwindow.cpp" line="592"/>
-        <location filename="mainwindow.cpp" line="650"/>
-        <location filename="mainwindow.cpp" line="651"/>
+        <location filename="mainwindow.cpp" line="535"/>
+        <location filename="mainwindow.cpp" line="536"/>
+        <location filename="mainwindow.cpp" line="595"/>
+        <location filename="mainwindow.cpp" line="596"/>
+        <location filename="mainwindow.cpp" line="654"/>
+        <location filename="mainwindow.cpp" line="655"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="540"/>
-        <location filename="mainwindow.cpp" line="541"/>
-        <location filename="mainwindow.cpp" line="600"/>
-        <location filename="mainwindow.cpp" line="601"/>
-        <location filename="mainwindow.cpp" line="664"/>
-        <location filename="mainwindow.cpp" line="665"/>
+        <location filename="mainwindow.cpp" line="544"/>
+        <location filename="mainwindow.cpp" line="545"/>
+        <location filename="mainwindow.cpp" line="604"/>
+        <location filename="mainwindow.cpp" line="605"/>
+        <location filename="mainwindow.cpp" line="668"/>
+        <location filename="mainwindow.cpp" line="669"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="563"/>
-        <location filename="mainwindow.cpp" line="564"/>
-        <location filename="mainwindow.cpp" line="623"/>
-        <location filename="mainwindow.cpp" line="624"/>
-        <location filename="mainwindow.cpp" line="682"/>
-        <location filename="mainwindow.cpp" line="683"/>
+        <location filename="mainwindow.cpp" line="567"/>
+        <location filename="mainwindow.cpp" line="568"/>
+        <location filename="mainwindow.cpp" line="627"/>
+        <location filename="mainwindow.cpp" line="628"/>
+        <location filename="mainwindow.cpp" line="686"/>
+        <location filename="mainwindow.cpp" line="687"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <oldsource>Anime4K engine does not support noise reduction.</oldsource>
         <translation type="unfinished"></translation>
@@ -3077,42 +3077,42 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="724"/>
-        <location filename="mainwindow.cpp" line="788"/>
-        <location filename="mainwindow.cpp" line="928"/>
+        <location filename="mainwindow.cpp" line="728"/>
+        <location filename="mainwindow.cpp" line="792"/>
+        <location filename="mainwindow.cpp" line="932"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="568"/>
+        <location filename="table.cpp" line="544"/>
         <source>File list is empty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="table.cpp" line="583"/>
+        <location filename="table.cpp" line="559"/>
         <source>Write to the file, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="840"/>
+        <location filename="mainwindow.cpp" line="844"/>
         <source>Please wait while reading the file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="848"/>
-        <location filename="table.cpp" line="627"/>
+        <location filename="mainwindow.cpp" line="852"/>
+        <location filename="table.cpp" line="603"/>
         <source>Cannot find the saved Files List!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="941"/>
+        <location filename="mainwindow.cpp" line="945"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="994"/>
+        <location filename="mainwindow.cpp" line="998"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3204,26 +3204,26 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="801"/>
-        <location filename="mainwindow.cpp" line="1059"/>
-        <location filename="mainwindow.cpp" line="1075"/>
+        <location filename="mainwindow.cpp" line="805"/>
+        <location filename="mainwindow.cpp" line="1063"/>
+        <location filename="mainwindow.cpp" line="1079"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1223"/>
+        <location filename="mainwindow.cpp" line="1227"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1224"/>
+        <location filename="mainwindow.cpp" line="1228"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1230"/>
+        <location filename="mainwindow.cpp" line="1234"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3265,161 +3265,161 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1346"/>
+        <location filename="mainwindow.cpp" line="1350"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="569"/>
+        <location filename="video.cpp" line="583"/>
         <source>Error! Unable to denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="688"/>
+        <location filename="video.cpp" line="702"/>
         <source>Warning! Unable to get the bitrate of the [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="688"/>
+        <location filename="video.cpp" line="702"/>
         <source>]. The bit rate automatically allocated by ffmpeg will be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="357"/>
-        <location filename="video.cpp" line="795"/>
+        <location filename="video.cpp" line="371"/>
+        <location filename="video.cpp" line="809"/>
         <source>Start splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="134"/>
+        <location filename="video.cpp" line="143"/>
         <source>Get resolution of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="181"/>
+        <location filename="video.cpp" line="190"/>
         <source>ERROR! Unable to read the resolution of the video. [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="201"/>
+        <location filename="video.cpp" line="210"/>
         <source>This video is too short, so segment processing is automatically disabled.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="219"/>
+        <location filename="video.cpp" line="228"/>
         <source>Start assembling video with clips:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="337"/>
+        <location filename="video.cpp" line="351"/>
         <source>Error output for FFmpeg when processing:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="350"/>
+        <location filename="video.cpp" line="364"/>
         <source>Finish assembling video with clips:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="384"/>
-        <location filename="video.cpp" line="822"/>
+        <location filename="video.cpp" line="398"/>
+        <location filename="video.cpp" line="835"/>
         <source>Finish splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="392"/>
+        <location filename="video.cpp" line="406"/>
         <source>Extract audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="402"/>
+        <location filename="video.cpp" line="416"/>
         <source>Successfully extracted audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="406"/>
+        <location filename="video.cpp" line="420"/>
         <source>Failed to extract audio from video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="406"/>
+        <location filename="video.cpp" line="420"/>
         <source>] This video might be a silent video, so will continue to process this video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="434"/>
+        <location filename="video.cpp" line="448"/>
         <source>Start converting video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="434"/>
-        <location filename="video.cpp" line="476"/>
-        <source>] to mp4</source>
+        <location filename="video.cpp" line="448"/>
+        <location filename="video.cpp" line="490"/>
+        <source>] to CFR MP4.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="476"/>
+        <location filename="video.cpp" line="490"/>
         <source>Successfully converted video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="486"/>
+        <location filename="video.cpp" line="500"/>
         <source>Get duration of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="522"/>
+        <location filename="video.cpp" line="536"/>
         <source>ERROR! Unable to get the duration of the [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="522"/>
+        <location filename="video.cpp" line="536"/>
         <source>].</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="540"/>
+        <location filename="video.cpp" line="554"/>
         <source>Starting to denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="563"/>
+        <location filename="video.cpp" line="577"/>
         <source>Successfully denoise audio.[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="648"/>
+        <location filename="video.cpp" line="662"/>
         <source>Get bitrate of the video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="786"/>
+        <location filename="video.cpp" line="800"/>
         <source>ERROR! Unable to read the number of frames of the video: [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="827"/>
+        <location filename="video.cpp" line="840"/>
         <source>Start assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="904"/>
+        <location filename="video.cpp" line="917"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="930"/>
-        <location filename="video.cpp" line="936"/>
+        <location filename="video.cpp" line="949"/>
+        <location filename="video.cpp" line="956"/>
         <source>Failed to interpolate frames of video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="936"/>
+        <location filename="video.cpp" line="956"/>
         <source>]. Gonna generate a video without frame Interpolation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1004"/>
+        <location filename="video.cpp" line="1025"/>
         <source>Finish assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3720,7 +3720,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="470"/>
+        <location filename="Frame_Interpolation.cpp" line="467"/>
         <source>Starting to interpolate frames in:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3740,12 +3740,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="573"/>
+        <location filename="Frame_Interpolation.cpp" line="581"/>
         <source>Failed to interpolate frames in:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="696"/>
+        <location filename="Frame_Interpolation.cpp" line="704"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1621"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1548"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1533"/>
@@ -3753,7 +3753,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="707"/>
+        <location filename="Frame_Interpolation.cpp" line="715"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1638"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1563"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1548"/>
@@ -3761,7 +3761,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="763"/>
+        <location filename="Frame_Interpolation.cpp" line="771"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1679"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1604"/>
         <location filename="waifu2x_converter.cpp" line="1654"/>
@@ -3770,7 +3770,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="766"/>
+        <location filename="Frame_Interpolation.cpp" line="774"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1682"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1607"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1592"/>
@@ -3778,12 +3778,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="782"/>
+        <location filename="Frame_Interpolation.cpp" line="790"/>
         <source>Available GPU IDs for current Frame Interpolation engine:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="906"/>
+        <location filename="Frame_Interpolation.cpp" line="914"/>
         <source>GPUs List</source>
         <translation type="unfinished"></translation>
     </message>

@@ -161,19 +161,11 @@ void MainWindow::Table_image_insert_fileName_fullPath(QString fileName, QString 
 {
     mutex_Table_insert.lock();
     //=========
-    //ui->tableView_image->setUpdatesEnabled(false);
     int rowNum = Table_model_image->rowCount();
     Table_model_image->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_image->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_image->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
     Table_model_image->setItem(rowNum, 3, new QStandardItem(""));
-    if(ui->checkBox_FileListAutoSlide->isChecked())
-    {
-        QAbstractItemModel *modessl = Table_model_image;
-        QModelIndex indextemp = modessl->index(rowNum, 1);
-        ui->tableView_image->scrollTo(indextemp);
-    }
-    //ui->tableView_image->setUpdatesEnabled(true);
     mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
     mutex_Table_insert_finished.unlock();
@@ -185,19 +177,11 @@ void MainWindow::Table_gif_insert_fileName_fullPath(QString fileName, QString So
 {
     mutex_Table_insert.lock();
     //=========
-    //ui->tableView_gif->setUpdatesEnabled(false);
     int rowNum = Table_model_gif->rowCount();
     Table_model_gif->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_gif->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_gif->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
     Table_model_gif->setItem(rowNum, 3, new QStandardItem(""));
-    if(ui->checkBox_FileListAutoSlide->isChecked())
-    {
-        QAbstractItemModel *modessl = Table_model_gif;
-        QModelIndex indextemp = modessl->index(rowNum, 1);
-        ui->tableView_gif->scrollTo(indextemp);
-    }
-    //ui->tableView_gif->setUpdatesEnabled(true);
     mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
     mutex_Table_insert_finished.unlock();
@@ -209,19 +193,11 @@ void MainWindow::Table_video_insert_fileName_fullPath(QString fileName, QString 
 {
     mutex_Table_insert.lock();
     //=========
-    //ui->tableView_video->setUpdatesEnabled(false);
     int rowNum = Table_model_video->rowCount();
     Table_model_video->setItem(rowNum, 0, new QStandardItem(fileName));
     Table_model_video->setItem(rowNum, 1, new QStandardItem(""));
     Table_model_video->setItem(rowNum, 2, new QStandardItem(SourceFile_fullPath));
     Table_model_video->setItem(rowNum, 3, new QStandardItem(""));
-    if(ui->checkBox_FileListAutoSlide->isChecked())
-    {
-        QAbstractItemModel *modessl = Table_model_video;
-        QModelIndex indextemp = modessl->index(rowNum, 1);
-        ui->tableView_video->scrollTo(indextemp);
-    }
-    //ui->tableView_video->setUpdatesEnabled(true);
     mutex_Table_insert_finished.lock();
     Table_insert_finished=true;
     mutex_Table_insert_finished.unlock();
@@ -237,7 +213,7 @@ void MainWindow::Table_image_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
     {
         QAbstractItemModel *modessl = Table_model_image;
         QModelIndex indextemp = modessl->index(rowNum, 1);
-        ui->tableView_image->scrollTo(indextemp);
+        ui->tableView_image->scrollTo(indextemp,QAbstractItemView::PositionAtCenter);
     }
     ui->tableView_image->setUpdatesEnabled(true);
 }
@@ -250,7 +226,7 @@ void MainWindow::Table_gif_ChangeStatus_rowNumInt_statusQString(int rowNum, QStr
     {
         QAbstractItemModel *modessl = Table_model_gif;
         QModelIndex indextemp = modessl->index(rowNum, 1);
-        ui->tableView_gif->scrollTo(indextemp);
+        ui->tableView_gif->scrollTo(indextemp,QAbstractItemView::PositionAtCenter);
     }
     ui->tableView_gif->setUpdatesEnabled(true);
 }
@@ -263,7 +239,7 @@ void MainWindow::Table_video_ChangeStatus_rowNumInt_statusQString(int rowNum, QS
     {
         QAbstractItemModel *modessl = Table_model_video;
         QModelIndex indextemp = modessl->index(rowNum, 1);
-        ui->tableView_video->scrollTo(indextemp);
+        ui->tableView_video->scrollTo(indextemp,QAbstractItemView::PositionAtCenter);
     }
     ui->tableView_video->setUpdatesEnabled(true);
 }
@@ -872,26 +848,13 @@ void MainWindow::on_tableView_video_pressed(const QModelIndex &index)
 */
 void MainWindow::Table_EnableSorting(bool EnableSorting)
 {
-    if(EnableSorting)
-    {
-        ui->tableView_video->horizontalHeader()->setSortIndicatorShown(1);
-        ui->tableView_gif->horizontalHeader()->setSortIndicatorShown(1);
-        ui->tableView_image->horizontalHeader()->setSortIndicatorShown(1);
-        //========
-        ui->tableView_image->setSortingEnabled(1);
-        ui->tableView_gif->setSortingEnabled(1);
-        ui->tableView_video->setSortingEnabled(1);
-    }
-    else
-    {
-        ui->tableView_video->horizontalHeader()->setSortIndicatorShown(0);
-        ui->tableView_gif->horizontalHeader()->setSortIndicatorShown(0);
-        ui->tableView_image->horizontalHeader()->setSortIndicatorShown(0);
-        //========
-        ui->tableView_image->setSortingEnabled(0);
-        ui->tableView_gif->setSortingEnabled(0);
-        ui->tableView_video->setSortingEnabled(0);
-    }
+    ui->tableView_video->horizontalHeader()->setSortIndicatorShown(EnableSorting);
+    ui->tableView_gif->horizontalHeader()->setSortIndicatorShown(EnableSorting);
+    ui->tableView_image->horizontalHeader()->setSortIndicatorShown(EnableSorting);
+    //=====
+    ui->tableView_image->setSortingEnabled(EnableSorting);
+    ui->tableView_gif->setSortingEnabled(EnableSorting);
+    ui->tableView_video->setSortingEnabled(EnableSorting);
 }
 /*
 启用/禁用 文件列表table的UI更新
