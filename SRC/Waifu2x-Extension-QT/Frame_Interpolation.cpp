@@ -497,7 +497,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
             }
         }
     }
-    if(isUhdInput)Send_TextBrowser_NewMessage(tr("UHD input detected, UHD Mode is automatically enabled."));
+    if(isUhdInput==true)Send_TextBrowser_NewMessage(tr("UHD input detected, UHD Mode is automatically enabled."));
     //========
     int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
     int FileNum_New = 0;
