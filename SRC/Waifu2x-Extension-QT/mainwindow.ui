@@ -7164,6 +7164,12 @@ likelihood of removing wanted components of the audio signal.</string>
                       <verstretch>0</verstretch>
                      </sizepolicy>
                     </property>
+                    <property name="toolTip">
+                     <string>You should enable this option when processing Ultra High Definition videos.
+
+The software will automatically enable UHD Mode when it detects input with
+resolution higher than 3840×2160.</string>
+                    </property>
                     <property name="text">
                      <string>UHD Mode</string>
                     </property>

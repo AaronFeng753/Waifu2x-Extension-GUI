@@ -364,7 +364,7 @@ public:
     int FrameInterpolation_Video_BySegment(int rowNum);
     int FrameInterpolation_Video(int rowNum);
     int Old_FrameInterpolation_Engine_Index=0;
-    QString FrameInterpolation_ReadConfig();
+    QString FrameInterpolation_ReadConfig(bool isUhdInput);
     bool FrameInterpolation(QString SourcePath,QString OutputPath);
     bool Video_AutoSkip_CustRes(int rowNum);
     int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率

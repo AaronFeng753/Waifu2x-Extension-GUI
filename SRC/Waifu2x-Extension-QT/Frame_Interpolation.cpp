@@ -465,11 +465,37 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     file_mkDir(OutputPath);
     //=======
     emit Send_TextBrowser_NewMessage(tr("Starting to interpolate frames in:[")+SourcePath+"]");
-    //=======
+    //==== 检测是否启用了自动调整线程数量,若启用则强制设定重试次数大于6 ====
     int retry_add = 0;
     if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6)
     {
         retry_add = 6-ui->spinBox_retry->value();
+    }
+    //==== 检查是否正在使用rife,若使用则检测是否需要启用uhd模式 ====
+    bool isUhdInput=false;
+    if(ui->comboBox_Engine_VFI->currentIndex()==0)
+    {
+        QStringList SourceImagesNames = file_getFileNames_in_Folder_nofilter(SourcePath);
+        QString ImgName_tmp;
+        QMap<QString,int> res_map;
+        int original_height;
+        int original_width;
+        for(int i=0; i<SourceImagesNames.size(); i++)
+        {
+            ImgName_tmp = SourceImagesNames.at(i);
+            QFileInfo vfinfo(ImgName_tmp);
+            if(vfinfo.suffix()=="png")
+            {
+                res_map = Image_Gif_Read_Resolution(SourcePath+"/"+ImgName_tmp);
+                original_height = res_map["height"];
+                original_width = res_map["width"];
+                if(original_height>0 && original_width>0)//判断是否读取失败
+                {
+                    isUhdInput = ((original_height*original_width)>=8294400);
+                    break;
+                }
+            }
+        }
     }
     //========
     int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
@@ -505,7 +531,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         StanderMSG="";
         //=====
         QProcess FrameInterpolation_QProcess;
-        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath.replace("%","%%")+"\" -o \""+OutputPath.replace("%","%%")+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig();
+        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath.replace("%","%%")+"\" -o \""+OutputPath.replace("%","%%")+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput);
         FrameInterpolation_QProcess.start(CMD);
         while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
         while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
@@ -583,7 +609,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     return false;
 }
 
-QString MainWindow::FrameInterpolation_ReadConfig()
+QString MainWindow::FrameInterpolation_ReadConfig(bool isUhdInput)
 {
     QString VFI_Config = " ";
     if(ui->comboBox_Engine_VFI->currentIndex()==0)
@@ -594,7 +620,7 @@ QString MainWindow::FrameInterpolation_ReadConfig()
             VFI_Config.append("-x ");
         }
         //UHD
-        if(ui->checkBox_UHD_VFI->isChecked())
+        if(ui->checkBox_UHD_VFI->isChecked() || isUhdInput)
         {
             VFI_Config.append("-u ");
         }
@@ -821,6 +847,7 @@ void MainWindow::on_checkBox_MultiGPU_VFI_stateChanged(int arg1)
     bool tmp_bool = ui->checkBox_MultiGPU_VFI->isChecked();
     ui->comboBox_GPUID_VFI->setEnabled(!tmp_bool);
     ui->lineEdit_MultiGPU_IDs_VFI->setEnabled(tmp_bool);
+    ui->pushButton_Verify_MultiGPU_VFI->setEnabled(tmp_bool);
 }
 
 void MainWindow::on_groupBox_FrameInterpolation_clicked()

@@ -35,10 +35,12 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.06-beta:
-- Update GUI.
+- New Feature: Automatically enable [UHD Mode] when Ultra High Definition input is detected.
+- Much more compact gui.
 - Optimize performance.
 - Fix bug: Extra commands for video are not loaded when [Process video by segment] is enabled.
 - Fix bug: [Automatic file list scrolling] not working normally after user rearrange the files list.
+- Fix bug: [Verify] button is enabled when [Multi GPU] is disabled.
 
 v3.11.05-beta:
 - Fix bug: Unable to use [Process video by segment] when Frame Interpolation is disabled.
