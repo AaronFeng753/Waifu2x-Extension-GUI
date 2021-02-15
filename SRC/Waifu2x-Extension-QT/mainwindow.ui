@@ -2587,6 +2587,7 @@ be processed again when the processing process is started again.</string>
                     </property>
                     <property name="toolTip">
                      <string>Skip the super-resolution, only interpolate video frames.
+
 You can modify the settings of Frame Interpolation in the
 [Video settings] tab.
 
@@ -2603,8 +2604,13 @@ You can modify the settings of Frame Interpolation in the
                   <item row="0" column="0">
                    <widget class="QCheckBox" name="checkBox_EnableVFI_Home">
                     <property name="toolTip">
-                     <string>You can modify the settings of Frame Interpolation
+                     <string>Interpolate frames after super-resolution of the video.
+
+You can modify the settings of Frame Interpolation
 in the [Video settings] tab.
+
+You can enable [Frame Interpolation only(Video)] to skip
+the super-resolution, only interpolate video frames.
 
 *Only taken effect when processing video*</string>
                     </property>
@@ -8289,7 +8295,7 @@ padding:10px;
                        <number>999999999</number>
                       </property>
                       <property name="value">
-                       <number>5</number>
+                       <number>6</number>
                       </property>
                      </widget>
                     </item>
