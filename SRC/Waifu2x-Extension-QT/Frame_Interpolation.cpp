@@ -543,8 +543,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
                 return false;
             }
             //=========
-            ErrorMSG = FrameInterpolation_QProcess.readAllStandardError().toLower();
-            StanderMSG = FrameInterpolation_QProcess.readAllStandardOutput().toLower();
+            ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
+            StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 FrameInterpolation_QProcess_failed = true;
@@ -565,8 +565,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         }
         if(FrameInterpolation_QProcess_failed==false)
         {
-            ErrorMSG = FrameInterpolation_QProcess.readAllStandardError().toLower();
-            StanderMSG = FrameInterpolation_QProcess.readAllStandardOutput().toLower();
+            ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
+            StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 FrameInterpolation_QProcess_failed = true;

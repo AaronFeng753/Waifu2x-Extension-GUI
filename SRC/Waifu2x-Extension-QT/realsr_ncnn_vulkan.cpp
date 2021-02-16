@@ -117,6 +117,9 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
         OutputPath_tmp ="";
         for(int i=4; i<=ScaleRatio_tmp; i*=4)
         {
+            QString ErrorMSG="";
+            QString StanderMSG="";
+            //==========================
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+file_ext+".png";
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "4" + Realsr_NCNN_Vulkan_ReadSettings();
             Waifu2x->start(cmd);
@@ -140,8 +143,8 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
                     return 0;
                 }
                 //读取输出判断是否出错
-                QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
-                QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+                ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
                 if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
@@ -157,8 +160,8 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
             //===============
             if(waifu2x_qprocess_failed)break;
             //===============
-            QString ErrorMSG = Waifu2x->readAllStandardError().toLower();
-            QString StanderMSG = Waifu2x->readAllStandardOutput().toLower();
+            ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+            StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 waifu2x_qprocess_failed = true;
@@ -422,6 +425,9 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     {
         for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
         {
+            QString ErrorMSG="";
+            QString StanderMSG="";
+            //==========
             waifu2x_qprocess_failed = false;
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s 4 " + Realsr_NCNN_Vulkan_Settings_str;
             Waifu2x->start(cmd);
@@ -439,7 +445,9 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
                     mutex_ThreadNumRunning.unlock();
                     return 0;
                 }
-                if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+                ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
                     Waifu2x->close();
@@ -451,10 +459,14 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
                 }
             }
             //===============
-            if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+            if(waifu2x_qprocess_failed==false)
             {
-                waifu2x_qprocess_failed = true;
-                break;
+                ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    waifu2x_qprocess_failed = true;
+                }
             }
             //========= 检测是否成功,是否需要重试 ============
             if((NumOfSplitFrames == file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size())&&!waifu2x_qprocess_failed)
@@ -581,7 +593,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
-    int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     QString status = "Processing";
@@ -820,6 +831,9 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     {
         for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
         {
+            QString ErrorMSG="";
+            QString StanderMSG="";
+            //==========
             waifu2x_qprocess_failed = false;
             QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s 4 " + Realsr_NCNN_Vulkan_Settings_str;
             Waifu2x->start(cmd);
@@ -853,7 +867,9 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
                     mutex_ThreadNumRunning.unlock();
                     return 0;
                 }
-                if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+                ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                 {
                     waifu2x_qprocess_failed = true;
                     Waifu2x->close();
@@ -865,10 +881,14 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
                 }
             }
             //===============
-            if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+            if(waifu2x_qprocess_failed==false)
             {
-                waifu2x_qprocess_failed = true;
-                break;
+                ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    waifu2x_qprocess_failed = true;
+                }
             }
             //========= 检测是否成功,是否需要重试 ============
             if((NumOfSplitFrames == file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size())&&!waifu2x_qprocess_failed)
@@ -987,7 +1007,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
-    int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
@@ -1342,6 +1361,9 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             {
                 for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
                 {
+                    QString ErrorMSG="";
+                    QString StanderMSG="";
+                    //==========
                     waifu2x_qprocess_failed = false;
                     QString cmd = "\"" + program + "\"" + " -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " -s 4 " + Realsr_NCNN_Vulkan_Settings_str;
                     Waifu2x->start(cmd);
@@ -1375,7 +1397,9 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                             mutex_ThreadNumRunning.unlock();
                             return 0;
                         }
-                        if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+                        ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                        StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
+                        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
                         {
                             waifu2x_qprocess_failed = true;
                             Waifu2x->close();
@@ -1392,10 +1416,14 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                         }
                     }
                     //===============
-                    if(Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))
+                    if(waifu2x_qprocess_failed==false)
                     {
-                        waifu2x_qprocess_failed = true;
-                        break;
+                        ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
+                        StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
+                        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                        {
+                            waifu2x_qprocess_failed = true;
+                        }
                     }
                     //========= 检测是否成功,是否需要重试 ============
                     if((NumOfSplitFrames == file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size())&&!waifu2x_qprocess_failed)
