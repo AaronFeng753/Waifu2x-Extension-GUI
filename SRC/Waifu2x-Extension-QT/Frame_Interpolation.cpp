@@ -523,7 +523,6 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     QString ErrorMSG="";
     QString StanderMSG="";
     int FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(SourcePath).size()*2));
-    emit Send_TextBrowser_NewMessage(QString("FrameNumDigits:%1").arg(FrameNumDigits));
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+retry_add); retry++)
     {

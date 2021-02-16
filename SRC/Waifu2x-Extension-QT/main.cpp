@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.08-beta:
+- Fix bug: Compatibility test may provide incorrect results.
+
 v3.11.07-beta:
 - Update GUI layout.
 

@@ -54,6 +54,13 @@ int MainWindow::Waifu2x_Compatibility_Test()
         {
             while(!Waifu2x_vulkan->waitForFinished(100)&&!QProcess_stop) {}
         }
+        QString ErrorMSG = Waifu2x_vulkan->readAllStandardError().toLower();
+        QString StanderMSG = Waifu2x_vulkan->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
+        }
         if(QFile::exists(OutputPath))break;
     }
     if(QFile::exists(OutputPath))
@@ -82,6 +89,13 @@ int MainWindow::Waifu2x_Compatibility_Test()
         if(Waifu2x_vulkan_old->waitForStarted(30000))
         {
             while(!Waifu2x_vulkan_old->waitForFinished(100)&&!QProcess_stop) {}
+        }
+        QString ErrorMSG = Waifu2x_vulkan_old->readAllStandardError().toLower();
+        QString StanderMSG = Waifu2x_vulkan_old->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
         }
         if(QFile::exists(OutputPath))break;
     }
@@ -112,6 +126,15 @@ int MainWindow::Waifu2x_Compatibility_Test()
         {
             while(!Waifu2x_vulkan_fp16p->waitForFinished(100)&&!QProcess_stop) {}
         }
+        //=========
+        QString ErrorMSG = Waifu2x_vulkan_fp16p->readAllStandardError().toLower();
+        QString StanderMSG = Waifu2x_vulkan_fp16p->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
+        }
+        //========
         if(QFile::exists(OutputPath))break;
     }
     if(QFile::exists(OutputPath))
@@ -228,6 +251,15 @@ int MainWindow::Waifu2x_Compatibility_Test()
         {
             while(!SRMD_NCNN_VULKAN->waitForFinished(100)&&!QProcess_stop) {}
         }
+        //=========
+        QString ErrorMSG = SRMD_NCNN_VULKAN->readAllStandardError().toLower();
+        QString StanderMSG = SRMD_NCNN_VULKAN->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
+        }
+        //========
         if(QFile::exists(OutputPath))break;
     }
     if(QFile::exists(OutputPath))
@@ -344,6 +376,15 @@ int MainWindow::Waifu2x_Compatibility_Test()
         {
             while(!realsr_ncnn_vulkan_qprocess->waitForFinished(100)&&!QProcess_stop) {}
         }
+        //=========
+        QString ErrorMSG = realsr_ncnn_vulkan_qprocess->readAllStandardError().toLower();
+        QString StanderMSG = realsr_ncnn_vulkan_qprocess->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
+        }
+        //========
         if(QFile::exists(OutputPath))break;
     }
     if(QFile::exists(OutputPath))
@@ -508,6 +549,15 @@ int MainWindow::Waifu2x_Compatibility_Test()
         {
             while(!RifeNcnnVulkan_QProcess->waitForFinished(100)&&!QProcess_stop) {}
         }
+        //=========
+        QString ErrorMSG = RifeNcnnVulkan_QProcess->readAllStandardError().toLower();
+        QString StanderMSG = RifeNcnnVulkan_QProcess->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
+        }
+        //========
         if(QFile::exists(OutputPath))break;
     }
     if(QFile::exists(OutputPath))
@@ -535,6 +585,15 @@ int MainWindow::Waifu2x_Compatibility_Test()
         {
             while(!CainNcnnVulkan_QProcess->waitForFinished(100)&&!QProcess_stop) {}
         }
+        //=========
+        QString ErrorMSG = CainNcnnVulkan_QProcess->readAllStandardError().toLower();
+        QString StanderMSG = CainNcnnVulkan_QProcess->readAllStandardOutput().toLower();
+        if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+        {
+            QFile::remove(OutputPath);
+            continue;
+        }
+        //========
         if(QFile::exists(OutputPath))break;
     }
     if(QFile::exists(OutputPath))
