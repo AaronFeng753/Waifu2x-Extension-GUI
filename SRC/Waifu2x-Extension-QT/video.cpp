@@ -319,7 +319,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     }
     //==================
     QString Extra_command = "";
-    if(ui->lineEdit_ExCommand_output->text().trimmed()!="")
+    if(ui->groupBox_video_settings->isChecked() && ui->lineEdit_ExCommand_output->text().trimmed()!="")
     {
         Extra_command = " "+ui->lineEdit_ExCommand_output->text().trimmed()+" ";//附加指令
     }
