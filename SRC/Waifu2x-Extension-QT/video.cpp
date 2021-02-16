@@ -919,18 +919,18 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     }
     //=============== 补帧 ===============
     QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
-    //如果检测到完整的已经插帧的帧缓存
-    if(ui->groupBox_FrameInterpolation->isChecked()==true && file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
+    //如果启用了插帧
+    if(ui->groupBox_FrameInterpolation->isChecked()==true)
     {
-        FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
-        ScaledFrameFolderPath = VFI_FolderPath_tmp;
-        QStringList FPS_Nums = fps.split("/");
-        fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
-    }
-    else
-    {
-        //如果启用了插帧
-        if(ui->groupBox_FrameInterpolation->isChecked()==true)
+        //如果检测到完整的已经插帧的帧缓存
+        if(file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
+        {
+            FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
+            ScaledFrameFolderPath = VFI_FolderPath_tmp;
+            QStringList FPS_Nums = fps.split("/");
+            fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+        }
+        else
         {
             //如果插帧成功
             if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp)==true)
