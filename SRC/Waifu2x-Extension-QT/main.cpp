@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.07-beta:
+- Update GUI layout.
+
 v3.11.06-beta:
 - New Feature: Automatically enable [UHD Mode] when Ultra High Definition input is detected.
 - Much more compact gui.
