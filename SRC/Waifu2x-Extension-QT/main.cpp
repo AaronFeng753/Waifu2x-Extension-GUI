@@ -34,6 +34,21 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+Waifu2x-Extension-GUI V3 Update:
+- New Feature: Video Frame Interpolation using Machine Learning. You can choose to interpolate the video frames after enlarge the video, or just interpolate the video frames.
+- New built-in Frame Interpolation Engines: RIFE-NCNN-Vulkan, CAIN-NCNN-Vulkan.
+- New GUI layout design.
+- Fix multiple bugs.
+
+Waifu2x-Extension-GUI V3 更新:
+- 新特性: 借助机器学习对视频进行插帧(补帧). 您可以选择在对进行视频放大后对视频进行插帧, 或者仅对视频进行插帧.
+- 新增内置插帧引擎: RIFE-NCNN-Vulkan, CAIN-NCNN-Vulkan.
+- 新的用户界面布局设计.
+- 多项错误修复.
+
+v3.11.18:
+- Update GUI.
+
 v3.11.08-beta:
 - Fix bug: Failure detection for NCNN-Vulkan engines not working normally.
 - Fix bug: Extra commands are always loaded when [Process video by segment] is enabled.
@@ -79,10 +94,6 @@ v3.11.01-beta:
 - New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
 - Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
 - Fix bug: Failure detection for NCNN-Vulkan engines doesn't work as intended when processing GIF and Video.
-
-- 新特性: 使用rife-ncnn-vulkan(@nihui)对视频进行插帧.
-- 更新Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
-- 修复bug: 處理GIF和視頻時，NCNN-Vulkan引擎的故障檢測無法正常工作。
 
 --------------------------------------------------------------------------
 To do:
