@@ -35,8 +35,10 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.08-beta:
+- Fix bug: Failure detection for NCNN-Vulkan engines not working normally.
 - Fix bug: Extra commands are always loaded when [Process video by segment] is enabled.
 - Fix bug: Compatibility test may provide incorrect results.
+- Fix bug: Available GPU ID detection for NCNN-Vulkan engines may provide incorrect results.
 
 v3.11.07-beta:
 - Update GUI layout.

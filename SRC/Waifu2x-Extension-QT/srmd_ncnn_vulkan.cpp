@@ -1611,7 +1611,7 @@ int MainWindow::SRMD_DetectGPU()
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
-        if(QFile::exists(OutputPath))
+        if(QFile::exists(OutputPath) && (Waifu2x->readAllStandardError().toLower().contains("failed")||Waifu2x->readAllStandardOutput().toLower().contains("failed"))==false)
         {
             Available_GPUID_srmd.append(QString::number(GPU_ID,10));
             GPU_ID++;
