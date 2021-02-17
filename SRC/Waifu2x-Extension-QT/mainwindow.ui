@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>748</height>
+    <height>734</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -7942,36 +7942,184 @@ likelihood of removing wanted components of the audio signal.</string>
                  <string>Output video</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_51">
-                 <item row="4" column="1">
-                  <widget class="QLineEdit" name="lineEdit_pixformat">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">yuv420p</string>
-                   </property>
-                  </widget>
+                 <item row="0" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_42">
+                   <item>
+                    <widget class="QLabel" name="label_31">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Encoder(video):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEdit_encoder_vid">
+                     <property name="toolTip">
+                      <string>If you leave it empty, software will use auto settings.</string>
+                     </property>
+                     <property name="text">
+                      <string notr="true">libx264</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item row="1" column="0">
-                  <widget class="QLabel" name="label_27">
-                   <property name="text">
-                    <string>Bitrate(video):</string>
-                   </property>
-                  </widget>
+                  <layout class="QHBoxLayout" name="horizontalLayout_43">
+                   <item>
+                    <widget class="QLabel" name="label_27">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Bitrate(video):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_bitrate_vid">
+                     <property name="toolTip">
+                      <string>If you set it to 0, software will use auto settings.</string>
+                     </property>
+                     <property name="suffix">
+                      <string notr="true"> K</string>
+                     </property>
+                     <property name="minimum">
+                      <number>0</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>6000</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_31">
-                   <property name="text">
-                    <string>Encoder(video):</string>
-                   </property>
-                  </widget>
+                 <item row="2" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_44">
+                   <item>
+                    <widget class="QLabel" name="label_32">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Encoder(audio):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEdit_encoder_audio">
+                     <property name="toolTip">
+                      <string>If you leave it empty, software will use auto settings.</string>
+                     </property>
+                     <property name="text">
+                      <string notr="true">aac</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
                  </item>
                  <item row="3" column="0">
-                  <widget class="QLabel" name="label_29">
-                   <property name="text">
-                    <string>Bitrate(audio):</string>
+                  <layout class="QHBoxLayout" name="horizontalLayout_45">
+                   <item>
+                    <widget class="QLabel" name="label_29">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Bitrate(audio):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_bitrate_audio">
+                     <property name="toolTip">
+                      <string>If you set it to 0, software will use auto settings.</string>
+                     </property>
+                     <property name="suffix">
+                      <string notr="true"> K</string>
+                     </property>
+                     <property name="minimum">
+                      <number>0</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>320</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="4" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_46">
+                   <item>
+                    <widget class="QLabel" name="label_33">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Pixel format:</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEdit_pixformat">
+                     <property name="toolTip">
+                      <string>If you leave it empty, software will use auto settings.</string>
+                     </property>
+                     <property name="text">
+                      <string notr="true">yuv420p</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="5" column="0" colspan="2">
+                  <widget class="Line" name="line_17">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
+                 </item>
+                 <item row="0" column="1" rowspan="5">
+                  <spacer name="horizontalSpacer_10">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
                  </item>
                  <item row="6" column="0" colspan="2">
                   <widget class="QFrame" name="frame_9">
@@ -8032,91 +8180,6 @@ likelihood of removing wanted components of the audio signal.</string>
                    </layout>
                   </widget>
                  </item>
-                 <item row="3" column="1">
-                  <widget class="QSpinBox" name="spinBox_bitrate_audio">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>10</number>
-                   </property>
-                   <property name="value">
-                    <number>320</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QSpinBox" name="spinBox_bitrate_vid">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>6000</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_32">
-                   <property name="text">
-                    <string>Encoder(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0" colspan="2">
-                  <widget class="Line" name="line_17">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QLineEdit" name="lineEdit_encoder_audio">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">aac</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0">
-                  <widget class="QLabel" name="label_33">
-                   <property name="text">
-                    <string>Pixel format:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1">
-                  <widget class="QLineEdit" name="lineEdit_encoder_vid">
-                   <property name="toolTip">
-                    <string>If you leave it empty, software will use auto settings.</string>
-                   </property>
-                   <property name="text">
-                    <string notr="true">libx264</string>
-                   </property>
-                  </widget>
-                 </item>
                 </layout>
                </widget>
               </item>
@@ -8129,19 +8192,160 @@ likelihood of removing wanted components of the audio signal.</string>
                  <string>When convert video to mp4</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_33">
-                 <property name="leftMargin">
-                  <number>6</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>6</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>6</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>6</number>
-                 </property>
-                 <item row="6" column="0" colspan="4">
+                 <item row="0" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_40">
+                   <item>
+                    <widget class="QLabel" name="label_34">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Bitrate(video):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
+                     <property name="toolTip">
+                      <string>If you set it to 0, software will use auto settings.</string>
+                     </property>
+                     <property name="suffix">
+                      <string notr="true"> K</string>
+                     </property>
+                     <property name="minimum">
+                      <number>0</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>2500</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="1" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_41">
+                   <item>
+                    <widget class="QLabel" name="label_35">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Bitrate(audio):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_bitrate_audio_2mp4">
+                     <property name="toolTip">
+                      <string>If you set it to 0, software will use auto settings.</string>
+                     </property>
+                     <property name="suffix">
+                      <string notr="true"> K</string>
+                     </property>
+                     <property name="minimum">
+                      <number>0</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>10</number>
+                     </property>
+                     <property name="value">
+                      <number>320</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="2" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_39">
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>When this is enabled, ffmpeg will copy the audio part of
+the original video directly to the mp4, may cause error.
+
+Command: -acodec copy</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy audio stream</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="toolTip">
+                      <string>When this is enabled, ffmpeg will copy the video part of
+the original video directly to the mp4, may cause error.
+
+Command: -vcodec copy</string>
+                     </property>
+                     <property name="text">
+                      <string>Copy video stream</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_43">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="Line" name="line_18">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="0" column="1" rowspan="3">
+                  <spacer name="horizontalSpacer_27">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>130</width>
+                     <height>208</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="4" column="0" colspan="2">
                   <widget class="QFrame" name="frame_10">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -8198,97 +8402,6 @@ likelihood of removing wanted components of the audio signal.</string>
                      </widget>
                     </item>
                    </layout>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" colspan="3">
-                  <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>100</number>
-                   </property>
-                   <property name="value">
-                    <number>2500</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_34">
-                   <property name="text">
-                    <string>Bitrate(video):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1" colspan="3">
-                  <widget class="QSpinBox" name="spinBox_bitrate_audio_2mp4">
-                   <property name="toolTip">
-                    <string>If you set it to 0, software will use auto settings.</string>
-                   </property>
-                   <property name="suffix">
-                    <string notr="true"> K</string>
-                   </property>
-                   <property name="minimum">
-                    <number>0</number>
-                   </property>
-                   <property name="maximum">
-                    <number>999999999</number>
-                   </property>
-                   <property name="singleStep">
-                    <number>10</number>
-                   </property>
-                   <property name="value">
-                    <number>320</number>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="2" colspan="2">
-                  <widget class="QCheckBox" name="checkBox_vcodec_copy_2mp4">
-                   <property name="toolTip">
-                    <string>When this is enabled, ffmpeg will copy the video part of
-the original video directly to the mp4, may cause error.
-
-Command: -vcodec copy</string>
-                   </property>
-                   <property name="text">
-                    <string>Copy video stream</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_35">
-                   <property name="text">
-                    <string>Bitrate(audio):</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0" colspan="4">
-                  <widget class="Line" name="line_18">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0" colspan="2">
-                  <widget class="QCheckBox" name="checkBox_acodec_copy_2mp4">
-                   <property name="toolTip">
-                    <string>When this is enabled, ffmpeg will copy the audio part of
-the original video directly to the mp4, may cause error.
-
-Command: -acodec copy</string>
-                   </property>
-                   <property name="text">
-                    <string>Copy audio stream</string>
-                   </property>
                   </widget>
                  </item>
                 </layout>
@@ -8473,74 +8586,125 @@ padding:10px;
                 <string>Input file extensions</string>
                </property>
                <layout class="QGridLayout" name="gridLayout_10">
-                <property name="leftMargin">
-                 <number>6</number>
-                </property>
-                <property name="topMargin">
-                 <number>6</number>
-                </property>
-                <property name="rightMargin">
-                 <number>6</number>
-                </property>
-                <property name="bottomMargin">
-                 <number>6</number>
-                </property>
+                <item row="0" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_47">
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                    </property>
+                    <property name="text">
+                     <string>Image:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="Ext_image">
+                    <property name="minimumSize">
+                     <size>
+                      <width>300</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="acceptDrops">
+                     <bool>false</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                    </property>
+                    <property name="text">
+                     <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="1" column="0">
+                 <layout class="QHBoxLayout" name="horizontalLayout_48">
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>50</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="toolTip">
+                     <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                    </property>
+                    <property name="text">
+                     <string>Video:</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="Ext_video">
+                    <property name="minimumSize">
+                     <size>
+                      <width>300</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="acceptDrops">
+                     <bool>false</bool>
+                    </property>
+                    <property name="toolTip">
+                     <string>When you find that the file format you want to process cannot 
+be added to the file list, you can add the file extension yourself 
+in the additional settings.
+
+Each extension needs to be separated by &quot;:&quot;
+
+(There is no guarantee that the file format you add will 
+be processed successfully)</string>
+                    </property>
+                    <property name="text">
+                     <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
                 <item row="2" column="0">
-                 <widget class="QLabel" name="label_5">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                  </property>
-                  <property name="text">
-                   <string>Video:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="2" column="1" colspan="4">
-                 <widget class="QLineEdit" name="Ext_video">
-                  <property name="minimumSize">
-                   <size>
-                    <width>300</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="acceptDrops">
-                   <bool>false</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">mp4:3gp:avi:flv:mkv:mov:mpg:ogg:vob:webm:wmv</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="4" column="0" colspan="5">
                  <layout class="QHBoxLayout" name="horizontalLayout_35">
                   <item>
                    <widget class="QCheckBox" name="checkBox_PreProcessImage">
@@ -8586,7 +8750,7 @@ automatically force the picture to be saved as PNG.</string>
                   </item>
                  </layout>
                 </item>
-                <item row="5" column="0" colspan="5">
+                <item row="3" column="0">
                  <widget class="QCheckBox" name="checkBox_AlwaysPreProcessAlphaPNG">
                   <property name="sizePolicy">
                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -8607,61 +8771,6 @@ frequently occurs when processing images, you can enable this option to save tim
                   </property>
                   <property name="checked">
                    <bool>false</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="0">
-                 <widget class="QLabel" name="label_4">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>50</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                  </property>
-                  <property name="text">
-                   <string>Image:</string>
-                  </property>
-                 </widget>
-                </item>
-                <item row="1" column="1" colspan="4">
-                 <widget class="QLineEdit" name="Ext_image">
-                  <property name="minimumSize">
-                   <size>
-                    <width>300</width>
-                    <height>0</height>
-                   </size>
-                  </property>
-                  <property name="acceptDrops">
-                   <bool>false</bool>
-                  </property>
-                  <property name="toolTip">
-                   <string>When you find that the file format you want to process cannot 
-be added to the file list, you can add the file extension yourself 
-in the additional settings.
-
-Each extension needs to be separated by &quot;:&quot;
-
-(There is no guarantee that the file format you add will 
-be processed successfully)</string>
-                  </property>
-                  <property name="text">
-                   <string notr="true">png:jpg:jpeg:tif:tiff:bmp</string>
                   </property>
                  </widget>
                 </item>
