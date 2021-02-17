@@ -7910,7 +7910,7 @@ likelihood of removing wanted components of the audio signal.</string>
             </size>
            </property>
            <property name="title">
-            <string>Video Settings</string>
+            <string>Custom video settings</string>
            </property>
            <property name="checkable">
             <bool>true</bool>
