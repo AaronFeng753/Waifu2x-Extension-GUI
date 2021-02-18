@@ -1816,7 +1816,7 @@ void MainWindow::comboBox_UpdateChannel_setCurrentIndex_self(int index)
 }
 void MainWindow::on_comboBox_UpdateChannel_currentIndexChanged(int index)
 {
-    if(isClicked_comboBox_UpdateChannel)
+    if(isClicked_comboBox_UpdateChannel && AutoUpdate.isRunning()==false)
     {
         AutoUpdate = QtConcurrent::run(this, &MainWindow::CheckUpadte_Auto);//自动检查更新线程
     }

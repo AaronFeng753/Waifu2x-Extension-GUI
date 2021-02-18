@@ -61,17 +61,21 @@ void MainWindow::Read_urls(QList<QUrl> urls)
     Progressbar_MaxVal = urls.size();
     Progressbar_CurrentVal = 0;
     emit Send_PrograssBar_Range_min_max(0, Progressbar_MaxVal);
-    foreach(QUrl url, urls)
+    if(ui->checkBox_ScanSubFolders->isChecked())
     {
-        if(ui->checkBox_ScanSubFolders->isChecked())
+        foreach(QUrl url, urls)
         {
             Add_File_Folder_IncludeSubFolder(url.toLocalFile());
+            emit Send_progressbar_Add();
         }
-        else
+    }
+    else
+    {
+        foreach(QUrl url, urls)
         {
             Add_File_Folder(url.toLocalFile());
+            emit Send_progressbar_Add();
         }
-        emit Send_progressbar_Add();
     }
     emit Send_Read_urls_finfished();
     return;
@@ -160,9 +164,10 @@ void MainWindow::Add_File_Folder(QString Full_Path)
         QString Full_Path_File = "";
         if(!FileNameList.isEmpty())
         {
+            QString tmp="";
             for(int i = 0; i < FileNameList.size(); i++)
             {
-                QString tmp = FileNameList.at(i);
+                tmp = FileNameList.at(i);
                 Full_Path_File = Full_Path + "/" + tmp;
                 FileList_Add(tmp, Full_Path_File);
             }
@@ -187,20 +192,20 @@ void MainWindow::Add_File_Folder_IncludeSubFolder(QString Full_Path)
         QString Full_Path_File = "";
         if(!FileNameList.isEmpty())
         {
+            QString tmp="";
             for(int i = 0; i < FileNameList.size(); i++)
             {
-                QString tmp = FileNameList.at(i);
+                tmp = FileNameList.at(i);
                 Full_Path_File = Full_Path + "/" + tmp;
                 QFileInfo fileinfo_tmp(Full_Path_File);
                 if(fileinfo_tmp.isFile())
                 {
-                    if(QFile::exists(Full_Path_File))
-                        FileList_Add(tmp, Full_Path_File);
+                    if(QFile::exists(Full_Path_File))FileList_Add(tmp, Full_Path_File);
                 }
                 else
                 {
-                    if(QFile::exists(Full_Path_File))
-                        Add_File_Folder_IncludeSubFolder(Full_Path_File);
+                    //if(QFile::exists(Full_Path_File))
+                    if(file_isDirExist(Full_Path_File))Add_File_Folder_IncludeSubFolder(Full_Path_File);
                 }
             }
         }
@@ -263,12 +268,12 @@ QStringList MainWindow::file_getFileNames_in_Folder_nofilter(QString path)
 int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
 {
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_ext = fileinfo.suffix();
+    QString file_ext = fileinfo.suffix().toLower();
     //============================  判断是否为图片 ===============================
-    QString Ext_image_str = ui->Ext_image->text();
+    QString Ext_image_str = ui->Ext_image->text().toLower();
     QStringList nameFilters_image = Ext_image_str.split(":");
     nameFilters_image.removeAll("gif");
-    if (nameFilters_image.contains(file_ext.toLower()))
+    if (nameFilters_image.contains(file_ext))
     {
         AddNew_image=true;
         int rowNum = Table_image_get_rowNum();
@@ -289,12 +294,12 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         return 0;
     }
     //============================  判断是否为视频 ===============================
-    QString Ext_video_str = ui->Ext_video->text();
+    QString Ext_video_str = ui->Ext_video->text().toLower();
     QStringList nameFilters_video = Ext_video_str.split(":");
     nameFilters_video.removeAll("gif");
-    if (nameFilters_video.contains(file_ext.toLower()))
+    if (nameFilters_video.contains(file_ext))
     {
-        if(file_ext!="mp4"&&file_ext.toLower()=="mp4")
+        if(file_ext!="mp4"&&file_ext=="mp4")
         {
             QString file_name = file_getBaseName(SourceFile_fullPath);
             QString file_ext = fileinfo.suffix();
@@ -321,7 +326,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         return 0;
     }
     //============================  最后只能是gif ===============================
-    if(file_ext.toLower()=="gif")
+    if(file_ext=="gif")
     {
         int rowNum = Table_gif_get_rowNum();
         QMap<QString, QString> map;

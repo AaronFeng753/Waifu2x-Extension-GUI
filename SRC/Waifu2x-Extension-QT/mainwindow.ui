@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>734</height>
+    <height>733</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -9535,6 +9535,9 @@ that your PC has compatibility issues with ImageMagick.</string>
               </item>
               <item row="0" column="2">
                <widget class="Line" name="line_44">
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
                 <property name="orientation">
                  <enum>Qt::Vertical</enum>
                 </property>

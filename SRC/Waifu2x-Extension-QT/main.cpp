@@ -47,6 +47,7 @@ Waifu2x-Extension-GUI V3 更新:
 - 多项错误修复.
 
 v3.11.18:
+- Optimize performance.
 - Update GUI.
 
 v3.11.08-beta:

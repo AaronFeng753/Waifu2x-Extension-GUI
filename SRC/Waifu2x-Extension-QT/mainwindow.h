@@ -81,7 +81,7 @@ public:
     QString VERSION = "v3.11.18";//软件版本号
     bool isBetaVer = false;
     QString LastStableVer = "v3.11.18";
-    QString LastBetaVer = "v3.11.08-beta";
+    QString LastBetaVer = "v3.11.18";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
