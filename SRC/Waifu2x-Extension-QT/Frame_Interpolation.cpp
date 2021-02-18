@@ -531,7 +531,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         StanderMSG="";
         //=====
         QProcess FrameInterpolation_QProcess;
-        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath.replace("%","%%")+"\" -o \""+OutputPath.replace("%","%%")+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput);
+        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath+"\" -o \""+OutputPath+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput);
         FrameInterpolation_QProcess.start(CMD);
         while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
         while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
@@ -545,6 +545,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
             //=========
             ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
             StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
+            emit Send_TextBrowser_NewMessage("\n========== StanderMSG ===========\n"+StanderMSG+"\n=======================");//debug_cain
+            emit Send_TextBrowser_NewMessage("\n========== ErrorMSG ===========\n"+ErrorMSG+"\n=======================");//debug_cain
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 FrameInterpolation_QProcess_failed = true;
@@ -567,12 +569,18 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         {
             ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
             StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
+            emit Send_TextBrowser_NewMessage("\n========== StanderMSG ===========\n"+StanderMSG+"\n=======================");//debug_cain
+            emit Send_TextBrowser_NewMessage("\n========== ErrorMSG ===========\n"+ErrorMSG+"\n=======================");//debug_cain
             if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
             {
                 FrameInterpolation_QProcess_failed = true;
                 file_DelDir(OutputPath);
             }
         }
+        ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());//debug_cain
+        StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());//debug_cain
+        emit Send_TextBrowser_NewMessage("\n========== StanderMSG ===========\n"+StanderMSG+"\n=======================");//debug_cain
+        emit Send_TextBrowser_NewMessage("\n========== ErrorMSG ===========\n"+ErrorMSG+"\n=======================");//debug_cain
         //========= 检测是否成功,是否需要重试 ============
         if(FrameInterpolation_QProcess_failed==false && (file_getFileNames_in_Folder_nofilter(SourcePath).size()*2 == file_getFileNames_in_Folder_nofilter(OutputPath).size()))
         {

@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
 }
 
 /*
+
+删除 //debug_cain
+
 Change log:
 
 Waifu2x-Extension-GUI V3 Update:
@@ -46,9 +49,10 @@ Waifu2x-Extension-GUI V3 更新:
 - 新的用户界面布局设计.
 - 多项错误修复.
 
-v3.11.18:
+v3.11.09-beta:
 - Optimize performance.
 - Update GUI.
+- Fix bug: Cannot interpolate frames of video with "%" in the absolute path.
 
 v3.11.08-beta:
 - Fix bug: Failure detection for NCNN-Vulkan engines not working normally.
