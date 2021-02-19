@@ -46,10 +46,11 @@ Waifu2x-Extension-GUI V3 更新:
 - 新的用户界面布局设计.
 - 多项错误修复.
 
-v3.11.09-beta:
+v3.11.19:
 - Optimize performance.
 - Update GUI.
 - Fix bug: Cannot interpolate frames of video with "%" in the absolute path.
+- Fix bug: [Hide Text Browser] doesn't work properly.
 
 v3.11.08-beta:
 - Fix bug: Failure detection for NCNN-Vulkan engines not working normally.

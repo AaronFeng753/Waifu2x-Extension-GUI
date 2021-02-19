@@ -800,14 +800,12 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         //=========
         if(ui->checkBox_AlwaysHideTextBrowser->isChecked())
         {
-            ui->textBrowser->setVisible(0);
-            ui->groupBox_textBrowserSettings->setVisible(0);
+            ui->splitter_TextBrowser->setVisible(0);
             ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
         }
         else
         {
-            ui->textBrowser->setVisible(1);
-            ui->groupBox_textBrowserSettings->setVisible(1);
+            ui->splitter_TextBrowser->setVisible(1);
             ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
         }
         //=========
@@ -1058,14 +1056,12 @@ void MainWindow::on_pushButton_HideTextBro_clicked()
 {
     if(ui->textBrowser->isVisible())
     {
-        ui->textBrowser->setVisible(0);
-        ui->groupBox_textBrowserSettings->setVisible(0);
+        ui->splitter_TextBrowser->setVisible(0);
         ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
     }
     else
     {
-        ui->textBrowser->setVisible(1);
-        ui->groupBox_textBrowserSettings->setVisible(1);
+        ui->splitter_TextBrowser->setVisible(1);
         ui->pushButton_HideTextBro->setText(tr("Hide Text Browser"));
     }
 }
@@ -1074,8 +1070,7 @@ void MainWindow::on_checkBox_AlwaysHideTextBrowser_stateChanged(int arg1)
 {
     if(ui->checkBox_AlwaysHideTextBrowser->isChecked())
     {
-        ui->textBrowser->setVisible(0);
-        ui->groupBox_textBrowserSettings->setVisible(0);
+        ui->splitter_TextBrowser->setVisible(0);
         ui->pushButton_HideTextBro->setText(tr("Show Text Browser"));
     }
 }

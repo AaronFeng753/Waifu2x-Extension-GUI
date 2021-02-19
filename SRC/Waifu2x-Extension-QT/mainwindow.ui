@@ -10471,7 +10471,7 @@ padding:10px;
         </layout>
        </widget>
       </widget>
-      <widget class="QSplitter" name="splitter_3">
+      <widget class="QSplitter" name="splitter_TextBrowser">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
          <horstretch>0</horstretch>
