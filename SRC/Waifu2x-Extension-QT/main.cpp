@@ -32,9 +32,6 @@ int main(int argc, char *argv[])
 }
 
 /*
-
-删除 //debug_cain
-
 Change log:
 
 Waifu2x-Extension-GUI V3 Update:
