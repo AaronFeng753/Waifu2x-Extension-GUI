@@ -4,6 +4,62 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.11.19](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.11.19)
+#### Change log:
+```
+v3.11.19:
+- Optimize performance.
+- Update GUI.
+- Fix bug: Cannot interpolate frames of video with "%" in the absolute path.
+- Fix bug: [Hide Text Browser] doesn't work properly.
+
+v3.11.08-beta:
+- Fix bug: Failure detection for NCNN-Vulkan engines not working normally.
+- Fix bug: Extra commands are always loaded when [Process video by segment] is enabled.
+- Fix bug: Compatibility test may provide incorrect results.
+- Fix bug: Available GPU ID detection for NCNN-Vulkan engines may provide incorrect results.
+
+v3.11.07-beta:
+- Update GUI layout.
+
+v3.11.06-beta:
+- New Feature: Automatically enable [UHD Mode] when Ultra High Definition input is detected.
+- Much more compact gui.
+- Optimize performance.
+- Fix bug: Extra commands for video are not loaded when [Process video by segment] is enabled.
+- Fix bug: [Automatic file list scrolling] not working normally after user rearrange the files list.
+- Fix bug: [Verify] button is enabled when [Multi GPU] is disabled.
+
+v3.11.05-beta:
+- Fix bug: Unable to use [Process video by segment] when Frame Interpolation is disabled.
+
+v3.11.04-beta:
+- Add a shortcut for enable Frame Interpolation in home tab.
+- [Verify] button for Frame Interpolation.
+- Complete translation.
+- Other improvements.
+
+v3.11.03-beta:
+- New Feature: Now you can skip the super-resolution, only interpolate video frames by enable [Frame Interpolation only(Video)].
+- Add pause support for frame interpolation.
+- Add auto adjust for number of threads of frame interpolation.
+- Add failure detection for frame interpolation.
+- Remove temporary code for debug.
+- Fix bug: If frame interpolation failed in the middle of processing video by segment, clip with wrong frame rate gonna be generated.
+- Fix bug: Cannot read video configuration correctly.
+
+v3.11.02-beta:
+- New Feature: Video frame interpolation using cain-ncnn-vulkan(@nihui).
+- Add tool tips.
+- Fix bug: Video frame interpolation engines won't work when there are special characters in the installation path.
+- Fix bug: Video frame interpolation setting is not saved in the video configuration file.
+
+v3.11.01-beta:
+- New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
+- Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
+- Fix bug: Failure detection for NCNN-Vulkan engines doesn't work as intended when processing GIF and Video.
+```
+---
 ## [v2.71.22](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.71.22)
 #### Change log:
 - The maximum number of threads will no longer be limited by the number of CPU logical cores.
