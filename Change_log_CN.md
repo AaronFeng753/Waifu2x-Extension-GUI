@@ -8,6 +8,13 @@
 - ☁腾讯微云：https://share.weiyun.com/5abrs1W 密码：s4monw
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v3.11.19](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.11.19)
+#### 更新日志:
+- 新特性: 借助机器学习对视频进行插帧(补帧). 您可以选择在对进行视频放大后对视频进行插帧, 或者仅对视频进行插帧.
+- 新增内置插帧引擎: RIFE-NCNN-Vulkan, CAIN-NCNN-Vulkan.
+- 新的用户界面布局设计.
+- 多项错误修复.
+---
 ## [v2.71.22](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v2.71.22)
 #### 更新日志:
 - 最大线程数量将不再受到CPU逻辑核心数量的限制.
