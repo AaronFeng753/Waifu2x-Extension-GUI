@@ -91,11 +91,11 @@ rife-ncnn-vulkan / cain-ncnn-vulkan
 ![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
 
 #### Original GIF 500 x 372 (493 KB):
-![Original GIF](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Samples/gif/GIF_2_original.gif)
+![Original GIF](/Samples/gif/GIF_2_original.gif)
 
 #### After 2x magnification, level 2 denoise and gif optimize 1000 x 744 (3.77 MB):
 #### (Using Waifu2x-NCNN-Vulkan Engine)
-![Original GIF](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Samples/gif/GIF_2_waifu2x_compressed.gif)
+![Scaled GIF](/Samples/gif/GIF_2_waifu2x_compressed.gif)
 
 #### `Github doesn't support online video playback, please check link below:`
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
