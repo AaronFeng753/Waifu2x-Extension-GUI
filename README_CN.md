@@ -97,11 +97,11 @@ rife-ncnn-vulkan / cain-ncnn-vulkan
 ![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
 
 #### 原图 GIF 500 x 372 (493 KB):
-![Original GIF](/Samples/gif/2_original.gif)
+![Original GIF](/Samples/gif/GIF_2_original.gif)
 
 #### 经过2x放大,2级降噪和gif优化后 1000 x 744 (3.77 MB):
 #### (使用内置的Waifu2x-NCNN-Vulkan引擎)
-![Original GIF](/Samples/gif/2_waifu2x_compressed.gif)
+![Original GIF](/Samples/gif/GIF_2_waifu2x_compressed.gif)
 
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
