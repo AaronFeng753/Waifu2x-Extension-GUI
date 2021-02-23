@@ -27,15 +27,13 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     //将状态设定到处理中
-    QString status = "Processing";
-    emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     //得到原文件路径
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))//判断源文件是否存在
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
@@ -59,8 +57,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
         if(ScaleRatio==0)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            status = "Failed";
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
@@ -84,30 +81,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
     QProcess *Waifu2x = new QProcess();
     QString program = Current_Path+"/realsr-ncnn-vulkan/realsr-ncnn-vulkan_waifu2xEX.exe";
     //==========
-    int ScaleRatio_tmp=0;
-    //如果设定的scaleRatio不是偶数,则+1,并输出到tmp
-    if((ScaleRatio%2)==0)
-    {
-        ScaleRatio_tmp = ScaleRatio;
-    }
-    else
-    {
-        ScaleRatio_tmp = ScaleRatio+1;
-    }
-    //判断是否为4的幂数
-    if((((ScaleRatio_tmp&(ScaleRatio_tmp-1))==0)&&(ScaleRatio_tmp&0x555555555))!=true)
-    {
-        for(int i=1; true; i++)
-        {
-            int pow_ =pow(4,i);
-            if(pow_>=ScaleRatio_tmp)
-            {
-                ScaleRatio_tmp=pow_;
-                break;
-            }
-        }
-    }
-    //======
+    int ScaleRatio_tmp=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio);
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
@@ -135,8 +109,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
                         QFile::remove(InputPath_tmp);
                     }
                     QFile::remove(OutputPath_tmp);
-                    status = "Interrupted";
-                    emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
                     mutex_ThreadNumRunning.unlock();
@@ -200,8 +173,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
             SourceFile_fullPath = SourceFile_fullPath_Original;
         }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
-        status = "Failed";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
@@ -239,8 +211,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
         if(!QFile::exists(OutPut_Path))
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
-            status = "Failed";
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
@@ -289,13 +260,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -329,14 +298,12 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     bool OptGIF = ui->checkBox_OptGIF->isChecked();
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_gif->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -362,8 +329,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     if(GIF_Duration==0)//检查是否成功获取duration
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't get Duration value of GIF file.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         //file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -376,8 +342,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     if(Frame_fileName_list.isEmpty())//检查是否成功拆分gif
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't split GIF into frames.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -438,8 +403,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
                 {
                     Waifu2x->close();
                     file_DelDir(SplitFramesFolderPath);
-                    status = "Interrupted";
-                    emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
                     mutex_ThreadNumRunning.unlock();
@@ -502,8 +466,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     if(NumOfSplitFrames!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -517,8 +480,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     if(!QFile::exists(ResGIFPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -554,13 +516,11 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -595,14 +555,12 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     bool isVideoConfigChanged = true;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -628,8 +586,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -757,8 +714,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
         }
@@ -860,8 +816,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
                         }
                     }
                     //=============
-                    status = "Interrupted";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
                     mutex_ThreadNumRunning.unlock();
@@ -925,8 +880,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     if(NumOfSplitFrames!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -945,8 +899,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -977,13 +930,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -1010,14 +961,12 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -1043,8 +992,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -1279,8 +1227,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                 if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
                 {
                     emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-                    status = "Failed";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
                     emit Send_progressbar_Add();
                     return 0;//如果启用stop位,则直接return
                 }
@@ -1390,8 +1337,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                                 }
                             }
                             //=============
-                            status = "Interrupted";
-                            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
                             mutex_ThreadNumRunning.lock();
                             ThreadNumRunning--;
                             mutex_ThreadNumRunning.unlock();
@@ -1459,8 +1405,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             if(Frame_fileName_list_scaled.size()!=NumOfSplitFrames)
             {
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
-                status = "Failed";
-                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
                 emit Send_progressbar_Add();
                 return 0;//如果启用stop位,则直接return
             }
@@ -1484,8 +1429,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
         }
@@ -1519,8 +1463,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble video clips.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -1552,13 +1495,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
