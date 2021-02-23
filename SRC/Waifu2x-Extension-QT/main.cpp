@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.21-beta:
+- Optimize performance.
 - Update ImageMagick,FFmpeg&FFprobe.
 - Fix bug: Engine settings are pre-loaded even though it's not being used.
 
