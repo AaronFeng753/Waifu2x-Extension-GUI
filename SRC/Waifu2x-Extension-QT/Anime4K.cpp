@@ -29,14 +29,12 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_image->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
@@ -58,8 +56,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         if(ScaleRatio==0)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [The resolution of the source file cannot be read, so the image cannot be scaled to a custom resolution.]"));
-            status = "Failed";
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
@@ -91,8 +88,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
             {
                 Waifu2x->close();
                 QFile::remove(OutPut_Path);
-                status = "Interrupted";
-                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
                 mutex_ThreadNumRunning.lock();
                 ThreadNumRunning--;
                 mutex_ThreadNumRunning.unlock();
@@ -120,8 +116,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
             SourceFile_fullPath = SourceFile_fullPath_Original;
         }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
-        status = "Failed";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
         ThreadNumRunning--;
@@ -158,8 +153,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         if(!QFile::exists(OutPut_Path))
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
-            status = "Failed";
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning--;
@@ -208,13 +202,11 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -241,14 +233,12 @@ int MainWindow::Anime4k_GIF(int rowNum)
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_gif->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -274,8 +264,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     if(GIF_Duration==0)//检查是否成功获取duration
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't get Duration value of GIF file.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         //file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -288,8 +277,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     if(Frame_fileName_list.isEmpty())//检查是否成功拆分gif
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Can't split GIF into frames.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -388,8 +376,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
             FileProgressWatch_isEnabled=false;
             FileProgressWatch_QFuture.cancel();
             file_DelDir(SplitFramesFolderPath);
-            status = "Interrupted";
-            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
             return 0;//如果启用stop位,则直接return
         }
         if(Frame_failed)
@@ -397,8 +384,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
             FileProgressWatch_isEnabled=false;
             FileProgressWatch_QFuture.cancel();
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
-            status = "Failed";
-            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             file_DelDir(SplitFramesFolderPath);
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
@@ -416,8 +402,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     if(Frame_fileName_list.size()!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -431,8 +416,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
     if(!QFile::exists(ResGIFPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
-        status = "Failed";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         file_DelDir(SplitFramesFolderPath);
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
@@ -468,13 +452,11 @@ int MainWindow::Anime4k_GIF(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -579,14 +561,12 @@ int MainWindow::Anime4k_Video(int rowNum)
     int Sub_video_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -612,8 +592,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -742,8 +721,7 @@ int MainWindow::Anime4k_Video(int rowNum)
         if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
         }
@@ -844,8 +822,7 @@ int MainWindow::Anime4k_Video(int rowNum)
             FileProgressWatch_isEnabled=false;
             FileProgressWatch_QFuture.cancel();
             Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
-            status = "Interrupted";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
             return 0;//如果启用stop位,则直接return
         }
         if(Frame_failed)
@@ -854,8 +831,7 @@ int MainWindow::Anime4k_Video(int rowNum)
             FileProgressWatch_QFuture.cancel();
             Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
         }
@@ -873,8 +849,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     {
         Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -893,8 +868,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -925,13 +899,11 @@ int MainWindow::Anime4k_Video(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -959,14 +931,12 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -992,8 +962,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -1227,8 +1196,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                 if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
                 {
                     emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-                    status = "Failed";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
                     emit Send_progressbar_Add();
                     return 0;//如果启用stop位,则直接return
                 }
@@ -1332,8 +1300,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                     FileProgressWatch_isEnabled=false;
                     FileProgressWatch_QFuture.cancel();
                     Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
-                    status = "Interrupted";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
                     return 0;//如果启用stop位,则直接return
                 }
                 if(Frame_failed)
@@ -1342,8 +1309,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                     FileProgressWatch_QFuture.cancel();
                     Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                     emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
-                    status = "Failed";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
                     emit Send_progressbar_Add();
                     return 0;//如果启用stop位,则直接return
                 }
@@ -1360,8 +1326,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             {
                 Restore_SplitFramesFolderPath(SplitFramesFolderPath,GPU_SplitFramesFolderPath_List);
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
-                status = "Failed";
-                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
                 emit Send_progressbar_Add();
                 return 0;//如果启用stop位,则直接return
             }
@@ -1385,8 +1350,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
         }
@@ -1420,8 +1384,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble video clips.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -1453,13 +1416,11 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
