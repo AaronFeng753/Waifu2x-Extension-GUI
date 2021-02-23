@@ -80,6 +80,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlpha
     int DenoiseLevel_tmp = DenoiseLevel;
     QString ErrorMSG="";
     QString StanderMSG="";
+    QString cmd="";
     //======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -93,7 +94,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlpha
             StanderMSG="";
             //==========
             OutputPath_tmp = file_path + "/" + file_name + "_waifu2x_"+QString::number(i, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
-            QString cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_ReadSettings();
+            cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath_tmp + "\"" + " -o " + "\"" + OutputPath_tmp + "\"" + " -s " + "2" + " -n " + QString::number(DenoiseLevel_tmp, 10) + Waifu2x_NCNN_Vulkan_ReadSettings();
             Waifu2x->start(cmd);
             while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
             while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -205,7 +206,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlpha
             qimageW_adj.write(qimage_adj_scaled);
         }
         QFile::remove(OutputPath_tmp);
-        if(!QFile::exists(OutPut_Path))
+        if(QFile::exists(OutPut_Path)==false)
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
             emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
@@ -220,9 +221,9 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlpha
     if(CustRes_isEnabled)
     {
         QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
+        QFile::remove(OutPut_Path_CustRes);
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
-        OutPut_Path = OutPut_Path_CustRes;
-        OutPutPath_Final = OutPut_Path;
+        OutPutPath_Final = OutPut_Path_CustRes;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
     OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,true,DenoiseLevel);

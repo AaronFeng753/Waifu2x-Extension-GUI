@@ -38,6 +38,7 @@ v3.11.21-beta:
 - Optimize performance.
 - Update ImageMagick,FFmpeg&FFprobe.
 - Fix bug: Engine settings are pre-loaded even though it's not being used.
+- Fix bug: Unable to overwrite files sometime.
 
 --------------------------------------------------------------------------
 To do:

@@ -1853,10 +1853,12 @@ bool MainWindow::ReplaceOriginalFile(QString original_fullpath,QString output_fu
     if(QAction_checkBox_MoveToRecycleBin_checkBox_ReplaceOriginalFile->isChecked())
     {
         file_MoveToTrash(original_fullpath);
+        file_MoveToTrash(Target_fullpath);
     }
     else
     {
         QFile::remove(original_fullpath);
+        QFile::remove(Target_fullpath);
     }
     //=================
     if(QFile::rename(output_fullpath,Target_fullpath)==false)

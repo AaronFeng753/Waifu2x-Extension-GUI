@@ -189,9 +189,9 @@ int MainWindow::Waifu2x_Caffe_Image(int rowNum,bool ReProcess_MissingAlphaChanne
     if(CustRes_isEnabled)
     {
         QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
+        QFile::remove(OutPut_Path_CustRes);
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
-        OutPut_Path = OutPut_Path_CustRes;
-        OutPutPath_Final = OutPut_Path;
+        OutPutPath_Final = OutPut_Path_CustRes;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
     OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,true,DenoiseLevel);
