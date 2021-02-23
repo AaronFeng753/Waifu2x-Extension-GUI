@@ -26,14 +26,12 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -48,8 +46,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -214,8 +211,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
                 if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
                 {
                     emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-                    status = "Failed";
-                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+                    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
                     emit Send_progressbar_Add();
                     return 0;//如果启用stop位,则直接return
                 }
@@ -240,8 +236,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
-            status = "Failed";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
             return 0;//如果启用stop位,则直接return
         }
@@ -268,8 +263,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble video clips.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -301,13 +295,11 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
@@ -329,14 +321,12 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
-    QString status = "Processing";
-    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+    emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(!QFile::exists(SourceFile_fullPath))
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [File does not exist.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;
     }
@@ -351,8 +341,7 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     if(!QFile::exists(video_mp4_fullpath))//检查是否成功生成mp4
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Cannot convert video format to mp4.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -377,8 +366,7 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     if(Frame_fileName_list.isEmpty())//检查是否成功拆分为帧
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to split video into pictures.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -391,13 +379,11 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     {
         if(waifu2x_STOP)
         {
-            status = "Interrupted";
-            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
             return 0;//如果启用stop位,则直接return
         }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
-        status = "Failed";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
@@ -427,13 +413,11 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
                 QFile::remove(SourceFile_fullPath);
             }
         }
-        status = "Finished, original file deleted";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
     }
     else
     {
-        status = "Finished";
-        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, status);
+        emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished");
     }
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
