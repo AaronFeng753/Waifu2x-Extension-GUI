@@ -824,7 +824,7 @@ void MainWindow::PreLoad_Engines_Settings()
     //======================
     //Waifu2x-NCNN-Vulkan
     //======================
-    if(ui->comboBox_Engine_Image->currentIndex()==0||ui->comboBox_Engine_GIF->currentIndex()==0||ui->comboBox_Engine_Video->currentIndex()==0)
+    if(ui->comboBox_Engine_Image->currentIndex()==0)
     {
         Waifu2x_NCNN_Vulkan_PreLoad_Settings_Str = Waifu2x_NCNN_Vulkan_PreLoad_Settings();
     }
@@ -838,7 +838,7 @@ void MainWindow::PreLoad_Engines_Settings()
     //======================
     //SRMD-NCNN-Vulkan
     //======================
-    if(ui->comboBox_Engine_Image->currentIndex()==2||ui->comboBox_Engine_GIF->currentIndex()==2||ui->comboBox_Engine_Video->currentIndex()==3)
+    if(ui->comboBox_Engine_Image->currentIndex()==2)
     {
         SrmdNcnnVulkan_PreLoad_Settings_Str = SrmdNcnnVulkan_PreLoad_Settings();
     }
@@ -888,7 +888,7 @@ void MainWindow::PreLoad_Engines_Settings()
     //======================
     //Realsr-NCNN-Vulkan
     //======================
-    if(ui->comboBox_Engine_Image->currentIndex()==5||ui->comboBox_Engine_GIF->currentIndex()==5||ui->comboBox_Engine_Video->currentIndex()==5)
+    if(ui->comboBox_Engine_Image->currentIndex()==5)
     {
         Realsr_NCNN_Vulkan_PreLoad_Settings_Str = Realsr_NCNN_Vulkan_PreLoad_Settings();
     }

@@ -34,73 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-Waifu2x-Extension-GUI V3 Update:
-- New Feature: Video Frame Interpolation using Machine Learning. You can choose to interpolate the video frames after enlarge the video, or just interpolate the video frames.
-- New built-in Frame Interpolation Engines: RIFE-NCNN-Vulkan, CAIN-NCNN-Vulkan.
-- New GUI layout design.
-- Fix multiple bugs.
-
-Waifu2x-Extension-GUI V3 更新:
-- 新特性: 借助机器学习对视频进行插帧(补帧). 您可以选择在对进行视频放大后对视频进行插帧, 或者仅对视频进行插帧.
-- 新增内置插帧引擎: RIFE-NCNN-Vulkan, CAIN-NCNN-Vulkan.
-- 新的用户界面布局设计.
-- 多项错误修复.
-
-v3.11.19:
-- Optimize performance.
-- Update GUI.
-- Fix bug: Cannot interpolate frames of video with "%" in the absolute path.
-- Fix bug: [Hide Text Browser] doesn't work properly.
-
-v3.11.08-beta:
-- Fix bug: Failure detection for NCNN-Vulkan engines not working normally.
-- Fix bug: Extra commands are always loaded when [Process video by segment] is enabled.
-- Fix bug: Compatibility test may provide incorrect results.
-- Fix bug: Available GPU ID detection for NCNN-Vulkan engines may provide incorrect results.
-
-v3.11.07-beta:
-- Update GUI layout.
-
-v3.11.06-beta:
-- New Feature: Automatically enable [UHD Mode] when Ultra High Definition input is detected.
-- Much more compact gui.
-- Optimize performance.
-- Fix bug: Extra commands for video are not loaded when [Process video by segment] is enabled.
-- Fix bug: [Automatic file list scrolling] not working normally after user rearrange the files list.
-- Fix bug: [Verify] button is enabled when [Multi GPU] is disabled.
-
-v3.11.05-beta:
-- Fix bug: Unable to use [Process video by segment] when Frame Interpolation is disabled.
-
-v3.11.04-beta:
-- Add a shortcut for enable Frame Interpolation in home tab.
-- [Verify] button for Frame Interpolation.
-- Complete translation.
-- Other improvements.
-
-v3.11.03-beta:
-- New Feature: Now you can skip the super-resolution, only interpolate video frames by enable [Frame Interpolation only(Video)].
-- Add pause support for frame interpolation.
-- Add auto adjust for number of threads of frame interpolation.
-- Add failure detection for frame interpolation.
-- Remove temporary code for debug.
-- Fix bug: If frame interpolation failed in the middle of processing video by segment, clip with wrong frame rate gonna be generated.
-- Fix bug: Cannot read video configuration correctly.
-
-v3.11.02-beta:
-- New Feature: Video frame interpolation using cain-ncnn-vulkan(@nihui).
-- Add tool tips.
-- Fix bug: Video frame interpolation engines won't work when there are special characters in the installation path.
-- Fix bug: Video frame interpolation setting is not saved in the video configuration file.
-
-v3.11.01-beta:
-- New Feature: Video frame interpolation using rife-ncnn-vulkan(@nihui).
-- Update Waifu2x-NCNN-Vulkan,SRMD-NCNN-Vulkan,RealSR-NCNN-Vulkan.
-- Fix bug: Failure detection for NCNN-Vulkan engines doesn't work as intended when processing GIF and Video.
+v3.11.21-beta:
+- Update ImageMagick,FFmpeg&FFprobe.
+- Fix bug: Engine settings are pre-loaded even though it's not being used.
 
 --------------------------------------------------------------------------
 To do:
-- 添加一个快速剪切视频的小工具
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 - 将文件列表的状态替换为预设的QString
 ---------------------------------------------------------------------------
@@ -112,9 +51,9 @@ Integrated component:
 - Waifu2x-NCNN-Vulkan 20210210
 - SRMD-NCNN-Vulkan 20210210
 - RealSR-NCNN-Vulkan 20210210
-- ImageMagick 7.0.10-61-portable-Q16-x64
+- ImageMagick 7.0.11-1-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-02-02-git-2367affc2c-full_build
+- FFmpeg&FFprobe 2021-02-20-git-51a9f487ae-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3

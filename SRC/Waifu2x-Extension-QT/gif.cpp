@@ -40,7 +40,7 @@ int MainWindow::Gif_getDuration(QString gifPath)
     do
     {
         FileNo++;
-        Path_gif_info_ini = video_dir+"/"+file_getBaseName(gifPath)+"_gifInfo_"+QString::number(FileNo,10)+"_Waifu2xEX.ini";
+        Path_gif_info_ini = video_dir+"/"+file_getBaseName(gifPath)+"_GifInfo_"+QString::number(FileNo,10)+"_W2xEX.ini";
     }
     while(QFile::exists(Path_gif_info_ini));
     //=========
