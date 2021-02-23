@@ -39,6 +39,7 @@ v3.11.21-beta:
 - Update ImageMagick,FFmpeg&FFprobe.
 - Fix bug: Engine settings are pre-loaded even though it's not being used.
 - Fix bug: Unable to overwrite files sometime.
+- Fix bug: Cannot fix the suffix of mp4 video when reading files.
 
 --------------------------------------------------------------------------
 To do:

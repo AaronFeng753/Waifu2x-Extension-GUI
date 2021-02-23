@@ -75,11 +75,11 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //============================== 放大 =======================================
     QString program = Anime4k_ProgramPath;
     //====
+    QProcess *Waifu2x = new QProcess();
     QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_image + Anime4k_ReadSettings(PreserveAlphaChannel);
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        QProcess *Waifu2x = new QProcess();
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
@@ -108,14 +108,13 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         }
     }
     //========
-    if(!QFile::exists(OutPut_Path))
+    if(QFile::exists(OutPut_Path)==false)
     {
         if(SourceFile_fullPath_Original!=SourceFile_fullPath)
         {
             QFile::remove(SourceFile_fullPath);
-            SourceFile_fullPath = SourceFile_fullPath_Original;
         }
-        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale the picture.]"));
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath_Original+tr("]. Error: [Unable to scale the picture.]"));
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         mutex_ThreadNumRunning.lock();
@@ -127,43 +126,30 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //============================ 调整大小 ====================================================
     if(CustRes_isEnabled)
     {
-        int New_height=0;
-        int New_width=0;
-        if(CustRes_isEnabled)
+        do
         {
-            New_height= CustRes_height;
-            New_width= CustRes_width;
+            QImage qimage_adj(OutPut_Path);
+            //读取放大后的图片并调整大小
+            QImage qimage_adj_scaled = qimage_adj.scaled(CustRes_width,CustRes_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
+            QImageWriter qimageW_adj;
+            qimageW_adj.setFormat("png");
+            qimageW_adj.setFileName(OutPut_Path);
+            if(qimageW_adj.canWrite())
+            {
+                qimageW_adj.write(qimage_adj_scaled);
+            }
+            if(!QFile::exists(OutPut_Path))
+            {
+                emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
+                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
+                emit Send_progressbar_Add();
+                mutex_ThreadNumRunning.lock();
+                ThreadNumRunning--;
+                mutex_ThreadNumRunning.unlock();//线程数量统计-1
+                return 0;
+            }
         }
-        else
-        {
-            QMap<QString,int> res_map_OriginalFile = Image_Gif_Read_Resolution(SourceFile_fullPath);
-            New_height = res_map_OriginalFile["height"]*ScaleRatio;
-            New_width = res_map_OriginalFile["width"]*ScaleRatio;
-        }
-        QImage qimage_adj(OutPut_Path);
-        //读取放大后的图片并调整大小
-        QImage qimage_adj_scaled = qimage_adj.scaled(New_width,New_height,CustRes_AspectRatioMode,Qt::SmoothTransformation);
-        QImageWriter qimageW_adj;
-        qimageW_adj.setFormat("png");
-        qimageW_adj.setFileName(OutPut_Path);
-        if(qimageW_adj.canWrite())
-        {
-            qimageW_adj.write(qimage_adj_scaled);
-        }
-        if(!QFile::exists(OutPut_Path))
-        {
-            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to resize the scaled picture to the target size]"));
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-            emit Send_progressbar_Add();
-            mutex_ThreadNumRunning.lock();
-            ThreadNumRunning--;
-            mutex_ThreadNumRunning.unlock();//线程数量统计-1
-            return 0;
-        }
-        OutPutPath_Final = OutPut_Path;
-    }
-    if(CustRes_isEnabled)
-    {
+        while(false);
         QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+file_ext+".png";
         QFile::remove(OutPut_Path_CustRes);
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
