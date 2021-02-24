@@ -587,7 +587,7 @@ QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
 /*
 保存进度
 */
-void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration)
+void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration,int LastVideoClipNo)
 {
     QSettings *configIniWrite = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
     configIniWrite->setIniCodec(QTextCodec::codecForName("UTF-8"));
@@ -596,6 +596,7 @@ void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguratio
     configIniWrite->setValue("/Progress/isSplitComplete", isSplitComplete);
     configIniWrite->setValue("/Progress/isScaleComplete", isScaleComplete);
     configIniWrite->setValue("/Progress/OLDSegmentDuration", OLDSegmentDuration);
+    configIniWrite->setValue("/Progress/OLDSegmentDuration", LastVideoClipNo);
 }
 /*
 保存视频配置
@@ -621,6 +622,8 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     configIniWrite->setValue("/Progress/StartTime", 0);
     configIniWrite->setValue("/Progress/isSplitComplete", false);
     configIniWrite->setValue("/Progress/isScaleComplete", false);
+    configIniWrite->setValue("/Progress/OLDSegmentDuration", -1);
+    configIniWrite->setValue("/Progress/LastVideoClipNo", -1);
 }
 
 QString MainWindow::video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledFrameFolderPath)

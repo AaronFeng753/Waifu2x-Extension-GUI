@@ -1145,6 +1145,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     */
     int OLD_SegmentDuration=-1;
     bool read_OLD_SegmentDuration =false;
+    int LastVideoClipNo = -1;
     if(QFile::exists(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -1154,6 +1155,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         isSplitComplete = configIniRead->value("/Progress/isSplitComplete").toBool();
         isScaleComplete = configIniRead->value("/Progress/isScaleComplete").toBool();
         OLD_SegmentDuration = configIniRead->value("/Progress/OLDSegmentDuration").toInt();
+        LastVideoClipNo = configIniRead->value("/Progress/LastVideoClipNo").toInt();
     }
     if(OLD_SegmentDuration>0)
     {
@@ -1246,7 +1248,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             记录进度
             帧拆分成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false,SegmentDuration_tmp);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,false,SegmentDuration_tmp,LastVideoClipNo);
             //============================== 放大 =======================================
             //===========建立存储放大后frame的文件夹===========
             if(isSplitComplete==false)
@@ -1428,7 +1430,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             记录进度
             帧处理成功
             */
-            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true,SegmentDuration_tmp);
+            emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,true,true,SegmentDuration_tmp,LastVideoClipNo);
         }
         /*==========================
             组装视频片段(由帧到视频)
@@ -1437,7 +1439,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         {
             file_mkDir(VideoClipsFolderPath);
         }
-        int VideoClipNo = file_getFileNames_in_Folder_nofilter(VideoClipsFolderPath).size();
+        int VideoClipNo = LastVideoClipNo+1;
         video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
         QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
@@ -1458,7 +1460,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         StartTime+=SegmentDuration_tmp;
         isSplitComplete = false;
         isScaleComplete = false;
-        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1);
+        LastVideoClipNo=VideoClipNo;
+        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1,VideoClipNo);
     }
     emit Send_CurrentFileProgress_Stop();
     //======================================================

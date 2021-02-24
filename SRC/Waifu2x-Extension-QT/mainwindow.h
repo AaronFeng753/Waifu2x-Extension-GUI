@@ -642,7 +642,7 @@ public slots:
     int Settings_Save();//保存设置
 
     //存储进度
-    void video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration);
+    void video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration,int LastVideoClipNo);
 
     //================== 处理当前文件的进度 =========================
     void CurrentFileProgress_Start(QString FileName,int FrameNum);
@@ -1003,7 +1003,7 @@ signals:
 
     void Send_Settings_Save();
 
-    void Send_video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration);
+    void Send_video_write_Progress_ProcessBySegment(QString VideoConfiguration_fullPath,int StartTime,bool isSplitComplete,bool isScaleComplete,int OLDSegmentDuration,int LastVideoClipNo);
 
     //================== 处理当前文件的进度 =========================
     void Send_CurrentFileProgress_Start(QString FileName,int FrameNum);
