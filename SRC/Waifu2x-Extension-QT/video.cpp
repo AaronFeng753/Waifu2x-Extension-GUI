@@ -596,7 +596,7 @@ void MainWindow::video_write_Progress_ProcessBySegment(QString VideoConfiguratio
     configIniWrite->setValue("/Progress/isSplitComplete", isSplitComplete);
     configIniWrite->setValue("/Progress/isScaleComplete", isScaleComplete);
     configIniWrite->setValue("/Progress/OLDSegmentDuration", OLDSegmentDuration);
-    configIniWrite->setValue("/Progress/OLDSegmentDuration", LastVideoClipNo);
+    configIniWrite->setValue("/Progress/LastVideoClipNo", LastVideoClipNo);
 }
 /*
 保存视频配置
