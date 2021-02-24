@@ -221,6 +221,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/checkBox_isCompatible_RifeNcnnVulkan", ui->checkBox_isCompatible_RifeNcnnVulkan->isChecked());
     configIniWrite->setValue("/settings/checkBox_isCompatible_CainNcnnVulkan", ui->checkBox_isCompatible_CainNcnnVulkan->isChecked());
     //======================== 存储VFI 设定 ========================
+    configIniWrite->setValue("/settings/checkBox_MultiThread_VFI", ui->checkBox_MultiThread_VFI->isChecked());
     configIniWrite->setValue("/settings/checkBox_AutoAdjustNumOfThreads_VFI", ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked());
     configIniWrite->setValue("/settings/checkBox_FrameInterpolationOnly_Video", ui->checkBox_FrameInterpolationOnly_Video->isChecked());
     configIniWrite->setValue("/settings/groupBox_FrameInterpolation", ui->groupBox_FrameInterpolation->isChecked());
@@ -505,6 +506,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_isCompatible_RifeNcnnVulkan->setChecked(isCompatible_RifeNcnnVulkan);
     ui->checkBox_isCompatible_CainNcnnVulkan->setChecked(isCompatible_CainNcnnVulkan);
     //======================== 加载 VFI 设定 ========================
+    ui->checkBox_MultiThread_VFI->setChecked(Settings_Read_value("/settings/checkBox_MultiThread_VFI").toBool());
     ui->checkBox_AutoAdjustNumOfThreads_VFI->setChecked(Settings_Read_value("/settings/checkBox_AutoAdjustNumOfThreads_VFI").toBool());
     ui->checkBox_FrameInterpolationOnly_Video->setChecked(Settings_Read_value("/settings/checkBox_FrameInterpolationOnly_Video").toBool());
     ui->groupBox_FrameInterpolation->setChecked(Settings_Read_value("/settings/groupBox_FrameInterpolation").toBool());
@@ -557,6 +559,7 @@ int MainWindow::Settings_Read_Apply()
     //====
     on_checkBox_acodec_copy_2mp4_stateChanged(1);
     on_checkBox_vcodec_copy_2mp4_stateChanged(1);
+    on_checkBox_MultiThread_VFI_stateChanged(1);
     //==================================
     isReadOldSettings=false;
     QFile::remove(Current_Path+"/settings_old.ini");

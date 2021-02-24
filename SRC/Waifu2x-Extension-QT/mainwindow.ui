@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>733</height>
+    <height>731</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -7585,15 +7585,13 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                <item row="3" column="0">
                 <layout class="QHBoxLayout" name="horizontalLayout_9">
                  <item>
-                  <widget class="QLabel" name="label_28">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
+                  <widget class="QCheckBox" name="checkBox_MultiThread_VFI">
+                   <property name="toolTip">
+                    <string>The multi-threading of the frame interpolation engines is NOT
+very stable, we don't recommend you to enable this option.</string>
                    </property>
                    <property name="text">
-                    <string>Number of threads:</string>
+                    <string>Multithreading:</string>
                    </property>
                   </widget>
                  </item>
@@ -7604,6 +7602,9 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Number of threads.</string>
                    </property>
                    <property name="minimum">
                     <number>1</number>
@@ -7629,7 +7630,7 @@ of threads will be adjusted automatically.</string>
                     <string>Auto adjust</string>
                    </property>
                    <property name="checked">
-                    <bool>true</bool>
+                    <bool>false</bool>
                    </property>
                   </widget>
                  </item>

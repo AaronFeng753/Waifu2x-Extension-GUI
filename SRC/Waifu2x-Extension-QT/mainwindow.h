@@ -946,6 +946,10 @@ private slots:
 
     void on_checkBox_EnableVFI_Home_clicked();
 
+    void on_checkBox_MultiThread_VFI_stateChanged(int arg1);
+
+    void on_checkBox_MultiThread_VFI_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 

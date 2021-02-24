@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.22-beta:
+- Multithreading of frame interpolation engines will not be enabled by default.
 - Fix bug: When [Process video by segment] is enabled, if the user forcibly closes the program and then restarts the software to continue processing the video, it may cause a cache error.
 
 v3.11.21-beta:
