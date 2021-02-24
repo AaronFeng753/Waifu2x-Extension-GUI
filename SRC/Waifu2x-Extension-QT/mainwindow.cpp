@@ -1993,36 +1993,3 @@ void MainWindow::Set_checkBox_DisableResize_gif_Checked()
     emit Send_TextBrowser_NewMessage(tr("[Disable \"-resize\"] is automatically enabled to fix compatibility issue and improve performance."));
     ui->checkBox_DisableResize_gif->setChecked(true);
 }
-
-
-void MainWindow::on_checkBox_MultiThread_VFI_stateChanged(int arg1)
-{
-    if(ui->checkBox_MultiThread_VFI->isChecked())
-    {
-        ui->checkBox_AutoAdjustNumOfThreads_VFI->setEnabled(1);
-        ui->spinBox_NumOfThreads_VFI->setEnabled(1);
-    }
-    else
-    {
-        ui->checkBox_AutoAdjustNumOfThreads_VFI->setEnabled(0);
-        ui->checkBox_AutoAdjustNumOfThreads_VFI->setChecked(0);
-        ui->spinBox_NumOfThreads_VFI->setEnabled(0);
-        ui->spinBox_NumOfThreads_VFI->setValue(1);
-    }
-}
-
-void MainWindow::on_checkBox_MultiThread_VFI_clicked()
-{
-    if(ui->checkBox_MultiThread_VFI->isChecked())
-    {
-        ui->checkBox_AutoAdjustNumOfThreads_VFI->setEnabled(1);
-        ui->checkBox_AutoAdjustNumOfThreads_VFI->setChecked(1);
-        //========================
-        QMessageBox *MSG_2 = new QMessageBox();
-        MSG_2->setWindowTitle(tr("Warning"));
-        MSG_2->setText(tr("The multi-threading of the frame interpolation engines is NOT very stable, we don't recommend you to enable this option."));
-        MSG_2->setIcon(QMessageBox::Warning);
-        MSG_2->setModal(true);
-        MSG_2->show();
-    }
-}

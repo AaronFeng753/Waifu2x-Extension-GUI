@@ -122,7 +122,8 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     ============================================
     */
     int OLD_SegmentDuration=-1;
-    bool read_OLD_SegmentDuration =false;int LastVideoClipNo = -1;
+    bool read_OLD_SegmentDuration =false;
+    int LastVideoClipNo = -1;
     if(QFile::exists(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -131,7 +132,8 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         StartTime = configIniRead->value("/Progress/StartTime").toInt();
         isSplitComplete = configIniRead->value("/Progress/isSplitComplete").toBool();
         isScaleComplete = configIniRead->value("/Progress/isScaleComplete").toBool();
-        OLD_SegmentDuration = configIniRead->value("/Progress/OLDSegmentDuration").toInt();LastVideoClipNo = configIniRead->value("/Progress/LastVideoClipNo").toInt();
+        OLD_SegmentDuration = configIniRead->value("/Progress/OLDSegmentDuration").toInt();
+        LastVideoClipNo = configIniRead->value("/Progress/LastVideoClipNo").toInt();
     }
     if(OLD_SegmentDuration>0)
     {
@@ -250,7 +252,8 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         StartTime+=SegmentDuration_tmp;
         isSplitComplete = false;
         isScaleComplete = false;
-        LastVideoClipNo=VideoClipNo;emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1,VideoClipNo);
+        LastVideoClipNo=VideoClipNo;
+        emit Send_video_write_Progress_ProcessBySegment(VideoConfiguration_fullPath,StartTime,false,false,-1,VideoClipNo);
     }
     emit Send_CurrentFileProgress_Stop();
     //======================================================
@@ -927,4 +930,36 @@ void MainWindow::on_pushButton_Verify_MultiGPU_VFI_clicked()
     MSG->setIcon(QMessageBox::Information);
     MSG->setModal(true);
     MSG->show();
+}
+
+void MainWindow::on_checkBox_MultiThread_VFI_stateChanged(int arg1)
+{
+    if(ui->checkBox_MultiThread_VFI->isChecked())
+    {
+        ui->checkBox_AutoAdjustNumOfThreads_VFI->setEnabled(1);
+        ui->spinBox_NumOfThreads_VFI->setEnabled(1);
+    }
+    else
+    {
+        ui->checkBox_AutoAdjustNumOfThreads_VFI->setEnabled(0);
+        ui->checkBox_AutoAdjustNumOfThreads_VFI->setChecked(0);
+        ui->spinBox_NumOfThreads_VFI->setEnabled(0);
+        ui->spinBox_NumOfThreads_VFI->setValue(1);
+    }
+}
+
+void MainWindow::on_checkBox_MultiThread_VFI_clicked()
+{
+    if(ui->checkBox_MultiThread_VFI->isChecked())
+    {
+        ui->checkBox_AutoAdjustNumOfThreads_VFI->setEnabled(1);
+        ui->checkBox_AutoAdjustNumOfThreads_VFI->setChecked(1);
+        //========================
+        QMessageBox *MSG_2 = new QMessageBox();
+        MSG_2->setWindowTitle(tr("Warning"));
+        MSG_2->setText(tr("The multi-threading of the frame interpolation engines is NOT very stable, we don't recommend you to enable this option."));
+        MSG_2->setIcon(QMessageBox::Warning);
+        MSG_2->setModal(true);
+        MSG_2->show();
+    }
 }
