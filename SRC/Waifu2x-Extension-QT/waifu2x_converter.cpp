@@ -337,9 +337,17 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
+    //====
     QMap<QString,QString> Sub_Thread_info;
-    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    Sub_Thread_info["ScaledFramesFolderPath"]= ScaledFramesFolderPath;
+    if(CustRes_isEnabled == true)
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SourceFile_fullPath,CustRes_height,CustRes_width));
+    }
+    else
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_gif->value());
+    }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
@@ -459,15 +467,6 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     bool AllFinished;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
-    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
-    //===========
-    int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
-    //========================================================================
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
     //===========
     QString Denoise_cmd = " --noise-level " + QString::number(ui->spinBox_DenoiseLevel_gif->value(), 10);
     QString program = Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe";
@@ -480,7 +479,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     }
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
+    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     QProcess *Waifu2x = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
@@ -789,7 +788,14 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    if(CustRes_isEnabled == true)
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
+    }
+    else
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ScaleRatio);
+    }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
@@ -1271,7 +1277,14 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             bool Frame_failed = false;//放大失败标志
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-            Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+            if(CustRes_isEnabled == true)
+            {
+                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
+            }
+            else
+            {
+                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ScaleRatio);
+            }
             //=========================
             for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
             {
@@ -1433,15 +1446,6 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     bool AllFinished;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
-    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
-    //===========
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
-    //========================================================================
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
     //===========
     QString Denoise_cmd = " --noise-level " + QString::number(ui->spinBox_DenoiseLevel_video->value(), 10);
     QString program = Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe";
@@ -1454,7 +1458,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     }
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
+    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     QProcess *Waifu2x = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)

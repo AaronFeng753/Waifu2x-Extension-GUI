@@ -346,9 +346,17 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     }
     //=========================
     bool Frame_failed = false;//放大失败标志
+    //====
     QMap<QString,QString> Sub_Thread_info;
-    Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    Sub_Thread_info["ScaledFramesFolderPath"]= ScaledFramesFolderPath;
+    if(CustRes_isEnabled == true)
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SourceFile_fullPath,CustRes_height,CustRes_width));
+    }
+    else
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_gif->value());
+    }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
@@ -468,16 +476,9 @@ int MainWindow::Waifu2x_Caffe_GIF_scale(QMap<QString, QString> Sub_Thread_info,i
     bool AllFinished=true;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
-    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     //===========
-    int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+    int ScaleRatio = Sub_Thread_info["ScaleRatio"].toInt();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
-    //========================================================================
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
     //===========
     QString program = Current_Path + "/waifu2x-caffe/waifu2x-caffe_waifu2xEX.exe";
     //====
@@ -810,7 +811,14 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+    if(CustRes_isEnabled == true)
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
+    }
+    else
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ScaleRatio);
+    }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
@@ -1284,7 +1292,14 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
             bool Frame_failed = false;//放大失败标志
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-            Sub_Thread_info["SourceFile_fullPath"] = SourceFile_fullPath;
+            if(CustRes_isEnabled == true)
+            {
+                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
+            }
+            else
+            {
+                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ScaleRatio);
+            }
             //=========================
             for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
             {
@@ -1439,23 +1454,17 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
     //===========================  ==============================
     return 0;
 }
-
-
+/*
+视频帧放大函数
+*/
 int MainWindow::Waifu2x_Caffe_Video_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_video_ThreadNumRunning,bool *Frame_failed)
 {
     bool AllFinished=true;
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
-    QString SourceFile_fullPath = Sub_Thread_info["SourceFile_fullPath"];
     //===========
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = Sub_Thread_info["ScaleRatio"].toInt();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
-    //========================================================================
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
-    }
     //===========
     QString program = Current_Path + "/waifu2x-caffe/waifu2x-caffe_waifu2xEX.exe";
     //====

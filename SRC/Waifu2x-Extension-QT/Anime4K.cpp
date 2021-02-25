@@ -333,8 +333,7 @@ int MainWindow::Anime4k_GIF(int rowNum)
         }
         start_num+=FramesNumForEachGPU;
     }
-    //=========================
-    bool Frame_failed = false;//放大失败标志
+    //===
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
     if(CustRes_isEnabled == true)
@@ -345,6 +344,8 @@ int MainWindow::Anime4k_GIF(int rowNum)
     {
         Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_gif->value());
     }
+    //=========================
+    bool Frame_failed = false;//放大失败标志
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
     {
