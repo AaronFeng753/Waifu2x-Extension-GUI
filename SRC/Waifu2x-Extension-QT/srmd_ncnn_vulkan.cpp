@@ -366,11 +366,14 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     }
     //==========开始放大==========================
     //读取放大倍数
-    int ScaleRatio_Original = ui->spinBox_ScaleRatio_gif->value();
-    if(CustRes_isContained(SourceFile_fullPath))
+    int ScaleRatio_Original = 2;
+    if(CustRes_isEnabled == true)
     {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio_Original = CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        ScaleRatio_Original = CustRes_CalNewScaleRatio(SourceFile_fullPath,CustRes_height,CustRes_width);
+    }
+    else
+    {
+        ScaleRatio_Original = ui->spinBox_ScaleRatio_gif->value();
     }
     QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
     int ScaleRatio_Max=result_map["ScaleRatio_tmp"];
