@@ -591,7 +591,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     if(CustRes_isContained(SourceFile_fullPath))
     {
         CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(video_mp4_fullpath);//res_map["fullpath"],["height"],["width"]
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
         CustRes_height=Res_map["height"].toInt();
         CustRes_width=Res_map["width"].toInt();
     }
@@ -956,7 +956,7 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     if(CustRes_isContained(SourceFile_fullPath))
     {
         CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(video_mp4_fullpath);//res_map["fullpath"],["height"],["width"]
+        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
         CustRes_height=Res_map["height"].toInt();
         CustRes_width=Res_map["width"].toInt();
     }
