@@ -34,8 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.23-beta:
+-
+
 v3.11.22-beta:
 - Multithreading of frame interpolation engines will not be enabled by default.
+- Update FFmpeg&FFprobe.
 - Fix bug: When [Process video by segment] is enabled, if the user forcibly closes the program and then restarts the software to continue processing the video, it may cause a cache error.
 
 v3.11.21-beta:
@@ -60,7 +64,7 @@ Integrated component:
 - RealSR-NCNN-Vulkan 20210210
 - ImageMagick 7.0.11-1-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-02-20-git-51a9f487ae-full_build
+- FFmpeg&FFprobe 2021-02-23-git-78d5e1c653-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3

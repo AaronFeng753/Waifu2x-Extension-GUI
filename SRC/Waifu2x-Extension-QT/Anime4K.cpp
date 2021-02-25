@@ -24,7 +24,7 @@
 int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_image->value();
+    int ScaleRatio = 0;
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
     QString OutPutPath_Final ="";
@@ -44,7 +44,9 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //========= 转换到 PNG =========
     QString SourceFile_fullPath_Original = SourceFile_fullPath;
     SourceFile_fullPath = Imgae_PreProcess(SourceFile_fullPath_Original,ReProcess_MissingAlphaChannel);
-    //=======================================================
+    //================================
+    //  自定义分辨率设定
+    //================================
     bool CustRes_isEnabled = false;
     int CustRes_height=0;
     int CustRes_width=0;
@@ -66,21 +68,23 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         CustRes_height=Res_map["height"].toInt();
         CustRes_width=Res_map["width"].toInt();
     }
+    else
+    {
+        ScaleRatio = ui->spinBox_ScaleRatio_image->value();
+    }
     //=======================================================
     QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(SourceFile_fullPath);
-    QString file_ext = fileinfo.suffix();
-    QString file_path = file_getFolderPath(fileinfo);
-    QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+file_ext+".png";
+    QString SourceFile_fullPath_FileName = file_getBaseName(SourceFile_fullPath);
+    QString SourceFile_fullPath_FileExt = fileinfo.suffix();
+    QString SourceFile_fullPath_FolderPath = file_getFolderPath(fileinfo);
+    QString OutPut_Path = SourceFile_fullPath_FolderPath + "/" + SourceFile_fullPath_FileName + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+SourceFile_fullPath_FileExt+".png";
     //============================== 放大 =======================================
-    QString program = Anime4k_ProgramPath;
-    //====
     QProcess *Waifu2x = new QProcess();
-    QString cmd = "\"" + program + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_image + Anime4k_ReadSettings(PreserveAlphaChannel);
+    QString CMD = "\"" + Anime4k_ProgramPath + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_image + Anime4k_ReadSettings(PreserveAlphaChannel);
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        Waifu2x->start(cmd);
+        Waifu2x->start(CMD);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
         {
@@ -122,9 +126,8 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         mutex_ThreadNumRunning.unlock();
         return 0;
     }
-    OutPutPath_Final = OutPut_Path;
     //============================ 调整大小 ====================================================
-    if(CustRes_isEnabled)
+    if(CustRes_isEnabled == true)
     {
         do
         {
@@ -150,19 +153,22 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
             }
         }
         while(false);
-        QString OutPut_Path_CustRes = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+file_ext+".png";
+        QString OutPut_Path_CustRes = SourceFile_fullPath_FolderPath + "/" + SourceFile_fullPath_FileName + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height, 10)+"_"+SourceFile_fullPath_FileExt+".png";
         QFile::remove(OutPut_Path_CustRes);
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
-        OutPutPath_Final = OutPut_Path_CustRes;
+        //=========================== 另存为JPG&压缩JPG ===========================================
+        OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,ScaleRatio,false,0);
     }
-    //=========================== 另存为JPG&压缩JPG ===========================================
-    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,false,0);
+    else
+    {
+        //=========================== 另存为JPG&压缩JPG ===========================================
+        OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,ScaleRatio,false,0);
+    }
     //================== 检查是否丢失了透明通道 =====================
     if(ReProcess_MissingAlphaChannel==false)
     {
-        QImage QImage_source(SourceFile_fullPath_Original);
         QImage QImage_Final(OutPutPath_Final);
-        if(QImage_source.hasAlphaChannel()==true && QImage_Final.hasAlphaChannel()==false && ui->checkBox_AutoDetectAlphaChannel->isChecked())
+        if(PreserveAlphaChannel == true && QImage_Final.hasAlphaChannel() == false && ui->checkBox_AutoDetectAlphaChannel->isChecked())
         {
             QFile::remove(OutPutPath_Final);
             emit Send_TextBrowser_NewMessage(tr("Since the Alpha channel in the resulting image is lost, this image will be reprocessed to fix it:[")+SourceFile_fullPath_Original+tr("].\nIf the reprocessing happens a lot, you should consider enable [Always pre-process images with Alpha Channel] in [Additional settings]."));
@@ -173,19 +179,18 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     if(SourceFile_fullPath_Original!=SourceFile_fullPath)
     {
         QFile::remove(SourceFile_fullPath);
-        SourceFile_fullPath = SourceFile_fullPath_Original;
     }
-    if(DelOriginal)
+    if(DelOriginal == true)
     {
-        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
+        if(ReplaceOriginalFile(SourceFile_fullPath_Original,OutPutPath_Final)==false)
         {
             if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
-                file_MoveToTrash(SourceFile_fullPath);
+                file_MoveToTrash(SourceFile_fullPath_Original);
             }
             else
             {
-                QFile::remove(SourceFile_fullPath);
+                QFile::remove(SourceFile_fullPath_Original);
             }
         }
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Finished, original file deleted");
@@ -197,7 +202,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
+        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath_Original);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -205,6 +210,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     mutex_ThreadNumRunning.lock();
     ThreadNumRunning--;
     mutex_ThreadNumRunning.unlock();//线程数量统计-1
+    //=======
     return 0;
 }
 /*
