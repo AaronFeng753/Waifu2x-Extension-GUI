@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.23-beta:
--
+- Optimize performance.
 
 v3.11.22-beta:
 - Multithreading of frame interpolation engines will not be enabled by default.
