@@ -72,12 +72,9 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaCh
     QString file_path = file_getFolderPath(fileinfo);
     QString OutPut_Path = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(DenoiseLevel, 10)+"n_"+file_ext+".png";
     //============================== 放大 =======================================
-    QString Waifu2x_folder_path = Current_Path + "/waifu2x-converter";
-    QString program = Waifu2x_folder_path + "/waifu2x-converter-cpp_waifu2xEX.exe";
-    QString model_path= Waifu2x_folder_path + "/models_rgb";
     QString Denoise_cmd = " --noise-level " + QString::number(DenoiseLevel, 10);
     //====
-    QString cmd = "\"" + program + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
+    QString cmd = "\"" + Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe" + "\"" + " -i " + "\"" + SourceFile_fullPath + "\"" + " -o " + "\"" + OutPut_Path + "\"" + " --scale-ratio " + QString::number(ScaleRatio, 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
@@ -216,7 +213,6 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
-    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -340,13 +336,14 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     //====
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]= ScaledFramesFolderPath;
+    Sub_Thread_info["Denoise_cmd"] = " --noise-level " + QString::number(DenoiseLevel, 10);
     if(CustRes_isEnabled == true)
     {
         Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SourceFile_fullPath,CustRes_height,CustRes_width));
     }
     else
     {
-        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->spinBox_ScaleRatio_gif->value());
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ScaleRatio);
     }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)
@@ -391,8 +388,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     FileProgressWatch_QFuture.cancel();
     emit Send_CurrentFileProgress_Stop();
     //======================= 检查是否成功放大所有帧 ===========================
-    QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list.size()!=Frame_fileName_list_scaled.size())
+    if(Frame_fileName_list.size() != file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath).size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Failed to scale frames.]"));
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
@@ -401,12 +397,12 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
-    if(CustRes_isEnabled)
+    if(CustRes_isEnabled == true)
     {
         ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n.gif";
     }
     Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width,false,"");
-    if(!QFile::exists(ResGIFPath))
+    if(QFile::exists(ResGIFPath) == false)
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble gif.]"));
         emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
@@ -416,10 +412,10 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     OutPutPath_Final = ResGIFPath;
     //======================================= 优化gif ===================================================
-    if(OptGIF)
+    if(ui->checkBox_OptGIF->isChecked() == true)
     {
         QString ResGIFPath_compressed = "";
-        if(CustRes_isEnabled)
+        if(CustRes_isEnabled == true)
         {
             ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_"+QString::number(DenoiseLevel, 10)+"n_opt.gif";
         }
@@ -458,7 +454,7 @@ int MainWindow::Waifu2x_Converter_GIF(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //===========================  ==============================
+    //=======
     return 0;
 }
 
@@ -468,8 +464,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     //===========
-    QString Denoise_cmd = " --noise-level " + QString::number(ui->spinBox_DenoiseLevel_gif->value(), 10);
-    QString program = Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe";
+    QString Denoise_cmd = Sub_Thread_info["Denoise_cmd"];
     //========================================================================
     QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     QStringList OutPutFilesFullPathList;
@@ -479,7 +474,7 @@ int MainWindow::Waifu2x_Converter_GIF_scale(QMap<QString, QString> Sub_Thread_in
     }
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
+    QString cmd = "\"" + Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe" + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     QProcess *Waifu2x = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
@@ -788,6 +783,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+    Sub_Thread_info["Denoise_cmd"] = " --noise-level " + QString::number(DenoiseLevel, 10);
     if(CustRes_isEnabled == true)
     {
         Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
@@ -1277,6 +1273,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
             bool Frame_failed = false;//放大失败标志
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
+            Sub_Thread_info["Denoise_cmd"] = " --noise-level " + QString::number(DenoiseLevel, 10);
             if(CustRes_isEnabled == true)
             {
                 Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
@@ -1447,8 +1444,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     //===========
-    QString Denoise_cmd = " --noise-level " + QString::number(ui->spinBox_DenoiseLevel_video->value(), 10);
-    QString program = Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe";
+    QString Denoise_cmd = Sub_Thread_info["Denoise_cmd"];
     //========================================================================
     QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     QStringList OutPutFilesFullPathList;
@@ -1458,7 +1454,7 @@ int MainWindow::Waifu2x_Converter_Video_scale(QMap<QString,QString> Sub_Thread_i
     }
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + program + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
+    QString cmd = "\"" + Current_Path + "/waifu2x-converter/waifu2x-converter-cpp_waifu2xEX.exe" + "\"" + " -a 0 -r 0 -i " + "\"" + SplitFramesFolderPath + "\"" + " -o " + "\"" + ScaledFramesFolderPath + "\"" + " --scale-ratio " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + Denoise_cmd + Waifu2xConverter_ReadSettings();
     QProcess *Waifu2x = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
