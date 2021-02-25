@@ -742,11 +742,14 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     }
     //==========开始放大==========================
     //读取放大倍数
-    int ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
-    if(CustRes_isContained(SourceFile_fullPath))
+    int ScaleRatio_Original = 2;
+    if(CustRes_isEnabled == true)
     {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width);
+    }
+    else
+    {
+        ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
     }
     QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
     int ScaleRatio_Max=result_map["ScaleRatio_tmp"];
@@ -1269,11 +1272,14 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             //==========开始放大==========================
             //读取放大倍数
-            int ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
-            if(CustRes_isContained(SourceFile_fullPath))
+            int ScaleRatio_Original = 2;
+            if(CustRes_isEnabled == true)
             {
-                QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-                ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt());
+                ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width);
+            }
+            else
+            {
+                ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
             }
             QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
             int ScaleRatio_Max=result_map["ScaleRatio_tmp"];

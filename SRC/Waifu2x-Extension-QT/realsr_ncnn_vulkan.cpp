@@ -734,11 +734,14 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     }
     //==========开始放大==========================
     //读取放大倍数
-    int ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
-    if(CustRes_isContained(SourceFile_fullPath))
+    int ScaleRatio_Original = 2;
+    if(CustRes_isEnabled == true)
     {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt());
+        ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width);
+    }
+    else
+    {
+        ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
     }
     int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
@@ -1254,11 +1257,14 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             //==========开始放大==========================
             //读取放大倍数
-            int ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
-            if(CustRes_isContained(SourceFile_fullPath))
+            int ScaleRatio_Original = 2;
+            if(CustRes_isEnabled == true)
             {
-                QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-                ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt());
+                ScaleRatio_Original = CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width);
+            }
+            else
+            {
+                ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
             }
             int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
             isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
