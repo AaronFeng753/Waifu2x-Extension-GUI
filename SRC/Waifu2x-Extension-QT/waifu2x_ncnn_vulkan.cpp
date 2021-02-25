@@ -564,17 +564,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         return 0;
     }
     //==========================
-    bool CustRes_isEnabled = false;
-    int CustRes_height=0;
-    int CustRes_width=0;
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
-    }
-    //==========================
     QFileInfo fileinfo_SourceFile_fullPath(SourceFile_fullPath);
     QString SourceFile_fullPath_BaseName = file_getBaseName(SourceFile_fullPath);
     QString SourceFile_fullPath_suffix = fileinfo_SourceFile_fullPath.suffix();
@@ -588,6 +577,17 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
+    }
+    //=========== 读取自定义分辨率 ===============
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(video_mp4_fullpath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
     }
     //=================
     QString AudioPath = SourceFile_fullPath_FolderPath+"/audio_"+SourceFile_fullPath_BaseName+"_"+SourceFile_fullPath_suffix+"_waifu2x.wav";//音频
@@ -977,17 +977,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         return 0;
     }
     //==========================
-    bool CustRes_isEnabled = false;
-    int CustRes_height=0;
-    int CustRes_width=0;
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
-    }
-    //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
@@ -1001,6 +990,17 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
+    }
+    //============ 读取自定义分辨率 ==============
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(video_mp4_fullpath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
     }
     //=================
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频

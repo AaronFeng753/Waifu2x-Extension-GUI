@@ -92,11 +92,9 @@ bool MainWindow::Image_Gif_AutoSkip_CustRes(int rowNum,bool isGif)
     }
     if(CustRes_isContained(SourceFile_fullPath))
     {
-        int CustRes_height=0;
-        int CustRes_width=0;
         QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
+        int CustRes_height=Res_map["height"].toInt();
+        int CustRes_width=Res_map["width"].toInt();
         //=========================
         QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceFile_fullPath);
         int original_height = res_map["height"];

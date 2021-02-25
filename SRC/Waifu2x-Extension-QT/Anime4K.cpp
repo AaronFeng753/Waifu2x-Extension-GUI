@@ -337,10 +337,9 @@ int MainWindow::Anime4k_GIF(int rowNum)
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    if(CustRes_isContained(SourceFile_fullPath))
+    if(CustRes_isEnabled == true)
     {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SourceFile_fullPath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(SourceFile_fullPath,CustRes_height,CustRes_width));
     }
     else
     {
@@ -565,17 +564,6 @@ int MainWindow::Anime4k_Video(int rowNum)
         return 0;
     }
     //==========================
-    bool CustRes_isEnabled = false;
-    int CustRes_height=0;
-    int CustRes_width=0;
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
-    }
-    //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
@@ -593,6 +581,19 @@ int MainWindow::Anime4k_Video(int rowNum)
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
     QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
     QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
+    //==========================
+    // 读取自定义分辨率设定
+    //==========================
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(video_mp4_fullpath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
+    }
     //==========================
     //   检测之前的视频配置文件
     //==========================
@@ -785,10 +786,9 @@ int MainWindow::Anime4k_Video(int rowNum)
     bool Frame_failed = false;//放大失败标志
     QMap<QString,QString> Sub_Thread_info;
     Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-    if(CustRes_isContained(SourceFile_fullPath))
+    if(CustRes_isEnabled == true)
     {
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
     }
     else
     {
@@ -848,7 +848,7 @@ int MainWindow::Anime4k_Video(int rowNum)
     }
     //======================================== 组装 ======================================================
     QString video_mp4_scaled_fullpath = "";
-    if(CustRes_isEnabled)
+    if(CustRes_isEnabled == true)
     {
         video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+file_ext+".mp4";
     }
@@ -934,17 +934,6 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
         return 0;
     }
     //==========================
-    bool CustRes_isEnabled = false;
-    int CustRes_height=0;
-    int CustRes_width=0;
-    if(CustRes_isContained(SourceFile_fullPath))
-    {
-        CustRes_isEnabled=true;
-        QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-        CustRes_height=Res_map["height"].toInt();
-        CustRes_width=Res_map["width"].toInt();
-    }
-    //==========================
     QFileInfo fileinfo(SourceFile_fullPath);
     QString file_name = file_getBaseName(SourceFile_fullPath);
     QString file_ext = fileinfo.suffix();
@@ -958,6 +947,17 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
+    }
+    //============= 读取自定义分辨率 =============
+    bool CustRes_isEnabled = false;
+    int CustRes_height=0;
+    int CustRes_width=0;
+    if(CustRes_isContained(SourceFile_fullPath))
+    {
+        CustRes_isEnabled=true;
+        QMap<QString, QString> Res_map = CustRes_getResMap(video_mp4_fullpath);//res_map["fullpath"],["height"],["width"]
+        CustRes_height=Res_map["height"].toInt();
+        CustRes_width=Res_map["width"].toInt();
     }
     //=================
     QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
@@ -1264,10 +1264,9 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
             bool Frame_failed = false;//放大失败标志
             QMap<QString,QString> Sub_Thread_info;
             Sub_Thread_info["ScaledFramesFolderPath"]=ScaledFramesFolderPath;
-            if(CustRes_isContained(SourceFile_fullPath))
+            if(CustRes_isEnabled == true)
             {
-                QMap<QString, QString> Res_map = CustRes_getResMap(SourceFile_fullPath);//res_map["fullpath"],["height"],["width"]
-                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+                Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(video_mp4_fullpath,CustRes_height,CustRes_width));
             }
             else
             {
@@ -1437,39 +1436,43 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
     QString SplitFramesFolderPath = Sub_Thread_info["SplitFramesFolderPath"];
     QString ScaledFramesFolderPath = Sub_Thread_info["ScaledFramesFolderPath"];
     //===========
-    int ScaleRatio = Sub_Thread_info["ScaleRatio"].toInt();
-    //===========
-    QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
     QStringList OutPutFilesFullPathList;
-    for(int i=0; i<InputFilesNameList.size(); i++)
+    do
     {
-        OutPutFilesFullPathList.append(ScaledFramesFolderPath+"/"+InputFilesNameList.at(i));
+        QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
+        for(int i=0; i<InputFilesNameList.size(); i++)
+        {
+            OutPutFilesFullPathList.append(ScaledFramesFolderPath+"/"+InputFilesNameList.at(i));
+        }
     }
+    while(false);
     int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
     //=======
-    QString cmd = "\"" + Anime4k_ProgramPath + "\" -i \"" + SplitFramesFolderPath + "\" -o \"" + ScaledFramesFolderPath + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_video + Anime4k_ReadSettings(false);
-    QProcess *Waifu2x = new QProcess();
+    QString CMD = "\"" + Anime4k_ProgramPath + "\" -i \"" + SplitFramesFolderPath + "\" -o \"" + ScaledFramesFolderPath + "\" -z " + QString::number(Sub_Thread_info["ScaleRatio"].toInt(), 10) + HDNDenoiseLevel_video + Anime4k_ReadSettings(false);
+    QProcess *Anime4k = new QProcess();
     //=======
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
-        Waifu2x->start(cmd);
-        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
-        while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
+        Anime4k->start(CMD);
+        while(!Anime4k->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Anime4k->waitForFinished(500)&&!QProcess_stop)
         {
             if(waifu2x_STOP)
             {
                 QStringList FinfishedFileList = WaitForEngineIO(OutPutFilesFullPathList);
-                Waifu2x->close();
+                Anime4k->close();
                 //============
-                QString file_fullpath_tmp;
+                QString file_fullpath_tmp="";
+                QString file_name="";
+                QString file_ext="";
                 for(int i=0; i<OutPutFilesFullPathList_size; i++)
                 {
                     file_fullpath_tmp = OutPutFilesFullPathList.at(i);
                     if(FinfishedFileList.contains(file_fullpath_tmp))
                     {
                         QFileInfo fileinfo(file_fullpath_tmp);
-                        QString file_name = file_getBaseName(file_fullpath_tmp);
-                        QString file_ext = fileinfo.suffix();
+                        file_name = file_getBaseName(file_fullpath_tmp);
+                        file_ext = fileinfo.suffix();
                         QFile::remove(SplitFramesFolderPath + "/" + file_name + "." + file_ext);
                     }
                     else
@@ -1496,7 +1499,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
                 break;
             }
         }
-        if(AllFinished)break;
+        if(AllFinished== true)break;
     }
     //=========
     AllFinished = true;
@@ -1508,7 +1511,7 @@ int MainWindow::Anime4k_Video_scale(QMap<QString,QString> Sub_Thread_info,int *S
             break;
         }
     }
-    if(AllFinished)
+    if(AllFinished == true)
     {
         file_DelDir(SplitFramesFolderPath);
     }
