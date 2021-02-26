@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.11.24-beta";//软件版本号
+    QString VERSION = "v3.11.25-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.11.19";
-    QString LastBetaVer = "v3.11.24-beta";
+    QString LastBetaVer = "v3.11.25-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -417,6 +417,9 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    void TurnOffScreen();
+    QFuture<void> TurnOffScreen_QF;//监视waifu2x主线程
+
     bool FileProgressWatch_isEnabled = true;//是否启用输出文件夹进度监控线程
 
     int ForceRetryCount = 1;
@@ -949,6 +952,8 @@ private slots:
     void on_checkBox_MultiThread_VFI_stateChanged(int arg1);
 
     void on_checkBox_MultiThread_VFI_clicked();
+
+    void on_pushButton_TurnOffScreen_clicked();
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

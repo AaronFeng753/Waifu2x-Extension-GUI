@@ -36,5 +36,8 @@
         <file>icon/ResizeFilesListSplitter.png</file>
         <file>icon/ResizeFilesListSplitter_disabled.png</file>
         <file>icon/ResizeFilesListSplitter_hover.png</file>
+        <file>icon/TurnOffScreen.png</file>
+        <file>icon/TurnOffScreen_disabled.png</file>
+        <file>icon/TurnOffScreen_hover.png</file>
     </qresource>
 </RCC>

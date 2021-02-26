@@ -2009,3 +2009,19 @@ void MainWindow::Set_checkBox_DisableResize_gif_Checked()
     emit Send_TextBrowser_NewMessage(tr("[Disable \"-resize\"] is automatically enabled to fix compatibility issue and improve performance."));
     ui->checkBox_DisableResize_gif->setChecked(true);
 }
+
+void MainWindow::on_pushButton_TurnOffScreen_clicked()
+{
+    if(TurnOffScreen_QF.isRunning() == true)return;
+    TurnOffScreen_QF = QtConcurrent::run(this, &MainWindow::TurnOffScreen);//关闭显示器
+}
+
+void MainWindow::TurnOffScreen()
+{
+    QProcess *OffScreen = new QProcess();
+    OffScreen->start(Current_Path+"/nircmd-x64/nircmd.exe monitor off");
+    OffScreen->waitForStarted(5000);
+    OffScreen->waitForFinished(5000);
+    OffScreen->kill();
+    return;
+}

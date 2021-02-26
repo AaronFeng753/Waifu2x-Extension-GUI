@@ -1132,235 +1132,6 @@ software into a directory that can run normally without administrator rights.</s
                 <property name="bottomMargin">
                  <number>0</number>
                 </property>
-                <item row="0" column="0">
-                 <widget class="QPushButton" name="pushButton_ClearList">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>35</width>
-                    <height>35</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Remove all the files in the File list.</string>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton{
-image: url(:/new/prefix1/icon/ClearList.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:hover{
-image: url(:/new/prefix1/icon/ClearList_hover.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:pressed{
-image: url(:/new/prefix1/icon/ClearList.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:disabled{
-image: url(:/new/prefix1/icon/ClearList_disabled.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="1">
-                 <widget class="QPushButton" name="pushButton_RemoveItem">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>35</width>
-                    <height>35</height>
-                   </size>
-                  </property>
-                  <property name="maximumSize">
-                   <size>
-                    <width>16777215</width>
-                    <height>16777215</height>
-                   </size>
-                  </property>
-                  <property name="contextMenuPolicy">
-                   <enum>Qt::ActionsContextMenu</enum>
-                  </property>
-                  <property name="toolTip">
-                   <string>Remove the selected file from File List.
-
-[Right click here to show more options]</string>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton{
-image: url(:/new/prefix1/icon/RemoveItem.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:hover{
-image: url(:/new/prefix1/icon/RemoveItem_hover.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:pressed{
-image: url(:/new/prefix1/icon/RemoveItem.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:disabled{
-image: url(:/new/prefix1/icon/RemoveItem_disabled.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="2">
-                 <widget class="Line" name="line_20">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="3">
-                 <widget class="QPushButton" name="pushButton_ResizeFilesListSplitter">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>35</width>
-                    <height>35</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Reset Files List scale.</string>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton{
-image: url(:/new/prefix1/icon/ResizeFilesListSplitter.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:hover{
-image: url(:/new/prefix1/icon/ResizeFilesListSplitter_hover.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:pressed{
-image: url(:/new/prefix1/icon/ResizeFilesListSplitter.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:disabled{
-image: url(:/new/prefix1/icon/ResizeFilesListSplitter_disabled.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="4">
-                 <widget class="Line" name="line_25">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                 </widget>
-                </item>
-                <item row="0" column="5">
-                 <widget class="QPushButton" name="pushButton_SaveFileList">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>35</width>
-                    <height>35</height>
-                   </size>
-                  </property>
-                  <property name="toolTip">
-                   <string>Save Files List</string>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">QPushButton{
-image: url(:/new/prefix1/icon/Save_FileList.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:hover{
-image: url(:/new/prefix1/icon/Save_FileList_hover.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:pressed{
-image: url(:/new/prefix1/icon/Save_FileList.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}
-QPushButton:disabled{
-image: url(:/new/prefix1/icon/Save_FileList_disabled.png);
-border-style:transparent;
-border-radius:0px;
-padding:0px;
-}</string>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="iconSize">
-                   <size>
-                    <width>35</width>
-                    <height>35</height>
-                   </size>
-                  </property>
-                 </widget>
-                </item>
                 <item row="0" column="6">
                  <widget class="QPushButton" name="pushButton_ReadFileList">
                   <property name="sizePolicy">
@@ -1434,6 +1205,120 @@ padding:0px;
                   </property>
                  </widget>
                 </item>
+                <item row="0" column="4">
+                 <widget class="Line" name="line_25">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QPushButton" name="pushButton_ResizeFilesListSplitter">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Reset Files List scale.</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+image: url(:/new/prefix1/icon/ResizeFilesListSplitter.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:hover{
+image: url(:/new/prefix1/icon/ResizeFilesListSplitter_hover.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:pressed{
+image: url(:/new/prefix1/icon/ResizeFilesListSplitter.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:disabled{
+image: url(:/new/prefix1/icon/ResizeFilesListSplitter_disabled.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="pushButton_RemoveItem">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="contextMenuPolicy">
+                   <enum>Qt::ActionsContextMenu</enum>
+                  </property>
+                  <property name="toolTip">
+                   <string>Remove the selected file from File List.
+
+[Right click here to show more options]</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+image: url(:/new/prefix1/icon/RemoveItem.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:hover{
+image: url(:/new/prefix1/icon/RemoveItem_hover.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:pressed{
+image: url(:/new/prefix1/icon/RemoveItem.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:disabled{
+image: url(:/new/prefix1/icon/RemoveItem_disabled.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
                 <item row="0" column="8">
                  <widget class="QPushButton" name="pushButton_BrowserFile">
                   <property name="sizePolicy">
@@ -1479,6 +1364,186 @@ padding:0px;
                   </property>
                   <property name="text">
                    <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="Line" name="line_20">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="pushButton_ClearList">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>16777215</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Remove all the files in the File list.</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+image: url(:/new/prefix1/icon/ClearList.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:hover{
+image: url(:/new/prefix1/icon/ClearList_hover.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:pressed{
+image: url(:/new/prefix1/icon/ClearList.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:disabled{
+image: url(:/new/prefix1/icon/ClearList_disabled.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="5">
+                 <widget class="QPushButton" name="pushButton_SaveFileList">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Save Files List</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+image: url(:/new/prefix1/icon/Save_FileList.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:hover{
+image: url(:/new/prefix1/icon/Save_FileList_hover.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:pressed{
+image: url(:/new/prefix1/icon/Save_FileList.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:disabled{
+image: url(:/new/prefix1/icon/Save_FileList_disabled.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="iconSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="10">
+                 <widget class="QPushButton" name="pushButton_TurnOffScreen">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>35</width>
+                    <height>35</height>
+                   </size>
+                  </property>
+                  <property name="toolTip">
+                   <string>Turn off screen.
+
+We recommand you to use this button to turn off screen
+while program is running. Using other methods to turn off
+the screen may cause the software to freeze during the screen
+shutdown. And we recommend that you turn off the automatic
+shutdown screen and automatic sleep of the Windows system while
+the software is running.</string>
+                  </property>
+                  <property name="toolTipDuration">
+                   <number>60000</number>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+image: url(:/new/prefix1/icon/TurnOffScreen.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:hover{
+image: url(:/new/prefix1/icon/TurnOffScreen_hover.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:pressed{
+image: url(:/new/prefix1/icon/TurnOffScreen.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}
+QPushButton:disabled{
+image: url(:/new/prefix1/icon/TurnOffScreen_disabled.png);
+border-style:transparent;
+border-radius:0px;
+padding:0px;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="9">
+                 <widget class="Line" name="line_15">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
                   </property>
                  </widget>
                 </item>
