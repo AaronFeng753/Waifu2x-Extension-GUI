@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.25-beta:
-- Add a button to turn off screen.
+- Add a turn off screen button.
 
 v3.11.24-beta:
 - Waiting for the main file processing thread to stop instead of force it to stop when user close the program.
