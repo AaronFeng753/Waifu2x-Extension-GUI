@@ -214,7 +214,7 @@ int MainWindow::Auto_Save_Settings_Watchdog(bool isWaitForSave)
         {
             Delay_msec_sleep(250);
         }
-        Delay_msec_sleep(1000);
+        Delay_msec_sleep(3000);
     }
     //=====
     Force_close();
