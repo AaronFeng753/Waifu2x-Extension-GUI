@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.24-beta:
+- Improve "Pause".
+
 v3.11.23-beta:
 - Optimize performance.
 

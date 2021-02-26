@@ -903,6 +903,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath,CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
+        if(waifu2x_STOP)
+        {
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+            return 0;//如果启用stop位,则直接return
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();
@@ -1438,6 +1443,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
+            if(waifu2x_STOP)
+            {
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+                return 0;//如果启用stop位,则直接return
+            }
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble pictures into videos.]"));
             emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
             emit Send_progressbar_Add();
@@ -1473,6 +1483,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
     video_AssembleVideoClips(VideoClipsFolderPath,VideoClipsFolderName,video_mp4_scaled_fullpath,AudioPath);
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
+        if(waifu2x_STOP)
+        {
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+            return 0;//如果启用stop位,则直接return
+        }
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to assemble video clips.]"));
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         emit Send_progressbar_Add();

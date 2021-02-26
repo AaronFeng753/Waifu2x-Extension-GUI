@@ -341,7 +341,16 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
     QProcess AssembleVideo;
     AssembleVideo.start(CMD);
     while(!AssembleVideo.waitForStarted(100)&&!QProcess_stop) {}
-    while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop) {}
+    while(!AssembleVideo.waitForFinished(100)&&!QProcess_stop)
+    {
+        if(waifu2x_STOP)
+        {
+            AssembleVideo.close();
+            QFile::remove(video_mp4_scaled_fullpath);
+            QFile::remove(Path_FFMpegFileList);
+            return;
+        }
+    }
     //检查是否发生错误
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
     {
