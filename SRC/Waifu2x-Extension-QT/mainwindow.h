@@ -464,7 +464,7 @@ public:
     void closeEvent(QCloseEvent* event);//关闭事件
     //void Close_self();//包含所有关闭时执行的代码
     bool QProcess_stop=false;//所有QProcess停止标记
-    int Auto_Save_Settings_Watchdog();//自动保存设置的看门狗
+    int Auto_Save_Settings_Watchdog(bool isWaitForSave);//自动保存设置的看门狗
     QFuture<int> AutoUpdate;//监视自动检查更新线程
     QFuture<int> DownloadOnlineQRCode;//监视在线下载二维码线程
     QFuture<int> Waifu2xMain;//监视waifu2x主线程

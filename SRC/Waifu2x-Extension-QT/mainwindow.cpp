@@ -172,35 +172,51 @@ void MainWindow::closeEvent(QCloseEvent *event)
     QApplication::setQuitOnLastWindowClosed(true);//無窗口時不再保持運行
     QApplication::closeAllWindows();
     //====
+    if(Waifu2xMain.isRunning() == true)
+    {
+        TimeCostTimer->stop();
+        ui->pushButton_Stop->setVisible(0);//隐藏stop button
+        waifu2x_STOP = true;
+        emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
+        //======
+        QMessageBox *MSG_2 = new QMessageBox();
+        MSG_2->setWindowTitle(tr("Notification")+" @Waifu2x-Extension-GUI");
+        MSG_2->setText(tr("Waiting for the files processing thread to pause."));
+        MSG_2->setIcon(QMessageBox::Information);
+        MSG_2->setModal(true);
+        MSG_2->setStandardButtons(NULL);
+        MSG_2->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+        MSG_2->show();
+    }
+    AutoUpdate.cancel();
+    DownloadOnlineQRCode.cancel();
+    //=====
     bool AutoSaveSettings = ui->checkBox_AutoSaveSettings->isChecked();
     if(AutoSaveSettings&&(!Settings_isReseted))
     {
         Settings_Save();
-        QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog);
+        QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog,true);
     }
     else
     {
-        QProcess_stop=true;
-        AutoUpdate.cancel();
-        DownloadOnlineQRCode.cancel();
-        Waifu2xMain.cancel();
-        Force_close();
+        QtConcurrent::run(this, &MainWindow::Auto_Save_Settings_Watchdog,false);
     }
 }
 
-int MainWindow::Auto_Save_Settings_Watchdog()
+int MainWindow::Auto_Save_Settings_Watchdog(bool isWaitForSave)
 {
-    QString settings_ini = Current_Path+"/settings.ini";
-    while(!QFile::exists(settings_ini))
+    Waifu2xMain.waitForFinished();
+    //======
+    if(isWaitForSave == true)
     {
-        Delay_msec_sleep(250);
+        QString settings_ini = Current_Path+"/settings.ini";
+        while(!QFile::exists(settings_ini))
+        {
+            Delay_msec_sleep(250);
+        }
+        Delay_msec_sleep(1000);
     }
-    Delay_msec_sleep(500);
     //=====
-    QProcess_stop=true;
-    AutoUpdate.cancel();
-    DownloadOnlineQRCode.cancel();
-    Waifu2xMain.cancel();
     Force_close();
     //====
     return 0;
