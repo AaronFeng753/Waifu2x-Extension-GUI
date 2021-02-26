@@ -36,7 +36,6 @@ Change log:
 
 v3.11.23-beta:
 - Optimize performance.
-- Improve compatibility.
 
 v3.11.22-beta:
 - Multithreading of frame interpolation engines will not be enabled by default.
