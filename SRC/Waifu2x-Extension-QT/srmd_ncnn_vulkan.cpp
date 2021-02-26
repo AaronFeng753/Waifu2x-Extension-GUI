@@ -89,13 +89,12 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
     //======
     QString InputPath_tmp = SourceFile_fullPath;
     QString OutputPath_tmp ="";
-    int DenoiseLevel_tmp = DenoiseLevel;
     for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
     {
         bool waifu2x_qprocess_failed = false;
         InputPath_tmp = SourceFile_fullPath;
         OutputPath_tmp ="";
-        DenoiseLevel_tmp = DenoiseLevel;
+        int DenoiseLevel_tmp = DenoiseLevel;
         for(int i=Initial_ScaleRatio; i<=ScaleRatio_tmp; i*=Initial_ScaleRatio)
         {
             QString ErrorMSG="";
