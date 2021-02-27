@@ -749,7 +749,7 @@ int MainWindow::FrameInterpolation_DetectGPU()
         case 0:
             {
                 FrameInterpolation_ProgramPath = Current_Path+"/rife-ncnn-vulkan/rife-ncnn-vulkan_waifu2xEX.exe";
-                FrameInterpolation_ModelPath = Current_Path+"/rife-ncnn-vulkan/rife-HD";
+                FrameInterpolation_ModelPath = Current_Path+"/rife-ncnn-vulkan/rife-v2.4";
                 break;
             }
         case 1:

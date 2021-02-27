@@ -34,6 +34,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.26-beta:
+- New model: rife-v2.4 for rife-ncnn-vulkan.
+- Update rife-ncnn-vulkan.
+
 v3.11.25-beta:
 - Add a turn off screen button.
 
@@ -75,7 +79,7 @@ Integrated component:
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3
-- rife-ncnn-vulkan 20210210
+- rife-ncnn-vulkan 20210227
 - cain-ncnn-vulkan 20210210
 ---------------------------------------------------------------------------
 Icons made by :

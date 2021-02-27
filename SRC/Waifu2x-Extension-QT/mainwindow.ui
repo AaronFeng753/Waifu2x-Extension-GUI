@@ -7871,7 +7871,7 @@ padding:10px;
                  <item>
                   <widget class="QComboBox" name="comboBox_Model_VFI">
                    <property name="currentIndex">
-                    <number>4</number>
+                    <number>5</number>
                    </property>
                    <item>
                     <property name="text">
@@ -7896,6 +7896,11 @@ padding:10px;
                    <item>
                     <property name="text">
                      <string notr="true">rife-v2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-v2.4</string>
                     </property>
                    </item>
                   </widget>
