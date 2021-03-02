@@ -4,6 +4,37 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.11.27](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.11.27)
+#### Change log:
+```
+v3.11.26-beta:
+- New model: rife-v2.4 for rife-ncnn-vulkan.
+- Update rife-ncnn-vulkan.
+
+v3.11.25-beta:
+- Add a turn off screen button.
+
+v3.11.24-beta:
+- Waiting for the main file processing thread to stop instead of force it to stop when user close the program.
+- Improve "Pause".
+
+v3.11.23-beta:
+- Optimize performance.
+
+v3.11.22-beta:
+- Multithreading of frame interpolation engines will not be enabled by default.
+- Update FFmpeg&FFprobe.
+- Fix bug: When [Process video by segment] is enabled, if the user forcibly closes the program and then restarts the software to continue processing the video, it may cause a cache error.
+
+v3.11.21-beta:
+- Update GUI layout.
+- Optimize performance.
+- Update ImageMagick,FFmpeg&FFprobe.
+- Fix bug: Engine settings are pre-loaded even though it's not being used.
+- Fix bug: Unable to overwrite files sometime.
+- Fix bug: Cannot fix the suffix of mp4 video when reading files.
+```
+---
 ## [v3.11.19](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.11.19)
 #### Change log:
 ```
