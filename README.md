@@ -21,7 +21,7 @@ Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/
 
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
-Supported Languages: English, 简体中文, 日本語(機械翻訳), 繁體中文.
+Supported Languages: English, 简体中文, 繁體中文.
 
 # [🌟Download Beta Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases)
 The beta build has a faster update cycle than the stable build, which allows you to experience the latest features of the software in advance.
