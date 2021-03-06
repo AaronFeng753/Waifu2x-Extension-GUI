@@ -756,7 +756,7 @@ void MainWindow::on_pushButton_HideSettings_clicked()
 */
 void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 {
-    //检测是否存在日本语翻译文件,若存在则删除并将翻译重置为英语
+    //检测是否存在日本语翻译文件,若存在则删除并修正翻译设定
     QString JapaneseQM = Current_Path + "/language_Japanese.qm";
     if(QFile::exists(JapaneseQM))
     {
@@ -765,7 +765,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
         {
             ui->comboBox_language->setCurrentIndex(0);
         }
-        if(ui->comboBox_language->currentIndex()==3)//若原语言为繁中则修正设定
+        if(ui->comboBox_language->currentIndex()==3 || ui->comboBox_language->currentIndex()==-1)//若原语言为繁中则修正设定
         {
             ui->comboBox_language->setCurrentIndex(2);
         }

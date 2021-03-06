@@ -6,7 +6,7 @@
     <message>
         <location filename="mainwindow.ui" line="1608"/>
         <location filename="mainwindow.cpp" line="750"/>
-        <location filename="mainwindow.cpp" line="814"/>
+        <location filename="mainwindow.cpp" line="824"/>
         <source>Hide settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,47 +123,47 @@ compatibility issues with ImageMagick.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10229"/>
-        <location filename="mainwindow.ui" line="10250"/>
-        <location filename="mainwindow.ui" line="10271"/>
-        <location filename="mainwindow.ui" line="10343"/>
-        <location filename="mainwindow.ui" line="10367"/>
-        <location filename="mainwindow.ui" line="10398"/>
-        <location filename="mainwindow.ui" line="10446"/>
-        <location filename="mainwindow.ui" line="10461"/>
-        <location filename="mainwindow.ui" line="10490"/>
-        <location filename="mainwindow.ui" line="10535"/>
-        <location filename="mainwindow.ui" line="10550"/>
+        <location filename="mainwindow.ui" line="10224"/>
+        <location filename="mainwindow.ui" line="10245"/>
+        <location filename="mainwindow.ui" line="10266"/>
+        <location filename="mainwindow.ui" line="10338"/>
+        <location filename="mainwindow.ui" line="10362"/>
+        <location filename="mainwindow.ui" line="10393"/>
+        <location filename="mainwindow.ui" line="10441"/>
+        <location filename="mainwindow.ui" line="10456"/>
+        <location filename="mainwindow.ui" line="10485"/>
+        <location filename="mainwindow.ui" line="10530"/>
+        <location filename="mainwindow.ui" line="10545"/>
         <source>Image processing engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10420"/>
+        <location filename="mainwindow.ui" line="10415"/>
         <source>For processing Image and GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10321"/>
+        <location filename="mainwindow.ui" line="10316"/>
         <source>For processing Video and Gif.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10519"/>
+        <location filename="mainwindow.ui" line="10514"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10382"/>
+        <location filename="mainwindow.ui" line="10377"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10258"/>
+        <location filename="mainwindow.ui" line="10253"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10299"/>
+        <location filename="mainwindow.ui" line="10294"/>
         <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the Super-Resolution engines is compatible with your PC, you can use all the functions of this software.
@@ -177,12 +177,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10483"/>
+        <location filename="mainwindow.ui" line="10478"/>
         <source>Plugins:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10430"/>
+        <location filename="mainwindow.ui" line="10425"/>
         <source>For audio denoise(video).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -224,8 +224,8 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10818"/>
-        <location filename="mainwindow.ui" line="10834"/>
+        <location filename="mainwindow.ui" line="10813"/>
+        <location filename="mainwindow.ui" line="10829"/>
         <source>Change the font size of the text browser.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -999,28 +999,28 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10636"/>
+        <location filename="mainwindow.ui" line="10631"/>
         <location filename="CompatibilityTest.cpp" line="655"/>
         <source>Start compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10097"/>
+        <location filename="mainwindow.ui" line="10092"/>
         <source>Play Notification sound.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10133"/>
+        <location filename="mainwindow.ui" line="10128"/>
         <source>Keep video cache after processing the video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10110"/>
+        <location filename="mainwindow.ui" line="10105"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10113"/>
+        <location filename="mainwindow.ui" line="10108"/>
         <source>Show internal progress</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1040,12 +1040,12 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10205"/>
+        <location filename="mainwindow.ui" line="10200"/>
         <source>Compatibility test results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10237"/>
+        <location filename="mainwindow.ui" line="10232"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1060,7 +1060,7 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10100"/>
+        <location filename="mainwindow.ui" line="10095"/>
         <source>Notification sound</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1070,7 +1070,7 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9854"/>
+        <location filename="mainwindow.ui" line="9849"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1165,8 +1165,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     </message>
     <message>
         <location filename="mainwindow.ui" line="1651"/>
-        <location filename="mainwindow.cpp" line="825"/>
-        <location filename="mainwindow.cpp" line="1081"/>
+        <location filename="mainwindow.cpp" line="835"/>
+        <location filename="mainwindow.cpp" line="1091"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1372,8 +1372,8 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9954"/>
-        <location filename="mainwindow.ui" line="9972"/>
+        <location filename="mainwindow.ui" line="9949"/>
+        <location filename="mainwindow.ui" line="9967"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
@@ -1385,7 +1385,7 @@ when processing video in segments.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10123"/>
+        <location filename="mainwindow.ui" line="10118"/>
         <source>Interactive file list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1628,14 +1628,14 @@ will be propagated through the network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9900"/>
+        <location filename="mainwindow.ui" line="9895"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9959"/>
+        <location filename="mainwindow.ui" line="9954"/>
         <source>Segment duration:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1645,12 +1645,12 @@ will increase the time required to process video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10136"/>
+        <location filename="mainwindow.ui" line="10131"/>
         <source>Keep video cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9905"/>
+        <location filename="mainwindow.ui" line="9900"/>
         <source>Process video by segment</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1766,17 +1766,17 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10054"/>
+        <location filename="mainwindow.ui" line="10049"/>
         <source>Update channel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10071"/>
+        <location filename="mainwindow.ui" line="10066"/>
         <source>Stable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10076"/>
+        <location filename="mainwindow.ui" line="10071"/>
         <source>Beta</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1841,7 +1841,7 @@ Will improve image quality.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="9398"/>
-        <location filename="mainwindow.cpp" line="900"/>
+        <location filename="mainwindow.cpp" line="910"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1871,12 +1871,12 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10087"/>
+        <location filename="mainwindow.ui" line="10082"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10090"/>
+        <location filename="mainwindow.ui" line="10085"/>
         <source>Always hide Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1891,22 +1891,22 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10512"/>
+        <location filename="mainwindow.ui" line="10507"/>
         <source>Super-Resolution Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10573"/>
+        <location filename="mainwindow.ui" line="10568"/>
         <source>Frame Interpolation Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10603"/>
+        <location filename="mainwindow.ui" line="10598"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10159"/>
+        <location filename="mainwindow.ui" line="10154"/>
         <source>Compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2098,7 +2098,7 @@ You must follow the format,otherwise the software may crash.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9977"/>
+        <location filename="mainwindow.ui" line="9972"/>
         <source> secs</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2113,13 +2113,13 @@ For detailed information, please read privacy policy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9857"/>
+        <location filename="mainwindow.ui" line="9852"/>
         <source>Automatic file list scrolling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="9794"/>
-        <location filename="mainwindow.ui" line="9837"/>
+        <location filename="mainwindow.ui" line="9832"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
@@ -2130,7 +2130,7 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10821"/>
+        <location filename="mainwindow.ui" line="10816"/>
         <source>Font size:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2143,12 +2143,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10758"/>
+        <location filename="mainwindow.ui" line="10753"/>
         <source>Clear text browser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10791"/>
+        <location filename="mainwindow.ui" line="10786"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2244,9 +2244,9 @@ Video: %3</source>
         <location filename="Right-click_Menu.cpp" line="140"/>
         <location filename="Right-click_Menu.cpp" line="292"/>
         <location filename="mainwindow.cpp" line="121"/>
-        <location filename="mainwindow.cpp" line="787"/>
-        <location filename="mainwindow.cpp" line="836"/>
-        <location filename="mainwindow.cpp" line="865"/>
+        <location filename="mainwindow.cpp" line="797"/>
+        <location filename="mainwindow.cpp" line="846"/>
+        <location filename="mainwindow.cpp" line="875"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1804"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1795"/>
         <location filename="table.cpp" line="543"/>
@@ -2307,8 +2307,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
     <message>
         <location filename="files.cpp" line="51"/>
         <location filename="files.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="1037"/>
-        <location filename="mainwindow.cpp" line="1038"/>
+        <location filename="mainwindow.cpp" line="1047"/>
+        <location filename="mainwindow.cpp" line="1048"/>
         <source>Adding files, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2323,13 +2323,13 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1882"/>
+        <location filename="mainwindow.cpp" line="1890"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1882"/>
+        <location filename="mainwindow.cpp" line="1890"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
@@ -2362,8 +2362,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="Web_Activities.cpp" line="82"/>
         <location filename="mainwindow.cpp" line="157"/>
         <location filename="mainwindow.cpp" line="183"/>
-        <location filename="mainwindow.cpp" line="958"/>
-        <location filename="mainwindow.cpp" line="1252"/>
+        <location filename="mainwindow.cpp" line="968"/>
+        <location filename="mainwindow.cpp" line="1260"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1793"/>
         <location filename="settings.cpp" line="606"/>
         <location filename="settings.cpp" line="630"/>
@@ -3057,55 +3057,55 @@ Otherwise, this software may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="788"/>
+        <location filename="mainwindow.cpp" line="798"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="837"/>
+        <location filename="mainwindow.cpp" line="847"/>
         <source>Language file cannot be loaded properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="859"/>
+        <location filename="mainwindow.cpp" line="869"/>
         <source>Loading list, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1012"/>
+        <location filename="mainwindow.cpp" line="1022"/>
         <source>Select files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1240"/>
+        <location filename="mainwindow.cpp" line="1248"/>
         <source>- This software is free, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1241"/>
+        <location filename="mainwindow.cpp" line="1249"/>
         <source>- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1242"/>
+        <location filename="mainwindow.cpp" line="1250"/>
         <source>- If you like this software, please donate to support the developer, thank you!
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1253"/>
+        <location filename="mainwindow.cpp" line="1261"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1328"/>
+        <location filename="mainwindow.cpp" line="1336"/>
         <source>Force retry is disabled when processing Video or GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2009"/>
+        <location filename="mainwindow.cpp" line="2017"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3186,8 +3186,8 @@ Or do not have sufficient permissions to write files to the output path, you mig
     </message>
     <message>
         <location filename="mainwindow.cpp" line="744"/>
-        <location filename="mainwindow.cpp" line="808"/>
-        <location filename="mainwindow.cpp" line="946"/>
+        <location filename="mainwindow.cpp" line="818"/>
+        <location filename="mainwindow.cpp" line="956"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3202,25 +3202,25 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="858"/>
+        <location filename="mainwindow.cpp" line="868"/>
         <source>Please wait while reading the file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="866"/>
+        <location filename="mainwindow.cpp" line="876"/>
         <location filename="table.cpp" line="603"/>
         <source>Cannot find the saved Files List!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="959"/>
+        <location filename="mainwindow.cpp" line="969"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1012"/>
+        <location filename="mainwindow.cpp" line="1022"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3312,26 +3312,26 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="820"/>
-        <location filename="mainwindow.cpp" line="1076"/>
-        <location filename="mainwindow.cpp" line="1090"/>
+        <location filename="mainwindow.cpp" line="830"/>
+        <location filename="mainwindow.cpp" line="1086"/>
+        <location filename="mainwindow.cpp" line="1100"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1238"/>
+        <location filename="mainwindow.cpp" line="1246"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1239"/>
+        <location filename="mainwindow.cpp" line="1247"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1245"/>
+        <location filename="mainwindow.cpp" line="1253"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3373,7 +3373,7 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1361"/>
+        <location filename="mainwindow.cpp" line="1369"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>
