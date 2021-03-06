@@ -436,7 +436,7 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
     QString video_ext = vfinfo.suffix();
     bool isVFR = false;
     //==============
-    if(video_ext=="mp4")
+    if(video_ext.toLower()=="mp4")
     {
         if(video_isVFR(VideoPath)==false)
         {
@@ -449,7 +449,7 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
     }
     QString video_dir = file_getFolderPath(vfinfo);
     QString video_filename = file_getBaseName(VideoPath);
-    QString video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+".mp4";
+    QString video_mp4_fullpath = video_dir+"/"+video_filename+"_"+video_ext+"_CfrMp4_.mp4";
     if(QFile::exists(video_mp4_fullpath))return video_mp4_fullpath;
     //=================
     emit Send_TextBrowser_NewMessage(tr("Start converting video: [")+VideoPath+tr("] to CFR MP4."));

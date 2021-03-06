@@ -299,6 +299,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     nameFilters_video.removeAll("gif");
     if (nameFilters_video.contains(file_ext))
     {
+        /*
         file_ext = fileinfo.suffix();
         if(file_ext!="mp4" && file_ext.toLower()=="mp4")
         {
@@ -307,6 +308,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
             QFile::rename(file_path+"/"+file_name+"."+file_ext,file_path+"/"+file_name+".mp4");
             SourceFile_fullPath = file_path+"/"+file_name+".mp4";
         }
+        */
         AddNew_video=true;
         int rowNum = Table_video_get_rowNum();
         QMap<QString, QString> map;

@@ -480,8 +480,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         for(int i=0; i<SourceImagesNames.size(); i++)
         {
             ImgName_tmp = SourceImagesNames.at(i);
-            QFileInfo vfinfo(ImgName_tmp);
-            if(vfinfo.suffix()=="png")
+            QFileInfo ImgName_tmp_info(ImgName_tmp);
+            if(ImgName_tmp_info.suffix()=="png")
             {
                 res_map = Image_Gif_Read_Resolution(SourcePath+"/"+ImgName_tmp);
                 original_height = res_map["height"];
