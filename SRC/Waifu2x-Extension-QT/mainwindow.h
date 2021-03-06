@@ -90,7 +90,7 @@ public:
     QString Current_Path = qApp->applicationDirPath();//当前路径
     //=======
     void Set_Font_fixed();
-    //=================================  File 文件=================================
+    //=================================  File 文件 =================================
     void dragEnterEvent(QDragEnterEvent *event);//拖放文件event
     void dropEvent(QDropEvent *event);
     void Read_urls(QList<QUrl> urls);
@@ -171,6 +171,7 @@ public:
 
     QMutex mutex_Table_insert;//监管表格插入的mutex
     //================================= Waifu2x ====================================
+    void ShowFileProcessSummary();//展示文件处理总结报告
     QString OutPutFolder_main="";//总输出文件夹
     int Waifu2xMainThread();//waifu2x总线程,负责读取文件列表,调度waifu2x放大线程
     QStringList WaitForEngineIO(QStringList OutPutFilesFullPathList);

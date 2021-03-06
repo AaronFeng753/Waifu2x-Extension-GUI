@@ -19,7 +19,9 @@
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+/*
+开始处理文件的按钮
+*/
 void MainWindow::on_pushButton_Start_clicked()
 {
     /*
@@ -234,7 +236,9 @@ void MainWindow::on_pushButton_Start_clicked()
     //==========
     Waifu2xMain = QtConcurrent::run(this, &MainWindow::Waifu2xMainThread);//启动waifu2x 主线程
 }
-
+/*
+主调度线程
+*/
 int MainWindow::Waifu2xMainThread()
 {
     //在table中的状态修改完成前一直block,防止偶发的多线程错误
@@ -585,7 +589,9 @@ int MainWindow::Waifu2xMainThread()
     emit Send_Waifu2x_Finished();
     return 0;
 }
-
+/*
+正常(非手动停止)时执行的结束代码
+*/
 void MainWindow::Waifu2x_Finished()
 {
     //=================== 提示音 =================================
@@ -609,7 +615,9 @@ void MainWindow::Waifu2x_Finished()
     //============================================================
     Waifu2x_Finished_manual();
 }
-
+/*
+手动停止处理文件时执行的代码
+*/
 void MainWindow::Waifu2x_Finished_manual()
 {
     TimeCostTimer->stop();
@@ -678,6 +686,8 @@ void MainWindow::Waifu2x_Finished_manual()
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe";
     KILL_TASK_QStringList(TaskNameList,true);
+    //================= 生成处理报告 =================
+    ShowFileProcessSummary();
 }
 
 /*
@@ -1087,4 +1097,150 @@ bool MainWindow::KILL_TASK_QStringList(QStringList TaskNameList,bool RequestAdmi
     ExecuteCMD_batFile(CMD_commands,RequestAdmin);
     //===============
     return true;
+}
+/*
+生成处理总结报告
+*/
+void MainWindow::ShowFileProcessSummary()
+{
+    if(ui->checkBox_SummaryPopup->isChecked()==false)
+    {
+        int rowCount_image = Table_model_image->rowCount();
+        int rowCount_gif = Table_model_gif->rowCount();
+        int rowCount_video = Table_model_video->rowCount();
+        //===
+        int NumOfFailedFiles = 0;
+        QString FailedFilesList = "\n";
+        //检查图片文件列表
+        for ( int RowNum = 0; RowNum < rowCount_image; RowNum++ )
+        {
+            QString CurrentRowStatus = Table_model_image->item(RowNum,1)->text().toLower();
+            if(CurrentRowStatus.contains("fail"))
+            {
+                NumOfFailedFiles++;
+                FailedFilesList.append(tr("Failed: [")+Table_model_image->item(RowNum,2)->text()+"]\n");
+                continue;
+            }
+        }
+        //检查GIF文件列表
+        for ( int RowNum = 0; RowNum < rowCount_gif; RowNum++ )
+        {
+            QString CurrentRowStatus = Table_model_gif->item(RowNum,1)->text().toLower();
+            if(CurrentRowStatus.contains("fail"))
+            {
+                NumOfFailedFiles++;
+                FailedFilesList.append(tr("Failed: [")+Table_model_gif->item(RowNum,2)->text()+"]\n");
+                continue;
+            }
+        }
+        //检查视频文件列表
+        for ( int RowNum = 0; RowNum < rowCount_video; RowNum++ )
+        {
+            QString CurrentRowStatus = Table_model_video->item(RowNum,1)->text().toLower();
+            if(CurrentRowStatus.contains("fail"))
+            {
+                NumOfFailedFiles++;
+                FailedFilesList.append(tr("Failed: [")+Table_model_video->item(RowNum,2)->text()+"]\n");
+                continue;
+            }
+        }
+        //输出失败文件列表
+        if(NumOfFailedFiles>0)
+        {
+            emit Send_TextBrowser_NewMessage(FailedFilesList);
+        }
+        return;
+    }
+    int rowCount_image = Table_model_image->rowCount();
+    int rowCount_gif = Table_model_gif->rowCount();
+    int rowCount_video = Table_model_video->rowCount();
+    //===
+    int NumOfFinishedFiles = 0;
+    int NumOfSkippedFiles = 0;
+    int NumOfFailedFiles = 0;
+    QString FailedFilesList = "\n";
+    //===
+    //检查图片文件列表
+    for ( int RowNum = 0; RowNum < rowCount_image; RowNum++ )
+    {
+        QString CurrentRowStatus = Table_model_image->item(RowNum,1)->text().toLower();
+        if(CurrentRowStatus.contains("finished"))
+        {
+            NumOfFinishedFiles++;
+            continue;
+        }
+        if(CurrentRowStatus.contains("fail"))
+        {
+            NumOfFailedFiles++;
+            FailedFilesList.append(tr("Failed: [")+Table_model_image->item(RowNum,2)->text()+"]\n");
+            continue;
+        }
+        if(ui->checkBox_AutoSkip_CustomRes->isChecked() && CurrentRowStatus.contains("skipped"))
+        {
+            NumOfSkippedFiles++;
+            continue;
+        }
+    }
+    //检查GIF文件列表
+    for ( int RowNum = 0; RowNum < rowCount_gif; RowNum++ )
+    {
+        QString CurrentRowStatus = Table_model_gif->item(RowNum,1)->text().toLower();
+        if(CurrentRowStatus.contains("finished"))
+        {
+            NumOfFinishedFiles++;
+            continue;
+        }
+        if(CurrentRowStatus.contains("fail"))
+        {
+            NumOfFailedFiles++;
+            FailedFilesList.append(tr("Failed: [")+Table_model_gif->item(RowNum,2)->text()+"]\n");
+            continue;
+        }
+        if(ui->checkBox_AutoSkip_CustomRes->isChecked() && CurrentRowStatus.contains("skipped"))
+        {
+            NumOfSkippedFiles++;
+            continue;
+        }
+    }
+    //检查视频文件列表
+    for ( int RowNum = 0; RowNum < rowCount_video; RowNum++ )
+    {
+        QString CurrentRowStatus = Table_model_video->item(RowNum,1)->text().toLower();
+        if(CurrentRowStatus.contains("finished"))
+        {
+            NumOfFinishedFiles++;
+            continue;
+        }
+        if(CurrentRowStatus.contains("fail"))
+        {
+            NumOfFailedFiles++;
+            FailedFilesList.append(tr("Failed: [")+Table_model_video->item(RowNum,2)->text()+"]\n");
+            continue;
+        }
+        if(ui->checkBox_AutoSkip_CustomRes->isChecked() && CurrentRowStatus.contains("skipped"))
+        {
+            NumOfSkippedFiles++;
+            continue;
+        }
+    }
+    //输出报告
+    QString Summary_qstr = tr("Total: ")+QString("%1").arg((rowCount_image+rowCount_gif+rowCount_video))+"\n\n"+tr("Finished: ")+QString("%1").arg(NumOfFinishedFiles)+"\n\n"+tr("Failed: ")+QString("%1").arg(NumOfFailedFiles);
+    if(ui->checkBox_AutoSkip_CustomRes->isChecked())
+    {
+        Summary_qstr.append("\n\n"+tr("Skipped: ")+QString("%1").arg(NumOfSkippedFiles));
+    }
+    if(NumOfFailedFiles>0)
+    {
+        emit Send_TextBrowser_NewMessage(FailedFilesList);
+        Summary_qstr.append("\n\n"+tr("Info of failed files will be listed in the text browser at the bottom of the GUI."));
+    }
+    //===
+    QMessageBox *MSG_Summary = new QMessageBox();
+    MSG_Summary->setWindowTitle(tr("Summary"));
+    MSG_Summary->setText(Summary_qstr);
+    MSG_Summary->setIcon(QMessageBox::Information);
+    MSG_Summary->setModal(true);
+    MSG_Summary->show();
+    //===
+    return;
 }

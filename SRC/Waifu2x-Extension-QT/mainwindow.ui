@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>4</number>
        </property>
        <property name="iconSize">
         <size>
@@ -9486,16 +9486,6 @@ padding:10px;
                  <property name="spacing">
                   <number>5</number>
                  </property>
-                 <item row="3" column="0">
-                  <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
-                   <property name="toolTip">
-                    <string>[Text browser] will be automatically hidden when the software starts.</string>
-                   </property>
-                   <property name="text">
-                    <string>Always hide Text Browser</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="1" column="0">
                   <widget class="QCheckBox" name="checkBox_MinimizeToTaskbar">
                    <property name="text">
@@ -9609,21 +9599,6 @@ padding:10px;
                    </property>
                   </widget>
                  </item>
-                 <item row="8" column="0">
-                  <widget class="QCheckBox" name="checkBox_BanGitee">
-                   <property name="toolTip">
-                    <string>Bans downloading anything from Communist China website Gitee.
-
-If you are in China, due to the government ban on raw.githubusercontent.com,
-enabling this will affect auto update.
-
-For detailed information, please read privacy policy.</string>
-                   </property>
-                   <property name="text">
-                    <string>Ban Gitee</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="4" column="0">
                   <widget class="QCheckBox" name="checkBox_ScanSubFolders">
                    <property name="toolTip">
@@ -9648,6 +9623,43 @@ the subfolder and add them to the file list.</string>
                    </property>
                   </widget>
                  </item>
+                 <item row="9" column="0">
+                  <widget class="QCheckBox" name="checkBox_DisableResize_gif">
+                   <property name="toolTip">
+                    <string>This option will be automatically enabled to improve
+performance and fix issues when the software detects
+that your PC has compatibility issues with ImageMagick.</string>
+                   </property>
+                   <property name="text">
+                    <string>Disable &quot;-resize&quot;</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QCheckBox" name="checkBox_AlwaysHideTextBrowser">
+                   <property name="toolTip">
+                    <string>[Text browser] will be automatically hidden when the software starts.</string>
+                   </property>
+                   <property name="text">
+                    <string>Always hide Text Browser</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0">
+                  <widget class="QCheckBox" name="checkBox_BanGitee">
+                   <property name="toolTip">
+                    <string>Bans downloading anything from Communist China website Gitee.
+
+If you are in China, due to the government ban on raw.githubusercontent.com,
+enabling this will affect auto update.
+
+For detailed information, please read privacy policy.</string>
+                   </property>
+                   <property name="text">
+                    <string>Ban Gitee</string>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="2" column="0">
                   <widget class="QCheckBox" name="checkBox_AutoSaveSettings">
                    <property name="toolTip">
@@ -9661,15 +9673,16 @@ the subfolder and add them to the file list.</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="9" column="0">
-                  <widget class="QCheckBox" name="checkBox_DisableResize_gif">
+                 <item row="10" column="0">
+                  <widget class="QCheckBox" name="checkBox_SummaryPopup">
                    <property name="toolTip">
-                    <string>This option will be automatically enabled to improve
-performance and fix issues when the software detects
-that your PC has compatibility issues with ImageMagick.</string>
+                    <string>Show the summary pop-up window after processing all files.</string>
                    </property>
                    <property name="text">
-                    <string>Disable &quot;-resize&quot;</string>
+                    <string>Summary popup</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
