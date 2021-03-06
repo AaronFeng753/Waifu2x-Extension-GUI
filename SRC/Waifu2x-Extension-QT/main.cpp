@@ -37,6 +37,7 @@ Change log:
 v3.11.31-beta:
 - New Feature: Show summary after processing all files.
 - No longer need to fix the suffix of mp4 files.
+- Remove 日本語 translation.
 
 --------------------------------------------------------------------------
 To do:

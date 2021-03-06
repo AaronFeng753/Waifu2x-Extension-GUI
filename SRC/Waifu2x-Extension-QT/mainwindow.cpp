@@ -756,7 +756,22 @@ void MainWindow::on_pushButton_HideSettings_clicked()
 */
 void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 {
-    QString qmFilename;
+    //检测是否存在日本语翻译文件,若存在则删除并将翻译重置为英语
+    QString JapaneseQM = Current_Path + "/language_Japanese.qm";
+    if(QFile::exists(JapaneseQM))
+    {
+        QFile::remove(JapaneseQM);
+        if(ui->comboBox_language->currentIndex()==2)//若原语言为日语则重置为英语
+        {
+            ui->comboBox_language->setCurrentIndex(0);
+        }
+        if(ui->comboBox_language->currentIndex()==3)//若原语言为繁中则修正设定
+        {
+            ui->comboBox_language->setCurrentIndex(2);
+        }
+    }
+    //==============
+    QString qmFilename="";
     switch(ui->comboBox_language->currentIndex())
     {
         case 0:
@@ -770,11 +785,6 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
                 break;
             }
         case 2:
-            {
-                qmFilename = Current_Path + "/language_Japanese.qm";
-                break;
-            }
-        case 3:
             {
                 qmFilename = Current_Path + "/language_TraditionalChinese.qm";
                 break;
@@ -1224,13 +1234,11 @@ void MainWindow::Tip_FirstTimeStart()
         Msg.setIcon(QMessageBox::Information);
         QAbstractButton *pYesBtn_English = Msg.addButton(QString("English"), QMessageBox::YesRole);
         QAbstractButton *pYesBtn_Chinese = Msg.addButton(QString("简体中文"), QMessageBox::YesRole);
-        QAbstractButton *pYesBtn_Japanese = Msg.addButton(QString("日本語(機械翻訳)"), QMessageBox::YesRole);
         QAbstractButton *pYesBtn_TraditionalChinese = Msg.addButton(QString("繁體中文(由uimee翻譯)"), QMessageBox::YesRole);
         Msg.exec();
         if (Msg.clickedButton() == pYesBtn_English)ui->comboBox_language->setCurrentIndex(0);
         if (Msg.clickedButton() == pYesBtn_Chinese)ui->comboBox_language->setCurrentIndex(1);
-        if (Msg.clickedButton() == pYesBtn_Japanese)ui->comboBox_language->setCurrentIndex(2);
-        if (Msg.clickedButton() == pYesBtn_TraditionalChinese)ui->comboBox_language->setCurrentIndex(3);
+        if (Msg.clickedButton() == pYesBtn_TraditionalChinese)ui->comboBox_language->setCurrentIndex(2);
         on_comboBox_language_currentIndexChanged(0);
         /*
           弹出必读Tips对话框

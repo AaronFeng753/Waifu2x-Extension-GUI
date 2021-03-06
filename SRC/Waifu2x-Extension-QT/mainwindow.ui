@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>4</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -9805,11 +9805,6 @@ the language for the language settings to fully take effect.</string>
                       <item>
                        <property name="text">
                         <string notr="true">简体中文</string>
-                       </property>
-                      </item>
-                      <item>
-                       <property name="text">
-                        <string notr="true">日本語(機械翻訳)</string>
                        </property>
                       </item>
                       <item>
