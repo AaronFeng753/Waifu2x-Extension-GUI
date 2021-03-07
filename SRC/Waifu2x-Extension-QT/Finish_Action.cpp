@@ -53,7 +53,7 @@ int MainWindow::SystemShutDown_Countdown()
 */
 bool MainWindow::SystemShutDown()
 {
-    on_pushButton_SaveFileList_clicked();
+    Table_Save_Current_Table_Filelist(Current_Path+"/FilesList_W2xEX/FilesList_W2xEX_AutoSave.ini");
     //================
     QString AutoShutDown = Current_Path+"/AutoShutDown_W2xEX";
     QFile file(AutoShutDown);
@@ -102,7 +102,7 @@ bool MainWindow::SystemShutDown()
 int MainWindow::SystemShutDown_isAutoShutDown()
 {
     QString AutoShutDown = Current_Path+"/AutoShutDown_W2xEX";
-    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX/FilesList_W2xEX_AutoSave.ini";
     if(QFile::exists(AutoShutDown)&&QFile::exists(Table_FileList_ini))
     {
         QMessageBox *MSG = new QMessageBox();

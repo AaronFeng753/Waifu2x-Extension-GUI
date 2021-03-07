@@ -24,8 +24,7 @@
 */
 void MainWindow::TextBrowser_NewMessage(QString message)
 {
-    QDateTime time = QDateTime::currentDateTime();
-    QString Current_Time = time.toString("[yyyy-MM-dd hh:mm:ss]");
+    QString Current_Time = QDateTime::currentDateTime().toString("[yyyy-MM-dd hh:mm:ss]");
     QString OutPutStr = Current_Time+" "+message;
     ui->textBrowser->append(OutPutStr);
     ui->textBrowser->moveCursor(QTextCursor::End);

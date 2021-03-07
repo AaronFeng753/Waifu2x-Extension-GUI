@@ -36,12 +36,12 @@ Change log:
 
 v3.11.31-beta:
 - New Feature: Show summary after processing all files.
+- New Feature: Now you can save multiple files lists.
 - No longer need to fix the suffix of mp4 files.
 - Remove 日本語 translation.
 
 --------------------------------------------------------------------------
 To do:
-- 保存文件列表时可自定义文件名,自动保存文件列表,读取文件列表时可选其他文件
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 ---------------------------------------------------------------------------
 Integrated component:

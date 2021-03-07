@@ -72,7 +72,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_image_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
     connect(this, SIGNAL(Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
     connect(this, SIGNAL(Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)), this, SLOT(Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int,QString,QString)));
-    connect(this, SIGNAL(Send_Table_Read_Saved_Table_Filelist_Finished()), this, SLOT(Table_Read_Saved_Table_Filelist_Finished()));
+    connect(this, SIGNAL(Send_Table_Read_Saved_Table_Filelist_Finished(QString)), this, SLOT(Table_Read_Saved_Table_Filelist_Finished(QString)));
     connect(this, SIGNAL(Send_Table_Save_Current_Table_Filelist_Finished()), this, SLOT(Table_Save_Current_Table_Filelist_Finished()));
     connect(this, SIGNAL(Send_Waifu2x_Finished()), this, SLOT(Waifu2x_Finished()));
     connect(this, SIGNAL(Send_Waifu2x_Finished_manual()), this, SLOT(Waifu2x_Finished_manual()));
@@ -111,7 +111,8 @@ MainWindow::MainWindow(QWidget *parent)
     //====================================
     TextBrowser_StartMes();//显示启动msg
     //===================================
-    Tip_FirstTimeStart();
+    Tip_FirstTimeStart();//首次启动
+    file_mkDir(Current_Path+"/FilesList_W2xEX");//生成保存文件列表的文件夹
     //==============
     /*
     校验软件是否对所在目录有写权限
@@ -853,7 +854,10 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 
 void MainWindow::on_pushButton_ReadFileList_clicked()
 {
-    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
+    file_mkDir(Current_Path+"/FilesList_W2xEX");//生成保存文件列表的文件夹
+    QString Table_FileList_ini = QFileDialog::getOpenFileName(this, tr("Select saved files list @Waifu2x-Extension-GUI"), Current_Path+"/FilesList_W2xEX",  tr("*.ini"));
+    if(Table_FileList_ini=="")return;
+    //========
     if(QFile::exists(Table_FileList_ini))
     {
         ui_tableViews_setUpdatesEnabled(false);
@@ -867,13 +871,13 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
         on_pushButton_ClearList_clicked();
         Send_TextBrowser_NewMessage(tr("Please wait while reading the file."));
         ui->label_DropFile->setText(tr("Loading list, please wait."));
-        QtConcurrent::run(this, &MainWindow::Table_Read_Saved_Table_Filelist);
+        QtConcurrent::run(this, &MainWindow::Table_Read_Saved_Table_Filelist,Table_FileList_ini);
     }
     else
     {
         QMessageBox *MSG_FileList404 = new QMessageBox();
         MSG_FileList404->setWindowTitle(tr("Error"));
-        MSG_FileList404->setText(tr("Cannot find the saved Files List!"));
+        MSG_FileList404->setText(tr("Target files list doesn't exist!"));
         MSG_FileList404->setIcon(QMessageBox::Warning);
         MSG_FileList404->setModal(true);
         MSG_FileList404->show();
@@ -1019,7 +1023,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
         if(!QFile::exists(BrowserStartPath))BrowserStartPath = "";
     }
     //===========================================================
-    QStringList Input_path_List = QFileDialog::getOpenFileNames(this, tr("Select files"), BrowserStartPath,  tr("All file(")+nameFilters_QString+")");
+    QStringList Input_path_List = QFileDialog::getOpenFileNames(this, tr("Select files @Waifu2x-Extension-GUI"), BrowserStartPath,  tr("All file(")+nameFilters_QString+")");
     if(Input_path_List.isEmpty())
     {
         return;

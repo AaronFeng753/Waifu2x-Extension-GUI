@@ -160,11 +160,11 @@ public:
     int curRow_gif = -1;
     int curRow_video = -1;
 
-    int Table_Save_Current_Table_Filelist();//保存当前文件列表(包括table
+    int Table_Save_Current_Table_Filelist(QString FilesListFullPath);//保存当前文件列表(包括table
 
-    int Table_Read_Saved_Table_Filelist();//读取保存的文件列表
+    int Table_Read_Saved_Table_Filelist(QString Table_FileList_ini);//读取保存的文件列表
 
-    int Table_Save_Current_Table_Filelist_Watchdog();//保存文件列表的看门狗线程,确保文件成功保存
+    int Table_Save_Current_Table_Filelist_Watchdog(QString FilesListFullPath);//保存文件列表的看门狗线程,确保文件成功保存
 
     bool Table_insert_finished=false;
     QMutex mutex_Table_insert_finished;//监管是否完成表格插入的bool值的mutex
@@ -628,7 +628,7 @@ public slots:
     void Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
 
     //读取&保存文件列表与table后执行的代码
-    int Table_Read_Saved_Table_Filelist_Finished();
+    int Table_Read_Saved_Table_Filelist_Finished(QString Table_FileList_ini);
     int Table_Save_Current_Table_Filelist_Finished();
 
     void on_pushButton_ClearList_clicked();//清空列表
@@ -998,7 +998,7 @@ signals:
     void Send_Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
     void Send_Table_video_CustRes_rowNumInt_HeightQString_WidthQString(int rowNum, QString height, QString width);
 
-    void Send_Table_Read_Saved_Table_Filelist_Finished();
+    void Send_Table_Read_Saved_Table_Filelist_Finished(QString Table_FileList_ini);
     void Send_Table_Save_Current_Table_Filelist_Finished();
 
     void Send_SystemShutDown();

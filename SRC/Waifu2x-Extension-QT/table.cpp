@@ -420,9 +420,9 @@ QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel
 }
 
 //保存当前文件列表
-int MainWindow::Table_Save_Current_Table_Filelist()
+int MainWindow::Table_Save_Current_Table_Filelist(QString FilesListFullPath)
 {
-    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
+    QString Table_FileList_ini = FilesListFullPath;
     QFile::remove(Table_FileList_ini);
     //=================
     QSettings *configIniWrite = new QSettings(Table_FileList_ini, QSettings::IniFormat);
@@ -547,6 +547,28 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
         MSG->show();
         return;
     }
+    //====================== 选择保存位置 ==========================
+    //生成默认保存文件的文件夹
+    file_mkDir(Current_Path+"/FilesList_W2xEX");
+    //保存文件弹窗
+    QString FilesListFullPath = QFileDialog::getSaveFileName(this, tr("Save files list @Waifu2x-Extension-GUI"),
+                                Current_Path+"/FilesList_W2xEX/FilesList_W2xEX_"+QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss")+".ini",
+                                "*.ini");
+    if(FilesListFullPath.trimmed()=="")return;
+    //判断文件夹是否存在以及是否可写入
+    QFileInfo FilesListFullPath_fileinfo(FilesListFullPath);
+    QString FilesListFullPath_FolderPath = file_getFolderPath(FilesListFullPath_fileinfo);
+    if(file_isDirExist(FilesListFullPath_FolderPath)==false || file_isDirWritable(FilesListFullPath_FolderPath)==false)
+    {
+        QMessageBox *MSG = new QMessageBox();
+        MSG->setWindowTitle(tr("Error"));
+        MSG->setText(tr("Target folder doesn't exist or unable to write."));
+        MSG->setIcon(QMessageBox::Warning);
+        MSG->setModal(false);
+        MSG->show();
+        return;
+    }
+    //======================= 开始保存 ========================
     this->setAcceptDrops(0);//禁止drop file
     ui->pushButton_Start->setEnabled(0);//禁用start button
     ui->pushButton_ClearList->setEnabled(0);
@@ -557,12 +579,12 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
     ui->pushButton_SaveFileList->setEnabled(0);
     ui->pushButton_BrowserFile->setEnabled(0);
     emit Send_TextBrowser_NewMessage(tr("Write to the file, please wait."));
-    Table_Save_Current_Table_Filelist();
-    QtConcurrent::run(this, &MainWindow::Table_Save_Current_Table_Filelist_Watchdog);
+    Table_Save_Current_Table_Filelist(FilesListFullPath);
+    QtConcurrent::run(this, &MainWindow::Table_Save_Current_Table_Filelist_Watchdog,FilesListFullPath);
 }
-int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
+int MainWindow::Table_Save_Current_Table_Filelist_Watchdog(QString FilesListFullPath)
 {
-    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
+    QString Table_FileList_ini = FilesListFullPath;
     while(!QFile::exists(Table_FileList_ini))
     {
         Delay_msec_sleep(100);
@@ -595,13 +617,12 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
     //===
     return 0;
 }
-int MainWindow::Table_Read_Saved_Table_Filelist()
+int MainWindow::Table_Read_Saved_Table_Filelist(QString Table_FileList_ini)
 {
-    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     if(!QFile::exists(Table_FileList_ini))
     {
         emit Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
-        emit Send_Table_Read_Saved_Table_Filelist_Finished();
+        emit Send_Table_Read_Saved_Table_Filelist_Finished(Table_FileList_ini);
         return 0;
     }
     //=================
@@ -726,10 +747,10 @@ int MainWindow::Table_Read_Saved_Table_Filelist()
         //Delay_msec_sleep(100);
     }
     //====================
-    emit Send_Table_Read_Saved_Table_Filelist_Finished();
+    emit Send_Table_Read_Saved_Table_Filelist_Finished(Table_FileList_ini);
     return 0;
 }
-int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
+int MainWindow::Table_Read_Saved_Table_Filelist_Finished(QString Table_FileList_ini)
 {
     Progressbar_MaxVal = 0;
     Progressbar_CurrentVal = 0;
@@ -743,7 +764,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
     ui->pushButton_BrowserFile->setEnabled(1);
-    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     if(!QFile::exists(Table_FileList_ini))
     {
         return 0;
