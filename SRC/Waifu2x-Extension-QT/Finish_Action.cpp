@@ -102,7 +102,7 @@ bool MainWindow::SystemShutDown()
 int MainWindow::SystemShutDown_isAutoShutDown()
 {
     QString AutoShutDown = Current_Path+"/AutoShutDown_W2xEX";
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     if(QFile::exists(AutoShutDown)&&QFile::exists(Table_FileList_ini))
     {
         QMessageBox *MSG = new QMessageBox();

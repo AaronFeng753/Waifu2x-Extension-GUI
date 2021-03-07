@@ -422,7 +422,7 @@ QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel
 //保存当前文件列表
 int MainWindow::Table_Save_Current_Table_Filelist()
 {
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     QFile::remove(Table_FileList_ini);
     //=================
     QSettings *configIniWrite = new QSettings(Table_FileList_ini, QSettings::IniFormat);
@@ -562,7 +562,7 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
 }
 int MainWindow::Table_Save_Current_Table_Filelist_Watchdog()
 {
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     while(!QFile::exists(Table_FileList_ini))
     {
         Delay_msec_sleep(100);
@@ -597,7 +597,7 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
 }
 int MainWindow::Table_Read_Saved_Table_Filelist()
 {
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     if(!QFile::exists(Table_FileList_ini))
     {
         emit Send_TextBrowser_NewMessage(tr("Cannot find the saved Files List!"));
@@ -743,7 +743,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished()
     ui->pushButton_ReadFileList->setEnabled(1);
     ui->pushButton_SaveFileList->setEnabled(1);
     ui->pushButton_BrowserFile->setEnabled(1);
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     if(!QFile::exists(Table_FileList_ini))
     {
         return 0;

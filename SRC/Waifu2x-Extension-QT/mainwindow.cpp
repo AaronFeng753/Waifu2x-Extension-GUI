@@ -853,7 +853,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 
 void MainWindow::on_pushButton_ReadFileList_clicked()
 {
-    QString Table_FileList_ini = Current_Path+"/Table_FileList.ini";
+    QString Table_FileList_ini = Current_Path+"/FilesList_W2xEX_AutoSave.ini";
     if(QFile::exists(Table_FileList_ini))
     {
         ui_tableViews_setUpdatesEnabled(false);
