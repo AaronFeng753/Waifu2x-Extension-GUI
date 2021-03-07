@@ -562,7 +562,7 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
     {
         QMessageBox *MSG = new QMessageBox();
         MSG->setWindowTitle(tr("Error"));
-        MSG->setText(tr("Target folder doesn't exist or unable to write."));
+        MSG->setText(tr("Target folder doesn't exist or unable to write to the target folder."));
         MSG->setIcon(QMessageBox::Warning);
         MSG->setModal(false);
         MSG->show();

@@ -855,7 +855,7 @@ void MainWindow::on_comboBox_language_currentIndexChanged(int index)
 void MainWindow::on_pushButton_ReadFileList_clicked()
 {
     file_mkDir(Current_Path+"/FilesList_W2xEX");//生成保存文件列表的文件夹
-    QString Table_FileList_ini = QFileDialog::getOpenFileName(this, tr("Select saved files list @Waifu2x-Extension-GUI"), Current_Path+"/FilesList_W2xEX",  tr("*.ini"));
+    QString Table_FileList_ini = QFileDialog::getOpenFileName(this, tr("Select saved files list @Waifu2x-Extension-GUI"), Current_Path+"/FilesList_W2xEX", "*.ini");
     if(Table_FileList_ini=="")return;
     //========
     if(QFile::exists(Table_FileList_ini))

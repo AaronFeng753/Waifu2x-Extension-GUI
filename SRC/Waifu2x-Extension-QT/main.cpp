@@ -38,6 +38,7 @@ v3.11.31-beta:
 - New Feature: Show summary after processing all files.
 - New Feature: Now you can save multiple files lists.
 - No longer need to fix the suffix of mp4 files.
+- Optimize performance.
 - Remove 日本語 translation.
 
 --------------------------------------------------------------------------
