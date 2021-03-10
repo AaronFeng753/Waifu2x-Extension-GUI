@@ -45,9 +45,9 @@ void MainWindow::Init_ActionsMenu_pushButton_RemoveItem()
     RemoveALL_gif->setIcon(QIcon(":/new/prefix1/icon/gif_Rmenu.png"));
     RemoveALL_video->setIcon(QIcon(":/new/prefix1/icon/video_Rmenu.png"));
     //==============
-    connect(RemoveALL_image, SIGNAL(triggered()), this, SLOT(RemoveALL_image_slot()));
-    connect(RemoveALL_gif, SIGNAL(triggered()), this, SLOT(RemoveALL_gif_slot()));
-    connect(RemoveALL_video, SIGNAL(triggered()), this, SLOT(RemoveALL_video_slot()));
+    connect(RemoveALL_image, SIGNAL(triggered()), this, SLOT(RemoveALL_image_slot()),Qt::UniqueConnection);
+    connect(RemoveALL_gif, SIGNAL(triggered()), this, SLOT(RemoveALL_gif_slot()),Qt::UniqueConnection);
+    connect(RemoveALL_video, SIGNAL(triggered()), this, SLOT(RemoveALL_video_slot()),Qt::UniqueConnection);
     //==============
     ui->pushButton_RemoveItem->addAction(RemoveALL_image);
     ui->pushButton_RemoveItem->addAction(RemoveALL_gif);
@@ -127,7 +127,7 @@ void MainWindow::Init_ActionsMenu_lineEdit_outputPath()
 {
     OpenFolder_lineEdit_outputPath->setText(tr("Open output path"));
     OpenFolder_lineEdit_outputPath->setIcon(QIcon(":/new/prefix1/icon/opne_folder.png"));
-    connect(OpenFolder_lineEdit_outputPath, SIGNAL(triggered()), this, SLOT(OpenOutputFolder()));
+    connect(OpenFolder_lineEdit_outputPath, SIGNAL(triggered()), this, SLOT(OpenOutputFolder()),Qt::UniqueConnection);
     ui->lineEdit_outputPath->addAction(OpenFolder_lineEdit_outputPath);
 }
 
@@ -149,35 +149,35 @@ void MainWindow::Init_ActionsMenu_FilesList()
 {
     OpenFile_QAction_FileList->setText(tr("Open file"));
     OpenFile_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/view_file.png"));
-    connect(OpenFile_QAction_FileList, SIGNAL(triggered()), this, SLOT(OpenSelectedFile_FilesList()));
+    connect(OpenFile_QAction_FileList, SIGNAL(triggered()), this, SLOT(OpenSelectedFile_FilesList()),Qt::UniqueConnection);
     ui->tableView_image->addAction(OpenFile_QAction_FileList);
     ui->tableView_gif->addAction(OpenFile_QAction_FileList);
     ui->tableView_video->addAction(OpenFile_QAction_FileList);
     //===
     OpenFilesFolder_QAction_FileList->setText(tr("Open folder"));
     OpenFilesFolder_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/opne_folder.png"));
-    connect(OpenFilesFolder_QAction_FileList, SIGNAL(triggered()), this, SLOT(OpenSelectedFilesFolder_FilesList()));
+    connect(OpenFilesFolder_QAction_FileList, SIGNAL(triggered()), this, SLOT(OpenSelectedFilesFolder_FilesList()),Qt::UniqueConnection);
     ui->tableView_image->addAction(OpenFilesFolder_QAction_FileList);
     ui->tableView_gif->addAction(OpenFilesFolder_QAction_FileList);
     ui->tableView_video->addAction(OpenFilesFolder_QAction_FileList);
     //===
     RemoveFile_FilesList_QAction_FileList->setText(tr("Remove from list [Delete]"));
     RemoveFile_FilesList_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/RemoveFile.png"));
-    connect(RemoveFile_FilesList_QAction_FileList, SIGNAL(triggered()), this, SLOT(on_pushButton_RemoveItem_clicked()));
+    connect(RemoveFile_FilesList_QAction_FileList, SIGNAL(triggered()), this, SLOT(on_pushButton_RemoveItem_clicked()),Qt::UniqueConnection);
     ui->tableView_image->addAction(RemoveFile_FilesList_QAction_FileList);
     ui->tableView_gif->addAction(RemoveFile_FilesList_QAction_FileList);
     ui->tableView_video->addAction(RemoveFile_FilesList_QAction_FileList);
     //===
     Apply_CustRes_QAction_FileList->setText(tr("Apply custom resolution [Ctrl+A]"));
     Apply_CustRes_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/Apply.png"));
-    connect(Apply_CustRes_QAction_FileList, SIGNAL(triggered()), this, SLOT(Apply_CustRes_QAction_FileList_slot()));
+    connect(Apply_CustRes_QAction_FileList, SIGNAL(triggered()), this, SLOT(Apply_CustRes_QAction_FileList_slot()),Qt::UniqueConnection);
     ui->tableView_image->addAction(Apply_CustRes_QAction_FileList);
     ui->tableView_gif->addAction(Apply_CustRes_QAction_FileList);
     ui->tableView_video->addAction(Apply_CustRes_QAction_FileList);
     //===
     Cancel_CustRes_QAction_FileList->setText(tr("Cancel custom resolution [Ctrl+C]"));
     Cancel_CustRes_QAction_FileList->setIcon(QIcon(":/new/prefix1/icon/cancel.png"));
-    connect(Cancel_CustRes_QAction_FileList, SIGNAL(triggered()), this, SLOT(Cancel_CustRes_QAction_FileList_slot()));
+    connect(Cancel_CustRes_QAction_FileList, SIGNAL(triggered()), this, SLOT(Cancel_CustRes_QAction_FileList_slot()),Qt::UniqueConnection);
     ui->tableView_image->addAction(Cancel_CustRes_QAction_FileList);
     ui->tableView_gif->addAction(Cancel_CustRes_QAction_FileList);
     ui->tableView_video->addAction(Cancel_CustRes_QAction_FileList);

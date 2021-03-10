@@ -35,7 +35,7 @@ void MainWindow::Init_SystemTrayIcon()
     systemTray->setIcon(*MainIcon_QIcon);
     systemTray->setToolTip(tr("Waifu2x-Extension-GUI\nRight-click to show the menu."));
     //初始化点击动作
-    connect(systemTray,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason)));
+    connect(systemTray,SIGNAL(activated(QSystemTrayIcon::ActivationReason)),this,SLOT(on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason)),Qt::UniqueConnection);
     //初始化菜单动作
     minimumAct_SystemTrayIcon->setText(tr("Hide"));
     minimumAct_SystemTrayIcon->setToolTip(tr("Use the middle mouse button to click the\ntaskbar icon to quickly hide the window."));
@@ -48,10 +48,16 @@ void MainWindow::Init_SystemTrayIcon()
     BackgroundModeAct_SystemTrayIcon->setText(tr("Background mode"));
     BackgroundModeAct_SystemTrayIcon->setToolTip(tr("Set the number of threads to \"1\" to reduce background resource usage."));
     //===
-    connect(minimumAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_hide_self()));
-    connect(restoreAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showNormal_self()));
+    SendFeedback_SystemTrayIcon->setText(tr("Send feedback"));
+    //===
+    About_SystemTrayIcon->setText(tr("About"));
+    //===
+    connect(minimumAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_hide_self()),Qt::UniqueConnection);
+    connect(restoreAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showNormal_self()),Qt::UniqueConnection);
     connect(quitAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(close()),Qt::UniqueConnection);
-    connect(BackgroundModeAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(EnableBackgroundMode_SystemTray()));
+    connect(BackgroundModeAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(EnableBackgroundMode_SystemTray()),Qt::UniqueConnection);
+    connect(SendFeedback_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Report_clicked()),Qt::UniqueConnection);
+    connect(About_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_about_clicked()),Qt::UniqueConnection);
     //初始化菜单选项
     pContextMenu->setToolTipsVisible(1);
     pContextMenu->setToolTipDuration(-1);
@@ -59,6 +65,9 @@ void MainWindow::Init_SystemTrayIcon()
     pContextMenu->addAction(restoreAct_SystemTrayIcon);
     pContextMenu->addSeparator();
     pContextMenu->addAction(BackgroundModeAct_SystemTrayIcon);
+    pContextMenu->addSeparator();
+    pContextMenu->addAction(SendFeedback_SystemTrayIcon);
+    pContextMenu->addAction(About_SystemTrayIcon);
     pContextMenu->addSeparator();
     pContextMenu->addAction(quitAct_SystemTrayIcon);
     systemTray->setContextMenu(pContextMenu);

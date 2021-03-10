@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.32-beta:
+- New options: [About] and [Send feedback] for system tray menu.
 - Better naming for cache files.
 - Optimize performance.
 

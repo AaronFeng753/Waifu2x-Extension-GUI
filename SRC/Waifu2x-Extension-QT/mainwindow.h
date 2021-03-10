@@ -491,6 +491,8 @@ public:
     QAction *restoreAct_SystemTrayIcon = new QAction(this);
     QAction *quitAct_SystemTrayIcon = new QAction(this);
     QAction *BackgroundModeAct_SystemTrayIcon = new QAction(this);
+    QAction *SendFeedback_SystemTrayIcon = new QAction(this);
+    QAction *About_SystemTrayIcon = new QAction(this);
     //================= 输出路径 lineEdit 的右键菜单 ==============
     void Init_ActionsMenu_lineEdit_outputPath();
     QAction *OpenFolder_lineEdit_outputPath = new QAction(this);
