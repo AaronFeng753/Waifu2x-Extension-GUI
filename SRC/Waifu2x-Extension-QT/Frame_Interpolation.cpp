@@ -26,7 +26,6 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     //============================= 读取设置 ================================
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
-    QString OutPutPath_Final ="";
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
@@ -282,7 +281,6 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
-    OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
     if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
@@ -299,7 +297,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
-        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
+        if(ReplaceOriginalFile(SourceFile_fullPath,video_mp4_scaled_fullpath)==false)
         {
             if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
@@ -319,7 +317,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
+        MoveFileToOutputPath(video_mp4_scaled_fullpath,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
@@ -334,7 +332,6 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
 {
     //============================= 读取设置 ================================
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
-    QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
@@ -401,7 +398,6 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
-    OutPutPath_Final = video_mp4_scaled_fullpath;
     //============================== 删除缓存文件 ====================================================
     if(ui->checkBox_KeepVideoCache->isChecked()==false)
     {
@@ -416,7 +412,7 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     //============================= 删除原文件 &  & 更新table status ============================
     if(DelOriginal)
     {
-        if(ReplaceOriginalFile(SourceFile_fullPath,OutPutPath_Final)==false)
+        if(ReplaceOriginalFile(SourceFile_fullPath,video_mp4_scaled_fullpath)==false)
         {
             if(QAction_checkBox_MoveToRecycleBin_checkBox_DelOriginal->isChecked())
             {
@@ -436,7 +432,7 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     //========== 移动到输出路径 =========
     if(ui->checkBox_OutPath_isEnabled->isChecked())
     {
-        MoveFileToOutputPath(OutPutPath_Final,SourceFile_fullPath);
+        MoveFileToOutputPath(video_mp4_scaled_fullpath,SourceFile_fullPath);
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
