@@ -38,6 +38,7 @@ v3.11.32-beta:
 - New options: [About] and [Send feedback] for system tray menu.
 - Better naming for cache files.
 - Optimize performance.
+- Update FFmpeg&FFprobe,ImageMagick.
 - Fix typo.
 
 v3.11.31-beta:
@@ -62,9 +63,9 @@ Integrated component:
 - Waifu2x-NCNN-Vulkan 20210210
 - SRMD-NCNN-Vulkan 20210210
 - RealSR-NCNN-Vulkan 20210210
-- ImageMagick 7.0.11-1-portable-Q16-x64
+- ImageMagick 7.0.11-3-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-02-23-git-78d5e1c653-full_build
+- FFmpeg&FFprobe 2021-03-09-git-c35e456f54
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3
