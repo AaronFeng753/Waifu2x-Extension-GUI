@@ -39,10 +39,10 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         return 0;
     }
     //==========================
-    QFileInfo fileinfo(SourceFile_fullPath);
-    QString file_name = file_getBaseName(SourceFile_fullPath);
-    QString file_ext = fileinfo.suffix();
-    QString file_path = file_getFolderPath(fileinfo);
+    QFileInfo SourceFile_fullPath_fileinfo(SourceFile_fullPath);
+    QString SourceFile_BaseName = file_getBaseName(SourceFile_fullPath);
+    QString SourceFile_Suffix = SourceFile_fullPath_fileinfo.suffix();
+    QString SourceFile_FolderPath = file_getFolderPath(SourceFile_fullPath_fileinfo);
     //===================================================================
     //生成mp4
     QString video_mp4_fullpath=video_To_CFRMp4(SourceFile_fullPath);
@@ -54,22 +54,22 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         return 0;//如果启用stop位,则直接return
     }
     //=================
-    QString AudioPath = file_path+"/Audio_"+file_name+"_"+file_ext+"_W2xEX.wav";//音频
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
+    QString AudioPath = SourceFile_FolderPath+"/Audio_"+SourceFile_BaseName+"_"+SourceFile_Suffix+"_W2xEX.wav";//音频
+    QString SplitFramesFolderPath = SourceFile_FolderPath+"/"+SourceFile_BaseName+"_"+SourceFile_Suffix+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
     //=================
     QString VideoClipsFolderPath = "";//存储视频片段的文件夹(完整路径)
     QString DateStr = "";
     do
     {
         DateStr = video_getClipsFolderNo();
-        VideoClipsFolderPath = file_path+"/"+DateStr+"_VideoClipsWaifu2xEX";//存储视频片段的文件夹(完整路径)
+        VideoClipsFolderPath = SourceFile_FolderPath+"/"+DateStr+"_VideoClipsWaifu2xEX";//存储视频片段的文件夹(完整路径)
     }
     while(file_isDirExist(VideoClipsFolderPath));
     QString VideoClipsFolderName = DateStr+"_VideoClipsWaifu2xEX";//存储视频片段的文件夹(名称)
     //==========================
     //   检测之前的视频配置文件
     //==========================
-    QString VideoConfiguration_fullPath = file_path+"/VideoConfiguration_"+file_name+"_"+file_ext+"_Waifu2xEX_VFI.ini";
+    QString VideoConfiguration_fullPath = SourceFile_FolderPath+"/VideoConfiguration_"+SourceFile_BaseName+"_"+SourceFile_Suffix+"_Waifu2xEX_VFI.ini";
     if(QFile::exists(VideoConfiguration_fullPath))
     {
         QSettings *configIniRead = new QSettings(VideoConfiguration_fullPath, QSettings::IniFormat);
@@ -156,7 +156,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     }
     if(ui->checkBox_ShowInterPro->isChecked()&&VideoDuration>SegmentDuration_tmp_progressbar)
     {
-        emit Send_CurrentFileProgress_Start(file_name+"."+file_ext,VideoDuration);
+        emit Send_CurrentFileProgress_Start(SourceFile_BaseName+"."+SourceFile_Suffix,VideoDuration);
         if(StartTime>0)
         {
             emit Send_CurrentFileProgress_progressbar_Add_SegmentDuration(StartTime);
@@ -236,7 +236,6 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         }
         int VideoClipNo = LastVideoClipNo+1;
         QString video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
-        QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,SplitFramesFolderPath,"",false,1,1,false);
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
@@ -268,7 +267,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     //                    组装(片段到成片)
     //======================================================
     QString video_mp4_scaled_fullpath = "";
-    video_mp4_scaled_fullpath = file_path+"/"+file_name+"_W2xEX_VFI_"+file_ext+".mp4";
+    video_mp4_scaled_fullpath = SourceFile_FolderPath+"/"+SourceFile_BaseName+"_W2xEX_VFI_"+SourceFile_Suffix+".mp4";
     QFile::remove(video_mp4_scaled_fullpath);
     video_AssembleVideoClips(VideoClipsFolderPath,VideoClipsFolderName,video_mp4_scaled_fullpath,AudioPath);
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
@@ -389,7 +388,6 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     //======================================== 组装 ======================================================
     QString video_mp4_scaled_fullpath = "";
     video_mp4_scaled_fullpath = file_path+"/"+file_name+"_W2xEX_VFI_"+file_ext+".mp4";
-    QFile::remove(video_mp4_scaled_fullpath);
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,SplitFramesFolderPath,AudioPath,false,1,1,false);
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {

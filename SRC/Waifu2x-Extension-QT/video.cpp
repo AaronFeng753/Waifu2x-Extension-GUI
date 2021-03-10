@@ -985,6 +985,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         CMD = "\""+ffmpeg_path+"\" -y -f image2 -framerate "+fps+" -r "+fps+" -i \""+ScaledFrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\" -r "+fps+bitrate_video_cmd+resize_cmd+video_ReadSettings_OutputVid(AudioPath)+" -r "+fps+" \""+video_mp4_scaled_fullpath+"\"";
     }
     QProcess images2video;
+    QFile::remove(video_mp4_scaled_fullpath);//删除旧文件
     images2video.start(CMD);
     while(!images2video.waitForStarted(100)&&!QProcess_stop) {}
     while(!images2video.waitForFinished(100)&&!QProcess_stop)

@@ -905,7 +905,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     {
         video_mp4_scaled_fullpath = SourceFile_fullPath_FolderPath+"/"+SourceFile_fullPath_BaseName+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+QString::number(DenoiseLevel,10)+"n"+"_"+SourceFile_fullPath_suffix+".mp4";
     }
-    QFile::remove(video_mp4_scaled_fullpath);
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath,CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
     if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
     {
@@ -1455,7 +1454,6 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         }
         int VideoClipNo = LastVideoClipNo+1;
         video_mp4_scaled_clip_fullpath = VideoClipsFolderPath+"/"+QString::number(VideoClipNo,10)+".mp4";
-        QFile::remove(video_mp4_scaled_clip_fullpath);
         video_images2video(video_mp4_fullpath,video_mp4_scaled_clip_fullpath,ScaledFramesFolderPath,"",CustRes_isEnabled,CustRes_height,CustRes_width,isOverScaled);
         if(!QFile::exists(video_mp4_scaled_clip_fullpath))//检查是否成功成功生成视频
         {
