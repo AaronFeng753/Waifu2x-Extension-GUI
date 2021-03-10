@@ -529,14 +529,14 @@ waifu2x-converter  [ 速度:★☆  畫質:★★☆ ]
     <message>
         <location filename="mainwindow.ui" line="4032"/>
         <source>Tile size: This value will affects GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
-        <oldsource>Tile size: This value will affacts GPU memory usage.
+Larger Tile size means waifu2x will use more GPU memory and run faster.
+Smaller Tile size means waifu2x will use less GPU memory and run slower.</source>
+        <oldsource>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsource>
-        <translation>塊大小:這個值將會影響顯存的使用量.
-更大的塊大小意味著waifu2x將使用更多的顯存使運行更快.
-更小的块大小意味着waifu2x将使用更少的显存使运行更慢.</translation>
+        <translation>塊大小: 這個值將影響顯存使用量.
+更大的塊大小意味著waifu2x將使用更多顯存運行的更快.
+更小的塊大小意味著waifu2x將使用更少顯存運行的更慢.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4347"/>
@@ -571,9 +571,9 @@ Smaller Block size means waifu2x will use less GPU memory and run slower.</sourc
         <oldsource>Block size: This value will affacts GPU memory usage.
 Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</oldsource>
-        <translation>塊大小:這個值將會影響顯存的使用量.
-更大的塊大小意味著waifu2x將使用更多的顯存使運行更快.
-更小的块大小意味着waifu2x将使用更少的显存使运行更慢.</translation>
+        <translation>塊大小: 這個值將影響顯存使用量.
+更大的塊大小意味著waifu2x將使用更多顯存運行的更快.
+更小的塊大小意味著waifu2x將使用更少顯存運行的更慢.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4476"/>
@@ -2636,9 +2636,9 @@ WARNING: The original file will be DELETED.</source>
         <source>Tile size: This value will affects GPU memory usage.
 Larger tile size means Realsr will use more GPU memory and run faster.
 Smaller tile size means Realsr will use less GPU memory and run slower.</source>
-        <translation>块大小: 这个值将影响显存使用量.
-更大的块大小意味着Realsr将使用更多显存运行的更快.
-更小的块大小意味着Realsr将使用更多显存运行的更慢.</translation>
+        <translation>塊大小: 這個值將影響顯存使用量.
+更大的塊大小意味著Realsr將使用更多顯存運行的更快.
+更小的塊大小意味著Realsr將使用更少顯存運行的更慢.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6937"/>

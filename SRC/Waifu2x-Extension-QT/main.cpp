@@ -38,6 +38,7 @@ v3.11.32-beta:
 - New options: [About] and [Send feedback] for system tray menu.
 - Better naming for cache files.
 - Optimize performance.
+- Fix typo.
 
 v3.11.31-beta:
 - New Feature: Show summary after processing all files.

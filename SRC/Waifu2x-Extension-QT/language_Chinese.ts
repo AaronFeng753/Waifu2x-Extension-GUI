@@ -420,14 +420,14 @@ waifu2x-converter  [ 速度:★☆  画质:★★☆ ]
     <message>
         <location filename="mainwindow.ui" line="4032"/>
         <source>Tile size: This value will affects GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
-        <oldsource>Tile size: This value will affacts GPU memory usage.
+Larger Tile size means waifu2x will use more GPU memory and run faster.
+Smaller Tile size means waifu2x will use less GPU memory and run slower.</source>
+        <oldsource>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsource>
         <translation>块大小: 这个值将影响显存使用量.
 更大的块大小意味着waifu2x将使用更多显存运行的更快.
-更小的块大小意味着waifu2x将使用更多显存运行的更慢.</translation>
+更小的块大小意味着waifu2x将使用更少显存运行的更慢.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4347"/>
@@ -464,7 +464,7 @@ Larger Block size means waifu2x will use more GPU memory and run faster.
 Smaller Block size means waifu2x will use less GPU memory and run slower.</oldsource>
         <translation>块大小: 这个值将影响显存使用量.
 更大的块大小意味着waifu2x将使用更多显存运行的更快.
-更小的块大小意味着waifu2x将使用更多显存运行的更慢.</translation>
+更小的块大小意味着waifu2x将使用更少显存运行的更慢.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="4476"/>
@@ -1159,7 +1159,7 @@ Larger tile size means Realsr will use more GPU memory and run faster.
 Smaller tile size means Realsr will use less GPU memory and run slower.</source>
         <translation>块大小: 这个值将影响显存使用量.
 更大的块大小意味着Realsr将使用更多显存运行的更快.
-更小的块大小意味着Realsr将使用更多显存运行的更慢.</translation>
+更小的块大小意味着Realsr将使用更少显存运行的更慢.</translation>
     </message>
     <message>
         <location filename="mainwindow.ui" line="6937"/>

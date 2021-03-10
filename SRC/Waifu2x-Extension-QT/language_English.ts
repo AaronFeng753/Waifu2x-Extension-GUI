@@ -1185,9 +1185,9 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     <message>
         <location filename="mainwindow.ui" line="4032"/>
         <source>Tile size: This value will affects GPU memory usage.
-Larger tile size means waifu2x will use more GPU memory and run faster.
-Smaller tile size means waifu2x will use less GPU memory and run slower.</source>
-        <oldsource>Tile size: This value will affacts GPU memory usage.
+Larger Tile size means waifu2x will use more GPU memory and run faster.
+Smaller Tile size means waifu2x will use less GPU memory and run slower.</source>
+        <oldsource>Tile size: This value will affects GPU memory usage.
 Larger tile size means waifu2x will use more GPU memory and run faster.
 Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsource>
         <translation type="unfinished"></translation>
