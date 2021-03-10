@@ -420,9 +420,8 @@ QMap<QString, QString> MainWindow::Table_Read_status_fullpath(QStandardItemModel
 }
 
 //保存当前文件列表
-int MainWindow::Table_Save_Current_Table_Filelist(QString FilesListFullPath)
+int MainWindow::Table_Save_Current_Table_Filelist(QString Table_FileList_ini)
 {
-    QString Table_FileList_ini = FilesListFullPath;
     QFile::remove(Table_FileList_ini);
     //=================
     QSettings *configIniWrite = new QSettings(Table_FileList_ini, QSettings::IniFormat);
@@ -582,9 +581,8 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
     Table_Save_Current_Table_Filelist(FilesListFullPath);
     QtConcurrent::run(this, &MainWindow::Table_Save_Current_Table_Filelist_Watchdog,FilesListFullPath);
 }
-int MainWindow::Table_Save_Current_Table_Filelist_Watchdog(QString FilesListFullPath)
+int MainWindow::Table_Save_Current_Table_Filelist_Watchdog(QString Table_FileList_ini)
 {
-    QString Table_FileList_ini = FilesListFullPath;
     while(!QFile::exists(Table_FileList_ini))
     {
         Delay_msec_sleep(100);

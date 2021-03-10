@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.11.32-beta:
+-
+
 v3.11.31-beta:
 - New Feature: Show summary after processing all files.
 - New Feature: Now you can save multiple files lists.

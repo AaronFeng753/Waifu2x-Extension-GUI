@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.11.31-beta";//软件版本号
+    QString VERSION = "v3.11.32-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.11.27";
-    QString LastBetaVer = "v3.11.31-beta";
+    QString LastBetaVer = "v3.11.32-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -160,11 +160,11 @@ public:
     int curRow_gif = -1;
     int curRow_video = -1;
 
-    int Table_Save_Current_Table_Filelist(QString FilesListFullPath);//保存当前文件列表(包括table
+    int Table_Save_Current_Table_Filelist(QString Table_FileList_ini);//保存当前文件列表(包括table
 
     int Table_Read_Saved_Table_Filelist(QString Table_FileList_ini);//读取保存的文件列表
 
-    int Table_Save_Current_Table_Filelist_Watchdog(QString FilesListFullPath);//保存文件列表的看门狗线程,确保文件成功保存
+    int Table_Save_Current_Table_Filelist_Watchdog(QString Table_FileList_ini);//保存文件列表的看门狗线程,确保文件成功保存
 
     bool Table_insert_finished=false;
     QMutex mutex_Table_insert_finished;//监管是否完成表格插入的bool值的mutex
