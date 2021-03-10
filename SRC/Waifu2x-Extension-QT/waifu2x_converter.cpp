@@ -855,7 +855,7 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+QString::number(DenoiseLevel,10)+"n"+"_"+file_ext+".mp4";
     }
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath,CustRes_isEnabled,CustRes_height,CustRes_width,false);
-    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
+    if(QFile::exists(video_mp4_scaled_fullpath)==false)//检查是否成功成功生成视频
     {
         if(waifu2x_STOP)
         {
@@ -1393,7 +1393,7 @@ int MainWindow::Waifu2x_Converter_Video_BySegment(int rowNum)
     }
     QFile::remove(video_mp4_scaled_fullpath);
     video_AssembleVideoClips(VideoClipsFolderPath,VideoClipsFolderName,video_mp4_scaled_fullpath,AudioPath);
-    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    if(QFile::exists(video_mp4_scaled_fullpath)==false)//检查是否成功生成视频
     {
         if(waifu2x_STOP)
         {

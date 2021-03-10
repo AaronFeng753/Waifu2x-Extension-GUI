@@ -352,7 +352,7 @@ void MainWindow::video_AssembleVideoClips(QString VideoClipsFolderPath,QString V
         }
     }
     //检查是否发生错误
-    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    if(QFile::exists(video_mp4_scaled_fullpath)==false)//检查是否成功生成视频
     {
         MultiLine_ErrorOutput_QMutex.lock();
         emit Send_TextBrowser_NewMessage(tr("Error output for FFmpeg when processing:[")+video_mp4_scaled_fullpath+"]");
@@ -1000,7 +1000,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         }
     }
     //============== 尝试在Win7下可能兼容的指令 ================================
-    if(!QFile::exists(video_mp4_scaled_fullpath))
+    if(QFile::exists(video_mp4_scaled_fullpath)==false)
     {
         if(QFile::exists(AudioPath))
         {

@@ -270,7 +270,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     video_mp4_scaled_fullpath = SourceFile_FolderPath+"/"+SourceFile_BaseName+"_W2xEX_VFI_"+SourceFile_Suffix+".mp4";
     QFile::remove(video_mp4_scaled_fullpath);
     video_AssembleVideoClips(VideoClipsFolderPath,VideoClipsFolderName,video_mp4_scaled_fullpath,AudioPath);
-    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功生成视频
+    if(QFile::exists(video_mp4_scaled_fullpath)==false)//检查是否成功生成视频
     {
         if(waifu2x_STOP)
         {
@@ -389,7 +389,7 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     QString video_mp4_scaled_fullpath = "";
     video_mp4_scaled_fullpath = file_path+"/"+file_name+"_W2xEX_VFI_"+file_ext+".mp4";
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,SplitFramesFolderPath,AudioPath,false,1,1,false);
-    if(!QFile::exists(video_mp4_scaled_fullpath))//检查是否成功成功生成视频
+    if(QFile::exists(video_mp4_scaled_fullpath)==false)//检查是否成功成功生成视频
     {
         if(waifu2x_STOP)
         {
