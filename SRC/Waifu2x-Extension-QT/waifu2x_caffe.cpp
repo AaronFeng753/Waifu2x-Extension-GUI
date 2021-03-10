@@ -274,7 +274,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
         return 0;//如果启用stop位,则直接return
     }
     //============================== 拆分 ==========================================
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
     Gif_splitGif(SourceFile_fullPath,SplitFramesFolderPath);
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -287,7 +287,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
         return 0;//如果启用stop位,则直接return
     }
     //===========建立存储放大后frame的文件夹===========
-    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";
+    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/ScaledFrames_W2xEX";
     if(file_isDirExist(ScaledFramesFolderPath))
     {
         file_DelDir(ScaledFramesFolderPath);
@@ -617,9 +617,9 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
         CustRes_width=Res_map["width"].toInt();
     }
     //=================
-    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
+    QString AudioPath = file_path+"/Audio_"+file_name+"_"+file_ext+"_W2xEX.wav";//音频
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
+    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/ScaledFrames_W2xEX";//存储放大后的帧
     //==========================
     //   检测之前的视频配置文件
     //==========================
@@ -992,9 +992,9 @@ int MainWindow::Waifu2x_Caffe_Video_BySegment(int rowNum)
         CustRes_width=Res_map["width"].toInt();
     }
     //=================
-    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/scaled";//存储放大后的帧
+    QString AudioPath = file_path+"/Audio_"+file_name+"_"+file_ext+"_W2xEX.wav";//音频
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
+    QString ScaledFramesFolderPath = SplitFramesFolderPath+"/ScaledFrames_W2xEX";//存储放大后的帧
     //===
     QString VideoClipsFolderPath = "";//存储视频片段的文件夹(完整路径)
     QString DateStr = "";

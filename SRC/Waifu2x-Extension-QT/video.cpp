@@ -554,10 +554,6 @@ int MainWindow::video_get_duration(QString videoPath)
 */
 QString MainWindow::video_AudioDenoise(QString OriginalAudioPath)
 {
-    /*
-    sox 输入音频.wav -n noiseprof 噪音分析.prof
-    sox 输入音频.wav 输出音频.wav noisered 噪音分析.prof 0.21
-    */
     emit Send_TextBrowser_NewMessage(tr("Starting to denoise audio.[")+OriginalAudioPath+"]");
     //===========
     QFileInfo fileinfo(OriginalAudioPath);

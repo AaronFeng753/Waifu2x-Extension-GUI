@@ -18,6 +18,9 @@
 */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+/*
+对视频进行仅插帧(分段)
+*/
 int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
 {
     //============================= 读取设置 ================================
@@ -51,9 +54,9 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         return 0;//如果启用stop位,则直接return
     }
     //=================
-    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
-    //===
+    QString AudioPath = file_path+"/Audio_"+file_name+"_"+file_ext+"_W2xEX.wav";//音频
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
+    //=================
     QString VideoClipsFolderPath = "";//存储视频片段的文件夹(完整路径)
     QString DateStr = "";
     do
@@ -321,7 +324,7 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     }
     //============================ 更新进度条 =================================
     emit Send_progressbar_Add();
-    //===========================  ==============================
+    //=========
     return 0;
 }
 /*
@@ -358,8 +361,8 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
         emit Send_progressbar_Add();
         return 0;//如果启用stop位,则直接return
     }
-    QString AudioPath = file_path+"/audio_"+file_name+"_"+file_ext+"_waifu2x.wav";//音频
-    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_splitFrames_waifu2x";//拆分后存储frame的文件夹
+    QString AudioPath = file_path+"/Audio_"+file_name+"_"+file_ext+"_W2xEX.wav";//音频
+    QString SplitFramesFolderPath = file_path+"/"+file_name+"_"+file_ext+"_SplitFrames_W2xEX";//拆分后存储frame的文件夹
     //==========================================
     //                   拆分(正常)
     //==========================================

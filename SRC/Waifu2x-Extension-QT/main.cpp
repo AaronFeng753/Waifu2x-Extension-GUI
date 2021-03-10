@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.32-beta:
--
+- Optimize performance.
 
 v3.11.31-beta:
 - New Feature: Show summary after processing all files.
