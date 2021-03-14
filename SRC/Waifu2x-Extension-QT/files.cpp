@@ -45,7 +45,7 @@ void MainWindow::dropEvent(QDropEvent *event)
     ui->groupBox_Setting->setEnabled(0);
     ui->groupBox_FileList->setEnabled(0);
     ui->groupBox_InputExt->setEnabled(0);
-    ui->pushButton_Start->setEnabled(0);
+    pushButton_Start_setEnabled_self(0);
     ui->checkBox_ScanSubFolders->setEnabled(0);
     this->setAcceptDrops(0);
     ui->label_DropFile->setText(tr("Adding files, please wait."));
@@ -91,7 +91,7 @@ void MainWindow::Read_urls_finfished()
     //===
     ui->groupBox_Setting->setEnabled(1);
     ui->groupBox_FileList->setEnabled(1);
-    ui->pushButton_Start->setEnabled(1);
+    pushButton_Start_setEnabled_self(1);
     ui->groupBox_InputExt->setEnabled(1);
     ui->checkBox_ScanSubFolders->setEnabled(1);
     this->setAcceptDrops(1);

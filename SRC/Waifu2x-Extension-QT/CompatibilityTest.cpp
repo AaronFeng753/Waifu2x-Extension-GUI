@@ -22,6 +22,7 @@
 void MainWindow::on_pushButton_compatibilityTest_clicked()
 {
     ui->tab_Home->setEnabled(0);
+    Start_SystemTrayIcon->setEnabled(0);
     ui->tab_EngineSettings->setEnabled(0);
     ui->tab_VideoSettings->setEnabled(0);
     ui->tab_AdditionalSettings->setEnabled(0);
@@ -648,6 +649,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     //解除界面管制
     Finish_progressBar_CompatibilityTest();
     ui->tab_Home->setEnabled(1);
+    Start_SystemTrayIcon->setEnabled(1);
     ui->tab_EngineSettings->setEnabled(1);
     ui->tab_VideoSettings->setEnabled(1);
     ui->tab_AdditionalSettings->setEnabled(1);

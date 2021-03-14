@@ -5,8 +5,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="1608"/>
-        <location filename="mainwindow.cpp" line="751"/>
-        <location filename="mainwindow.cpp" line="825"/>
+        <location filename="mainwindow.cpp" line="752"/>
+        <location filename="mainwindow.cpp" line="826"/>
         <source>Hide settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -25,6 +25,7 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="132"/>
+        <location filename="SystemTrayIcon.cpp" line="61"/>
         <source>Donate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -231,6 +232,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="600"/>
+        <location filename="SystemTrayIcon.cpp" line="65"/>
         <source>Pause</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1000,7 +1002,7 @@ path] or [Delete original files] is enabled*
     </message>
     <message>
         <location filename="mainwindow.ui" line="10631"/>
-        <location filename="CompatibilityTest.cpp" line="655"/>
+        <location filename="CompatibilityTest.cpp" line="657"/>
         <source>Start compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1165,8 +1167,8 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     </message>
     <message>
         <location filename="mainwindow.ui" line="1651"/>
-        <location filename="mainwindow.cpp" line="836"/>
-        <location filename="mainwindow.cpp" line="1095"/>
+        <location filename="mainwindow.cpp" line="837"/>
+        <location filename="mainwindow.cpp" line="1096"/>
         <source>Hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1841,8 +1843,8 @@ Will improve image quality.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="9398"/>
-        <location filename="SystemTrayIcon.cpp" line="53"/>
-        <location filename="mainwindow.cpp" line="914"/>
+        <location filename="SystemTrayIcon.cpp" line="58"/>
+        <location filename="mainwindow.cpp" line="915"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2163,6 +2165,7 @@ the language for the language settings to fully take effect.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="401"/>
+        <location filename="SystemTrayIcon.cpp" line="68"/>
         <source>Start</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2256,9 +2259,9 @@ Video: %3</source>
         <location filename="Right-click_Menu.cpp" line="140"/>
         <location filename="Right-click_Menu.cpp" line="292"/>
         <location filename="mainwindow.cpp" line="122"/>
-        <location filename="mainwindow.cpp" line="798"/>
-        <location filename="mainwindow.cpp" line="847"/>
-        <location filename="mainwindow.cpp" line="879"/>
+        <location filename="mainwindow.cpp" line="799"/>
+        <location filename="mainwindow.cpp" line="848"/>
+        <location filename="mainwindow.cpp" line="880"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1798"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1789"/>
         <location filename="table.cpp" line="542"/>
@@ -2285,7 +2288,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="CustomResolution.cpp" line="220"/>
         <location filename="Right-click_Menu.cpp" line="207"/>
         <location filename="Right-click_Menu.cpp" line="253"/>
-        <location filename="mainwindow.cpp" line="417"/>
+        <location filename="mainwindow.cpp" line="418"/>
         <source>No items are currently selected.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2301,7 +2304,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <location filename="Right-click_Menu.cpp" line="206"/>
         <location filename="Right-click_Menu.cpp" line="252"/>
         <location filename="files.cpp" line="109"/>
-        <location filename="mainwindow.cpp" line="416"/>
+        <location filename="mainwindow.cpp" line="417"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1848"/>
         <location filename="settings.cpp" line="618"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1828"/>
@@ -2320,8 +2323,8 @@ Therefore, the custom resolution for video has been automatically corrected by t
     <message>
         <location filename="files.cpp" line="51"/>
         <location filename="files.cpp" line="52"/>
-        <location filename="mainwindow.cpp" line="1051"/>
         <location filename="mainwindow.cpp" line="1052"/>
+        <location filename="mainwindow.cpp" line="1053"/>
         <source>Adding files, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2336,13 +2339,13 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1894"/>
+        <location filename="mainwindow.cpp" line="1895"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1894"/>
+        <location filename="mainwindow.cpp" line="1895"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
@@ -2365,18 +2368,18 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="664"/>
-        <location filename="CompatibilityTest.cpp" line="676"/>
-        <location filename="CompatibilityTest.cpp" line="683"/>
-        <location filename="CompatibilityTest.cpp" line="864"/>
-        <location filename="CompatibilityTest.cpp" line="875"/>
+        <location filename="CompatibilityTest.cpp" line="666"/>
+        <location filename="CompatibilityTest.cpp" line="678"/>
+        <location filename="CompatibilityTest.cpp" line="685"/>
+        <location filename="CompatibilityTest.cpp" line="866"/>
+        <location filename="CompatibilityTest.cpp" line="877"/>
         <location filename="Finish_Action.cpp" line="109"/>
-        <location filename="SystemTrayIcon.cpp" line="120"/>
+        <location filename="SystemTrayIcon.cpp" line="144"/>
         <location filename="Web_Activities.cpp" line="82"/>
         <location filename="mainwindow.cpp" line="158"/>
         <location filename="mainwindow.cpp" line="184"/>
-        <location filename="mainwindow.cpp" line="972"/>
-        <location filename="mainwindow.cpp" line="1264"/>
+        <location filename="mainwindow.cpp" line="973"/>
+        <location filename="mainwindow.cpp" line="1265"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1787"/>
         <location filename="settings.cpp" line="606"/>
         <location filename="settings.cpp" line="630"/>
@@ -3041,12 +3044,12 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
     </message>
     <message>
         <location filename="mainwindow.cpp" line="181"/>
-        <location filename="mainwindow.cpp" line="377"/>
+        <location filename="mainwindow.cpp" line="378"/>
         <source>Trying to stop, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="396"/>
+        <location filename="mainwindow.cpp" line="397"/>
         <source>Processing of files has stopped.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3070,55 +3073,55 @@ Otherwise, this software may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="799"/>
+        <location filename="mainwindow.cpp" line="800"/>
         <source>Language file is missing, please reinstall this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="848"/>
+        <location filename="mainwindow.cpp" line="849"/>
         <source>Language file cannot be loaded properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="858"/>
+        <location filename="mainwindow.cpp" line="859"/>
         <source>Select saved files list @Waifu2x-Extension-GUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="873"/>
+        <location filename="mainwindow.cpp" line="874"/>
         <source>Loading list, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1252"/>
+        <location filename="mainwindow.cpp" line="1253"/>
         <source>- This software is free, if you find anyone selling this software, please report the seller.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1253"/>
+        <location filename="mainwindow.cpp" line="1254"/>
         <source>- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1254"/>
+        <location filename="mainwindow.cpp" line="1255"/>
         <source>- If you like this software, please donate to support the developer, thank you!
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1265"/>
+        <location filename="mainwindow.cpp" line="1266"/>
         <source>It is detected that this is the first time you have started the software, so the compatibility test will be performed automatically. Please wait for a while, then check the test result.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1340"/>
+        <location filename="mainwindow.cpp" line="1341"/>
         <source>Force retry is disabled when processing Video or GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2021"/>
+        <location filename="mainwindow.cpp" line="2022"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3141,66 +3144,66 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="502"/>
+        <location filename="mainwindow.cpp" line="503"/>
         <source>Error! Notification sound file is missing!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="543"/>
         <location filename="mainwindow.cpp" line="544"/>
-        <location filename="mainwindow.cpp" line="575"/>
+        <location filename="mainwindow.cpp" line="545"/>
         <location filename="mainwindow.cpp" line="576"/>
-        <location filename="mainwindow.cpp" line="603"/>
+        <location filename="mainwindow.cpp" line="577"/>
         <location filename="mainwindow.cpp" line="604"/>
-        <location filename="mainwindow.cpp" line="635"/>
+        <location filename="mainwindow.cpp" line="605"/>
         <location filename="mainwindow.cpp" line="636"/>
-        <location filename="mainwindow.cpp" line="662"/>
+        <location filename="mainwindow.cpp" line="637"/>
         <location filename="mainwindow.cpp" line="663"/>
-        <location filename="mainwindow.cpp" line="694"/>
+        <location filename="mainwindow.cpp" line="664"/>
         <location filename="mainwindow.cpp" line="695"/>
+        <location filename="mainwindow.cpp" line="696"/>
         <source>Range:-1(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="552"/>
         <location filename="mainwindow.cpp" line="553"/>
-        <location filename="mainwindow.cpp" line="612"/>
+        <location filename="mainwindow.cpp" line="554"/>
         <location filename="mainwindow.cpp" line="613"/>
-        <location filename="mainwindow.cpp" line="671"/>
+        <location filename="mainwindow.cpp" line="614"/>
         <location filename="mainwindow.cpp" line="672"/>
+        <location filename="mainwindow.cpp" line="673"/>
         <source>Range:0(No noise reduction)~3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="561"/>
         <location filename="mainwindow.cpp" line="562"/>
-        <location filename="mainwindow.cpp" line="621"/>
+        <location filename="mainwindow.cpp" line="563"/>
         <location filename="mainwindow.cpp" line="622"/>
-        <location filename="mainwindow.cpp" line="685"/>
+        <location filename="mainwindow.cpp" line="623"/>
         <location filename="mainwindow.cpp" line="686"/>
+        <location filename="mainwindow.cpp" line="687"/>
         <source>Range:-1(No noise reduction)~10</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="584"/>
         <location filename="mainwindow.cpp" line="585"/>
-        <location filename="mainwindow.cpp" line="644"/>
+        <location filename="mainwindow.cpp" line="586"/>
         <location filename="mainwindow.cpp" line="645"/>
-        <location filename="mainwindow.cpp" line="703"/>
+        <location filename="mainwindow.cpp" line="646"/>
         <location filename="mainwindow.cpp" line="704"/>
+        <location filename="mainwindow.cpp" line="705"/>
         <source>Realsr-ncnn-vulkan engine will denoise automatically.</source>
         <oldsource>Anime4K engine does not support noise reduction.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="30"/>
+        <location filename="CompatibilityTest.cpp" line="31"/>
         <source>Testing, please wait...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="745"/>
-        <location filename="mainwindow.cpp" line="819"/>
-        <location filename="mainwindow.cpp" line="960"/>
+        <location filename="mainwindow.cpp" line="746"/>
+        <location filename="mainwindow.cpp" line="820"/>
+        <location filename="mainwindow.cpp" line="961"/>
         <source>Show settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3215,7 +3218,7 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="872"/>
+        <location filename="mainwindow.cpp" line="873"/>
         <source>Please wait while reading the file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3225,14 +3228,14 @@ Or do not have sufficient permissions to write files to the output path, you mig
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="973"/>
+        <location filename="mainwindow.cpp" line="974"/>
         <source>Custom Font Settings saved successfully.
 
 Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1026"/>
+        <location filename="mainwindow.cpp" line="1027"/>
         <source>All file(</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3324,36 +3327,36 @@ Restart the software to take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="831"/>
-        <location filename="mainwindow.cpp" line="1090"/>
-        <location filename="mainwindow.cpp" line="1104"/>
+        <location filename="mainwindow.cpp" line="832"/>
+        <location filename="mainwindow.cpp" line="1091"/>
+        <location filename="mainwindow.cpp" line="1105"/>
         <source>Show Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="880"/>
+        <location filename="mainwindow.cpp" line="881"/>
         <source>Target files list doesn&apos;t exist!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1026"/>
+        <location filename="mainwindow.cpp" line="1027"/>
         <source>Select files @Waifu2x-Extension-GUI</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1250"/>
+        <location filename="mainwindow.cpp" line="1251"/>
         <source>- Please read the Wiki before starting to use the software.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1251"/>
+        <location filename="mainwindow.cpp" line="1252"/>
         <source>- If there is a problem with the software font display, you can modify the font in the additional settings.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1257"/>
+        <location filename="mainwindow.cpp" line="1258"/>
         <source>!!! Tips !!!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3395,7 +3398,7 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1373"/>
+        <location filename="mainwindow.cpp" line="1374"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3565,233 +3568,233 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="37"/>
+        <location filename="CompatibilityTest.cpp" line="38"/>
         <source>Compatibility test is ongoing, please wait.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="104"/>
+        <location filename="CompatibilityTest.cpp" line="105"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): Yes</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): Yes</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="109"/>
+        <location filename="CompatibilityTest.cpp" line="110"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Old Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <oldsource>Compatible with waifu2x-ncnn-vulkan(OLD Version): No. [Advice: Re-install gpu driver or update it to the latest.]</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="68"/>
+        <location filename="CompatibilityTest.cpp" line="69"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Latest Version): Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="73"/>
+        <location filename="CompatibilityTest.cpp" line="74"/>
         <source>Compatible with waifu2x-ncnn-vulkan(Latest Version): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="142"/>
+        <location filename="CompatibilityTest.cpp" line="143"/>
         <source>Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="147"/>
+        <location filename="CompatibilityTest.cpp" line="148"/>
         <source>Compatible with waifu2x-ncnn-vulkan(20200414(fp16p)): No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="172"/>
+        <location filename="CompatibilityTest.cpp" line="173"/>
         <source>Compatible with waifu2x-converter: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="177"/>
+        <location filename="CompatibilityTest.cpp" line="178"/>
         <source>Compatible with waifu2x-converter: No. [Advice: Install or reinstall OpenCL runtime.]</source>
         <oldsource>Compatible with waifu2x-converter: No.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="201"/>
+        <location filename="CompatibilityTest.cpp" line="202"/>
         <source>Compatible with Anime4k(CPU Mode): Yes.</source>
         <oldsource>Compatible with Anime4k: Yes.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="206"/>
+        <location filename="CompatibilityTest.cpp" line="207"/>
         <source>Compatible with Anime4k(CPU Mode): No. [Advice: Install or reinstall OpenCL runtime.]</source>
         <oldsource>Compatible with Anime4k(CPU Mode): No.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="229"/>
+        <location filename="CompatibilityTest.cpp" line="230"/>
         <source>Compatible with Anime4k(GPU Mode): Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="234"/>
+        <location filename="CompatibilityTest.cpp" line="235"/>
         <source>Compatible with Anime4k(GPU Mode): No. [Advice: Install or reinstall OpenCL runtime.]</source>
         <oldsource>Compatible with Anime4k(GPU Mode): No.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="267"/>
+        <location filename="CompatibilityTest.cpp" line="268"/>
         <source>Compatible with srmd-ncnn-vulkan: Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="272"/>
+        <location filename="CompatibilityTest.cpp" line="273"/>
         <source>Compatible with srmd-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="296"/>
+        <location filename="CompatibilityTest.cpp" line="297"/>
         <source>Compatible with waifu2x-caffe(CPU): Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="301"/>
+        <location filename="CompatibilityTest.cpp" line="302"/>
         <source>Compatible with waifu2x-caffe(CPU): No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="325"/>
+        <location filename="CompatibilityTest.cpp" line="326"/>
         <source>Compatible with waifu2x-caffe(GPU): Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="330"/>
+        <location filename="CompatibilityTest.cpp" line="331"/>
         <source>Compatible with waifu2x-caffe(GPU): No. [Advice: Install NVIDIA CUDA.]</source>
         <oldsource>Compatible with waifu2x-caffe(GPU): No.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="354"/>
+        <location filename="CompatibilityTest.cpp" line="355"/>
         <source>Compatible with waifu2x-caffe(cuDNN): Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="359"/>
+        <location filename="CompatibilityTest.cpp" line="360"/>
         <source>Compatible with waifu2x-caffe(cuDNN): No. [Advice: Install NVIDIA CUDA and NVIDIA cuDNN.]</source>
         <oldsource>Compatible with waifu2x-caffe(cuDNN): No.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="392"/>
+        <location filename="CompatibilityTest.cpp" line="393"/>
         <source>Compatible with Realsr-ncnn-vulkan: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="397"/>
+        <location filename="CompatibilityTest.cpp" line="398"/>
         <source>Compatible with Realsr-ncnn-vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="417"/>
+        <location filename="CompatibilityTest.cpp" line="418"/>
         <source>Compatible with FFmpeg: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="422"/>
+        <location filename="CompatibilityTest.cpp" line="423"/>
         <source>Compatible with FFmpeg: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="444"/>
+        <location filename="CompatibilityTest.cpp" line="445"/>
         <source>Compatible with FFprobe: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="449"/>
+        <location filename="CompatibilityTest.cpp" line="450"/>
         <source>Compatible with FFprobe: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="471"/>
+        <location filename="CompatibilityTest.cpp" line="472"/>
         <source>Compatible with ImageMagick: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="476"/>
+        <location filename="CompatibilityTest.cpp" line="477"/>
         <source>Compatible with ImageMagick: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="499"/>
+        <location filename="CompatibilityTest.cpp" line="500"/>
         <source>Compatible with Gifsicle: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="504"/>
+        <location filename="CompatibilityTest.cpp" line="505"/>
         <source>Compatible with Gifsicle: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="526"/>
+        <location filename="CompatibilityTest.cpp" line="527"/>
         <source>Compatible with SoX: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="531"/>
+        <location filename="CompatibilityTest.cpp" line="532"/>
         <source>Compatible with SoX: No.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="565"/>
+        <location filename="CompatibilityTest.cpp" line="566"/>
         <source>Compatible with Rife-NCNN-Vulkan: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="570"/>
+        <location filename="CompatibilityTest.cpp" line="571"/>
         <source>Compatible with Rife-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="601"/>
+        <location filename="CompatibilityTest.cpp" line="602"/>
         <source>Compatible with Cain-NCNN-Vulkan: Yes.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="606"/>
+        <location filename="CompatibilityTest.cpp" line="607"/>
         <source>Compatible with Cain-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="621"/>
         <location filename="CompatibilityTest.cpp" line="622"/>
+        <location filename="CompatibilityTest.cpp" line="623"/>
         <source>Compatibility test is complete!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="665"/>
+        <location filename="CompatibilityTest.cpp" line="667"/>
         <source>One of the essential plugins is not compatible with your PC, the software may not work normally on your PC.
 
 You can try to re-install this software, this might solve the problem.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="677"/>
+        <location filename="CompatibilityTest.cpp" line="679"/>
         <source>All of the Frame Interpolation engines are not compatible with your PC, so you will not be able to use the Frame Interpolation function.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="683"/>
+        <location filename="CompatibilityTest.cpp" line="685"/>
         <source>Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="685"/>
+        <location filename="CompatibilityTest.cpp" line="687"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="686"/>
+        <location filename="CompatibilityTest.cpp" line="688"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="865"/>
+        <location filename="CompatibilityTest.cpp" line="867"/>
         <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
 
 First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
@@ -3802,7 +3805,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="876"/>
+        <location filename="CompatibilityTest.cpp" line="878"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4098,34 +4101,39 @@ taskbar icon to quickly hide the window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="43"/>
+        <location filename="SystemTrayIcon.cpp" line="44"/>
         <source>Show</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="44"/>
+        <location filename="SystemTrayIcon.cpp" line="45"/>
         <source>Use the left mouse button to click the taskbar icon to quickly
 display the window, double-click to maximize the window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="46"/>
+        <location filename="SystemTrayIcon.cpp" line="48"/>
         <source>Exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="48"/>
+        <location filename="SystemTrayIcon.cpp" line="51"/>
         <source>Background mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="49"/>
+        <location filename="SystemTrayIcon.cpp" line="52"/>
         <source>Set the number of threads to &quot;1&quot; to reduce background resource usage.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="SystemTrayIcon.cpp" line="51"/>
+        <location filename="SystemTrayIcon.cpp" line="55"/>
         <source>Send feedback</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="SystemTrayIcon.cpp" line="62"/>
+        <source>Donate to support this project.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -39,18 +39,34 @@ void MainWindow::Init_SystemTrayIcon()
     //初始化菜单动作
     minimumAct_SystemTrayIcon->setText(tr("Hide"));
     minimumAct_SystemTrayIcon->setToolTip(tr("Use the middle mouse button to click the\ntaskbar icon to quickly hide the window."));
+    minimumAct_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/Minimize.png"));
     //===
     restoreAct_SystemTrayIcon->setText(tr("Show"));
     restoreAct_SystemTrayIcon->setToolTip(tr("Use the left mouse button to click the taskbar icon to quickly\ndisplay the window, double-click to maximize the window."));
+    restoreAct_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/ShowWindow.png"));
     //===
     quitAct_SystemTrayIcon->setText(tr("Exit"));
+    quitAct_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/Exit.png"));
     //===
     BackgroundModeAct_SystemTrayIcon->setText(tr("Background mode"));
     BackgroundModeAct_SystemTrayIcon->setToolTip(tr("Set the number of threads to \"1\" to reduce background resource usage."));
+    BackgroundModeAct_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/BackgroudMode.png"));
     //===
     SendFeedback_SystemTrayIcon->setText(tr("Send feedback"));
+    SendFeedback_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/SendFeedback.png"));
     //===
     About_SystemTrayIcon->setText(tr("About"));
+    About_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/About.png"));
+    //===
+    Donate_SystemTrayIcon->setText(tr("Donate"));
+    Donate_SystemTrayIcon->setToolTip(tr("Donate to support this project."));
+    Donate_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/donateTabIcon_1.png"));
+    //===
+    Pause_SystemTrayIcon->setText(tr("Pause"));
+    Pause_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/Pause_SysTray.png"));
+    //===
+    Start_SystemTrayIcon->setText(tr("Start"));
+    Start_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/Start_SysTray.png"));
     //===
     connect(minimumAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_hide_self()),Qt::UniqueConnection);
     connect(restoreAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showNormal_self()),Qt::UniqueConnection);
@@ -58,14 +74,21 @@ void MainWindow::Init_SystemTrayIcon()
     connect(BackgroundModeAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(EnableBackgroundMode_SystemTray()),Qt::UniqueConnection);
     connect(SendFeedback_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Report_clicked()),Qt::UniqueConnection);
     connect(About_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_about_clicked()),Qt::UniqueConnection);
+    connect(Donate_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showDonate()),Qt::UniqueConnection);
+    connect(Pause_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Stop_clicked()),Qt::UniqueConnection);
+    connect(Start_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Start_clicked()),Qt::UniqueConnection);
     //初始化菜单选项
     pContextMenu->setToolTipsVisible(1);
     pContextMenu->setToolTipDuration(-1);
     pContextMenu->addAction(minimumAct_SystemTrayIcon);
     pContextMenu->addAction(restoreAct_SystemTrayIcon);
     pContextMenu->addSeparator();
+    pContextMenu->addAction(Start_SystemTrayIcon);
+    pContextMenu->addAction(Pause_SystemTrayIcon);
+    pContextMenu->addSeparator();
     pContextMenu->addAction(BackgroundModeAct_SystemTrayIcon);
     pContextMenu->addSeparator();
+    pContextMenu->addAction(Donate_SystemTrayIcon);
     pContextMenu->addAction(SendFeedback_SystemTrayIcon);
     pContextMenu->addAction(About_SystemTrayIcon);
     pContextMenu->addSeparator();
@@ -110,6 +133,7 @@ void MainWindow::EnableBackgroundMode_SystemTray()
     ui->spinBox_ThreadNum_image->setValue(1);
     ui->spinBox_ThreadNum_gif_internal->setValue(1);
     ui->spinBox_ThreadNum_video_internal->setValue(1);
+    ui->spinBox_NumOfThreads_VFI->setValue(1);
     pContextMenu->hide();
 }
 /*
@@ -129,7 +153,18 @@ void MainWindow::SystemTray_hide_self()
 void MainWindow::SystemTray_showNormal_self()
 {
     this->showNormal();
+    this->activateWindow();
+    this->setWindowState((this->windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
     pContextMenu->hide();
+}
+
+void MainWindow::SystemTray_showDonate()
+{
+    this->showNormal();
+    this->activateWindow();
+    this->setWindowState((this->windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+    pContextMenu->hide();
+    ui->tabWidget->setCurrentIndex(0);
 }
 
 

@@ -569,7 +569,7 @@ void MainWindow::on_pushButton_SaveFileList_clicked()
     }
     //======================= 开始保存 ========================
     this->setAcceptDrops(0);//禁止drop file
-    ui->pushButton_Start->setEnabled(0);//禁用start button
+    pushButton_Start_setEnabled_self(0);//禁用start button
     ui->pushButton_ClearList->setEnabled(0);
     ui->pushButton_RemoveItem->setEnabled(0);
     ui->pushButton_CustRes_cancel->setEnabled(0);
@@ -602,7 +602,7 @@ int MainWindow::Table_Save_Current_Table_Filelist_Finished()
     }
     ui->pushButton_CustRes_cancel->setEnabled(1);
     ui->pushButton_CustRes_apply->setEnabled(1);
-    ui->pushButton_Start->setEnabled(1);//启用start button
+    pushButton_Start_setEnabled_self(1);//启用start button
     ui->pushButton_SaveFileList->setEnabled(1);
     emit Send_TextBrowser_NewMessage(tr("File list saved successfully!"));
     //===
@@ -756,7 +756,7 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished(QString Table_FileList_
     //====
     ui_tableViews_setUpdatesEnabled(true);
     this->setAcceptDrops(1);
-    ui->pushButton_Start->setEnabled(1);
+    pushButton_Start_setEnabled_self(1);
     ui->pushButton_CustRes_cancel->setEnabled(1);
     ui->pushButton_CustRes_apply->setEnabled(1);
     ui->pushButton_ReadFileList->setEnabled(1);

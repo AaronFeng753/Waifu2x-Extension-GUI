@@ -39,5 +39,13 @@
         <file>icon/TurnOffScreen.png</file>
         <file>icon/TurnOffScreen_disabled.png</file>
         <file>icon/TurnOffScreen_hover.png</file>
+        <file>icon/Exit.png</file>
+        <file>icon/SendFeedback.png</file>
+        <file>icon/ShowWindow.png</file>
+        <file>icon/Minimize.png</file>
+        <file>icon/BackgroudMode.png</file>
+        <file>icon/About.png</file>
+        <file>icon/Pause_SysTray.png</file>
+        <file>icon/Start_SysTray.png</file>
     </qresource>
 </RCC>

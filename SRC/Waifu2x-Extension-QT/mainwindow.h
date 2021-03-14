@@ -418,8 +418,11 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    void pushButton_Start_setEnabled_self(bool isEnabled);
+    void pushButton_Stop_setEnabled_self(bool isEnabled);
+
     void TurnOffScreen();
-    QFuture<void> TurnOffScreen_QF;//监视waifu2x主线程
+    QFuture<void> TurnOffScreen_QF;//监视是否连续多次点击关闭屏幕,避免连续启动nircmd
 
     bool FileProgressWatch_isEnabled = true;//是否启用输出文件夹进度监控线程
 
@@ -493,6 +496,10 @@ public:
     QAction *BackgroundModeAct_SystemTrayIcon = new QAction(this);
     QAction *SendFeedback_SystemTrayIcon = new QAction(this);
     QAction *About_SystemTrayIcon = new QAction(this);
+    QAction *Donate_SystemTrayIcon = new QAction(this);
+    QAction *Pause_SystemTrayIcon = new QAction(this);
+    QAction *Start_SystemTrayIcon = new QAction(this);
+
     //================= 输出路径 lineEdit 的右键菜单 ==============
     void Init_ActionsMenu_lineEdit_outputPath();
     QAction *OpenFolder_lineEdit_outputPath = new QAction(this);
@@ -588,6 +595,8 @@ public slots:
 
     void SystemTray_hide_self();
     void SystemTray_showNormal_self();
+    void SystemTray_showDonate();
+
     void SystemTray_NewMessage(QString message);
     void EnableBackgroundMode_SystemTray();
     void on_activatedSysTrayIcon(QSystemTrayIcon::ActivationReason reason);

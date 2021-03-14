@@ -723,7 +723,7 @@ void MainWindow::on_pushButton_DetectGPU_VFI_clicked()
     //====
     ui->pushButton_DetectGPU_VFI->setText(tr("Detecting, please wait..."));
     //====
-    ui->pushButton_Start->setEnabled(0);
+    pushButton_Start_setEnabled_self(0);
     ui->comboBox_GPUID_VFI->setEnabled(0);
     ui->pushButton_DetectGPU_VFI->setEnabled(0);
     Available_GPUID_FrameInterpolation.clear();
@@ -799,7 +799,7 @@ int MainWindow::FrameInterpolation_DetectGPU()
 
 int MainWindow::FrameInterpolation_DetectGPU_finished()
 {
-    ui->pushButton_Start->setEnabled(1);
+    pushButton_Start_setEnabled_self(1);
     ui->pushButton_DetectGPU_VFI->setEnabled(1);
     if(ui->checkBox_MultiGPU_VFI->isChecked()==false)ui->comboBox_GPUID_VFI->setEnabled(1);
     //====

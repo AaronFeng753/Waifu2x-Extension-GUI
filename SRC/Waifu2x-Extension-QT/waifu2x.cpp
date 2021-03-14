@@ -195,8 +195,8 @@ void MainWindow::on_pushButton_Start_clicked()
     Apply_CustRes_QAction_FileList->setEnabled(0);
     Cancel_CustRes_QAction_FileList->setEnabled(0);
     this->setAcceptDrops(0);//禁止drop file
-    ui->pushButton_Stop->setVisible(1);//启用stop button
-    ui->pushButton_Start->setVisible(0);//禁用start button
+    pushButton_Stop_setEnabled_self(1);//启用stop button
+    pushButton_Start_setEnabled_self(0);//禁用start button
     OutputSettingsArea_setEnabled(false);
     ui->pushButton_ClearList->setEnabled(0);
     ui->pushButton_RemoveItem->setEnabled(0);
@@ -633,8 +633,8 @@ void MainWindow::Waifu2x_Finished_manual()
     Apply_CustRes_QAction_FileList->setEnabled(1);
     Cancel_CustRes_QAction_FileList->setEnabled(1);
     this->setAcceptDrops(1);
-    ui->pushButton_Stop->setVisible(0);
-    ui->pushButton_Start->setVisible(1);
+    pushButton_Stop_setEnabled_self(0);
+    pushButton_Start_setEnabled_self(1);
     if(ui->checkBox_ReplaceOriginalFile->isChecked()==false)
     {
         ui->groupBox_OutPut->setEnabled(1);

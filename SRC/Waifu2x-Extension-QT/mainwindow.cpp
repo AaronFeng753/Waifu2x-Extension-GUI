@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setAcceptDrops(true);//mainwindow接收drop
     Init_Table();//初始化table
     ui->groupBox_CurrentFile->setVisible(0);//隐藏当前文件进度
-    ui->pushButton_Stop->setVisible(0);
+    pushButton_Stop_setEnabled_self(0);//禁用隐藏暂停按钮
     ui->pushButton_ForceRetry->setVisible(0);
     ui->progressBar_CompatibilityTest->setVisible(0);
     //=================== 初始隐藏所有table和禁用按钮 ======================
@@ -176,7 +176,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
     if(Waifu2xMain.isRunning() == true)
     {
         TimeCostTimer->stop();
-        ui->pushButton_Stop->setVisible(0);//隐藏stop button
+        pushButton_Stop_setEnabled_self(0);//隐藏stop button
         waifu2x_STOP = true;
         emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
         //======
@@ -371,8 +371,9 @@ void MainWindow::on_pushButton_ClearList_clicked()
 */
 void MainWindow::on_pushButton_Stop_clicked()
 {
+    if(Waifu2xMain.isRunning()==false)return;
     TimeCostTimer->stop();
-    ui->pushButton_Stop->setVisible(0);//隐藏stop button
+    pushButton_Stop_setEnabled_self(0);//隐藏stop button
     waifu2x_STOP = true;
     emit TextBrowser_NewMessage(tr("Trying to stop, please wait..."));
     QtConcurrent::run(this, &MainWindow::Wait_waifu2x_stop);
@@ -862,7 +863,7 @@ void MainWindow::on_pushButton_ReadFileList_clicked()
     {
         ui_tableViews_setUpdatesEnabled(false);
         this->setAcceptDrops(0);//禁止drop file
-        ui->pushButton_Start->setEnabled(0);//禁用start button
+        pushButton_Start_setEnabled_self(0);//禁用start button
         ui->pushButton_CustRes_cancel->setEnabled(0);
         ui->pushButton_CustRes_apply->setEnabled(0);
         ui->pushButton_ReadFileList->setEnabled(0);
@@ -1045,7 +1046,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     ui->groupBox_Setting->setEnabled(0);
     ui->groupBox_FileList->setEnabled(0);
     ui->groupBox_InputExt->setEnabled(0);
-    ui->pushButton_Start->setEnabled(0);
+    pushButton_Start_setEnabled_self(0);
     ui->checkBox_ScanSubFolders->setEnabled(0);
     this->setAcceptDrops(0);
     ui->label_DropFile->setText(tr("Adding files, please wait."));
@@ -2027,7 +2028,9 @@ void MainWindow::on_pushButton_TurnOffScreen_clicked()
     if(TurnOffScreen_QF.isRunning() == true)return;
     TurnOffScreen_QF = QtConcurrent::run(this, &MainWindow::TurnOffScreen);//关闭显示器
 }
-
+/*
+调用nircmd关闭显示器
+*/
 void MainWindow::TurnOffScreen()
 {
     QProcess *OffScreen = new QProcess();
@@ -2036,4 +2039,22 @@ void MainWindow::TurnOffScreen()
     OffScreen->waitForFinished(5000);
     OffScreen->kill();
     return;
+}
+/*
+禁用&启用 开始按钮
+*/
+void MainWindow::pushButton_Start_setEnabled_self(bool isEnabled)
+{
+    ui->pushButton_Start->setEnabled(isEnabled);
+    Start_SystemTrayIcon->setEnabled(isEnabled);
+    ui->pushButton_Start->setVisible(isEnabled);
+}
+/*
+禁用&启用 暂停按钮
+*/
+void MainWindow::pushButton_Stop_setEnabled_self(bool isEnabled)
+{
+    ui->pushButton_Stop->setEnabled(isEnabled);
+    Pause_SystemTrayIcon->setEnabled(isEnabled);
+    ui->pushButton_Stop->setVisible(isEnabled);
 }

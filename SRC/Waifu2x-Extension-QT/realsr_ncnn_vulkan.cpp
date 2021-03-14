@@ -1609,7 +1609,7 @@ void MainWindow::on_pushButton_DetectGPU_RealsrNCNNVulkan_clicked()
     //====
     ui->pushButton_DetectGPU_RealsrNCNNVulkan->setText(tr("Detecting, please wait..."));
     //====
-    ui->pushButton_Start->setEnabled(0);
+    pushButton_Start_setEnabled_self(0);
     ui->pushButton_DetectGPU->setEnabled(0);
     ui->pushButton_DetectGPUID_srmd->setEnabled(0);
     ui->pushButton_DumpProcessorList_converter->setEnabled(0);
@@ -1678,7 +1678,7 @@ int MainWindow::Realsr_ncnn_vulkan_DetectGPU()
 */
 int MainWindow::Realsr_ncnn_vulkan_DetectGPU_finished()
 {
-    ui->pushButton_Start->setEnabled(1);
+    pushButton_Start_setEnabled_self(1);
     ui->pushButton_DetectGPU->setEnabled(1);
     ui->pushButton_compatibilityTest->setEnabled(1);
     ui->pushButton_DetectGPUID_srmd->setEnabled(1);
