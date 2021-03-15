@@ -130,6 +130,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 
 # 💝Credits💝:
 - ❤All donors❤
+- Special thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for helping me test the software, report multiple bugs and give me multiple suggestions.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
@@ -165,6 +166,5 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Icons made by : [Freepik](https://www.flaticon.com/authors/freepik) & [Roundicons](https://www.flaticon.com/authors/roundicons) & [Icongeek26](https://www.flaticon.com/authors/Icongeek26) From Flaticon : https://www.flaticon.com/
 - Thanks to [@uimee](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/85) for 繁體中文 translation.
 - Thanks to [@Nova-Aurora](https://github.com/Nova-Aurora) for fixing several errors in the English README.
-- Thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for assistance in testing the software.
 - Thanks to [@Michael18751](https://github.com/Michael18751) for adding a fadeout effect to the notification sound.
 - Thanks to [@CaptainStabs](https://github.com/CaptainStabs) for fixing several English grammar errors.
