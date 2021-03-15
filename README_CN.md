@@ -135,6 +135,7 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 
 # 💝鸣谢💝:
 - ❤捐赠者们❤
+- 感谢 [@CAFUCSteven](https://github.com/CAFUCSteven) 长期以来协助测试软件，并反馈多个Bug与建议.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
@@ -170,6 +171,5 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - 图标作者: [Freepik](https://www.flaticon.com/authors/freepik) & [Roundicons](https://www.flaticon.com/authors/roundicons) & [Icongeek26](https://www.flaticon.com/authors/Icongeek26) 来自 Flaticon : https://www.flaticon.com/
 - 感謝 [@uimee](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/85) 協助進行繁體中文翻譯.
 - 感谢 [@Nova-Aurora](https://github.com/Nova-Aurora) 协助修复英文版README中的语法和拼写错误.
-- 感谢 [@CAFUCSteven](https://github.com/CAFUCSteven) 协助测试软件.
 - 感谢 [@Michael18751](https://github.com/Michael18751) 为提示音添加了淡出效果.
 - 感谢 [@CaptainStabs](https://github.com/CaptainStabs) 协助修复多个英语语法错误.
