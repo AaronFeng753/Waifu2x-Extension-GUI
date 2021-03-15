@@ -135,7 +135,7 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 
 # 💝鸣谢💝:
 - ❤捐赠者们❤
-- 感谢 [@CAFUCSteven](https://github.com/CAFUCSteven) 长期以来协助测试软件，并反馈多个Bug与建议.
+- 感谢 [@CAFUCSteven](https://github.com/CAFUCSteven) 长期以来帮助我测试软件，并反馈了许多Bug与建议.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
