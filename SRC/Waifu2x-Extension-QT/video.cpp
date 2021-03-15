@@ -401,6 +401,42 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
         while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
         while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     }
+    //======== 插帧 =========
+    QFileInfo vfinfo(VideoPath);
+    QString video_dir = file_getFolderPath(vfinfo);
+    QString video_filename = file_getBaseName(VideoPath);
+    QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
+    is_Pre_VFI_Succeed = true;
+    if(ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->groupBox_FrameInterpolation->isChecked()==true && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) //如果启用了插帧
+    {
+        //如果检测到完整的已经插帧的帧缓存
+        if(file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(FrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
+        {
+            file_DelDir(FrameFolderPath);
+            QDir VFI_FolderPath_tmp_qdir(VFI_FolderPath_tmp);
+            VFI_FolderPath_tmp_qdir.rename(VFI_FolderPath_tmp,FrameFolderPath);
+            return;
+        }
+        else
+        {
+            //如果插帧成功
+            if(FrameInterpolation(FrameFolderPath,VFI_FolderPath_tmp)==true)
+            {
+                file_DelDir(FrameFolderPath);
+                QDir VFI_FolderPath_tmp_qdir(VFI_FolderPath_tmp);
+                VFI_FolderPath_tmp_qdir.rename(VFI_FolderPath_tmp,FrameFolderPath);
+                return;
+            }
+            else
+            {
+                file_DelDir(FrameFolderPath);
+                file_DelDir(VFI_FolderPath_tmp);
+                is_Pre_VFI_Succeed = false;
+                emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                return;
+            }
+        }
+    }
     //====================================
     emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
 }
@@ -825,6 +861,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     if(FrameNumDigits==0)return;
+    //=====================
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y"+fps_video_cmd+"-i \""+VideoPath+"\" "+fps_video_cmd+" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
     while(!video_splitFrame.waitForStarted(100)&&!QProcess_stop) {}
@@ -837,6 +874,51 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         while(!video_splitFrame.waitForFinished(100)&&!QProcess_stop) {}
     }
     video_get_audio(VideoPath,AudioPath);//拆分音频
+    //======== 插帧 =========
+    QFileInfo vfinfo(VideoPath);
+    QString video_dir = file_getFolderPath(vfinfo);
+    QString video_filename = file_getBaseName(VideoPath);
+    QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
+    is_Pre_VFI_Succeed = true;
+    if(ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->groupBox_FrameInterpolation->isChecked()==true && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) //如果启用了插帧
+    {
+        //如果检测到完整的已经插帧的帧缓存
+        if(file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(FrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
+        {
+            file_DelDir(FrameFolderPath);
+            QDir VFI_FolderPath_tmp_qdir(VFI_FolderPath_tmp);
+            VFI_FolderPath_tmp_qdir.rename(VFI_FolderPath_tmp,FrameFolderPath);
+            return;
+        }
+        else
+        {
+            //如果插帧成功
+            if(FrameInterpolation(FrameFolderPath,VFI_FolderPath_tmp)==true)
+            {
+                file_DelDir(FrameFolderPath);
+                QDir VFI_FolderPath_tmp_qdir(VFI_FolderPath_tmp);
+                VFI_FolderPath_tmp_qdir.rename(VFI_FolderPath_tmp,FrameFolderPath);
+                return;
+            }
+            else
+            {
+                //如果插帧失败且启用了分段处理或仅插帧模式
+                if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
+                {
+                    file_DelDir(VFI_FolderPath_tmp);
+                    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                    return;
+                }
+                //如果插帧失败但是已经超分辨率且没分段
+                else
+                {
+                    is_Pre_VFI_Succeed = false;
+                    file_DelDir(VFI_FolderPath_tmp);
+                    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
+                }
+            }
+        }
+    }
     //====================================
     emit Send_TextBrowser_NewMessage(tr("Finish splitting video: [")+VideoPath+"]");
 }
@@ -928,18 +1010,19 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     //如果启用了插帧
     if(ui->groupBox_FrameInterpolation->isChecked()==true)
     {
-        //如果检测到完整的已经插帧的帧缓存
-        if(file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
+        if(ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false)
         {
-            FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
-            ScaledFrameFolderPath = VFI_FolderPath_tmp;
-            QStringList FPS_Nums = fps.split("/");
-            fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+            if(is_Pre_VFI_Succeed == true)
+            {
+                FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()));
+                QStringList FPS_Nums = fps.split("/");
+                fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+            }
         }
         else
         {
-            //如果插帧成功
-            if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp)==true)
+            //如果检测到完整的已经插帧的帧缓存
+            if(file_isDirExist(VFI_FolderPath_tmp) && (file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()*2 == file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()))
             {
                 FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
                 ScaledFrameFolderPath = VFI_FolderPath_tmp;
@@ -948,18 +1031,29 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
             }
             else
             {
-                //如果插帧失败且启用了分段处理或仅插帧模式
-                if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
+                //如果插帧成功
+                if(FrameInterpolation(ScaledFrameFolderPath,VFI_FolderPath_tmp)==true)
                 {
-                    file_DelDir(VFI_FolderPath_tmp);
-                    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
-                    return 0;
+                    FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(VFI_FolderPath_tmp).size()));
+                    ScaledFrameFolderPath = VFI_FolderPath_tmp;
+                    QStringList FPS_Nums = fps.split("/");
+                    fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
                 }
-                //如果插帧失败但是已经超分辨率且没分段
                 else
                 {
-                    file_DelDir(VFI_FolderPath_tmp);
-                    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
+                    //如果插帧失败且启用了分段处理或仅插帧模式
+                    if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
+                    {
+                        file_DelDir(VFI_FolderPath_tmp);
+                        emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                        return 0;
+                    }
+                    //如果插帧失败但是已经超分辨率且没分段
+                    else
+                    {
+                        file_DelDir(VFI_FolderPath_tmp);
+                        emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
+                    }
                 }
             }
         }

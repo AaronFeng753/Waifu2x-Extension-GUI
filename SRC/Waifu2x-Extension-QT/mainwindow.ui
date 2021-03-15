@@ -7542,6 +7542,26 @@ resolution higher than 3840×2160.</string>
                     </property>
                    </widget>
                   </item>
+                  <item row="0" column="8">
+                   <spacer name="horizontalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="4">
+                   <widget class="Line" name="line_28">
+                    <property name="orientation">
+                     <enum>Qt::Vertical</enum>
+                    </property>
+                   </widget>
+                  </item>
                   <item row="0" column="3">
                    <widget class="QFrame" name="frame_14">
                     <property name="sizePolicy">
@@ -7605,13 +7625,6 @@ resolution higher than 3840×2160.</string>
                     </layout>
                    </widget>
                   </item>
-                  <item row="0" column="4">
-                   <widget class="Line" name="line_28">
-                    <property name="orientation">
-                     <enum>Qt::Vertical</enum>
-                    </property>
-                   </widget>
-                  </item>
                   <item row="0" column="5">
                    <widget class="QCheckBox" name="checkBox_TTA_VFI">
                     <property name="sizePolicy">
@@ -7632,17 +7645,14 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                    </widget>
                   </item>
                   <item row="0" column="7">
-                   <spacer name="horizontalSpacer_12">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
+                   <widget class="QCheckBox" name="checkBox_VfiAfterScale_VFI">
+                    <property name="toolTip">
+                     <string>Interpolate frames after scaled.</string>
                     </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
+                    <property name="text">
+                     <string>After scale</string>
                     </property>
-                   </spacer>
+                   </widget>
                   </item>
                  </layout>
                 </widget>

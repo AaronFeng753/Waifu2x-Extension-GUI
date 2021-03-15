@@ -647,10 +647,6 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
             {
                 isVideoConfigChanged=true;
             }
-            if(isVideoFrameInterpolationEnabled_old != ui->groupBox_FrameInterpolation->isChecked())
-            {
-                isVideoConfigChanged=true;
-            }
         }
         else
         {

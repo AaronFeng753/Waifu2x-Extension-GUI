@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.11.32-beta";//软件版本号
+    QString VERSION = "v3.11.33-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.11.27";
-    QString LastBetaVer = "v3.11.32-beta";
+    QString LastBetaVer = "v3.11.33-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -360,6 +360,7 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    bool is_Pre_VFI_Succeed = true;//预先插帧是否成功
     int CalNumDigits(int input_num);
     bool isSuccessiveFailuresDetected_VFI=false;
     int FrameInterpolation_Video_BySegment(int rowNum);

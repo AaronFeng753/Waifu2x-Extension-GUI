@@ -646,10 +646,6 @@ int MainWindow::Anime4k_Video(int rowNum)
             {
                 isVideoConfigChanged=true;
             }
-            if(isVideoFrameInterpolationEnabled_old != ui->groupBox_FrameInterpolation->isChecked())
-            {
-                isVideoConfigChanged=true;
-            }
         }
         else
         {

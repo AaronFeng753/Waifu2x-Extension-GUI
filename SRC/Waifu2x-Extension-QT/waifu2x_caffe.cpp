@@ -672,10 +672,6 @@ int MainWindow::Waifu2x_Caffe_Video(int rowNum)
             {
                 isVideoConfigChanged=true;
             }
-            if(isVideoFrameInterpolationEnabled_old != ui->groupBox_FrameInterpolation->isChecked())
-            {
-                isVideoConfigChanged=true;
-            }
         }
         else
         {

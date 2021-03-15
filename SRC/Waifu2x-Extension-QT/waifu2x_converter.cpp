@@ -636,10 +636,6 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
             {
                 isVideoConfigChanged=true;
             }
-            if(isVideoFrameInterpolationEnabled_old != ui->groupBox_FrameInterpolation->isChecked())
-            {
-                isVideoConfigChanged=true;
-            }
         }
         else
         {
