@@ -70,7 +70,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan
 
 # [Samples👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-The Simpsons Movie Trailer(LOW quality 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
+#### The Simpsons Movie Trailer (LOW quality 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
 
 ### [➡Comparison(3D Real-life)(Using RealSR-NCNN-Vulkan Engine)](https://imgsli.com/MzYzMTQ)
 #### [Photo by Jonatan Pie on Unsplash](https://unsplash.com/photos/Yv9WbjBgZXY)
