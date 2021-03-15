@@ -94,6 +94,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan
 ![Scaled GIF](/Samples/gif/GIF_2_waifu2x_compressed.gif)
 
 #### `Github doesn't support online video playback, please check link below:`
+#### The Simpsons Movie Trailer (LOW quality 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
