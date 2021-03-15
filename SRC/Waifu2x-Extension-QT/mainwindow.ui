@@ -7647,10 +7647,14 @@ but the effect may not be obvious. It is not recommended to enable it.</string>
                   <item row="0" column="7">
                    <widget class="QCheckBox" name="checkBox_VfiAfterScale_VFI">
                     <property name="toolTip">
-                     <string>Interpolate frames after scaled.</string>
+                     <string>Interpolate frames after upscaled.
+
+By default the frames will be interpolated before upscaled,
+because PC with low vram will encounter difficulties when
+interpolate high res frames.</string>
                     </property>
                     <property name="text">
-                     <string>After scale</string>
+                     <string>After Upscale</string>
                     </property>
                    </widget>
                   </item>

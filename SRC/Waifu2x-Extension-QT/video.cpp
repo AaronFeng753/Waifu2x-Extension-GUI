@@ -432,7 +432,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
                 file_DelDir(FrameFolderPath);
                 file_DelDir(VFI_FolderPath_tmp);
                 is_Pre_VFI_Succeed = false;
-                emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
                 return;
             }
         }
@@ -906,7 +906,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
                 if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
                 {
                     file_DelDir(VFI_FolderPath_tmp);
-                    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                    if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
                     return;
                 }
                 //如果插帧失败但是已经超分辨率且没分段
@@ -914,7 +914,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
                 {
                     is_Pre_VFI_Succeed = false;
                     file_DelDir(VFI_FolderPath_tmp);
-                    emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
+                    if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
                 }
             }
         }
@@ -1045,14 +1045,14 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
                     if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
                     {
                         file_DelDir(VFI_FolderPath_tmp);
-                        emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
+                        if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
                         return 0;
                     }
                     //如果插帧失败但是已经超分辨率且没分段
                     else
                     {
                         file_DelDir(VFI_FolderPath_tmp);
-                        emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
+                        if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
                     }
                 }
             }

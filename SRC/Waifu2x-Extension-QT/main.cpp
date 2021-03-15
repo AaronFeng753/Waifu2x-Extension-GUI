@@ -35,10 +35,12 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.11.33-beta:
+- New Feature: Now you can choose when you wanna interpolate the frames, before or after upscaled the frames.(Thanks to @CAFUCSteven for suggestion)
 - New options: [Start], [Pause] and [Donate] for system tray menu.
 - Add icons for system tray menu.
 - Fix bug: The [Background mode] in system tray menu didn't work when frame interpolation is enabled.
 - Fix bug: Video cache will be abandoned when frame interpolation setting is changed, even though [Process video by segment] is disabled.
+- Fix bug: False error report when pause.
 
 v3.11.32-beta:
 - New options: [About] and [Send feedback] for system tray menu.
