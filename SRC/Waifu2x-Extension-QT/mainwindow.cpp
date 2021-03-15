@@ -1268,13 +1268,7 @@ void MainWindow::Tip_FirstTimeStart()
         MSG_2->setModal(true);
         MSG_2->show();
         //=======
-        QFile file(FirstTimeStart);
-        file.remove();
-        if (file.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
-        {
-            QTextStream stream(&file);
-            stream << "Don't delete this file!!";
-        }
+        file_generateMarkFile(FirstTimeStart);
         //=======
         on_pushButton_clear_textbrowser_clicked();
         on_pushButton_compatibilityTest_clicked();

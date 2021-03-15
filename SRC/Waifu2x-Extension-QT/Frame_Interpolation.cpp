@@ -970,3 +970,12 @@ void MainWindow::on_checkBox_MultiThread_VFI_clicked()
         MSG_2->show();
     }
 }
+
+QString MainWindow::isPreVFIDone_MarkFilePath(QString VideoPath)
+{
+    QFileInfo vfinfo(VideoPath);
+    QString video_dir = file_getFolderPath(vfinfo);
+    QString video_filename = file_getBaseName(VideoPath);
+    QString video_ext = vfinfo.suffix();
+    return video_dir+"/"+video_filename+"_"+video_ext+"_PreVFIDone.W2xEX";
+}

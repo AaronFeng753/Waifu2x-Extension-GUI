@@ -389,6 +389,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(video_mp4_fullpath);
     if(FrameNumDigits==0)return;
+    QFile::remove(isPreVFIDone_MarkFilePath(VideoPath));
     //=====================
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y"+fps_video_cmd+"-i \""+video_mp4_fullpath+"\" -ss "+QString::number(StartTime,10)+" -t "+QString::number(SegmentDuration,10)+fps_video_cmd+" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
@@ -406,7 +407,6 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
     QString video_dir = file_getFolderPath(vfinfo);
     QString video_filename = file_getBaseName(VideoPath);
     QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
-    is_Pre_VFI_Succeed = true;
     if(ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->groupBox_FrameInterpolation->isChecked()==true && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) //如果启用了插帧
     {
         //如果检测到完整的已经插帧的帧缓存
@@ -419,19 +419,19 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
         }
         else
         {
-            //如果插帧成功
             if(FrameInterpolation(FrameFolderPath,VFI_FolderPath_tmp)==true)
             {
+                //如果插帧成功
                 file_DelDir(FrameFolderPath);
                 QDir VFI_FolderPath_tmp_qdir(VFI_FolderPath_tmp);
                 VFI_FolderPath_tmp_qdir.rename(VFI_FolderPath_tmp,FrameFolderPath);
+                file_generateMarkFile(isPreVFIDone_MarkFilePath(VideoPath));
                 return;
             }
             else
             {
                 file_DelDir(FrameFolderPath);
                 file_DelDir(VFI_FolderPath_tmp);
-                is_Pre_VFI_Succeed = false;
                 if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
                 return;
             }
@@ -802,7 +802,7 @@ QString MainWindow::video_get_fps(QString videoPath)
     return FPS_Division;
 }
 
-int MainWindow::video_get_frameNumDigits(QString videoPath)
+int MainWindow::video_get_frameNum(QString videoPath)
 {
     //========================= 调用ffprobe读取视频信息 ======================
     QProcess *Get_VideoFrameNumDigits_process = new QProcess();
@@ -842,7 +842,12 @@ int MainWindow::video_get_frameNumDigits(QString videoPath)
         emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the number of frames of the video: [")+videoPath+"]");
         return 0;
     }
-    int frameNumDigits=1+(int)log10(FrameNum);
+    return FrameNum;
+}
+
+int MainWindow::video_get_frameNumDigits(QString videoPath)
+{
+    int frameNumDigits=1+(int)log10(video_get_frameNum(videoPath));
     return frameNumDigits;
 }
 
@@ -861,6 +866,7 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     //=====================
     int FrameNumDigits = video_get_frameNumDigits(VideoPath);
     if(FrameNumDigits==0)return;
+    QFile::remove(isPreVFIDone_MarkFilePath(VideoPath));
     //=====================
     QProcess video_splitFrame;
     video_splitFrame.start("\""+ffmpeg_path+"\" -y"+fps_video_cmd+"-i \""+VideoPath+"\" "+fps_video_cmd+" \""+FrameFolderPath.replace("%","%%")+"/%0"+QString::number(FrameNumDigits,10)+"d.png\"");
@@ -879,7 +885,6 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
     QString video_dir = file_getFolderPath(vfinfo);
     QString video_filename = file_getBaseName(VideoPath);
     QString VFI_FolderPath_tmp = video_dir+"/"+video_filename+"_VFI_W2xEX";
-    is_Pre_VFI_Succeed = true;
     if(ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->groupBox_FrameInterpolation->isChecked()==true && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) //如果启用了插帧
     {
         //如果检测到完整的已经插帧的帧缓存
@@ -892,12 +897,13 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
         }
         else
         {
-            //如果插帧成功
             if(FrameInterpolation(FrameFolderPath,VFI_FolderPath_tmp)==true)
             {
+                //如果插帧成功
                 file_DelDir(FrameFolderPath);
                 QDir VFI_FolderPath_tmp_qdir(VFI_FolderPath_tmp);
                 VFI_FolderPath_tmp_qdir.rename(VFI_FolderPath_tmp,FrameFolderPath);
+                file_generateMarkFile(isPreVFIDone_MarkFilePath(VideoPath));
                 return;
             }
             else
@@ -912,7 +918,6 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
                 //如果插帧失败但是已经超分辨率且没分段
                 else
                 {
-                    is_Pre_VFI_Succeed = false;
                     file_DelDir(VFI_FolderPath_tmp);
                     if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+tr("]. Gonna generate a video without frame Interpolation."));
                 }
@@ -1010,14 +1015,11 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     //如果启用了插帧
     if(ui->groupBox_FrameInterpolation->isChecked()==true)
     {
-        if(ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false)
+        if((ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) || QFile::exists(isPreVFIDone_MarkFilePath(VideoPath)))
         {
-            if(is_Pre_VFI_Succeed == true)
-            {
-                FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()));
-                QStringList FPS_Nums = fps.split("/");
-                fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
-            }
+            FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()));
+            QStringList FPS_Nums = fps.split("/");
+            fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
         }
         else
         {
@@ -1122,6 +1124,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     //===================
     if(Del_DenoisedAudio)QFile::remove(AudioPath);
     if(ui->checkBox_KeepVideoCache->isChecked() == false || ui->checkBox_ProcessVideoBySegment->isChecked())file_DelDir(VFI_FolderPath_tmp);
+    if(ui->checkBox_KeepVideoCache->isChecked() == false)QFile::remove(isPreVFIDone_MarkFilePath(VideoPath));
     //==============================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling video:[")+VideoPath+"]");
     return 0;

@@ -132,6 +132,7 @@ public:
     bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
     bool file_OpenFile(QString FilePath);
     void file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folder, QString New_folder, bool Delete_);
+    bool file_generateMarkFile(QString FileFullPath);
     //=================================  Table =================================
     void ui_tableViews_setUpdatesEnabled(bool isEnabled);// 启用/禁用 文件列表table的UI更新
 
@@ -360,7 +361,7 @@ public:
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
-    bool is_Pre_VFI_Succeed = true;//预先插帧是否成功
+    QString isPreVFIDone_MarkFilePath(QString VideoPath);
     int CalNumDigits(int input_num);
     bool isSuccessiveFailuresDetected_VFI=false;
     int FrameInterpolation_Video_BySegment(int rowNum);
@@ -373,6 +374,8 @@ public:
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率
     QString video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
+    int video_get_frameNum(QString videoPath);//获取帧数量
+
     //判断视频是否可变帧率
     bool video_isVFR(QString videoPath);
     //拆分视频
