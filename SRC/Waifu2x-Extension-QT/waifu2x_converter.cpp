@@ -599,7 +599,6 @@ int MainWindow::Waifu2x_Converter_Video(int rowNum)
         int CustRes_width_old = configIniRead->value("/VideoConfiguration/CustRes_width").toInt();
         QString EngineName_old = configIniRead->value("/VideoConfiguration/EngineName").toString();
         bool isProcessBySegment_old = configIniRead->value("/VideoConfiguration/isProcessBySegment").toBool();
-        bool isVideoFrameInterpolationEnabled_old = configIniRead->value("/VideoConfiguration/isVideoFrameInterpolationEnabled").toBool();
         //=================== 比对信息 ================================
         if(EngineName_old=="waifu2x-converter")
         {
