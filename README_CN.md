@@ -76,7 +76,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan
 
 # [示例👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-#### 辛普森一家剧场本预告 (低画质 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
+#### 辛普森一家剧场版预告 (低画质 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
 
 ### [➡对比(3D写实)(使用内置的RealSR-NCNN-Vulkan引擎)](https://imgsli.com/MzYzMTQ)
 #### [原照片来自Unsplash,由Jonatan Pie拍摄.](https://unsplash.com/photos/Yv9WbjBgZXY)
@@ -101,7 +101,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan
 
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 
-#### The Simpsons Movie Trailer (LOW quality 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
+#### 辛普森一家剧场版预告 (低画质 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 # ❤ 捐赠 ❤ (推荐使用 支付宝 或者 微信)
