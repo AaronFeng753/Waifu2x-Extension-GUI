@@ -54,10 +54,10 @@ Built-in super-resolution engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
 
 Built-in Video frame interpolation algorithms:
-RIFE / CAIN
+RIFE / CAIN / DAIN
 
 Built-in Video frame interpolation engines:
-rife-ncnn-vulkan / cain-ncnn-vulkan
+rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 ```
 
 #### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
@@ -136,6 +136,8 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
 - Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
+- DAIN ncnn Vulkan: https://github.com/nihui/dain-ncnn-vulkan
+- DAIN (Depth-Aware Video Frame Interpolation): https://github.com/baowenbo/DAIN
 - FFmpeg: https://ffmpeg.org/
 - FFmpeg Builds - gyan.dev: https://www.gyan.dev/ffmpeg/builds/
 - FFmpeg Builds - Zeranoe (This website has ceased operations): https://ffmpeg.zeranoe.com/builds/
