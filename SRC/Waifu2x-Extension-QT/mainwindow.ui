@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -7909,6 +7909,10 @@ padding:10px;
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
+                   <property name="toolTip">
+                    <string>This value will affects GPU memory usage.
+Only works when using [dain-ncnn-vulkan] engine.</string>
+                   </property>
                    <property name="text">
                     <string>Tile size:</string>
                    </property>
@@ -10690,17 +10694,24 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
               </property>
              </widget>
             </item>
-            <item row="10" column="1">
+            <item row="11" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_RifeNcnnVulkan">
               <property name="text">
                <string notr="true">RIFE-NCNN-Vulkan</string>
               </property>
              </widget>
             </item>
-            <item row="10" column="2">
+            <item row="11" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_CainNcnnVulkan">
               <property name="text">
                <string notr="true">CAIN-NCNN-Vulkan</string>
+              </property>
+             </widget>
+            </item>
+            <item row="11" column="2">
+             <widget class="QCheckBox" name="checkBox_isCompatible_DainNcnnVulkan">
+              <property name="text">
+               <string>DAIN-NCNN-Vulkan</string>
               </property>
              </widget>
             </item>

@@ -531,7 +531,6 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         //=====
         QProcess FrameInterpolation_QProcess;
         CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath+"\" -o \""+OutputPath+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput,FileNum_MAX);
-        emit Send_TextBrowser_NewMessage(CMD);//debug
         FrameInterpolation_QProcess.start(CMD);
         while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
         while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
@@ -924,6 +923,11 @@ void MainWindow::on_checkBox_isCompatible_RifeNcnnVulkan_clicked()
 void MainWindow::on_checkBox_isCompatible_CainNcnnVulkan_clicked()
 {
     ui->checkBox_isCompatible_CainNcnnVulkan->setChecked(isCompatible_CainNcnnVulkan);
+}
+
+void MainWindow::on_checkBox_isCompatible_DainNcnnVulkan_clicked()
+{
+    ui->checkBox_isCompatible_DainNcnnVulkan->setChecked(isCompatible_DainNcnnVulkan);
 }
 
 void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)

@@ -33,8 +33,9 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
+******************** !!!补全翻译!!! ***********************
 
-v3.12.01:
+v3.21.01-beta:
 - New Frame Interpolation engine: DAIN-NCNN-Vulkan.
 - New Feature: Multiple of frames.(Only available when using DAIN-NCNN-Vulkan.)
 - Improve GUI.

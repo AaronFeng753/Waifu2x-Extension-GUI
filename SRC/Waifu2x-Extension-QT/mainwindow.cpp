@@ -2052,3 +2052,4 @@ void MainWindow::pushButton_Stop_setEnabled_self(bool isEnabled)
     Pause_SystemTrayIcon->setEnabled(isEnabled);
     ui->pushButton_Stop->setVisible(isEnabled);
 }
+
