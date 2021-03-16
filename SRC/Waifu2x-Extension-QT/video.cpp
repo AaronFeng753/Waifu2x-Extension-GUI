@@ -1015,11 +1015,15 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
     //如果启用了插帧
     if(ui->groupBox_FrameInterpolation->isChecked()==true)
     {
-        if((ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) || QFile::exists(isPreVFIDone_MarkFilePath(VideoPath)))
+        bool isPreVFIDone = QFile::exists(isPreVFIDone_MarkFilePath(VideoPath));
+        if((ui->checkBox_VfiAfterScale_VFI->isChecked()==false && ui->checkBox_FrameInterpolationOnly_Video->isChecked()==false) || isPreVFIDone==true)
         {
-            FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()));
-            QStringList FPS_Nums = fps.split("/");
-            fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+            if(isPreVFIDone==true)
+            {
+                FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath).size()));
+                QStringList FPS_Nums = fps.split("/");
+                fps = QString("%1/%2").arg(FPS_Nums.at(0).toDouble()*2).arg(FPS_Nums.at(1).toDouble());
+            }
         }
         else
         {

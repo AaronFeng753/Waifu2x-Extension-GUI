@@ -3897,13 +3897,13 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation>不支持當前文件格式,請輸入可以支持的文件格式,或者自行添加文件擴展名.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1895"/>
+        <location filename="mainwindow.cpp" line="1889"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>Error! Failed to move [</source>
         <translation>錯誤! 無法移動 [</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1895"/>
+        <location filename="mainwindow.cpp" line="1889"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>] to [</source>
         <translation>] 到 [</translation>
@@ -4200,7 +4200,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1431"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1459"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1499"/>
-        <location filename="video.cpp" line="1005"/>
+        <location filename="video.cpp" line="1010"/>
         <location filename="waifu2x_caffe.cpp" line="35"/>
         <location filename="waifu2x_caffe.cpp" line="57"/>
         <location filename="waifu2x_caffe.cpp" line="135"/>
@@ -4984,12 +4984,12 @@ Tip: You can enable [Re-process finished files] if you wanna re-process finished
 </translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1341"/>
+        <location filename="mainwindow.cpp" line="1335"/>
         <source>Force retry is disabled when processing Video or GIF.</source>
         <translation>無法在處理視頻和GIF時使用強制重試.</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2022"/>
+        <location filename="mainwindow.cpp" line="2016"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation>自動啟用[禁用 &quot;-resize&quot;]以修復兼容性問題和改善性能.</translation>
     </message>
@@ -5162,7 +5162,7 @@ Waifu2x-converter處理器列表:
         <translation type="vanished">未檢測到可用處理器!</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1374"/>
+        <location filename="mainwindow.cpp" line="1368"/>
         <source>Force retry.</source>
         <translation>強制重試.</translation>
     </message>
@@ -5191,7 +5191,7 @@ Waifu2x-converter處理器列表:
     </message>
     <message>
         <location filename="video.cpp" line="378"/>
-        <location filename="video.cpp" line="851"/>
+        <location filename="video.cpp" line="856"/>
         <source>Start splitting video: [</source>
         <translation>開始拆分影片: [</translation>
     </message>
@@ -5227,7 +5227,7 @@ Waifu2x-converter處理器列表:
     </message>
     <message>
         <location filename="video.cpp" line="441"/>
-        <location filename="video.cpp" line="923"/>
+        <location filename="video.cpp" line="928"/>
         <source>Finish splitting video: [</source>
         <translation>結束拆分影片:[</translation>
     </message>
@@ -5307,32 +5307,32 @@ Waifu2x-converter處理器列表:
         <translation>錯誤! 無法獲取視頻的幀數量: [</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="928"/>
+        <location filename="video.cpp" line="933"/>
         <source>Start assembling video:[</source>
         <translation>開始組裝影片:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1005"/>
+        <location filename="video.cpp" line="1010"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation>]. 错误: [无法获取影片帧率.]</translation>
     </message>
     <message>
         <location filename="video.cpp" line="435"/>
-        <location filename="video.cpp" line="909"/>
-        <location filename="video.cpp" line="917"/>
-        <location filename="video.cpp" line="1048"/>
-        <location filename="video.cpp" line="1055"/>
+        <location filename="video.cpp" line="915"/>
+        <location filename="video.cpp" line="922"/>
+        <location filename="video.cpp" line="1054"/>
+        <location filename="video.cpp" line="1061"/>
         <source>Failed to interpolate frames of video:[</source>
         <translation>對視頻插幀失敗:[</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="917"/>
-        <location filename="video.cpp" line="1055"/>
+        <location filename="video.cpp" line="922"/>
+        <location filename="video.cpp" line="1061"/>
         <source>]. Gonna generate a video without frame Interpolation.</source>
         <translation>]. 將生成一個未插幀的視頻.</translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1126"/>
+        <location filename="video.cpp" line="1133"/>
         <source>Finish assembling video:[</source>
         <translation>結束組裝影片:[</translation>
     </message>

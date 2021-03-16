@@ -2353,13 +2353,13 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1895"/>
+        <location filename="mainwindow.cpp" line="1889"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>Error! Failed to move [</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1895"/>
+        <location filename="mainwindow.cpp" line="1889"/>
         <location filename="waifu2x.cpp" line="766"/>
         <source>] to [</source>
         <translation type="unfinished"></translation>
@@ -2599,7 +2599,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1431"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1459"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1499"/>
-        <location filename="video.cpp" line="1005"/>
+        <location filename="video.cpp" line="1010"/>
         <location filename="waifu2x_caffe.cpp" line="35"/>
         <location filename="waifu2x_caffe.cpp" line="57"/>
         <location filename="waifu2x_caffe.cpp" line="135"/>
@@ -3130,12 +3130,12 @@ Otherwise, this software may not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1341"/>
+        <location filename="mainwindow.cpp" line="1335"/>
         <source>Force retry is disabled when processing Video or GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="2022"/>
+        <location filename="mainwindow.cpp" line="2016"/>
         <source>[Disable &quot;-resize&quot;] is automatically enabled to fix compatibility issue and improve performance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3412,7 +3412,7 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="1374"/>
+        <location filename="mainwindow.cpp" line="1368"/>
         <source>Force retry.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3433,7 +3433,7 @@ Waifu2x-converter processor list:
     </message>
     <message>
         <location filename="video.cpp" line="378"/>
-        <location filename="video.cpp" line="851"/>
+        <location filename="video.cpp" line="856"/>
         <source>Start splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3469,7 +3469,7 @@ Waifu2x-converter processor list:
     </message>
     <message>
         <location filename="video.cpp" line="441"/>
-        <location filename="video.cpp" line="923"/>
+        <location filename="video.cpp" line="928"/>
         <source>Finish splitting video: [</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3545,32 +3545,32 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="928"/>
+        <location filename="video.cpp" line="933"/>
         <source>Start assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1005"/>
+        <location filename="video.cpp" line="1010"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="video.cpp" line="435"/>
-        <location filename="video.cpp" line="909"/>
-        <location filename="video.cpp" line="917"/>
-        <location filename="video.cpp" line="1048"/>
-        <location filename="video.cpp" line="1055"/>
+        <location filename="video.cpp" line="915"/>
+        <location filename="video.cpp" line="922"/>
+        <location filename="video.cpp" line="1054"/>
+        <location filename="video.cpp" line="1061"/>
         <source>Failed to interpolate frames of video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="917"/>
-        <location filename="video.cpp" line="1055"/>
+        <location filename="video.cpp" line="922"/>
+        <location filename="video.cpp" line="1061"/>
         <source>]. Gonna generate a video without frame Interpolation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1126"/>
+        <location filename="video.cpp" line="1133"/>
         <source>Finish assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>

@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.12.01:
+- Fix bug: Unable to generate a video when frame interpolation failed.
+
 v3.11.33-beta:
 - New Feature: Now you can choose when you wanna interpolate the frames, before or after upscaled the frames.(Thanks to @CAFUCSteven for suggestion)
 - New options: [Start], [Pause] and [Donate] for system tray menu.

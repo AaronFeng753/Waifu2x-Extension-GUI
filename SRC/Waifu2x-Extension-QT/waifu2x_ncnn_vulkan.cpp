@@ -882,7 +882,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
     //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
     QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-    if(Frame_fileName_list_scaled.size()!=NumOfSplitFrames)
+    if(Frame_fileName_list_scaled.size()<NumOfSplitFrames)
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
         emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
@@ -1424,7 +1424,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             //================ 扫描放大后的帧文件数量,判断是否放大成功 =======================
             QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(ScaledFramesFolderPath);
-            if(Frame_fileName_list_scaled.size()!=NumOfSplitFrames)
+            if(Frame_fileName_list_scaled.size()<NumOfSplitFrames)
             {
                 emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+SourceFile_fullPath+tr("]. Error: [Unable to scale all frames.]"));
                 emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
