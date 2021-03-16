@@ -492,8 +492,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         }
     }
     if(isUhdInput==true)Send_TextBrowser_NewMessage(tr("UHD input detected, UHD Mode is automatically enabled."));
-    //========
-    int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size()*2;
+    //====================
+    int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size() * ui->spinBox_MultipleOfFrames_VFI->value();
     int FileNum_New = 0;
     int FileNum_Old = 0;
     //========
@@ -510,13 +510,18 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
                 FrameInterpolation_ProgramPath = Current_Path+"/cain-ncnn-vulkan/cain-ncnn-vulkan_waifu2xEX.exe";
                 break;
             }
+        case 2:
+            {
+                FrameInterpolation_ProgramPath = Current_Path+"/dain-ncnn-vulkan/dain-ncnn-vulkan_waifu2xEX.exe";
+                break;
+            }
     }
     QString CMD ="";
     //========
     bool FrameInterpolation_QProcess_failed = false;
     QString ErrorMSG="";
     QString StanderMSG="";
-    int FrameNumDigits = CalNumDigits((file_getFileNames_in_Folder_nofilter(SourcePath).size()*2));
+    int FrameNumDigits = CalNumDigits(FileNum_MAX);
     //========
     for(int retry=0; retry<(ui->spinBox_retry->value()+retry_add); retry++)
     {
@@ -525,7 +530,8 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         StanderMSG="";
         //=====
         QProcess FrameInterpolation_QProcess;
-        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath+"\" -o \""+OutputPath+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput);
+        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath+"\" -o \""+OutputPath+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput,FileNum_MAX);
+        emit Send_TextBrowser_NewMessage(CMD);//debug
         FrameInterpolation_QProcess.start(CMD);
         while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
         while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
@@ -603,7 +609,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     return false;
 }
 
-QString MainWindow::FrameInterpolation_ReadConfig(bool isUhdInput)
+QString MainWindow::FrameInterpolation_ReadConfig(bool isUhdInput,int NumOfFrames)
 {
     QString VFI_Config = " ";
     if(ui->comboBox_Engine_VFI->currentIndex()==0)
@@ -636,6 +642,8 @@ QString MainWindow::FrameInterpolation_ReadConfig(bool isUhdInput)
         //线程数量
         QString jobs_num_str = QString("%1").arg(NumOfThreads_VFI);
         VFI_Config.append(QString("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" "));
+        //块大小(Dain)单显卡
+        if(ui->comboBox_Engine_VFI->currentIndex()==2)VFI_Config.append("-t "+QString("%1").arg(ui->spinBox_TileSize_VFI->value())+" ");
     }
     else
     {
@@ -653,6 +661,8 @@ QString MainWindow::FrameInterpolation_ReadConfig(bool isUhdInput)
         {
             QString jobs_num_str = QString("%1").arg(NumOfThreads_VFI);
             VFI_Config.append(QString("-j "+jobs_num_str+":"+jobs_num_str+":"+jobs_num_str+" "));
+            //块大小(Dain)单显卡
+            if(ui->comboBox_Engine_VFI->currentIndex()==2)VFI_Config.append("-t "+QString("%1").arg(ui->spinBox_TileSize_VFI->value())+" ");
         }
         else
         {
@@ -692,19 +702,43 @@ QString MainWindow::FrameInterpolation_ReadConfig(bool isUhdInput)
             }
             //===
             VFI_Config.append(QString("-j "+NumOfThreads_Total_str+":"+Jobs_Str+":"+NumOfThreads_Total_str+" "));
+            //块大小(Dain)多显卡
+            if(ui->comboBox_Engine_VFI->currentIndex()==2)
+            {
+                QString TileSizes_Str = "";
+                for(int i=0; i<GPU_IDs_StrList.size(); i++)
+                {
+                    if(i==0)
+                    {
+                        TileSizes_Str.append(QString("%1").arg(ui->spinBox_TileSize_VFI->value()));
+                    }
+                    else
+                    {
+                        TileSizes_Str.append(","+QString("%1").arg(ui->spinBox_TileSize_VFI->value()));
+                    }
+                }
+                VFI_Config.append("-t "+TileSizes_Str+" ");
+            }
         }
     }
     //模型
     switch (ui->comboBox_Engine_VFI->currentIndex())
     {
-        case 0:
+        case 0://rife
             {
                 VFI_Config.append("-m \""+Current_Path+"/rife-ncnn-vulkan/"+ui->comboBox_Model_VFI->currentText().trimmed()+"\" ");
                 break;
             }
-        case 1:
+        case 1://cain
             {
                 VFI_Config.append("-m \""+Current_Path+"/cain-ncnn-vulkan/cain\" ");
+                break;
+            }
+        case 2://dain
+            {
+                VFI_Config.append("-m \""+Current_Path+"/dain-ncnn-vulkan/best\" ");
+                //顺便把帧数倍率塞进去
+                VFI_Config.append("-n "+QString("%1").arg(NumOfFrames)+" ");
                 break;
             }
     }
@@ -741,6 +775,7 @@ int MainWindow::FrameInterpolation_DetectGPU()
     //==============
     QString FrameInterpolation_ProgramPath = "";
     QString FrameInterpolation_ModelPath = "";
+    QString TileSize_qstr = "";
     switch (ui->comboBox_Engine_VFI->currentIndex())
     {
         case 0:
@@ -755,6 +790,13 @@ int MainWindow::FrameInterpolation_DetectGPU()
                 FrameInterpolation_ModelPath = Current_Path+"/cain-ncnn-vulkan/cain";
                 break;
             }
+        case 2:
+            {
+                FrameInterpolation_ProgramPath = Current_Path+"/dain-ncnn-vulkan/dain-ncnn-vulkan_waifu2xEX.exe";
+                FrameInterpolation_ModelPath = Current_Path+"/dain-ncnn-vulkan/best";
+                TileSize_qstr = " -t 128 ";
+                break;
+            }
     }
     //=========
     int GPU_ID=-1;
@@ -764,7 +806,7 @@ int MainWindow::FrameInterpolation_DetectGPU()
         QFile::remove(OutputPath);
         QProcess *Waifu2x = new QProcess();
         QString gpu_str = " -g "+QString::number(GPU_ID,10)+" ";
-        QString cmd = "\"" + FrameInterpolation_ProgramPath + "\"" + " -0 " + "\"" + InputPath + "\"" + " -1 " + "\"" + InputPath_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 " + gpu_str + " -m \""+FrameInterpolation_ModelPath+"\"";
+        QString cmd = "\"" + FrameInterpolation_ProgramPath + "\"" + " -0 " + "\"" + InputPath + "\"" + " -1 " + "\"" + InputPath_1 + "\" -o " + "\"" + OutputPath + "\"" + " -j 1:1:1 " + gpu_str + " -m \""+FrameInterpolation_ModelPath+"\"" + TileSize_qstr;
         Waifu2x->start(cmd);
         while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
         while(!Waifu2x->waitForFinished(100)&&!QProcess_stop) {}
@@ -892,19 +934,31 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         FrameInterpolation_DetectGPU_finished();
         ui->lineEdit_MultiGPU_IDs_VFI->setText("");
     }
-    if(ui->comboBox_Engine_VFI->currentIndex()==0)
+    if(ui->comboBox_Engine_VFI->currentIndex()==0)//rife
     {
         ui->checkBox_TTA_VFI->setEnabled(1);
         ui->checkBox_UHD_VFI->setEnabled(1);
         ui->comboBox_Model_VFI->setEnabled(1);
+        ui->spinBox_TileSize_VFI->setEnabled(0);
+        ui->spinBox_MultipleOfFrames_VFI->setEnabled(0);
+        ui->spinBox_MultipleOfFrames_VFI->setValue(2);
     }
-    if(ui->comboBox_Engine_VFI->currentIndex()==1)
+    if(ui->comboBox_Engine_VFI->currentIndex()==1)//cain
     {
         ui->checkBox_TTA_VFI->setEnabled(0);
         ui->checkBox_UHD_VFI->setEnabled(0);
-        ui->checkBox_TTA_VFI->setChecked(0);
-        ui->checkBox_UHD_VFI->setChecked(0);
         ui->comboBox_Model_VFI->setEnabled(0);
+        ui->spinBox_TileSize_VFI->setEnabled(0);
+        ui->spinBox_MultipleOfFrames_VFI->setEnabled(0);
+        ui->spinBox_MultipleOfFrames_VFI->setValue(2);
+    }
+    if(ui->comboBox_Engine_VFI->currentIndex()==2)//dain
+    {
+        ui->checkBox_TTA_VFI->setEnabled(0);
+        ui->checkBox_UHD_VFI->setEnabled(0);
+        ui->comboBox_Model_VFI->setEnabled(0);
+        ui->spinBox_TileSize_VFI->setEnabled(1);
+        ui->spinBox_MultipleOfFrames_VFI->setEnabled(1);
     }
     Old_FrameInterpolation_Engine_Index = ui->comboBox_Engine_VFI->currentIndex();
 }

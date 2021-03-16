@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>731</height>
+    <height>764</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>3</number>
        </property>
        <property name="iconSize">
         <size>
@@ -7460,6 +7460,12 @@ padding:10px;
               <property name="enabled">
                <bool>false</bool>
               </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
               <property name="frameShape">
                <enum>QFrame::NoFrame</enum>
               </property>
@@ -7482,20 +7488,6 @@ padding:10px;
                <property name="bottomMargin">
                 <number>0</number>
                </property>
-               <item row="1" column="0" colspan="3">
-                <widget class="Line" name="line_27">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-               <item row="2" column="1" rowspan="2">
-                <widget class="Line" name="line_29">
-                 <property name="orientation">
-                  <enum>Qt::Vertical</enum>
-                 </property>
-                </widget>
-               </item>
                <item row="0" column="0" colspan="3">
                 <widget class="QFrame" name="frame_15">
                  <property name="sizePolicy">
@@ -7535,7 +7527,9 @@ padding:10px;
                      <string>You should enable this option when processing Ultra High Definition videos.
 
 The software will automatically enable UHD Mode when it detects input with
-resolution higher than 3840×2160.</string>
+resolution higher than 3840×2160.
+
+Only works when using [rife-ncnn-vulkan] engine.</string>
                     </property>
                     <property name="text">
                      <string>UHD Mode</string>
@@ -7620,6 +7614,11 @@ resolution higher than 3840×2160.</string>
                          <string notr="true">cain-ncnn-vulkan</string>
                         </property>
                        </item>
+                       <item>
+                        <property name="text">
+                         <string notr="true">dain-ncnn-vulkan</string>
+                        </property>
+                       </item>
                       </widget>
                      </item>
                     </layout>
@@ -7637,7 +7636,9 @@ resolution higher than 3840×2160.</string>
                      <string>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
-but the effect may not be obvious. It is not recommended to enable it.</string>
+but the effect may not be obvious. It is not recommended to enable it.
+
+Only works when using [rife-ncnn-vulkan] engine.</string>
                     </property>
                     <property name="text">
                      <string>TTA Mode</string>
@@ -7661,10 +7662,80 @@ interpolate high res frames.</string>
                  </layout>
                 </widget>
                </item>
-               <item row="3" column="0">
+               <item row="1" column="0" rowspan="3" colspan="3">
+                <widget class="Line" name="line_27">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_11">
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Model:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="comboBox_Model_VFI">
+                   <property name="toolTip">
+                    <string>Only works when using [rife-ncnn-vulkan] engine.</string>
+                   </property>
+                   <property name="currentIndex">
+                    <number>5</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-anime</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-HD</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-UHD</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-v2</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string notr="true">rife-v2.4</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="5" column="0">
                 <layout class="QHBoxLayout" name="horizontalLayout_9">
                  <item>
                   <widget class="QCheckBox" name="checkBox_MultiThread_VFI">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="toolTip">
                     <string>The multi-threading of the frame interpolation engines is NOT
 very stable, we don't recommend you to enable this option.</string>
@@ -7715,7 +7786,7 @@ of threads will be adjusted automatically.</string>
                  </item>
                 </layout>
                </item>
-               <item row="3" column="2">
+               <item row="5" column="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_6">
                  <item>
                   <widget class="QCheckBox" name="checkBox_MultiGPU_VFI">
@@ -7795,7 +7866,97 @@ padding:10px;
                  </item>
                 </layout>
                </item>
-               <item row="2" column="2">
+               <item row="6" column="0">
+                <layout class="QHBoxLayout" name="horizontalLayout_50">
+                 <item>
+                  <widget class="QLabel" name="label_28">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="toolTip">
+                    <string>Only works when using [dain-ncnn-vulkan] engine.</string>
+                   </property>
+                   <property name="text">
+                    <string>Multiple of frames:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="spinBox_MultipleOfFrames_VFI">
+                   <property name="toolTip">
+                    <string>Only works when using [dain-ncnn-vulkan] engine.</string>
+                   </property>
+                   <property name="minimum">
+                    <number>2</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item row="6" column="2">
+                <layout class="QHBoxLayout" name="horizontalLayout_49">
+                 <item>
+                  <widget class="QLabel" name="label_19">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="text">
+                    <string>Tile size:</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="spinBox_TileSize_VFI">
+                   <property name="focusPolicy">
+                    <enum>Qt::NoFocus</enum>
+                   </property>
+                   <property name="toolTip">
+                    <string>This value will affects GPU memory usage.
+Only works when using [dain-ncnn-vulkan] engine.</string>
+                   </property>
+                   <property name="minimum">
+                    <number>128</number>
+                   </property>
+                   <property name="maximum">
+                    <number>999999999</number>
+                   </property>
+                   <property name="singleStep">
+                    <number>32</number>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <spacer name="horizontalSpacer_48">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                </layout>
+               </item>
+               <item row="3" column="1" rowspan="4">
+                <widget class="Line" name="line_29">
+                 <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                 </property>
+                </widget>
+               </item>
+               <item row="4" column="2">
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
                   <widget class="QLabel" name="label_30">
@@ -7863,60 +8024,6 @@ padding:10px;
                    <property name="text">
                     <string>Detect available GPU ID</string>
                    </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-               <item row="2" column="0">
-                <layout class="QHBoxLayout" name="horizontalLayout_11">
-                 <item>
-                  <widget class="QLabel" name="label_3">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="text">
-                    <string>Model:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboBox_Model_VFI">
-                   <property name="currentIndex">
-                    <number>5</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-anime</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-HD</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-UHD</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-v2</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string notr="true">rife-v2.4</string>
-                    </property>
-                   </item>
                   </widget>
                  </item>
                 </layout>

@@ -35,6 +35,9 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.12.01:
+- New Frame Interpolation engine: DAIN-NCNN-Vulkan.
+- New Feature: Multiple of frames.(Only available when using DAIN-NCNN-Vulkan.)
+- Improve GUI.
 - Fix bug: Unable to generate a video when frame interpolation failed.
 
 v3.11.33-beta:
