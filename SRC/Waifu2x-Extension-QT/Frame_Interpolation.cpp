@@ -82,10 +82,19 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
             VideoClipsFolderPath = VideoClipsFolderPath_old;
             VideoClipsFolderName = VideoClipsFolderName_old;
         }
+        //============
+        int MultipleOfFPS_old = configIniRead->value("/VideoConfiguration/MultipleOfFPS_old").toInt();
+        if(MultipleOfFPS_old != ui->spinBox_MultipleOfFPS_VFI->value())
+        {
+            DelVfiDir(video_mp4_fullpath);
+            file_DelDir(SplitFramesFolderPath);
+            QFile::remove(VideoConfiguration_fullPath);
+            file_DelDir(VideoClipsFolderPath);
+        }
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,0,0,false,0,0,"",true,VideoClipsFolderPath,VideoClipsFolderName,true);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,0,0,false,0,0,"",true,VideoClipsFolderPath,VideoClipsFolderName,true,ui->spinBox_MultipleOfFPS_VFI->value());
     }
     //=======================
     //   检测缓存是否存在
@@ -103,7 +112,8 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         file_DelDir(VideoClipsFolderPath);
         QFile::remove(AudioPath);
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,0,0,false,0,0,"",true,VideoClipsFolderPath,VideoClipsFolderName,true);
+        DelVfiDir(video_mp4_fullpath);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,0,0,false,0,0,"",true,VideoClipsFolderPath,VideoClipsFolderName,true,ui->spinBox_MultipleOfFPS_VFI->value());
         //========
     }
     /*====================================
@@ -493,7 +503,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     }
     if(isUhdInput==true)Send_TextBrowser_NewMessage(tr("UHD input detected, UHD Mode is automatically enabled."));
     //====================
-    int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size() * ui->spinBox_MultipleOfFrames_VFI->value();
+    int FileNum_MAX = file_getFileNames_in_Folder_nofilter(SourcePath).size() * ui->spinBox_MultipleOfFPS_VFI->value();
     int FileNum_New = 0;
     int FileNum_Old = 0;
     //========
@@ -573,7 +583,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
             }
         }
         //========= 检测是否成功,是否需要重试 ============
-        if(FrameInterpolation_QProcess_failed==false && (file_getFileNames_in_Folder_nofilter(SourcePath).size()*2 == file_getFileNames_in_Folder_nofilter(OutputPath).size()))
+        if(FrameInterpolation_QProcess_failed==false && (FileNum_MAX == file_getFileNames_in_Folder_nofilter(OutputPath).size()))
         {
             emit Send_TextBrowser_NewMessage(tr("Finish interpolating frames in:[")+SourcePath+"]");
             return true;
@@ -944,8 +954,8 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         ui->checkBox_UHD_VFI->setEnabled(1);
         ui->comboBox_Model_VFI->setEnabled(1);
         ui->spinBox_TileSize_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFrames_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFrames_VFI->setValue(2);
+        ui->spinBox_MultipleOfFPS_VFI->setEnabled(0);
+        ui->spinBox_MultipleOfFPS_VFI->setValue(2);
     }
     if(ui->comboBox_Engine_VFI->currentIndex()==1)//cain
     {
@@ -953,8 +963,8 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         ui->checkBox_UHD_VFI->setEnabled(0);
         ui->comboBox_Model_VFI->setEnabled(0);
         ui->spinBox_TileSize_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFrames_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFrames_VFI->setValue(2);
+        ui->spinBox_MultipleOfFPS_VFI->setEnabled(0);
+        ui->spinBox_MultipleOfFPS_VFI->setValue(2);
     }
     if(ui->comboBox_Engine_VFI->currentIndex()==2)//dain
     {
@@ -962,7 +972,7 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         ui->checkBox_UHD_VFI->setEnabled(0);
         ui->comboBox_Model_VFI->setEnabled(0);
         ui->spinBox_TileSize_VFI->setEnabled(1);
-        ui->spinBox_MultipleOfFrames_VFI->setEnabled(1);
+        ui->spinBox_MultipleOfFPS_VFI->setEnabled(1);
     }
     Old_FrameInterpolation_Engine_Index = ui->comboBox_Engine_VFI->currentIndex();
 }

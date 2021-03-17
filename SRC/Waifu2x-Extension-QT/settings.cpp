@@ -237,7 +237,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/lineEdit_MultiGPU_IDs_VFI", ui->lineEdit_MultiGPU_IDs_VFI->text());
     configIniWrite->setValue("/settings/spinBox_NumOfThreads_VFI", ui->spinBox_NumOfThreads_VFI->value());
     configIniWrite->setValue("/settings/comboBox_Engine_VFI", ui->comboBox_Engine_VFI->currentIndex());
-    configIniWrite->setValue("/settings/spinBox_MultipleOfFrames_VFI", ui->spinBox_MultipleOfFrames_VFI->value());
+    configIniWrite->setValue("/settings/spinBox_MultipleOfFPS_VFI", ui->spinBox_MultipleOfFPS_VFI->value());
     configIniWrite->setValue("/settings/spinBox_TileSize_VFI", ui->spinBox_TileSize_VFI->value());
     //========
     return 0;
@@ -530,7 +530,7 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_NumOfThreads_VFI->setValue(Settings_Read_value("/settings/spinBox_NumOfThreads_VFI").toInt());
     Old_FrameInterpolation_Engine_Index = Settings_Read_value("/settings/comboBox_Engine_VFI").toInt();
     ui->comboBox_Engine_VFI->setCurrentIndex(Old_FrameInterpolation_Engine_Index);
-    ui->spinBox_MultipleOfFrames_VFI->setValue(Settings_Read_value("/settings/spinBox_MultipleOfFrames_VFI").toInt());
+    ui->spinBox_MultipleOfFPS_VFI->setValue(Settings_Read_value("/settings/spinBox_MultipleOfFPS_VFI").toInt());
     ui->spinBox_TileSize_VFI->setValue(Settings_Read_value("/settings/spinBox_TileSize_VFI").toInt());
     //==================== 加载语言设置 =====================
     ui->comboBox_language->setCurrentIndex(Settings_Read_value("/settings/Language").toInt());

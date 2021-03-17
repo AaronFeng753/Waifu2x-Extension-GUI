@@ -617,14 +617,21 @@ bool MainWindow::file_OpenFile(QString FilePath)
     }
 }
 
-bool MainWindow::file_generateMarkFile(QString FileFullPath)
+bool MainWindow::file_generateMarkFile(QString FileFullPath,QString Msg)
 {
     QFile file(FileFullPath);
     file.remove();
     if (file.open(QIODevice::ReadWrite | QIODevice::Text)) //QIODevice::ReadWrite支持读写
     {
         QTextStream stream(&file);
-        stream << "Waifu2x-Extension-GUI\nDo NOT delete this file!!";
+        if(Msg.trimmed() == "")
+        {
+            stream << "Waifu2x-Extension-GUI\nDo NOT delete this file!!";
+        }
+        else
+        {
+            stream << Msg;
+        }
     }
     return file.exists();
 }

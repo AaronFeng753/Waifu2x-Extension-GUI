@@ -7880,12 +7880,12 @@ padding:10px;
                     <string>Only works when using [dain-ncnn-vulkan] engine.</string>
                    </property>
                    <property name="text">
-                    <string>Multiple of frames:</string>
+                    <string>Multiple of FPS:</string>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QSpinBox" name="spinBox_MultipleOfFrames_VFI">
+                  <widget class="QSpinBox" name="spinBox_MultipleOfFPS_VFI">
                    <property name="toolTip">
                     <string>Only works when using [dain-ncnn-vulkan] engine.</string>
                    </property>

@@ -655,7 +655,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",false,"","",ui->groupBox_FrameInterpolation->isChecked());
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",false,"","",ui->groupBox_FrameInterpolation->isChecked(),0);
     }
     //=======================
     //   检测缓存是否存在
@@ -674,7 +674,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
             QFile::remove(VideoConfiguration_fullPath);
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(AudioPath);
-            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",false,"","",ui->groupBox_FrameInterpolation->isChecked());
+            DelVfiDir(video_mp4_fullpath);
+            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",false,"","",ui->groupBox_FrameInterpolation->isChecked(),0);
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
         }
@@ -686,7 +687,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
         QFile::remove(AudioPath);
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",false,"","",ui->groupBox_FrameInterpolation->isChecked());
+        DelVfiDir(video_mp4_fullpath);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",false,"","",ui->groupBox_FrameInterpolation->isChecked(),0);
         //========
     }
     if(!isCacheExists)
@@ -1035,6 +1037,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         QString EngineName_old = configIniRead->value("/VideoConfiguration/EngineName").toString();
         bool isProcessBySegment_old = configIniRead->value("/VideoConfiguration/isProcessBySegment").toBool();
         bool isVideoFrameInterpolationEnabled_old = configIniRead->value("/VideoConfiguration/isVideoFrameInterpolationEnabled").toBool();
+        int MultipleOfFPS_old = configIniRead->value("/VideoConfiguration/MultipleOfFPS_old").toInt();
         //=================== 比对信息 ================================
         if(EngineName_old=="waifu2x-ncnn-vulkan")
         {
@@ -1075,6 +1078,10 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             {
                 isVideoConfigChanged=true;
             }
+            if(MultipleOfFPS_old != ui->spinBox_MultipleOfFPS_VFI->value() && ui->groupBox_FrameInterpolation->isChecked())
+            {
+                isVideoConfigChanged=true;
+            }
         }
         else
         {
@@ -1092,7 +1099,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
     }
     else
     {
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName,ui->groupBox_FrameInterpolation->isChecked());
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName,ui->groupBox_FrameInterpolation->isChecked(),ui->spinBox_MultipleOfFPS_VFI->value());
     }
     //=======================
     //   检测缓存是否存在
@@ -1112,7 +1119,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             file_DelDir(SplitFramesFolderPath);
             file_DelDir(VideoClipsFolderPath);
             QFile::remove(AudioPath);
-            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName,ui->groupBox_FrameInterpolation->isChecked());
+            DelVfiDir(video_mp4_fullpath);
+            emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName,ui->groupBox_FrameInterpolation->isChecked(),ui->spinBox_MultipleOfFPS_VFI->value());
             //=======
             emit Send_TextBrowser_NewMessage(tr("The previous video cache file was detected, but because you changed the settings about the video resolution or denoise level, the previous cache will be deleted and processing of the video:[")+SourceFile_fullPath+tr("] will restart."));
         }
@@ -1125,7 +1133,8 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
         file_DelDir(SplitFramesFolderPath);
         file_DelDir(VideoClipsFolderPath);
         QFile::remove(AudioPath);
-        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName,ui->groupBox_FrameInterpolation->isChecked());
+        DelVfiDir(video_mp4_fullpath);
+        emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,ScaleRatio,DenoiseLevel,CustRes_isEnabled,CustRes_height,CustRes_width,"waifu2x-ncnn-vulkan",true,VideoClipsFolderPath,VideoClipsFolderName,ui->groupBox_FrameInterpolation->isChecked(),ui->spinBox_MultipleOfFPS_VFI->value());
         //========
     }
     /*====================================

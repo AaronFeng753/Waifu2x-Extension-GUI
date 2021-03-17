@@ -132,7 +132,7 @@ public:
     bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
     bool file_OpenFile(QString FilePath);
     void file_MoveFiles_Folder_NcnnVulkanFolderProcess(QString Old_folder, QString New_folder, bool Delete_);
-    bool file_generateMarkFile(QString FileFullPath);
+    bool file_generateMarkFile(QString FileFullPath,QString Msg);
     //=================================  Table =================================
     void ui_tableViews_setUpdatesEnabled(bool isEnabled);// 启用/禁用 文件列表table的UI更新
 
@@ -406,6 +406,7 @@ public:
     QMutex MultiLine_ErrorOutput_QMutex;
 
     bool video_isNeedProcessBySegment(int rowNum);//根据视频时长,判断是否需要分段处理
+    void DelVfiDir(QString VideoPath);
     //============================   custom res  ====================================
     //自定义分辨率列表
     QList<QMap<QString, QString>> Custom_resolution_list;//res_map["fullpath"],["height"],["width"]
@@ -657,7 +658,7 @@ public slots:
 
     void SRMD_DetectGPU_finished();
 
-    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName,bool isVideoFrameInterpolationEnabled);
+    void video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName,bool isVideoFrameInterpolationEnabled,int MultipleOfFPS);
 
     int Settings_Save();//保存设置
 
@@ -1027,7 +1028,7 @@ signals:
 
     void Send_SRMD_DetectGPU_finished();
 
-    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName,bool isVideoFrameInterpolationEnabled);
+    void Send_video_write_VideoConfiguration(QString VideoConfiguration_fullPath,int ScaleRatio,int DenoiseLevel,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,QString EngineName,bool isProcessBySegment,QString VideoClipsFolderPath,QString VideoClipsFolderName,bool isVideoFrameInterpolationEnabled,int MultipleOfFPS);
 
     void Send_Settings_Save();
 
