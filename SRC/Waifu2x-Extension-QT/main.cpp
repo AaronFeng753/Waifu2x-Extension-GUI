@@ -36,6 +36,7 @@ Change log:
 ******************** !!!补全翻译!!! ***********************
 v3.21.02-beta:
 - New Feature: [Multiple of FPS] adjustment is now available for all video frame interpolation engines.
+- Improve GUI.
 - Fix bug: Potential video cache conflict.
 - Fix bug: Unable to generate a video when multiple of fps is higher then 2.
 

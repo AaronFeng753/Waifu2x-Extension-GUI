@@ -945,6 +945,9 @@ void MainWindow::on_checkBox_MultiGPU_VFI_stateChanged(int arg1)
 void MainWindow::on_groupBox_FrameInterpolation_clicked()
 {
     ui->frame_FrameInterpolation->setEnabled(ui->groupBox_FrameInterpolation->isChecked());
+    ui->spinBox_MultipleOfFPS_VFI->setEnabled(ui->groupBox_FrameInterpolation->isChecked());
+    ui->pushButton_MultipleOfFPS_VFI_ADD->setEnabled(ui->groupBox_FrameInterpolation->isChecked());
+    ui->pushButton_MultipleOfFPS_VFI_MIN->setEnabled(ui->groupBox_FrameInterpolation->isChecked());
     on_comboBox_Engine_VFI_currentIndexChanged(0);
     on_checkBox_MultiGPU_VFI_stateChanged(0);
     if(ui->groupBox_FrameInterpolation->isChecked()==false)
