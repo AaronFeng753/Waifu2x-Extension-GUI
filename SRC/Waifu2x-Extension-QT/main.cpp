@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 ******************** !!!补全翻译!!! ***********************
+v3.21.03-beta:
+- Fix bug: Turn off screen button doesn't work.
+
 v3.21.02-beta:
 - New Feature: [Multiple of FPS] adjustment is now available for all video frame interpolation engines.
 - Improve GUI.

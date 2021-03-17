@@ -2028,7 +2028,7 @@ void MainWindow::on_pushButton_TurnOffScreen_clicked()
 void MainWindow::TurnOffScreen()
 {
     QProcess *OffScreen = new QProcess();
-    OffScreen->start(Current_Path+"/nircmd-x64/nircmd.exe monitor off");
+    OffScreen->start("\""+Current_Path+"/nircmd-x64/nircmd.exe\" monitor off");
     OffScreen->waitForStarted(5000);
     OffScreen->waitForFinished(5000);
     OffScreen->kill();
