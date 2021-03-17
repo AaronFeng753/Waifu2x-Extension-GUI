@@ -465,8 +465,6 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         OutputPath = OutputPath.left(OutputPath.length() - 1);
     }
     if(file_isDirExist(SourcePath)==false)return false;
-    file_DelDir(OutputPath);
-    file_mkDir(OutputPath);
     //=======
     emit Send_TextBrowser_NewMessage(tr("Starting to interpolate frames in:[")+SourcePath+"]");
     //==== 检测是否启用了自动调整线程数量,若启用则强制设定重试次数大于6 ====
@@ -533,83 +531,132 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     QString StanderMSG="";
     int FrameNumDigits = CalNumDigits(FileNum_MAX);
     //========
-    for(int retry=0; retry<(ui->spinBox_retry->value()+retry_add); retry++)
+    int MultiFPS_MAX = ui->spinBox_MultipleOfFPS_VFI->value();
+    int MultiFPS_Init = 2;
+    if(ui->comboBox_Engine_VFI->currentIndex()==2)MultiFPS_Init=MultiFPS_MAX;
+    //========
+    for(int MultiFPS_curr = MultiFPS_Init; MultiFPS_curr<=MultiFPS_MAX; MultiFPS_curr*=2)
     {
-        FrameInterpolation_QProcess_failed = false;
-        ErrorMSG="";
-        StanderMSG="";
-        //=====
-        QProcess FrameInterpolation_QProcess;
-        CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath+"\" -o \""+OutputPath+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput,FileNum_MAX);
-        FrameInterpolation_QProcess.start(CMD);
-        while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
-        while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
+        bool isThisRoundSucceed = false;
+        QString OutputPath_Curr = "";
+        QString SourcePath_Curr = "";
+        if(MultiFPS_curr == MultiFPS_Init)
         {
-            if(waifu2x_STOP)
-            {
-                FrameInterpolation_QProcess.close();
-                file_DelDir(OutputPath);
-                return false;
-            }
-            //=========
-            ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
-            StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
-            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
-            {
-                FrameInterpolation_QProcess_failed = true;
-                FrameInterpolation_QProcess.close();
-                file_DelDir(OutputPath);
-                break;
-            }
-            //=========
-            if(ui->checkBox_ShowInterPro->isChecked())
-            {
-                FileNum_New = file_getFileNames_in_Folder_nofilter(OutputPath).size();
-                if(FileNum_New!=FileNum_Old)
-                {
-                    emit Send_TextBrowser_NewMessage(tr("Interpolating frames in:[")+SourcePath+tr("] Progress:[")+QString::number(FileNum_New,10)+"/"+QString::number(FileNum_MAX,10)+"]");
-                    FileNum_Old=FileNum_New;
-                }
-            }
-        }
-        if(FrameInterpolation_QProcess_failed==false)
-        {
-            ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
-            StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
-            if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
-            {
-                FrameInterpolation_QProcess_failed = true;
-                file_DelDir(OutputPath);
-            }
-        }
-        //========= 检测是否成功,是否需要重试 ============
-        if(FrameInterpolation_QProcess_failed==false && (FileNum_MAX == file_getFileNames_in_Folder_nofilter(OutputPath).size()))
-        {
-            emit Send_TextBrowser_NewMessage(tr("Finish interpolating frames in:[")+SourcePath+"]");
-            return true;
+            SourcePath_Curr = SourcePath;
         }
         else
         {
-            file_DelDir(OutputPath);
-            //===
-            if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6)
+            SourcePath_Curr = OutputPath+"_"+QString::number(MultiFPS_curr/2);
+        }
+        if(MultiFPS_curr == MultiFPS_MAX)
+        {
+            OutputPath_Curr = OutputPath;
+        }
+        else
+        {
+            OutputPath_Curr = OutputPath+"_"+QString::number(MultiFPS_curr);
+        }
+        file_DelDir(OutputPath_Curr);
+        file_mkDir(OutputPath_Curr);
+        //=======
+        for(int retry=0; retry<(ui->spinBox_retry->value()+retry_add); retry++)
+        {
+            FrameInterpolation_QProcess_failed = false;
+            ErrorMSG="";
+            StanderMSG="";
+            //=====
+            QProcess FrameInterpolation_QProcess;
+            CMD ="\""+FrameInterpolation_ProgramPath+"\" -i \""+SourcePath_Curr+"\" -o \""+OutputPath_Curr+"\" -f %0"+QString("%1").arg(FrameNumDigits)+"d.png"+FrameInterpolation_ReadConfig(isUhdInput,FileNum_MAX);
+            FrameInterpolation_QProcess.start(CMD);
+            while(!FrameInterpolation_QProcess.waitForStarted(200)&&!QProcess_stop) {}
+            while(!FrameInterpolation_QProcess.waitForFinished(200)&&!QProcess_stop)
             {
-                retry_add = 6-ui->spinBox_retry->value();
+                if(waifu2x_STOP)
+                {
+                    FrameInterpolation_QProcess.close();
+                    file_DelDir(OutputPath_Curr);
+                    if(SourcePath_Curr != SourcePath)file_DelDir(SourcePath_Curr);
+                    return false;
+                }
+                //=========
+                ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
+                StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    FrameInterpolation_QProcess_failed = true;
+                    FrameInterpolation_QProcess.close();
+                    file_DelDir(OutputPath_Curr);
+                    break;
+                }
+                //=========
+                if(ui->checkBox_ShowInterPro->isChecked())
+                {
+                    FileNum_New = file_getFileNames_in_Folder_nofilter(OutputPath_Curr).size();
+                    if(FileNum_New!=FileNum_Old)
+                    {
+                        emit Send_TextBrowser_NewMessage(tr("Interpolating frames in:[")+SourcePath_Curr+tr("] Progress:[")+QString::number(FileNum_New,10)+"/"+QString::number(FileNum_MAX,10)+"]");
+                        FileNum_Old=FileNum_New;
+                    }
+                }
             }
-            //===
-            if(retry==(ui->spinBox_retry->value()+retry_add-1))
+            if(FrameInterpolation_QProcess_failed==false)
             {
+                ErrorMSG.append(FrameInterpolation_QProcess.readAllStandardError().toLower());
+                StanderMSG.append(FrameInterpolation_QProcess.readAllStandardOutput().toLower());
+                if(ErrorMSG.contains("failed")||StanderMSG.contains("failed"))
+                {
+                    FrameInterpolation_QProcess_failed = true;
+                    file_DelDir(OutputPath_Curr);
+                }
+            }
+            //========= 检测是否成功,是否需要重试 ============
+            if(FrameInterpolation_QProcess_failed==false && (file_getFileNames_in_Folder_nofilter(SourcePath_Curr).size() * MultiFPS_Init == file_getFileNames_in_Folder_nofilter(OutputPath_Curr).size()))
+            {
+                isThisRoundSucceed = true;
                 break;
             }
-            //===
-            if(retry>=2 && ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true)
+            else
             {
-                isSuccessiveFailuresDetected_VFI=true;
+                file_DelDir(OutputPath_Curr);
+                //===
+                if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6)
+                {
+                    retry_add = 6-ui->spinBox_retry->value();
+                }
+                //===
+                if(retry==(ui->spinBox_retry->value()+retry_add-1))
+                {
+                    break;
+                }
+                //===
+                if(retry>=2 && ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true)
+                {
+                    isSuccessiveFailuresDetected_VFI=true;
+                }
+                //===
+                file_mkDir(OutputPath_Curr);
+                emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
+                Delay_sec_sleep(5);
             }
-            //===
-            file_mkDir(OutputPath);
-            emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
-            Delay_sec_sleep(5);
+        }
+        if(isThisRoundSucceed==true)
+        {
+            if(MultiFPS_curr == MultiFPS_MAX)
+            {
+                if(SourcePath_Curr != SourcePath)file_DelDir(SourcePath_Curr);
+                emit Send_TextBrowser_NewMessage(tr("Finish interpolating frames in:[")+SourcePath+"]");
+                return true;
+            }
+            else
+            {
+                if(SourcePath_Curr != SourcePath)file_DelDir(SourcePath_Curr);
+            }
+        }
+        else
+        {
+            emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames in:[")+SourcePath+"]");
+            //=======
+            return false;
         }
     }
     //=======
@@ -948,14 +995,17 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         FrameInterpolation_DetectGPU_finished();
         ui->lineEdit_MultiGPU_IDs_VFI->setText("");
     }
+    int MultipleOfFPS = ui->spinBox_MultipleOfFPS_VFI->value();
     if(ui->comboBox_Engine_VFI->currentIndex()==0)//rife
     {
         ui->checkBox_TTA_VFI->setEnabled(1);
         ui->checkBox_UHD_VFI->setEnabled(1);
         ui->comboBox_Model_VFI->setEnabled(1);
         ui->spinBox_TileSize_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFPS_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFPS_VFI->setValue(2);
+        if((MultipleOfFPS&(MultipleOfFPS-1))!=0)
+        {
+            ui->spinBox_MultipleOfFPS_VFI->setValue(2);
+        }
     }
     if(ui->comboBox_Engine_VFI->currentIndex()==1)//cain
     {
@@ -963,8 +1013,10 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         ui->checkBox_UHD_VFI->setEnabled(0);
         ui->comboBox_Model_VFI->setEnabled(0);
         ui->spinBox_TileSize_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFPS_VFI->setEnabled(0);
-        ui->spinBox_MultipleOfFPS_VFI->setValue(2);
+        if((MultipleOfFPS&(MultipleOfFPS-1))!=0)
+        {
+            ui->spinBox_MultipleOfFPS_VFI->setValue(2);
+        }
     }
     if(ui->comboBox_Engine_VFI->currentIndex()==2)//dain
     {
@@ -972,7 +1024,6 @@ void MainWindow::on_comboBox_Engine_VFI_currentIndexChanged(int index)
         ui->checkBox_UHD_VFI->setEnabled(0);
         ui->comboBox_Model_VFI->setEnabled(0);
         ui->spinBox_TileSize_VFI->setEnabled(1);
-        ui->spinBox_MultipleOfFPS_VFI->setEnabled(1);
     }
     Old_FrameInterpolation_Engine_Index = ui->comboBox_Engine_VFI->currentIndex();
 }

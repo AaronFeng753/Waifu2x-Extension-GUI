@@ -975,6 +975,10 @@ private slots:
 
     void on_checkBox_isCompatible_DainNcnnVulkan_clicked();
 
+    void on_pushButton_MultipleOfFPS_VFI_MIN_clicked();
+
+    void on_pushButton_MultipleOfFPS_VFI_ADD_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 

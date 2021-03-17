@@ -2053,3 +2053,37 @@ void MainWindow::pushButton_Stop_setEnabled_self(bool isEnabled)
     ui->pushButton_Stop->setVisible(isEnabled);
 }
 
+
+void MainWindow::on_pushButton_MultipleOfFPS_VFI_MIN_clicked()
+{
+    int VAL = 2;
+    if(ui->comboBox_Engine_VFI->currentIndex()==2)
+    {
+        VAL = ui->spinBox_MultipleOfFPS_VFI->value()-1;
+    }
+    else
+    {
+        VAL = ui->spinBox_MultipleOfFPS_VFI->value()/2;
+    }
+    if(VAL>=2)
+    {
+        ui->spinBox_MultipleOfFPS_VFI->setValue(VAL);
+    }
+}
+
+void MainWindow::on_pushButton_MultipleOfFPS_VFI_ADD_clicked()
+{
+    int VAL = 2;
+    if(ui->comboBox_Engine_VFI->currentIndex()==2)
+    {
+        VAL = ui->spinBox_MultipleOfFPS_VFI->value()+1;
+    }
+    else
+    {
+        VAL = ui->spinBox_MultipleOfFPS_VFI->value()*2;
+    }
+    if(VAL<=999999999)
+    {
+        ui->spinBox_MultipleOfFPS_VFI->setValue(VAL);
+    }
+}
