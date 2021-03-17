@@ -60,10 +60,10 @@ Waifu2x / SRMD / RealSR / Anime4K / ACNet
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP
 
 内置插帧算法:
-RIFE / CAIN
+RIFE / CAIN / DAIN
 
 内置插帧引擎:
-rife-ncnn-vulkan / cain-ncnn-vulkan
+rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 ```
 
 #### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce GTX 1070 和 `Intel` UHD 620 上通过测试.
@@ -141,6 +141,8 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
 - Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
+- DAIN ncnn Vulkan: https://github.com/nihui/dain-ncnn-vulkan
+- DAIN (Depth-Aware Video Frame Interpolation): https://github.com/baowenbo/DAIN
 - FFmpeg: https://ffmpeg.org/
 - FFmpeg Builds - gyan.dev: https://www.gyan.dev/ffmpeg/builds/
 - FFmpeg Builds - Zeranoe(该网站已停止运营): https://ffmpeg.zeranoe.com/builds/
