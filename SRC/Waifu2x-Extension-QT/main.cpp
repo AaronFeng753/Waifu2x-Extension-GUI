@@ -37,6 +37,7 @@ Change log:
 v3.21.13:
 - Complete multi-language translation.
 - Fix bug: Turn off screen button doesn't work.
+- Fix bug: compatibility test progress bar not working normally.
 
 v3.21.02-beta:
 - New Feature: [Multiple of FPS] adjustment is now available for all video frame interpolation engines.

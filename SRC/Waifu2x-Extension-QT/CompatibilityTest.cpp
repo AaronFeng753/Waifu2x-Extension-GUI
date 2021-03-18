@@ -572,6 +572,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_RifeNcnnVulkan=false;
     }
     QFile::remove(OutputPath);
+    emit Send_Add_progressBar_CompatibilityTest();
     //==========================================
     //                 Cain-NCNN-Vulkan
     //==========================================
@@ -608,6 +609,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_CainNcnnVulkan=false;
     }
     QFile::remove(OutputPath);
+    emit Send_Add_progressBar_CompatibilityTest();
     //==========================================
     //                 Dain-NCNN-Vulkan
     //==========================================
@@ -644,6 +646,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
         isCompatible_DainNcnnVulkan=false;
     }
     QFile::remove(OutputPath);
+    emit Send_Add_progressBar_CompatibilityTest();
     //=================
     // 杀死滞留的进程
     //=================
@@ -938,7 +941,7 @@ void MainWindow::Init_progressBar_CompatibilityTest()
 {
     ui->progressBar_CompatibilityTest->setEnabled(1);
     ui->progressBar_CompatibilityTest->setVisible(1);
-    ui->progressBar_CompatibilityTest->setRange(0,18);
+    ui->progressBar_CompatibilityTest->setRange(0,19);
     ui->progressBar_CompatibilityTest->setValue(0);
 }
 //进度+1 -兼容性测试进度条

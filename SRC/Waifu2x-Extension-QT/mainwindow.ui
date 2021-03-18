@@ -10416,7 +10416,7 @@ when processing video in segments.</string>
             </sizepolicy>
            </property>
            <property name="maximum">
-            <number>18</number>
+            <number>19</number>
            </property>
            <property name="value">
             <number>0</number>
