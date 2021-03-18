@@ -1991,7 +1991,7 @@ path] or [Delete original files] is enabled*</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="10876"/>
-        <location filename="CompatibilityTest.cpp" line="694"/>
+        <location filename="CompatibilityTest.cpp" line="697"/>
         <source>Start compatibility test</source>
         <translation>開始兼容性測試</translation>
     </message>
@@ -3990,11 +3990,11 @@ Therefore, the custom resolution for video has been automatically corrected by t
         <translation type="vanished">] 不存在.</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="703"/>
-        <location filename="CompatibilityTest.cpp" line="715"/>
-        <location filename="CompatibilityTest.cpp" line="722"/>
-        <location filename="CompatibilityTest.cpp" line="914"/>
-        <location filename="CompatibilityTest.cpp" line="925"/>
+        <location filename="CompatibilityTest.cpp" line="706"/>
+        <location filename="CompatibilityTest.cpp" line="718"/>
+        <location filename="CompatibilityTest.cpp" line="725"/>
+        <location filename="CompatibilityTest.cpp" line="917"/>
+        <location filename="CompatibilityTest.cpp" line="928"/>
         <location filename="Finish_Action.cpp" line="109"/>
         <location filename="SystemTrayIcon.cpp" line="144"/>
         <location filename="Web_Activities.cpp" line="82"/>
@@ -5633,28 +5633,28 @@ Waifu2x-converter處理器列表:
         <translation>是否與Rife-NCNN-Vulkan兼容: 否. [建議: 重裝或更新顯卡驅動.]</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="602"/>
+        <location filename="CompatibilityTest.cpp" line="603"/>
         <source>Compatible with Cain-NCNN-Vulkan: Yes.</source>
         <translation>是否與Cain-NCNN-Vulkan兼容: 是.</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="607"/>
+        <location filename="CompatibilityTest.cpp" line="608"/>
         <source>Compatible with Cain-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否與Cain-NCNN-Vulkan兼容: 否. [建議: 重裝或更新顯卡驅動.]</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="638"/>
+        <location filename="CompatibilityTest.cpp" line="640"/>
         <source>Compatible with dain-NCNN-Vulkan: Yes.</source>
         <translation>是否與 dain-NCNN-Vulkan 兼容: 是.</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="643"/>
+        <location filename="CompatibilityTest.cpp" line="645"/>
         <source>Compatible with dain-NCNN-Vulkan: No. [Advice: Re-install gpu driver or update it to the latest.]</source>
         <translation>是否與 dain-NCNN-Vulkan 兼容: 否. [建議: 重裝顯卡驅動或者更新到最新版.]</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="658"/>
-        <location filename="CompatibilityTest.cpp" line="659"/>
+        <location filename="CompatibilityTest.cpp" line="661"/>
+        <location filename="CompatibilityTest.cpp" line="662"/>
         <source>Compatibility test is complete!</source>
         <translation>兼容性測試已完成!</translation>
     </message>
@@ -5714,7 +5714,7 @@ Waifu2x-converter處理器列表:
         <translation type="vanished">根據兼容性測試結果，[自動檢測Alpha通道]已自動啟用。</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="704"/>
+        <location filename="CompatibilityTest.cpp" line="707"/>
         <source>One of the essential plugins is not compatible with your PC, the software may not work normally on your PC.
 
 You can try to re-install this software, this might solve the problem.</source>
@@ -5723,27 +5723,27 @@ You can try to re-install this software, this might solve the problem.</source>
 您可以嘗試重新安裝本軟件，這可能會解決此問題。</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="716"/>
+        <location filename="CompatibilityTest.cpp" line="719"/>
         <source>All of the Frame Interpolation engines are not compatible with your PC, so you will not be able to use the Frame Interpolation function.</source>
         <translation>所有插幀引擎均不與您的PC兼容,所以您將無法使用插幀功能.</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="722"/>
+        <location filename="CompatibilityTest.cpp" line="725"/>
         <source>Do you need the software to automatically adjust the engine settings for you based on the compatibility test results?</source>
         <translation>您是否需要本軟件根據兼容性測試結果為您自動調整引擎設置？</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="724"/>
+        <location filename="CompatibilityTest.cpp" line="727"/>
         <source>Yes</source>
         <translation>是</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="725"/>
+        <location filename="CompatibilityTest.cpp" line="728"/>
         <source>No</source>
         <translation>否</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="915"/>
+        <location filename="CompatibilityTest.cpp" line="918"/>
         <source>According to the compatibility test results, all engines are not compatible with your computer. Please try to fix the compatibility issue according to the following tutorial:
 
 First, try to update your graphics card driver. For the specific update method, please google it. After updating the graphics card driver, open the graphics card driver to see if the current driver supports vulkan (that is, see if can you check the vulkan Driver version and vulkan API version).
@@ -5764,7 +5764,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="vanished">提示:只要這三個引擎:[waifu2x-ncnn-vulkan, waifu2x-converter, srmd-ncnn-vulkan]之一與你的PC兼容, 您就可以使用本軟件的所有功能.</translation>
     </message>
     <message>
-        <location filename="CompatibilityTest.cpp" line="926"/>
+        <location filename="CompatibilityTest.cpp" line="929"/>
         <source>The compatibility test has been completed. Please check the test results and configure the engine settings based on the test results.</source>
         <translation>兼容性測試已完成.請查看測試結果,並根據測試結果配置引擎設置。</translation>
     </message>

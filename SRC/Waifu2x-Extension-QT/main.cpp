@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
 /*
 Change log:
-******************** !!!补全翻译!!! ***********************
+
 v3.21.13:
 - Complete multi-language translation.
 - Fix bug: Turn off screen button doesn't work.
