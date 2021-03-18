@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1098</width>
-    <height>764</height>
+    <width>1096</width>
+    <height>760</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -2980,7 +2980,10 @@ it might cause the software to crash.</string>
                      </sizepolicy>
                     </property>
                     <property name="toolTip">
-                     <string/>
+                     <string>You need to enable [Video Frame Interpolation] to use this option.
+
+If the fps of orignal video is 30 fps, multiple of fps is &quot;4&quot;,
+then the result video will be 120 fps.</string>
                     </property>
                     <property name="text">
                      <string>Multiple of FPS:</string>
@@ -2998,7 +3001,7 @@ it might cause the software to crash.</string>
                        </size>
                       </property>
                       <property name="text">
-                       <string>-</string>
+                       <string notr="true">-</string>
                       </property>
                      </widget>
                     </item>
@@ -3008,7 +3011,10 @@ it might cause the software to crash.</string>
                        <enum>Qt::NoFocus</enum>
                       </property>
                       <property name="toolTip">
-                       <string/>
+                       <string>You need to enable [Video Frame Interpolation] to use this option.
+
+If the fps of orignal video is 30 fps, multiple of fps is &quot;4&quot;,
+then the result video will be 120 fps.</string>
                       </property>
                       <property name="wrapping">
                        <bool>false</bool>
@@ -3048,7 +3054,7 @@ it might cause the software to crash.</string>
                        </size>
                       </property>
                       <property name="text">
-                       <string>+</string>
+                       <string notr="true">+</string>
                       </property>
                      </widget>
                     </item>
@@ -10818,7 +10824,7 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
             <item row="11" column="2">
              <widget class="QCheckBox" name="checkBox_isCompatible_DainNcnnVulkan">
               <property name="text">
-               <string>DAIN-NCNN-Vulkan</string>
+               <string notr="true">DAIN-NCNN-Vulkan</string>
               </property>
              </widget>
             </item>
