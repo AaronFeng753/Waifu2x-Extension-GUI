@@ -355,3 +355,90 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
         return ScaleRatio_width;
     }
 }
+
+QMap<QString, QString> MainWindow::DoubleScaleRatio_Cal_NewScaleRatio_NewHW(QString fullpath,double ScaleRatio_double)
+{
+    QMap<QString, QString> Res_map;
+    //===========
+    QImage qimage_original;
+    qimage_original.load(fullpath);
+    int original_height = 0;
+    int original_width = 0;
+    //===================== 判断文件类型,获取分辨率 =============================
+    bool isVideo=false;
+    //判断是否为图片或gif
+    QFileInfo fileinfo(fullpath);
+    QString file_ext = fileinfo.suffix();
+    QString Ext_image_str = ui->Ext_image->text();
+    QStringList nameFilters_image = Ext_image_str.split(":");
+    if (nameFilters_image.contains(file_ext.toLower()) || file_ext.toLower()=="gif")
+    {
+        //是图片或gif
+        QMap<QString,int> res_map = Image_Gif_Read_Resolution(fullpath);
+        original_height = res_map["height"];
+        original_width = res_map["width"];
+    }
+    else//不是图片gif就是视频了
+    {
+        isVideo=true;
+        QMap<QString,int> res_map = video_get_Resolution(fullpath);
+        original_height = res_map["height"];
+        original_width = res_map["width"];
+    }
+    //获取失败
+    if(original_height<=0||original_width<=0)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+fullpath+tr("] [Unable to get resolution.]"));
+        Res_map.clear();
+        return Res_map;
+    }
+    //========= 计算新的高度宽度 ==================
+    int Height_new = ScaleRatio_double * original_height;
+    int width_new = ScaleRatio_double * original_width;
+    if(isVideo == true)
+    {
+        if(Height_new%2!=0)Height_new++;
+        if(width_new%2!=0)width_new++;
+    }
+    Res_map["Height_new"] = QString::number(Height_new,10);
+    Res_map["width_new"] = QString::number(width_new,10);
+    //=====================分别计算高和宽的放大倍数=======================
+    //==== 高 ======
+    int ScaleRatio_height;
+    double ScaleRatio_height_double = (double)Height_new/(double)original_height;
+    if((ScaleRatio_height_double-(int)ScaleRatio_height_double)>0)
+    {
+        ScaleRatio_height = (int)(ScaleRatio_height_double)+1;
+    }
+    else
+    {
+        ScaleRatio_height = (int)(ScaleRatio_height_double);
+    }
+    //==== 宽 ======
+    int ScaleRatio_width;
+    double ScaleRatio_width_double = (double)width_new/(double)original_width;
+    if((ScaleRatio_width_double-(int)ScaleRatio_width_double)>0)
+    {
+        ScaleRatio_width = (int)(ScaleRatio_width_double)+1;
+    }
+    else
+    {
+        ScaleRatio_width = (int)(ScaleRatio_width_double);
+    }
+    //========================比较决定取哪个放大倍数值返回=====================
+    if((ScaleRatio_height<=1)&&(ScaleRatio_width<=1))
+    {
+        Res_map["ScaleRatio"] = QString::number(1,10);
+        return Res_map;
+    }
+    if(ScaleRatio_height>=ScaleRatio_width)
+    {
+        Res_map["ScaleRatio"] = QString::number(ScaleRatio_height,10);
+        return Res_map;
+    }
+    else
+    {
+        Res_map["ScaleRatio"] = QString::number(ScaleRatio_width,10);
+        return Res_map;
+    }
+}

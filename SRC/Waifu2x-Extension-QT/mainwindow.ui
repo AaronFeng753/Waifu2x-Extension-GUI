@@ -3083,36 +3083,18 @@ then the result video will be 120 fps.</string>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QSpinBox" name="spinBox_ScaleRatio_image">
-                      <property name="cursor">
-                       <cursorShape>ArrowCursor</cursorShape>
-                      </property>
-                      <property name="focusPolicy">
-                       <enum>Qt::WheelFocus</enum>
-                      </property>
-                      <property name="toolTip">
-                       <string>Range: 1 ~ 999999999
-
-!Warning! When the [Scale ratio] is too large,
-it might cause the software to crash.</string>
+                     <widget class="QDoubleSpinBox" name="doubleSpinBox_ScaleRatio_image">
+                      <property name="decimals">
+                       <number>4</number>
                       </property>
                       <property name="minimum">
-                       <number>1</number>
+                       <double>1.000000000000000</double>
                       </property>
                       <property name="maximum">
-                       <number>999999999</number>
-                      </property>
-                      <property name="singleStep">
-                       <number>1</number>
-                      </property>
-                      <property name="stepType">
-                       <enum>QAbstractSpinBox::DefaultStepType</enum>
+                       <double>99999.000000000000000</double>
                       </property>
                       <property name="value">
-                       <number>2</number>
-                      </property>
-                      <property name="displayIntegerBase">
-                       <number>10</number>
+                       <double>2.000000000000000</double>
                       </property>
                      </widget>
                     </item>

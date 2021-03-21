@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.21.13";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v3.21.21-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v3.21.13";
-    QString LastBetaVer = "v3.21.13";
+    QString LastBetaVer = "v3.21.21-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -416,6 +416,7 @@ public:
     int CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int width_new);//计算新的放大倍数
     int CustRes_SetCustRes();//设定自定义分辨率
     int CustRes_CancelCustRes();//取消自定义分辨率
+    QMap<QString, QString> DoubleScaleRatio_Cal_NewScaleRatio_NewHW(QString fullpath,double ScaleRatio_double);
 
     Qt::AspectRatioMode CustRes_AspectRatioMode = Qt::IgnoreAspectRatio;//自定义分辨率的纵横比策略
     //======================== 设置 ===========================================

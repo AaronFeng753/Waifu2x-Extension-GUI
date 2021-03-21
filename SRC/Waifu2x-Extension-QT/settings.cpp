@@ -36,7 +36,7 @@ int MainWindow::Settings_Save()
     //==================== 存储版本识别 ==================================
     configIniWrite->setValue("/settings/VERSION", VERSION);
     //=======  存储放大值和降噪值  =================================
-    configIniWrite->setValue("/settings/ImageScaleRatio", ui->spinBox_ScaleRatio_image->value());
+    configIniWrite->setValue("/settings/ImageScaleRatio", ui->doubleSpinBox_ScaleRatio_image->value());
     configIniWrite->setValue("/settings/GIFScaleRatio", ui->spinBox_ScaleRatio_gif->value());
     configIniWrite->setValue("/settings/VideoScaleRatio", ui->spinBox_ScaleRatio_video->value());
     configIniWrite->setValue("/settings/ImageDenoiseLevel", ui->spinBox_DenoiseLevel_image->value());
@@ -282,7 +282,7 @@ int MainWindow::Settings_Read_Apply()
     ui->checkBox_isCustFontEnable->setChecked(Settings_Read_value("/settings/CustFont_isEnabled").toBool());
     Set_Font_fixed();
     //=======  加载放大值和降噪值  ======
-    ui->spinBox_ScaleRatio_image->setValue(Settings_Read_value("/settings/ImageScaleRatio").toInt());
+    ui->doubleSpinBox_ScaleRatio_image->setValue(Settings_Read_value("/settings/ImageScaleRatio").toDouble());
     ui->spinBox_ScaleRatio_gif->setValue(Settings_Read_value("/settings/GIFScaleRatio").toInt());
     ui->spinBox_ScaleRatio_video->setValue(Settings_Read_value("/settings/VideoScaleRatio").toInt());
     //============= 加载自定义宽度和高度 ============================
