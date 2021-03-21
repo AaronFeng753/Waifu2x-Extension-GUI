@@ -20,6 +20,43 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+根据行数从自定义分辨率列表移除gif文件
+*/
+void MainWindow::Gif_RemoveFromCustResList(int RowNumber)
+{
+    QString SourceFile_fullPath = Table_model_gif->item(RowNumber,2)->text();
+    CustRes_remove(SourceFile_fullPath);
+}
+
+/*
+当gif没有自定义分辨率且此时放大倍率为double,则计算一个添加到自定义列表里
+*/
+bool MainWindow::Gif_DoubleScaleRatioPrep(int RowNumber)
+{
+    QString SourceFile_fullPath = Table_model_gif->item(RowNumber,2)->text();
+    if(CustRes_isContained(SourceFile_fullPath) == true)
+    {
+        return false;
+    }
+    else
+    {
+        //===================== 获取分辨率 =============================
+        QMap<QString,int> Map_OrgRes = Image_Gif_Read_Resolution(SourceFile_fullPath);
+        //========= 计算新的高度宽度 ==================
+        double ScaleRatio_double = ui->doubleSpinBox_ScaleRatio_gif->value();
+        int Height_new = ScaleRatio_double * Map_OrgRes["height"];
+        int width_new = ScaleRatio_double * Map_OrgRes["width"];
+        //======== 存入自定义分辨率列表中 ============
+        QMap<QString,QString> res_map;
+        res_map["fullpath"] = SourceFile_fullPath;
+        res_map["height"] = QString::number(Height_new,10);
+        res_map["width"] = QString::number(width_new,10);
+        Custom_resolution_list.append(res_map);
+        //=========
+        return true;
+    }
+}
+/*
 获取gif帧间隔时间
 */
 int MainWindow::Gif_getDuration(QString gifPath)
@@ -138,7 +175,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
             if(isOverScaled==true && CustRes_isEnabled==false)
             {
                 QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceGifFullPath);
-                int OriginalScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+                int OriginalScaleRatio = ui->doubleSpinBox_ScaleRatio_gif->value();
                 resize_cmd =" -resize "+QString::number(res_map["width"]*OriginalScaleRatio,10)+"x"+QString::number(res_map["height"]*OriginalScaleRatio,10)+"! ";
             }
             if(CustRes_AspectRatioMode==Qt::IgnoreAspectRatio && CustRes_isEnabled==true)
@@ -194,7 +231,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
         if(isOverScaled==true && CustRes_isEnabled==false)
         {
             QMap<QString,int> res_map = Image_Gif_Read_Resolution(SourceGifFullPath);
-            int OriginalScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+            int OriginalScaleRatio = ui->doubleSpinBox_ScaleRatio_gif->value();
             New_width = res_map["width"]*OriginalScaleRatio;
             New_height = res_map["height"]*OriginalScaleRatio;
         }

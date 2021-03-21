@@ -316,7 +316,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
 int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_gif->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool OptGIF = ui->checkBox_OptGIF->isChecked();
     QString OutPutPath_Final ="";
@@ -390,7 +390,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
     }
     else
     {
-        ScaleRatio_Original = ui->spinBox_ScaleRatio_gif->value();
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_gif->value();
     }
     int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
@@ -575,7 +575,7 @@ int MainWindow::Realsr_NCNN_Vulkan_GIF(int rowNum)
 int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_video->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
@@ -764,7 +764,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
     }
     else
     {
-        ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_video->value();
     }
     int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
@@ -982,7 +982,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
 int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_video->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
     bool isVideoConfigChanged = true;
@@ -1296,7 +1296,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             else
             {
-                ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+                ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_video->value();
             }
             int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_RealsrNCNNVulkan(ScaleRatio_Original);
             isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);

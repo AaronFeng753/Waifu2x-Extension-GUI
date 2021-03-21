@@ -34,7 +34,8 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v3.21.21-beta:
+v3.22.01-beta:
+- New Feature: Non-integer scale ratio support.
 
 --------------------------------------------------------------------------
 To do:

@@ -321,7 +321,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaCha
 int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool OptGIF = ui->checkBox_OptGIF->isChecked();
@@ -396,7 +396,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
     }
     else
     {
-        ScaleRatio_Original = ui->spinBox_ScaleRatio_gif->value();
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_gif->value();
     }
     QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
     int ScaleRatio_Max=result_map["ScaleRatio_tmp"];
@@ -580,7 +580,7 @@ int MainWindow::SRMD_NCNN_Vulkan_GIF(int rowNum)
 int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
@@ -771,7 +771,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
     }
     else
     {
-        ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_video->value();
     }
     QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
     int ScaleRatio_Max=result_map["ScaleRatio_tmp"];
@@ -994,7 +994,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video(int rowNum)
 int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
@@ -1310,7 +1310,7 @@ int MainWindow::SRMD_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             else
             {
-                ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+                ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_video->value();
             }
             QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
             int ScaleRatio_Max=result_map["ScaleRatio_tmp"];

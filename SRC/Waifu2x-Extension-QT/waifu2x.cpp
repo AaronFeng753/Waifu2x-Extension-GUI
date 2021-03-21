@@ -368,6 +368,9 @@ int MainWindow::Waifu2xMainThread()
     isForceRetryEnabled=false;
     if(rowCount_gif>0)
     {
+        double ScaleRatio_Gif = ui->doubleSpinBox_ScaleRatio_gif->value();
+        bool isDoubleGifScaleRatio = (ScaleRatio_Gif != (int)ScaleRatio_Gif);
+        //=====
         int GIFEngine = ui->comboBox_Engine_GIF->currentIndex();
         for ( int currentRowNumber = 0; currentRowNumber < rowCount_gif; currentRowNumber++ )
         {
@@ -401,6 +404,12 @@ int MainWindow::Waifu2xMainThread()
             {
                 emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
                 continue;
+            }
+            //=============== 判断是否需要加入自定义分辨率列表中 ============
+            bool isNeedRemoveFromCustResList = false;
+            if(isDoubleGifScaleRatio)
+            {
+                isNeedRemoveFromCustResList = Gif_DoubleScaleRatioPrep(currentRowNumber);
             }
             //=========
             mutex_ThreadNumRunning.lock();
@@ -439,6 +448,9 @@ int MainWindow::Waifu2xMainThread()
                         break;
                     }
             }
+            //========
+            if(isNeedRemoveFromCustResList == true)Gif_RemoveFromCustResList(currentRowNumber);
+            //========
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=0;//线程数量统计+1
             mutex_ThreadNumRunning.unlock();
@@ -449,6 +461,9 @@ int MainWindow::Waifu2xMainThread()
     //===========================================================
     if(rowCount_video>0)
     {
+        double ScaleRatio_video = ui->doubleSpinBox_ScaleRatio_video->value();
+        bool isDoubleVideoScaleRatio = (ScaleRatio_video != (int)ScaleRatio_video);
+        //=======
         int VideoEngine = ui->comboBox_Engine_Video->currentIndex();
         for ( int currentRowNumber = 0; currentRowNumber<rowCount_video; currentRowNumber++ )
         {
@@ -482,6 +497,12 @@ int MainWindow::Waifu2xMainThread()
             {
                 emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
                 continue;
+            }
+            //=============== 判断是否需要加入自定义分辨率列表中 ============
+            bool isNeedRemoveFromCustResList = false;
+            if(isDoubleVideoScaleRatio)
+            {
+                isNeedRemoveFromCustResList = video_DoubleScaleRatioPrep(currentRowNumber);
             }
             //============= 获取时长, 判断是否需要分段处理 =================
             mutex_ThreadNumRunning.lock();
@@ -575,6 +596,9 @@ int MainWindow::Waifu2xMainThread()
                         break;
                     }
             }
+            //=======
+            if(isNeedRemoveFromCustResList == true)video_RemoveFromCustResList(currentRowNumber);
+            //========
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=0;//线程数量统计+1
             mutex_ThreadNumRunning.unlock();

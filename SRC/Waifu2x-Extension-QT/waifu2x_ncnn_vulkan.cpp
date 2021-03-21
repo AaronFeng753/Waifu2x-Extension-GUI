@@ -314,7 +314,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlpha
 int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_gif->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_gif->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool OptGIF = ui->checkBox_OptGIF->isChecked();
@@ -388,7 +388,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
     }
     else
     {
-        ScaleRatio_Original = ui->spinBox_ScaleRatio_gif->value();
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_gif->value();
     }
     int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
@@ -574,7 +574,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_GIF(int rowNum)
 int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
@@ -765,7 +765,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
     }
     else
     {
-        ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_video->value();
     }
     int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
@@ -988,7 +988,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video(int rowNum)
 int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
 {
     //============================= 读取设置 ================================
-    int ScaleRatio = ui->spinBox_ScaleRatio_video->value();
+    int ScaleRatio = ui->doubleSpinBox_ScaleRatio_video->value();
     int DenoiseLevel = ui->spinBox_DenoiseLevel_video->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool isCacheExists = false;
@@ -1307,7 +1307,7 @@ int MainWindow::Waifu2x_NCNN_Vulkan_Video_BySegment(int rowNum)
             }
             else
             {
-                ScaleRatio_Original = ui->spinBox_ScaleRatio_video->value();
+                ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_video->value();
             }
             int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio_Original);
             isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);

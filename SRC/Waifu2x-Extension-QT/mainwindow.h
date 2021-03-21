@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.21.21-beta";//软件版本号
+    QString VERSION = "v3.22.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.21.13";
-    QString LastBetaVer = "v3.21.21-beta";
+    QString LastBetaVer = "v3.22.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -356,12 +356,16 @@ public:
     //=============================== textbrowser===============================
     void TextBrowser_StartMes();//输出启动信息
     //================================ gif ====================================
+    void Gif_RemoveFromCustResList(int RowNumber);
+    bool Gif_DoubleScaleRatioPrep(int RowNumber);
     int Gif_getDuration(QString gifPath);//获取帧间隔时长
     int Gif_getFrameDigits(QString gifPath);//获取帧数量的位数
     void Gif_splitGif(QString gifPath,QString SplitFramesFolderPath);//拆分gif
     void Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int Duration,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled,QString SourceGifFullPath);//组装gif
     QString Gif_compressGif(QString gifPath,QString gifPath_compressd);//压缩gif
     //================================= video ===============================
+    void video_RemoveFromCustResList(int RowNumber);
+    bool video_DoubleScaleRatioPrep(int RowNumber);
     QString isPreVFIDone_MarkFilePath(QString VideoPath);
     int CalNumDigits(int input_num);
     bool isSuccessiveFailuresDetected_VFI=false;

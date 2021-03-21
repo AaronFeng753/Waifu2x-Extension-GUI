@@ -19,6 +19,45 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 /*
+根据行数从自定义分辨率列表移除视频文件
+*/
+void MainWindow::video_RemoveFromCustResList(int RowNumber)
+{
+    QString SourceFile_fullPath = Table_model_video->item(RowNumber,2)->text();
+    CustRes_remove(SourceFile_fullPath);
+}
+
+/*
+当视频没有自定义分辨率且此时放大倍率为double,则计算一个添加到自定义列表里
+*/
+bool MainWindow::video_DoubleScaleRatioPrep(int RowNumber)
+{
+    QString SourceFile_fullPath = Table_model_video->item(RowNumber,2)->text();
+    if(CustRes_isContained(SourceFile_fullPath) == true)
+    {
+        return false;
+    }
+    else
+    {
+        //===================== 获取分辨率 =============================
+        QMap<QString,int> Map_OrgRes = video_get_Resolution(SourceFile_fullPath);
+        //========= 计算新的高度宽度 ==================
+        double ScaleRatio_double = ui->doubleSpinBox_ScaleRatio_video->value();
+        int Height_new = ScaleRatio_double * Map_OrgRes["height"];
+        int width_new = ScaleRatio_double * Map_OrgRes["width"];
+        if(Height_new%2!=0)Height_new++;
+        if(width_new%2!=0)width_new++;
+        //======== 存入自定义分辨率列表中 ============
+        QMap<QString,QString> res_map;
+        res_map["fullpath"] = SourceFile_fullPath;
+        res_map["height"] = QString::number(Height_new,10);
+        res_map["width"] = QString::number(width_new,10);
+        Custom_resolution_list.append(res_map);
+        //=========
+        return true;
+    }
+}
+/*
 计算数字的位数
 */
 int MainWindow::CalNumDigits(int input_num)
@@ -952,7 +991,7 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         if(isOverScaled==true && CustRes_isEnabled==false)
         {
             QMap<QString,int> res_map = video_get_Resolution(VideoPath);
-            int scaleratio_orginal = ui->spinBox_ScaleRatio_video->value();
+            int scaleratio_orginal = ui->doubleSpinBox_ScaleRatio_video->value();
             resize_cmd =" -vf scale="+QString::number(res_map["width"]*scaleratio_orginal,10)+":"+QString::number(res_map["height"]*scaleratio_orginal,10)+" ";
         }
         //============= 如果没有自定义视频参数, 则根据自定义分辨率再计算一次比特率 ==========
