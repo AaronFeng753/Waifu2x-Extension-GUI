@@ -4,6 +4,49 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.21.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.21.13)
+#### Change log:
+```
+v3.21.13:
+- Complete multi-language translation.
+- Fix bug: Turn off screen button doesn't work.
+- Fix bug: compatibility test progress bar not working normally.
+
+v3.21.02-beta:
+- New Feature: [Multiple of FPS] adjustment is now available for all video frame interpolation engines.
+- Improve GUI.
+- Fix bug: Potential video cache conflict.
+- Fix bug: Unable to generate a video when multiple of fps is higher then 2.
+
+v3.21.01-beta:
+- New Frame Interpolation engine: DAIN-NCNN-Vulkan.
+- New Feature: Multiple of frames.(Only available when using DAIN-NCNN-Vulkan.)
+- Improve GUI.
+- Fix bug: Unable to generate a video when frame interpolation failed.
+
+v3.11.33-beta:
+- New Feature: Now you can choose when you wanna interpolate the frames, before or after upscaled the frames.(Thanks to @CAFUCSteven for suggestion)
+- New options: [Start], [Pause] and [Donate] for system tray menu.
+- Add icons for system tray menu.
+- Fix bug: The [Background mode] in system tray menu didn't work when frame interpolation is enabled.
+- Fix bug: Video cache will be abandoned when frame interpolation setting is changed, even though [Process video by segment] is disabled.
+- Fix bug: False error report when pause.
+
+v3.11.32-beta:
+- New options: [About] and [Send feedback] for system tray menu.
+- Better naming for cache files.
+- Optimize performance.
+- Update FFmpeg&FFprobe,ImageMagick.
+- Fix typo.
+
+v3.11.31-beta:
+- New Feature: Show summary after processing all files.
+- New Feature: Now you can save multiple files lists.
+- No longer need to fix the suffix of mp4 files.
+- Optimize performance.
+- Remove 日本語 translation.
+```
+---
 ## [v3.11.27](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.11.27)
 #### Change log:
 ```
