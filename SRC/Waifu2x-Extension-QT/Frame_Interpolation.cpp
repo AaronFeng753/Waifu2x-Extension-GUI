@@ -469,7 +469,7 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     emit Send_TextBrowser_NewMessage(tr("Starting to interpolate frames in:[")+SourcePath+"]");
     //==== 检测是否启用了自动调整线程数量,若启用则强制设定重试次数大于6 ====
     int retry_add = 0;
-    if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6)
+    if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6 && ui->checkBox_MultiThread_VFI->isChecked())
     {
         retry_add = 6-ui->spinBox_retry->value();
     }
@@ -618,11 +618,6 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
             else
             {
                 file_DelDir(OutputPath_Curr);
-                //===
-                if(ui->checkBox_AutoAdjustNumOfThreads_VFI->isChecked()==true && ui->spinBox_retry->value()<6)
-                {
-                    retry_add = 6-ui->spinBox_retry->value();
-                }
                 //===
                 if(retry==(ui->spinBox_retry->value()+retry_add-1))
                 {

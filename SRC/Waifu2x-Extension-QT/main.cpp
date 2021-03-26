@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+***补全翻译***
+
 v3.22.02-beta:
 - Optimize performance.
 - More detailed tool tips.
