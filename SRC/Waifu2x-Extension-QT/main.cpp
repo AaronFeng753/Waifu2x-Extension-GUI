@@ -36,6 +36,10 @@ Change log:
 
 ***补全翻译***
 
+v3.22.03-beta:
+- Optimize performance.
+- Fix bug: Video will be skipped even though [Frame Interpolation only(Video)] is enabled.
+
 v3.22.02-beta:
 - Optimize performance.
 - More detailed tool tips.

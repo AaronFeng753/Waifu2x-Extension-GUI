@@ -122,7 +122,7 @@ true = 跳过
 */
 bool MainWindow::Video_AutoSkip_CustRes(int rowNum)
 {
-    if(ui->checkBox_AutoSkip_CustomRes->isChecked()==false)return false;
+    if(ui->checkBox_AutoSkip_CustomRes->isChecked()==false || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)return false;
     QString SourceFile_fullPath = Table_model_video->item(rowNum,2)->text();
     if(CustRes_isContained(SourceFile_fullPath))
     {
