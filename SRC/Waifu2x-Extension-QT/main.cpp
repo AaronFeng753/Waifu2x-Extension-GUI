@@ -34,6 +34,11 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.22.02-beta:
+- Optimize performance.
+- More detailed tool tips.
+- Update FFmpeg&FFprobe.
+
 v3.22.01-beta:
 - New Feature: Non-integer scale ratio support.
 
@@ -51,7 +56,7 @@ Integrated component:
 - RealSR-NCNN-Vulkan 20210210
 - ImageMagick 7.0.11-3-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-03-09-git-c35e456f54
+- FFmpeg&FFprobe 2021-03-24-git-a77beea6c8-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3

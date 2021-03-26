@@ -464,7 +464,17 @@ int MainWindow::Waifu2xMainThread()
         double ScaleRatio_video = ui->doubleSpinBox_ScaleRatio_video->value();
         bool isDoubleVideoScaleRatio = (ScaleRatio_video != (int)ScaleRatio_video);
         //=======
-        int VideoEngine = ui->comboBox_Engine_Video->currentIndex();
+        int VideoEngine = 0;
+        if(ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
+        {
+            //仅插帧
+            VideoEngine=99;
+        }
+        else
+        {
+            VideoEngine = ui->comboBox_Engine_Video->currentIndex();
+        }
+        //=======
         for ( int currentRowNumber = 0; currentRowNumber<rowCount_video; currentRowNumber++ )
         {
             if(waifu2x_STOP)
@@ -508,7 +518,6 @@ int MainWindow::Waifu2xMainThread()
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=1;//线程数量统计+1
             mutex_ThreadNumRunning.unlock();
-            if(ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)VideoEngine=99;
             switch(VideoEngine)
             {
                 case 0:

@@ -2509,6 +2509,7 @@ You can modify the settings of Frame Interpolation in the
                    <widget class="QCheckBox" name="checkBox_EnableVFI_Home">
                     <property name="toolTip">
                      <string>Interpolate frames after super-resolution of the video.
+(Increase the frame rate to the result video.)
 
 You can modify the settings of Frame Interpolation
 in the [Video settings] tab.
@@ -2786,6 +2787,9 @@ file that exists in the output path.</string>
                       </property>
                       <property name="maximum">
                        <double>99999.000000000000000</double>
+                      </property>
+                      <property name="value">
+                       <double>2.000000000000000</double>
                       </property>
                      </widget>
                     </item>
@@ -7987,7 +7991,11 @@ Only works when using [dain-ncnn-vulkan] engine.</string>
                    <item>
                     <widget class="QComboBox" name="comboBox_Model_VFI">
                      <property name="toolTip">
-                      <string>Only works when using [rife-ncnn-vulkan] engine.</string>
+                      <string>Choose the model for rife-ncnn-vulkan engine.
+
+We recommend you to use the default model &quot;rife-v2.4&quot;.
+
+Only works when using [rife-ncnn-vulkan] engine.</string>
                      </property>
                      <property name="currentIndex">
                       <number>5</number>

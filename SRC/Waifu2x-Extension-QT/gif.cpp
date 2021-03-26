@@ -46,6 +46,11 @@ bool MainWindow::Gif_DoubleScaleRatioPrep(int RowNumber)
         double ScaleRatio_double = ui->doubleSpinBox_ScaleRatio_gif->value();
         int Height_new = ScaleRatio_double * Map_OrgRes["height"];
         int width_new = ScaleRatio_double * Map_OrgRes["width"];
+        if(Height_new<1 || width_new<1)
+        {
+            emit Send_TextBrowser_NewMessage("Warning! Unable to read the resolution of ["+SourceFile_fullPath+"]. This file will only be scaled to "+QString::number((int)ScaleRatio_double,10)+"X.");
+            return false;
+        }
         //======== 存入自定义分辨率列表中 ============
         QMap<QString,QString> res_map;
         res_map["fullpath"] = SourceFile_fullPath;
