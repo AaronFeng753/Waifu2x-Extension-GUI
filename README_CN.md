@@ -22,6 +22,8 @@
 
 下载最新版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
+#### ➡在 itch.io 购买 Waifu2x-Extension-GUI: https://aaronfeng.itch.io/waifu2x-extension-gui
+
 #### [📖点击阅读 使用说明 Wiki](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/wiki/%E4%B8%AD%E6%96%87%E7%9B%AE%E5%BD%95)---[📝点击查看完整更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 
 支持的语言: English, 简体中文, 繁體中文.
@@ -34,8 +36,6 @@
 ⚠请注意,测试版与稳定版相比更不稳定,因为测试版在发布前未经完整测试.
 
 前往Releases页面下载测试版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases
-
-#### ➡在 itch.io 购买 Waifu2x-Extension-GUI: https://aaronfeng.itch.io/waifu2x-extension-gui
 
 [➡点击访问Gitee(码云,中国大陆)的Releases下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
 
