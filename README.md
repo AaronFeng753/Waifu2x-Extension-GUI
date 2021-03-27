@@ -20,7 +20,6 @@ Download Latest portable package for `Windows x64` PCs with `Intel/AMD/Nvidia` G
 
 Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-<iframe frameborder="0" src="https://itch.io/embed/973288?linkback=true" width="552" height="167"><a href="https://aaronfeng.itch.io/waifu2x-extension-gui">Waifu2x-Extension-GUI by Aaron Feng</a></iframe>
 
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
