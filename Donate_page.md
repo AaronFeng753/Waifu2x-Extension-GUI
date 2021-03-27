@@ -5,6 +5,11 @@ Please donate to support developers, so we can bring further update for this sof
 请捐赠以支持开发者, 您的支持是我们更新软件的动力, 谢谢您! (｡･∀･)ﾉﾞ
 ```
 ---
+
+<p align="left">
+<a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="35"/> </a>
+</p>
+
 # [➡ PayPal ⬅](https://www.paypal.me/aaronfeng753)
 ---
 ![donate_new](/donate_new.jpg)
