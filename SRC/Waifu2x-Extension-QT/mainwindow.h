@@ -984,6 +984,8 @@ private slots:
 
     void on_pushButton_MultipleOfFPS_VFI_ADD_clicked();
 
+    void on_pushButton_Patreon_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 

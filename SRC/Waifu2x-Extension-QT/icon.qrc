@@ -47,5 +47,6 @@
         <file>icon/About.png</file>
         <file>icon/Pause_SysTray.png</file>
         <file>icon/Start_SysTray.png</file>
+        <file>icon/patreon.png</file>
     </qresource>
 </RCC>

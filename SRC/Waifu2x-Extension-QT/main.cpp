@@ -37,6 +37,7 @@ Change log:
 ***补全翻译***
 
 v3.22.03-beta:
+- Add a Patreon button. https://www.patreon.com/aaronfeng
 - Optimize performance.
 - Fix bug: Video will be skipped even though [Frame Interpolation only(Video)] is enabled.
 

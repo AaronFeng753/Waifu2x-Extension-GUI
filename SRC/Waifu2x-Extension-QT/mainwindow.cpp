@@ -1398,6 +1398,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(1);
                 ui->pushButton_PayPal->setVisible(1);
+                ui->pushButton_Patreon->setVisible(1);
                 ui->label_DonateText->setVisible(1);
                 //tab 1
                 ui->groupBox_Progress->setVisible(0);
@@ -1424,6 +1425,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->pushButton_Patreon->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_Progress->setVisible(1);
@@ -1454,6 +1456,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->pushButton_Patreon->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_Progress->setVisible(0);
@@ -1480,6 +1483,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->pushButton_Patreon->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_Progress->setVisible(0);
@@ -1506,6 +1510,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->pushButton_Patreon->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_Progress->setVisible(0);
@@ -1532,6 +1537,7 @@ void MainWindow::on_tabWidget_currentChanged(int index)
                 //tab 0
                 ui->label_DonateQRCode->setVisible(0);
                 ui->pushButton_PayPal->setVisible(0);
+                ui->pushButton_Patreon->setVisible(0);
                 ui->label_DonateText->setVisible(0);
                 //tab 1
                 ui->groupBox_Progress->setVisible(0);
@@ -2086,4 +2092,9 @@ void MainWindow::on_pushButton_MultipleOfFPS_VFI_ADD_clicked()
     {
         ui->spinBox_MultipleOfFPS_VFI->setValue(VAL);
     }
+}
+
+void MainWindow::on_pushButton_Patreon_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.patreon.com/aaronfeng"));
 }
