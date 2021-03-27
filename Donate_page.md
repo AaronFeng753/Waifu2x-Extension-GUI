@@ -7,7 +7,7 @@ Please donate to support developers, so we can bring further update for this sof
 ---
 
 <p align="left">
-<a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="35"/> </a>
+<a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="40"/> </a>
 </p>
 
 # [➡ PayPal ⬅](https://www.paypal.me/aaronfeng753)
