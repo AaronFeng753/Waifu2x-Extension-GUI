@@ -13,12 +13,18 @@
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
 
+<p align="left">
+<a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="35"/> </a>
+</p>
+
 ### [📜中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
 
 # [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest portable package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
 
 Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+
+#### ➡Purchase Waifu2x-Extension-GUI on itch.io : https://aaronfeng.itch.io/waifu2x-extension-gui
 
 #### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
@@ -103,6 +109,11 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
+
+<p align="left">
+<a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="35"/> </a>
+</p>
+
 # [PayPal](https://www.paypal.me/aaronfeng753)
 ### 除了扫码捐赠现金, 您也可以每天打开支付宝首页搜“682796694”领红包并使用, 我也可以获得收入.
 ![donate_new](/donate_new.jpg)
