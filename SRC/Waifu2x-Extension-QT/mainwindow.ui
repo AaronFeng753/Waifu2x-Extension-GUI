@@ -228,6 +228,9 @@ padding:10px;
              <bold>true</bold>
             </font>
            </property>
+           <property name="toolTip">
+            <string>Become a patron.</string>
+           </property>
            <property name="styleSheet">
             <string notr="true">QPushButton{
 background-color: rgb(255, 66, 77);
@@ -323,7 +326,7 @@ padding:10px;
            <property name="maximumSize">
             <size>
              <width>16777215</width>
-             <height>22</height>
+             <height>50</height>
             </size>
            </property>
            <property name="font">
@@ -336,7 +339,7 @@ padding:10px;
             </font>
            </property>
            <property name="text">
-            <string>Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ</string>
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;If you don't wanna see the Donate page anymore, you can join the Patreon to access the Exclusive Patreon Version.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>

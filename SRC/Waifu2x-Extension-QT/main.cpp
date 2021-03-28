@@ -36,6 +36,9 @@ Change log:
 
 ***补全翻译***
 
+v3.22.04-beta:
+- Complete Chinese translation.
+
 v3.22.03-beta:
 - Add a Patreon button. https://www.patreon.com/aaronfeng
 - Optimize performance.
