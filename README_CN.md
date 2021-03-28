@@ -4,7 +4,7 @@
 
 <h2 align="center"> Waifu2x-Extension-GUI </h2>
 
-<h3 align="center"> 使用机器学习放大 图片/视频/GIF 以及视频补帧. </h3>
+<h3 align="center"> 使用机器学习放大 图片/视频/GIF 以及 视频插帧(补帧). </h3>
 <h3 align="center"> 支持 AMD / Nvidia / Intel 显卡 </h3>
 
 <p align="center">
