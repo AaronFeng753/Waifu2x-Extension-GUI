@@ -6,6 +6,8 @@ Please donate to support developers, so we can bring further update for this sof
 ```
 ---
 
+#### ⬇Become a Patron to access the ✨Exclusive Patreon Version✨
+
 <p align="left">
 <a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="45"/> </a>
 </p>
