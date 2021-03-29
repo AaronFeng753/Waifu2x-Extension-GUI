@@ -7,6 +7,14 @@
 #### 🗂全部历史版本安装包合集:
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v3.22.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.22.14)
+#### 更新日志:
+- 新特性: 现已支持带有小数位的放大倍率.
+- 改进GUI, 性能优化.
+- 添加了一个Patreon按钮.
+- 更新FFmpeg&FFprobe.
+- 修复多项问题.
+---
 ## [v3.21.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.21.13)
 #### 更新日志:
 - ✨新的插帧引擎: DAIN-NCNN-Vulkan.
