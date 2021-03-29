@@ -103,8 +103,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 
-#### 辛普森一家剧场版预告 (低画质 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
-#### The Simpsons AVGN Intro (30fps ➡ 60fps): https://youtu.be/yxF-M_ka7ds
+#### My Youtube channel: https://www.youtube.com/channel/UCUIdGDuH32mTAVL6_6uQdXQ
 
 ### **`视频`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
