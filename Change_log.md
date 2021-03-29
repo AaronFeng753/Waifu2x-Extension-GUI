@@ -4,6 +4,28 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.22.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.22.14)
+#### Change log:
+```
+v3.22.14:
+- Improve GUI.
+- Complete Chinese translation.
+- Fix bug: Might stuck at Waifu2x-Caffe(cuDNN) during the compatibility test.
+
+v3.22.03-beta:
+- Add a Patreon button. https://www.patreon.com/aaronfeng
+- Optimize performance.
+- Fix bug: Video will be skipped even though [Frame Interpolation only(Video)] is enabled.
+
+v3.22.02-beta:
+- Optimize performance.
+- More detailed tool tips.
+- Update FFmpeg&FFprobe.
+
+v3.22.01-beta:
+- New Feature: Non-integer scale ratio support.
+```
+---
 ## [v3.21.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.21.13)
 #### Change log:
 ```

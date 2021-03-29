@@ -13,10 +13,6 @@
 <img src="https://img.shields.io/github/license/aaronfeng753/waifu2x-extension-gui?style=flat-square&label=License">
 </p>
 
-<p align="left">
-<a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="40"/> </a>
-</p>
-
 ### [📜中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
 
 # [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
