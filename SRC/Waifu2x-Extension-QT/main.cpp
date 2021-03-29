@@ -34,10 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-***补全翻译***
-
-v3.22.04-beta:
+v3.22.14:
 - Complete Chinese translation.
+- Fix bug: Might stuck at Waifu2x-Caffe(cuDNN) during the compatibility test.
 
 v3.22.03-beta:
 - Add a Patreon button. https://www.patreon.com/aaronfeng

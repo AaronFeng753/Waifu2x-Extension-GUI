@@ -346,7 +346,7 @@ int MainWindow::Waifu2x_Compatibility_Test()
         Waifu2x_Caffe_cuDNN_qprocess->start(cmd);
         if(Waifu2x_Caffe_cuDNN_qprocess->waitForStarted(30000))
         {
-            while(!Waifu2x_Caffe_cuDNN_qprocess->waitForFinished(100)&&!QProcess_stop) {}
+            Waifu2x_Caffe_cuDNN_qprocess->waitForFinished(70000);
         }
         if(QFile::exists(OutputPath))break;
     }
