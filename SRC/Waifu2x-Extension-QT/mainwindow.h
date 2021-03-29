@@ -78,10 +78,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.22.14";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v3.22.21-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v3.22.14";
-    QString LastBetaVer = "v3.22.14";
+    QString LastBetaVer = "v3.22.21-beta";
     //=======================
     QTranslator * translator;//界面翻译
     //=======
@@ -429,6 +429,8 @@ public:
     QVariant Settings_Read_value(QString Key);
     bool isReadOldSettings = false;
     //================================ Other =======================================
+    bool isCustomVideoSettingsClicked=true;
+
     void pushButton_Start_setEnabled_self(bool isEnabled);
     void pushButton_Stop_setEnabled_self(bool isEnabled);
 
@@ -510,7 +512,6 @@ public:
     QAction *Donate_SystemTrayIcon = new QAction(this);
     QAction *Pause_SystemTrayIcon = new QAction(this);
     QAction *Start_SystemTrayIcon = new QAction(this);
-
     //================= 输出路径 lineEdit 的右键菜单 ==============
     void Init_ActionsMenu_lineEdit_outputPath();
     QAction *OpenFolder_lineEdit_outputPath = new QAction(this);

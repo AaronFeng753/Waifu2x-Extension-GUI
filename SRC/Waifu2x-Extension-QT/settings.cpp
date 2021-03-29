@@ -164,6 +164,7 @@ int MainWindow::Settings_Save()
     configIniWrite->setValue("/settings/BitrateAudio2mp4", ui->spinBox_bitrate_audio_2mp4->value());
     configIniWrite->setValue("/settings/vcodecCopy", ui->checkBox_vcodec_copy_2mp4->isChecked());
     configIniWrite->setValue("/settings/acodecCopy", ui->checkBox_acodec_copy_2mp4->isChecked());
+    configIniWrite->setValue("/settings/checkBox_IgnoreFrameRateMode", ui->checkBox_IgnoreFrameRateMode->isChecked());
     configIniWrite->setValue("/settings/ExtraCommand2mp4", ui->lineEdit_ExCommand_2mp4->text());
     //==================== 存储输出路径设置 ========================
     configIniWrite->setValue("/settings/OutPutPath", ui->lineEdit_outputPath->text());
@@ -435,6 +436,7 @@ int MainWindow::Settings_Read_Apply()
     ui->spinBox_bitrate_audio_2mp4->setValue(Settings_Read_value("/settings/BitrateAudio2mp4").toInt());
     ui->checkBox_vcodec_copy_2mp4->setChecked(Settings_Read_value("/settings/vcodecCopy").toBool());
     ui->checkBox_acodec_copy_2mp4->setChecked(Settings_Read_value("/settings/acodecCopy").toBool());
+    ui->checkBox_IgnoreFrameRateMode->setChecked(Settings_Read_value("/settings/checkBox_IgnoreFrameRateMode").toBool());
     ui->lineEdit_ExCommand_2mp4->setText(Settings_Read_value("/settings/ExtraCommand2mp4").toString());
     //=============== 加载输出路径设置 ===========================
     ui->lineEdit_outputPath->setText(Settings_Read_value("/settings/OutPutPath").toString());
@@ -537,7 +539,9 @@ int MainWindow::Settings_Read_Apply()
     on_comboBox_language_currentIndexChanged(0);
     //====================================================
     on_groupBox_FrameInterpolation_clicked();
+    isCustomVideoSettingsClicked=false;
     on_groupBox_video_settings_clicked();
+    isCustomVideoSettingsClicked=true;
     on_checkBox_AlwaysHideSettings_stateChanged(0);
     on_checkBox_AlwaysHideTextBrowser_stateChanged(0);
     on_checkBox_DelOriginal_stateChanged(0);

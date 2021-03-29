@@ -522,7 +522,7 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
         }
         else
         {
-            isVFR = true;
+            if(ui->checkBox_IgnoreFrameRateMode->isChecked()==false)isVFR = true;
         }
     }
     QString video_dir = file_getFolderPath(vfinfo);
@@ -539,6 +539,8 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
     QString bitrate_audio_cmd = "";
     QString Extra_command = "";
     QString bitrate_OverAll = "";
+    QString vsync_1 = " -vsync 1 ";
+    if(ui->checkBox_IgnoreFrameRateMode->isChecked()==true)vsync_1 = "";
     if(ui->groupBox_video_settings->isChecked())
     {
         Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
@@ -566,7 +568,7 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
     }
     //=====
     QProcess video_tomp4;
-    video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\" -vsync 1 "+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
+    video_tomp4.start("\""+ffmpeg_path+"\" -y -i \""+VideoPath+"\""+vsync_1+vcodec_copy_cmd+acodec_copy_cmd+bitrate_vid_cmd+bitrate_audio_cmd+bitrate_OverAll+" "+Extra_command+" \""+video_mp4_fullpath+"\"");
     while(!video_tomp4.waitForStarted(100)&&!QProcess_stop) {}
     while(!video_tomp4.waitForFinished(100)&&!QProcess_stop) {}
     //======

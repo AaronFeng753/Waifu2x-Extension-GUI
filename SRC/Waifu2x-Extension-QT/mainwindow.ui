@@ -8600,44 +8600,18 @@ likelihood of removing wanted components of the audio signal.</string>
                  <string>When convert video to mp4</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_33">
-                 <item row="0" column="0">
-                  <layout class="QHBoxLayout" name="horizontalLayout_40">
-                   <item>
-                    <widget class="QLabel" name="label_34">
-                     <property name="sizePolicy">
-                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                       <horstretch>0</horstretch>
-                       <verstretch>0</verstretch>
-                      </sizepolicy>
-                     </property>
-                     <property name="text">
-                      <string>Bitrate(video):</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
-                     <property name="toolTip">
-                      <string>If you set it to 0, software will use auto settings.</string>
-                     </property>
-                     <property name="suffix">
-                      <string notr="true"> K</string>
-                     </property>
-                     <property name="minimum">
-                      <number>0</number>
-                     </property>
-                     <property name="maximum">
-                      <number>999999999</number>
-                     </property>
-                     <property name="singleStep">
-                      <number>100</number>
-                     </property>
-                     <property name="value">
-                      <number>2500</number>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
+                 <item row="0" column="1" rowspan="3">
+                  <spacer name="horizontalSpacer_27">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>130</width>
+                     <height>208</height>
+                    </size>
+                   </property>
+                  </spacer>
                  </item>
                  <item row="1" column="0">
                   <layout class="QHBoxLayout" name="horizontalLayout_41">
@@ -8678,6 +8652,13 @@ likelihood of removing wanted components of the audio signal.</string>
                    </item>
                   </layout>
                  </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="Line" name="line_18">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="2" column="0">
                   <layout class="QHBoxLayout" name="horizontalLayout_39">
                    <item>
@@ -8692,7 +8673,10 @@ likelihood of removing wanted components of the audio signal.</string>
                       <string>When this is enabled, ffmpeg will copy the audio part of
 the original video directly to the mp4, may cause error.
 
-Command: -acodec copy</string>
+Command: -acodec copy
+
+This option will not take effect when source video's frame
+rate mode is variable.</string>
                      </property>
                      <property name="text">
                       <string>Copy audio stream</string>
@@ -8711,7 +8695,10 @@ Command: -acodec copy</string>
                       <string>When this is enabled, ffmpeg will copy the video part of
 the original video directly to the mp4, may cause error.
 
-Command: -vcodec copy</string>
+Command: -vcodec copy
+
+This option will not take effect when source video's frame
+rate mode is variable.</string>
                      </property>
                      <property name="text">
                       <string>Copy video stream</string>
@@ -8733,27 +8720,7 @@ Command: -vcodec copy</string>
                    </item>
                   </layout>
                  </item>
-                 <item row="3" column="0" colspan="2">
-                  <widget class="Line" name="line_18">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="1" rowspan="3">
-                  <spacer name="horizontalSpacer_27">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>130</width>
-                     <height>208</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="4" column="0" colspan="2">
+                 <item row="5" column="0" colspan="2">
                   <widget class="QFrame" name="frame_10">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -8810,6 +8777,56 @@ Command: -vcodec copy</string>
                      </widget>
                     </item>
                    </layout>
+                  </widget>
+                 </item>
+                 <item row="0" column="0">
+                  <layout class="QHBoxLayout" name="horizontalLayout_40">
+                   <item>
+                    <widget class="QLabel" name="label_34">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="text">
+                      <string>Bitrate(video):</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QSpinBox" name="spinBox_bitrate_vid_2mp4">
+                     <property name="toolTip">
+                      <string>If you set it to 0, software will use auto settings.</string>
+                     </property>
+                     <property name="suffix">
+                      <string notr="true"> K</string>
+                     </property>
+                     <property name="minimum">
+                      <number>0</number>
+                     </property>
+                     <property name="maximum">
+                      <number>999999999</number>
+                     </property>
+                     <property name="singleStep">
+                      <number>100</number>
+                     </property>
+                     <property name="value">
+                      <number>2500</number>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item row="3" column="0">
+                  <widget class="QCheckBox" name="checkBox_IgnoreFrameRateMode">
+                   <property name="toolTip">
+                    <string>Ignore the frame rate of the source video.
+Might cause ERROR.</string>
+                   </property>
+                   <property name="text">
+                    <string>Ignore frame rate mode</string>
+                   </property>
                   </widget>
                  </item>
                 </layout>

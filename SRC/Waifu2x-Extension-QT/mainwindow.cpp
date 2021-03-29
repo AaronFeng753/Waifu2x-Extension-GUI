@@ -2004,6 +2004,17 @@ void MainWindow::on_groupBox_video_settings_clicked()
 {
     if(ui->groupBox_video_settings->isChecked())
     {
+        //======
+        if(isCustomVideoSettingsClicked==true)
+        {
+            QMessageBox *MSG = new QMessageBox();
+            MSG->setWindowTitle(tr("Warning"));
+            MSG->setText(tr("Change Custom video settings might cause ERROR.\n\nMake sure you know what you are doing before change any settings."));
+            MSG->setIcon(QMessageBox::Warning);
+            MSG->setModal(true);
+            MSG->show();
+        }
+        //======
         ui->groupBox_OutputVideoSettings->setEnabled(1);
         ui->groupBox_ToMp4VideoSettings->setEnabled(1);
         ui->pushButton_encodersList->setEnabled(1);
