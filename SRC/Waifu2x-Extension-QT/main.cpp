@@ -35,6 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.22.14:
+- Improve GUI.
 - Complete Chinese translation.
 - Fix bug: Might stuck at Waifu2x-Caffe(cuDNN) during the compatibility test.
 
