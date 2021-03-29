@@ -88,7 +88,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7682"/>
+        <location filename="mainwindow.ui" line="7692"/>
         <source>You should enable this option when processing Ultra High Definition videos.
 
 The software will automatically enable UHD Mode when it detects input with
@@ -98,7 +98,7 @@ Only works when using [rife-ncnn-vulkan] engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7791"/>
+        <location filename="mainwindow.ui" line="7801"/>
         <source>TTA(Test-Time Augmentation):
 The processing time is eight times longer than when unchecked, 
 and the peak signal-to-noise ratio (PSNR) is increased by 0.15, 
@@ -108,7 +108,7 @@ Only works when using [rife-ncnn-vulkan] engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7806"/>
+        <location filename="mainwindow.ui" line="7816"/>
         <source>Interpolate frames after upscaled.
 
 By default the frames will be interpolated before upscaled,
@@ -117,18 +117,18 @@ interpolate high res frames.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7813"/>
+        <location filename="mainwindow.ui" line="7823"/>
         <source>After Upscale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8150"/>
+        <location filename="mainwindow.ui" line="8160"/>
         <source>When successive failures are detected, the number
 of threads will be adjusted automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8154"/>
+        <location filename="mainwindow.ui" line="8164"/>
         <source>Auto adjust</source>
         <translation type="unfinished"></translation>
     </message>
@@ -139,14 +139,14 @@ of threads will be adjusted automatically.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7997"/>
-        <location filename="mainwindow.ui" line="8011"/>
+        <location filename="mainwindow.ui" line="8007"/>
+        <location filename="mainwindow.ui" line="8021"/>
         <source>This value will affects GPU memory usage.
 Only works when using [dain-ncnn-vulkan] engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9884"/>
+        <location filename="mainwindow.ui" line="9855"/>
         <source>This option will be automatically enabled to improve
 performance and fix issues when the software detects
 that your PC has compatibility issues with ImageMagick.</source>
@@ -156,62 +156,62 @@ compatibility issues with ImageMagick.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9889"/>
+        <location filename="mainwindow.ui" line="9860"/>
         <source>Disable &quot;-resize&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9934"/>
+        <location filename="mainwindow.ui" line="10311"/>
         <source>Show the summary pop-up window after processing all files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9937"/>
+        <location filename="mainwindow.ui" line="10314"/>
         <source>Summary popup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10479"/>
-        <location filename="mainwindow.ui" line="10500"/>
+        <location filename="mainwindow.ui" line="10407"/>
+        <location filename="mainwindow.ui" line="10428"/>
+        <location filename="mainwindow.ui" line="10449"/>
         <location filename="mainwindow.ui" line="10521"/>
-        <location filename="mainwindow.ui" line="10593"/>
-        <location filename="mainwindow.ui" line="10617"/>
-        <location filename="mainwindow.ui" line="10648"/>
-        <location filename="mainwindow.ui" line="10696"/>
-        <location filename="mainwindow.ui" line="10711"/>
-        <location filename="mainwindow.ui" line="10740"/>
-        <location filename="mainwindow.ui" line="10785"/>
-        <location filename="mainwindow.ui" line="10800"/>
+        <location filename="mainwindow.ui" line="10545"/>
+        <location filename="mainwindow.ui" line="10576"/>
+        <location filename="mainwindow.ui" line="10624"/>
+        <location filename="mainwindow.ui" line="10639"/>
+        <location filename="mainwindow.ui" line="10668"/>
+        <location filename="mainwindow.ui" line="10713"/>
+        <location filename="mainwindow.ui" line="10728"/>
         <source>Image processing engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10670"/>
+        <location filename="mainwindow.ui" line="10598"/>
         <source>For processing Image and GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10571"/>
+        <location filename="mainwindow.ui" line="10499"/>
         <source>For processing Video and Gif.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10769"/>
+        <location filename="mainwindow.ui" line="10697"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10632"/>
+        <location filename="mainwindow.ui" line="10560"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10508"/>
+        <location filename="mainwindow.ui" line="10436"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10549"/>
+        <location filename="mainwindow.ui" line="10477"/>
         <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the Super-Resolution engines is compatible with your PC, you can use all the functions of this software.
@@ -225,12 +225,12 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10733"/>
+        <location filename="mainwindow.ui" line="10661"/>
         <source>Plugins:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10680"/>
+        <location filename="mainwindow.ui" line="10608"/>
         <source>For audio denoise(video).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -272,8 +272,8 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11075"/>
-        <location filename="mainwindow.ui" line="11091"/>
+        <location filename="mainwindow.ui" line="11003"/>
+        <location filename="mainwindow.ui" line="11019"/>
         <source>Change the font size of the text browser.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -901,7 +901,7 @@ the number of threads must &gt;= the number of GPUs.</source>
     <message>
         <location filename="mainwindow.ui" line="5507"/>
         <location filename="mainwindow.ui" line="6745"/>
-        <location filename="mainwindow.ui" line="7980"/>
+        <location filename="mainwindow.ui" line="7990"/>
         <source>Verify</source>
         <translation type="unfinished"></translation>
     </message>
@@ -934,41 +934,41 @@ the number of threads must &gt;= the number of GPUs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8353"/>
+        <location filename="mainwindow.ui" line="8350"/>
         <source>Output video</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8401"/>
-        <location filename="mainwindow.ui" line="8467"/>
-        <location filename="mainwindow.ui" line="8624"/>
-        <location filename="mainwindow.ui" line="8663"/>
+        <location filename="mainwindow.ui" line="8398"/>
+        <location filename="mainwindow.ui" line="8464"/>
+        <location filename="mainwindow.ui" line="8621"/>
+        <location filename="mainwindow.ui" line="8660"/>
         <source>If you set it to 0, software will use auto settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8581"/>
-        <location filename="mainwindow.ui" line="8805"/>
+        <location filename="mainwindow.ui" line="8578"/>
+        <location filename="mainwindow.ui" line="8802"/>
         <source>You can enter ffmpeg instructions here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8374"/>
-        <location filename="mainwindow.ui" line="8440"/>
-        <location filename="mainwindow.ui" line="8506"/>
+        <location filename="mainwindow.ui" line="8371"/>
+        <location filename="mainwindow.ui" line="8437"/>
+        <location filename="mainwindow.ui" line="8503"/>
         <source>If you leave it empty, software will use auto settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8603"/>
+        <location filename="mainwindow.ui" line="8600"/>
         <source>When convert video to mp4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9017"/>
-        <location filename="mainwindow.ui" line="9043"/>
-        <location filename="mainwindow.ui" line="9076"/>
-        <location filename="mainwindow.ui" line="9102"/>
+        <location filename="mainwindow.ui" line="9093"/>
+        <location filename="mainwindow.ui" line="9119"/>
+        <location filename="mainwindow.ui" line="9152"/>
+        <location filename="mainwindow.ui" line="9178"/>
         <source>When you find that the file format you want to process cannot 
 be added to the file list, you can add the file extension yourself 
 in the additional settings.
@@ -980,7 +980,7 @@ be processed successfully)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9173"/>
+        <location filename="mainwindow.ui" line="9249"/>
         <source>This software already can intelligently detect whether the Alpha channel is lost,
 and automatically reprocess the picture. And image will be pre-processed during the 
 reporcess so the alpha channel won&apos;t lost again.
@@ -990,12 +990,12 @@ frequently occurs when processing images, you can enable this option to save tim
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9181"/>
+        <location filename="mainwindow.ui" line="9257"/>
         <source>Always pre-process images with Alpha Channel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9123"/>
+        <location filename="mainwindow.ui" line="9199"/>
         <source>Convert every image to PNG before processing it.
 Enabling this option will improve compatibility. However, it will
 increase the time and storage space required to process image.</source>
@@ -1010,7 +1010,7 @@ Will NOT take effect when processing Video and GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9138"/>
+        <location filename="mainwindow.ui" line="9214"/>
         <source>When the alpha channel is detected in the picture, software will
 automatically force the picture to be saved as PNG.</source>
         <oldsource>When the alpha channel is detected in the picture, software will
@@ -1020,14 +1020,14 @@ automatically force the picture to be saved as PNG.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9793"/>
-        <location filename="mainwindow.ui" line="9809"/>
+        <location filename="mainwindow.ui" line="9947"/>
+        <location filename="mainwindow.ui" line="9963"/>
         <source>The number of retries when an image (or frame) processing fails.</source>
         <oldsource>The number of retries when failed to processing a image (or frame).</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9860"/>
+        <location filename="mainwindow.ui" line="9894"/>
         <source>When adding a folder to the file list, scan the files in
 the subfolder and add them to the file list.</source>
         <translation type="unfinished"></translation>
@@ -1047,28 +1047,28 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10893"/>
+        <location filename="mainwindow.ui" line="10821"/>
         <location filename="CompatibilityTest.cpp" line="697"/>
         <source>Start compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10347"/>
+        <location filename="mainwindow.ui" line="10167"/>
         <source>Play Notification sound.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10383"/>
+        <location filename="mainwindow.ui" line="10265"/>
         <source>Keep video cache after processing the video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10360"/>
+        <location filename="mainwindow.ui" line="10298"/>
         <source>Output internal Scale and Denoise progress of GIF and video process inside textbrowser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10363"/>
+        <location filename="mainwindow.ui" line="10301"/>
         <source>Show internal progress</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1078,22 +1078,22 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9576"/>
+        <location filename="mainwindow.ui" line="9652"/>
         <source>Official website</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9501"/>
+        <location filename="mainwindow.ui" line="9577"/>
         <source>Open Waifu2x-Extension-GUI online wiki.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10455"/>
+        <location filename="mainwindow.ui" line="10383"/>
         <source>Compatibility test results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10487"/>
+        <location filename="mainwindow.ui" line="10415"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1108,7 +1108,7 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10350"/>
+        <location filename="mainwindow.ui" line="10170"/>
         <source>Notification sound</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1118,7 +1118,7 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10104"/>
+        <location filename="mainwindow.ui" line="10180"/>
         <source>When the file processing status changes, the file list scrolls automatically.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1151,7 +1151,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <location filename="mainwindow.ui" line="6297"/>
         <location filename="mainwindow.ui" line="7262"/>
         <location filename="mainwindow.ui" line="7449"/>
-        <location filename="mainwindow.ui" line="8001"/>
+        <location filename="mainwindow.ui" line="8011"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1904"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1895"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1921"/>
@@ -1183,7 +1183,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <location filename="mainwindow.ui" line="6874"/>
         <location filename="mainwindow.ui" line="7141"/>
         <location filename="mainwindow.ui" line="7433"/>
-        <location filename="mainwindow.ui" line="7845"/>
+        <location filename="mainwindow.ui" line="7855"/>
         <source>GPU ID:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1191,7 +1191,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <location filename="mainwindow.ui" line="4060"/>
         <location filename="mainwindow.ui" line="6241"/>
         <location filename="mainwindow.ui" line="7211"/>
-        <location filename="mainwindow.ui" line="7900"/>
+        <location filename="mainwindow.ui" line="7910"/>
         <location filename="Frame_Interpolation.cpp" line="920"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1731"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1674"/>
@@ -1208,7 +1208,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     <message>
         <location filename="mainwindow.ui" line="3366"/>
         <location filename="mainwindow.ui" line="3746"/>
-        <location filename="mainwindow.ui" line="9027"/>
+        <location filename="mainwindow.ui" line="9103"/>
         <source>Image:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1222,7 +1222,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
     <message>
         <location filename="mainwindow.ui" line="3395"/>
         <location filename="mainwindow.ui" line="3768"/>
-        <location filename="mainwindow.ui" line="9086"/>
+        <location filename="mainwindow.ui" line="9162"/>
         <source>Video:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1244,7 +1244,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.</oldsou
     <message>
         <location filename="mainwindow.ui" line="4502"/>
         <location filename="mainwindow.ui" line="7084"/>
-        <location filename="mainwindow.ui" line="8053"/>
+        <location filename="mainwindow.ui" line="8063"/>
         <source>Model:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1309,7 +1309,8 @@ folder as the source file.</oldsource>
     </message>
     <message>
         <location filename="mainwindow.ui" line="2706"/>
-        <location filename="mainwindow.ui" line="8295"/>
+        <location filename="mainwindow.ui" line="8279"/>
+        <location filename="mainwindow.ui" line="9017"/>
         <source>Enabled</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1415,35 +1416,35 @@ Uncheck the [OLD Version] to enable [TTA].</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9534"/>
+        <location filename="mainwindow.ui" line="9610"/>
         <source>Wiki</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10204"/>
-        <location filename="mainwindow.ui" line="10222"/>
+        <location filename="mainwindow.ui" line="8970"/>
+        <location filename="mainwindow.ui" line="8988"/>
         <source>When processing video in segments, the length of each video clip.
 This will determine how much hard disk space the program will occupy 
 when processing video in segments.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9864"/>
+        <location filename="mainwindow.ui" line="9898"/>
         <source>Scan sub-folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10373"/>
+        <location filename="mainwindow.ui" line="10278"/>
         <source>Interactive file list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9796"/>
+        <location filename="mainwindow.ui" line="9950"/>
         <source>Retry:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9142"/>
+        <location filename="mainwindow.ui" line="9218"/>
         <source>Auto detect Alpha channel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1648,72 +1649,72 @@ will be propagated through the network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8859"/>
-        <location filename="mainwindow.ui" line="8892"/>
+        <location filename="mainwindow.ui" line="8856"/>
+        <location filename="mainwindow.ui" line="8889"/>
         <source>Reset video settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8394"/>
-        <location filename="mainwindow.ui" line="8617"/>
+        <location filename="mainwindow.ui" line="8391"/>
+        <location filename="mainwindow.ui" line="8614"/>
         <source>Bitrate(video):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8499"/>
+        <location filename="mainwindow.ui" line="8496"/>
         <source>Pixel format:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8574"/>
-        <location filename="mainwindow.ui" line="8798"/>
+        <location filename="mainwindow.ui" line="8571"/>
+        <location filename="mainwindow.ui" line="8795"/>
         <source>Extra command:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9850"/>
+        <location filename="mainwindow.ui" line="9832"/>
         <source>Update popup</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10150"/>
+        <location filename="mainwindow.ui" line="9012"/>
         <source>Processing video in segments can greatly reduce the 
 hard disk space occupied by processing video. But it 
 will increase the time required to process video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10209"/>
+        <location filename="mainwindow.ui" line="8975"/>
         <source>Segment duration:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9874"/>
+        <location filename="mainwindow.ui" line="9867"/>
         <source>Prompt when exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10386"/>
+        <location filename="mainwindow.ui" line="10268"/>
         <source>Keep video cache</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10155"/>
+        <location filename="mainwindow.ui" line="8958"/>
         <source>Process video by segment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8212"/>
+        <location filename="mainwindow.ui" line="8196"/>
         <source>Audio denoise(for video)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8282"/>
+        <location filename="mainwindow.ui" line="8266"/>
         <source>Denoise level:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8245"/>
+        <location filename="mainwindow.ui" line="8229"/>
         <source>How much noise should be removed is specified by amount-a 
 number between 0.01 and 1 with a default of 0.20. Higher 
 numbers will remove more noise but present a greater 
@@ -1725,18 +1726,18 @@ likelihood of removing wanted components of the audio signal.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8433"/>
+        <location filename="mainwindow.ui" line="8430"/>
         <source>Encoder(audio):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8460"/>
-        <location filename="mainwindow.ui" line="8656"/>
+        <location filename="mainwindow.ui" line="8457"/>
+        <location filename="mainwindow.ui" line="8653"/>
         <source>Bitrate(audio):</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8367"/>
+        <location filename="mainwindow.ui" line="8364"/>
         <source>Encoder(video):</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1789,12 +1790,12 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8966"/>
+        <location filename="mainwindow.ui" line="9042"/>
         <source>Additional settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9128"/>
+        <location filename="mainwindow.ui" line="9204"/>
         <source>Pre-process all images</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1809,42 +1810,42 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9847"/>
+        <location filename="mainwindow.ui" line="9829"/>
         <source>A pop-up window will prompts when an update is detected.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10304"/>
+        <location filename="mainwindow.ui" line="10232"/>
         <source>Update channel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10321"/>
+        <location filename="mainwindow.ui" line="10249"/>
         <source>Stable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10326"/>
+        <location filename="mainwindow.ui" line="10254"/>
         <source>Beta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9747"/>
+        <location filename="mainwindow.ui" line="9877"/>
         <source>Minimize to taskbar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9200"/>
+        <location filename="mainwindow.ui" line="9276"/>
         <source>Custom Font Settings (Restart the software to take effect)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9321"/>
+        <location filename="mainwindow.ui" line="9397"/>
         <source>Custom font size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9301"/>
+        <location filename="mainwindow.ui" line="9377"/>
         <source>Enable Custom Font Settings.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1853,54 +1854,54 @@ Will improve image quality.</source>
         <location filename="mainwindow.ui" line="5035"/>
         <location filename="mainwindow.ui" line="6039"/>
         <location filename="mainwindow.ui" line="7417"/>
-        <location filename="mainwindow.ui" line="9304"/>
+        <location filename="mainwindow.ui" line="9380"/>
         <source>Enable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9214"/>
+        <location filename="mainwindow.ui" line="9290"/>
         <source>Custom font:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9288"/>
+        <location filename="mainwindow.ui" line="9364"/>
         <source>Save Custom Font Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9896"/>
+        <location filename="mainwindow.ui" line="9884"/>
         <source>[Text browser] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9899"/>
+        <location filename="mainwindow.ui" line="9887"/>
         <source>Always hide Text Browser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9914"/>
+        <location filename="mainwindow.ui" line="10003"/>
         <source>Ban Gitee</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9451"/>
+        <location filename="mainwindow.ui" line="9527"/>
         <source>Report issue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9653"/>
+        <location filename="mainwindow.ui" line="9729"/>
         <location filename="SystemTrayIcon.cpp" line="58"/>
         <location filename="mainwindow.cpp" line="915"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9921"/>
+        <location filename="mainwindow.ui" line="9842"/>
         <source>Settings will be saved automatically when you close the software.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9924"/>
+        <location filename="mainwindow.ui" line="9845"/>
         <source>Auto save settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1920,47 +1921,47 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10337"/>
+        <location filename="mainwindow.ui" line="10288"/>
         <source>[Settings] will be automatically hidden when the software starts.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10340"/>
+        <location filename="mainwindow.ui" line="10291"/>
         <source>Always hide Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9494"/>
+        <location filename="mainwindow.ui" line="9570"/>
         <source>Check update</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9616"/>
+        <location filename="mainwindow.ui" line="9692"/>
         <source>Save settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10762"/>
+        <location filename="mainwindow.ui" line="10690"/>
         <source>Super-Resolution Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10823"/>
+        <location filename="mainwindow.ui" line="10751"/>
         <source>Frame Interpolation Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10860"/>
+        <location filename="mainwindow.ui" line="10788"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10409"/>
+        <location filename="mainwindow.ui" line="10337"/>
         <source>Compatibility test</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9690"/>
+        <location filename="mainwindow.ui" line="9766"/>
         <source>Reset settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2061,7 +2062,7 @@ then the result video will be 120 fps.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8060"/>
+        <location filename="mainwindow.ui" line="8070"/>
         <source>Choose the model for rife-ncnn-vulkan engine.
 
 We recommend you to use the default model &quot;rife-v2.4&quot;.
@@ -2070,29 +2071,29 @@ Only works when using [rife-ncnn-vulkan] engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8114"/>
+        <location filename="mainwindow.ui" line="8124"/>
         <source>The multi-threading of the frame interpolation engines is NOT
 very stable, we don&apos;t recommend you to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8118"/>
+        <location filename="mainwindow.ui" line="8128"/>
         <source>Multithreading:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8131"/>
+        <location filename="mainwindow.ui" line="8141"/>
         <source>Number of threads.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8324"/>
+        <location filename="mainwindow.ui" line="8321"/>
         <source>Custom video settings</source>
         <oldsource>Video Settings</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8714"/>
+        <location filename="mainwindow.ui" line="8711"/>
         <source>When this is enabled, ffmpeg will copy the video part of
 the original video directly to the mp4, may cause error.
 
@@ -2100,12 +2101,12 @@ Command: -vcodec copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8720"/>
+        <location filename="mainwindow.ui" line="8717"/>
         <source>Copy video stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8695"/>
+        <location filename="mainwindow.ui" line="8692"/>
         <source>When this is enabled, ffmpeg will copy the audio part of
 the original video directly to the mp4, may cause error.
 
@@ -2113,52 +2114,52 @@ Command: -acodec copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8701"/>
+        <location filename="mainwindow.ui" line="8698"/>
         <source>Copy audio stream</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8935"/>
+        <location filename="mainwindow.ui" line="8932"/>
         <source>List Available Encoders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7589"/>
+        <location filename="mainwindow.ui" line="7599"/>
         <source>Frame Interpolation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7947"/>
+        <location filename="mainwindow.ui" line="7957"/>
         <source>Verify your Multi GPU configuration.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7750"/>
+        <location filename="mainwindow.ui" line="7760"/>
         <source>Frame Interpolation Engine:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7799"/>
+        <location filename="mainwindow.ui" line="7809"/>
         <source>TTA Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7690"/>
+        <location filename="mainwindow.ui" line="7700"/>
         <source>UHD Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7852"/>
+        <location filename="mainwindow.ui" line="7862"/>
         <source>&quot;-1&quot; is CPU, others are GPUs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7917"/>
+        <location filename="mainwindow.ui" line="7927"/>
         <source>Multi GPU</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="7930"/>
+        <location filename="mainwindow.ui" line="7940"/>
         <source>Format: GPU ID,GPU ID
 
 Example: 0,1
@@ -2167,39 +2168,45 @@ You must follow the format,otherwise the software may crash.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10227"/>
+        <location filename="mainwindow.ui" line="8993"/>
         <source> secs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="9906"/>
+        <location filename="mainwindow.ui" line="9995"/>
         <source>Bans downloading anything from Communist China website Gitee.
+
+If you are in China, due to the Chinese government often interferes with
+the network connection with Github,enabling this will affect auto update.
+
+For detailed information, please read privacy policy.</source>
+        <oldsource>Bans downloading anything from Communist China website Gitee.
 
 If you are in China, due to the government ban on raw.githubusercontent.com,
 enabling this will affect auto update.
 
-For detailed information, please read privacy policy.</source>
+For detailed information, please read privacy policy.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10107"/>
+        <location filename="mainwindow.ui" line="10183"/>
         <source>Automatic file list scrolling</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10049"/>
-        <location filename="mainwindow.ui" line="10087"/>
+        <location filename="mainwindow.ui" line="10112"/>
+        <location filename="mainwindow.ui" line="10150"/>
         <source>We recommend that you restart the software after changing 
 the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="8997"/>
+        <location filename="mainwindow.ui" line="9073"/>
         <source>Input file extensions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11078"/>
+        <location filename="mainwindow.ui" line="11006"/>
         <source>Font size:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2212,12 +2219,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11015"/>
+        <location filename="mainwindow.ui" line="10943"/>
         <source>Clear text browser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11048"/>
+        <location filename="mainwindow.ui" line="10976"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>

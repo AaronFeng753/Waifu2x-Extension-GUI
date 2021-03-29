@@ -9994,8 +9994,8 @@ the subfolder and add them to the file list.</string>
                    <property name="toolTip">
                     <string>Bans downloading anything from Communist China website Gitee.
 
-If you are in China, due to the government ban on raw.githubusercontent.com,
-enabling this will affect auto update.
+If you are in China, due to the Chinese government often interferes with
+the network connection with Github,enabling this will affect auto update.
 
 For detailed information, please read privacy policy.</string>
                    </property>
