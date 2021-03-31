@@ -269,8 +269,8 @@ void MainWindow::TimeSlot()
             if(NewTaskFinished)
             {
                 NewTaskFinished=false;
-                long unsigned int avgTimeCost = TimeCost_tmp/TaskNumFinished_tmp;
-                ETA = avgTimeCost*(TaskNumTotal_tmp-TaskNumFinished_tmp);
+                double avgTimeCost = (double)TimeCost_tmp/(double)TaskNumFinished_tmp;
+                ETA = avgTimeCost*((double)TaskNumTotal_tmp-(double)TaskNumFinished_tmp);
             }
             else
             {
@@ -304,8 +304,8 @@ void MainWindow::TimeSlot()
             if(NewTaskFinished_CurrentFile)
             {
                 NewTaskFinished_CurrentFile=false;
-                long unsigned int avgTimeCost_CurrentFile = TimeCost_tmp_CurrentFile/TaskNumFinished_tmp_CurrentFile;
-                ETA_CurrentFile = avgTimeCost_CurrentFile*(TaskNumTotal_tmp_CurrentFile-TaskNumFinished_tmp_CurrentFile);
+                double avgTimeCost_CurrentFile = (double)TimeCost_tmp_CurrentFile/(double)TaskNumFinished_tmp_CurrentFile;
+                ETA_CurrentFile = avgTimeCost_CurrentFile*((double)TaskNumTotal_tmp_CurrentFile-(double)TaskNumFinished_tmp_CurrentFile);
             }
             else
             {

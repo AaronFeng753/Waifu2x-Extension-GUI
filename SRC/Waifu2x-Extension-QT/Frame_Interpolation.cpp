@@ -534,6 +534,13 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
     int MultiFPS_MAX = ui->spinBox_MultipleOfFPS_VFI->value();
     int MultiFPS_Init = 2;
     if(ui->comboBox_Engine_VFI->currentIndex()==2)MultiFPS_Init=MultiFPS_MAX;
+    //初始化进度讯息
+    bool is_progressBar_CurrentFile_available = false;
+    if(ui->checkBox_ShowInterPro->isChecked()==true && ui->progressBar_CurrentFile->isVisible()==false)
+    {
+        is_progressBar_CurrentFile_available=true;
+        emit Send_CurrentFileProgress_Start(SourcePath.split("/").last(),FileNum_MAX);
+    }
     //========
     for(int MultiFPS_curr = MultiFPS_Init; MultiFPS_curr<=MultiFPS_MAX; MultiFPS_curr*=2)
     {
@@ -576,6 +583,10 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
                     FrameInterpolation_QProcess.close();
                     file_DelDir(OutputPath_Curr);
                     if(SourcePath_Curr != SourcePath)file_DelDir(SourcePath_Curr);
+                    if(is_progressBar_CurrentFile_available)
+                    {
+                        emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
+                    }
                     return false;
                 }
                 //=========
@@ -594,7 +605,14 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
                     FileNum_New = file_getFileNames_in_Folder_nofilter(OutputPath_Curr).size();
                     if(FileNum_New!=FileNum_Old)
                     {
-                        emit Send_TextBrowser_NewMessage(tr("Interpolating frames in:[")+SourcePath_Curr+tr("] Progress:[")+QString::number(FileNum_New,10)+"/"+QString::number(FileNum_MAX,10)+"]");
+                        if(is_progressBar_CurrentFile_available==false)
+                        {
+                            emit Send_TextBrowser_NewMessage(tr("Interpolating frames in:[")+SourcePath_Curr+tr("] Progress:[")+QString::number(FileNum_New,10)+"/"+QString::number(FileNum_MAX,10)+"]");
+                        }
+                        else
+                        {
+                            emit Send_CurrentFileProgress_progressbar_SetFinishedValue(FileNum_New);
+                        }
                         FileNum_Old=FileNum_New;
                     }
                 }
@@ -640,6 +658,10 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
             {
                 if(SourcePath_Curr != SourcePath)file_DelDir(SourcePath_Curr);
                 emit Send_TextBrowser_NewMessage(tr("Finish interpolating frames in:[")+SourcePath+"]");
+                if(is_progressBar_CurrentFile_available)
+                {
+                    emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
+                }
                 return true;
             }
             else
@@ -651,11 +673,20 @@ bool MainWindow::FrameInterpolation(QString SourcePath,QString OutputPath)
         {
             emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames in:[")+SourcePath+"]");
             //=======
+            if(is_progressBar_CurrentFile_available)
+            {
+                emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
+            }
+            //========
             return false;
         }
     }
     //=======
     emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames in:[")+SourcePath+"]");
+    if(is_progressBar_CurrentFile_available)
+    {
+        emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
+    }
     //=======
     return false;
 }

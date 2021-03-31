@@ -8821,7 +8821,7 @@ rate mode is variable.</string>
                  <item row="3" column="0">
                   <widget class="QCheckBox" name="checkBox_IgnoreFrameRateMode">
                    <property name="toolTip">
-                    <string>Ignore the frame rate of the source video.
+                    <string>Ignore the frame rate mode of the source video.
 Might cause ERROR.</string>
                    </property>
                    <property name="text">

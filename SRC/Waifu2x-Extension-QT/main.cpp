@@ -34,8 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+##### 补全翻译 ######
+
 v3.22.21-beta:
 - New option: [Ignore frame rate mode]
+- Improve the progress display of video frame interpolation.
+- Fix bug: Sometimes the remaining time cannot be calculated correctly.
 
 --------------------------------------------------------------------------
 To do:
