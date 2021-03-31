@@ -522,7 +522,7 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
         }
         else
         {
-            if(ui->checkBox_IgnoreFrameRateMode->isChecked()==false)isVFR = true;
+            isVFR = true;
         }
     }
     QString video_dir = file_getFolderPath(vfinfo);
@@ -540,9 +540,13 @@ QString MainWindow::video_To_CFRMp4(QString VideoPath)
     QString Extra_command = "";
     QString bitrate_OverAll = "";
     QString vsync_1 = " -vsync 1 ";
-    if(ui->checkBox_IgnoreFrameRateMode->isChecked()==true)vsync_1 = "";
     if(ui->groupBox_video_settings->isChecked())
     {
+        if(ui->checkBox_IgnoreFrameRateMode->isChecked()==true)
+        {
+            vsync_1 = "";
+            isVFR = false;
+        }
         Extra_command = ui->lineEdit_ExCommand_2mp4->text().trimmed();
         if(ui->checkBox_vcodec_copy_2mp4->isChecked()&&isVFR==false)
         {

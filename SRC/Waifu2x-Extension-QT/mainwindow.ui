@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1096</width>
-    <height>770</height>
+    <height>796</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -8347,7 +8347,7 @@ likelihood of removing wanted components of the audio signal.</string>
                  <bool>false</bool>
                 </property>
                 <property name="title">
-                 <string>Output video</string>
+                 <string>When output the result video</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_51">
                  <item row="0" column="0">
@@ -8597,7 +8597,7 @@ likelihood of removing wanted components of the audio signal.</string>
                  <bool>false</bool>
                 </property>
                 <property name="title">
-                 <string>When convert video to mp4</string>
+                 <string>When convert source video to CFR mp4</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_33">
                  <item row="0" column="1" rowspan="3">
@@ -10009,12 +10009,11 @@ the subfolder and add them to the file list.</string>
                  <item row="10" column="0">
                   <widget class="QCheckBox" name="checkBox_BanGitee">
                    <property name="toolTip">
-                    <string>Bans downloading anything from Communist China website Gitee.
+                    <string>Stop downloading any data from Gitee.
 
-If you are in China, due to the Chinese government often interferes with
-the network connection with Github,enabling this will affect auto update.
-
-For detailed information, please read privacy policy.</string>
+When you cannot access github, enabling 
+this option will affect the automatic
+detection of new updates.</string>
                    </property>
                    <property name="text">
                     <string>Ban Gitee</string>
