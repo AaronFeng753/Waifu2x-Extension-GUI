@@ -97,8 +97,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 #### `Github doesn't support online video playback, please check link below:`
 
-#### The Simpsons Movie Trailer (LOW quality 720p 24fps ➡ 1440p 48fps): https://youtu.be/x-CksDPFGQ8
-#### The Simpsons AVGN Intro (30fps ➡ 60fps): https://youtu.be/yxF-M_ka7ds
+#### My Youtube channel: https://www.youtube.com/channel/UCUIdGDuH32mTAVL6_6uQdXQ
 
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
