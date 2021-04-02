@@ -182,7 +182,18 @@ void MainWindow::closeEvent(QCloseEvent *event)
         //======
         QMessageBox *MSG_2 = new QMessageBox();
         MSG_2->setWindowTitle(tr("Notification")+" @Waifu2x-Extension-GUI");
-        MSG_2->setText(tr("Waiting for the files processing thread to pause."));
+        MSG_2->setText(tr("Waiting for the files processing thread to pause"));
+        MSG_2->setIcon(QMessageBox::Information);
+        MSG_2->setModal(true);
+        MSG_2->setStandardButtons(NULL);
+        MSG_2->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint);
+        MSG_2->show();
+    }
+    else
+    {
+        QMessageBox *MSG_2 = new QMessageBox();
+        MSG_2->setWindowTitle(tr("Notification")+" @Waifu2x-Extension-GUI");
+        MSG_2->setText(tr("Closing...\n\nPlease wait"));
         MSG_2->setIcon(QMessageBox::Information);
         MSG_2->setModal(true);
         MSG_2->setStandardButtons(NULL);
@@ -210,6 +221,7 @@ int MainWindow::Auto_Save_Settings_Watchdog(bool isWaitForSave)
     //======
     if(isWaitForSave == true)
     {
+        Delay_msec_sleep(1000);
         QString settings_ini = Current_Path+"/settings.ini";
         while(!QFile::exists(settings_ini))
         {
@@ -225,6 +237,7 @@ int MainWindow::Auto_Save_Settings_Watchdog(bool isWaitForSave)
 
 int MainWindow::Force_close()
 {
+    //=============
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"

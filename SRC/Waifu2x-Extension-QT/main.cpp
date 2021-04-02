@@ -36,6 +36,9 @@ Change log:
 
 ##### 补全翻译 ######
 
+v3.22.22-beta:
+- Display a notification when program is closing
+
 v3.22.21-beta:
 - New option: [Ignore frame rate mode]
 - Improve the progress display of video frame interpolation.
