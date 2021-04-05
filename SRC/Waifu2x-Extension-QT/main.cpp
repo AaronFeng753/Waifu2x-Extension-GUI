@@ -37,6 +37,9 @@ Change log:
 ##### 补全翻译 ######
 
 v3.22.22-beta:
+- New feature: Now you can choose to automatically open the output folder after processing all files by enabling [Auto-open after finished].
+- Update FFmpeg&FFprobe, ImageMagick.
+- New option for system tray menu.
 - Credits page for Top Supporters(patreon).
 - Display a notification when program is closing.
 
@@ -57,9 +60,9 @@ Integrated component:
 - Waifu2x-NCNN-Vulkan 20210210
 - SRMD-NCNN-Vulkan 20210210
 - RealSR-NCNN-Vulkan 20210210
-- ImageMagick 7.0.11-3-portable-Q16-x64
+- ImageMagick 7.0.11-6-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-03-24-git-a77beea6c8-full_build
+- FFmpeg&FFprobe 2021-04-04-git-b1b7cc698b-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3

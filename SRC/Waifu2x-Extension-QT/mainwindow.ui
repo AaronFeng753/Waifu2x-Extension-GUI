@@ -2678,11 +2678,27 @@ the super-resolution, only interpolate video frames.
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>233</width>
-                       <height>117</height>
+                       <width>241</width>
+                       <height>122</height>
                       </rect>
                      </property>
                      <layout class="QGridLayout" name="gridLayout_37">
+                      <item row="2" column="0">
+                       <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="text">
+                         <string>Keep original file name</string>
+                        </property>
+                       </widget>
+                      </item>
                       <item row="1" column="0">
                        <layout class="QHBoxLayout" name="horizontalLayout_5">
                         <item>
@@ -2743,22 +2759,6 @@ file that exists in the output path.</string>
                         </item>
                        </layout>
                       </item>
-                      <item row="2" column="0">
-                       <widget class="QCheckBox" name="checkBox_OutPath_KeepOriginalFileName">
-                        <property name="enabled">
-                         <bool>false</bool>
-                        </property>
-                        <property name="sizePolicy">
-                         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-                          <horstretch>0</horstretch>
-                          <verstretch>0</verstretch>
-                         </sizepolicy>
-                        </property>
-                        <property name="text">
-                         <string>Keep original file name</string>
-                        </property>
-                       </widget>
-                      </item>
                       <item row="3" column="0">
                        <widget class="QCheckBox" name="checkBox_KeepParentFolder">
                         <property name="enabled">
@@ -2772,6 +2772,20 @@ file that exists in the output path.</string>
                         </property>
                         <property name="text">
                          <string>Keep parent folder</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="0">
+                       <widget class="QCheckBox" name="checkBox_AutoOpenOutputPath">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
+                        <property name="toolTip">
+                         <string>Automatically open the output folder
+after processing all files.</string>
+                        </property>
+                        <property name="text">
+                         <string>Auto-open after finished</string>
                         </property>
                        </widget>
                       </item>
@@ -9741,12 +9755,12 @@ padding:10px;
                  </layout>
                 </item>
                 <item row="2" column="0">
-                 <layout class="QHBoxLayout" name="horizontalLayout_59">
+                 <layout class="QHBoxLayout" name="horizontalLayout_59" stretch="1,2">
                   <item>
                    <widget class="QPushButton" name="pushButton_about">
                     <property name="maximumSize">
                      <size>
-                      <width>150</width>
+                      <width>16777215</width>
                       <height>16777215</height>
                      </size>
                     </property>

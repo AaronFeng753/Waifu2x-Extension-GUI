@@ -55,6 +55,9 @@ void MainWindow::Init_SystemTrayIcon()
     SendFeedback_SystemTrayIcon->setText(tr("Send feedback"));
     SendFeedback_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/SendFeedback.png"));
     //===
+    BecomePatron_SystemTrayIcon->setText(tr("Become a patron"));
+    BecomePatron_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/patreon_sysTray.png"));
+    //===
     About_SystemTrayIcon->setText(tr("About"));
     About_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/About.png"));
     //===
@@ -73,6 +76,7 @@ void MainWindow::Init_SystemTrayIcon()
     connect(quitAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(close()),Qt::UniqueConnection);
     connect(BackgroundModeAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(EnableBackgroundMode_SystemTray()),Qt::UniqueConnection);
     connect(SendFeedback_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Report_clicked()),Qt::UniqueConnection);
+    connect(BecomePatron_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(pushButton_Patreon()),Qt::UniqueConnection);
     connect(About_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_about_clicked()),Qt::UniqueConnection);
     connect(Donate_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showDonate()),Qt::UniqueConnection);
     connect(Pause_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Stop_clicked()),Qt::UniqueConnection);
@@ -87,6 +91,8 @@ void MainWindow::Init_SystemTrayIcon()
     pContextMenu->addAction(Pause_SystemTrayIcon);
     pContextMenu->addSeparator();
     pContextMenu->addAction(BackgroundModeAct_SystemTrayIcon);
+    pContextMenu->addSeparator();
+    pContextMenu->addAction(BecomePatron_SystemTrayIcon);
     pContextMenu->addSeparator();
     pContextMenu->addAction(Donate_SystemTrayIcon);
     pContextMenu->addAction(SendFeedback_SystemTrayIcon);

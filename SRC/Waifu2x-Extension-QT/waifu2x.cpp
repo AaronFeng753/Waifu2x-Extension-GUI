@@ -721,6 +721,11 @@ void MainWindow::Waifu2x_Finished_manual()
     KILL_TASK_QStringList(TaskNameList,true);
     //================= 生成处理报告 =================
     ShowFileProcessSummary();
+    //================= 打开输出文件夹 ====================
+    if(ui->checkBox_AutoOpenOutputPath->isChecked()==true && ui->checkBox_OutPath_isEnabled->isChecked()==true)
+    {
+        OpenOutputFolder();
+    }
 }
 
 /*

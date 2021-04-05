@@ -512,6 +512,7 @@ public:
     QAction *Donate_SystemTrayIcon = new QAction(this);
     QAction *Pause_SystemTrayIcon = new QAction(this);
     QAction *Start_SystemTrayIcon = new QAction(this);
+    QAction *BecomePatron_SystemTrayIcon = new QAction(this);
     //================= 输出路径 lineEdit 的右键菜单 ==============
     void Init_ActionsMenu_lineEdit_outputPath();
     QAction *OpenFolder_lineEdit_outputPath = new QAction(this);
