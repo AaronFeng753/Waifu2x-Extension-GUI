@@ -2122,3 +2122,12 @@ void MainWindow::on_pushButton_Patreon_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://www.patreon.com/aaronfeng"));
 }
+
+void MainWindow::on_pushButton_SupportersList_clicked()
+{
+    QMessageBox *MSG_2 = new QMessageBox();
+    MSG_2->setWindowTitle(tr("Top Supporters"));
+    MSG_2->setText("\nDiabloTVHD | Teh Pron\n");
+    MSG_2->setModal(true);
+    MSG_2->show();
+}

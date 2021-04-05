@@ -987,6 +987,8 @@ private slots:
 
     void on_pushButton_Patreon_clicked();
 
+    void on_pushButton_SupportersList_clicked();
+
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);
 

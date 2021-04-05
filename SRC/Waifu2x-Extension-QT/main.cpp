@@ -37,7 +37,8 @@ Change log:
 ##### 补全翻译 ######
 
 v3.22.22-beta:
-- Display a notification when program is closing
+- Credits page for Top Supporters(patreon).
+- Display a notification when program is closing.
 
 v3.22.21-beta:
 - New option: [Ignore frame rate mode]
