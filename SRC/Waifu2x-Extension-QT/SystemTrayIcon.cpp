@@ -76,7 +76,7 @@ void MainWindow::Init_SystemTrayIcon()
     connect(quitAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(close()),Qt::UniqueConnection);
     connect(BackgroundModeAct_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(EnableBackgroundMode_SystemTray()),Qt::UniqueConnection);
     connect(SendFeedback_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Report_clicked()),Qt::UniqueConnection);
-    connect(BecomePatron_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(pushButton_Patreon()),Qt::UniqueConnection);
+    connect(BecomePatron_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Patreon_clicked()),Qt::UniqueConnection);
     connect(About_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_about_clicked()),Qt::UniqueConnection);
     connect(Donate_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showDonate()),Qt::UniqueConnection);
     connect(Pause_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Stop_clicked()),Qt::UniqueConnection);
