@@ -57,6 +57,7 @@ SOURCES += \
     srmd_ncnn_vulkan.cpp \
     table.cpp \
     textBrowser.cpp \
+    topsupporterslist.cpp \
     video.cpp \
     waifu2x.cpp \
     waifu2x_caffe.cpp \
@@ -64,10 +65,12 @@ SOURCES += \
     waifu2x_ncnn_vulkan.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    topsupporterslist.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    topsupporterslist.ui
 
 TRANSLATIONS += language_English.ts \
                language_Chinese.ts \

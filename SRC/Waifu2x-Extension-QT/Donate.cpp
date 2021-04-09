@@ -79,3 +79,14 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
     emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
     return;
 }
+
+void MainWindow::on_pushButton_Patreon_clicked()
+{
+    QDesktopServices::openUrl(QUrl("https://www.patreon.com/aaronfeng"));
+}
+
+void MainWindow::on_pushButton_SupportersList_clicked()
+{
+    TopSupportersList_widget = new TopSupportersList;
+    TopSupportersList_widget->show();
+}

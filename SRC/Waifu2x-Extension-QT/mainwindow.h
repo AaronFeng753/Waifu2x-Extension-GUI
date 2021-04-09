@@ -59,6 +59,7 @@
 #include <QScrollBar>
 #include <QThread>
 #include <QThreadPool>
+#include "topsupporterslist.h"
 
 typedef QList<QMap<QString, QString>> QList_QMap_QStrQStr;
 Q_DECLARE_METATYPE(QList_QMap_QStrQStr)
@@ -84,8 +85,8 @@ public:
     QString LastBetaVer = "v3.22.22-beta";
     //=======================
     QTranslator * translator;//界面翻译
-    //=======
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
+    TopSupportersList *TopSupportersList_widget;
     //=======
     QString Current_Path = qApp->applicationDirPath();//当前路径
     //=======

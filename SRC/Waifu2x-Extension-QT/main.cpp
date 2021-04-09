@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.22.23:
-- Improve descriptions.
+- Improve description.
 
 v3.22.22-beta:
 - New feature: Now you can choose to automatically open the output folder after processing all files by enabling [Auto-open after finished].
