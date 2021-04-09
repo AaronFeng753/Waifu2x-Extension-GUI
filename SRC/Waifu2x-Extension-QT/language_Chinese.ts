@@ -139,7 +139,7 @@
         <translation type="vanished">★ 捐赠 ★</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10858"/>
+        <location filename="mainwindow.ui" line="10434"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation>进行兼容性测试以了解您的电脑与哪些引擎兼容.</translation>
     </message>
@@ -1005,7 +1005,7 @@ path] or [Delete original files] is enabled*</source>
 后本选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10891"/>
+        <location filename="mainwindow.ui" line="10467"/>
         <location filename="CompatibilityTest.cpp" line="697"/>
         <source>Start compatibility test</source>
         <translation>开始兼容性测试</translation>
@@ -2528,7 +2528,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10506"/>
+        <location filename="mainwindow.ui" line="10552"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation>Waifu2x-ncnn-vulkan(最新版)</translation>
     </message>
@@ -2785,17 +2785,16 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]</translation>
         <translation type="vanished">引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10668"/>
+        <location filename="mainwindow.ui" line="10674"/>
         <source>For processing Image and GIF.</source>
         <translation>用于处理图片和GIF.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10569"/>
+        <location filename="mainwindow.ui" line="10575"/>
         <source>For processing Video and Gif.</source>
         <translation>用于处理视频和GIF.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10547"/>
         <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
 
 And if one of the Super-Resolution engines is compatible with your PC, you can use all the functions of this software.
@@ -2806,7 +2805,7 @@ Anime4k  [ Speed:★★★  Image Quality:★ ]
 srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
 waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
 Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
-        <translation>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] 以及至少一个插帧引擎必须与您的PC兼容以确保您可以正常使用本软件的所有功能.
+        <translation type="vanished">[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] 以及至少一个插帧引擎必须与您的PC兼容以确保您可以正常使用本软件的所有功能.
 
 以及,只要有一个超分辨率引擎与您的PC兼容,您就可以使用本软件的所有功能.
 
@@ -2818,7 +2817,7 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10731"/>
+        <location filename="mainwindow.ui" line="10737"/>
         <source>Plugins:</source>
         <translation>插件:</translation>
     </message>
@@ -2908,7 +2907,7 @@ SRMD-ncnn-vulkan 可以同时支持所有图像样式且无需更改设置.</tra
         <translation type="vanished">Waifu2x-converter</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10767"/>
+        <location filename="mainwindow.ui" line="10773"/>
         <source>For processing Video.</source>
         <oldsource>For processing GIF and Video.</oldsource>
         <translation>用于处理视频.</translation>
@@ -3020,7 +3019,7 @@ path] or [Delete original files] is enabled*</source>
 时本选项将会被禁用*</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10453"/>
+        <location filename="mainwindow.ui" line="10499"/>
         <source>Compatibility test results</source>
         <translation>兼容性测试结果</translation>
     </message>
@@ -3051,7 +3050,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10678"/>
+        <location filename="mainwindow.ui" line="10684"/>
         <source>For audio denoise(video).</source>
         <translation>用于给音频降噪(视频).</translation>
     </message>
@@ -3074,7 +3073,7 @@ Anime4k  [ 速度:★★★  画质:★ ]
 srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10485"/>
+        <location filename="mainwindow.ui" line="10531"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation>Waifu2x-ncnn-vulkan(旧版本)</translation>
     </message>
@@ -3083,17 +3082,17 @@ srmd-ncnn-vulkan  [ 速度:★★  画质:★★★ ]</translation>
         <translation type="vanished">Anime4K(GPU)</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10477"/>
-        <location filename="mainwindow.ui" line="10498"/>
-        <location filename="mainwindow.ui" line="10519"/>
-        <location filename="mainwindow.ui" line="10591"/>
-        <location filename="mainwindow.ui" line="10615"/>
-        <location filename="mainwindow.ui" line="10646"/>
-        <location filename="mainwindow.ui" line="10694"/>
-        <location filename="mainwindow.ui" line="10709"/>
-        <location filename="mainwindow.ui" line="10738"/>
-        <location filename="mainwindow.ui" line="10783"/>
-        <location filename="mainwindow.ui" line="10798"/>
+        <location filename="mainwindow.ui" line="10523"/>
+        <location filename="mainwindow.ui" line="10544"/>
+        <location filename="mainwindow.ui" line="10565"/>
+        <location filename="mainwindow.ui" line="10597"/>
+        <location filename="mainwindow.ui" line="10621"/>
+        <location filename="mainwindow.ui" line="10652"/>
+        <location filename="mainwindow.ui" line="10700"/>
+        <location filename="mainwindow.ui" line="10715"/>
+        <location filename="mainwindow.ui" line="10744"/>
+        <location filename="mainwindow.ui" line="10789"/>
+        <location filename="mainwindow.ui" line="10804"/>
         <source>Image processing engine.</source>
         <translation>图像处理引擎。</translation>
     </message>
@@ -3122,7 +3121,7 @@ waifu2x-caffe  [ Speed:★  Image Quality:★★★ ]</translation>
         <translation type="vanished">FFprobe</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10630"/>
+        <location filename="mainwindow.ui" line="10636"/>
         <source>For processing GIF.</source>
         <translation>用于处理GIF。</translation>
     </message>
@@ -3224,8 +3223,8 @@ waifu2x-caffe  [ 速度:★☆  画质:★★★ ]
 Realsr-ncnn-vulkan [ 速度:☆  画质:★★★ ]</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11073"/>
-        <location filename="mainwindow.ui" line="11089"/>
+        <location filename="mainwindow.ui" line="11075"/>
+        <location filename="mainwindow.ui" line="11091"/>
         <source>Change the font size of the text browser.</source>
         <translation>更改文本框的字体大小。</translation>
     </message>
@@ -3848,12 +3847,12 @@ file] is enabled*
         <translation type="vanished">停止</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11013"/>
+        <location filename="mainwindow.ui" line="11015"/>
         <source>Clear text browser.</source>
         <translation>清空Text browser.</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11046"/>
+        <location filename="mainwindow.ui" line="11048"/>
         <source>Clear</source>
         <translation>清空</translation>
     </message>
@@ -3888,17 +3887,44 @@ file] is enabled*
         <translation>开始</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10760"/>
+        <location filename="mainwindow.ui" line="10766"/>
         <source>Super-Resolution Engines:</source>
         <translation>超分辨率引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10821"/>
+        <location filename="mainwindow.ui" line="10827"/>
         <source>Frame Interpolation Engines:</source>
         <translation>插帧引擎:</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11076"/>
+        <location filename="mainwindow.ui" line="10873"/>
+        <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX], one of the Super-Resolution engines and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
+
+Waifu2x-NCNN-Vulkan [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Converter   [Speed:★☆   Image quality:★★☆] [2D Anime]
+Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
+SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
+
+RIFE-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
+CAIN-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
+DAIN-NCNN-Vulkan [Speed:☆     Image quality:★★★] [2D Anime]&amp;[3D Real-life]</source>
+        <translation>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX],一个超分辨率引擎以及一个插帧引擎必须与您的电脑兼容,您才能使用本软件的所有功能.
+
+Waifu2x-NCNN-Vulkan [速度:★★   画质:★★★] [2D动漫]&amp;[3D写实]
+Waifu2x-Converter   [速度:★☆   画质:★★☆] [2D动漫]
+Anime4K             [速度:★★★ 画质:★☆  ] [2D动漫]
+SRMD-NCNN-Vulkan    [速度:★☆   画质:★★★] [2D动漫]&amp;[3D写实]
+Waifu2x-Caffe       [速度:★☆   画质:★★★] [2D动漫]&amp;[3D写实]
+RealSR-NCNN-Vulkan  [速度:☆     画质:★★★] [3D写实]
+
+RIFE-NCNN-Vulkan [速度:★★★ 画质:★★☆] [2D动漫]&amp;[3D写实]
+CAIN-NCNN-Vulkan [速度:★★★ 画质:★★☆] [2D动漫]&amp;[3D写实]
+DAIN-NCNN-Vulkan [速度:☆     画质:★★★] [2D动漫]&amp;[3D写实]</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="11078"/>
         <source>Font size:</source>
         <translation>字体大小:</translation>
     </message>

@@ -219,66 +219,52 @@ detection of new updates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10477"/>
-        <location filename="mainwindow.ui" line="10498"/>
-        <location filename="mainwindow.ui" line="10519"/>
-        <location filename="mainwindow.ui" line="10591"/>
-        <location filename="mainwindow.ui" line="10615"/>
-        <location filename="mainwindow.ui" line="10646"/>
-        <location filename="mainwindow.ui" line="10694"/>
-        <location filename="mainwindow.ui" line="10709"/>
-        <location filename="mainwindow.ui" line="10738"/>
-        <location filename="mainwindow.ui" line="10783"/>
-        <location filename="mainwindow.ui" line="10798"/>
+        <location filename="mainwindow.ui" line="10523"/>
+        <location filename="mainwindow.ui" line="10544"/>
+        <location filename="mainwindow.ui" line="10565"/>
+        <location filename="mainwindow.ui" line="10597"/>
+        <location filename="mainwindow.ui" line="10621"/>
+        <location filename="mainwindow.ui" line="10652"/>
+        <location filename="mainwindow.ui" line="10700"/>
+        <location filename="mainwindow.ui" line="10715"/>
+        <location filename="mainwindow.ui" line="10744"/>
+        <location filename="mainwindow.ui" line="10789"/>
+        <location filename="mainwindow.ui" line="10804"/>
         <source>Image processing engine.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10668"/>
+        <location filename="mainwindow.ui" line="10674"/>
         <source>For processing Image and GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10569"/>
+        <location filename="mainwindow.ui" line="10575"/>
         <source>For processing Video and Gif.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10767"/>
+        <location filename="mainwindow.ui" line="10773"/>
         <source>For processing Video.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10630"/>
+        <location filename="mainwindow.ui" line="10636"/>
         <source>For processing GIF.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10506"/>
+        <location filename="mainwindow.ui" line="10552"/>
         <source>Waifu2x-ncnn-vulkan(Latest)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10547"/>
-        <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX] and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
-
-And if one of the Super-Resolution engines is compatible with your PC, you can use all the functions of this software.
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★☆  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="mainwindow.ui" line="10731"/>
+        <location filename="mainwindow.ui" line="10737"/>
         <source>Plugins:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10678"/>
+        <location filename="mainwindow.ui" line="10684"/>
         <source>For audio denoise(video).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -320,8 +306,8 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11073"/>
-        <location filename="mainwindow.ui" line="11089"/>
+        <location filename="mainwindow.ui" line="11075"/>
+        <location filename="mainwindow.ui" line="11091"/>
         <source>Change the font size of the text browser.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1097,7 +1083,7 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10891"/>
+        <location filename="mainwindow.ui" line="10467"/>
         <location filename="CompatibilityTest.cpp" line="697"/>
         <source>Start compatibility test</source>
         <translation type="unfinished"></translation>
@@ -1138,12 +1124,12 @@ path] or [Delete original files] is enabled*
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10453"/>
+        <location filename="mainwindow.ui" line="10499"/>
         <source>Compatibility test results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10485"/>
+        <location filename="mainwindow.ui" line="10531"/>
         <source>Waifu2x-ncnn-vulkan(OLD)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1991,17 +1977,17 @@ Will improve image quality.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10760"/>
+        <location filename="mainwindow.ui" line="10766"/>
         <source>Super-Resolution Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10821"/>
+        <location filename="mainwindow.ui" line="10827"/>
         <source>Frame Interpolation Engines:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="10858"/>
+        <location filename="mainwindow.ui" line="10434"/>
         <source>Run a compatibility test to see which engines your computer is compatible with.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2235,7 +2221,23 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11076"/>
+        <location filename="mainwindow.ui" line="10873"/>
+        <source>[FFmpeg, FFprobe, ImageMagick, Gifsicle, SoX], one of the Super-Resolution engines and one of the Frame Interpolation engines must be compatible with your computer, to make sure you can use all functions in this software.
+
+Waifu2x-NCNN-Vulkan [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Converter   [Speed:★☆   Image quality:★★☆] [2D Anime]
+Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
+SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
+
+RIFE-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
+CAIN-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
+DAIN-NCNN-Vulkan [Speed:☆     Image quality:★★★] [2D Anime]&amp;[3D Real-life]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="11078"/>
         <source>Font size:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2248,12 +2250,12 @@ the language for the language settings to fully take effect.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11013"/>
+        <location filename="mainwindow.ui" line="11015"/>
         <source>Clear text browser.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="11046"/>
+        <location filename="mainwindow.ui" line="11048"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
