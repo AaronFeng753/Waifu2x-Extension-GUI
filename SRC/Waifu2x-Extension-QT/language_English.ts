@@ -180,7 +180,6 @@ Might cause ERROR.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="9840"/>
-        <location filename="mainwindow.cpp" line="2131"/>
         <source>Top Supporters</source>
         <translation type="unfinished"></translation>
     </message>
@@ -269,39 +268,49 @@ detection of new updates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="35"/>
+        <location filename="Donate.cpp" line="55"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="41"/>
+        <location filename="Donate.cpp" line="61"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="52"/>
+        <location filename="Donate.cpp" line="72"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="58"/>
+        <location filename="Donate.cpp" line="78"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="64"/>
+        <location filename="Donate.cpp" line="84"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="47"/>
+        <location filename="Donate.cpp" line="67"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="79"/>
+        <location filename="Donate.cpp" line="36"/>
+        <source>Starting to update Top Supporters List.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="44"/>
+        <source>Unable to update Top Supporters List.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="99"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4329,6 +4338,26 @@ display the window, double-click to maximize the window.</source>
     <message>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1818"/>
         <source>Old versions of Waifu2x-NCNN-Vulkan doesn&apos;t support Multi-GPUs when processing Video and GIF.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TopSupportersList</name>
+    <message>
+        <location filename="topsupporterslist.ui" line="20"/>
+        <source>Top Supporters @Waifu2x-Extension-GUI</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="topsupporterslist.ui" line="69"/>
+        <source> Become a patron</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="topsupporterslist.cpp" line="23"/>
+        <source>Failed to update &quot;Top Supporters List&quot;, following list might be out dated.
+
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

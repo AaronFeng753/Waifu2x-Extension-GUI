@@ -1296,28 +1296,38 @@ when processing video in segments.</source>
         <translation>可交互文件列表</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="35"/>
+        <location filename="Donate.cpp" line="36"/>
+        <source>Starting to update Top Supporters List.</source>
+        <translation>開始更新支持者名單.</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="44"/>
+        <source>Unable to update Top Supporters List.</source>
+        <translation>無法更新支持者名單.</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="55"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation>開始從Github下載二維碼圖片(用於[捐贈]標籤頁).</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="41"/>
+        <location filename="Donate.cpp" line="61"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation>成功從Github下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="52"/>
+        <location filename="Donate.cpp" line="72"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation>開始從碼雲下載二維碼圖片(用於[捐贈]頁面).</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="58"/>
+        <location filename="Donate.cpp" line="78"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation>成功從碼雲下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="64"/>
+        <location filename="Donate.cpp" line="84"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation>無法從碼雲下載二維碼圖片.</translation>
     </message>
@@ -1326,7 +1336,7 @@ when processing video in segments.</source>
         <translation type="vanished">結束從Github下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="47"/>
+        <location filename="Donate.cpp" line="67"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation>無法從Github下載二維碼圖片.</translation>
@@ -1336,7 +1346,7 @@ when processing video in segments.</source>
         <translation type="vanished">結束從碼雲下載二維碼圖片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="79"/>
+        <location filename="Donate.cpp" line="99"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>請捐贈以支持開發者, 您的支持是我們更新軟件的動力, 謝謝您! (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -3550,7 +3560,6 @@ Might cause ERROR.</source>
     </message>
     <message>
         <location filename="mainwindow.ui" line="9840"/>
-        <location filename="mainwindow.cpp" line="2131"/>
         <source>Top Supporters</source>
         <translation>支持者名單</translation>
     </message>
@@ -6236,6 +6245,28 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1818"/>
         <source>Old versions of Waifu2x-NCNN-Vulkan doesn&apos;t support Multi-GPUs when processing Video and GIF.</source>
         <translation>舊版本的Waifu2x-NCNN-Vulkan無法使用多顯卡處理視頻GIF.</translation>
+    </message>
+</context>
+<context>
+    <name>TopSupportersList</name>
+    <message>
+        <location filename="topsupporterslist.ui" line="20"/>
+        <source>Top Supporters @Waifu2x-Extension-GUI</source>
+        <translation>支持者名單 @Waifu2x-Extension-GUI</translation>
+    </message>
+    <message>
+        <location filename="topsupporterslist.ui" line="69"/>
+        <source> Become a patron</source>
+        <translation> 成為Patron會員</translation>
+    </message>
+    <message>
+        <location filename="topsupporterslist.cpp" line="23"/>
+        <source>Failed to update &quot;Top Supporters List&quot;, following list might be out dated.
+
+</source>
+        <translation>無法更新 &quot;支持者名單&quot;, 下方的列表可能不是最新的.
+
+</translation>
     </message>
 </context>
 </TS>

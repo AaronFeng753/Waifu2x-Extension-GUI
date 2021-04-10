@@ -26,6 +26,26 @@ int MainWindow::Donate_DownloadOnlineQRCode()
 {
     bool isGiteeBanned = ui->checkBox_BanGitee->isChecked();
     //============================
+    //     更新支持者列表
+    //============================
+    QString Github_TopSupporterList_online = "https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/TopSupportersList_W2xEX.ini";
+    QString Gitee_TopSupporterList_online = "https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/TopSupportersList_W2xEX.ini";
+    QString TopSupporterList_local = Current_Path+"/TopSupportersList_W2xEX.ini";
+    QFile::remove(TopSupporterList_local);
+    //===
+    emit Send_TextBrowser_NewMessage(tr("Starting to update Top Supporters List."));
+    DownloadTo(Github_TopSupporterList_online,TopSupporterList_local);
+    if(QFile::exists(TopSupporterList_local)==false && isGiteeBanned==false)
+    {
+        DownloadTo(Gitee_TopSupporterList_online,TopSupporterList_local);
+    }
+    if(QFile::exists(TopSupporterList_local)==false)
+    {
+        emit Send_TextBrowser_NewMessage(tr("Unable to update Top Supporters List."));
+    }
+    //============================
+    //     更新二维码图片
+    //============================
     QString Github_OnlineQRCode_online = "https://raw.githubusercontent.com/AaronFeng753/Waifu2x-Extension-GUI/master/.github/Online_Donate_QRCode.jpg";
     QString Gitee_OnlineQRCode_online = "https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/.github/Online_Donate_QRCode.jpg";
     //=

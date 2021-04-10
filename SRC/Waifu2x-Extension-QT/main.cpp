@@ -35,6 +35,8 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.22.23:
+- Online update for Top Supporters List.
+- Redesign the credits page for Top Supporters(patreon).
 - Improve description.
 
 v3.22.22-beta:
