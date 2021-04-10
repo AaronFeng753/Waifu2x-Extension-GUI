@@ -33,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     translator = new QTranslator(this);
     //==============
     ui->tabWidget->setCurrentIndex(1);//显示home tab
+    ui->tabWidget->tabBar()->setTabTextColor(0,Qt::red);
     on_tabWidget_currentChanged(1);
     ui->tabWidget_Engines->setCurrentIndex(0);
     this->setAcceptDrops(true);//mainwindow接收drop

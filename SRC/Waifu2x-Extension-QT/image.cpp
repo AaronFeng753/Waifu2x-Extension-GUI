@@ -223,7 +223,7 @@ QString MainWindow::SaveImageAs_FormatAndQuality(QString OriginalSourceImage_ful
     }
     else
     {
-        FinalFile_FullName = OriginalSourceImage_file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x"+DenoiseLevel_str+Compressed_str+OriginalExt_str+"."+FinalFile_Ext;
+        FinalFile_FullName = OriginalSourceImage_file_name + "_waifu2x_"+QString("%1").arg(ui->doubleSpinBox_ScaleRatio_image->value())+"x"+DenoiseLevel_str+Compressed_str+OriginalExt_str+"."+FinalFile_Ext;
     }
     //============ 组装完整路径 ==============
     FinalFile_FullPath = FinalFile_Folder+"/"+FinalFile_FullName;

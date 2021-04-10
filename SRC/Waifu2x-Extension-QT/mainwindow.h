@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.22.23";//软件版本号
-    bool isBetaVer = false;
-    QString LastStableVer = "v3.22.23";
-    QString LastBetaVer = "v3.22.22-beta";
+    QString VERSION = "v3.22.23-beta";//软件版本号
+    bool isBetaVer = true;
+    QString LastStableVer = "v3.22.14";
+    QString LastBetaVer = "v3.22.23-beta";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
@@ -101,34 +101,25 @@ public:
     bool AddNew_video=false;//判断是否有新增文件-视频
     void Add_File_Folder(QString Full_Path);//添加文件or文件夹(判断一个路径是文件还是文件夹,然后处理判断类型添加到table和file list)
     void Add_File_Folder_IncludeSubFolder(QString Full_Path);//添加文件文件夹(扫描子文件夹
-
     QStringList getFileNames_IncludeSubFolder(QString path);//读取文件列表, 包括文件夹
     int FileList_Add(QString fileName, QString SourceFile_fullPath);//直接向file list和tableview添加文件
-
     //判断一个文件是否已存在于一个文件列表中(输入list和完整路径,然后判断返回bool)
     bool Deduplicate_filelist(QString SourceFile_fullPath);
-
     bool file_isDirExist(QString SourceFile_fullPath);//判断文件夹是否存在
     void file_mkDir(QString SourceFile_fullPath);//创建文件夹
     bool file_isDirEmpty(QString FolderPath);
     QStringList file_getFileNames_in_Folder_nofilter(QString path);//读取文件夹内文件列表并返回(无过滤器)
     bool file_DelDir(const QString &path);//删除文件夹(无论是否为空,强制删除)
     QString file_getBaseName(QString path);//获取basename
-
     void file_MoveToTrash( QString file );//移动到回收站
-
     void MoveFileToOutputPath(QString Orginal,QString SourceFilePath);//移动文件
     QMutex MoveFile_QMutex;
-
     QString file_getFolderPath(QFileInfo fileInfo);//获取文件夹路径(去除末尾的"/")
-
     bool file_isDirWritable(QString DirPath);//检查文件夹是否可写入
-
     //检查当前行的文件所在的文件夹是否可写入
     bool file_isFilesFolderWritable_row_image(int rowNum);
     bool file_isFilesFolderWritable_row_video(int rowNum);
     bool file_isFilesFolderWritable_row_gif(int rowNum);
-
     bool file_OpenFolder(QString FolderPath);//调用系统资源管理器打开文件夹.
     bool file_OpenFilesFolder(QString FilePath);//打开文件所在的文件夹
     bool file_OpenFile(QString FilePath);
@@ -136,7 +127,6 @@ public:
     bool file_generateMarkFile(QString FileFullPath,QString Msg);
     //=================================  Table =================================
     void ui_tableViews_setUpdatesEnabled(bool isEnabled);// 启用/禁用 文件列表table的UI更新
-
     void Init_Table();//初始化三个tableview
     QStandardItemModel *Table_model_image = new QStandardItemModel();
     QStandardItemModel *Table_model_video = new QStandardItemModel();
@@ -145,16 +135,13 @@ public:
     void Table_image_CustRes_Cancel_rowNumInt(int rowNum);
     void Table_gif_CustRes_Cancel_rowNumInt(int rowNum);
     void Table_video_CustRes_Cancel_rowNumInt(int rowNum);
-
     void Table_ChangeAllStatusToWaiting();//将所有row的状态改为waiting
     QMutex QMutex_Table_ChangeAllStatusToWaiting;
-
     void Table_Clear();//清空tableview
     //获取下一个row值(用于插入新数据
     int Table_image_get_rowNum();
     int Table_gif_get_rowNum();
     int Table_video_get_rowNum();
-
     //根据输入的table,返回成对的[完整路径]和[状态]:[fullpath]=status;
     QMap<QString, QString> Table_Read_status_fullpath(QStandardItemModel *Table_model);
     //当前选中的rowNum
@@ -376,7 +363,6 @@ public:
     QString FrameInterpolation_ReadConfig(bool isUhdInput,int NumOfFrames);
     bool FrameInterpolation(QString SourcePath,QString OutputPath);
     bool Video_AutoSkip_CustRes(int rowNum);
-    int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     QMap<QString,int> video_get_Resolution(QString VideoFileFullPath);//获取视频的帧率
     QString video_get_fps(QString videoPath);//获取视频fps
     int video_get_frameNumDigits(QString videoPath);//获取帧数量的位数
@@ -394,6 +380,7 @@ public:
     QString video_get_bitrate(QString videoPath);
     //获取视频比特率(根据分辨率计算)
     QString video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledFrameFolderPath);
+    int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     //音频降噪
     QString video_AudioDenoise(QString OriginalAudioPath);
     //获取时长(秒)

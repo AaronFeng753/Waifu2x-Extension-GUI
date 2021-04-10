@@ -34,7 +34,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v3.22.23:
+v3.22.23-beta:
+- Improve quality of the result video.
+- Improve the naming of result image.
+- Optimize performance.
 - Online update for Top Supporters List.
 - Redesign the credits page for Top Supporters(patreon).
 - Improve description.

@@ -386,9 +386,7 @@ bool MainWindow::Deduplicate_filelist(QString SourceFile_fullPath)
 */
 bool MainWindow::file_isDirExist(QString SourceFile_fullPath)
 {
-    SourceFile_fullPath = SourceFile_fullPath.trimmed();
-    if(SourceFile_fullPath=="")return false;
-    QDir dir(SourceFile_fullPath);
+    QDir dir(SourceFile_fullPath.trimmed());
     return dir.exists();
 }
 /*

@@ -152,28 +152,6 @@ bool MainWindow::Video_AutoSkip_CustRes(int rowNum)
         return false;
     }
 }
-/*
-直接读取视频 分辨率 然后用 自有算法 计算其应该有的比特率
-单位为k
-*/
-int MainWindow::video_UseRes2CalculateBitrate(QString VideoFileFullPath)
-{
-    QMap<QString,int> res_map = video_get_Resolution(VideoFileFullPath);
-    int original_height = res_map["height"];
-    int original_width = res_map["width"];
-    if(original_height<=0||original_width<=0)
-    {
-        return 0;
-    }
-    if(original_height<=original_width)
-    {
-        return original_height*6;
-    }
-    else
-    {
-        return original_width*6;
-    }
-}
 
 /*
 直接获取视频的分辨率
@@ -714,6 +692,36 @@ void MainWindow::video_write_VideoConfiguration(QString VideoConfiguration_fullP
     configIniWrite->setValue("/Progress/LastVideoClipNo", -1);
 }
 
+/*
+直接读取视频 分辨率 然后用 自有算法 计算其应该有的比特率
+单位为k
+*/
+int MainWindow::video_UseRes2CalculateBitrate(QString VideoFileFullPath)
+{
+    QMap<QString,int> res_map = video_get_Resolution(VideoFileFullPath);
+    int original_height = res_map["height"];
+    int original_width = res_map["width"];
+    if(original_height<=0||original_width<=0)
+    {
+        return 0;
+    }
+    //=========
+    int MultipleOfBitrate = 1;
+    if(ui->groupBox_FrameInterpolation->isChecked()==true)
+    {
+        MultipleOfBitrate = ui->spinBox_MultipleOfFPS_VFI->value()*0.75;
+    }
+    //=========
+    if(original_height<=original_width)
+    {
+        return original_height*6*MultipleOfBitrate;
+    }
+    else
+    {
+        return original_width*6*MultipleOfBitrate;
+    }
+}
+
 QString MainWindow::video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledFrameFolderPath)
 {
     QStringList flist = file_getFileNames_in_Folder_nofilter(ScaledFrameFolderPath);
@@ -736,13 +744,20 @@ QString MainWindow::video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledF
     {
         return "";
     }
+    //=========
+    int MultipleOfBitrate = 1;
+    if(ui->groupBox_FrameInterpolation->isChecked()==true)
+    {
+        MultipleOfBitrate = ui->spinBox_MultipleOfFPS_VFI->value()*0.75;
+    }
+    //=========
     if(original_height<=original_width)
     {
-        return QString::number(original_height*6,10);
+        return QString::number(original_height*6*MultipleOfBitrate,10);
     }
     else
     {
-        return QString::number(original_width*6,10);
+        return QString::number(original_width*6*MultipleOfBitrate,10);
     }
 }
 /*

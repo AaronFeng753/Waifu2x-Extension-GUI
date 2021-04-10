@@ -97,7 +97,7 @@ height:35
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <property name="iconSize">
         <size>
@@ -126,6 +126,9 @@ height:35
        <widget class="QWidget" name="tab_Donate">
         <property name="enabled">
          <bool>true</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
         </property>
         <attribute name="icon">
          <iconset resource="icon.qrc">
