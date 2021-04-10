@@ -27,6 +27,7 @@ TopSupportersList::TopSupportersList(QWidget *parent) :
     ui->setupUi(this);
     //=================
     this->setWindowTitle(tr("Top Supporters @Waifu2x-Extension-GUI"));
+    this->setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint);
     //=================
     QString Current_Path = qApp->applicationDirPath();//当前路径
     QString TopSupportersList_ini_path = Current_Path+"/TopSupportersList_W2xEX.ini";

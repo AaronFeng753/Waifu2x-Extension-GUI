@@ -43,6 +43,10 @@ int MainWindow::Donate_DownloadOnlineQRCode()
     {
         emit Send_TextBrowser_NewMessage(tr("Unable to update Top Supporters List."));
     }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Successfully updated Top Supporters List."));
+    }
     //============================
     //     更新二维码图片
     //============================

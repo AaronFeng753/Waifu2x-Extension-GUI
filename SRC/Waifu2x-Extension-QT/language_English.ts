@@ -268,33 +268,33 @@ detection of new updates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="55"/>
+        <location filename="Donate.cpp" line="59"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="61"/>
+        <location filename="Donate.cpp" line="65"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="72"/>
+        <location filename="Donate.cpp" line="76"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="78"/>
+        <location filename="Donate.cpp" line="82"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="84"/>
+        <location filename="Donate.cpp" line="88"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="67"/>
+        <location filename="Donate.cpp" line="71"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation type="unfinished"></translation>
@@ -310,7 +310,12 @@ detection of new updates.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="99"/>
+        <location filename="Donate.cpp" line="48"/>
+        <source>Successfully updated Top Supporters List.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="103"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4355,7 +4360,7 @@ display the window, double-click to maximize the window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="topsupporterslist.cpp" line="42"/>
+        <location filename="topsupporterslist.cpp" line="43"/>
         <source>Failed to update &quot;Top Supporters List&quot;, following list might be out dated.
 
 </source>

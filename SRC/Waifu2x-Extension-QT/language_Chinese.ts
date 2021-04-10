@@ -1527,28 +1527,33 @@ when processing video in segments.</source>
         <translation>无法更新支持者名单.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="55"/>
+        <location filename="Donate.cpp" line="48"/>
+        <source>Successfully updated Top Supporters List.</source>
+        <translation>成功更新支持者列表.</translation>
+    </message>
+    <message>
+        <location filename="Donate.cpp" line="59"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Github.</oldsource>
         <translation>开始从Github下载二维码图片(用于[捐赠]标签页).</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="61"/>
+        <location filename="Donate.cpp" line="65"/>
         <source>Successfully downloaded QR Code image from Github.</source>
         <translation>成功从Github下载二维码图片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="72"/>
+        <location filename="Donate.cpp" line="76"/>
         <source>Starting to download QR Code image(for [Donate] tab) from Gitee.</source>
         <translation>开始从码云下载二维码图片(用于[捐赠]页面).</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="78"/>
+        <location filename="Donate.cpp" line="82"/>
         <source>Successfully downloaded QR Code image from Gitee.</source>
         <translation>成功从码云下载二维码图片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="84"/>
+        <location filename="Donate.cpp" line="88"/>
         <source>Unable to download QR Code image from Gitee.</source>
         <translation>无法从码云下载二维码图片.</translation>
     </message>
@@ -1557,7 +1562,7 @@ when processing video in segments.</source>
         <translation type="vanished">结束从Github下载二维码图片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="67"/>
+        <location filename="Donate.cpp" line="71"/>
         <source>Unable to download QR Code image from Github.</source>
         <oldsource>Starting to download QRCode image(for [Donate] tab) from Gitee.</oldsource>
         <translation>无法从Github下载二维码图片.</translation>
@@ -1567,7 +1572,7 @@ when processing video in segments.</source>
         <translation type="vanished">结束从码云下载二维码图片.</translation>
     </message>
     <message>
-        <location filename="Donate.cpp" line="99"/>
+        <location filename="Donate.cpp" line="103"/>
         <source>Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ</source>
         <translation>请捐赠以支持开发者, 您的支持是我们更新软件的动力, 谢谢您! (｡･∀･)ﾉﾞ</translation>
     </message>
@@ -6283,7 +6288,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation> 成为Patron会员</translation>
     </message>
     <message>
-        <location filename="topsupporterslist.cpp" line="42"/>
+        <location filename="topsupporterslist.cpp" line="43"/>
         <source>Failed to update &quot;Top Supporters List&quot;, following list might be out dated.
 
 </source>
