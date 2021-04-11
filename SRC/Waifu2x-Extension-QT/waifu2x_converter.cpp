@@ -182,7 +182,7 @@ int MainWindow::Waifu2x_Converter_Image(int rowNum,bool ReProcess_MissingAlphaCh
         OutPutPath_Final = OutPut_Path_CustRes;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
-    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,true,DenoiseLevel);
+    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,true,DenoiseLevel);
     //================== 检查是否丢失了透明通道 =====================
     if(ReProcess_MissingAlphaChannel==false)
     {

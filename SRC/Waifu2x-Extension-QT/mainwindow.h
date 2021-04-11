@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.22.23-beta";//软件版本号
+    QString VERSION = "v3.22.24-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.22.14";
-    QString LastBetaVer = "v3.22.23-beta";
+    QString LastBetaVer = "v3.22.24-beta";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
@@ -270,7 +270,7 @@ public:
     QMap<QString,int> Image_Gif_Read_Resolution(QString SourceFileFullPath);//获取图片&GIF分辨率
     bool Imgae_hasAlphaChannel(int rowNum);
     QString Imgae_PreProcess(QString ImagePath,bool ReProcess_AlphaChannel);
-    QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel);
+    QString SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,bool isDenoiseLevelEnabled,int DenoiseLevel);
     //================================================================
     int Waifu2x_Compatibility_Test();//引擎兼容性检测
     //初始化 -兼容性测试进度条

@@ -167,7 +167,7 @@ QMap<QString,int> MainWindow::Image_Gif_Read_Resolution(QString SourceFileFullPa
 修改图片的 格式 与 图像质量
 返回修改完成后文件的路径
 */
-QString MainWindow::SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,int ScaleRatio,bool isDenoiseLevelEnabled,int DenoiseLevel)
+QString MainWindow::SaveImageAs_FormatAndQuality(QString OriginalSourceImage_fullPath,QString ScaledImage_fullPath,bool isDenoiseLevelEnabled,int DenoiseLevel)
 {
     QString FinalFile_FullName = "";
     QString FinalFile_Ext = "";

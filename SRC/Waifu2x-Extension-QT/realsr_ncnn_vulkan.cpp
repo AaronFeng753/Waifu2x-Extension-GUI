@@ -251,7 +251,7 @@ int MainWindow::Realsr_NCNN_Vulkan_Image(int rowNum,bool ReProcess_MissingAlphaC
         OutPutPath_Final = OutPut_Path_CustRes;
     }
     //=========================== 另存为JPG&压缩JPG ===========================================
-    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,ScaleRatio,false,0);
+    OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPutPath_Final,false,0);
     //================== 检查是否丢失了透明通道 =====================
     if(ReProcess_MissingAlphaChannel==false)
     {

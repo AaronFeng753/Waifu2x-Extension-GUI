@@ -907,6 +907,10 @@ void MainWindow::PreLoad_Engines_Settings()
                 {
                     HDNDenoiseLevel_image = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
                 }
+                else
+                {
+                    HDNDenoiseLevel_image = "";
+                }
             }
             if(ui->comboBox_Engine_GIF->currentIndex()==3)//GIF
             {
@@ -915,6 +919,10 @@ void MainWindow::PreLoad_Engines_Settings()
                 {
                     HDNDenoiseLevel_gif = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
                 }
+                else
+                {
+                    HDNDenoiseLevel_gif = "";
+                }
             }
             if(ui->comboBox_Engine_Video->currentIndex()==2)//视频
             {
@@ -922,6 +930,10 @@ void MainWindow::PreLoad_Engines_Settings()
                 if(HDNDenoiseLevel_value>=1&&HDNDenoiseLevel_value<=3)
                 {
                     HDNDenoiseLevel_video = " -L "+QString::number(HDNDenoiseLevel_value,10)+" ";
+                }
+                else
+                {
+                    HDNDenoiseLevel_video = "";
                 }
             }
         }

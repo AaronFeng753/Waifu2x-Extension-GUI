@@ -25,6 +25,8 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
 {
     //============================= 读取设置 ================================
     int ScaleRatio = 0;
+    int denoiseLevel = ui->spinBox_DenoiseLevel_image->value();//获取降噪等级
+    bool isDenoiseEnabled = !(denoiseLevel == -1);//若降噪等级等于-1就是没启用降噪
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
     QString OutPutPath_Final ="";
@@ -102,6 +104,14 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     QString SourceFile_fullPath_FileExt = fileinfo.suffix();
     QString SourceFile_fullPath_FolderPath = file_getFolderPath(fileinfo);
     QString OutPut_Path = SourceFile_fullPath_FolderPath + "/" + SourceFile_fullPath_FileName + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+SourceFile_fullPath_FileExt+".png";
+    if(isDenoiseEnabled == true)
+    {
+        OutPut_Path = SourceFile_fullPath_FolderPath + "/" + SourceFile_fullPath_FileName + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+QString::number(denoiseLevel, 10)+"n_"+SourceFile_fullPath_FileExt+".png";
+    }
+    else
+    {
+        OutPut_Path = SourceFile_fullPath_FolderPath + "/" + SourceFile_fullPath_FileName + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_"+SourceFile_fullPath_FileExt+".png";
+    }
     //============================== 放大 =======================================
     QProcess *Waifu2x = new QProcess();
     QString CMD = "\"" + Anime4k_ProgramPath + "\" -i \"" + SourceFile_fullPath + "\" -o \"" + OutPut_Path + "\" -z " + QString::number(ScaleRatio, 10) + HDNDenoiseLevel_image + Anime4k_ReadSettings(PreserveAlphaChannel);
@@ -181,12 +191,26 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         QFile::remove(OutPut_Path_CustRes);
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
         //=========================== 另存为JPG&压缩JPG ===========================================
-        OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,ScaleRatio,false,0);
+        if(isDenoiseEnabled == true)
+        {
+            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,false,0);
+        }
+        else
+        {
+            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,true,denoiseLevel);
+        }
     }
     else
     {
         //=========================== 另存为JPG&压缩JPG ===========================================
-        OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,ScaleRatio,false,0);
+        if(isDenoiseEnabled == true)
+        {
+            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,false,0);
+        }
+        else
+        {
+            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,true,denoiseLevel);
+        }
     }
     //================== 检查是否丢失了透明通道 =====================
     if(ReProcess_MissingAlphaChannel==false)
@@ -245,7 +269,6 @@ int MainWindow::Anime4k_GIF(int rowNum)
     //============================= 读取设置 ================================
     int ScaleRatio = ui->doubleSpinBox_ScaleRatio_gif->value();
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
-    bool OptGIF = ui->checkBox_OptGIF->isChecked();
     int Sub_gif_ThreadNumRunning = 0;
     QString OutPutPath_Final ="";
     //========================= 拆解map得到参数 =============================
@@ -427,6 +450,16 @@ int MainWindow::Anime4k_GIF(int rowNum)
     {
         ResGIFPath = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+".gif";
     }
+    //=======================
+    //  修改文件名,添加降噪等级
+    //=======================
+    int denoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
+    if(denoiseLevel != -1)
+    {
+        QFileInfo fileinfo_tmp(ResGIFPath);
+        ResGIFPath = file_getFolderPath(fileinfo_tmp) + "/" + file_getBaseName(ResGIFPath) + "_"+QString::number(denoiseLevel, 10)+"n.gif";
+    }
+    //======================
     Gif_assembleGif(ResGIFPath,ScaledFramesFolderPath,GIF_Duration,CustRes_isEnabled,CustRes_height,CustRes_width,false,"");
     if(!QFile::exists(ResGIFPath))
     {
@@ -438,17 +471,10 @@ int MainWindow::Anime4k_GIF(int rowNum)
     }
     OutPutPath_Final = ResGIFPath;
     //======================================= 优化gif ===================================================
-    if(OptGIF)
+    if(ui->checkBox_OptGIF->isChecked() == true)
     {
-        QString ResGIFPath_compressed = "";
-        if(CustRes_isEnabled)
-        {
-            ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(CustRes_width, 10)+"x"+QString::number(CustRes_height,10)+"_opt.gif";
-        }
-        else
-        {
-            ResGIFPath_compressed = file_path + "/" + file_name + "_waifu2x_"+QString::number(ScaleRatio, 10)+"x_opt.gif";
-        }
+        QFileInfo fileinfo_tmp(OutPutPath_Final);
+        QString ResGIFPath_compressed = file_getFolderPath(fileinfo_tmp) + "/" + file_getBaseName(OutPutPath_Final) + "_opt.gif";
         OutPutPath_Final = Gif_compressGif(ResGIFPath,ResGIFPath_compressed);
     }
     //============================== 删除缓存文件 ====================================================
@@ -868,14 +894,22 @@ int MainWindow::Anime4k_Video(int rowNum)
         return 0;//如果启用stop位,则直接return
     }
     //======================================== 组装 ======================================================
+    //确定是否插入降噪值
+    QString denoiseLevel_inName_str = "";
+    int denoiseLevel = ui->spinBox_DenoiseLevel_video->value();
+    if(denoiseLevel != -1)
+    {
+        denoiseLevel_inName_str = QString::number(denoiseLevel,10)+"n_";
+    }
+    //生成最终视频文件名
     QString video_mp4_scaled_fullpath = "";
     if(CustRes_isEnabled == true)
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+file_ext+".mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+denoiseLevel_inName_str+file_ext+".mp4";
     }
     else
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+file_ext+".mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+denoiseLevel_inName_str+file_ext+".mp4";
     }
     video_images2video(video_mp4_fullpath,video_mp4_scaled_fullpath,ScaledFramesFolderPath,AudioPath,CustRes_isEnabled,CustRes_height,CustRes_width,false);
     if(QFile::exists(video_mp4_scaled_fullpath)==false)//检查是否成功成功生成视频
@@ -1398,14 +1432,22 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
     //======================================================
     //                    组装(片段到成片)
     //======================================================
+    //确定是否插入降噪值
+    QString denoiseLevel_inName_str = "";
+    int denoiseLevel = ui->spinBox_DenoiseLevel_video->value();
+    if(denoiseLevel != -1)
+    {
+        denoiseLevel_inName_str = QString::number(denoiseLevel,10)+"n_";
+    }
+    //生成最终视频名称
     QString video_mp4_scaled_fullpath = "";
     if(CustRes_isEnabled)
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+file_ext+".mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(CustRes_width,10)+"x"+QString::number(CustRes_height,10)+"_"+denoiseLevel_inName_str+file_ext+".mp4";
     }
     else
     {
-        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+file_ext+".mp4";
+        video_mp4_scaled_fullpath = file_path+"/"+file_name+"_waifu2x_"+QString::number(ScaleRatio,10)+"x_"+denoiseLevel_inName_str+file_ext+".mp4";
     }
     QFile::remove(video_mp4_scaled_fullpath);
     video_AssembleVideoClips(VideoClipsFolderPath,VideoClipsFolderName,video_mp4_scaled_fullpath,AudioPath);

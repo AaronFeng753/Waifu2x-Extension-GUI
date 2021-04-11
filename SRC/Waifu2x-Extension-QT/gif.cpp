@@ -297,7 +297,7 @@ QString MainWindow::Gif_compressGif(QString gifPath,QString gifPath_compressd)
     //比较文件大小,判断压缩是否有效
     QFileInfo *gifPath_QFileInfo = new QFileInfo(gifPath);
     QFileInfo *gifPath_compressd_QFileInfo = new QFileInfo(gifPath_compressd);
-    if((gifPath_compressd_QFileInfo->size() < gifPath_QFileInfo->size())==false)
+    if(gifPath_compressd_QFileInfo->size() >= gifPath_QFileInfo->size())
     {
         emit Send_TextBrowser_NewMessage(tr("Failed to optimize gif [")+gifPath+tr("] to reduce storage usage, the optimized gif file will be deleted."));
         QFile::remove(gifPath_compressd);
