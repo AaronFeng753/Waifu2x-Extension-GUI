@@ -377,9 +377,9 @@ public:
     //读取输出视频的设定参数
     QString video_ReadSettings_OutputVid(QString AudioPath);
     //获取视频比特率
-    QString video_get_bitrate(QString videoPath);
+    QString video_get_bitrate(QString videoPath,bool isReturnFullCMD,bool isVidOnly);
     //获取视频比特率(根据分辨率计算)
-    QString video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledFrameFolderPath);
+    QString video_get_bitrate_AccordingToRes_FrameFolder(QString ScaledFrameFolderPath,QString VideoPath);
     int video_UseRes2CalculateBitrate(QString VideoFileFullPath);//根据视频的分辨率计算他应该被分配的比特率
     //音频降噪
     QString video_AudioDenoise(QString OriginalAudioPath);

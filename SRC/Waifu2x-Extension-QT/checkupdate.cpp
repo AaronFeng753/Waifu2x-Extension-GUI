@@ -71,6 +71,15 @@ int MainWindow::CheckUpadte_Auto()
         //==
         QSettings *configIniRead = new QSettings(Github_UpdateInfo_local, QSettings::IniFormat);
         configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+        //=====
+        if(configIniRead->value("/Latest_Version/Ver") == QVariant() || configIniRead->value("/Change_log/log") == QVariant())
+        {
+            emit Send_TextBrowser_NewMessage(tr("Unable to check for updates! Please check your network or check for updates manually."));
+            QFile::remove(Github_UpdateInfo_local);
+            QFile::remove(Gitee_UpdateInfo_local);
+            return 0;
+        }
+        //=====
         Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
         QString Change_log = configIniRead->value("/Change_log/log").toString();
         Latest_Ver = Latest_Ver.trimmed();
@@ -102,6 +111,15 @@ int MainWindow::CheckUpadte_Auto()
             //==
             QSettings *configIniRead = new QSettings(Gitee_UpdateInfo_local, QSettings::IniFormat);
             configIniRead->setIniCodec(QTextCodec::codecForName("UTF-8"));
+            //=====
+            if(configIniRead->value("/Latest_Version/Ver") == QVariant() || configIniRead->value("/Change_log/log") == QVariant())
+            {
+                emit Send_TextBrowser_NewMessage(tr("Unable to check for updates! Please check your network or check for updates manually."));
+                QFile::remove(Github_UpdateInfo_local);
+                QFile::remove(Gitee_UpdateInfo_local);
+                return 0;
+            }
+            //=====
             Latest_Ver = configIniRead->value("/Latest_Version/Ver").toString();
             QString Change_log = configIniRead->value("/Change_log/log").toString();
             Latest_Ver = Latest_Ver.trimmed();

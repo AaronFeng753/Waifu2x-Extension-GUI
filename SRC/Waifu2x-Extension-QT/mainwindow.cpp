@@ -523,9 +523,6 @@ void MainWindow::Play_NFSound()
     player->play();
 }
 
-
-
-
 void MainWindow::on_pushButton_Report_clicked()
 {
     QDesktopServices::openUrl(QUrl("https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/new"));

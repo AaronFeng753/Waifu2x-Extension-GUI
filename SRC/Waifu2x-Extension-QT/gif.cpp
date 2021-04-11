@@ -95,8 +95,12 @@ int MainWindow::Gif_getDuration(QString gifPath)
     }
     gif_info_ini.close();
     //================== 读取ini获得参数 =====================
+    QString FPS_Division = "";
     QSettings *configIniRead_videoInfo = new QSettings(Path_gif_info_ini, QSettings::IniFormat);
-    QString FPS_Division = configIniRead_videoInfo->value("/streams.stream.0/avg_frame_rate").toString().trimmed();
+    if(configIniRead_videoInfo->value("/streams.stream.0/avg_frame_rate") != QVariant())
+    {
+        FPS_Division = configIniRead_videoInfo->value("/streams.stream.0/avg_frame_rate").toString().trimmed();
+    }
     gif_info_ini.remove();
     //=======================
     int Duration = 0;

@@ -35,9 +35,12 @@ int main(int argc, char *argv[])
 Change log:
 
 v3.22.24-beta:
+- Improve quality of the result video.
 - Improve the naming of result files when using Anime4k engine.
 - Optimize performance.
 - Fix bug: Denoise level is still being loaded even though HDN is not enabled.
+- Fix bug: Crash when unable to read video or gif info correctly.
+- Fix bug: Unstable Internet connection might cause some unexpected error.
 
 v3.22.23-beta:
 - Improve quality of the result video.
