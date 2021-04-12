@@ -38,6 +38,7 @@ v3.22.24-beta:
 - Improve quality of the result video.
 - Improve the naming of result files when using Anime4k engine.
 - Optimize performance.
+- Remove first time start tips.
 - Fix bug: Denoise level is still being loaded even though HDN is not enabled.
 - Fix bug: Crash when unable to read video or gif info correctly.
 - Fix bug: Unstable Internet connection might cause some unexpected error.

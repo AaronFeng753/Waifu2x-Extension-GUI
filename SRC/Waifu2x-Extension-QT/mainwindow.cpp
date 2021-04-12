@@ -1256,21 +1256,6 @@ void MainWindow::Tip_FirstTimeStart()
         if (Msg.clickedButton() == pYesBtn_Chinese)ui->comboBox_language->setCurrentIndex(1);
         if (Msg.clickedButton() == pYesBtn_TraditionalChinese)ui->comboBox_language->setCurrentIndex(2);
         on_comboBox_language_currentIndexChanged(0);
-        /*
-          弹出必读Tips对话框
-        */
-        QString English_1 = tr("- Please read the Wiki before starting to use the software.\n");
-        QString English_7 = tr("- If there is a problem with the software font display, you can modify the font in the additional settings.\n");
-        QString English_8 = tr("- This software is free, if you find anyone selling this software, please report the seller.\n");
-        QString English_9 = tr("- This software is free and open source, and licensed under the GNU Affero General Public License v3.0. All consequences of using this software are borne by the user, and the developer does not bear any responsibility.\n");
-        QString English_10 = tr("- If you like this software, please donate to support the developer, thank you!\n");
-        //========
-        QMessageBox *MSG = new QMessageBox();
-        MSG->setWindowTitle(tr("!!! Tips !!!"));
-        MSG->setText(English_1+English_7+English_8+English_9+English_10);
-        MSG->setIcon(QMessageBox::Information);
-        MSG->setModal(true);
-        MSG->show();
         //======
         QMessageBox *MSG_2 = new QMessageBox();
         MSG_2->setWindowTitle(tr("Notification"));
