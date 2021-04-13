@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.22.24-beta";//软件版本号
+    QString VERSION = "v3.22.25-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.22.14";
-    QString LastBetaVer = "v3.22.24-beta";
+    QString LastBetaVer = "v3.22.25-beta";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");

@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.22.25-beta:
+- Improve description.
+
 v3.22.24-beta:
 - Improve quality of the result video.
 - Improve the naming of result files when using Anime4k engine.

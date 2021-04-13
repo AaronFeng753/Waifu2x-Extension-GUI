@@ -1082,7 +1082,6 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
 
 int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fullpath,QString ScaledFrameFolderPath,QString AudioPath,bool CustRes_isEnabled,int CustRes_height,int CustRes_width,bool isOverScaled)
 {
-    emit Send_TextBrowser_NewMessage(tr("Start assembling video:[")+VideoPath+"]");
     bool Del_DenoisedAudio = false;
     //=================
     QString bitrate_video_cmd="";
@@ -1242,6 +1241,8 @@ int MainWindow::video_images2video(QString VideoPath,QString video_mp4_scaled_fu
         }
     }
     //================= 开始处理 =============================
+    emit Send_TextBrowser_NewMessage(tr("Start assembling video:[")+VideoPath+"]");
+    //======
     QString CMD = "";
     if(QFile::exists(AudioPath))
     {
