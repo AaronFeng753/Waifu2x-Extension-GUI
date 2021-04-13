@@ -1242,7 +1242,7 @@ Smaller tile size means waifu2x will use less GPU memory and run slower.
         <location filename="mainwindow.ui" line="6258"/>
         <location filename="mainwindow.ui" line="7228"/>
         <location filename="mainwindow.ui" line="7932"/>
-        <location filename="Frame_Interpolation.cpp" line="951"/>
+        <location filename="Frame_Interpolation.cpp" line="940"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1731"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1674"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1674"/>
@@ -2426,7 +2426,7 @@ Therefore, the custom resolution for video has been automatically corrected by t
     <message>
         <location filename="CustomResolution.cpp" line="81"/>
         <location filename="CustomResolution.cpp" line="151"/>
-        <location filename="Frame_Interpolation.cpp" line="1114"/>
+        <location filename="Frame_Interpolation.cpp" line="1103"/>
         <location filename="Right-click_Menu.cpp" line="206"/>
         <location filename="Right-click_Menu.cpp" line="252"/>
         <location filename="files.cpp" line="109"/>
@@ -2664,15 +2664,15 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="1461"/>
         <location filename="CustomResolution.cpp" line="318"/>
         <location filename="CustomResolution.cpp" line="391"/>
-        <location filename="Frame_Interpolation.cpp" line="35"/>
-        <location filename="Frame_Interpolation.cpp" line="50"/>
-        <location filename="Frame_Interpolation.cpp" line="227"/>
-        <location filename="Frame_Interpolation.cpp" line="256"/>
-        <location filename="Frame_Interpolation.cpp" line="289"/>
-        <location filename="Frame_Interpolation.cpp" line="350"/>
-        <location filename="Frame_Interpolation.cpp" line="365"/>
-        <location filename="Frame_Interpolation.cpp" line="390"/>
-        <location filename="Frame_Interpolation.cpp" line="406"/>
+        <location filename="Frame_Interpolation.cpp" line="34"/>
+        <location filename="Frame_Interpolation.cpp" line="49"/>
+        <location filename="Frame_Interpolation.cpp" line="223"/>
+        <location filename="Frame_Interpolation.cpp" line="252"/>
+        <location filename="Frame_Interpolation.cpp" line="285"/>
+        <location filename="Frame_Interpolation.cpp" line="346"/>
+        <location filename="Frame_Interpolation.cpp" line="361"/>
+        <location filename="Frame_Interpolation.cpp" line="379"/>
+        <location filename="Frame_Interpolation.cpp" line="395"/>
         <location filename="files.cpp" line="540"/>
         <location filename="files.cpp" line="558"/>
         <location filename="files.cpp" line="576"/>
@@ -2719,7 +2719,7 @@ Do you wanna update now???</source>
         <location filename="srmd_ncnn_vulkan.cpp" line="1464"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1492"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1532"/>
-        <location filename="video.cpp" line="1162"/>
+        <location filename="video.cpp" line="1161"/>
         <location filename="waifu2x_caffe.cpp" line="34"/>
         <location filename="waifu2x_caffe.cpp" line="57"/>
         <location filename="waifu2x_caffe.cpp" line="82"/>
@@ -2796,8 +2796,8 @@ Do you wanna update now???</source>
         <location filename="Anime4K.cpp" line="279"/>
         <location filename="Anime4K.cpp" line="611"/>
         <location filename="Anime4K.cpp" line="988"/>
-        <location filename="Frame_Interpolation.cpp" line="35"/>
-        <location filename="Frame_Interpolation.cpp" line="350"/>
+        <location filename="Frame_Interpolation.cpp" line="34"/>
+        <location filename="Frame_Interpolation.cpp" line="346"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="35"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="328"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="587"/>
@@ -2855,7 +2855,7 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="716"/>
         <location filename="Anime4K.cpp" line="1121"/>
-        <location filename="Frame_Interpolation.cpp" line="105"/>
+        <location filename="Frame_Interpolation.cpp" line="104"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="691"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1128"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="698"/>
@@ -2872,7 +2872,7 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="716"/>
         <location filename="Anime4K.cpp" line="1121"/>
-        <location filename="Frame_Interpolation.cpp" line="105"/>
+        <location filename="Frame_Interpolation.cpp" line="104"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="691"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1128"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="698"/>
@@ -2913,8 +2913,8 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="626"/>
         <location filename="Anime4K.cpp" line="1003"/>
-        <location filename="Frame_Interpolation.cpp" line="50"/>
-        <location filename="Frame_Interpolation.cpp" line="365"/>
+        <location filename="Frame_Interpolation.cpp" line="49"/>
+        <location filename="Frame_Interpolation.cpp" line="361"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="602"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1010"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="608"/>
@@ -2931,8 +2931,8 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     <message>
         <location filename="Anime4K.cpp" line="765"/>
         <location filename="Anime4K.cpp" line="1257"/>
-        <location filename="Frame_Interpolation.cpp" line="227"/>
-        <location filename="Frame_Interpolation.cpp" line="390"/>
+        <location filename="Frame_Interpolation.cpp" line="223"/>
+        <location filename="Frame_Interpolation.cpp" line="379"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="738"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1265"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="745"/>
@@ -2979,7 +2979,7 @@ If the reprocessing happens a lot, you should consider enable [Always pre-proces
     </message>
     <message>
         <location filename="Anime4K.cpp" line="1858"/>
-        <location filename="Frame_Interpolation.cpp" line="1079"/>
+        <location filename="Frame_Interpolation.cpp" line="1068"/>
         <source>Current configuration is wrong or empty.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3037,8 +3037,8 @@ Anime4k GPUs List(user configuration):</oldsource>
     <message>
         <location filename="Anime4K.cpp" line="922"/>
         <location filename="Anime4K.cpp" line="1413"/>
-        <location filename="Frame_Interpolation.cpp" line="256"/>
-        <location filename="Frame_Interpolation.cpp" line="406"/>
+        <location filename="Frame_Interpolation.cpp" line="252"/>
+        <location filename="Frame_Interpolation.cpp" line="395"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="930"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1474"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="941"/>
@@ -3061,7 +3061,7 @@ Anime4k GPUs List(user configuration):</oldsource>
     </message>
     <message>
         <location filename="Anime4K.cpp" line="1461"/>
-        <location filename="Frame_Interpolation.cpp" line="289"/>
+        <location filename="Frame_Interpolation.cpp" line="285"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1514"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1532"/>
         <location filename="waifu2x_caffe.cpp" line="1450"/>
@@ -3083,7 +3083,7 @@ Anime4k GPUs List(user configuration):</oldsource>
         <location filename="Anime4K.cpp" line="145"/>
         <location filename="Anime4K.cpp" line="561"/>
         <location filename="Anime4K.cpp" line="1577"/>
-        <location filename="Frame_Interpolation.cpp" line="651"/>
+        <location filename="Frame_Interpolation.cpp" line="640"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="188"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="472"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="884"/>
@@ -3270,7 +3270,7 @@ Make sure you know what you are doing before change any settings.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="1115"/>
+        <location filename="Frame_Interpolation.cpp" line="1104"/>
         <source>The multi-threading of the frame interpolation engines is NOT very stable, we don&apos;t recommend you to enable this option.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3658,12 +3658,12 @@ Waifu2x-converter processor list:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1085"/>
+        <location filename="video.cpp" line="1244"/>
         <source>Start assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1162"/>
+        <location filename="video.cpp" line="1161"/>
         <source>]. Error: [Unable to get video frame rate.]</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3671,19 +3671,19 @@ Waifu2x-converter processor list:
         <location filename="video.cpp" line="474"/>
         <location filename="video.cpp" line="1067"/>
         <location filename="video.cpp" line="1074"/>
-        <location filename="video.cpp" line="1221"/>
-        <location filename="video.cpp" line="1228"/>
+        <location filename="video.cpp" line="1220"/>
+        <location filename="video.cpp" line="1227"/>
         <source>Failed to interpolate frames of video:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="video.cpp" line="1074"/>
-        <location filename="video.cpp" line="1228"/>
+        <location filename="video.cpp" line="1227"/>
         <source>]. Gonna generate a video without frame Interpolation.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="video.cpp" line="1300"/>
+        <location filename="video.cpp" line="1301"/>
         <source>Finish assembling video:[</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3994,38 +3994,43 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="469"/>
+        <location filename="Frame_Interpolation.cpp" line="88"/>
+        <source>Previous video cache will be deleted, due to the [Multiple of FPS] was changed. [</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="Frame_Interpolation.cpp" line="458"/>
         <source>Starting to interpolate frames in:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="502"/>
+        <location filename="Frame_Interpolation.cpp" line="491"/>
         <source>UHD input detected, UHD Mode is automatically enabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="610"/>
+        <location filename="Frame_Interpolation.cpp" line="599"/>
         <source>Interpolating frames in:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="610"/>
+        <location filename="Frame_Interpolation.cpp" line="599"/>
         <source>] Progress:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="660"/>
+        <location filename="Frame_Interpolation.cpp" line="649"/>
         <source>Finish interpolating frames in:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="Frame_Interpolation.cpp" line="663"/>
         <location filename="Frame_Interpolation.cpp" line="674"/>
-        <location filename="Frame_Interpolation.cpp" line="685"/>
         <source>Failed to interpolate frames in:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="840"/>
+        <location filename="Frame_Interpolation.cpp" line="829"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1638"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1586"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1586"/>
@@ -4033,7 +4038,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="851"/>
+        <location filename="Frame_Interpolation.cpp" line="840"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1655"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1601"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1601"/>
@@ -4041,7 +4046,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="915"/>
+        <location filename="Frame_Interpolation.cpp" line="904"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1696"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1642"/>
         <location filename="waifu2x_converter.cpp" line="1645"/>
@@ -4050,7 +4055,7 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="918"/>
+        <location filename="Frame_Interpolation.cpp" line="907"/>
         <location filename="realsr_ncnn_vulkan.cpp" line="1699"/>
         <location filename="srmd_ncnn_vulkan.cpp" line="1645"/>
         <location filename="waifu2x_ncnn_vulkan.cpp" line="1645"/>
@@ -4058,12 +4063,12 @@ If it is still not compatible, please uninstall and reinstall the graphics drive
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="934"/>
+        <location filename="Frame_Interpolation.cpp" line="923"/>
         <source>Available GPU IDs for current Frame Interpolation engine:[</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="Frame_Interpolation.cpp" line="1083"/>
+        <location filename="Frame_Interpolation.cpp" line="1072"/>
         <source>GPUs List</source>
         <translation type="unfinished"></translation>
     </message>
