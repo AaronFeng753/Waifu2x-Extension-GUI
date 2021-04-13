@@ -37,6 +37,7 @@ Change log:
 v3.22.25-beta:
 - Optimize performance.
 - Improve description.
+- Improve stability.
 - Fix bug: Unable to continue process existing video cache when frame interpolation is enabled.
 
 v3.22.24-beta:

@@ -985,10 +985,13 @@ int MainWindow::video_get_frameNum(QString videoPath)
     }
     video_info_ini.close();
     //================== 读取ini获得参数 =====================
+    int FrameNum = 0;
     QSettings *configIniRead_videoInfo = new QSettings(Path_video_info_ini, QSettings::IniFormat);
-    QString FrameNum_Str = configIniRead_videoInfo->value("/streams.stream.0/nb_frames").toString().trimmed();
+    if(configIniRead_videoInfo->value("/streams.stream.0/nb_frames") != QVariant())
+    {
+        FrameNum = configIniRead_videoInfo->value("/streams.stream.0/nb_frames").toInt();
+    }
     video_info_ini.remove();
-    int FrameNum = FrameNum_Str.toInt();
     if(FrameNum<1)
     {
         emit Send_TextBrowser_NewMessage(tr("ERROR! Unable to read the number of frames of the video: [")+videoPath+"]");
