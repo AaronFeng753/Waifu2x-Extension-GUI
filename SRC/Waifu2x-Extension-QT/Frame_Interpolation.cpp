@@ -25,7 +25,6 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
 {
     //============================= 读取设置 ================================
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
-    bool isCacheExists = false;
     int SegmentDuration = ui->spinBox_SegmentDuration->value();
     //========================= 拆解map得到参数 =============================
     emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
@@ -83,9 +82,10 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
             VideoClipsFolderName = VideoClipsFolderName_old;
         }
         //============
-        int MultipleOfFPS_old = configIniRead->value("/VideoConfiguration/MultipleOfFPS_old").toInt();
+        int MultipleOfFPS_old = configIniRead->value("/VideoConfiguration/MultipleOfFPS").toInt();
         if(MultipleOfFPS_old != ui->spinBox_MultipleOfFPS_VFI->value())
         {
+            emit Send_TextBrowser_NewMessage(tr("Previous video cache will be deleted, due to the [Multiple of FPS] was changed. [")+SourceFile_fullPath+"]");
             DelVfiDir(video_mp4_fullpath);
             file_DelDir(SplitFramesFolderPath);
             QFile::remove(VideoConfiguration_fullPath);
@@ -101,20 +101,16 @@ int MainWindow::FrameInterpolation_Video_BySegment(int rowNum)
     //=======================
     if(file_isDirExist(SplitFramesFolderPath))
     {
-        isCacheExists=true;
         emit Send_TextBrowser_NewMessage(tr("The previous video cache file is detected and processing of the previous video cache will continue. If you want to restart processing of the current video:[")+SourceFile_fullPath+tr("], delete the cache manually."));
     }
     else
     {
-        isCacheExists=false;
-        //========
         QFile::remove(VideoConfiguration_fullPath);
         file_DelDir(SplitFramesFolderPath);
         file_DelDir(VideoClipsFolderPath);
         QFile::remove(AudioPath);
         DelVfiDir(video_mp4_fullpath);
         emit Send_video_write_VideoConfiguration(VideoConfiguration_fullPath,0,0,false,0,0,"",true,VideoClipsFolderPath,VideoClipsFolderName,true,ui->spinBox_MultipleOfFPS_VFI->value());
-        //========
     }
     /*====================================
                   提取音频
@@ -372,15 +368,8 @@ int MainWindow::FrameInterpolation_Video(int rowNum)
     //==========================================
     //                   拆分(正常)
     //==========================================
-    if(file_isDirExist(SplitFramesFolderPath))
-    {
-        file_DelDir(SplitFramesFolderPath);
-        file_mkDir(SplitFramesFolderPath);
-    }
-    else
-    {
-        file_mkDir(SplitFramesFolderPath);
-    }
+    file_DelDir(SplitFramesFolderPath);
+    file_mkDir(SplitFramesFolderPath);
     QFile::remove(AudioPath);
     video_video2images(video_mp4_fullpath,SplitFramesFolderPath,AudioPath);
     //============================== 扫描获取文件名 ===============================

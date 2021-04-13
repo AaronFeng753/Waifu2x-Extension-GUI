@@ -34,8 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+******* 补全翻译 ********
+
 v3.22.25-beta:
+- Optimize performance.
 - Improve description.
+- Fix bug: Unable to continue process existing video cache when frame interpolation is enabled.
 
 v3.22.24-beta:
 - Improve quality of the result video.
@@ -68,6 +72,7 @@ v3.22.21-beta:
 
 --------------------------------------------------------------------------
 To do:
+- 添加对"图片文件夹"的支持,一次处理一个文件夹
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 ---------------------------------------------------------------------------
 Integrated component:
