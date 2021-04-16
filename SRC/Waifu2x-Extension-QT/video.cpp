@@ -470,6 +470,7 @@ void MainWindow::video_video2images_ProcessBySegment(QString VideoPath,QString F
             else
             {
                 file_DelDir(FrameFolderPath);
+                file_mkDir(FrameFolderPath);
                 file_DelDir(VFI_FolderPath_tmp);
                 if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
                 return;
@@ -1063,14 +1064,16 @@ void MainWindow::video_video2images(QString VideoPath,QString FrameFolderPath,QS
             }
             else
             {
-                //如果插帧失败且启用了分段处理或仅插帧模式
-                if(ui->checkBox_ProcessVideoBySegment->isChecked()==true || ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
+                //如果插帧失败且启用了仅插帧模式
+                if(ui->checkBox_FrameInterpolationOnly_Video->isChecked()==true)
                 {
+                    file_DelDir(FrameFolderPath);
+                    file_mkDir(FrameFolderPath);
                     file_DelDir(VFI_FolderPath_tmp);
                     if(waifu2x_STOP==false)emit Send_TextBrowser_NewMessage(tr("Failed to interpolate frames of video:[")+VideoPath+"]");
                     return;
                 }
-                //如果插帧失败但是已经超分辨率且没分段
+                //如果插帧失败但是已经超分辨率
                 else
                 {
                     file_DelDir(VFI_FolderPath_tmp);

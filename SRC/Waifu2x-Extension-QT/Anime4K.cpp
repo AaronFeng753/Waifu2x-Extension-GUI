@@ -26,7 +26,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //============================= 读取设置 ================================
     int ScaleRatio = 0;
     int denoiseLevel = ui->spinBox_DenoiseLevel_image->value();//获取降噪等级
-    bool isDenoiseEnabled = !(denoiseLevel == -1);//若降噪等级等于-1就是没启用降噪
+    bool isDenoiseEnabled = denoiseLevel != -1;//若降噪等级等于-1就是没启用降噪
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
     QString OutPutPath_Final ="";
@@ -191,26 +191,12 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
         QFile::remove(OutPut_Path_CustRes);
         QFile::rename(OutPut_Path,OutPut_Path_CustRes);
         //=========================== 另存为JPG&压缩JPG ===========================================
-        if(isDenoiseEnabled == true)
-        {
-            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,false,0);
-        }
-        else
-        {
-            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,true,denoiseLevel);
-        }
+        OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path_CustRes,isDenoiseEnabled,denoiseLevel);
     }
     else
     {
         //=========================== 另存为JPG&压缩JPG ===========================================
-        if(isDenoiseEnabled == true)
-        {
-            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,false,0);
-        }
-        else
-        {
-            OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,true,denoiseLevel);
-        }
+        OutPutPath_Final = SaveImageAs_FormatAndQuality(SourceFile_fullPath_Original,OutPut_Path,isDenoiseEnabled,denoiseLevel);
     }
     //================== 检查是否丢失了透明通道 =====================
     if(ReProcess_MissingAlphaChannel==false)
@@ -755,6 +741,11 @@ int MainWindow::Anime4k_Video(int rowNum)
         }
         QFile::remove(AudioPath);
         video_video2images(video_mp4_fullpath,SplitFramesFolderPath,AudioPath);
+        if(waifu2x_STOP)
+        {
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+            return 0;//如果启用stop位,则直接return
+        }
     }
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -1242,6 +1233,11 @@ int MainWindow::Anime4k_Video_BySegment(int rowNum)
                 file_mkDir(SplitFramesFolderPath);
             }
             video_video2images_ProcessBySegment(video_mp4_fullpath,SplitFramesFolderPath,StartTime,SegmentDuration_tmp);
+            if(waifu2x_STOP)
+            {
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+                return 0;//如果启用stop位,则直接return
+            }
         }
         /*==========================
                处理视频片段的帧

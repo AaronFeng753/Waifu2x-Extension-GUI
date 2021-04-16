@@ -58,6 +58,9 @@ void MainWindow::Init_SystemTrayIcon()
     BecomePatron_SystemTrayIcon->setText(tr("Become a patron"));
     BecomePatron_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/patreon_sysTray.png"));
     //===
+    TopSupportersList_SystemTrayIcon->setText(tr("Top Supporters"));
+    TopSupportersList_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/donateTabIcon.png"));
+    //===
     About_SystemTrayIcon->setText(tr("About"));
     About_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/About.png"));
     //===
@@ -81,6 +84,7 @@ void MainWindow::Init_SystemTrayIcon()
     connect(Donate_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(SystemTray_showDonate()),Qt::UniqueConnection);
     connect(Pause_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Stop_clicked()),Qt::UniqueConnection);
     connect(Start_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_Start_clicked()),Qt::UniqueConnection);
+    connect(TopSupportersList_SystemTrayIcon, SIGNAL(triggered()), this, SLOT(on_pushButton_SupportersList_clicked()),Qt::UniqueConnection);
     //初始化菜单选项
     pContextMenu->setToolTipsVisible(1);
     pContextMenu->setToolTipDuration(-1);
@@ -93,6 +97,7 @@ void MainWindow::Init_SystemTrayIcon()
     pContextMenu->addAction(BackgroundModeAct_SystemTrayIcon);
     pContextMenu->addSeparator();
     pContextMenu->addAction(BecomePatron_SystemTrayIcon);
+    pContextMenu->addAction(TopSupportersList_SystemTrayIcon);
     pContextMenu->addSeparator();
     pContextMenu->addAction(Donate_SystemTrayIcon);
     pContextMenu->addAction(SendFeedback_SystemTrayIcon);

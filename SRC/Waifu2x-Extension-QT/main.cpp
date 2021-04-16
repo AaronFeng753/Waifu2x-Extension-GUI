@@ -34,6 +34,12 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.22.26:
+- New option for system tray menu.
+- Fix bug: Unable to naming images correctly when using Anime4k.
+- Fix bug: False error report.
+- Fix bug: Unable to continue process existing video cache when frame interpolation is enabled.
+
 v3.22.25-beta:
 - Optimize performance.
 - Improve description.
@@ -72,6 +78,7 @@ v3.22.21-beta:
 --------------------------------------------------------------------------
 To do:
 - 添加对"图片文件夹"的支持,一次处理一个文件夹
+- 改进自动调整引擎设定
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 ---------------------------------------------------------------------------
 Integrated component:

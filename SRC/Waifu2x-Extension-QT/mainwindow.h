@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.22.25-beta";//软件版本号
-    bool isBetaVer = true;
-    QString LastStableVer = "v3.22.14";
-    QString LastBetaVer = "v3.22.25-beta";
+    QString VERSION = "v3.22.26";//软件版本号
+    bool isBetaVer = false;
+    QString LastStableVer = "v3.22.26";
+    QString LastBetaVer = "v3.22.26";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
@@ -501,6 +501,7 @@ public:
     QAction *Pause_SystemTrayIcon = new QAction(this);
     QAction *Start_SystemTrayIcon = new QAction(this);
     QAction *BecomePatron_SystemTrayIcon = new QAction(this);
+    QAction *TopSupportersList_SystemTrayIcon = new QAction(this);
     //================= 输出路径 lineEdit 的右键菜单 ==============
     void Init_ActionsMenu_lineEdit_outputPath();
     QAction *OpenFolder_lineEdit_outputPath = new QAction(this);

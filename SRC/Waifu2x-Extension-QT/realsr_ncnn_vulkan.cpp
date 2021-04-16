@@ -728,6 +728,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video(int rowNum)
         }
         QFile::remove(AudioPath);
         video_video2images(video_mp4_fullpath,SplitFramesFolderPath,AudioPath);
+        if(waifu2x_STOP)
+        {
+            emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+            return 0;//如果启用stop位,则直接return
+        }
     }
     //============================== 扫描获取文件名 ===============================
     QStringList Frame_fileName_list = file_getFileNames_in_Folder_nofilter(SplitFramesFolderPath);
@@ -1249,6 +1254,11 @@ int MainWindow::Realsr_NCNN_Vulkan_Video_BySegment(int rowNum)
                 file_mkDir(SplitFramesFolderPath);
             }
             video_video2images_ProcessBySegment(video_mp4_fullpath,SplitFramesFolderPath,StartTime,SegmentDuration_tmp);
+            if(waifu2x_STOP)
+            {
+                emit Send_Table_video_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+                return 0;//如果启用stop位,则直接return
+            }
         }
         /*==========================
                处理视频片段的帧
