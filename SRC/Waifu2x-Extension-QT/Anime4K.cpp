@@ -26,7 +26,7 @@ int MainWindow::Anime4k_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     //============================= 读取设置 ================================
     int ScaleRatio = 0;
     int denoiseLevel = ui->spinBox_DenoiseLevel_image->value();//获取降噪等级
-    bool isDenoiseEnabled = denoiseLevel != -1;//若降噪等级等于-1就是没启用降噪
+    bool isDenoiseEnabled = (denoiseLevel != -1);//若降噪等级等于-1就是没启用降噪
     bool DelOriginal = (ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked());
     bool PreserveAlphaChannel = Imgae_hasAlphaChannel(rowNum);
     QString OutPutPath_Final ="";
