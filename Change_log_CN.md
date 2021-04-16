@@ -7,6 +7,15 @@
 #### 🗂全部历史版本安装包合集:
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v3.22.26](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.22.26)
+#### 更新日志:
+- 新特性: 现在您可以启用 [结束后自动打开] 以在处理完所有文件后自动打开输出文件夹.
+- 新选项: [忽略帧率模式].
+- 支持者名单页面(patreon).
+- 改进生成视频的画质, 以及生成文件的命名.
+- 为任务栏菜单添加更多选项.
+- 修复多项问题, 优化性能以及其他诸多改进.
+---
 ## [v3.22.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.22.14)
 #### 更新日志:
 - 新特性: 现已支持带有小数位的放大倍率.
