@@ -170,6 +170,7 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - SoX: http://sox.sourceforge.net/
 - SRMD: https://github.com/cszn/SRMD
 - SRMD-ncnn-Vulkan: https://github.com/nihui/srmd-ncnn-vulkan
+- Super-resolution-SR-CUDA: https://github.com/MrZihan/Super-resolution-SR-CUDA
 - Waifu2x: https://github.com/nagadomi/waifu2x
 - Waifu2x-caffe: https://github.com/lltcggie/waifu2x-caffe
 - Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
