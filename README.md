@@ -136,6 +136,7 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 # 💝Credits💝:
 - ❤All donors❤
 - Special thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for helping me test the software, report multiple bugs and give me multiple suggestions.
+- Special thanks to [@MrZihan](https://github.com/MrZihan) for create the [SRMD-CUDA](https://github.com/MrZihan/Super-resolution-SR-CUDA) engine and help me integrated it in the Waifu2x-Extension-GUI.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
