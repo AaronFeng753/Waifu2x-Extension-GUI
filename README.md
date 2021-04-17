@@ -55,7 +55,8 @@ Built-in super-resolution algorithms:
 Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
 Built-in super-resolution engines:
-Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
+Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
+SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
 
 Built-in Video frame interpolation algorithms:
 RIFE / CAIN / DAIN
