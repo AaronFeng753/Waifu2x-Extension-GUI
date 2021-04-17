@@ -61,7 +61,8 @@
 Waifu2x / SRMD / RealSR / Anime4K / ACNet
 
 内置超分辨率引擎:
-Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan / SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
+Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
+SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
 
 内置插帧算法:
 RIFE / CAIN / DAIN
