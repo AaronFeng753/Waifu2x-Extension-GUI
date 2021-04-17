@@ -37,7 +37,7 @@ Change log:
 ***** 补全翻译 *******
 
 v3.31.01-beta:
-- NEW Engine: SRMD-CUDA
+- NEW Engine: SRMD-CUDA(@MrZihan)
 
 --------------------------------------------------------------------------
 To do:
