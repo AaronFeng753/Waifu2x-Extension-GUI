@@ -401,6 +401,35 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QFile::remove(OutputPath);
     emit Send_Add_progressBar_CompatibilityTest();
     //==========================================
+    //                SRMD-CUDA
+    //==========================================
+    Waifu2x_folder_path = Current_Path + "/srmd-cuda";
+    program = Waifu2x_folder_path + "/srmd-cuda_waifu2xEX.exe";
+    model_path = Waifu2x_folder_path+"/model";
+    QProcess *SRMD_CUDA = new QProcess();
+    cmd = "\"" + program + "\"" + " -i " + "\"" + InputPath + "\"" + " -o " + "\"" + OutputPath + "\"" + " -s 2 -n 0 -m \""+model_path+"\"";
+    for(int CompatTest_retry=0; CompatTest_retry<3; CompatTest_retry++)
+    {
+        SRMD_CUDA->start(cmd);
+        if(SRMD_CUDA->waitForStarted(30000))
+        {
+            while(!SRMD_CUDA->waitForFinished(100)&&!QProcess_stop) {}
+        }
+        if(QFile::exists(OutputPath))break;
+    }
+    if(QFile::exists(OutputPath))
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with SRMD-CUDA: Yes"));
+        isCompatible_SRMD_CUDA=true;
+    }
+    else
+    {
+        emit Send_TextBrowser_NewMessage(tr("Compatible with SRMD-CUDA: No. [Advice: Install NVIDIA CUDA.]"));
+        isCompatible_SRMD_CUDA=false;
+    }
+    QFile::remove(OutputPath);
+    emit Send_Add_progressBar_CompatibilityTest();
+    //==========================================
     //                  FFmpeg
     //==========================================
     QString ffmpeg_VideoPath = Current_Path + "/Compatibility_Test/CompatibilityTest_Video.mp4";
@@ -653,7 +682,8 @@ int MainWindow::Waifu2x_Compatibility_Test()
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
-                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe"<<"dain-ncnn-vulkan_waifu2xEX.exe";
+                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe"<<"dain-ncnn-vulkan_waifu2xEX.exe"
+                 <<"srmd-cuda_waifu2xEX.exe";
     KILL_TASK_QStringList(TaskNameList,true);
     //================
     //测试结束
@@ -672,6 +702,7 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
     ui->checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD->setChecked(isCompatible_Waifu2x_NCNN_Vulkan_OLD);
     ui->checkBox_isCompatible_Waifu2x_Converter->setChecked(isCompatible_Waifu2x_Converter);
     ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->setChecked(isCompatible_SRMD_NCNN_Vulkan);
+    ui->checkBox_isCompatible_SRMD_CUDA->setChecked(isCompatible_SRMD_CUDA);
     ui->checkBox_isCompatible_Anime4k_CPU->setChecked(isCompatible_Anime4k_CPU);
     ui->checkBox_isCompatible_Anime4k_GPU->setChecked(isCompatible_Anime4k_GPU);
     ui->checkBox_isCompatible_FFmpeg->setChecked(isCompatible_FFmpeg);
@@ -912,6 +943,19 @@ int MainWindow::Waifu2x_Compatibility_Test_finished()
             ui->tabWidget->setCurrentIndex(1);
             return 0;
         }
+        //======================= 检查 SRMD-CUDA 的兼容性 ===================
+        if(isCompatible_SRMD_CUDA)
+        {
+            ui->comboBox_Engine_Image->setCurrentIndex(6);
+            ui->comboBox_Engine_GIF->setCurrentIndex(6);
+            ui->comboBox_Engine_Video->setCurrentIndex(6);
+            on_comboBox_Engine_Image_currentIndexChanged(0);
+            on_comboBox_Engine_GIF_currentIndexChanged(0);
+            on_comboBox_Engine_Video_currentIndexChanged(0);
+            //====
+            ui->tabWidget->setCurrentIndex(1);
+            return 0;
+        }
         //啥引擎都不兼容,提示用户自行修复兼容性问题
         QMessageBox *MSG_ = new QMessageBox();
         MSG_->setWindowTitle(tr("Notification"));
@@ -941,7 +985,7 @@ void MainWindow::Init_progressBar_CompatibilityTest()
 {
     ui->progressBar_CompatibilityTest->setEnabled(1);
     ui->progressBar_CompatibilityTest->setVisible(1);
-    ui->progressBar_CompatibilityTest->setRange(0,19);
+    ui->progressBar_CompatibilityTest->setRange(0,20);
     ui->progressBar_CompatibilityTest->setValue(0);
 }
 //进度+1 -兼容性测试进度条

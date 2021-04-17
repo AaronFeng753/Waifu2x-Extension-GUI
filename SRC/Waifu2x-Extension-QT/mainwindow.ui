@@ -3730,6 +3730,11 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                       <string notr="true">realsr-ncnn-vulkan</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>[BETA] srmd-cuda</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                   <item row="0" column="0">
@@ -3853,6 +3858,11 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                       <string notr="true">realsr-ncnn-vulkan</string>
                      </property>
                     </item>
+                    <item>
+                     <property name="text">
+                      <string>[BETA] srmd-cuda</string>
+                     </property>
+                    </item>
                    </widget>
                   </item>
                   <item row="0" column="2">
@@ -3916,6 +3926,11 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                     <item>
                      <property name="text">
                       <string notr="true">realsr-ncnn-vulkan</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>[BETA] srmd-cuda</string>
                      </property>
                     </item>
                    </widget>
@@ -10896,6 +10911,13 @@ DAIN-NCNN-Vulkan [Speed:☆     Image quality:★★★] [2D Anime]&amp;[3D Real
               </property>
               <property name="wordWrap">
                <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="2">
+             <widget class="QCheckBox" name="checkBox_isCompatible_SRMD_CUDA">
+              <property name="text">
+               <string>SRMD-CUDA [BETA]</string>
               </property>
              </widget>
             </item>

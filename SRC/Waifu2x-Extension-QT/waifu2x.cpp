@@ -347,6 +347,14 @@ int MainWindow::Waifu2xMainThread()
                         QtConcurrent::run(this, &MainWindow::Realsr_NCNN_Vulkan_Image, currentRowNumber, false);
                         break;
                     }
+                case 6:
+                    {
+                        mutex_ThreadNumRunning.lock();
+                        ThreadNumRunning++;//线程数量统计+1
+                        mutex_ThreadNumRunning.unlock();
+                        QtConcurrent::run(this, &MainWindow::SRMD_CUDA_Image, currentRowNumber, false);
+                        break;
+                    }
             }
             //================
             while (ThreadNumRunning >= ThreadNumMax)
@@ -445,6 +453,11 @@ int MainWindow::Waifu2xMainThread()
                 case 5:
                     {
                         Realsr_NCNN_Vulkan_GIF(currentRowNumber);
+                        break;
+                    }
+                case 6:
+                    {
+                        SRMD_CUDA_GIF(currentRowNumber);
                         break;
                     }
             }
@@ -592,6 +605,18 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
+                case 6:
+                    {
+                        if(video_isNeedProcessBySegment(currentRowNumber))
+                        {
+                            SRMD_CUDA_Video_BySegment(currentRowNumber);
+                        }
+                        else
+                        {
+                            SRMD_CUDA_Video(currentRowNumber);
+                        }
+                        break;
+                    }
                 case 99:
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
@@ -717,7 +742,8 @@ void MainWindow::Waifu2x_Finished_manual()
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
-                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe"<<"dain-ncnn-vulkan_waifu2xEX.exe";
+                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe"<<"dain-ncnn-vulkan_waifu2xEX.exe"
+                 <<"srmd-cuda_waifu2xEX.exe";
     KILL_TASK_QStringList(TaskNameList,true);
     //================= 生成处理报告 =================
     ShowFileProcessSummary();

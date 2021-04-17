@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.22.26";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v3.31.01-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v3.22.26";
-    QString LastBetaVer = "v3.22.26";
+    QString LastBetaVer = "v3.31.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
@@ -235,6 +235,14 @@ public:
     QString Waifu2x_Caffe_ReadSettings();
     bool isWaifu2xCaffeEnabled();
     void DeleteErrorLog_Waifu2xCaffe();
+    //====================================
+    int SRMD_CUDA_Image(int rowNum,bool ReProcess_MissingAlphaChannel);//SRMD放大图片线程
+    //SRMD放大GIF线程:1.主线程,拆分,调度放大子线程,组装&压缩;2.放大子线程,负责放大所有帧以及调整大小
+    int SRMD_CUDA_GIF(int rowNum);
+    //SRMD放大视频线程:1.主线程,拆分,调度放大子线程,组装;2.放大子线程,负责放大所有帧以及调整大小
+    int SRMD_CUDA_Video(int rowNum);
+    int SRMD_CUDA_Video_BySegment(int rowNum);
+    //====================================
 
     void Wait_waifu2x_stop();//等待waifu2x主线程完全停止所有子线程的看门狗线程
     bool waifu2x_STOP = false;//负责通知waifu2x主线程及其子线程的停止信号
@@ -282,6 +290,7 @@ public:
     bool isCompatible_Waifu2x_NCNN_Vulkan_NEW=false;
     bool isCompatible_Waifu2x_NCNN_Vulkan_NEW_FP16P=false;
     bool isCompatible_SRMD_NCNN_Vulkan=false;
+    bool isCompatible_SRMD_CUDA=false;
     bool isCompatible_Waifu2x_Converter=false;
     bool isCompatible_Anime4k_CPU=false;
     bool isCompatible_Anime4k_GPU=false;
@@ -978,6 +987,8 @@ private slots:
     void on_pushButton_Patreon_clicked();
 
     void on_pushButton_SupportersList_clicked();
+
+    void on_checkBox_isCompatible_SRMD_CUDA_clicked();
 
 signals:
     void Send_Table_EnableSorting(bool EnableSorting);

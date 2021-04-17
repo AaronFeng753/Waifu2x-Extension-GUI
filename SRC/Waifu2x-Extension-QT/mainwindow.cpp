@@ -242,7 +242,8 @@ int MainWindow::Force_close()
     QStringList TaskNameList;
     TaskNameList << "convert_waifu2xEX.exe"<<"ffmpeg_waifu2xEX.exe"<<"ffprobe_waifu2xEX.exe"<<"identify_waifu2xEX.exe"<<"gifsicle_waifu2xEX.exe"<<"waifu2x-ncnn-vulkan_waifu2xEX.exe"
                  <<"waifu2x-ncnn-vulkan-fp16p_waifu2xEX.exe"<<"Anime4K_waifu2xEX.exe"<<"waifu2x-caffe_waifu2xEX.exe"<<"srmd-ncnn-vulkan_waifu2xEX.exe"<<"realsr-ncnn-vulkan_waifu2xEX.exe"
-                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"wget_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe"<<"dain-ncnn-vulkan_waifu2xEX.exe";
+                 <<"waifu2x-converter-cpp_waifu2xEX.exe"<<"sox_waifu2xEX.exe"<<"wget_waifu2xEX.exe"<<"rife-ncnn-vulkan_waifu2xEX.exe"<<"cain-ncnn-vulkan_waifu2xEX.exe"<<"dain-ncnn-vulkan_waifu2xEX.exe"
+                 <<"srmd-cuda_waifu2xEX.exe";
     KILL_TASK_QStringList(TaskNameList,true);
     //===========
     QProcess Close;
@@ -566,6 +567,7 @@ void MainWindow::on_comboBox_Engine_Image_currentIndexChanged(int index)
                 break;
             }
         case 2:
+        case 6:
             {
                 ui->spinBox_DenoiseLevel_image->setRange(-1,10);
                 ui->spinBox_DenoiseLevel_image->setValue(4);
@@ -626,6 +628,7 @@ void MainWindow::on_comboBox_Engine_GIF_currentIndexChanged(int index)
                 break;
             }
         case 2:
+        case 6:
             {
                 ui->spinBox_DenoiseLevel_gif->setRange(-1,10);
                 ui->spinBox_DenoiseLevel_gif->setValue(4);
@@ -690,6 +693,7 @@ void MainWindow::on_comboBox_Engine_Video_currentIndexChanged(int index)
                 break;
             }
         case 3:
+        case 6:
             {
                 ui->spinBox_DenoiseLevel_video->setRange(-1,10);
                 ui->spinBox_DenoiseLevel_video->setValue(4);
@@ -1676,6 +1680,10 @@ void MainWindow::on_checkBox_isCompatible_Waifu2x_NCNN_Vulkan_OLD_clicked()
 void MainWindow::on_checkBox_isCompatible_SRMD_NCNN_Vulkan_clicked()
 {
     ui->checkBox_isCompatible_SRMD_NCNN_Vulkan->setChecked(isCompatible_SRMD_NCNN_Vulkan);
+}
+void MainWindow::on_checkBox_isCompatible_SRMD_CUDA_clicked()
+{
+    ui->checkBox_isCompatible_SRMD_CUDA->setChecked(isCompatible_SRMD_CUDA);
 }
 void MainWindow::on_checkBox_isCompatible_Waifu2x_Converter_clicked()
 {

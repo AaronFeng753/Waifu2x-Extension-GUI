@@ -54,6 +54,7 @@ SOURCES += \
     progressBar.cpp \
     realsr_ncnn_vulkan.cpp \
     settings.cpp \
+    srmd-cuda.cpp \
     srmd_ncnn_vulkan.cpp \
     table.cpp \
     textBrowser.cpp \

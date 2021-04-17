@@ -34,46 +34,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v3.22.26:
-- New option for system tray menu.
-- Fix bug: Unable to naming images correctly when using Anime4k.
-- Fix bug: False error report.
-- Fix bug: Unable to continue process existing video cache when frame interpolation is enabled.
+***** 补全翻译 *******
 
-v3.22.25-beta:
-- Optimize performance.
-- Improve description.
-- Improve stability.
-- Fix bug: Unable to continue process existing video cache when frame interpolation is enabled.
-
-v3.22.24-beta:
-- Improve quality of the result video.
-- Improve the naming of result files when using Anime4k engine.
-- Optimize performance.
-- Remove first time start tips.
-- Fix bug: Denoise level is still being loaded even though HDN is not enabled.
-- Fix bug: Crash when unable to read video or gif info correctly.
-- Fix bug: Unstable Internet connection might cause some unexpected error.
-
-v3.22.23-beta:
-- Improve quality of the result video.
-- Improve the naming of result image.
-- Optimize performance.
-- Online update for Top Supporters List.
-- Redesign the credits page for Top Supporters(patreon).
-- Improve description.
-
-v3.22.22-beta:
-- New feature: Now you can choose to automatically open the output folder after processing all files by enabling [Auto-open after finished].
-- Update FFmpeg&FFprobe, ImageMagick.
-- New option for system tray menu.
-- Credits page for Top Supporters(patreon).
-- Display a notification when program is closing.
-
-v3.22.21-beta:
-- New option: [Ignore frame rate mode]
-- Improve the progress display of video frame interpolation.
-- Fix bug: Sometimes the remaining time cannot be calculated correctly.
+v3.31.01-beta:
+- NEW Engine: SRMD-CUDA
 
 --------------------------------------------------------------------------
 To do:
