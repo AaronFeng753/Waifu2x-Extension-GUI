@@ -36,6 +36,10 @@ Change log:
 
 ***** 补全翻译 *******
 
+v3.31.02-beta:
+- Fix bug: FPS of the result GIF is always 10fps.
+- Improve descriptions.
+
 v3.31.01-beta:
 - NEW Super-Resolution Engine: SRMD-CUDA(@MrZihan)
 - Credits(link to original project page) for engines and plugins creators on compatibility test tab.

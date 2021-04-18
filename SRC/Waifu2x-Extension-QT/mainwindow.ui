@@ -3683,7 +3683,7 @@ Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
 SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
-SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
+SRMD-CUDA           [Speed:★★☆ Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -3810,7 +3810,7 @@ Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
 SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
-SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
+SRMD-CUDA           [Speed:★★☆ Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -3879,7 +3879,7 @@ Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
 SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
-SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
+SRMD-CUDA           [Speed:★★☆ Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -10927,7 +10927,7 @@ Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
 SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
-SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+SRMD-CUDA           [Speed:★★☆ Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 
 RIFE-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
 CAIN-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
