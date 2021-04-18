@@ -37,12 +37,14 @@ Change log:
 ***** 补全翻译 *******
 
 v3.31.01-beta:
-- NEW Engine: SRMD-CUDA(@MrZihan)
+- NEW Super-Resolution Engine: SRMD-CUDA(@MrZihan)
+- Credits(link to original project page) for engines and plugins creators on compatibility test tab.
 
 --------------------------------------------------------------------------
 To do:
-- 添加对"图片文件夹"的支持,一次处理一个文件夹
-- 改进自动调整引擎设定
+- 为SRMD-CUDA添加更多描述.
+- 添加对"图片文件夹"的支持,一次处理一个文件夹.
+- 改进自动调整引擎设定.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
 ---------------------------------------------------------------------------
 Integrated component:

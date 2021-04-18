@@ -2187,10 +2187,8 @@ Will NOT take effect when processing Video and GIF.</string>
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                     <string>Select the image style of the source files.
+So the engine can load the correct model when processing files.</string>
                     </property>
                     <property name="text">
                      <string>Image Style(waifu2x-ncnn-vulkan):</string>
@@ -2203,10 +2201,8 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                   <item row="8" column="0">
                    <widget class="QLabel" name="label_ImageStyle_W2xCaffe">
                     <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                     <string>Select the image style of the source files.
+So the engine can load the correct model when processing files.</string>
                     </property>
                     <property name="text">
                      <string>Image Style(waifu2x-caffe):</string>
@@ -2350,10 +2346,8 @@ Will NOT take effect when processing Video and GIF.</string>
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-ncnn-vulkan&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                     <string>Select the image style of the source files.
+So the engine can load the correct model when processing files.</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">2D Anime</string>
@@ -2373,10 +2367,8 @@ SRMD-ncnn-vulkan can supports all image style without change any settings.</stri
                   <item row="8" column="1">
                    <widget class="QComboBox" name="comboBox_ImageStyle_Waifu2xCaffe">
                     <property name="toolTip">
-                     <string>Only works when using &quot;waifu2x-caffe&quot; engine. 
-Waifu2x-converter and Anime4k only support &quot;2D Anime&quot; image style.
-Realsr-ncnn-vulkan only supports &quot;3D Real-life&quot; image style.
-SRMD-ncnn-vulkan can supports all image style without change any settings.</string>
+                     <string>Select the image style of the source files.
+So the engine can load the correct model when processing files.</string>
                     </property>
                     <item>
                      <property name="text">
@@ -3685,14 +3677,13 @@ process at the same time.</string>
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Select the engine for processing GIF. 
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
+                     <string>Waifu2x-NCNN-Vulkan [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Converter   [Speed:★☆   Image quality:★★☆] [2D Anime]
+Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
+SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
+SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -3813,14 +3804,13 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Select the engine for processing Video. 
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
+                     <string>Waifu2x-NCNN-Vulkan [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Converter   [Speed:★☆   Image quality:★★☆] [2D Anime]
+Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
+SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
+SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -3883,14 +3873,13 @@ Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
                      </size>
                     </property>
                     <property name="toolTip">
-                     <string>Select the engine for processing Image. 
-
-waifu2x-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-converter  [ Speed:★☆  Image Quality:★★☆ ]
-Anime4k  [ Speed:★★★  Image Quality:★ ]
-srmd-ncnn-vulkan  [ Speed:★★  Image Quality:★★★ ]
-waifu2x-caffe  [ Speed:★☆  Image Quality:★★★ ]
-Realsr-ncnn-vulkan [ Speed:☆  Image Quality:★★★ ]</string>
+                     <string>Waifu2x-NCNN-Vulkan [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Converter   [Speed:★☆   Image quality:★★☆] [2D Anime]
+Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
+SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
+RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
+SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]</string>
                     </property>
                     <property name="currentText">
                      <string notr="true">waifu2x-ncnn-vulkan</string>
@@ -10543,7 +10532,9 @@ padding:10px;
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/waifu2x-ncnn-vulkan</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10564,7 +10555,9 @@ padding:10px;
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/waifu2x-ncnn-vulkan</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10585,7 +10578,9 @@ padding:10px;
             <item row="4" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_Realsr_NCNN_Vulkan">
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/realsr-ncnn-vulkan</string>
               </property>
               <property name="text">
                <string notr="true">Realsr-ncnn-vulkan</string>
@@ -10595,7 +10590,7 @@ padding:10px;
             <item row="8" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_FFprobe">
               <property name="toolTip">
-               <string>For processing Video and Gif.</string>
+               <string notr="true">https://www.ffmpeg.org/</string>
               </property>
               <property name="text">
                <string notr="true">FFprobe</string>
@@ -10617,7 +10612,9 @@ padding:10px;
                <enum>Qt::NoContextMenu</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @DeadSix27(https://github.com/DeadSix27)
+
+https://github.com/DeadSix27/waifu2x-converter-cpp</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10641,7 +10638,9 @@ padding:10px;
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/waifu2x-ncnn-vulkan</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10656,7 +10655,7 @@ padding:10px;
             <item row="7" column="2">
              <widget class="QCheckBox" name="checkBox_isCompatible_Gifsicle">
               <property name="toolTip">
-               <string>For processing GIF.</string>
+               <string notr="true">https://www.lcdf.org/gifsicle/</string>
               </property>
               <property name="text">
                <string notr="true">Gifsicle</string>
@@ -10672,7 +10671,9 @@ padding:10px;
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/srmd-ncnn-vulkan</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10694,7 +10695,7 @@ padding:10px;
             <item row="7" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_ImageMagick">
               <property name="toolTip">
-               <string>For processing Image and GIF.</string>
+               <string notr="true">https://imagemagick.org/</string>
               </property>
               <property name="text">
                <string notr="true">ImageMagick</string>
@@ -10704,7 +10705,7 @@ padding:10px;
             <item row="7" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_SoX">
               <property name="toolTip">
-               <string>For audio denoise(video).</string>
+               <string notr="true">http://sox.sourceforge.net/</string>
               </property>
               <property name="text">
                <string notr="true">SoX</string>
@@ -10720,7 +10721,9 @@ padding:10px;
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @TianZerL(https://github.com/TianZerL)
+
+https://github.com/TianZerL/Anime4KCPP</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10735,7 +10738,9 @@ padding:10px;
             <item row="3" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_CPU">
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @lltcggie(https://github.com/lltcggie)
+
+https://github.com/lltcggie/waifu2x-caffe</string>
               </property>
               <property name="text">
                <string notr="true">Waifu2x-caffe(CPU)</string>
@@ -10764,7 +10769,9 @@ padding:10px;
             <item row="3" column="2">
              <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_GPU">
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @lltcggie(https://github.com/lltcggie)
+
+https://github.com/lltcggie/waifu2x-caffe</string>
               </property>
               <property name="text">
                <string notr="true">Waifu2x-caffe(GPU)</string>
@@ -10793,7 +10800,7 @@ padding:10px;
             <item row="8" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_FFmpeg">
               <property name="toolTip">
-               <string>For processing Video.</string>
+               <string notr="true">https://www.ffmpeg.org/</string>
               </property>
               <property name="text">
                <string notr="true">FFmpeg</string>
@@ -10809,7 +10816,9 @@ padding:10px;
                <enum>Qt::NoFocus</enum>
               </property>
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @TianZerL(https://github.com/TianZerL)
+
+https://github.com/TianZerL/Anime4KCPP</string>
               </property>
               <property name="styleSheet">
                <string notr="true">QCheckBox:disabled{
@@ -10824,7 +10833,9 @@ padding:10px;
             <item row="4" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_Waifu2x_Caffe_cuDNN">
               <property name="toolTip">
-               <string>Image processing engine.</string>
+               <string notr="true">By @lltcggie(https://github.com/lltcggie)
+
+https://github.com/lltcggie/waifu2x-caffe</string>
               </property>
               <property name="text">
                <string notr="true">Waifu2x-caffe(cuDNN)</string>
@@ -10853,6 +10864,11 @@ padding:10px;
             </item>
             <item row="11" column="0">
              <widget class="QCheckBox" name="checkBox_isCompatible_RifeNcnnVulkan">
+              <property name="toolTip">
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/rife-ncnn-vulkan</string>
+              </property>
               <property name="text">
                <string notr="true">RIFE-NCNN-Vulkan</string>
               </property>
@@ -10860,6 +10876,11 @@ padding:10px;
             </item>
             <item row="11" column="1">
              <widget class="QCheckBox" name="checkBox_isCompatible_CainNcnnVulkan">
+              <property name="toolTip">
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/cain-ncnn-vulkan</string>
+              </property>
               <property name="text">
                <string notr="true">CAIN-NCNN-Vulkan</string>
               </property>
@@ -10867,6 +10888,11 @@ padding:10px;
             </item>
             <item row="11" column="2">
              <widget class="QCheckBox" name="checkBox_isCompatible_DainNcnnVulkan">
+              <property name="toolTip">
+               <string notr="true">By @nihui(https://github.com/nihui)
+
+https://github.com/nihui/dain-ncnn-vulkan</string>
+              </property>
               <property name="text">
                <string notr="true">DAIN-NCNN-Vulkan</string>
               </property>
@@ -10877,13 +10903,13 @@ padding:10px;
               <property name="minimumSize">
                <size>
                 <width>660</width>
-                <height>245</height>
+                <height>260</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
                 <width>16777215</width>
-                <height>245</height>
+                <height>260</height>
                </size>
               </property>
               <property name="frameShape">
@@ -10901,6 +10927,7 @@ Anime4K             [Speed:★★★ Image quality:★☆  ] [2D Anime]
 SRMD-NCNN-Vulkan    [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 Waifu2x-Caffe       [Speed:★☆   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 RealSR-NCNN-Vulkan  [Speed:☆     Image quality:★★★] [3D Real-life]
+SRMD-CUDA           [Speed:★★   Image quality:★★★] [2D Anime]&amp;[3D Real-life]
 
 RIFE-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
 CAIN-NCNN-Vulkan [Speed:★★★ Image quality:★★☆] [2D Anime]&amp;[3D Real-life]
@@ -10916,6 +10943,11 @@ DAIN-NCNN-Vulkan [Speed:☆     Image quality:★★★] [2D Anime]&amp;[3D Real
             </item>
             <item row="4" column="2">
              <widget class="QCheckBox" name="checkBox_isCompatible_SRMD_CUDA">
+              <property name="toolTip">
+               <string notr="true">By @MrZihan(https://github.com/MrZihan)
+
+https://github.com/MrZihan/Super-resolution-SR-CUDA</string>
+              </property>
               <property name="text">
                <string>SRMD-CUDA [BETA]</string>
               </property>

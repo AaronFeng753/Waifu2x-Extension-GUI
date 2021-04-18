@@ -114,11 +114,7 @@ int MainWindow::Gif_getDuration(QString gifPath)
             if(FPS_Num_0>0&&FPS_Num_1>0)
             {
                 double Duration_double = 100/(FPS_Num_0/FPS_Num_1);
-                Duration = Duration_double;
-                if(Duration_double>Duration)
-                {
-                    Duration++;
-                }
+                Duration = qRound(Duration_double);
             }
         }
     }
@@ -207,7 +203,7 @@ void MainWindow::Gif_assembleGif(QString ResGifPath,QString ScaledFramesPath,int
                 }
             }
         }
-        QString cmd = "\"" + program + "\" \"" + ScaledFramesPath + "/*png\" "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 \""+ResGifPath+"\"";
+        QString cmd = "\"" + program + "\" "+resize_cmd+" -delay " + QString::number(Duration, 10) + " -loop 0 \"" + ScaledFramesPath + "/*png\" \""+ResGifPath+"\"";
         QProcess *AssembleGIF=new QProcess();
         AssembleGIF->start(cmd);
         while(!AssembleGIF->waitForStarted(100)&&!QProcess_stop) {}
