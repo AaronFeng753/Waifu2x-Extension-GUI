@@ -7,6 +7,12 @@
 #### 🗂全部历史版本安装包合集:
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v3.31.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.31.13)
+#### 更新日志:
+- 新增超分辨率引擎: SRMD-CUDA (引擎作者: @MrZihan).
+- 一些其他改进.
+- 修复问题: 生成GIF的帧率一直是10 FPS.
+---
 ## [v3.22.26](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.22.26)
 #### 更新日志:
 - 新特性: 现在您可以启用 [结束后自动打开] 以在处理完所有文件后自动打开输出文件夹.

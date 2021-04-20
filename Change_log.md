@@ -4,6 +4,12 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.31.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.31.13)
+#### Change log:
+- NEW Super-Resolution Engine: SRMD-CUDA (By @MrZihan).
+- Some improvements.
+- Fix bug: Frame rate of the result GIF is always 10fps.
+---
 ## [v3.22.26](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.22.26)
 #### Change log:
 ```
