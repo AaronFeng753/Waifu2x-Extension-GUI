@@ -71,7 +71,7 @@ int MainWindow::SRMD_CUDA_Image(int rowNum,bool ReProcess_MissingAlphaChannel)
     else
     {
         double ScaleRatio_double_tmp = ui->doubleSpinBox_ScaleRatio_image->value();
-        if(ScaleRatio_double_tmp == (int)ScaleRatio_double_tmp)
+        if(ScaleRatio_double_tmp == qRound(ScaleRatio_double_tmp))
         {
             ScaleRatio = qRound(ScaleRatio_double_tmp);
         }

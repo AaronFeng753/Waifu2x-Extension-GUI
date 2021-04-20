@@ -44,8 +44,8 @@ bool MainWindow::Gif_DoubleScaleRatioPrep(int RowNumber)
         QMap<QString,int> Map_OrgRes = Image_Gif_Read_Resolution(SourceFile_fullPath);
         //========= 计算新的高度宽度 ==================
         double ScaleRatio_double = ui->doubleSpinBox_ScaleRatio_gif->value();
-        int Height_new = ScaleRatio_double * Map_OrgRes["height"];
-        int width_new = ScaleRatio_double * Map_OrgRes["width"];
+        int Height_new = qRound(ScaleRatio_double * Map_OrgRes["height"]);
+        int width_new = qRound(ScaleRatio_double * Map_OrgRes["width"]);
         if(Height_new<1 || width_new<1)
         {
             emit Send_TextBrowser_NewMessage("Warning! Unable to read the resolution of ["+SourceFile_fullPath+"]. This file will only be scaled to "+QString::number((int)ScaleRatio_double,10)+"X.");

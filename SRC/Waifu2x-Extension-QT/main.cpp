@@ -36,6 +36,10 @@ Change log:
 
 ***** 补全翻译 *******
 
+v3.31.13:
+- Complete Chinese translation.
+- Other improvements.
+
 v3.31.02-beta:
 - Fix bug: FPS of the result GIF is always 10fps.
 - Improve descriptions.
@@ -46,7 +50,6 @@ v3.31.01-beta:
 
 --------------------------------------------------------------------------
 To do:
-- 为SRMD-CUDA添加更多描述.
 - 添加对"图片文件夹"的支持,一次处理一个文件夹.
 - 改进自动调整引擎设定.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]

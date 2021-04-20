@@ -138,41 +138,62 @@ height:35
          <string>Donate</string>
         </attribute>
         <layout class="QGridLayout" name="gridLayout_22">
-         <property name="leftMargin">
-          <number>5</number>
-         </property>
-         <property name="topMargin">
-          <number>5</number>
-         </property>
-         <property name="rightMargin">
-          <number>5</number>
-         </property>
-         <property name="bottomMargin">
-          <number>5</number>
-         </property>
-         <item row="1" column="0">
-          <widget class="QPushButton" name="pushButton_PayPal">
-           <property name="minimumSize">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_DonateText">
+           <property name="maximumSize">
             <size>
-             <width>0</width>
-             <height>60</height>
+             <width>16777215</width>
+             <height>50</height>
             </size>
            </property>
            <property name="font">
             <font>
-             <pointsize>20</pointsize>
-             <weight>75</weight>
-             <italic>false</italic>
-             <bold>true</bold>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
              <underline>false</underline>
              <strikeout>false</strikeout>
             </font>
            </property>
-           <property name="toolTip">
-            <string>Donate to the developer through PayPal.</string>
+           <property name="text">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;If you don't wanna see the Donate page anymore, you can &lt;span style=&quot; color:#ff0004;&quot;&gt;get the &lt;/span&gt;&lt;span style=&quot; font-weight:600; color:#ff0004;&quot;&gt;Premium&lt;/span&gt;&lt;span style=&quot; color:#ff0004;&quot;&gt; version by support me on Patreon.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_60" stretch="10,33">
+           <item>
+            <widget class="QPushButton" name="pushButton_PayPal">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <italic>false</italic>
+               <bold>true</bold>
+               <underline>false</underline>
+               <strikeout>false</strikeout>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Donate to the developer through PayPal.</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
 background-color: rgb(52, 152, 219);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -200,42 +221,42 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-           </property>
-           <property name="text">
-            <string notr="true"> PayPal</string>
-           </property>
-           <property name="icon">
-            <iconset resource="icon.qrc">
-             <normaloff>:/new/prefix1/icon/paypal.png</normaloff>:/new/prefix1/icon/paypal.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>38</width>
-             <height>38</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="pushButton_Patreon">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>20</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="toolTip">
-            <string>Become a patron.</string>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">QPushButton{
+             </property>
+             <property name="text">
+              <string notr="true"> PayPal</string>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/new/prefix1/icon/paypal.png</normaloff>:/new/prefix1/icon/paypal.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>38</width>
+               <height>38</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton_Patreon">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>20</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="toolTip">
+              <string>Support this project on Patreon and get Premium version.</string>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
 background-color: rgb(255, 66, 77);
 color: rgb(255, 255, 255);
 border-style:outset;
@@ -263,26 +284,28 @@ border-style:outset;
 border-radius:8px;
 padding:10px;
 }</string>
-           </property>
-           <property name="text">
-            <string notr="true"> Patreon</string>
-           </property>
-           <property name="icon">
-            <iconset resource="icon.qrc">
-             <normaloff>:/new/prefix1/icon/patreon.png</normaloff>:/new/prefix1/icon/patreon.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>38</width>
-             <height>38</height>
-            </size>
-           </property>
-          </widget>
+             </property>
+             <property name="text">
+              <string> Get Premium version on Patreon</string>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/new/prefix1/icon/patreon.png</normaloff>:/new/prefix1/icon/patreon.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>38</width>
+               <height>38</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
-         <item row="2" column="0" colspan="2">
+         <item row="2" column="0">
           <widget class="QLabel" name="label_DonateQRCode">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -321,31 +344,6 @@ padding:10px;
            </property>
            <property name="alignment">
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="0" colspan="2">
-          <widget class="QLabel" name="label_DonateText">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>50</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>10</pointsize>
-             <weight>50</weight>
-             <bold>false</bold>
-             <underline>false</underline>
-             <strikeout>false</strikeout>
-            </font>
-           </property>
-           <property name="text">
-            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Please donate to support the developers, so we can bring further updates for this software, thank you! (｡･∀･)ﾉﾞ &lt;/p&gt;&lt;p align=&quot;center&quot;&gt;If you don't wanna see the Donate page anymore, you can join the Patreon to access the Exclusive Patreon Version.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
            </property>
           </widget>
          </item>

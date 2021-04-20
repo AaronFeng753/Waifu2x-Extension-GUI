@@ -55,7 +55,7 @@ void MainWindow::Init_SystemTrayIcon()
     SendFeedback_SystemTrayIcon->setText(tr("Send feedback"));
     SendFeedback_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/SendFeedback.png"));
     //===
-    BecomePatron_SystemTrayIcon->setText(tr("Become a patron"));
+    BecomePatron_SystemTrayIcon->setText(tr("Get Premium version"));
     BecomePatron_SystemTrayIcon->setIcon(QIcon(":/new/prefix1/icon/patreon_sysTray.png"));
     //===
     TopSupportersList_SystemTrayIcon->setText(tr("Top Supporters"));

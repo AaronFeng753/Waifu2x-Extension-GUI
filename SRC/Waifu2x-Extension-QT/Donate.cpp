@@ -99,10 +99,23 @@ void MainWindow::Donate_ReplaceQRCode(QString QRCodePath)
         ui->label_DonateQRCode->setStyleSheet("image: url(\""+QRCodePath+"\");");
     }
     if(isFirstTimeStart)return;
+    //==============
     ui->tabWidget->setCurrentIndex(0);
-    emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you! (｡･∀･)ﾉﾞ"));
+    emit Send_SystemTray_NewMessage(tr("Please donate to support developers, so we can bring further update for this software, thank you!"));
+    if(QRandomGenerator::global()->bounded(1000000)<275000)
+    {
+        QMessageBox Msg(QMessageBox::Question, QString(tr("Notification")+" @Waifu2x-Extension-GUI"), QString(tr("Please donate to support the developers, so we can bring further updates for this software, thank you!\n\n"
+                        "If you don't wanna see this notification anymore, you can get the Premium version by support me on Patreon.")));
+        Msg.setIcon(QMessageBox::Information);
+        QAbstractButton *pYesBtn = Msg.addButton(QString(" "+tr("Get Premium version")+" "), QMessageBox::YesRole);
+        Msg.addButton(QString(" "+tr("Maybe later")+" "), QMessageBox::NoRole);
+        Msg.exec();
+        if (Msg.clickedButton() == pYesBtn)QDesktopServices::openUrl(QUrl("https://www.patreon.com/aaronfeng"));
+    }
+    //==============
     return;
 }
+
 
 void MainWindow::on_pushButton_Patreon_clicked()
 {
