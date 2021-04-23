@@ -34,11 +34,14 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-***** 补全翻译 *******
-
 v3.31.13:
-- Complete Chinese translation.
-- Other improvements.
+- NEW Super-Resolution Engine: SRMD-CUDA (By @MrZihan).
+- Some improvements.
+- Fix bug: Frame rate of the result GIF is always 10fps.
+
+- 新增超分辨率引擎: SRMD-CUDA (引擎作者: @MrZihan).
+- 一些其他改进.
+- 修复问题: 生成GIF的帧率一直是10 FPS.
 
 v3.31.02-beta:
 - Fix bug: FPS of the result GIF is always 10fps.
