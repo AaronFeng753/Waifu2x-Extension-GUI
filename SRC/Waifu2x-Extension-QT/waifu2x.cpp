@@ -533,7 +533,7 @@ int MainWindow::Waifu2xMainThread()
             mutex_ThreadNumRunning.unlock();
             switch(VideoEngine)
             {
-                case 0:
+                case 0://w2x ncnn vulkan
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -545,7 +545,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 1:
+                case 1://w2x converter
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -557,7 +557,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 2:
+                case 2://a4k
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -569,7 +569,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 3:
+                case 3://srmd ncnn vulkan
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -581,7 +581,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 4:
+                case 4://w2x caffe
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -593,7 +593,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 5:
+                case 5://realsr ncnn vulkan
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -605,7 +605,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 6:
+                case 6://srmd cuda
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -617,7 +617,7 @@ int MainWindow::Waifu2xMainThread()
                         }
                         break;
                     }
-                case 99:
+                case 99://frame interpolation
                     {
                         if(video_isNeedProcessBySegment(currentRowNumber))
                         {
@@ -748,10 +748,9 @@ void MainWindow::Waifu2x_Finished_manual()
     //================= 生成处理报告 =================
     ShowFileProcessSummary();
     //================= 打开输出文件夹 ====================
-    if(ui->checkBox_AutoOpenOutputPath->isChecked()==true && ui->checkBox_OutPath_isEnabled->isChecked()==true)
-    {
-        OpenOutputFolder();
-    }
+    if(ui->checkBox_AutoOpenOutputPath->isChecked()==true && ui->checkBox_OutPath_isEnabled->isChecked()==true)OpenOutputFolder();
+    //======================
+    FinishedProcessing_DN();
 }
 
 /*

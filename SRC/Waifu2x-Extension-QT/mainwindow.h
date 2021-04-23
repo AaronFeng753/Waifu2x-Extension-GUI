@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.31.13";//软件版本号
-    bool isBetaVer = false;
+    QString VERSION = "v3.31.21-beta";//软件版本号
+    bool isBetaVer = true;
     QString LastStableVer = "v3.31.13";
-    QString LastBetaVer = "v3.31.13";
+    QString LastBetaVer = "v3.31.21-beta";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
@@ -637,6 +637,8 @@ public slots:
 
     int CheckUpadte_NewUpdate(QString update_str,QString Change_log);//检测到更新的弹窗代码
 
+    void FinishedProcessing_DN();
+
     int Table_FileCount_reload();//重载table下的文件数量计数
 
     //向table插入文件名和fullpath
@@ -1016,6 +1018,8 @@ signals:
     void Send_Waifu2x_Compatibility_Test_finished();
 
     void Send_Waifu2x_DetectGPU_finished();
+
+    void Send_FinishedProcessing_DN();
 
     void Send_Realsr_ncnn_vulkan_DetectGPU_finished();
     void Send_FrameInterpolation_DetectGPU_finished();

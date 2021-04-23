@@ -41,7 +41,7 @@ bool MainWindow::DownloadTo(QString OnlineLink,QString LocalPath)
 */
 void MainWindow::on_checkBox_BanGitee_clicked()
 {
-    if(ui->checkBox_BanGitee->isChecked()&&isConnectivityTest_RawGithubusercontentCom_Running==false)
+    if(ui->checkBox_BanGitee->isChecked() && isConnectivityTest_RawGithubusercontentCom_Running==false)
     {
         QtConcurrent::run(this, &MainWindow::ConnectivityTest_RawGithubusercontentCom);//后台运行网络测试,判断是否可以链接raw.githubusercontent.com
     }
@@ -81,7 +81,7 @@ void MainWindow::Unable2Connect_RawGithubusercontentCom()
     QMessageBox *MSG_2 = new QMessageBox();
     MSG_2->setWindowTitle(tr("Notification"));
     MSG_2->setText(tr("Detected that you are currently unable to connect to raw.githubusercontent.com, so enabling [Ban Gitee] won't allow the software to automatically check for updates. It is recommended that you disable [Ban Gitee]."));
-    MSG_2->setIcon(QMessageBox::Information);
-    MSG_2->setModal(false);
+    MSG_2->setIcon(QMessageBox::Warning);
+    MSG_2->setModal(true);
     MSG_2->show();
 }

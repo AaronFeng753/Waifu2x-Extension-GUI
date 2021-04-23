@@ -85,6 +85,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(this, SIGNAL(Send_SystemShutDown()), this, SLOT(SystemShutDown()));
     connect(this, SIGNAL(Send_Waifu2x_DumpProcessorList_converter_finished()), this, SLOT(Waifu2x_DumpProcessorList_converter_finished()));
     connect(this, SIGNAL(Send_Read_urls_finfished()), this, SLOT(Read_urls_finfished()));
+    connect(this, SIGNAL(Send_FinishedProcessing_DN()), this, SLOT(FinishedProcessing_DN()));
     connect(this, SIGNAL(Send_SRMD_DetectGPU_finished()), this, SLOT(SRMD_DetectGPU_finished()));
     connect(this, SIGNAL(Send_FrameInterpolation_DetectGPU_finished()), this, SLOT(FrameInterpolation_DetectGPU_finished()));
     connect(this, SIGNAL(Send_video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString,bool,int)), this, SLOT(video_write_VideoConfiguration(QString,int,int,bool,int,int,QString,bool,QString,QString,bool,int)));
@@ -740,16 +741,12 @@ void MainWindow::on_spinBox_textbrowser_fontsize_valueChanged(int arg1)
 
 void MainWindow::on_pushButton_CustRes_apply_clicked()
 {
-    ui->pushButton_CustRes_apply->setEnabled(0);
     CustRes_SetCustRes();
-    ui->pushButton_CustRes_apply->setEnabled(1);
 }
 
 void MainWindow::on_pushButton_CustRes_cancel_clicked()
 {
-    ui->pushButton_CustRes_cancel->setEnabled(0);
     CustRes_CancelCustRes();
-    ui->pushButton_CustRes_cancel->setEnabled(1);
 }
 
 void MainWindow::on_pushButton_HideSettings_clicked()

@@ -34,22 +34,10 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v3.31.13:
-- NEW Super-Resolution Engine: SRMD-CUDA (By @MrZihan).
-- Some improvements.
-- Fix bug: Frame rate of the result GIF is always 10fps.
-
-- 新增超分辨率引擎: SRMD-CUDA (引擎作者: @MrZihan).
-- 一些其他改进.
-- 修复问题: 生成GIF的帧率一直是10 FPS.
-
-v3.31.02-beta:
-- Fix bug: FPS of the result GIF is always 10fps.
-- Improve descriptions.
-
-v3.31.01-beta:
-- NEW Super-Resolution Engine: SRMD-CUDA(@MrZihan)
-- Credits(link to original project page) for engines and plugins creators on compatibility test tab.
+v3.31.21-beta:
+- Performance optimization.
+- Update FFmpeg, ImageMagick.
+- Some other improvements.
 
 --------------------------------------------------------------------------
 To do:
@@ -65,9 +53,9 @@ Integrated component:
 - Waifu2x-NCNN-Vulkan 20210210
 - SRMD-NCNN-Vulkan 20210210
 - RealSR-NCNN-Vulkan 20210210
-- ImageMagick 7.0.11-6-portable-Q16-x64
+- ImageMagick 7.0.11-8-portable-Q16-x64
 - Anime4KCPP v2.5.0
-- FFmpeg&FFprobe 2021-04-04-git-b1b7cc698b-full_build
+- FFmpeg 2021-04-20-git-718e03e5f2-full_build
 - NirCmd v2.86
 - Ghostscript 9.53.3
 - GNU Wget 1.20.3

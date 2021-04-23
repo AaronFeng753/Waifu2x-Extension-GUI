@@ -8374,6 +8374,21 @@ likelihood of removing wanted components of the audio signal.</string>
                  <string>When output the result video</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_51">
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="spacing">
+                  <number>5</number>
+                 </property>
                  <item row="0" column="0">
                   <layout class="QHBoxLayout" name="horizontalLayout_42">
                    <item>
@@ -8624,6 +8639,21 @@ likelihood of removing wanted components of the audio signal.</string>
                  <string>When convert source video to CFR mp4</string>
                 </property>
                 <layout class="QGridLayout" name="gridLayout_33">
+                 <property name="leftMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="spacing">
+                  <number>5</number>
+                 </property>
                  <item row="0" column="1" rowspan="3">
                   <spacer name="horizontalSpacer_27">
                    <property name="orientation">

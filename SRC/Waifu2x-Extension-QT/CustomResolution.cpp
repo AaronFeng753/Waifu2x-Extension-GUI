@@ -24,6 +24,11 @@ Apply自定义分辨率
 */
 int MainWindow::CustRes_SetCustRes()
 {
+    int CustRes_height_spinBoxIntValue = ui->spinBox_CustRes_height->value();
+    int CustRes_width_spinBoxIntValue = ui->spinBox_CustRes_width->value();
+    QString CustRes_height_qStr = QString::number(CustRes_height_spinBoxIntValue,10);
+    QString CustRes_width_qStr = QString::number(CustRes_width_spinBoxIntValue,10);
+    //========
     if(ui->checkBox_custres_isAll->isChecked()&&EnableApply2All_CustRes)
     {
         int row_count_image = Table_image_get_rowNum();
@@ -48,8 +53,8 @@ int MainWindow::CustRes_SetCustRes()
             QString SourceFile_fullPath = Table_model_image->item(i,2)->text();
             CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
             res_map["fullpath"] = SourceFile_fullPath;
-            res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
-            res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+            res_map["height"] = CustRes_height_qStr;
+            res_map["width"] = CustRes_width_qStr;
             Custom_resolution_list.append(res_map);
             Table_image_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
         }
@@ -61,8 +66,8 @@ int MainWindow::CustRes_SetCustRes()
             QString SourceFile_fullPath = Table_model_gif->item(i,2)->text();
             CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
             res_map["fullpath"] = SourceFile_fullPath;
-            res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
-            res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+            res_map["height"] = CustRes_height_qStr;
+            res_map["width"] = CustRes_width_qStr;
             Custom_resolution_list.append(res_map);
             Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
         }
@@ -72,10 +77,10 @@ int MainWindow::CustRes_SetCustRes()
             return 0;
         }
         //读取自定义分辨率设定
-        int CustRes_width_video=ui->spinBox_CustRes_width->value();
-        int CustRes_height_video=ui->spinBox_CustRes_height->value();
+        int CustRes_width_video=CustRes_width_spinBoxIntValue;
+        int CustRes_height_video=CustRes_height_spinBoxIntValue;
         //判断自定义分辨率是否包含奇数
-        if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
+        if(CustRes_height_spinBoxIntValue%2!=0||CustRes_width_spinBoxIntValue%2!=0)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Warning"));
@@ -87,6 +92,8 @@ int MainWindow::CustRes_SetCustRes()
             if(CustRes_height_video%2!=0)CustRes_height_video++;
             if(CustRes_width_video%2!=0)CustRes_width_video++;
         }
+        QString CustRes_height_video_qStr = QString::number(CustRes_height_video,10);
+        QString CustRes_width_video_qStr = QString::number(CustRes_width_video,10);
         //开始apply自定义分辨率设定
         for(int i=0; i<row_count_video; i++)
         {
@@ -95,8 +102,8 @@ int MainWindow::CustRes_SetCustRes()
             QString SourceFile_fullPath = Table_model_video->item(i,2)->text();
             CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
             res_map["fullpath"] = SourceFile_fullPath;
-            res_map["height"] = QString::number(CustRes_height_video,10);
-            res_map["width"] = QString::number(CustRes_width_video,10);
+            res_map["height"] = CustRes_height_video_qStr;
+            res_map["width"] = CustRes_width_video_qStr;
             Custom_resolution_list.append(res_map);
             Table_video_CustRes_rowNumInt_HeightQString_WidthQString(i,res_map["height"],res_map["width"]);
         }
@@ -120,8 +127,8 @@ int MainWindow::CustRes_SetCustRes()
         QString SourceFile_fullPath = Table_model_image->item(curRow_image,2)->text();
         CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
         res_map["fullpath"] = SourceFile_fullPath;
-        res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
-        res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+        res_map["height"] = CustRes_height_qStr;
+        res_map["width"] = CustRes_width_qStr;
         Custom_resolution_list.append(res_map);
         Table_image_CustRes_rowNumInt_HeightQString_WidthQString(curRow_image,res_map["height"],res_map["width"]);
         return 0;
@@ -133,8 +140,8 @@ int MainWindow::CustRes_SetCustRes()
         QString SourceFile_fullPath = Table_model_gif->item(curRow_gif,2)->text();
         CustRes_remove(SourceFile_fullPath);//移除原来的设定,防止重复
         res_map["fullpath"] = SourceFile_fullPath;
-        res_map["height"] = QString::number(ui->spinBox_CustRes_height->value(),10);
-        res_map["width"] = QString::number(ui->spinBox_CustRes_width->value(),10);
+        res_map["height"] = CustRes_height_qStr;
+        res_map["width"] = CustRes_width_qStr;
         Custom_resolution_list.append(res_map);
         Table_gif_CustRes_rowNumInt_HeightQString_WidthQString(curRow_gif,res_map["height"],res_map["width"]);
         return 0;
@@ -142,10 +149,10 @@ int MainWindow::CustRes_SetCustRes()
     if(curRow_video >= 0)
     {
         //读取自定义分辨率设定
-        int CustRes_width_video=ui->spinBox_CustRes_width->value();
-        int CustRes_height_video=ui->spinBox_CustRes_height->value();
+        int CustRes_width_video=CustRes_width_spinBoxIntValue;
+        int CustRes_height_video=CustRes_height_spinBoxIntValue;
         //判断自定义分辨率是否包含奇数
-        if(ui->spinBox_CustRes_height->value()%2!=0||ui->spinBox_CustRes_width->value()%2!=0)
+        if(CustRes_height_spinBoxIntValue%2!=0||CustRes_width_spinBoxIntValue%2!=0)
         {
             QMessageBox *MSG = new QMessageBox();
             MSG->setWindowTitle(tr("Warning"));
@@ -194,20 +201,17 @@ int MainWindow::CustRes_CancelCustRes()
         //====
         for(int i=0; i<row_count_image; i++)
         {
-            QString SourceFile_fullPath = Table_model_image->item(i,2)->text();
-            CustRes_remove(SourceFile_fullPath);//从自定义分辨率列表移除
+            CustRes_remove(Table_model_image->item(i,2)->text());//从自定义分辨率列表移除
             Table_image_CustRes_Cancel_rowNumInt(i);//清空指定row的自定义分辨率
         }
         for(int i=0; i<row_count_gif; i++)
         {
-            QString SourceFile_fullPath = Table_model_gif->item(i,2)->text();
-            CustRes_remove(SourceFile_fullPath);//从自定义分辨率列表移除
+            CustRes_remove(Table_model_gif->item(i,2)->text());//从自定义分辨率列表移除
             Table_gif_CustRes_Cancel_rowNumInt(i);//清空指定row的自定义分辨率
         }
         for(int i=0; i<row_count_video; i++)
         {
-            QString SourceFile_fullPath = Table_model_video->item(i,2)->text();
-            CustRes_remove(SourceFile_fullPath);//从自定义分辨率列表移除
+            CustRes_remove(Table_model_video->item(i,2)->text());//从自定义分辨率列表移除
             Table_video_CustRes_Cancel_rowNumInt(i);//清空指定row的自定义分辨率
         }
         return 0;
