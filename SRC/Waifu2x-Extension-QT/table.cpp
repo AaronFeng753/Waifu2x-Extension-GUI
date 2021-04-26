@@ -33,7 +33,7 @@ void MainWindow::Init_Table()
     ui->tableView_image->setModel(Table_model_image);
     //=================================
     Table_model_gif->setColumnCount(4);
-    Table_model_gif->setHeaderData(0, Qt::Horizontal, tr("GIF File Name"));
+    Table_model_gif->setHeaderData(0, Qt::Horizontal, tr("Animated Image File Name"));
     Table_model_gif->setHeaderData(1, Qt::Horizontal, tr("Status"));
     Table_model_gif->setHeaderData(2, Qt::Horizontal, tr("Full Path"));
     Table_model_gif->setHeaderData(3, Qt::Horizontal, tr("Custom resolution(Width x Height)"));
@@ -73,7 +73,7 @@ int MainWindow::Table_FileCount_reload()
         //===========
         ui->label_FileCount->setVisible(1);
         ui->label_FileCount->setText(QString(tr("File count: %1")).arg(filecount_total));
-        ui->label_FileCount->setToolTip(QString(tr("Image: %1\nGIF: %2\nVideo: %3")).arg(filecount_image).arg(filecount_gif).arg(filecount_video));
+        ui->label_FileCount->setToolTip(QString(tr("Image: %1\nAnimated Image: %2\nVideo: %3")).arg(filecount_image).arg(filecount_gif).arg(filecount_video));
         //=================
         //启用控制按钮
         //=================
@@ -814,8 +814,6 @@ int MainWindow::Table_Read_Saved_Table_Filelist_Finished(QString Table_FileList_
     }
     //==
     Table_FileCount_reload();
-    //===
-    ui->label_DropFile->setText(tr("Drag and drop files or folders here\n(Image, GIF and Video)"));
     //===
     return 0;
 }

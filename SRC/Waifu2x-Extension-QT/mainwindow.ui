@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1096</width>
-    <height>796</height>
+    <width>1146</width>
+    <height>794</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1088,7 +1088,7 @@ selection-background-color: rgb(178, 58, 238);
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
-                  <height>60</height>
+                  <height>90</height>
                  </size>
                 </property>
                 <property name="font">
@@ -1120,8 +1120,7 @@ software into a directory that can run normally without administrator rights.</s
                  <number>1</number>
                 </property>
                 <property name="text">
-                 <string>Drag and drop files or folders here
-(Image, GIF and Video)</string>
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Drag and drop files or folders here&lt;/p&gt;&lt;p&gt;(Image, Animated Image&lt;span style=&quot; vertical-align:super;&quot;&gt;*GIF, APNG&lt;/span&gt; and Video)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignCenter</set>
@@ -2486,7 +2485,7 @@ image quality, but it can reduce the GIF file size.
 It is recommended to enable this option.</string>
                        </property>
                        <property name="text">
-                        <string>Optimize &quot;.gif&quot;</string>
+                        <string>Optimize GIF</string>
                        </property>
                       </widget>
                      </item>
@@ -2931,7 +2930,7 @@ after processing all files.</string>
                        <string>Range: 1 ~ 999999999</string>
                       </property>
                       <property name="text">
-                       <string>GIF Scale ratio:</string>
+                       <string>Animated Image Scale ratio:</string>
                       </property>
                      </widget>
                     </item>
@@ -2964,7 +2963,7 @@ after processing all files.</string>
                        </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>GIF Denoise level:</string>
+                       <string>Animated Image Denoise level:</string>
                       </property>
                      </widget>
                     </item>
@@ -3356,7 +3355,7 @@ then the result video will be 120 fps.</string>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>50</width>
+                   <width>16777215</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -3391,7 +3390,7 @@ then the result video will be 120 fps.</string>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>50</width>
+                   <width>16777215</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -3482,7 +3481,7 @@ and Waifu2x-converter.(Only when processing GIF and Video)</string>
                  </property>
                  <property name="maximumSize">
                   <size>
-                   <width>50</width>
+                   <width>16777215</width>
                    <height>16777215</height>
                   </size>
                  </property>
@@ -3490,7 +3489,7 @@ and Waifu2x-converter.(Only when processing GIF and Video)</string>
                   <string/>
                  </property>
                  <property name="text">
-                  <string>GIF:</string>
+                  <string>Animated Image:</string>
                  </property>
                 </widget>
                </item>
@@ -3649,7 +3648,7 @@ process at the same time.</string>
                      </size>
                     </property>
                     <property name="text">
-                     <string>GIF:</string>
+                     <string>Animated Image:</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

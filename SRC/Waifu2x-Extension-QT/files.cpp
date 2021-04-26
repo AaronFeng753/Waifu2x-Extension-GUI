@@ -273,6 +273,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     QString Ext_image_str = ui->Ext_image->text().toLower();
     QStringList nameFilters_image = Ext_image_str.split(":");
     nameFilters_image.removeAll("gif");
+    nameFilters_image.removeAll("apng");
     if (nameFilters_image.contains(file_ext))
     {
         AddNew_image=true;
@@ -297,18 +298,9 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
     QString Ext_video_str = ui->Ext_video->text().toLower();
     QStringList nameFilters_video = Ext_video_str.split(":");
     nameFilters_video.removeAll("gif");
+    nameFilters_video.removeAll("apng");
     if (nameFilters_video.contains(file_ext))
     {
-        /*
-        file_ext = fileinfo.suffix();
-        if(file_ext!="mp4" && file_ext.toLower()=="mp4")
-        {
-            QString file_name = file_getBaseName(SourceFile_fullPath);
-            QString file_path = file_getFolderPath(fileinfo);
-            QFile::rename(file_path+"/"+file_name+"."+file_ext,file_path+"/"+file_name+".mp4");
-            SourceFile_fullPath = file_path+"/"+file_name+".mp4";
-        }
-        */
         AddNew_video=true;
         int rowNum = Table_video_get_rowNum();
         QMap<QString, QString> map;
@@ -328,7 +320,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         return 0;
     }
     //============================  最后只能是gif ===============================
-    if(file_ext=="gif")
+    if(file_ext=="gif" || file_ext=="apng")
     {
         int rowNum = Table_gif_get_rowNum();
         QMap<QString, QString> map;

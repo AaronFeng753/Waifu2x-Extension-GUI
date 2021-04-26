@@ -34,6 +34,9 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
+v3.31.22-beta:
+- Some other improvements.
+
 v3.31.21-beta:
 - Performance optimization.
 - Update FFmpeg, ImageMagick.
@@ -41,6 +44,8 @@ v3.31.21-beta:
 
 --------------------------------------------------------------------------
 To do:
+- 完整apng支持
+- 性能更好的apng组装
 - 添加对"图片文件夹"的支持,一次处理一个文件夹.
 - 改进自动调整引擎设定.
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]

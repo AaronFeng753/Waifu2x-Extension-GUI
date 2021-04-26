@@ -79,10 +79,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void changeEvent(QEvent *e);
     //=======================
-    QString VERSION = "v3.31.21-beta";//软件版本号
+    QString VERSION = "v3.41.01-beta";//软件版本号
     bool isBetaVer = true;
     QString LastStableVer = "v3.31.13";
-    QString LastBetaVer = "v3.31.21-beta";
+    QString LastBetaVer = "v3.41.01-beta";
     //=======================
     QTranslator * translator;//界面翻译
     QIcon *MainIcon_QIcon = new QIcon(":/new/prefix1/icon/icon_main.png");
@@ -580,6 +580,12 @@ public:
     int RunningNumOfThreads_ImagesResize_Folder_MultiThread;
     QMutex QMutex_ResizeImage_MultiThread;
     void ResizeImage_MultiThread(int New_width,int New_height,QString ImagesPath);
+    //================== 处理APNG =================
+    void APNG_Main(int rowNum,bool isFromImageList);
+    void APNG_Split2Frames(QString sourceFileFullPath,QString splitFramesFolder);
+    void APNG_Frames2APNG(QString sourceFileFullPath,QString scaledFramesFolder,QString resultFileFullPath,bool isOverScaled);
+    bool APNG_isAnimatedPNG(int rowNum);
+    void APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath);
     //=============
     ~MainWindow();
 

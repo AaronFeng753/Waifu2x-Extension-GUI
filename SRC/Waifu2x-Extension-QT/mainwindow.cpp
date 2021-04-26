@@ -999,9 +999,11 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     //======== 生成 扩展名过滤 字符串 =========
     QStringList nameFilters;
     nameFilters.append("*.gif");
+    nameFilters.append("*.apng");
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
     nameFilters_image.removeAll("gif");
+    nameFilters_image.removeAll("apng");
     for(int i = 0; i < nameFilters_image.size(); ++i)
     {
         QString tmp = nameFilters_image.at(i).trimmed();
@@ -1012,6 +1014,7 @@ void MainWindow::on_pushButton_BrowserFile_clicked()
     QString Ext_video_str = ui->Ext_video->text();
     QStringList nameFilters_video = Ext_video_str.split(":");
     nameFilters_video.removeAll("gif");
+    nameFilters_video.removeAll("apng");
     for(int i = 0; i < nameFilters_video.size(); ++i)
     {
         QString tmp = nameFilters_video.at(i).trimmed();

@@ -289,9 +289,20 @@ int MainWindow::Waifu2xMainThread()
                 continue;
             }
             //============ 自动跳过高分辨率文件 ===================
-            if(Image_Gif_AutoSkip_CustRes(currentRowNumber,false))
+            if(Image_Gif_AutoSkip_CustRes(currentRowNumber,false)==true)
             {
                 emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
+                continue;
+            }
+            //=========== 判断是不是apng ==========
+            if(APNG_isAnimatedPNG(currentRowNumber)==true)
+            {
+                //等待其他线程结束
+                while (ThreadNumRunning > 0)
+                {
+                    Delay_msec_sleep(750);
+                }
+                APNG_Main(currentRowNumber,true);
                 continue;
             }
             //=========
@@ -423,6 +434,23 @@ int MainWindow::Waifu2xMainThread()
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=1;//线程数量统计+1
             mutex_ThreadNumRunning.unlock();
+            //======================= 判断是不是apng =====================
+            QString sourceFileFullPath = Table_model_gif->item(currentRowNumber,2)->text();
+            QFileInfo fileinfo_sourceFileFullPath(sourceFileFullPath);
+            if(fileinfo_sourceFileFullPath.suffix().toLower() == "apng")
+            {
+                APNG_Main(currentRowNumber,false);
+                //========
+                if(isNeedRemoveFromCustResList == true)Gif_RemoveFromCustResList(currentRowNumber);
+                //========
+                mutex_ThreadNumRunning.lock();
+                ThreadNumRunning=0;//线程数量统计+1
+                mutex_ThreadNumRunning.unlock();
+                //=======
+                continue;
+            }
+            //=========
+            //是GIF
             switch(GIFEngine)
             {
                 case 0:
