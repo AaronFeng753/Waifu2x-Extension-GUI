@@ -586,10 +586,14 @@ public:
     void APNG_Frames2APNG(QString sourceFileFullPath,QString scaledFramesFolder,QString resultFileFullPath,bool isOverScaled);
     bool APNG_isAnimatedPNG(int rowNum);
     //Waifu2x-NCNN-Vulkan
-    bool APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath);
+    bool APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
     //Waifu2x-Converter
-    bool APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath);
+    bool APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
     int Waifu2x_Converter_APNG_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
+    //Srmd-NCNN-Vulkan
+    bool APNG_Scale_SrmdNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
+    //Anime4k
+    bool APNG_Scale_Anime4k(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
     //=============
     ~MainWindow();
 

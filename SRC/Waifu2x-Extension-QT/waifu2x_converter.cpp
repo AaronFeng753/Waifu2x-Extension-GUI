@@ -1947,7 +1947,7 @@ void MainWindow::on_pushButton_BlockSize_Minus_W2xConverter_clicked()
 
 Waifu2x-Converter
 */
-bool MainWindow::APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath)
+bool MainWindow::APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
 {
     //生成文件夹
     file_DelDir(scaledFramesFolder);
@@ -2044,31 +2044,14 @@ bool MainWindow::APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString s
             }
             FileProgressWatch_isEnabled=false;
             FileProgressWatch_QFuture.cancel();
-            if(isFromImageList)
-            {
-                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
-            }
-            else
-            {
-                emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
-            }
-            return false;//如果启用stop位,则直接return
+            return false;
         }
         if(Frame_failed)
         {
             FileProgressWatch_isEnabled=false;
             FileProgressWatch_QFuture.cancel();
             emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
-            if(isFromImageList)
-            {
-                emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-            }
-            else
-            {
-                emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-            }
-            emit Send_progressbar_Add();
-            return false;//如果启用stop位,则直接return
+            return false;
         }
     }
     while (Sub_gif_ThreadNumRunning!=0)
@@ -2082,16 +2065,7 @@ bool MainWindow::APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString s
     if(framesFileName_qStrList.size() != file_getFileNames_in_Folder_nofilter(scaledFramesFolder).size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
-        if(isFromImageList)
-        {
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-        }
-        else
-        {
-            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-        }
-        emit Send_progressbar_Add();
-        return false;//如果启用stop位,则直接return
+        return false;
     }
     //============================================================
     //组装apng

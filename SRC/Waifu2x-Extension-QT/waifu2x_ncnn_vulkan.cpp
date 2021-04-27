@@ -2102,7 +2102,7 @@ QList<int> MainWindow::Calculate_CMD_ScaleRatio_List_W2xNCNNVulkan(int ScaleRati
 
 Waifu2x-NCNN-Vulkan
 */
-bool MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath)
+bool MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
 {
     //生成文件夹
     file_DelDir(scaledFramesFolder);
@@ -2157,14 +2157,6 @@ bool MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
-                    if(isFromImageList)
-                    {
-                        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
-                    }
-                    else
-                    {
-                        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
-                    }
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
                     mutex_ThreadNumRunning.unlock();
@@ -2228,15 +2220,6 @@ bool MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
     if(NumOfSplitFrames!=Frame_fileName_list_scaled.size())
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
-        if(isFromImageList)
-        {
-            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-        }
-        else
-        {
-            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
-        }
-        emit Send_progressbar_Add();
         return false;//放大帧失败,返回
     }
     //=============================

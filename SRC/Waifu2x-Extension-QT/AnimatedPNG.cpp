@@ -23,13 +23,16 @@
 */
 void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
 {
+    //开始处理
     QString sourceFileFullPath="";
     if(isFromImageList==false)
     {
+        emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
         sourceFileFullPath = Table_model_gif->item(rowNum,2)->text();
     }
     else
     {
+        emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
         sourceFileFullPath = Table_model_image->item(rowNum,2)->text();
     }
     //======================
@@ -54,6 +57,21 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
     //=======================
     //开始拆分
     APNG_Split2Frames(sourceFileFullPath,splitFramesFolder);
+    //是否暂停了
+    if(waifu2x_STOP)
+    {
+        if(isFromImageList)
+        {
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+        }
+        else
+        {
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+        }
+        file_DelDir(splitFramesFolder);
+        file_DelDir(scaledFramesFolder);
+        return;
+    }
     //检测是否拆分成功
     QStringList framesFileName_qStrList = file_getFileNames_in_Folder_nofilter(splitFramesFolder);
     if(framesFileName_qStrList.isEmpty())//检查是否成功拆分gif
@@ -78,47 +96,73 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
     {
         case 0:
             {
-                isSuccessfullyScaled = APNG_Scale_Waifu2xNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_Scale_Waifu2xNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
         case 1:
             {
-                isSuccessfullyScaled = APNG_Scale_Waifu2xConverter(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_Scale_Waifu2xConverter(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                break;
+            }
+        case 2:
+            {
+                isSuccessfullyScaled = APNG_Scale_SrmdNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                break;
+            }
+        case 3:
+            {
+                isSuccessfullyScaled = APNG_Scale_Anime4k(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
             /*
-            case 2:
-            {
-                isSuccessfullyScaled = APNG_Scale_SrmdNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
-                break;
-            }
-
-            case 3:
-            {
-            isSuccessfullyScaled = APNG_Scale_Anime4k(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
-            break;
-            }
             case 4:
             {
-            isSuccessfullyScaled = APNG_Scale_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+            isSuccessfullyScaled = APNG_Scale_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
             break;
             }
             case 5:
             {
-            isSuccessfullyScaled = APNG_Scale_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+            isSuccessfullyScaled = APNG_Scale_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
             break;
             }
             case 6:
             {
-            isSuccessfullyScaled = APNG_Scale_SrmdCUDA(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+            isSuccessfullyScaled = APNG_Scale_SrmdCUDA(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
             break;
             }
             */
     }
+    //============
     //删除缓存
     file_DelDir(splitFramesFolder);
     file_DelDir(scaledFramesFolder);
-    if(isSuccessfullyScaled==false)return;
+    //============
+    //放大过程中失败 or 暂停
+    if(waifu2x_STOP)
+    {
+        if(isFromImageList)
+        {
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+        }
+        else
+        {
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
+        }
+        return;
+    }
+    if(isSuccessfullyScaled==false)
+    {
+        if(isFromImageList)
+        {
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
+        }
+        else
+        {
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
+        }
+        emit Send_progressbar_Add();
+        return;
+    }
     //检查是否成功生成结果文件
     if(QFile::exists(resultFileFullPath)==false)
     {
@@ -198,7 +242,14 @@ void MainWindow::APNG_Split2Frames(QString sourceFileFullPath,QString splitFrame
     QProcess *SplitAPNG=new QProcess();
     SplitAPNG->start(cmd);
     while(!SplitAPNG->waitForStarted(100)&&!QProcess_stop) {}
-    while(!SplitAPNG->waitForFinished(100)&&!QProcess_stop) {}
+    while(!SplitAPNG->waitForFinished(100)&&!QProcess_stop)
+    {
+        if(waifu2x_STOP)
+        {
+            SplitAPNG->close();
+            return;
+        }
+    }
     //========================
     QFile::remove(splitCopy);
     QStringList framesFileName_qStrList = file_getFileNames_in_Folder_nofilter(splitFramesFolder);
@@ -295,12 +346,23 @@ void MainWindow::APNG_Frames2APNG(QString sourceFileFullPath,QString scaledFrame
         return;
     }
     //========================
+    //删除已经存在的result文件
+    QFile::remove(resultFileFullPath);
+    //========================
     QString program = Current_Path+"/apngasm_waifu2xEX.exe";
     QString cmd ="\""+program+"\" \""+resultFileFullPath+"\" \""+scaledFramesFolder+"/*.png\" -kp -kc -z1 1 "+QString::number(fps,10)+" -l0";
     QProcess *AssembleAPNG=new QProcess();
     AssembleAPNG->start(cmd);
     while(!AssembleAPNG->waitForStarted(100)&&!QProcess_stop) {}
-    while(!AssembleAPNG->waitForFinished(100)&&!QProcess_stop) {}
+    while(!AssembleAPNG->waitForFinished(100)&&!QProcess_stop)
+    {
+        if(waifu2x_STOP)
+        {
+            AssembleAPNG->close();
+            QFile::remove(resultFileFullPath);
+            return;
+        }
+    }
     //========================
     emit Send_TextBrowser_NewMessage(tr("Finish assembling APNG:[")+sourceFileFullPath+"]");
 }

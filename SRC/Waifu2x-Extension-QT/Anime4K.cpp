@@ -1980,4 +1980,10 @@ int MainWindow::Get_NumOfGPU_Anime4k()
     if(GPUNum<1)GPUNum=1;
     return GPUNum;
 }
-
+/*
+放大 APNG
+*/
+bool MainWindow::APNG_Scale_Anime4k(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
+{
+    return false;
+}
