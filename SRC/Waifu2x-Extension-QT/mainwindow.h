@@ -595,8 +595,13 @@ public:
     //Anime4k
     bool APNG_Anime4k(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
     int Anime4k_APNG_scale(QMap<QString,QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
-    //SrmdCUDA
+    //Srmd-CUDA
     bool APNG_SrmdCUDA(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
+    //waifu2x-caffe
+    bool APNG_Waifu2xCaffe(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
+    int Waifu2x_Caffe_APNG_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
+    //Realsr-NCNN-Vulkan
+    bool APNG_RealsrNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath);
     //=============
     ~MainWindow();
 

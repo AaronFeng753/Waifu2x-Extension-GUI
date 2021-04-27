@@ -34,7 +34,11 @@ int main(int argc, char *argv[])
 /*
 Change log:
 
-v3.31.22-beta:
+****************** 补全中文翻译 ***********************
+
+v3.41.01-beta:
+- New Feature: APNG(Animated PNG) support.
+- Improve GUI.
 - Some other improvements.
 
 v3.31.21-beta:
@@ -44,12 +48,15 @@ v3.31.21-beta:
 
 --------------------------------------------------------------------------
 To do:
-- 完整apng支持
-- 性能更好的apng组装
+- APNG插件兼容性测试
+- 找一个性能更好的apng组装插件(试试ffmpeg)
 - 添加对"图片文件夹"的支持,一次处理一个文件夹.
-- 改进自动调整引擎设定.
+- 改进自动调整引擎设定
 - 插帧时避免黑帧混乱,避免转场混乱 (插帧后的帧编号 = N*2-1)
+- 自动将GIF转换为mp4
 - 在SRMD和REALSR正式加入cpu支持后, 在GPU ID tooltip上添加[★ "-1" is CPU,others are GPUs ★]
+- CRF参数调整支持
+- 自动监控文件夹
 ---------------------------------------------------------------------------
 Integrated component:
 - gifsicle version 1.92

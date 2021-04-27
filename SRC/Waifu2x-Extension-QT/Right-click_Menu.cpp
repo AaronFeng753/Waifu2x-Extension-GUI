@@ -37,9 +37,9 @@ void MainWindow::Init_ActionsMenu_checkBox_ReplaceOriginalFile()
 
 void MainWindow::Init_ActionsMenu_pushButton_RemoveItem()
 {
-    RemoveALL_image->setText(tr("Remove all image files."));
-    RemoveALL_gif->setText(tr("Remove all gif files."));
-    RemoveALL_video->setText(tr("Remove all video files."));
+    RemoveALL_image->setText(tr("Remove all Image files."));
+    RemoveALL_gif->setText(tr("Remove all Animated Image files."));
+    RemoveALL_video->setText(tr("Remove all Video files."));
     //==============
     RemoveALL_image->setIcon(QIcon(":/new/prefix1/icon/picture_Rmenu.png"));
     RemoveALL_gif->setIcon(QIcon(":/new/prefix1/icon/gif_Rmenu.png"));

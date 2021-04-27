@@ -300,17 +300,17 @@ int MainWindow::CustRes_CalNewScaleRatio(QString fullpath,int Height_new,int wid
     //===================== 判断文件类型,获取分辨率 =============================
     //判断是否为图片或gif
     QFileInfo fileinfo(fullpath);
-    QString file_ext = fileinfo.suffix();
+    QString file_ext_lower = fileinfo.suffix();
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
-    if (nameFilters_image.contains(file_ext.toLower()) || file_ext.toLower()=="gif")
+    if (nameFilters_image.contains(file_ext_lower) || file_ext_lower=="gif" || file_ext_lower=="apng")
     {
-        //是图片或gif
+        //是图片或动态图
         QMap<QString,int> res_map = Image_Gif_Read_Resolution(fullpath);
         original_height = res_map["height"];
         original_width = res_map["width"];
     }
-    else//不是图片gif就是视频了
+    else//不是图片&动态图就是视频了
     {
         QMap<QString,int> res_map = video_get_Resolution(fullpath);
         original_height = res_map["height"];
@@ -372,17 +372,17 @@ QMap<QString, QString> MainWindow::DoubleScaleRatio_Cal_NewScaleRatio_NewHW(QStr
     bool isVideo=false;
     //判断是否为图片或gif
     QFileInfo fileinfo(fullpath);
-    QString file_ext = fileinfo.suffix();
+    QString file_ext_lower = fileinfo.suffix();
     QString Ext_image_str = ui->Ext_image->text();
     QStringList nameFilters_image = Ext_image_str.split(":");
-    if (nameFilters_image.contains(file_ext.toLower()) || file_ext.toLower()=="gif")
+    if (nameFilters_image.contains(file_ext_lower) || file_ext_lower=="gif" || file_ext_lower=="apng")
     {
-        //是图片或gif
+        //是图片或动态图
         QMap<QString,int> res_map = Image_Gif_Read_Resolution(fullpath);
         original_height = res_map["height"];
         original_width = res_map["width"];
     }
-    else//不是图片gif就是视频了
+    else//不是图片&动态图就是视频了
     {
         isVideo=true;
         QMap<QString,int> res_map = video_get_Resolution(fullpath);

@@ -35,6 +35,7 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
     {
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
         sourceFileFullPath = Table_model_image->item(rowNum,2)->text();
+        emit Send_TextBrowser_NewMessage("It is detected that this PNG is actually an APNG(Animated PNG), so it will be processed as an APNG. ["+sourceFileFullPath+"]");
     }
     //===============================
     //检查是否需要自动添加到自定义分辨率列表
@@ -142,24 +143,21 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
                 isSuccessfullyScaled = APNG_Anime4k(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
+        case 4:
+            {
+                isSuccessfullyScaled = APNG_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                break;
+            }
+        case 5:
+            {
+                isSuccessfullyScaled = APNG_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                break;
+            }
         case 6:
             {
                 isSuccessfullyScaled = APNG_SrmdCUDA(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
-            /*
-            case 4:
-            {
-            isSuccessfullyScaled = APNG_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
-            break;
-            }
-            case 5:
-            {
-            isSuccessfullyScaled = APNG_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
-            break;
-            }
-
-            */
     }
     //============
     //删除缓存

@@ -1942,3 +1942,213 @@ int MainWindow::Get_NumOfGPU_W2xCaffe()
     if(GPUNum<1)GPUNum=1;
     return GPUNum;
 }
+
+bool MainWindow::APNG_Waifu2xCaffe(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
+{
+    //生成文件夹
+    file_DelDir(scaledFramesFolder);
+    file_mkDir(scaledFramesFolder);
+    //============================================================
+    //开始放大
+    emit Send_CurrentFileProgress_Start(file_getBaseName(sourceFileFullPath)+"."+sourceFileFullPath.split(".").last(),framesFileName_qStrList.size());
+    FileProgressWatch_isEnabled=true;
+    QFuture<void> FileProgressWatch_QFuture = QtConcurrent::run(this, &MainWindow::CurrentFileProgress_WatchFolderFileNum, scaledFramesFolder);//启动waifu2x 主线程
+    if(ui->checkBox_ShowInterPro->isChecked()==false)
+    {
+        FileProgressWatch_isEnabled=false;
+        FileProgressWatch_QFuture.cancel();
+        emit Send_CurrentFileProgress_Stop();
+    }
+    //=======获取显卡信息========
+    int NumOfGPU = 1;
+    if(ui->checkBox_EnableMultiGPU_Waifu2xCaffe->isChecked()==true)
+    {
+        NumOfGPU = Get_NumOfGPU_W2xCaffe();
+    }
+    //============创建显卡文件夹===========
+    QStringList GPU_splitFramesFolder_List;
+    for(int i = 0; i < NumOfGPU; i++)
+    {
+        QString GPU_splitFramesFolder = splitFramesFolder+"/"+"GPU_"+QString::number(i);
+        if(file_isDirExist(GPU_splitFramesFolder))
+        {
+            file_DelDir(GPU_splitFramesFolder);
+            file_mkDir(GPU_splitFramesFolder);
+        }
+        else
+        {
+            file_mkDir(GPU_splitFramesFolder);
+        }
+        GPU_splitFramesFolder_List.append(GPU_splitFramesFolder);
+    }
+    int TotalFramesNum = framesFileName_qStrList.size();
+    int FramesNumForEachGPU = TotalFramesNum/NumOfGPU;
+    if(FramesNumForEachGPU<1)FramesNumForEachGPU=1;
+    int start_num=0;
+    for(int x = 0; x < GPU_splitFramesFolder_List.size(); x++)
+    {
+        if(x==GPU_splitFramesFolder_List.size()-1)FramesNumForEachGPU=TotalFramesNum;
+        QStringList file_waitformove = framesFileName_qStrList.mid(start_num,FramesNumForEachGPU);
+        for(int i = 0; i < file_waitformove.size(); i++)
+        {
+            QString FileName = file_waitformove.at(i);
+            QFile::rename(splitFramesFolder+"/"+FileName,GPU_splitFramesFolder_List.at(x)+"/"+FileName);
+        }
+        start_num+=FramesNumForEachGPU;
+    }
+    //=========================
+    bool Frame_failed = false;//放大失败标志
+    int Sub_gif_ThreadNumRunning = 0;
+    //====
+    QMap<QString,QString> Sub_Thread_info;
+    Sub_Thread_info["scaledFramesFolder"]= scaledFramesFolder;
+    if(CustRes_isContained(sourceFileFullPath))
+    {
+        QMap<QString, QString> Res_map = CustRes_getResMap(sourceFileFullPath);//res_map["fullpath"],["height"],["width"]
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(CustRes_CalNewScaleRatio(sourceFileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt()));
+    }
+    else
+    {
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(qRound(ui->doubleSpinBox_ScaleRatio_gif->value()));
+    }
+    //=========================
+    for(int i = 0; i < GPU_splitFramesFolder_List.size(); i++)
+    {
+        Sub_Thread_info["splitFramesFolder"]=GPU_splitFramesFolder_List.at(i);
+        mutex_SubThreadNumRunning.lock();
+        Sub_gif_ThreadNumRunning++;
+        mutex_SubThreadNumRunning.unlock();
+        QtConcurrent::run(this,&MainWindow::Waifu2x_Caffe_APNG_scale,Sub_Thread_info,&Sub_gif_ThreadNumRunning,&Frame_failed);
+        while (Sub_gif_ThreadNumRunning >= NumOfGPU)
+        {
+            Delay_msec_sleep(500);
+        }
+        if(waifu2x_STOP)
+        {
+            while (Sub_gif_ThreadNumRunning > 0)
+            {
+                Delay_msec_sleep(500);
+            }
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
+            return false;
+        }
+        if(Frame_failed)
+        {
+            FileProgressWatch_isEnabled=false;
+            FileProgressWatch_QFuture.cancel();
+            emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
+            return false;
+        }
+    }
+    while (Sub_gif_ThreadNumRunning!=0)
+    {
+        Delay_msec_sleep(500);
+    }
+    FileProgressWatch_isEnabled=false;
+    FileProgressWatch_QFuture.cancel();
+    emit Send_CurrentFileProgress_Stop();
+    //======================= 检查是否成功放大所有帧 ===========================
+    QStringList framesFileName_qStrList_scaled = file_getFileNames_in_Folder_nofilter(scaledFramesFolder);
+    if(framesFileName_qStrList.size()!=framesFileName_qStrList_scaled.size())
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
+        return false;
+    }
+    //============================================================
+    //组装apng
+    APNG_Frames2APNG(sourceFileFullPath, scaledFramesFolder, resultFileFullPath, false);
+    return true;
+}
+/*
+Waifu2x Caffe APNG 放大子线程
+*/
+int MainWindow::Waifu2x_Caffe_APNG_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed)
+{
+    bool AllFinished=true;
+    QString splitFramesFolder = Sub_Thread_info["splitFramesFolder"];
+    QString scaledFramesFolder = Sub_Thread_info["scaledFramesFolder"];
+    //===========
+    int ScaleRatio = Sub_Thread_info["ScaleRatio"].toInt();
+    int DenoiseLevel = ui->spinBox_DenoiseLevel_gif->value();
+    //===========
+    QString program = Current_Path + "/waifu2x-caffe/waifu2x-caffe_waifu2xEX.exe";
+    //====
+    QString ImageProcessingModeCMD = "";
+    if(DenoiseLevel==-1)
+    {
+        ImageProcessingModeCMD = " -m scale -s " + QString::number(ScaleRatio, 10)+" ";
+    }
+    else
+    {
+        int DenoiseLevel_tmp =0;
+        if((ui->comboBox_Model_2D_Waifu2xCaffe->currentIndex()==0)&&(DenoiseLevel==0)&&(ui->comboBox_ImageStyle_Waifu2xCaffe->currentIndex()==0))
+        {
+            DenoiseLevel_tmp=1;
+        }
+        else
+        {
+            DenoiseLevel_tmp = DenoiseLevel;
+        }
+        ImageProcessingModeCMD = " -m noise_scale -s " + QString::number(ScaleRatio, 10)+ " -n " + QString::number(DenoiseLevel_tmp, 10)+" ";
+    }
+    //=======
+    //========================================================================
+    QStringList InputFilesNameList = file_getFileNames_in_Folder_nofilter(splitFramesFolder);
+    QStringList OutPutFilesFullPathList;
+    for(int i=0; i<InputFilesNameList.size(); i++)
+    {
+        OutPutFilesFullPathList.append(scaledFramesFolder+"/"+InputFilesNameList.at(i));
+    }
+    int OutPutFilesFullPathList_size = OutPutFilesFullPathList.size();
+    //=======
+    QString cmd = "\"" + program + "\"" + " -i " + "\"" + splitFramesFolder + "\"" + " -o " + "\"" + scaledFramesFolder + "\"" + ImageProcessingModeCMD+ Waifu2x_Caffe_ReadSettings();
+    QProcess *Waifu2x = new QProcess();
+    //=======
+    for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
+    {
+        Waifu2x->start(cmd);
+        while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+        while(!Waifu2x->waitForFinished(500)&&!QProcess_stop)
+        {
+            if(waifu2x_STOP)
+            {
+                Waifu2x->close();
+                mutex_SubThreadNumRunning.lock();
+                *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+                mutex_SubThreadNumRunning.unlock();
+                return 0;
+            }
+        }
+        AllFinished = true;
+        for(int i=0; i<OutPutFilesFullPathList_size; i++)
+        {
+            if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
+            {
+                if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
+                Delay_sec_sleep(5);
+                emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
+                AllFinished=false;
+                break;
+            }
+        }
+        if(AllFinished)break;
+    }
+    //=========
+    AllFinished = true;
+    for(int i=0; i<OutPutFilesFullPathList_size; i++)
+    {
+        if(QFile::exists(OutPutFilesFullPathList.at(i))==false)
+        {
+            AllFinished=false;
+            break;
+        }
+    }
+    *Frame_failed= (!AllFinished);
+    //========
+    mutex_SubThreadNumRunning.lock();
+    *Sub_gif_ThreadNumRunning=*Sub_gif_ThreadNumRunning-1;
+    mutex_SubThreadNumRunning.unlock();
+    //========
+    return 0;
+}

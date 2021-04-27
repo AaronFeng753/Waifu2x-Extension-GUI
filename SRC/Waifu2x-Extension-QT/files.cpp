@@ -319,7 +319,7 @@ int MainWindow::FileList_Add(QString fileName, QString SourceFile_fullPath)
         }
         return 0;
     }
-    //============================  最后只能是gif ===============================
+    //============================  最后只能是gif & apng ===============================
     if(file_ext=="gif" || file_ext=="apng")
     {
         int rowNum = Table_gif_get_rowNum();
