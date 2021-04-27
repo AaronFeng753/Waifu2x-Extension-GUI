@@ -140,6 +140,8 @@ In conclusion, we won't collect any data from you. If you don't trust us, you ca
 - Special thanks to [@MrZihan](https://github.com/MrZihan) for create the [SRMD-CUDA](https://github.com/MrZihan/Super-resolution-SR-CUDA) engine and help me integrated it in the Waifu2x-Extension-GUI.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
+- APNG Assembler: https://sourceforge.net/projects/apngasm/
+- APNG Disassembler: https://sourceforge.net/projects/apngdis/
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
 - Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
