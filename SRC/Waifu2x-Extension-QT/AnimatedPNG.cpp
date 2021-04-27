@@ -287,6 +287,7 @@ void MainWindow::APNG_Split2Frames(QString sourceFileFullPath,QString splitFrame
     }
     //========================
     emit Send_TextBrowser_NewMessage(tr("Finish splitting APNG:[")+sourceFileFullPath+"]");
+    return;
 }
 /*
 组装apng
@@ -378,7 +379,7 @@ void MainWindow::APNG_Frames2APNG(QString sourceFileFullPath,QString scaledFrame
     QFile::remove(resultFileFullPath);
     //========================
     QString program = Current_Path+"/apngasm_waifu2xEX.exe";
-    QString cmd ="\""+program+"\" \""+resultFileFullPath+"\" \""+scaledFramesFolder+"/*.png\" -kp -kc -z1 1 "+QString::number(fps,10)+" -l0";
+    QString cmd ="\""+program+"\" \""+resultFileFullPath+"\" \""+scaledFramesFolder.replace("%","%%")+"/*.png\" -kp -kc -z1 1 "+QString::number(fps,10)+" -l0";
     QProcess *AssembleAPNG=new QProcess();
     AssembleAPNG->start(cmd);
     while(!AssembleAPNG->waitForStarted(100)&&!QProcess_stop) {}

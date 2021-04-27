@@ -36,6 +36,9 @@ Change log:
 
 ****************** 补全中文翻译 ***********************
 
+v3.41.02-beta:
+- Fix bug: Unable to assemble APNG when there are "%" in the path.
+
 v3.41.01-beta:
 - New Feature: APNG(Animated PNG) support.
 - Improve GUI.
