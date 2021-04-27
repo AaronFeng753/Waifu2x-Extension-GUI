@@ -24,6 +24,7 @@
 void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
 {
     //开始处理
+    bool isNeedRemoveFromCustResList = false;
     QString sourceFileFullPath="";
     if(isFromImageList==false)
     {
@@ -35,6 +36,30 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Processing");
         sourceFileFullPath = Table_model_image->item(rowNum,2)->text();
     }
+    //===============================
+    //检查是否需要自动添加到自定义分辨率列表
+    double double_ScaleRatio_gif = ui->doubleSpinBox_ScaleRatio_gif->value();
+    //如果没自定义分辨率且放大倍率带小数
+    if((CustRes_isContained(sourceFileFullPath) == false) && (double_ScaleRatio_gif != qRound(double_ScaleRatio_gif)))
+    {
+        //===================== 获取分辨率 =============================
+        QMap<QString,int> Map_OrgRes = Image_Gif_Read_Resolution(sourceFileFullPath);
+        //========= 计算新的高度宽度 ==================
+        double ScaleRatio_double = ui->doubleSpinBox_ScaleRatio_gif->value();
+        int Height_new = qRound(ScaleRatio_double * Map_OrgRes["height"]);
+        int width_new = qRound(ScaleRatio_double * Map_OrgRes["width"]);
+        if(Height_new<1 || width_new<1)
+        {
+            emit Send_TextBrowser_NewMessage("Warning! Unable to read the resolution of ["+sourceFileFullPath+"]. This file will only be scaled to "+QString::number((int)ScaleRatio_double,10)+"X.");
+        }
+        //======== 存入自定义分辨率列表中 ============
+        QMap<QString,QString> res_map;
+        res_map["fullpath"] = sourceFileFullPath;
+        res_map["height"] = QString::number(Height_new,10);
+        res_map["width"] = QString::number(width_new,10);
+        Custom_resolution_list.append(res_map);
+        isNeedRemoveFromCustResList = true;
+    }
     //======================
     //读取源文件信息
     QFileInfo fileinfo_sourceFileFullPath(sourceFileFullPath);
@@ -45,7 +70,7 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
     QString splitFramesFolder = sourceFileFullPath_folderPath+"/"+sourceFileFullPath_baseName+"_"+sourceFileFullPath_fileExt+"_splitFramesFolder_W2xEX";
     QString scaledFramesFolder = sourceFileFullPath_folderPath+"/"+sourceFileFullPath_baseName+"_"+sourceFileFullPath_fileExt+"_scaledFramesFolder_W2xEX";
     QString resultFileFullPath="";
-    if(CustRes_isContained(sourceFileFullPath))
+    if(CustRes_isContained(sourceFileFullPath) && isNeedRemoveFromCustResList==false)
     {
         QMap<QString, QString> Res_map = CustRes_getResMap(sourceFileFullPath);//res_map["fullpath"],["height"],["width"]
         resultFileFullPath = sourceFileFullPath_folderPath+"/"+sourceFileFullPath_baseName+"_"+QString::number(Res_map["width"].toInt(), 10)+"x"+QString::number(Res_map["height"].toInt(),10)+"_"+QString("%1").arg(ui->spinBox_DenoiseLevel_gif->value())+"n_W2xEX"+"."+sourceFileFullPath_fileExt;
@@ -70,6 +95,7 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
         }
         file_DelDir(splitFramesFolder);
         file_DelDir(scaledFramesFolder);
+        if(isNeedRemoveFromCustResList)CustRes_remove(sourceFileFullPath);
         return;
     }
     //检测是否拆分成功
@@ -86,6 +112,8 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         }
         file_DelDir(splitFramesFolder);
+        file_DelDir(scaledFramesFolder);
+        if(isNeedRemoveFromCustResList)CustRes_remove(sourceFileFullPath);
         emit Send_progressbar_Add();
         return;
     }
@@ -96,46 +124,48 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
     {
         case 0:
             {
-                isSuccessfullyScaled = APNG_Scale_Waifu2xNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_Waifu2xNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
         case 1:
             {
-                isSuccessfullyScaled = APNG_Scale_Waifu2xConverter(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_Waifu2xConverter(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
         case 2:
             {
-                isSuccessfullyScaled = APNG_Scale_SrmdNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_SrmdNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
         case 3:
             {
-                isSuccessfullyScaled = APNG_Scale_Anime4k(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_Anime4k(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+                break;
+            }
+        case 6:
+            {
+                isSuccessfullyScaled = APNG_SrmdCUDA(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
                 break;
             }
             /*
             case 4:
             {
-            isSuccessfullyScaled = APNG_Scale_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+            isSuccessfullyScaled = APNG_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
             break;
             }
             case 5:
             {
-            isSuccessfullyScaled = APNG_Scale_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
+            isSuccessfullyScaled = APNG_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
             break;
             }
-            case 6:
-            {
-            isSuccessfullyScaled = APNG_Scale_SrmdCUDA(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, resultFileFullPath);
-            break;
-            }
+
             */
     }
     //============
     //删除缓存
     file_DelDir(splitFramesFolder);
     file_DelDir(scaledFramesFolder);
+    if(isNeedRemoveFromCustResList)CustRes_remove(sourceFileFullPath);
     //============
     //放大过程中失败 or 暂停
     if(waifu2x_STOP)

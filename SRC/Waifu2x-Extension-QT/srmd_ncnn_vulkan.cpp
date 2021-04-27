@@ -2143,7 +2143,7 @@ QString MainWindow::SrmdNcnnVulkan_ReadSettings_Video_GIF(int ThreadNum)
 /*
 放大 APNG
 */
-bool MainWindow::APNG_Scale_SrmdNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
+bool MainWindow::APNG_SrmdNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
 {
     //生成文件夹
     file_DelDir(scaledFramesFolder);

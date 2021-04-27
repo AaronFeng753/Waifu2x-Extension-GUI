@@ -1947,7 +1947,7 @@ void MainWindow::on_pushButton_BlockSize_Minus_W2xConverter_clicked()
 
 Waifu2x-Converter
 */
-bool MainWindow::APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
+bool MainWindow::APNG_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
 {
     //生成文件夹
     file_DelDir(scaledFramesFolder);

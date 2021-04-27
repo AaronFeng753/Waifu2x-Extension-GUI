@@ -424,6 +424,23 @@ int MainWindow::Waifu2xMainThread()
                 emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(currentRowNumber, "Skipped");
                 continue;
             }
+            //======================= 判断是不是apng =====================
+            QString sourceFileFullPath = Table_model_gif->item(currentRowNumber,2)->text();
+            QFileInfo fileinfo_sourceFileFullPath(sourceFileFullPath);
+            if(fileinfo_sourceFileFullPath.suffix().toLower() == "apng")
+            {
+                mutex_ThreadNumRunning.lock();
+                ThreadNumRunning=1;//线程数量统计+1
+                mutex_ThreadNumRunning.unlock();
+                //========
+                APNG_Main(currentRowNumber,false);
+                //========
+                mutex_ThreadNumRunning.lock();
+                ThreadNumRunning=0;//线程数量统计+1
+                mutex_ThreadNumRunning.unlock();
+                //=======
+                continue;
+            }
             //=============== 判断是否需要加入自定义分辨率列表中 ============
             bool isNeedRemoveFromCustResList = false;
             if(isDoubleGifScaleRatio)
@@ -434,21 +451,6 @@ int MainWindow::Waifu2xMainThread()
             mutex_ThreadNumRunning.lock();
             ThreadNumRunning=1;//线程数量统计+1
             mutex_ThreadNumRunning.unlock();
-            //======================= 判断是不是apng =====================
-            QString sourceFileFullPath = Table_model_gif->item(currentRowNumber,2)->text();
-            QFileInfo fileinfo_sourceFileFullPath(sourceFileFullPath);
-            if(fileinfo_sourceFileFullPath.suffix().toLower() == "apng")
-            {
-                APNG_Main(currentRowNumber,false);
-                //========
-                if(isNeedRemoveFromCustResList == true)Gif_RemoveFromCustResList(currentRowNumber);
-                //========
-                mutex_ThreadNumRunning.lock();
-                ThreadNumRunning=0;//线程数量统计+1
-                mutex_ThreadNumRunning.unlock();
-                //=======
-                continue;
-            }
             //=========
             //是GIF
             switch(GIFEngine)

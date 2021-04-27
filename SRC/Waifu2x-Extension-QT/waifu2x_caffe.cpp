@@ -383,7 +383,7 @@ int MainWindow::Waifu2x_Caffe_GIF(int rowNum)
     }
     else
     {
-        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(ui->doubleSpinBox_ScaleRatio_gif->value());
+        Sub_Thread_info["ScaleRatio"] = QString("%1").arg(qRound(ui->doubleSpinBox_ScaleRatio_gif->value()));
     }
     //=========================
     for(int i = 0; i < GPU_SplitFramesFolderPath_List.size(); i++)

@@ -1515,3 +1515,115 @@ int MainWindow::SRMD_CUDA_Video_BySegment(int rowNum)
     //===========================  ==============================
     return 0;
 }
+/*
+放大 APNG
+*/
+bool MainWindow::APNG_SrmdCUDA(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
+{
+    //生成文件夹
+    file_DelDir(scaledFramesFolder);
+    file_mkDir(scaledFramesFolder);
+    //============================================================
+    //开始放大
+    //读取放大倍数
+    int ScaleRatio_Original = 2;
+    if(CustRes_isContained(sourceFileFullPath))
+    {
+        QMap<QString, QString> Res_map = CustRes_getResMap(sourceFileFullPath);//res_map["fullpath"],["height"],["width"]
+        ScaleRatio_Original = CustRes_CalNewScaleRatio(sourceFileFullPath,Res_map["height"].toInt(),Res_map["width"].toInt());
+    }
+    else
+    {
+        ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_gif->value();
+    }
+    QMap<QString,int> result_map = Calculate_ScaleRatio_SrmdNcnnVulkan(ScaleRatio_Original);
+    int ScaleRatio_Max=result_map["ScaleRatio_tmp"];
+    int Initial_ScaleRatio=result_map["Initial_ScaleRatio"];
+    bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
+    //初始化进度讯息
+    int NumOfSplitFrames = framesFileName_qStrList.size();
+    if(ui->checkBox_ShowInterPro->isChecked())
+    {
+        int NumOfRounds=0;
+        for(int ScaleRatio_Current_tmp=Initial_ScaleRatio; ScaleRatio_Current_tmp<=ScaleRatio_Max; ScaleRatio_Current_tmp*=Initial_ScaleRatio)
+        {
+            NumOfRounds++;
+        }
+        emit Send_CurrentFileProgress_Start(file_getBaseName(sourceFileFullPath)+"."+sourceFileFullPath.split(".").last(),NumOfSplitFrames*NumOfRounds);
+    }
+    //读取配置讯息
+    QProcess *Waifu2x = new QProcess();
+    //=====
+    QString Waifu2x_folder_path = Current_Path + "/srmd-cuda";
+    QString program = Waifu2x_folder_path + "/srmd-cuda_waifu2xEX.exe";
+    QString modelPath = Waifu2x_folder_path+"/model";
+    //=====
+    bool waifu2x_qprocess_failed = false;
+    int DenoiseLevel_tmp = ui->spinBox_DenoiseLevel_gif->value();
+    int CountFinishedRounds=0;
+    //====
+    for(int ScaleRatio_Current_tmp=Initial_ScaleRatio; ScaleRatio_Current_tmp<=ScaleRatio_Max && framesFileName_qStrList.isEmpty()==false; ScaleRatio_Current_tmp*=Initial_ScaleRatio)
+    {
+        for(int retry=0; retry<(ui->spinBox_retry->value()+ForceRetryCount); retry++)
+        {
+            waifu2x_qprocess_failed = false;
+            QString cmd = "\"" + program + "\"" + " -i " + "\"" + splitFramesFolder + "\"" + " -o " + "\"" + scaledFramesFolder + "\"" + " -s " + QString("%1").arg(Initial_ScaleRatio) + " -n " + QString::number(DenoiseLevel_tmp, 10) + " -m \""+modelPath+"\"";
+            Waifu2x->start(cmd);
+            while(!Waifu2x->waitForStarted(100)&&!QProcess_stop) {}
+            while(!Waifu2x->waitForFinished(650)&&!QProcess_stop)
+            {
+                if(waifu2x_STOP)
+                {
+                    Waifu2x->close();
+                    mutex_ThreadNumRunning.lock();
+                    ThreadNumRunning--;
+                    mutex_ThreadNumRunning.unlock();
+                    return false;
+                }
+                if(ui->checkBox_ShowInterPro->isChecked())
+                {
+                    emit Send_CurrentFileProgress_progressbar_SetFinishedValue((NumOfSplitFrames*CountFinishedRounds)+file_getFileNames_in_Folder_nofilter(scaledFramesFolder).size());
+                }
+            }
+            //========= 检测是否成功,是否需要重试 ============
+            if((NumOfSplitFrames == file_getFileNames_in_Folder_nofilter(scaledFramesFolder).size())&&!waifu2x_qprocess_failed)
+            {
+                break;
+            }
+            else
+            {
+                //失败
+                file_DelDir(scaledFramesFolder);
+                file_mkDir(scaledFramesFolder);
+                if(retry==ui->spinBox_retry->value()+(ForceRetryCount-1))break;
+                emit Send_TextBrowser_NewMessage(tr("Automatic retry, please wait."));
+                Delay_sec_sleep(5);
+            }
+        }
+        //===========
+        //根据轮数修改参数
+        DenoiseLevel_tmp = -1;
+        if(ScaleRatio_Current_tmp<ScaleRatio_Max)
+        {
+            for(int x = 0; x < NumOfSplitFrames; x++)
+            {
+                QFile::remove(splitFramesFolder+"/"+framesFileName_qStrList.at(x));
+            }
+            file_MoveFiles_Folder_NcnnVulkanFolderProcess(scaledFramesFolder, splitFramesFolder, true);
+            file_mkDir(scaledFramesFolder);
+        }
+        CountFinishedRounds++;
+    }
+    emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
+    //======================= 检查是否成功放大所有帧 ===========================
+    QStringList framesFileName_qStrList_scaled = file_getFileNames_in_Folder_nofilter(scaledFramesFolder);
+    if(NumOfSplitFrames!=framesFileName_qStrList_scaled.size())
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
+        return false;
+    }
+    //============================================================
+    //组装apng
+    APNG_Frames2APNG(sourceFileFullPath, scaledFramesFolder, resultFileFullPath, isOverScaled);
+    return true;
+}

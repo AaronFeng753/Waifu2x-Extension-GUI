@@ -2102,7 +2102,7 @@ QList<int> MainWindow::Calculate_CMD_ScaleRatio_List_W2xNCNNVulkan(int ScaleRati
 
 Waifu2x-NCNN-Vulkan
 */
-bool MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
+bool MainWindow::APNG_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,QString resultFileFullPath)
 {
     //生成文件夹
     file_DelDir(scaledFramesFolder);
