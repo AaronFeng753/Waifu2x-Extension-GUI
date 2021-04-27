@@ -73,47 +73,53 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
     }
     //=======================
     //开始放大&组装
+    bool isSuccessfullyScaled = false;
     switch(ui->comboBox_Engine_GIF->currentIndex())
     {
         case 0:
             {
-                APNG_Scale_Waifu2xNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+                isSuccessfullyScaled = APNG_Scale_Waifu2xNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+                break;
+            }
+        case 1:
+            {
+                isSuccessfullyScaled = APNG_Scale_Waifu2xConverter(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
                 break;
             }
             /*
-            case 1:
-            {
-            APNG_Scale_Waifu2xConverter(splitFramesFolder,scaledFramesFolder);
-            break;
-            }
             case 2:
             {
-            APNG_Scale_SrmdNCNNVulkan(splitFramesFolder,scaledFramesFolder);
-            break;
+                isSuccessfullyScaled = APNG_Scale_SrmdNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
+                break;
             }
+
             case 3:
             {
-            APNG_Scale_Anime4k(splitFramesFolder,scaledFramesFolder);
+            isSuccessfullyScaled = APNG_Scale_Anime4k(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
             break;
             }
             case 4:
             {
-            APNG_Scale_Waifu2xCaffe(splitFramesFolder,scaledFramesFolder);
+            isSuccessfullyScaled = APNG_Scale_Waifu2xCaffe(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
             break;
             }
             case 5:
             {
-            APNG_Scale_RealsrNCNNVulkan(splitFramesFolder,scaledFramesFolder);
+            isSuccessfullyScaled = APNG_Scale_RealsrNCNNVulkan(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
             break;
             }
             case 6:
             {
-            APNG_Scale_SrmdCUDA(splitFramesFolder,scaledFramesFolder);
+            isSuccessfullyScaled = APNG_Scale_SrmdCUDA(splitFramesFolder, scaledFramesFolder, sourceFileFullPath, framesFileName_qStrList, rowNum, isFromImageList, resultFileFullPath);
             break;
             }
             */
     }
-    //=======
+    //删除缓存
+    file_DelDir(splitFramesFolder);
+    file_DelDir(scaledFramesFolder);
+    if(isSuccessfullyScaled==false)return;
+    //检查是否成功生成结果文件
     if(QFile::exists(resultFileFullPath)==false)
     {
         emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Unable to assemble APNG.]"));
@@ -125,15 +131,9 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
         {
             emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
         }
-        file_DelDir(splitFramesFolder);
-        file_DelDir(scaledFramesFolder);
         emit Send_progressbar_Add();
         return;
     }
-    //===================
-    //删除缓存
-    file_DelDir(splitFramesFolder);
-    file_DelDir(scaledFramesFolder);
     //===================
     //删除原文件 更新table
     if(ui->checkBox_DelOriginal->isChecked()||ui->checkBox_ReplaceOriginalFile->isChecked())

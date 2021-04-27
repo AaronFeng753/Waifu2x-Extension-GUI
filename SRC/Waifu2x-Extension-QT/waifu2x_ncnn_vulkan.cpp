@@ -2097,8 +2097,14 @@ QList<int> MainWindow::Calculate_CMD_ScaleRatio_List_W2xNCNNVulkan(int ScaleRati
     return CMD_ScaleRatio_List;
 }
 */
-void MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath)
+/*
+放大APNG
+
+Waifu2x-NCNN-Vulkan
+*/
+bool MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath)
 {
+    //生成文件夹
     file_DelDir(scaledFramesFolder);
     file_mkDir(scaledFramesFolder);
     //============================================================
@@ -2114,7 +2120,7 @@ void MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
     {
         ScaleRatio_Original = ui->doubleSpinBox_ScaleRatio_gif->value();
     }
-    int ScaleRatio_Max=Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio_Original);
+    int ScaleRatio_Max = Calculate_Temporary_ScaleRatio_W2xNCNNVulkan(ScaleRatio_Original);
     bool isOverScaled = (ScaleRatio_Max!=ScaleRatio_Original);
     //初始化进度讯息
     int NumOfSplitFrames = framesFileName_qStrList.size();
@@ -2125,7 +2131,7 @@ void MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
         {
             NumOfRounds++;
         }
-        emit Send_CurrentFileProgress_Start(file_getBaseName(sourceFileFullPath)+".apng",NumOfSplitFrames*NumOfRounds);
+        emit Send_CurrentFileProgress_Start(file_getBaseName(sourceFileFullPath)+"."+sourceFileFullPath.split(".").last(),NumOfSplitFrames*NumOfRounds);
     }
     //读取配置讯息
     QString Waifu2x_NCNN_Vulkan_Settings_str = Waifu2x_NCNN_Vulkan_ReadSettings_Video_GIF(ui->spinBox_ThreadNum_gif_internal->value());
@@ -2151,7 +2157,6 @@ void MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
                 if(waifu2x_STOP)
                 {
                     Waifu2x->close();
-                    file_DelDir(splitFramesFolder);
                     if(isFromImageList)
                     {
                         emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Interrupted");
@@ -2163,7 +2168,7 @@ void MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
                     mutex_ThreadNumRunning.lock();
                     ThreadNumRunning--;
                     mutex_ThreadNumRunning.unlock();
-                    return;
+                    return false;//中断,返回
                 }
                 ErrorMSG.append(Waifu2x->readAllStandardError().toLower());
                 StanderMSG.append(Waifu2x->readAllStandardOutput().toLower());
@@ -2218,6 +2223,24 @@ void MainWindow::APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString 
         CountFinishedRounds++;
     }
     emit Send_CurrentFileProgress_Stop();//停止当前文件进度条
-    //=================
+    //======================= 检查是否成功放大所有帧 ===========================
+    QStringList Frame_fileName_list_scaled = file_getFileNames_in_Folder_nofilter(scaledFramesFolder);
+    if(NumOfSplitFrames!=Frame_fileName_list_scaled.size())
+    {
+        emit Send_TextBrowser_NewMessage(tr("Error occured when processing [")+sourceFileFullPath+tr("]. Error: [Failed to scale frames.]"));
+        if(isFromImageList)
+        {
+            emit Send_Table_image_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
+        }
+        else
+        {
+            emit Send_Table_gif_ChangeStatus_rowNumInt_statusQString(rowNum, "Failed");
+        }
+        emit Send_progressbar_Add();
+        return false;//放大帧失败,返回
+    }
+    //=============================
+    //组装apng
     APNG_Frames2APNG(sourceFileFullPath, scaledFramesFolder, resultFileFullPath, isOverScaled);
+    return true;
 }

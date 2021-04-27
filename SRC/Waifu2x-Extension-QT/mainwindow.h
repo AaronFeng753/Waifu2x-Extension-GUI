@@ -585,7 +585,11 @@ public:
     void APNG_Split2Frames(QString sourceFileFullPath,QString splitFramesFolder);
     void APNG_Frames2APNG(QString sourceFileFullPath,QString scaledFramesFolder,QString resultFileFullPath,bool isOverScaled);
     bool APNG_isAnimatedPNG(int rowNum);
-    void APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath);
+    //Waifu2x-NCNN-Vulkan
+    bool APNG_Scale_Waifu2xNCNNVulkan(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath);
+    //Waifu2x-Converter
+    bool APNG_Scale_Waifu2xConverter(QString splitFramesFolder,QString scaledFramesFolder,QString sourceFileFullPath,QStringList framesFileName_qStrList,int rowNum,bool isFromImageList,QString resultFileFullPath);
+    int Waifu2x_Converter_APNG_scale(QMap<QString, QString> Sub_Thread_info,int *Sub_gif_ThreadNumRunning,bool *Frame_failed);
     //=============
     ~MainWindow();
 
