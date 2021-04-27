@@ -181,5 +181,5 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - 图标作者: [Freepik](https://www.flaticon.com/authors/freepik) & [Roundicons](https://www.flaticon.com/authors/roundicons) & [Icongeek26](https://www.flaticon.com/authors/Icongeek26) 来自 Flaticon : https://www.flaticon.com/
 - 感謝 [@uimee](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/85) 協助進行繁體中文翻譯.
 - 感谢 [@Nova-Aurora](https://github.com/Nova-Aurora) 协助修复英文版README中的语法和拼写错误.
-- 感谢 [@Michael18751](https://github.com/Michael18751) 为提示音添加了淡出效果.
+- 感谢 [@Michael18751](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/118) 为提示音添加了淡出效果.
 - 感谢 [@CaptainStabs](https://github.com/CaptainStabs) 协助修复多个英语语法错误.
