@@ -45,7 +45,7 @@
 ### 借助深度卷积神经网络对`图片` & `GIF` & `视频`进行`超分辨率`放大(即放大与降噪) 以及 对视频进行 `插帧(即补帧)`.
 
 ### ✨主要特性:
-- #### 📺自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF 和 视频.
+- #### 📺自动化处理多种媒体: 支持处理 图片 的同时,实现了自动化处理 GIF&APNG 和 视频.
 - #### 😍全图像风格支持: 内置多种算法, 无论是 二次元动漫 还是 您日常拍摄的照片&录像 ,都可以进行清晰化处理.
 - #### 🎞视频插帧(补帧): 在对视频进行超分辨率后,自动对视频进行插帧以改进视频流畅度.
 - #### ✅强大的兼容性: 内置多个引擎, 几乎与所有现代 Windows PC 兼容.
@@ -145,6 +145,8 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - 感谢 [@MrZihan](https://github.com/MrZihan) 编写 [SRMD-CUDA](https://github.com/MrZihan/Super-resolution-SR-CUDA) 引擎并帮助我将其集成到Waifu2x-Extension-GUI中.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
+- APNG Assembler: https://sourceforge.net/projects/apngasm/
+- APNG Disassembler: https://sourceforge.net/projects/apngdis/
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
 - Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
