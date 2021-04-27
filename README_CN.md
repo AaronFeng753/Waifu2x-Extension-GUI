@@ -145,6 +145,8 @@ Waifu2x-Extension-GUI遵循[🔗GNU Affero General Public License v3.0](https://
 - 感谢 [@MrZihan](https://github.com/MrZihan) 编写 [SRMD-CUDA](https://github.com/MrZihan/Super-resolution-SR-CUDA) 引擎并帮助我将其集成到Waifu2x-Extension-GUI中.
 - Anime4K: https://github.com/bloc97/Anime4K
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
+- APNG Assembler: https://sourceforge.net/projects/apngasm/
+- APNG Disassembler: https://sourceforge.net/projects/apngdis/
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
 - Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
