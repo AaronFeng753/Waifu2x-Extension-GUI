@@ -100,6 +100,7 @@ void MainWindow::APNG_Main(int rowNum,bool isFromImageList)
         return;
     }
     //检测是否拆分成功
+    //获取拆分后的文件列表
     QStringList framesFileName_qStrList = file_getFileNames_in_Folder_nofilter(splitFramesFolder);
     if(framesFileName_qStrList.isEmpty())//检查是否成功拆分gif
     {
