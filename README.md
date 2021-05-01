@@ -115,11 +115,10 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 # [📄License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
-Waifu2x-Extension-GUI is licensed under the [🔗GNU Affero General Public License v3.0](https://www.gnu.org/licenses/agpl-3.0.en.html).
+#### Waifu2x-Extension-GUI is free for PERSONAL USE ONLY.
 
-<p align="left">
-<img src="/.github/AGPLv3_Logo.png" height="120">
-</p>
+#### If you wish to use Waifu2x-Extension-GUI commercially, please purchase the Premium version from:
+#### https://www.patreon.com/aaronfeng
 
 # Privacy policy🙈🙉🙊
 
