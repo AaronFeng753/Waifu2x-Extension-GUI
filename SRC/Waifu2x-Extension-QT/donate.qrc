@@ -1,5 +1,0 @@
-<RCC>
-    <qresource prefix="/new/prefix1">
-        <file>donate/Donate_QRCode.jpg</file>
-    </qresource>
-</RCC>
