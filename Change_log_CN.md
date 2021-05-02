@@ -7,6 +7,16 @@
 #### 🗂全部历史版本安装包合集:
 - ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
 ---
+## [v3.41.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.41.13)
+#### 更新日志:
+- 新特性: APNG(动态PNG)支持.
+- 当输出文件夹不存在时自动尝试创建它.
+- 为任务栏菜单添加选项.
+- 改进图形界面.
+- 性能优化.
+- 更新FFmpeg,ImageMagick.
+- 修复多个bug以及一些其他改进.
+---
 ## [v3.31.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.31.13)
 #### 更新日志:
 - 新增超分辨率引擎: SRMD-CUDA (引擎作者: @MrZihan).
