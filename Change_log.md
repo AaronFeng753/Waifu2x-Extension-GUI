@@ -4,6 +4,28 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.41.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.41.13)
+#### Change log:
+```
+v3.41.13:
+- New Feature: Automatically try to create output folder when the output folder does not exist.
+- New option for system tray menu.
+- Compatibility test for APNG plugins.
+- Chinese translation.
+- Fix bug: Unable to assemble APNG when there are "%" in the path.
+- Fix bug: Wrong message were displayed when all files lists are cleared.
+
+v3.41.01-beta:
+- New Feature: APNG(Animated PNG) support.
+- Improve GUI.
+- Some other improvements.
+
+v3.31.21-beta:
+- Performance optimization.
+- Update FFmpeg, ImageMagick.
+- Some other improvements.
+```
+---
 ## [v3.31.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.31.13)
 #### Change log:
 - NEW Super-Resolution Engine: SRMD-CUDA (By @MrZihan).
