@@ -8,7 +8,8 @@
 <h3 align="center"> Supports AMD / Nvidia / Intel GPU </h3>
 
 <p align="center">
-<img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20stable%20release&style=flat-square&color=brightgreen">
+
+<a href=https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest><img src="https://img.shields.io/github/v/release/aaronfeng753/waifu2x-extension-gui?label=Latest%20stable%20release&style=flat-square&color=brightgreen"></a>
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
 <a href=https://t.me/W2xEX><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg?longCache=true&style=flat-square"></a>
 </p>
