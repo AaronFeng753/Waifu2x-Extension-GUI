@@ -145,6 +145,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - Anime4KCPP: https://github.com/TianZerL/Anime4KCPP
 - APNG Assembler: https://sourceforge.net/projects/apngasm/
 - APNG Disassembler: https://sourceforge.net/projects/apngdis/
+- APNG Optimizer: https://sourceforge.net/projects/apng/files/APNG_Optimizer/
 - Beautiful Soup: https://www.crummy.com/software/BeautifulSoup/
 - cain-ncnn-vulkan: https://github.com/nihui/cain-ncnn-vulkan
 - Channel Attention Is All You Need for Video Frame Interpolation: https://github.com/myungsub/CAIN
