@@ -1,8 +1,8 @@
 ---
 name: Feature request (Suggestions)
 about: Suggest an idea for this project
-title: "[Feature request/Suggestions]"
-labels: ''
+title: "[Feature request]"
+labels: Feature request
 assignees: AaronFeng753
 
 ---
