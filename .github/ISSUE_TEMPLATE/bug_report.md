@@ -7,11 +7,11 @@ assignees: AaronFeng753
 
 ---
 
-### Please read the followings before you create a new issue:
-- #### Be civil and polite.
-- #### Only BUG Report and Suggestions are allowed here.
-- #### You are only allowed to report bugs you encounter when using Latest version.(Beta/Stable)
-- #### I'm a developer, NOT a customer-service agent from a giant company, keep that in mind.
+Please read the followings before you create a new issue:
+- Be civil and polite.
+- Only BUG Report and Suggestions are allowed here.
+- You are only allowed to report bugs you encounter when using Latest version.(Beta/Stable)
+- I'm a developer, NOT a customer-service agent from a giant company, keep that in mind.
 
 ---
 
