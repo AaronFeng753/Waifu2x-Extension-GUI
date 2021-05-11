@@ -4,9 +4,6 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
-#### 🗂全部历史版本安装包合集:
-- ☁百度云: https://pan.baidu.com/s/14grAcWeHs6v71tLnE1-81w 提取码: swe7
----
 ## [v3.41.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.41.13)
 #### 更新日志:
 - 新特性: APNG(动态PNG)支持.
