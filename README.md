@@ -130,7 +130,7 @@ We respect your privacy, so the following is the privacy policy of this software
 will download two .ini files and two .jpg files from GitHub and Gitee. (Gitee is a copycat version of GitHub in The
 People's Republic of China, you can disable downloading anything from Gitee by enabling [Ban Gitee] in [Additional settings])
 
-In conclusion, we won't collect any data from you. If you don't trust us, you can read the source code yourself or stop using this software.
+In conclusion, we won't collect any data from you.
 ```
 
 # 💝Credits💝:
