@@ -4,6 +4,13 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.42.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.42.11)
+#### 更新日志:
+- 加快APNG处理速度.
+- 更快的APNG缩放,组装和优化方式.
+- 支持带有多个音轨的视频.
+- 独立的APNG优化开关: [优化Gif&APNG].
+---
 ## [v3.41.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.41.13)
 #### 更新日志:
 - 新特性: APNG(动态PNG)支持.
