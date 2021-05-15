@@ -4,6 +4,13 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.42.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.42.11)
+#### Change log:
+- Faster APNG processing.
+- New Faster methods for resize,assemble and optimize APNG.
+- Support for Videos with Multiple Audio Tracks.
+- Individual toggle for APNG optimization: [Optimize Gif&APNG].
+---
 ## [v3.41.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.41.13)
 #### Change log:
 ```
