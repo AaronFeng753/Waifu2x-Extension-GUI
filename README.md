@@ -66,7 +66,7 @@ Built-in Video frame interpolation engines:
 rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 ```
 
-#### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce GTX 1070 and `Intel` UHD 620.
+#### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce RTX 3060 and `Intel` UHD 620.
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
