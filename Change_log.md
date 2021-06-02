@@ -4,6 +4,38 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.52.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.01)
+#### Change log:
+```
+v3.52.01:
+- New Feature: [Keep ALL parent folders]: Keep ALL the parent folders of the source file when output the result file to the output folder.
+- New Feature: Now you can change the extension(format) of the result video.
+- New Feature: Now you can choose which video Encoder to use when converting video to CFR MP4.
+- New Feature: [Hardware-accelerated Encoding]: Using GPU to accelerate video encoding.
+- New Feature: [Hyper-threading (SMT)] switch.
+- optimize multi-threading performance.
+- New Feature: Show available GPUs name when detecting GPU IDs for NCNN-Vulkan engines.
+- New Feature: New right-click menu option for [Settings Presets]:[Re-Apply Current Preset]
+- Show how many duplicate frames and scene shifts has been found.
+- Optimize the performance of [Speed Boost]&[Scene Shift Detection]
+- Better High DPI screen support.
+- Fix bug: compatibility test stuck at SRMD-CUDA.
+- Fix bug: even though PC passed DAIN-NCNN-Vulkan compatibility test, program will still tell the user that all frame interpolation engines are incompatible.
+- Fix bug: Unable to generate video when video stream is not the 0 stream.
+- Fix bug: Unable to assemble video when [Process video by segment]&[Custom video settings] are both enabled.
+
+v3.51.01-BETA:
+- New Feature: [Speed Boost]: Boost video processing speed by analyzing frames.
+- New Feature: [Scene Shift Detection]: Detect Scene Shift in the Video to improve the result of video frame interpolation.
+- New Feature: [Settings Presets]: Several settings presets provided by the developer.
+- New Feature: [Constant Rate Factor(CRF)] adjustment.
+- New Feature: [Daily Tip].
+- New RIFE-ncnn-Vulkan Model: rife-v3.0,rife-v3.1
+- Improve Video quality, Default settings, GUI and scale performance of Waifu2x-NCNN-Vulkan.
+- Update rife-ncnn-vulkan, Waifu2x-NCNN-Vulkan.
+- Fix bug: Unable to reset all custom video settings.
+```
+---
 ## [v3.42.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.42.11)
 #### Change log:
 - Faster APNG processing.
