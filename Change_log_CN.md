@@ -4,6 +4,27 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.52.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.11)
+#### 更新日志:
+```
+v3.52.11:
+- 第一次启动软件时,选择语言后,立即记忆语言设定.
+- 修正错字.
+- 修复bug:处理高分辨率视频时无法正确识别转场.
+- 修复bug:一些特殊情况下无法读取图片分辨率.
+- 修复bug:一些特殊情况下"FrameAnalyzeMB"文件夹没有被自动删除.
+
+v3.52.10-beta:
+- 新特性:[重置画面分析设定]按钮.
+- 改进GUI.
+- 改进画面分析的默认值.
+- 当硬件编码器无法正确转换视频时,自动改用软件编码器.
+- 更详细的报错信息.
+- 修复bug:无法正确检测CFR MP4转换失败.
+- 修复bug:无法正确检测组装视频失败.
+- 修复bug:自定义的像素格式参数设定无法生效.
+```
+---
 ## [v3.52.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.01)
 #### 更新日志:
 ```
