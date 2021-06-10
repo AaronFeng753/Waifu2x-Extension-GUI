@@ -4,6 +4,26 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.52.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.11)
+#### Change log:
+```
+v3.52.11:
+- Fix typo.
+- Fix bug: Unable to detect scene shift correctly when processing Hight-res videos.
+- Fix bug: Unable to read images resolution in certain situations.
+- Fix bug: "FrameAnalyzeMB" was not deleted in certain situations.
+
+v3.52.10-beta:
+- New feature: "Reset [Frame Analysis] Settings" button.
+- Improve GUI.
+- Improve the default settings of [Frame Analysis].
+- Automatically switch to software encoder when hardware encoder unable to convert some videos to CFR MP4.
+- More detailed ERROR reports.
+- Fix bug: Unable to convert some videos to CFR MP4, caused by hardware encoder.
+- Fix bug: Unable to detect failures correctly when processing videos.
+- Fix bug: Pixel format parameter was ignored.
+```
+---
 ## [v3.52.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.01)
 #### Change log:
 ```
