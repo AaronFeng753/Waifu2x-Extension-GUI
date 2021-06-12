@@ -181,6 +181,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
 - Waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
 - 图标作者: [Freepik](https://www.flaticon.com/authors/freepik) & [Roundicons](https://www.flaticon.com/authors/roundicons) & [Icongeek26](https://www.flaticon.com/authors/Icongeek26) 来自 Flaticon : https://www.flaticon.com/
+- [psd2waifu2x配布・サポートページ | 投稿者: HIMAKIKUROGANE](https://gkalumnium.com/devlog/psd2waifu2x%e9%85%8d%e5%b8%83%e3%83%bb%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%83%9a%e3%83%bc%e3%82%b8/)
 - 感謝 [@uimee](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/85) 協助進行繁體中文翻譯.
 - 感谢 [@Nova-Aurora](https://github.com/Nova-Aurora) 协助修复英文版README中的语法和拼写错误.
 - 感谢 [@Michael18751](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/118) 为提示音添加了淡出效果.
