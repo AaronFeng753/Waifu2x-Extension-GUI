@@ -157,6 +157,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - FFmpeg Builds - Zeranoe(该网站已停止运营): https://ffmpeg.zeranoe.com/builds/
 - Ghostscript: https://www.ghostscript.com/index.html
 - Gifsicle: https://www.lcdf.org/gifsicle/
+- GIMP: https://www.gimp.org/
 - GNU Wget: https://www.gnu.org/software/wget/
 - ImageMagick: http://www.imagemagick.org/
 - NCNN: https://github.com/Tencent/ncnn
@@ -180,6 +181,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - Waifu2x-converter: https://github.com/DeadSix27/waifu2x-converter-cpp
 - Waifu2x-Extension: https://github.com/AaronFeng753/Waifu2x-Extension
 - Waifu2x-ncnn-vulkan: https://github.com/nihui/waifu2x-ncnn-vulkan
+- [psd2waifu2x配布・サポートページ | 投稿者: HIMAKIKUROGANE](https://gkalumnium.com/devlog/psd2waifu2x%e9%85%8d%e5%b8%83%e3%83%bb%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%83%9a%e3%83%bc%e3%82%b8/)
 - 图标作者: [Freepik](https://www.flaticon.com/authors/freepik) & [Roundicons](https://www.flaticon.com/authors/roundicons) & [Icongeek26](https://www.flaticon.com/authors/Icongeek26) 来自 Flaticon : https://www.flaticon.com/
 - [psd2waifu2x配布・サポートページ | 投稿者: HIMAKIKUROGANE](https://gkalumnium.com/devlog/psd2waifu2x%e9%85%8d%e5%b8%83%e3%83%bb%e3%82%b5%e3%83%9d%e3%83%bc%e3%83%88%e3%83%9a%e3%83%bc%e3%82%b8/)
 - 感謝 [@uimee](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/issues/85) 協助進行繁體中文翻譯.
