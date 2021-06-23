@@ -159,6 +159,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - GIMP: https://www.gimp.org/
 - GNU Wget: https://www.gnu.org/software/wget/
 - ImageMagick: http://www.imagemagick.org/
+- ImDisk Toolkit: https://sourceforge.net/projects/imdisk-toolkit/
 - NCNN: https://github.com/Tencent/ncnn
 - NirCmd: https://www.nirsoft.net/utils/nircmd.html
 - NSIS: https://nsis.sourceforge.io/
