@@ -13,6 +13,12 @@
 - NEW Feature: Now you can adjust the settings of GIF & APNG optimization, they are on the [Image settings] tab.
 - NEW Feature: PSD(Photoshop Document) support.
 - Improve GUI, Update Anime4K, and fix multiple bugs.
+- Fix bug: Unable to display frame interpolation progress correctly when [Multiple of FPS] is higher than [2].
+- Fix bug: All EMPTY parent folders will be deleted when delete a folder.
+- Fix bug: Unable to update processing progress if the processing speed is extremely fast.
+- Fix bug: GUI will becomes laggy when there are too many lines in the Console.
+- Fix bug: Sorting the files list by file name does not sort numbers logically.
+- Fix bug: Unable to adjust the window size correctly.
 ---
 ## [v3.52.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.11)
 #### Change log:
