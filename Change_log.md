@@ -4,6 +4,16 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.71.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.71.01)
+#### Change log:
+- New feature: Add [Optimize Settings] button for helping user adjust engine settings based on PCs hardware,including [Block(Tile) size] and [Number of threads].(At [Engine settings] tab)
+- Now you can tell GUI to stop showing you warning when enable Hardware-accelerated Encoding & Decoding.
+- Resume progress when video frame cache in the RAM is lost.
+- Add [GeForce RTX ON] switch for SRMD-CUDA engine.
+- Update FFmpeg, ImageMagick, SRMD-CUDA.
+- Show a warning when enable [Speed Boost].
+- Fix 10 bugs.
+---
 ## [v3.70.02](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.70.02)
 #### Change log:
 - NEW Feature: [Dynamic RAM Cache]: Now GUI can save & read video caches(frames) from the RAM, which is a lot faster and will protect the lifespan of your hard drive.
