@@ -4,6 +4,26 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.71.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.71.01)
+#### 更新日志:
+- 新特性: 添加[优化设定]按钮以帮助用户根据PC硬件优化引擎设定, 包含[块大小]和[线程数量].(位于[引擎设置]选项卡)
+- 现在您可以告诉GUI停止在启用硬件加速解码结和编码时显示警告.
+- 当内存中的视频帧缓存丢失时恢复进度.
+- 为SRMD-CUDA添加[GeForce RTX ON]开关.
+- 更新FFmpeg, ImageMagick, SRMD-CUDA.
+- 启用[智能加速]时显示提示.
+- 修复10项错误.
+---
+## [v3.70.02](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.70.02)
+#### 更新日志:
+- 新特性: [动态内存缓冲]: 现在GUI可以直接从内存写入和读取视频缓存(视频帧),这样比之前快得多,并且可以保护硬盘的寿命.
+- 新特性: [指定帧率]: 现在你可以直接指定视频的帧率(比如120FPS).
+- 新特性: [硬件加速 视频解码]: 现在GUI可以调用显卡来加速视频解码.
+- 新特性: [帧编码]: 现在您可以将视频帧的编码切换为JPEG来缩小缓存.
+- 新特性: 现在你可以调整 GIF & APNG 优化的设定, 他们位于 [图片设置] 选项卡.
+- 新特性: PSD(Photoshop Document) 支持.
+- 改进 GUI, 更新 Anime4K, 并修复多个问题.
+---
 ## [v3.52.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.11)
 #### 更新日志:
 ```

@@ -4,6 +4,32 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.71.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.71.01)
+#### Change log:
+- New feature: Add [Optimize Settings] button for helping user adjust engine settings based on PCs hardware,including [Block(Tile) size] and [Number of threads].(At [Engine settings] tab)
+- Now you can tell GUI to stop showing you warning when enable Hardware-accelerated Encoding & Decoding.
+- Resume progress when video frame cache in the RAM is lost.
+- Add [GeForce RTX ON] switch for SRMD-CUDA engine.
+- Update FFmpeg, ImageMagick, SRMD-CUDA.
+- Show a warning when enable [Speed Boost].
+- Fix 10 bugs.
+---
+## [v3.70.02](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.70.02)
+#### Change log:
+- NEW Feature: [Dynamic RAM Cache]: Now GUI can save & read video caches(frames) from the RAM, which is a lot faster and will protect the lifespan of your hard drive.
+- NEW Feature: [Target FPS]: Now you can specify the FPS of the result video(e.g. 120FPS).
+- NEW Feature: [Hardware-accelerated Decoding]: Now GUI can use GPU to accelerate video decoding.
+- NEW Feature: [Frame codec]: Now you can switch the codec of video frames to JPEG to reduce cache size.
+- NEW Feature: Now you can adjust the settings of GIF & APNG optimization, they are on the [Image settings] tab.
+- NEW Feature: PSD(Photoshop Document) support.
+- Improve GUI, Update Anime4K, and fix multiple bugs.
+- Fix bug: Unable to display frame interpolation progress correctly when [Multiple of FPS] is higher than [2].
+- Fix bug: All EMPTY parent folders will be deleted when delete a folder.
+- Fix bug: Unable to update processing progress if the processing speed is extremely fast.
+- Fix bug: GUI will becomes laggy when there are too many lines in the Console.
+- Fix bug: Sorting the files list by file name does not sort numbers logically.
+- Fix bug: Unable to adjust the window size correctly.
+---
 ## [v3.52.11](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.52.11)
 #### Change log:
 ```
