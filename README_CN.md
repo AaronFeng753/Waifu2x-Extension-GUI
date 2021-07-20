@@ -76,6 +76,8 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 ![Engine_Settings](/Screenshot/Engine_Settings_CN.jpg)
 
+![VideoSettings_CN](/Screenshot/VideoSettings_CN.jpg)
+
 ![Additional_Settings](/Screenshot/Additional_Settings_CN.jpg)
 
 # [示例👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
