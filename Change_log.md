@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.72.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.72.13)
+#### Change log:
+- NEW Feature: Upgrade [Auto-reduce] to [Auto-Adjust], now GUI can automatically adjust the number of threads for frame interpolation engine based the source video and PCs hardware.
+- All non-natively supported image formats will be pre-processed before being scaled.
+- AVIF and HEIC images support.
+- Improve [Optimize Settings] for super-resolution engine.
+- Fix bug: frame rate of the result gif is wrong.
+- Fix bug: Sometimes unable to open local html.
+---
 ## [v3.71.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.71.01)
 #### Change log:
 - New feature: Add [Optimize Settings] button for helping user adjust engine settings based on PCs hardware,including [Block(Tile) size] and [Number of threads].(At [Engine settings] tab)
