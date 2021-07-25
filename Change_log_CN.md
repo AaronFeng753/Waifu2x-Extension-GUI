@@ -4,6 +4,15 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.72.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.72.13)
+#### 更新日志:
+- 新特性:将插帧引擎多线程的[自动减少]升级为[自动调整], 现在软件可以根据源视频和电脑硬件自动调整插帧引擎的线程数量.
+- 所有非原生支持的图片格式都将在被放大前进行自动预处理.
+- AVIF和HEIC图片支持.
+- 改进超分辨率引擎的自动设定优化.
+- 修复bug: gif帧率错误.
+- 修复bug: 有时无法打开本地html
+---
 ## [v3.71.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.71.01)
 #### 更新日志:
 - 新特性: 添加[优化设定]按钮以帮助用户根据PC硬件优化引擎设定, 包含[块大小]和[线程数量].(位于[引擎设置]选项卡)
