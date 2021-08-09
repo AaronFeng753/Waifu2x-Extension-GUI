@@ -78,7 +78,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 # [Samples👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-### [➡Comparison(3D Real-life)(Using RealSR-NCNN-Vulkan Engine)](https://imgsli.com/MzYzMTQ)
+### [➡Comparison(3D Real-life)(Using RealESRGAN-NCNN-Vulkan Engine)](https://imgsli.com/NjQ4NzY)
 #### [Photo by Jonatan Pie on Unsplash](https://unsplash.com/photos/Yv9WbjBgZXY)
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
