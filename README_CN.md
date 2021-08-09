@@ -83,7 +83,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 # [示例👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-### [➡对比(3D写实)(使用内置的RealSR-NCNN-Vulkan引擎)](https://imgsli.com/MzYzMTQ)
+### [➡对比(3D写实)(使用内置的RealESRGAN-NCNN-Vulkan引擎)](https://imgsli.com/NjQ4NzY)
 #### [原照片来自Unsplash,由Jonatan Pie拍摄.](https://unsplash.com/photos/Yv9WbjBgZXY)
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
