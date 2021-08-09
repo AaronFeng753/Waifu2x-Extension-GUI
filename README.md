@@ -52,11 +52,12 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 
 ```
 Built-in super-resolution algorithms:
-Waifu2x / SRMD / RealSR / Anime4K / ACNet
+Waifu2x / SRMD / RealSR / Real-ESRGAN / Anime4K / ACNet
 
 Built-in super-resolution engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
+RealESRGAN-NCNN-Vulkan
 
 Built-in Video frame interpolation algorithms:
 RIFE / CAIN / DAIN
@@ -166,6 +167,7 @@ In conclusion, we won't collect any data from you.
 - PyInstaller: https://github.com/pyinstaller/pyinstaller
 - Python: https://www.python.org/
 - QT: https://www.qt.io/
+- Real-ESRGAN: https://github.com/xinntao/Real-ESRGAN
 - RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
 - rife-ncnn-vulkan: https://github.com/nihui/rife-ncnn-vulkan

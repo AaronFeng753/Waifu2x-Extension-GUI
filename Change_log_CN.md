@@ -4,6 +4,15 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.73.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.73.14)
+#### 更新日志:
+- 全新的视频切段方式, 大幅削减分段处理视频造成的额外时间损耗.
+- 进一步改进自动分配补帧线程数量的算法.
+- 进一步改进自动优化超分辨率引擎设定的算法.
+- 减少对部分特定帧率的视频进行补帧时的资源和时间消耗.
+- 改善网络连接速度.
+- 修复多项问题.
+---
 ## [v3.72.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.72.13)
 #### 更新日志:
 - 新特性:将插帧引擎多线程的[自动减少]升级为[自动调整], 现在软件可以根据源视频和电脑硬件自动调整插帧引擎的线程数量.

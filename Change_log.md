@@ -4,6 +4,15 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.73.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.73.14)
+#### Change log:
+- New method for cut video, significantly reduced the extra time cost of processing video by segment.
+- Further improve the [Auto-adjust] for frame interpolation.
+- Further improve the [Optimize Settings] for super-res engines.
+- Reduce the time and resource cost when processing video with certain FPS values.
+- Faster Internet connection speed.
+- Fix several bugs.
+---
 ## [v3.72.13](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.72.13)
 #### Change log:
 - NEW Feature: Upgrade [Auto-reduce] to [Auto-Adjust], now GUI can automatically adjust the number of threads for frame interpolation engine based the source video and PCs hardware.
