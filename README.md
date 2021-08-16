@@ -101,8 +101,6 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 
 #### `Github doesn't support online video playback, please check link below:`
 
-#### My Youtube channel: https://www.youtube.com/channel/UCUIdGDuH32mTAVL6_6uQdXQ
-
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
 # ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
