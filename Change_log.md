@@ -4,6 +4,19 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.81.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.81.01)
+#### Change log:
+- 🌟NEW Super-Resolution Engine: RealESRGAN-NCNN-Vulkan.
+- 🌟Significantly improved the UI performance, especially the Files List UI.
+- 🌟NEW Feature: [Video sampling]: Only process part of the video from the start to the end of the time you set.(At [Additional settings] tab)
+- Improve internet connection speed.
+- Add more settings presets
+- Driver version detection for NVENC encoder.
+- Improve MP4 conversion.
+- Improve pop-up messages.
+- And many other improvements.
+- Fix multiple bugs.
+---
 ## [v3.73.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.73.14)
 #### Change log:
 - New method for cut video, significantly reduced the extra time cost of processing video by segment.
