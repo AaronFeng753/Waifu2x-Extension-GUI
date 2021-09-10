@@ -4,6 +4,19 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.81.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.81.01)
+#### 更新日志:
+- 🌟新增超分辨率引擎: RealESRGAN-NCNN-Vulkan.
+- 🌟大幅提升UI性能, 尤其是与文件列表相关的UI.
+- 🌟新特性: [视频取样]: 从视频中取出用户指定的一段进行处理.(在[附加设定]选项卡)
+- 改进网络连接速度.
+- 添加更多设定预设.
+- NVENC编码器的驱动版本检测.
+- 改进MP4转换流程.
+- 改进弹窗消息.
+- 以及其他更多改进.
+- 修复多项问题.
+---
 ## [v3.73.14](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.73.14)
 #### 更新日志:
 - 全新的视频切段方式, 大幅削减分段处理视频造成的额外时间损耗.
