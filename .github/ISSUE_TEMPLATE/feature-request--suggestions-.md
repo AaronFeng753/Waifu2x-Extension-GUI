@@ -1,7 +1,7 @@
 ---
 name: Feature request (Suggestions)
 about: Suggest an idea for this project
-title: "[Feature request]"
+title: "[Feature request] *Fill in Title here*"
 labels: Feature request
 assignees: ''
 
@@ -9,10 +9,9 @@ assignees: ''
 
 ⚠⚠Please read the followings before you create a new issue⚠⚠
 - Be civil and polite.
-- Only BUG Report and Suggestions are allowed here.
+- Only BUG Report and Suggestions are allowed here, this is NOT customer-service center.
 - You are only allowed to report bugs you encounter when using Latest version.(Beta/Stable)
-- This is NOT customer-service center, post REAL ISSUE here, or your "issue" will be deleted, and you might get blocked.
-- English and Chinese only.(language,not people,LOL)
+- English and Chinese languages only.
 
 ---
 
