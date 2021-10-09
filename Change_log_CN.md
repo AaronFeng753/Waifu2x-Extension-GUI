@@ -4,6 +4,22 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.83.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.83.01)
+#### 更新日志:
+- 新特性: [预处理加速]: 处理视频前移除视频内所有无用重复帧.可以改进处理速度和补帧的效果.
+- 新特性: [仅移除重复帧 (视频)]: 仅移除视频中的无用重复帧,不进行进一步处理.
+- 新特性: [记忆窗口大小].
+- 新特性: [内存缓冲有效性检查]开关, 现在你可以在禁用此检查后使用其他软件创建的内存盘.
+- 新特性: 为控制台添加[自动滑动]开关.
+- 新特性: GUI现在可以检测插帧或超分辨率期间, 缓存盘空间是否被填满.
+- 全局优化, 提高代码效率, 降低GUI的CPU占用.
+- 改进线程调度器.
+- 改进视频画质,尤其是当使用硬件编码器时.
+- 改进mp4转换流程.
+- 更新 FFmpeg, ImageMagick.
+- 其他诸多改进.
+- 修复多项问题.
+---
 ## [v3.81.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.81.01)
 #### 更新日志:
 - 🌟新增超分辨率引擎: RealESRGAN-NCNN-Vulkan.
