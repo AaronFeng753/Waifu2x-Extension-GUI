@@ -4,6 +4,22 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## [v3.83.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.83.01)
+#### Change log:
+- NEW Feature: [Pre-processing Boost]: Remove ALL unnecessary duplicate frames in the video before processing. Can improve both the processing speed and effcet of frame interpolation.
+- NEW Feature: [Remove dupduplicate frames ONLY (Video)]: ONLY remove all unnecessary dupduplicate frames in the video, no further processing.
+- NEW Feature: [Remember window size].
+- NEW Feature: [RAM Cache Validity Check] toggle, now you can use RAM Disk created by other software after disable this check.
+- NEW Feature: [Auto Scroll] toggle for console.
+- NEW Feature: Now GUI will be able to detect if the cache disk is full during frame interpolation and super-resolution.
+- Global optimization, improve code efficiency, reduce GUI's CPU usage.
+- Improve thread scheduling.
+- Improve video quality, especially when using hardware encoder.
+- Improve MP4 conversion.
+- Update FFmpeg, ImageMagick.
+- Many other improvements.
+- Fix multiple bugs.
+---
 ## [v3.81.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.81.01)
 #### Change log:
 - 🌟NEW Super-Resolution Engine: RealESRGAN-NCNN-Vulkan.
