@@ -21,9 +21,6 @@
 
 下载最新版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-#### 🌟在Patreon资助本项目以获取✨Premium 高级版✨: https://patreon.com/aaronfeng
-#### 🌟中国用户也可以通过 支付宝&微信 捐赠获取 高级版, 详见 [➡🔗捐赠页面](/Donate_page.md)
-
 #### [📝点击查看完整更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 
 支持的语言: English, 简体中文, 繁體中文.
