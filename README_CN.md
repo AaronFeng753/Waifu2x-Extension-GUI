@@ -14,7 +14,7 @@
 
 ### [📜English README](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md) | [🔗GitHub](https://github.com/AaronFeng753/Waifu2x-Extension-GUI) | [🔗Gitee 码云](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI)
 
-如果README内的图片无法正常加载,请[点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md). 码云上的内容并非与Github实时同步, 请以[官方Github为准](https://github.com/AaronFeng753/Waifu2x-Extension-GUI).
+如果README内的图片无法正常加载,请[🔗点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md). 码云上的内容并非与Github实时同步, 请以[官方Github为准](https://github.com/AaronFeng753/Waifu2x-Extension-GUI).
 
 # [💾下载最新稳定版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 下载最新版本的绿色版安装包, 适用于拥有`Intel/AMD/Nvidia`显卡的`Windows 64位`系统个人电脑.
