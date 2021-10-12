@@ -14,14 +14,15 @@
 
 ### [📜English README](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md) | [🔗GitHub](https://github.com/AaronFeng753/Waifu2x-Extension-GUI) | [🔗Gitee 码云](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI)
 
-如果README内的图片无法正常加载,请[点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md)或者[使用邮电部国家公用电信网提供的国际出入口信道进行国际联网](http://www.cac.gov.cn/1996-02/02/c_126468621.htm)后刷新页面. 码云上的源码并非与Github实时同步, 请以[官方Github为准](https://github.com/AaronFeng753/Waifu2x-Extension-GUI).
+如果README内的图片无法正常加载,请[点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md). 码云上的内容并非与Github实时同步, 请以[官方Github为准](https://github.com/AaronFeng753/Waifu2x-Extension-GUI).
 
 # [💾下载最新稳定版本 (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 下载最新版本的绿色版安装包, 适用于拥有`Intel/AMD/Nvidia`显卡的`Windows 64位`系统个人电脑.
 
 下载最新版: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
 
-#### ➡在Patreon资助本项目以获取✨Premium 高级版✨: https://patreon.com/aaronfeng
+#### 🌟在Patreon资助本项目以获取✨Premium 高级版✨: https://patreon.com/aaronfeng
+#### 🌟中国用户也可以通过 支付宝&微信 捐赠获取 高级版, 详见 [➡🔗捐赠页面](/Donate_page.md)
 
 #### [📝点击查看完整更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 
