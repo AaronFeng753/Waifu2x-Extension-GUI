@@ -4,6 +4,17 @@
 
 #### [⭐最新版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.83.21
+#### 更新日志:
+- 新特性: 支持将图片另存为PSD.
+- 加快软件启动速度.
+- 用户体验改进.
+- 加强自动化, 改进默认设定.
+- 改善视频画质, 改进视频转换速度, 减少空间占用.
+- 更新FFmpeg和ImageMagick.
+- 修复问题: 某些情况下, 预处理加速 可能导致视频流长度变短.
+- 修复UI问题.
+---
 ## [v3.83.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.83.01)
 #### 更新日志:
 - 新特性: [预处理加速]: 处理视频前移除视频内所有无用重复帧.可以改进处理速度和补帧的效果.
