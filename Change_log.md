@@ -4,6 +4,17 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.83.21
+#### Change log:
+- NEW Feature: Save images as PSD.
+- Speed up the program startup speed.
+- Improve user experience.
+- More automation, improve default settings.
+- Improve video quality, improve video conversion speed, reduce space usage.
+- Update FFmpeg and ImageMagick.
+- Fix bug: In some situations, video stream will become shorter when [Pre-processing Boost] enabled.
+- Fix UI issues.
+---
 ## [v3.83.01](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/tag/v3.83.01)
 #### Change log:
 - NEW Feature: [Pre-processing Boost]: Remove ALL unnecessary duplicate frames in the video before processing. Can improve both the processing speed and effcet of frame interpolation.
