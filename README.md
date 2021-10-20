@@ -13,7 +13,7 @@
 <a href=https://t.me/W2xEX><img src="https://img.shields.io/badge/Telegram-Channel-blue.svg?longCache=true&style=flat-square"></a>
 </p>
 
-### [📜中文版说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md) | [➡Official telegram channel](https://t.me/W2xEX)
+### [📜中文 说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md) | [➡Official telegram channel](https://t.me/W2xEX)
 
 # [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest portable package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
