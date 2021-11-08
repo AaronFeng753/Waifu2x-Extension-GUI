@@ -4,6 +4,18 @@
 
 #### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.84.01
+#### Change log:
+- New Feature: Save GIF as other formats, including mp4, webp and webm. (At Image settings)
+- New Feature: [Optimize Looped video] option, improve the effcet of frame interpolation.when processing looped video.(At Additional settings)
+- Significantly improved the speed and space usage of [Pre-processing Boost].
+- Improve video quality, smarter video quality control.
+- New hardware decoders: OpenCL and Vulkan.
+- New aspect ratio strategy: Specify Width(or Height) ONLY.
+- Update FFmpeg and improve compatibility.
+- Fix multiple bugs.
+- Improve UI, compatibility test and daily tips.
+---
 ## v3.83.21
 #### Change log:
 - NEW Feature: Save images as PSD.
