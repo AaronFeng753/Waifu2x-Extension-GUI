@@ -152,7 +152,6 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - FFmpeg: https://ffmpeg.org/
 - FFmpeg Builds - gyan.dev: https://www.gyan.dev/ffmpeg/builds/
 - FFmpeg Builds - Zeranoe(该网站已停止运营): https://ffmpeg.zeranoe.com/builds/
-- Ghostscript: https://www.ghostscript.com/index.html
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - GIMP: https://www.gimp.org/
 - GNU Wget: https://www.gnu.org/software/wget/
