@@ -152,7 +152,6 @@ In conclusion, we won't collect any data from you.
 - FFmpeg: https://ffmpeg.org/
 - FFmpeg Builds - gyan.dev: https://www.gyan.dev/ffmpeg/builds/
 - FFmpeg Builds - Zeranoe (This website has ceased operations): https://ffmpeg.zeranoe.com/builds/
-- Ghostscript: https://www.ghostscript.com/index.html
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - GIMP: https://www.gimp.org/
 - GNU Wget: https://www.gnu.org/software/wget/
