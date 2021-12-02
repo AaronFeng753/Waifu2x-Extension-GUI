@@ -2,7 +2,7 @@
 ---
 #### [📝中文版 更新日志](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log_CN.md)
 
-#### [⭐Latest release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+#### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
 ## v3.84.01
 #### Change log:
