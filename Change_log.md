@@ -4,6 +4,17 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.85.01
+#### Change log:
+- NEW Feature: Save APNG as other formats, including gif, mp4, webp and webm. (At Image settings)
+- NEW Feature: Support GIF with variable frame rate.
+- Introduce [Auto I/O redirection] to greatly improve compatibility.(Enabled by default, Additional settings)
+- New way to Save and Read GIF, Faster and Better image quality.
+- Improve the [Save as other formats] function of GIF, better device compatibility and performance.
+- Improve UI.
+- Update several plugins, remove useless plugins.
+- Fix multiple bugs.
+---
 ## v3.84.01
 #### Change log:
 - New Feature: Save GIF as other formats, including mp4, webp and webm. (At Image settings)
