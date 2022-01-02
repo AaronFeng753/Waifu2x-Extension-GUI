@@ -4,6 +4,29 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.86.74
+#### 更新日志:
+- 2022 新年快乐!
+- 新的音频提取方法, 兼容性更好, 音质更好, 速度更快
+- 改进引擎设定的自动优化
+- 改进GUI, 更新内置插件.
+- 修复多项问题.
+---
+## v3.86.02
+#### 更新日志:
+```
+v3.86.02:
+- 修复问题: Real-ESRGAN 引擎在一些情况下无法正确放大视频和GIF.
+v3.86.01:
+- 新特性: 支持RealESRGANv2-animevideo-xsx2(4)模型.
+- 新特性: 另存图片为HEIC/HEIF格式.
+- 加快使用RealESRGAN-NCNN-Vulkan引擎处理2D动漫视频和GIF的速度.
+- 多项GUI改进以充分利用新的RealESRGANv2模型.
+- 增强RealESRGAN-NCNN-Vulkan引擎的兼容性.
+- 改进GIF处理的速度和兼容性.
+- 修复多项问题.
+```
+---
 ## v3.85.01
 #### 更新日志:
 - 新特性: 另存APNG到其他格式, 包括gif, mp4, webp和webm. (位于图片设定选项卡)
