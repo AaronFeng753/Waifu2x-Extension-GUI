@@ -4,6 +4,29 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.86.74
+#### Change log:
+- Happy New Year 2022!
+- New Audio processing method, better Compatibility, better Quality and Faster speed.
+- Improve Auto engine settings optimization.
+- Improve GUI, Update plugins.
+- Fix multiple bugs.
+---
+## v3.86.02
+#### Change log:
+```
+v3.86.02:
+- Fix bug: Real-ESRGAN Video & GIF upscale fix
+v3.86.01:
+- New Feature: Add support for RealESRGANv2-animevideo-xsx2(4) model.
+- NEW Feature: Save images as HEIC/HEIF format.
+- Faster 2D-Anime Video and GIF upscale speed when using RealESRGAN-NCNN-Vulkan engine.
+- Multiple GUI improvements to fully utilize the new RealESRGAN model.
+- Enhance the compatibility of RealESRGAN-NCNN-Vulkan engine.
+- Improve Performance and Compatibility of GIF processing.
+- Fix multiple bugs.
+```
+---
 ## v3.85.01
 #### Change log:
 - NEW Feature: Save APNG as other formats, including gif, mp4, webp and webm. (At Image settings)
