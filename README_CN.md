@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
 </p>
 
-### [📜English README](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md) |[❤爱发电](https://afdian.net/@AaronFeng) | [🔗GitHub](https://github.com/AaronFeng753/Waifu2x-Extension-GUI) | [🔗Gitee 码云](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI)
+### [📜English README](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README.md) |[❤爱发电 (众筹)](https://afdian.net/@AaronFeng) | [🔗GitHub](https://github.com/AaronFeng753/Waifu2x-Extension-GUI) | [🔗Gitee 码云](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI)
 
 如果README内的图片无法正常加载,请[🔗点击本链接查看码云内存储的README](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/blob/master/README_CN.md). 码云上的内容并非与Github实时同步, 请以[🔗官方Github为准](https://github.com/AaronFeng753/Waifu2x-Extension-GUI).
 
