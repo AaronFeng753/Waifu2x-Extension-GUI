@@ -52,12 +52,12 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 
 ```
 Built-in super-resolution algorithms:
-Waifu2x / SRMD / RealSR / Real-ESRGAN / Anime4K / ACNet
+Waifu2x / SRMD / RealSR / Real-ESRGAN / Real-CUGAN / Anime4K / ACNet
 
 Built-in super-resolution engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
-RealESRGAN-NCNN-Vulkan
+RealESRGAN-NCNN-Vulkan / Real-CUGAN
 
 Built-in Video frame interpolation algorithms:
 RIFE / CAIN / DAIN
