@@ -165,6 +165,7 @@ In conclusion, we won't collect any data from you.
 - PyInstaller: https://github.com/pyinstaller/pyinstaller
 - Python: https://www.python.org/
 - QT: https://www.qt.io/
+- Real-CUGAN: https://github.com/bilibili/ailab
 - Real-ESRGAN: https://github.com/xinntao/Real-ESRGAN
 - RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
