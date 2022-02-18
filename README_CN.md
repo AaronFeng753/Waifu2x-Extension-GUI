@@ -58,7 +58,7 @@ Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K / ACNet
 内置超分辨率引擎:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
-RealESRGAN-NCNN-Vulkan / Real-CUGAN
+RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
 
 内置插帧算法:
 RIFE / CAIN / DAIN
@@ -168,6 +168,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 - Python: https://www.python.org/
 - QT: https://www.qt.io/
 - Real-CUGAN: https://github.com/bilibili/ailab
+- realcugan-ncnn-vulkan: https://github.com/nihui/realcugan-ncnn-vulkan
 - Real-ESRGAN: https://github.com/xinntao/Real-ESRGAN
 - RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
