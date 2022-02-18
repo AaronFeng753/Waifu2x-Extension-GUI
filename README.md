@@ -57,7 +57,7 @@ Waifu2x / SRMD / RealSR / Real-ESRGAN / Real-CUGAN / Anime4K / ACNet
 Built-in super-resolution engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
-RealESRGAN-NCNN-Vulkan / Real-CUGAN
+RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
 
 Built-in Video frame interpolation algorithms:
 RIFE / CAIN / DAIN
@@ -166,6 +166,7 @@ In conclusion, we won't collect any data from you.
 - Python: https://www.python.org/
 - QT: https://www.qt.io/
 - Real-CUGAN: https://github.com/bilibili/ailab
+- realcugan-ncnn-vulkan: https://github.com/nihui/realcugan-ncnn-vulkan
 - Real-ESRGAN: https://github.com/xinntao/Real-ESRGAN
 - RealSR-ncnn-vulkan: https://github.com/nihui/realsr-ncnn-vulkan
 - Real-World Super-Resolution: https://github.com/jixiaozhong/RealSR
