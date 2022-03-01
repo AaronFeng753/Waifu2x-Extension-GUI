@@ -4,6 +4,16 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.87.01
+#### Change log:
+- New Feature: Now you can choose the Container format of the video output.(At Video Settings tab)
+- New Feature: [Keep subtitles (MKV)]: Include subtitles in the final video output.(At Video Settings tab)
+- New Feature:[Convert format ONLY (Static Images)]: Only convert format of the images, no further processing.(Additional settings---Tools)
+- New Feature: Automatic chroma adjustment option for HEIF/HEIC images.
+- New Feature: [Save CFR MP4 to RAM]: Re-direct CFR Mp4 cache to Dynamic RAM Cache.(Optional,Not enabled by default,Additional settings)
+- Improve multi-threading performance.
+- Update UI and fix typo.
+---
 ## v3.86.74
 #### Change log:
 - Happy New Year 2022!
