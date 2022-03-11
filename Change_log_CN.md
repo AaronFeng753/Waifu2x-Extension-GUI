@@ -4,6 +4,17 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.88.01
+#### 更新日志:
+- 新超分辨率引擎: Real-CUGAN-NCNN-Vulkan, 高质量 2D动漫 超分辨率放大.
+- 新补帧模型: 新增 Rife-V4.0 模型, 更快的补帧与更低的显存占用.
+- 新特性: 保存图片到Jfif和Jpeg扩展名.
+- 新特性: 为 Waifu2x-Caffe 添加 Real-CUGAN 模型.
+- 改进自定义分辨率机制, 优化性能.
+- 增强 视频, GIF 和 APNG 兼容性.
+- 改进设定预设和UI.
+- 修复多项问题.
+---
 ## v3.87.01
 #### 更新日志:
 - 新特性: 现在您可以选择输出视频的封装格式(另存格式).(位于视频设置选项卡)
