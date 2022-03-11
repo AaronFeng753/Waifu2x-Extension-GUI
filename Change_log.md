@@ -4,6 +4,17 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.88.01
+#### Change log:
+- NEW Super-Resolution Engine: Real-CUGAN-NCNN-Vulkan, high quality 2D anime upscaler.
+- New Feature: New Rife-V4.0 model, Faster frame interpolation and less VRAM usage.
+- New Feature: Save images as Jfif and Jpeg.
+- New Feature: Add Real-CUGAN model for Waifu2x-Caffe.
+- Improve custom resolution mechanism, and performance optimization.
+- Improve Video, GIF and APNG compatibility.
+- Improve settings presets and UI.
+- Fix multiple bugs.
+---
 ## v3.87.01
 #### Change log:
 - New Feature: Now you can choose the Container format of the video output.(At Video Settings tab)
