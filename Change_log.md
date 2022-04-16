@@ -4,6 +4,19 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.89.01
+#### Change log:
+- Faster Real-CUGAN super-resolution, up to 60% faster than previous version
+- Faster and more Efficient frame interpolationm when using RIFE.
+- New feature: Add new option for Real-CUGAN, [Always use 2x models], could improve image clarity in some situations.
+- New feature: Save images as JPEG XL format(.jxl)
+- New feature: Now you can adjust image quality when save images as AVIF format
+- Smarter auto model selection for Real-CUGAN
+- Reduce the VRAM usage of RIFE
+- Improve the auto multi-threading performance of RIFE
+- Improve auto engine settings optimization.
+- Fix multiple BUGs.
+---
 ## v3.88.01
 #### Change log:
 - NEW Super-Resolution Engine: Real-CUGAN-NCNN-Vulkan, high quality 2D anime upscaler.
