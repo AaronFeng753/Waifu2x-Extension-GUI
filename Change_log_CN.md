@@ -4,6 +4,19 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.89.01
+#### 更新日志:
+- 更快的 Real-CUGAN 动漫放大, 与老版本比最多快60%
+- 更快,效率更高的RIFE视频补帧.
+- 新特性: 为Real-CUGAN添加新选项, [总是使用2x模型], 在一些情况下可改进图像的清晰度.
+- 新特性: 支持另存图片为 JPEG XL 格式(.jxl)
+- 新特性: 另存图片为 AVIF 格式时支持调整图像质量
+- 更智能的 Real-CUGAN 模型自动选择
+- 减少RIFE的显存占用
+- 改进RIFE的自动多线程性能
+- 改进自动引擎设定优化.
+- 修复多项问题.
+---
 ## v3.88.01
 #### 更新日志:
 - 新超分辨率引擎: Real-CUGAN-NCNN-Vulkan, 高质量 2D动漫 超分辨率放大.
