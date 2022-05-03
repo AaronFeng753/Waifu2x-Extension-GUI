@@ -4,6 +4,21 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.90.01
+#### Change log:
+- Faster Real-ESRGAN super-resolution, up to 240% faster than previous version.
+- Faster Waifu2x super-resolution, up to 320% faster than previous version.(Waifu2x-NCNN-Vulkan)
+- New AnimeVideo-v3 model for Real-ESRGAN engine, better and faster anime video upscale.
+- New Feature: Save GIF as APNG.
+- New Feature: [Auto empty Files List], Automatically empty Files List after finished processing.(Disabled by default, additional settings)
+- Improve the auto multi-threading performance of Real-ESRGAN and Waifu2x-NCNN-Vulkan.
+- Smarter auto multi-threading for Real-ESRGAN and Waifu2x-NCNN-Vulkan.
+- Faster image pre-processing.
+- Improve default settings.
+- Some internal structural improvements for GUI.
+- Fix bug: Unable to assemble PSD files.
+- Some other bug fix and improvements.
+---
 ## v3.89.01
 #### Change log:
 - Faster Real-CUGAN super-resolution, up to 60% faster than previous version
