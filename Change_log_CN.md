@@ -4,6 +4,21 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.90.01
+#### 更新日志:
+- 更快的 Real-ESRGAN 超分辨率, 与之前比速度提升高达 240%.
+- 更快的 Waifu2x 动漫超分辨率, 与之前比速度提升高达 320%.(Waifu2x-NCNN-Vulkan)
+- 新Real-ESRGAN模型: AnimeVideo-v3, 更快更高质量的动漫视频放大模型.
+- 新特性: 保存 GIF 为 APNG.
+- 新特性: [自动清空文件列表], 处理完列表内所有文件后自动清空列表.(默认不启用, 附加设置)
+- 改进Real-ESRGAN 和 Waifu2x-NCNN-Vulkan的自动多线程性能.
+- 更智能的Real-ESRGAN 和 Waifu2x-NCNN-Vulkan自动多线程调度.
+- 加快图片预处理速度.
+- 改进默认设定.
+- 一些GUI内部结构改进.
+- 修复问题: 无法组装PSD图像文件.
+- 其他修复与改进.
+---
 ## v3.89.01
 #### 更新日志:
 - 更快的 Real-CUGAN 动漫放大, 与老版本比最多快60%
