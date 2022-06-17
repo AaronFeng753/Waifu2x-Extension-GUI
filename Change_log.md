@@ -4,6 +4,23 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.91.01
+#### Change log:
+- New Feature: Import and use 3rd party model for Real-ESRGAN engine.
+- New Feature: Bring back lossless PNG compression for static images.
+- New Feature: Bit depth adjustment and 16 bit image output for Waifu2x-caffe engine.
+- New Feature: Now you can adjust the size of status console.
+- Improve image quality when using custom resolution.
+- Better denoise levels support for Real-CUGAN native 4x upscale.
+- Smarter model picking for Real-CUGAN.
+- Improved automatic multithreading, better utilize the performance of high-end PCs.
+- [Constant Rate Factor (CRF)] in the [Custom video settings] now supports more encoders.
+- Improve VFR video detection.
+- Some UI improvements.
+- Improve network stability for checking new updates and update QR code.
+- Update several plugins.
+- Fix multiple bugs.
+---
 ## v3.90.01
 #### Change log:
 - Faster Real-ESRGAN super-resolution, up to 240% faster than previous version.
