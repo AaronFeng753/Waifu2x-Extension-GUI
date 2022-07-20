@@ -155,6 +155,8 @@ In conclusion, we won't collect any data from you.
 - Gifsicle: https://www.lcdf.org/gifsicle/
 - GIMP: https://www.gimp.org/
 - GNU Wget: https://www.gnu.org/software/wget/
+- IFRNet: https://github.com/ltkong218/IFRNet
+- ifrnet-ncnn-vulkan: https://github.com/nihui/ifrnet-ncnn-vulkan
 - ImageMagick: http://www.imagemagick.org/
 - ImDisk Toolkit: https://sourceforge.net/projects/imdisk-toolkit/
 - NCNN: https://github.com/Tencent/ncnn
