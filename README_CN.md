@@ -61,10 +61,11 @@ SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
 RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
 
 内置插帧算法:
-RIFE / CAIN / DAIN
+RIFE / CAIN / DAIN / IFRNet
 
 内置插帧引擎:
 rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
+IFRNet-ncnn-vulkan
 ```
 
 #### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce RTX 3060 和 `Intel` UHD 620 上通过测试.
