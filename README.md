@@ -60,10 +60,11 @@ SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
 RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
 
 Built-in Video frame interpolation algorithms:
-RIFE / CAIN / DAIN
+RIFE / CAIN / DAIN / IFRNet
 
 Built-in Video frame interpolation engines:
 rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
+IFRNet-ncnn-vulkan
 ```
 
 #### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce RTX 3060 and `Intel` UHD 620.
