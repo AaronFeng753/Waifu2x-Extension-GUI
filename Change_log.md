@@ -4,6 +4,31 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.93.01
+#### Change log:
+- NEW frame interpolation engine: IFRNet-ncnn-vulkan.
+- Add new "Pro" models for Real-CUGAN.
+- Faster Real-CUGAN super-resolution.
+- Update multiple Engines, reduce overall VRAM usage.
+- Real-CUGAN now supports model switching.
+- Update auto engine settings optimization strategy.
+- More accurate detection method for variable frame rate video.
+- Improve compatibility with variable frame rate video.
+- Improve user interface.
+- Update ALL frame interpolation engines.
+- Update Real-CUGAN, RealSR, SRMD(vulkan), Waifu2x(vulkan).
+- Fix multiple bugs, fix translation error.
+---
+## v3.92.01
+#### Change log:
+- NEW Feature: [Transparent image Clarity Enhancement]. Improve clarity when upscaling images with transparent background(Alpha channel).
+- ALL engines supports [Transparent image Clarity Enhancement] when processing Static Images and PSD.
+- NEW Feature: After the compatibility test, automatically switch to compatible engines for new users.
+- Improve Auto-optimize Engine settings.
+- Improve UI performance.
+- Fix bug: Unexpected frame rate change of the result video.
+- Other bug fix and improvements.
+---
 ## v3.91.01
 #### Change log:
 - New Feature: Import and use 3rd party model for Real-ESRGAN engine.
