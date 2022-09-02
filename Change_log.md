@@ -4,6 +4,17 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.94.01
+#### Change log:
+- NEW feature: Now [Scene Shift Detection] can running in parallel with video frame interpolation, will significantly improve performance and efficiency.
+- NEW feature: Add [Quick Engine Switch]. at [Home] tab for easy super-res engine switching.
+- NEW feature: ALL 6 IFRNet models now supports "Auto-Adjust" multithreading.
+- NEW feature: ALL 10 RIFE models now supports "Auto-Adjust" multithreading.
+- NEW feature: Thread [Limiter] option for [Scene Shift Detection], can improve PC responsivity during during [Scene Shift Detection].
+- Improve code efficiency and stability.
+- Update FFmpeg and ImageMagick
+- Bug fix.
+---
 ## v3.93.01
 #### Change log:
 - NEW frame interpolation engine: IFRNet-ncnn-vulkan.
