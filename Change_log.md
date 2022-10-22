@@ -4,6 +4,36 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.95.23
+#### Change log:
+- NEW Feature: New aspect ratio strategy: [Specify Minimum resolution]
+- Performance optimization.
+- Better error report and tooltip.
+- Fix bug: When processing static images, upscale ratio with decimal digits may not work properly.
+- Fix bug: When processing static images, 1x scale ratio isn't working when using some engines.
+- Fix bug: When processing static images, [Specify Width(Height) ONLY & Keep Aspect Ratio] not working properly.
+- Fix translation error.
+- Update heif plugins.
+- Update ImageMagick.
+- Update ffmpeg.
+---
+## v3.95.01
+#### Change log:
+- NEW Feature: Display current progress when Finding scene shifts.
+- Newly redesigned internal image resizer, better compatibility and image quality.
+- Improved image quality.
+- Improved compatibility.
+- Performance optimization.
+- Reconstruct some codes to improve stability.
+- Update FFmpeg
+- Update ImageMagick
+- Remove some unnecessary warning messages.
+- Fix bug: In certain situations, failed to output final image when using Real-ESRGAN and [Transparent image Clarity Enhancement] at the same time.
+- Fix bug: In some situations, the final image is incompatible with some image viewers.
+- Fix bug: [Automatic file list scrolling] was not working.
+- Fix bug: UI logical error.
+- Fix bug: Unable to reach target frame rate after video frame interpolation.
+---
 ## v3.94.01
 #### Change log:
 - NEW feature: Now [Scene Shift Detection] can running in parallel with video frame interpolation, will significantly improve performance and efficiency.
