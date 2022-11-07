@@ -4,6 +4,19 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.96.01
+#### 更新日志:
+- 新 RIFE-v4.6 模型, 更佳的补帧画质.
+- 新特性: [自动创建输出文件夹], 自动帮助用户创建输出文件夹(包括所有上级文件夹).
+- 新特性: 现在 RIFE v4和v4.6模型均支持TTA.
+- 更佳的引擎设定自动优化算法.
+- 引擎设定自动优化支持所有Real-Cugan模型.
+- 改进UI.
+- 更新 Rife-ncnn-vulkan.
+- 更新 ImageMagick.
+- 更新 ffmpeg.
+- 修复问题:切换Real-Cugan模型无法在处理视频和GIF时生效.
+---
 ## v3.95.23
 #### 更新日志:
 - 新特性: 新纵横比策略: [指定分辨率底线]
