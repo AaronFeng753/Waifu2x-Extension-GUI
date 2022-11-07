@@ -4,6 +4,19 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.96.01
+#### Change log:
+- New RIFE-v4.6 model, better frame interpolation quality.
+- New feature: [Auto-Create output folders], automatically create output folder when needed, including all parent folders.
+- New feature: Now RIFE v4 and v4.6 models supports TTA.
+- Better auto engine settings optimization algorithm.
+- Auto engine settings optimization now supports all Real-Cugan models.
+- Improve UI.
+- Update Rife-ncnn-vulkan.
+- Update ImageMagick.
+- Update ffmpeg.
+- Fix bug: Switch Real-Cugan models won't work properly when processing videos and GIFs.
+---
 ## v3.95.23
 #### Change log:
 - NEW Feature: New aspect ratio strategy: [Specify Minimum resolution]
