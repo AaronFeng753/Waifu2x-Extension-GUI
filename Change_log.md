@@ -4,6 +4,39 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.98.01
+#### Change log:
+- NEW model for Real-ESRGAN engine: Photo-Conservative-x4
+- NEW Feature: [Pause after decoding] option, automatically pause after finished decoding the video, until the user clicks the [Continue] button. (Additional settings, disabled by default)
+- NEW Feature: Split the models list of Real-ESRGAN to 2 lists, [3D Real-life] and [2D Anime] for easier use.
+- Smarter [Limiter] for Scene Shift Detection, automatically adjusts the load according to the progress.
+- Optimize scene shift detection scheduler.
+- Improve GUI.
+- Improve the stability of [Limiter] for Scene Shift Detection.
+- Update ImageMagick.
+- Update ffmpeg.
+- Code optimization.
+- Fix bug: [Always pre-process images with Alpha Channel] not working properly when processing images with invalid alpha channel.
+- Fix bug: Some warning messages are outdated and incorrect.
+- Fix bug: [Keep Aspect Ratio By Expanding] not working as intended.
+---
+## v3.97.01
+#### Change log:
+- ★ NEW Real-ESRGAN models: RealESR-General-x4v3 and RealESR-General-WDN-x4v3
+- ★ NEW Feature: [Same as original image] option, save image as the same format of the original image.(only static images)
+- ★ NEW Feature: [Reserved VRAM], reserve part of VRAM to improve stability, you can adjust it at [Additional settings] tab.
+- NEW Feature: Add [Reset to default] buttons for Input file extensions.
+- NEW Feature: Now you can disable [Constant Rate Factor (CRF)] in the Custom video settings.
+- Improved Real-ESRGAN auto settings optimization.
+- Improve UI and default settings.
+- Code optimization.
+- Update ImageMagick.
+- Update ffmpeg.
+- Fix bug: [Bitrate(video)] setting in the [Custom video settings] often will not take effect.
+- Fix bug: Unable to save images to PNG when using [Convert format ONLY (Static Images)].
+- Fix bug: Some output images will be broken when using [pro] models of Real-CUGAN.
+- Fix bug: UI issues related to Real-ESRGAN engine.
+---
 ## v3.96.01
 #### Change log:
 - New RIFE-v4.6 model, better frame interpolation quality.
