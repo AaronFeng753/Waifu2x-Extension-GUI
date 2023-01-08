@@ -53,12 +53,13 @@
 
 ```
 内置超分辨率算法:
-Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K / ACNet
+Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K
+ACNet / RTX Super Resolution
 
 内置超分辨率引擎:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
-RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
+RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan / RTX Super Resolution
 
 内置插帧算法:
 RIFE / CAIN / DAIN / IFRNet
@@ -165,6 +166,7 @@ IFRNet-ncnn-vulkan
 - NCNN: https://github.com/Tencent/ncnn
 - NirCmd: https://www.nirsoft.net/utils/nircmd.html
 - NSIS: https://nsis.sourceforge.io/
+- Nvidia: https://www.nvidia.com/
 - OpenCV: https://opencv.org/
 - Pillow: https://python-pillow.org/
 - PyInstaller: https://github.com/pyinstaller/pyinstaller
