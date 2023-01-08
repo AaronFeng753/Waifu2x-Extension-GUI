@@ -52,12 +52,13 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 
 ```
 Built-in super-resolution algorithms:
-Waifu2x / SRMD / RealSR / Real-ESRGAN / Real-CUGAN / Anime4K / ACNet
+Waifu2x / SRMD / RealSR / Real-ESRGAN / Real-CUGAN / Anime4K
+ACNet / RTX Super Resolution
 
 Built-in super-resolution engines:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
 SRMD-ncnn-vulkan / RealSR-ncnn-vulkan / Anime4KCPP / SRMD-CUDA
-RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan
+RealESRGAN-NCNN-Vulkan / Real-CUGAN-ncnn-vulkan / RTX Super Resolution
 
 Built-in Video frame interpolation algorithms:
 RIFE / CAIN / DAIN / IFRNet
@@ -163,6 +164,7 @@ In conclusion, we won't collect any data from you.
 - NCNN: https://github.com/Tencent/ncnn
 - NirCmd: https://www.nirsoft.net/utils/nircmd.html
 - NSIS: https://nsis.sourceforge.io/
+- Nvidia: https://www.nvidia.com/
 - OpenCV: https://opencv.org/
 - Pillow: https://python-pillow.org/
 - PyInstaller: https://github.com/pyinstaller/pyinstaller
