@@ -50,6 +50,10 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 - 😉Easy-to-use graphical user interface.
 - 📨Continual maintenance and updates.
 
+<p align="left">
+<img src="/.github/README/Powered_by_nvidia.jpg" height="70">
+</p>
+
 ```
 Built-in super-resolution algorithms:
 Waifu2x / SRMD / RealSR / Real-ESRGAN / Real-CUGAN / Anime4K
