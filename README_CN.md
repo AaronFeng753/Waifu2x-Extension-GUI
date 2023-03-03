@@ -51,6 +51,10 @@
 - 😉易于使用的图形用户界面.
 - 📨持续的维护与更新.
 
+<p align="left">
+<img src="/.github/README/Powered_by_nvidia.jpg" height="70">
+</p>
+
 ```
 内置超分辨率算法:
 Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K
