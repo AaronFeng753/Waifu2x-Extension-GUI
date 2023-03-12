@@ -4,6 +4,19 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.99.01
+#### Change log:
+- NEW Super-resolution Engine: RTX Super Resolution, a fast and light-weight upscaler designed for Nvidia RTX GPUs.
+- Exclusive enhancements for RTX Super Resolution like Alpha channel support, various input/output formats and more.
+- New Feature: [Auto Apply] option for Custom resolution: When adding new files, the current [Custom resolution] setting will be automatically applied to ALL files.
+- When upscaling and interpolating videos, videos with frame rate higher than the specified frame rate are no longer simply skipped, but only upscaled.
+- Update FFmpeg
+- Update ImageMagick
+- Fix bug: Real-ESRGAN can not upscale media correctly when 2d and 3d models are different.
+- Fix bug: When using certain settings, unable to encode video after upscale and frame interpolation.
+- Fix bug: Incomplete closing process.
+- Fix typo.
+---
 ## v3.98.01
 #### Change log:
 - NEW model for Real-ESRGAN engine: Photo-Conservative-x4
