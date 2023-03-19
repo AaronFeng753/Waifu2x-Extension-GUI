@@ -58,7 +58,7 @@
 ```
 内置超分辨率算法:
 Waifu2x / SRMD / RealSR / Real-ESRGAN/ Real-CUGAN / Anime4K
-ACNet / RTX Super Resolution
+ACNet / RTX Super Resolution (RTX VSR / RTX Video Super Resolution)
 
 内置超分辨率引擎:
 Waifu2x-caffe / Waifu2x-converter / Waifu2x-ncnn-vulkan
