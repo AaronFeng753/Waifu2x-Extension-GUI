@@ -4,6 +4,37 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.101.01
+#### Change log:
+- New Feature: [Prioritize image quality] option for RTX Super resolution, improve image quality in most situations, especially when upscaling low resolution media.
+- New Feature: [Settings Presets] now supports RTX Super resolution engine.
+- Add [Always disable denoise] option for RTX Super resolution.
+- Improved device compatibility of RTX Super resolution.
+- Performance optimization.
+- Update ImageMagick.
+- Fix bug: Might unable to upscale video when using RTX Super resolution and HEVC encoding at the same time.
+- Fix bug: Auto-retry is not working when using RTX Super resolution to upscale videos.
+- Fix typo in the tooltips.
+---
+## v3.100.01
+#### Change log:
+- Significantly improved [Files List] UI performance, up to 35x faster files loading speed in the test(16K media files in 800 folders)
+- Improved code efficiency related to video, gif and apng processing.
+- Code optimization, improved UI and scheduler performance.
+- Improved video quality when using Nvidia video encoder
+- Better video compatibility when using RTX Super-res.
+- Improve mp4 conversion to avoid potential compatibility issue.
+- Improved audio quality when encoding mp4 video.
+- Improve stability of RTX Super Resolution engine.
+- Simplified video compatibility checker.
+- Add a "help" button next to the RTX Super-res on the compatibility test page.
+- The result of the compatibility test button at the engine settings of RTX Super-res is now connected to the [Compatibility test] tab.
+- Fix bug: Unable to upscale some videos when using RTX Super Resolution.
+- Fix bug: Audio and video might out of sync when using RTX Super Resolution to upscale some videos.
+- Fix bug: When using RTX Super Resolution, might unable to upscale video when frame interpolation is enabled.
+- Fix bug: Unable to detect and fix some video compatibility issue of RTX Super Resolution.
+- Fix bug: In some rare occasions, unable to detect duplicated files when loading files to [Files List].
+---
 ## v3.99.01
 #### Change log:
 - NEW Super-resolution Engine: RTX Super Resolution, a fast and light-weight upscaler designed for Nvidia RTX GPUs.
