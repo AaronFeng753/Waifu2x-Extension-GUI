@@ -4,6 +4,37 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.101.01
+#### 更新日志:
+- 新特性: 为 RTX Super resolution 添加 [画质优先] 模式, 开启后在一些情况下可以增强图像质量, 尤其是处理低分辨率图像时.
+- 新特性: [快捷 预设]支持调用RTX Super resolution引擎.
+- 为 RTX Super resolution 添加 [总是禁用降噪] 选项.
+- 改进 RTX Super resolution 的设备兼容性.
+- 更新 ImageMagick.
+- 优化代码性能.
+- 修复问题: 当同时使用RTX Super resolution和HEVC硬件加速编码时可能无法放大视频.
+- 修复问题: 当使用RTX Super resolution处理视频时, 自动重试机制无法正常工作.
+- 修正工具提示中的错误.
+---
+## v3.100.01
+#### 更新日志:
+- 大幅改进 [文件列表] UI 的性能, 在测试中文件加载速度至高提升35x (使用800个文件夹中的1万6个媒体文件进行测试)
+- 改进与视频,GIF和APNG处理相关的代码效率.
+- 优化代码, 改进UI和调度器性能.
+- 改进使用英伟达视频编码器时的视频画质.
+- 改进RTX Super-res的视频兼容性.
+- 改进mp4转换流程以避免潜在兼容性问题.
+- 改进编码mp4视频时的音频质量.
+- 改进RTX Super Resolution引擎的稳定性.
+- 简化视频兼容性检测流程.
+- RTX Super-res引擎设置页的兼容性测试结果现已与兼容性测试页连接.
+- 为兼容性测试页的RTX Super-res测试结果边上添加了"帮助"按钮.
+- 修复问题: 使用 RTX Super Resolution 时无法放大部分视频.
+- 修复问题: 使用 RTX Super Resolution 时, 部分视频的音频流和视频流不同步.
+- 修复问题: 在极少数情况下, 向文件列表载入文件时检测不到重复的文件.
+- 修复问题: 使用 RTX Super Resolution 时, 若启用补帧可能无法正常放大视频.
+- 修复问题: 无法检测到部分视频与 RTX Super Resolution 的兼容性问题.
+---
 ## v3.99.01
 #### 更新日志:
 - 新增超分辨率引擎: RTX Super Resolution, 为英伟达RTX显卡设计的快速超分辨率方式.
