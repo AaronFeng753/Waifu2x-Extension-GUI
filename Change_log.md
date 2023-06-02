@@ -4,6 +4,17 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.102.01
+#### Change log:
+- NEW feature: RTX Super-resolution engine now supports APNG upscaling.
+- NEW Feature: ALL super-res engines now supports [Transparent image Clarity Enhancement] when upscaling APNG.
+- Improve SRMD-CUDAs compatibility with media that has alpha channel.
+- Improve SRMD-CUDAs compatibility with APNG.
+- Performance optimization.
+- Fix bug: UI error when using [Quick engine switch].
+- Fix bug: Progress display error when using some engines to upscale APNGs.
+- Complete translation.
+---
 ## v3.101.01
 #### Change log:
 - New Feature: [Prioritize image quality] option for RTX Super resolution, improve image quality in most situations, especially when upscaling low resolution media.
