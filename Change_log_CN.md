@@ -4,6 +4,17 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.102.01
+#### 更新日志:
+- 新特性: RTX Super-resolution 现已支持APNG放大.
+- 新特性: 现在所有超分辨率引擎均支持在放大APNG时调用[透明背景图像清晰度增强].
+- 改进 SRMD-CUDA 对带有透明通道的媒体的兼容性.
+- 改进 SRMD-CUDA 对APNG的兼容性.
+- 性能优化.
+- 修复问题: 使用[快捷 引擎切换]时的UI显示错误.
+- 修复问题: 使用部分引擎放大APNG时的进度显示问题.
+- 补全翻译.
+---
 ## v3.101.01
 #### 更新日志:
 - 新特性: 为 RTX Super resolution 添加 [画质优先] 模式, 开启后在一些情况下可以增强图像质量, 尤其是处理低分辨率图像时.
