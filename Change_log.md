@@ -4,6 +4,34 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.104.01
+#### Change log:
+- NEW Feature: [Auto archive Files List]: Automatically saves Files List every 15 seconds after starting to process files.(Location: Additional settings tab, enabled by default)
+- NEW Feature: [Skip Failed files]: Always skip "Failed" files in the files list.(Location: Additional settings tab, disabled by default)
+- Improved [Auto Engine optimization] for Real-ESRGAN engine, better picture upscaling performance on most PCs.
+- Code optimization, imporve UI performance.
+- Add some necessary messages for Save(Read) settings presets.
+- Fix bug: The [Priority] setting of RTX Super-resolution engine was not working.
+- Fix bug: Always re-process finished files.
+- Fix bug: Thread blocking when using Real-ESRGAN engine with auto adjusted settings.
+- Fix bug: UI shrinks after loading settings preset file.
+- Update ImageMagick.
+- Better tooltips.
+---
+## v3.103.01
+#### Change log:
+- NEW Feature: [Save & Read settings presets files], Now you can save(and read) your settings as custom preset files.
+- NEW Feature: [Transparent image Clarity Enhancement] now supports multi-threading, significantly improves efficiency.
+- NEW Feature: Add a right click menu for the [Limiter] of [scene shift detection], now user can select how many threads will be running during [scene shift detection].
+- NEW Feature: Now software will automatically check the integrity of current installation, and will display a warning when files are missing.
+- Move the [Prioritize Image Quality] option of RTX Super-resolution to Home tab for easy access.
+- Upscaling APNG while enabled [Transparent image Clarity Enhancement] is now faster, up to 50% faster compare to the last version.
+- Faster APNG upscaling when using SRMD-CUDA and RTX Super-resolution.
+- Improve UI performance.
+- Add necessary status messages for [Transparent image Clarity Enhancement] to avoid confusion.
+- Other performance optimization.
+- Update ImageMagick.
+---
 ## v3.102.01
 #### Change log:
 - NEW feature: RTX Super-resolution engine now supports APNG upscaling.
