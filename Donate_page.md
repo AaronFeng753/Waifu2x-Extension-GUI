@@ -12,11 +12,12 @@ Please donate to support developers, so we can bring further update for this sof
 <a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="45"/> </a>
 </p>
 
-# [➡ PayPal ⬅](https://www.paypal.me/aaronfeng753)
 ---
 #### 微信+支付宝
 
 # [➡ 爱发电(众筹)](https://afdian.net/@AaronFeng)
+
+### [➡ PayPal(海外QQ用户) ⬅](https://www.paypal.me/aaronfeng753)
 
 ![donate_new](/donate_new.jpg)
 #### 如果donate(捐赠)二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg)
