@@ -4,6 +4,30 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.106.01
+#### Change log:
+- NEW Feature: [Scene Shift Detection 2.0], HUGE Speed boost for Scene Shift Detection, 65x faster than the previous version, which means Scene Shift Detection won't cost any extra time during frame interpolation.
+- NEW Feature: [Gif & APNG] option, when enabled, the Animated WebP quality value will also be used when saving APNG and GIF as WebP. (location: Image settings tab)
+- NEW Feature: Add [Sync with Home] option for Animated WebP, when enabled, the quality value of Animated WebP will be synced with [static images quality] value at the Home tab. (location: Image settings tab, enabled by default)
+- Improved video quality, especially when using hardware encoders.
+- When [Gif & APNG] option of Animated WebP is enabled, gif and apng will automatically be saved as WebP.
+- Fix bug: In some situations, [Speed boost] could not restore frames and will result in failure.
+- Fix bug: In some situations, the [put PC to sleep after finished] feature won't work.
+- Fix bug: When [Video sampling] enabled, RTX Super-resolution engine might unable to upscale the video.
+- Fix bug: Click the "Execute NOW" button of finish action might crash the software.
+- Fix bug: In some rare situations, might unable to encode the final video when process video by segment is enabled.
+---
+## v3.105.01
+#### Change log:
+- NEW Feature: Animated WebP support, ALL super-res engines can now upscale Animated WebP images.
+- NEW Feature: Now you can save Animated WebP as GIF. (location: Image settings tab)
+- NEW Feature: Now you can adjust the quality of upscaled Animated WebP. (location: Image settings tab)
+- Variable frame rate support for Animated WebP, other animated pics formats will also support this in the future updates.
+- Improved launcher, more issue detection and better pop-up message.
+- Fix bug: Always failed to upscale APNGs when their suffix are in upper cases.
+- Fix bug: When loading settings preset files from older version, some options will be reseted.
+- Fix bug: Messages may contain errors when processing Animated WebP.
+---
 ## v3.104.01
 #### Change log:
 - NEW Feature: [Auto archive Files List]: Automatically saves Files List every 15 seconds after starting to process files.(Location: Additional settings tab, enabled by default)
