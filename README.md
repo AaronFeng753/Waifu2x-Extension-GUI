@@ -71,7 +71,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 IFRNet-ncnn-vulkan
 ```
 
-#### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce RTX 3060 and `Intel` UHD 620.
+#### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce RTX 3060/4060 and `Intel` UHD 620.
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
