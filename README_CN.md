@@ -73,7 +73,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 IFRNet-ncnn-vulkan
 ```
 
-#### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce RTX 3060 和 `Intel` UHD 620 上通过测试.
+#### ✅已经在 `AMD` RX 550, `NVIDIA` GeForce RTX 3060/4060 和 `Intel` UHD 620 上通过测试.
 
 ![mainwindow](/Screenshot/mainwindow_cn.jpg)
 
