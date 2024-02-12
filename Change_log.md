@@ -4,6 +4,53 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.110.01
+#### Change log:
+- NEW [Universal-Fast-W2xEX] Model for RealESRGAN engine, designed for fast photo upscaling, 30.5x faster than the RealESRGAN-x4plus model while retain decent image quality.
+- NEW Feature: Now you can select [Preset] for Nvidia and Intel hardware encoders, which will affect the quality of the result video. (Location: Video settings, Hardware-accelerated Encoding)
+- NEW Feature: [Stop then excute action], Stop right after the currently "Processing" files are finished, then execute an action. (Location: Home tab, in the "Do nothing(when finished)" options list)
+- Add [Copy] and [Paste] buttons for the right-click menu of [Output path folder].
+- Update several plugins.
+- Some UI improvements
+- [Optimize Looped video] setting will be saved like other settings.
+- Fix bug: In certain situations, NCNN-Vulkan engines will randomly get stuck.
+---
+## v3.109.01
+#### Change log:
+- NEW Feature: [Encoding Quality], adjust video encoding quality when using software and hardware encoders. (location: video settings tab)
+- NEW Feature: [Stop process new files], automatically stop after finished processing current tasks. (Location: Home tab, in the "Do nothing(when finished)" options list)
+- When output upscaled images, replace [_Compressed] with [_Q<Static Images Quality value>], like [_Q95], when [Static Images Quality] taken effect.
+- NEW video subtitle processing method, better video compatibility.
+- Automatically disable Dynamic RAM Cache after the RAM Disk is detached.
+- Fix bug: When there are multiple subtitles in one video, the output video might be broken.
+---
+## v3.108.01
+#### Change log:
+- NEW Feature: [Import frames folder], browse and add folders of Frames Images for frame interpolation.
+- NEW Feature: [Reduce Video FPS], reduce frame rate of the Video before frame interpolation and upscaling. (Additional settings tab, Tools section)
+- NEW Feature: [Copy Skipped files], when enabled, also Copy Skipped files to the output folder. (Home tab, output folder section)
+- NEW Feature: Now you can adjust how many threads [Convert format ONLY (Static Images)] will use by adjusting: [Engine settings, Number of threads (Super-resolution), Image].
+- Significantly improved UI performance, now the Files list UI can handle large amount of files much better than before.
+- Optimize code related to video processing.
+- Add m4v to the default video file extensions list.
+- Fix bug: Real-CUGAN might output incorrect color in certain situations.
+- Fix several bugs related to [Convert format ONLY (Static Images)].
+- NEW Feature: [Frame interpolation for frames folder] now supports [Delete original files], [Replace original fils] and [Output folder]
+- Fix bug: When using [Frame interpolation for frames folder], some original frames might be incorrectly deleted after frame interpolation.
+---
+## v3.107.01
+#### Change log:
+- NEW Feature: [Speed Boost 2.0], HUGE Speed boost for duplicated frames detection, faster & more accurate, which means [Speed Boost 2.0] can save way more time then previous version.
+- NEW Feature: More [Save as] formats for animated webp: apng, mp4 and webm.
+- NEW Feature: [Sync video aspect ratio], Synchronize sample aspect ratio with display aspect ratio.
+- Add warning pop-up for [Delete original files] and [Replace original file] options.
+- Improve image quality of APNG and WebP upscaling.
+- Improve UI, and fix incorrect description.
+- Complete translation.
+- Fix bug: Broken output when using some engines to upscale WebP and APNG.
+- Fix bug: When running on PCs with new(high-end) CPUs, occasionally waifu2x will stuck during frame interpolation.
+- Fix bug: When frame interpolation and RTX Super-res both enabled, Video sampling might stop working.
+---
 ## v3.106.01
 #### Change log:
 - NEW Feature: [Scene Shift Detection 2.0], HUGE Speed boost for Scene Shift Detection, 65x faster than the previous version, which means Scene Shift Detection won't cost any extra time during frame interpolation.
