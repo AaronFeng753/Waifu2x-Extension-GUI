@@ -83,26 +83,24 @@ IFRNet-ncnn-vulkan
 
 # [Samples👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-### [➡Comparison(3D Real-life)(Using RealESRGAN-NCNN-Vulkan Engine)](https://imgsli.com/NjQ4NzY)
+### [➡Comparison(3D Real-life)](https://imgsli.com/NjQ4NzY)
 #### [Photo by Jonatan Pie on Unsplash](https://unsplash.com/photos/Yv9WbjBgZXY)
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
-### [➡Comparison(2D Anime)(Using Waifu2x-NCNN-Vulkan Engine)](https://imgsli.com/MzYzMTY)
-![Comparison](/Samples/image/Comparison.png)
+### [➡Comparison(2D Anime)](https://imgsli.com/MjUyNDAx)
+![Comparison](/Samples/image/Comparison.jpg)
 
-#### Original 2D Anime Image 480x300 (.jpg 93.2 KB):
+#### Original 2D Anime Image 480x300:
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
-#### After 8x magnification, level 3 denoise and compress 3840x2400 (.jpg 525 KB):
-#### (Using Waifu2x-NCNN-Vulkan Engine)
-![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
+#### After 4x Upscale, Denoise and JPG compression 1920x1200:
+![Scaled Imgae](/Samples/image/Waifu2x_4x_[1920x1200].jpg)
 
-#### Original GIF 500 x 372 (493 KB):
+#### Original GIF 500 x 372:
 ![Original GIF](/Samples/gif/GIF_2_original.gif)
 
-#### After 2x magnification, level 2 denoise and gif optimize 1000 x 744 (3.77 MB):
-#### (Using Waifu2x-NCNN-Vulkan Engine)
-![Scaled GIF](/Samples/gif/GIF_2_waifu2x_compressed.gif)
+#### After 2x Upscale, Denoise and GIF optimization 1000 x 744:
+![Original GIF](/Samples/gif/GIF_2_waifu2x.gif)
 
 #### `Github doesn't support online video playback, please check link below:`
 
