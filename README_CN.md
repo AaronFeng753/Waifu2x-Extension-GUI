@@ -85,26 +85,24 @@ IFRNet-ncnn-vulkan
 
 # [示例👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-### [➡对比(3D写实)(使用内置的RealESRGAN-NCNN-Vulkan引擎)](https://imgsli.com/NjQ4NzY)
+### [➡对比(3D写实)](https://imgsli.com/NjQ4NzY)
 #### [原照片来自Unsplash,由Jonatan Pie拍摄.](https://unsplash.com/photos/Yv9WbjBgZXY)
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
-### [➡对比(2D动漫)(使用内置的Waifu2x-NCNN-Vulkan引擎)](https://imgsli.com/MzYzMTY)
-![Comparison](/Samples/image/Comparison.png)
+### [➡对比(2D动漫)](https://imgsli.com/MjUyNDAx)
+![Comparison](/Samples/image/Comparison.jpg)
 
-#### 原图 2D动漫图片 480x300 (.jpg 93.2 KB):
+#### 原图 2D动漫图片 480x300:
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
-#### 经过8x放大, 3级降噪和压缩后 3840x2400 (.jpg 525 KB):
-#### (使用内置的Waifu2x-NCNN-Vulkan引擎)
-![Scaled Imgae](/Samples/image/Waifu2x_8x_[3840x2400].jpg)
+#### 经过4x放大&降噪,以及JPG压缩后 1920x1200:
+![Scaled Imgae](/Samples/image/Waifu2x_4x_[1920x1200].jpg)
 
-#### 原图 GIF 500 x 372 (493 KB):
+#### 原图 GIF 500 x 372:
 ![Original GIF](/Samples/gif/GIF_2_original.gif)
 
-#### 经过2x放大,2级降噪和gif优化后 1000 x 744 (3.77 MB):
-#### (使用内置的Waifu2x-NCNN-Vulkan引擎)
-![Original GIF](/Samples/gif/GIF_2_waifu2x_compressed.gif)
+#### 经过2x放大&降噪,以及gif优化后 1000 x 744:
+![Original GIF](/Samples/gif/GIF_2_waifu2x.gif)
 
 ### `github不支持在线播放视频, 请点击下方链接查看视频示例:`
 
