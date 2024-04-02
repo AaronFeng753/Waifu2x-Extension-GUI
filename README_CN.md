@@ -95,7 +95,7 @@ IFRNet-ncnn-vulkan
 #### 原图 2D动漫图片 480x300:
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
-#### 经过4x放大&降噪,以及JPG压缩后 1920x1200:
+#### 经过4x放大&降噪,以及JPG压缩后 1920x1200: [🔗对比](https://imgsli.com/MjUyNDA0)
 ![Scaled Imgae](/Samples/image/Waifu2x_4x_[1920x1200].jpg)
 
 #### 原图 GIF 500 x 372:
