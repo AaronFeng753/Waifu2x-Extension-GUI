@@ -93,7 +93,7 @@ IFRNet-ncnn-vulkan
 #### Original 2D Anime Image 480x300:
 ![Original Imgae](/Samples/image/Original_[480x300].jpg)
 
-#### After 4x Upscale, Denoise and JPG compression 1920x1200:
+#### After 4x Upscale, Denoise and JPG compression 1920x1200: [🔗Comparison](https://imgsli.com/MjUyNDA0)
 ![Scaled Imgae](/Samples/image/Waifu2x_4x_[1920x1200].jpg)
 
 #### Original GIF 500 x 372:
