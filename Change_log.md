@@ -4,6 +4,25 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.112.01
+#### Change log:
+- NEW [Anime-HQ-W4xEX] Real-ESRGAN model for High Quality Anime upscaling, which retains detail better and can generate cleaner image compare to previous models.
+- NEW Feature: [Video Color Management], software now can automatically adjust color-related parameters to achieve better color accuracy, or you can adjust these parameters by yourself. (Location: Video settings tab)
+- Updated [Auto optimize engine settings] to boost the performance of Real-ESRGAN, up to 48% faster than the previous version.
+- Better RIFE Auto model selection, now you can tell Waifu2x to use v4.14 model instead of v4.13-lite when automatically selecting model.
+- Some UI improvements.
+---
+## v3.111.01
+#### Change log:
+- NEW [RIFE-v4.14] model for Higher quality video frame interpolation, which could generate more stable results compare to previous models.
+- NEW [RIFE-v4.13-lite] model for Fast and High quality frame interpolation, which is 30% faster than 4.14 model but could achieve similar quality.
+- NEW [Auto-Select] feature, automatically select rife model based on your PCs hardware and resolution of the video. (Enabled by default)
+- Built-in [User guide] to help new users quickly get started with the software. (Location: Home tab, big question mark icon in the lower right corner)
+- [Universal-Fast-W2xEX] RealESRGAN Model is now up to 30% faster by updating [Auto optimize engine settings].
+- Update [Settings presets] to utilize the new [Universal-Fast-W2xEX] RealESRGAN Model.
+- Fix some UI issues.
+- Fix bug: Pausing while processing frame folders may cause the software to crash.
+---
 ## v3.110.01
 #### Change log:
 - NEW [Universal-Fast-W2xEX] Model for RealESRGAN engine, designed for fast photo upscaling, 30.5x faster than the RealESRGAN-x4plus model while retain decent image quality.
