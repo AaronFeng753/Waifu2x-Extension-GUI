@@ -37,7 +37,7 @@ Download the beta build at the releases page: https://github.com/AaronFeng753/Wa
 ### `Image` & `GIF` & `Video` `Super-Resolution` and Video `Frame Interpolation` using Deep Convolutional Neural Networks.
 
 ### ✨Key features:
-- #### 💡EASY TO USE: Just unzip and start, no need to install anything else, built-in Settings Presets can help you adjust all the settings with ONE Click.
+- #### 💡EASY TO USE: Just Unzip and Start. And built-in Settings Presets can help you adjust all the settings with ONE Click.
 - #### 📺Multimedia support: Supports processing Image & Animated GIF&APNG&WebP & Video at the same time.
 - #### 😍Full image style support: Multiple built-in algorithms, 2D anime, or your daily photos & videos, this software can handle all of them.
 - #### 🎞Video frame interpolation: Automatically use AI to interpolate frames after enlarge the video.
