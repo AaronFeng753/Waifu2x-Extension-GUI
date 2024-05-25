@@ -25,7 +25,7 @@
 
 支持的语言: English, 简体中文, 繁體中文.
 
-[🔗点击访问位于Gitee(码云, 开源中国)的安装包下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases)
+[🔗点击访问位于Gitee(码云, 开源中国)的安装包下载页面](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/releases/latest)
 
 # Waifu2x-Extension-GUI是什么?
 
