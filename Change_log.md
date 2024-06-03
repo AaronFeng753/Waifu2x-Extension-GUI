@@ -4,6 +4,38 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.114.01
+#### Change log:
+- NEW RIFE frame interpolation model: [RIFE V4.17], which has higher quality and can generate more stable frames compared to the previous v4.14 model.
+- Significantly faster video encoding speed: When [Process video by segment] is enabled, a new method will be used to assemble video segments, reducing the time spent assembling segments from minutes to seconds in tests.
+- Improved the [Video Color Management] UI to support direct selection of all pixel formats supported by the current video encoder.
+- Switch default video container format to MKV.
+- Optimized UI performance.
+- Fixed an issue when [Process video by segment] is enabled, frame interpolation might cause the video stream and audio stream to be out of sync.
+- Fixed an issue where a small part of the content might be omitted at the end of the video when [Process video by segment] is enabled.
+- Fixed an issue where using [Optimize Looped video] might generate extra duplicate frames, resulting in unsmooth loop playback.
+- Fixed an issue where extra frames appeared at the end of the video after frame interpolation.
+- Fixed an issue where enabling both [Target FPS] and [Optimize Looped video] could cause errors.
+- Fixed an issue where using [Target FPS] to interpolate very short videos resulted in an actual frame rate lower than expected.
+- Fixed a conflict issue between [Speed Boost] and [Optimize Looped video].
+- Fixed a conflict issue between [Scene Shift Detection] and optimized looped videos.
+- Fixed compatibility issues with the latest version of ffmpeg and updated the built-in ffmpeg to the latest version, preparing for future support of more video encoders and decoders.
+- Fixed compatibility issues with the latest version of ffprobe and updated the built-in ffprobe to the latest version.
+- Fixed a rare issue where Real-ESRGAN might freeze when processing videos and animated images.
+- Updated the User Guide, adding jump links to the directory.
+- Updated daily tips.
+- Corrected typos.
+---
+## v3.113.01
+#### Change log:
+- NEW UI Design for [Video Encoder] settings.
+- NEW Feature: ProRes video decoding & encoding. (Location: Video settings tab, Video Encoder)
+- NEW Feature: [Sequential decoding] for Real-ESRGAN, reduce CPU usage during image decoding and increase performance.
+- Performance optimization for [Anime-HQ-W4xEX] Real-ESRGAN model.
+- Better multi-threaded performance when upscaling images using Real-ESRGAN.
+- [Encoding Quality] and [Hardware-accelerated encoding] are now merged with the new [Video Encoder] settings.
+- Fix bug: Some PCs will stuck at image decoding for a long time when using RealESRGAN to upscale static images.
+---
 ## v3.112.01
 #### Change log:
 - NEW [Anime-HQ-W4xEX] Real-ESRGAN model for High Quality Anime upscaling, which retains detail better and can generate cleaner image compare to previous models.
