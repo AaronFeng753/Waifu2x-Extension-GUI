@@ -4,6 +4,25 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.116.01
+#### Change log:
+- New RIFE model: [rife-v4.15-lite], compared to the previous Lite model, it offers higher quality, faster speed, and reduced VRAM usage.
+- New feature: Added a [Resize] option for [Convert format ONLY(Static Image)], using fast scaling algorithm (not super-resolution), capable of instant and simultaneously scaling, compressing, and converting image formats.
+- Updated automatic thread allocation algorithm for RIFE frame interpolation engine, improving stability.
+- Added a [Reset] right-click menu option for [Static Image Quality], facilitating quick resetting of quality values to 100.
+- Optimized code performance.
+- Improved UI.
+- Fixed issue: [Transparent image Clarity Enhancement] may cause dark parts of some images to become semi-transparent.
+- Fixed potential UI option conflicts.
+- Removed some historical legacy UI errors.
+---
+## v3.115.01
+#### Change log:
+- NEW [Photo-HQ-W4xEX] Real-ESRGAN model, a high-quality photo upscale model. Compared to previous models, it better preserves details and generates cleaner images.
+- New Feature: [Automatic Video Deinterlacing], automatically detect interlaced videos and perform deinterlacing before upscaling (frame interpolation).
+- Optimize UI performance
+- Improved compatibility with some regional formats.
+---
 ## v3.114.01
 #### Change log:
 - NEW RIFE frame interpolation model: [RIFE V4.17], which has higher quality and can generate more stable frames compared to the previous v4.14 model.
