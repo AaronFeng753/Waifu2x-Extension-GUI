@@ -4,6 +4,12 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.117.01
+#### Change log:
+- New Real-ESRGAN model: [Omni-Mini-W2xEX], a super fast tiny model designed to mimic the quality and speed of RTX Super-resolution, bring RTX Super-res capability to ALL platforms.
+- Upgrade Real-ESRGAN [Sequential decoding] to [Image decode threads]. Boost image upscaling performance by auto adjust decode threads based on PCs hardware, up to 87.94% faster during testing.
+- Fix bug: In some situations, number of frames does not meet expectation after frame interpolation.
+---
 ## v3.116.01
 #### Change log:
 - New RIFE model: [rife-v4.15-lite], compared to the previous Lite model, it offers higher quality, faster speed, and reduced VRAM usage.
