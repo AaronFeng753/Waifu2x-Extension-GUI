@@ -4,7 +4,7 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
-## v3.118.01
+## v3.118.01 
 - 新RIFE补帧模型:[v4.17-lite], 与之前的Lite模型相比, 生成帧质量更高.
 - 为快速图片缩放压缩添加多个选项:
 - [不放大]: 如果图像分辨率低于自定义分辨率，它们将只会被转换（压缩）。
