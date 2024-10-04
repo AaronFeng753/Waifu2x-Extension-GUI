@@ -4,6 +4,15 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.118.01
+- New RIFE model: [v4.17-lite], compared to the previous Lite model, it can generate more stable frames.
+- Additional options for quick Image resize and compress:
+- [Do not upscale]: If images resolution is lower then the Custom resolution, they will only be converted(compressed).
+- [Ignore scale ratio]: Always ignore scale ratio settings when using [Convert format ONLY (Static Images)].
+- [Skip if not smaller]: Converted image will be deleted if its file size is not smaller than the original. The original image will be copied to output folder instead.
+- [Skip low resolution images]: When [Convert format ONLY (Static Images)] and [Resize] is enabled, only process images when their resolution is higher then Custom resolution.
+- Fix bug: [keep aspect ratio by expanding] not working properly when upscaling images.
+---
 ## v3.117.01
 #### Change log:
 - New Real-ESRGAN model: [Omni-Mini-W2xEX], a super fast tiny model designed to mimic the quality and speed of RTX Super-resolution, bring RTX Super-res capability to ALL platforms.
