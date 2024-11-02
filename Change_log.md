@@ -4,6 +4,11 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.119.01
+- NEW Feature: Better GIF quality, GIF now supports [Transparent image Clarity Enhancement].
+- V2 update for Omni-Mini Real-ESRGAN model, improving its image quality without compromising performance.
+- Improve the compatibility of [Video Color Management].
+---
 ## v3.118.01
 - New RIFE model: [v4.17-lite], compared to the previous Lite model, it can generate more stable frames.
 - Additional options for quick Image resize and compress:
