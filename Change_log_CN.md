@@ -4,6 +4,11 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.119.01 
+- 新特性: GIF画质改进, GIF现已支持[透明背景图像清晰度增强].
+- Omni-Mini Real-ESRGAN 模型 V2 更新，改进图像质量的同时不影响性能.
+- 改进[视频色彩管理]的兼容性.
+---
 ## v3.118.01 
 ```
 - 新RIFE补帧模型:[v4.17-lite], 与之前的Lite模型相比, 生成帧质量更高.
