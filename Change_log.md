@@ -4,6 +4,17 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.120.01
+- NEW ESRGAN Model: [Photo-Small-W2xEX], fast photo upscaling model, achieved higher photo upscaling quality compared to [Universal-Fast-W2xEX] while maintained similar speed.
+- NEW Feature: AV1 Video Encoder support.
+- Add SVT-AV1 software encoder.
+- Add Nvidia, Intel, and AMD AV1 hardware encoder.
+- Update settings preset to utilize the new model.
+- Better compatibility with AV1 video codec.
+- Update RIFE engine.
+- Update GIF plugin.
+- Update other plugin.
+---
 ## v3.119.01
 - NEW Feature: Better GIF quality, GIF now supports [Transparent image Clarity Enhancement].
 - V2 update for Omni-Mini Real-ESRGAN model, improving its image quality without compromising performance.
