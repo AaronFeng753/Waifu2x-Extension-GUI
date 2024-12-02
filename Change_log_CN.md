@@ -4,6 +4,17 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.120.01
+- 新 ESRGAN 模型：[Photo-Small-W2xEX]，快速照片放大模型，在保持与 [Universal-Fast-W2xEX] 类似速度的同时，实现了更高的照片放大质量。
+- 新功能：支持 AV1 视频编码器。
+- 增加 SVT-AV1 软件编码器。
+- 增加 Nvidia、Intel 和 AMD 的 AV1 硬件编码器。
+- 更新设置预设以利用新模型。
+- 更好地兼容 AV1 视频编解码器。
+- 更新 RIFE 引擎。
+- 更新 GIF 插件。
+- 更新其他插件。
+---
 ## v3.119.01 
 - 新特性: GIF画质改进, GIF现已支持[透明背景图像清晰度增强].
 - Omni-Mini Real-ESRGAN 模型 V2 更新，改进图像质量的同时不影响性能.
