@@ -4,6 +4,13 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.121.01
+- New RIFE frame interpolation model: [v4.22-lite], provides higher quality than the previous models.
+- Add introduction document for Real-ESRGAN models.
+- Add a [Select folder] button for [Output Folder].
+- When switching the "Image Style" of the ESRGAN engine, the model's image style label in the engine settings tab will be highlighted.
+- Add a [Help] button for [Import ESRGAN models] settings.
+---
 ## v3.120.01
 - NEW ESRGAN Model: [Photo-Small-W2xEX], fast photo upscaling model, achieved higher photo upscaling quality compared to [Universal-Fast-W2xEX] while maintained similar speed.
 - NEW Feature: AV1 Video Encoder support.
