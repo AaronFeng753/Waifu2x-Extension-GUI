@@ -4,6 +4,13 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.121.01
+- 新的RIFE补帧模型：[v4.22-lite]，与之前的模型相比质量更高。
+- 为Real-ESRGAN模型添加介绍文档。
+- 为[输出文件夹]添加[选择文件夹]按钮。
+- 当切换ESRGAN引擎的"图像风格"时，引擎设置标签中的模型图像风格标签将被高亮显示。
+- 为[导入ESRGAN模型]设置添加[帮助]按钮。
+---
 ## v3.120.01
 - 新 ESRGAN 模型：[Photo-Small-W2xEX]，快速照片放大模型，在保持与 [Universal-Fast-W2xEX] 类似速度的同时，实现了更高的照片放大质量。
 - 新功能：支持 AV1 视频编码器。
