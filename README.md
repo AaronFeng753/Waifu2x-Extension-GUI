@@ -12,7 +12,7 @@
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
 </p>
 
-### [📜中文 说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
+### [📜中文 说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md) | [📜日本語 説明書](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_JP.md)
 
 # [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest portable package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
