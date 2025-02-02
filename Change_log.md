@@ -4,6 +4,14 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.122.01
+- New Feature: Better FPS Control for Rendered Video, add [Presets] and [Custom] modes for [Maintain consistent Video FPS].
+- New Feature: Added support for 10-bit color depth settings in video encoder settings, improved video quality and more efficient video compression.
+- Fix bug: [Maintain consistent Video FPS] doesn't work when [Process video by segment] is enabled.
+- Fix bug: [Maintain consistent Video FPS] doesn't work when using RTX Super-res.
+- Fix bug: In some situations, video frame interpolation doesn't work when using RTX Super-res.
+- Fix bug: In some situations, the cache files are not automatically deleted after finished processing when using RTX Super-res.
+---
 ## v3.121.01
 - New RIFE frame interpolation model: [v4.22-lite], provides higher quality than the previous models.
 - Add introduction document for Real-ESRGAN models.
