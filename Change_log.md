@@ -4,6 +4,18 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.123.01
+- NEW Model: V2 Update for Universal-Fast-W2xEX ESRGAN model, featuring better detail reconstruction, improved anime upscaling, and enhanced denoising capability.
+- Enhanced Video Color Fidelity: further improve the color accuracy of the default JPEG frame codec while still remaining fast and space-efficient.
+- Improvements and bug fixes for [Maintain consistent Video FPS].
+- Show a notification about slow processing speed when the highest quality presets are selected.
+- Updated documentation for Universal-FastV2-W2xEX.
+- Fixed bug: When using Vulkan engines with multiple GPUs, disabling the CPU (-1) could cause issues.
+- Fixed bug: Incorrect status when loading a [Files List] file.
+- Code optimization.
+- Fix UI issues.
+- Other bug fixes.
+---
 ## v3.122.01
 - New Feature: Better FPS Control for Rendered Video, add [Presets] and [Custom] modes for [Maintain consistent Video FPS].
 - New Feature: Added support for 10-bit color depth settings in video encoder settings, improved video quality and more efficient video compression.
