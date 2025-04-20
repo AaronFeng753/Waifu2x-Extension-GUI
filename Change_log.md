@@ -4,6 +4,16 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.124.01
+- NEW Model: Omni-Small-W2xEX, an ESRGAN model trained for Video upscaling, featuring better detail reconstruction and enhanced denoising capability compare to Omni-Mini.
+- [Override] toggle for [Presets] and [Custom] modes of the [Maintain consistent Video FPS] feature. When enabled, the specified FPS will always take precedence regardless of whether frame interpolation is active.
+- Auto model selection for Video upscaling when using ESRGAN engine.
+- Add a button for quickly adjusting the RAM drive size, which will be set to 85% of the available RAM.
+- Add right-click menus for [Video Color Management], making it easier to switch between commonly used values.
+- Update documentation.
+- Update settings presets.
+- Fix bug: RTX 50 series card might stuck at compatibility test.
+---
 ## v3.123.01
 - NEW Model: V2 Update for Universal-Fast-W2xEX ESRGAN model, featuring better detail reconstruction, improved anime upscaling, and enhanced denoising capability.
 - Enhanced Video Color Fidelity: further improve the color accuracy of the default JPEG frame codec while still remaining fast and space-efficient.
