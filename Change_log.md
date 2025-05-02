@@ -4,6 +4,12 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.125.01
+- NEW Feature: GIF Frame Interpolation.
+- You can access GIF Frame Interpolation by enable [Frame Interpolation] option at the Home tab.
+- You can enable [Optimize Looped GIF] at the [Image settings] tab.
+- [Scene Shift Detection] also supports GIF Frame Interpolation, you can enable it at [Video Settings] tab.
+---
 ## v3.124.01
 - NEW Model: Omni-Small-W2xEX, an ESRGAN model trained for Video upscaling, featuring better detail reconstruction and enhanced denoising capability compare to Omni-Mini.
 - [Override] toggle for [Presets] and [Custom] modes of the [Maintain consistent Video FPS] feature. When enabled, the specified FPS will always take precedence regardless of whether frame interpolation is active.
