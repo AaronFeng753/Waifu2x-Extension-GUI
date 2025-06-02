@@ -4,6 +4,15 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.126.01
+- NEW Frame Interpolation Model: [RIFE-v4.26], higher quality, Enhanced Stability for Drastic Movements.
+- NEW Feature: Now you can keep the transparent background of the GIF after frame interpolation by enable [Keep Alpha Channel] at image settings tab.
+- NEW Feature: Now GIF also supports [Target FPS] mode of frame interpolation.
+- Update settings presets.
+- Now waifu2x will automatically correct the FPS of the GIF output to improve compatibility with media players.
+- Improve synchronization between the interpolated GIF and the source GIF.
+- Improve code related to reading GIF duration to enhance compatibility with edge cases.
+---
 ## v3.125.01
 - NEW Feature: GIF Frame Interpolation.
 - You can access GIF Frame Interpolation by enable [Frame Interpolation] option at the Home tab.
