@@ -108,7 +108,7 @@ IFRNet-ncnn-vulkan
 
 ![donate_new](/donate_new.jpg)
 
-#### 如果捐赠二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg)或者合法的连接国际网络后刷新页面, 当然您也可以[按照这个教程来尝试修复github图片加载的问题](https://github.com/AaronFeng753/Github_dns_hosts#github_dns_hosts).
+#### 如果捐赠二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg).
 
 # [📄License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
