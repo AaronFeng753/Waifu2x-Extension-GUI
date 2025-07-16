@@ -4,6 +4,13 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.127.01
+- NEW Model: V2 update for Omni-Small-W2xEX video upscaling model, featuring better detail reconstruction and deblur capability compare to V1.
+- NEW Feature: Added [Presets] for [Custom Resolution] to allow for quick and easy resolution adjustment.
+- NEW Feature: Added a [View Output Folder] button for quick access to the output directory.
+- Improved compatibility with RTX 50 GPUs for users in certain region.
+- Fix bug: The video encoder quality setting did not take effect when [Process Video by Segment] was enabled.
+---
 ## v3.126.01
 - NEW Frame Interpolation Model: [RIFE-v4.26], higher quality, Enhanced Stability for Drastic Movements.
 - NEW Feature: Now you can keep the transparent background of the GIF after frame interpolation by enable [Keep Alpha Channel] at image settings tab.
