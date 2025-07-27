@@ -12,40 +12,35 @@
 <img src="https://img.shields.io/badge/Support-Windows%20x64-blue?logo=Windows&style=flat-square">
 </p>
 
-### [📜中文 说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
+### [中文 说明文档](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/README_CN.md)
 
-# [💾Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
+# [Download Latest Stable Build (Windows x64)](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 Download Latest portable package for `Windows x64` PCs with `Intel/AMD/Nvidia` GPUs.
 
-Download Latest Build➡: https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest
+#### Purchase the Premium version on Patreon: https://patreon.com/aaronfeng
 
-#### ➡Get ✨Premium version on Patreon: https://patreon.com/aaronfeng
-
-#### [📝Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
+#### [Full change log](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/Change_log.md)
 
 Supported Languages: English, 简体中文, 繁體中文.
 
 # What is Waifu2x-Extension-GUI?
 
-### `Image` & `GIF` & `Video` `Super-Resolution` and Video `Frame Interpolation` using Deep Convolutional Neural Networks.
+### A Image, GIF & Video Super-Resolution and Video Frame Interpolation using Deep Convolutional Neural Networks.
 
-### ✨Key features:
-- #### 💡EASY TO USE: Just Unzip and Start. And built-in `Settings Presets` can help you adjust all the settings with `ONE Click`.
-- #### 📺Multimedia support: Supports processing Image & Animated GIF&APNG&WebP & Video at the same time.
-- #### 😍Full image style support: Multiple built-in algorithms, 2D anime, or your daily photos & videos, this software can handle all of them.
-- #### 🎞Video frame interpolation: Automatically use AI to interpolate frames after enlarge the video.
-- #### ⚡Video Frame Analysis: Analyze video frames to Improve video Quality and Speed Up video processing.
-- #### ✅Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
-- 📊Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
-- 🚀🚀🚀Multi-GPU support: Multi-GPU support for ALL built-in engines.
-- 🛠Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
-- 🤖Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
-- 😉Easy-to-use graphical user interface.
-- 📨Continual maintenance and updates.
+### Key features:
+- #### EASY TO USE: Just Unzip and Start. And built-in `Settings Presets` can help you adjust all the settings with `ONE Click`.
+- #### Multimedia support: Supports processing Image & Animated GIF&APNG&WebP & Video at the same time.
+- #### Full image style support: Multiple built-in algorithms, 2D anime, or your daily photos & videos, this software can handle all of them.
+- #### Video frame interpolation: Automatically use AI to interpolate frames after enlarge the video.
+- #### Video Frame Analysis: Analyze video frames to Improve video Quality and Speed Up video processing.
+- #### Great compatibility: Multiple built-in engines, compatible with almost all modern Windows PCs.
+- Flexible multi-thread setting: You can adjust the number of threads freely while providing a complete set of settings for each engine, Take advantage of all the capabilities of your PC.
+- Multi-GPU support: Multi-GPU support for ALL built-in engines.
+- Numerous customizable settings: You can automate your workflow by adjusting the many customizable settings in the software.
+- Smart settings: This software can automatically adjust some software settings based on your PC hardware information and the information of the files you want to process.
+- Easy-to-use graphical user interface.
+- Continual maintenance and updates.
 
-<p align="left">
-<img src="/.github/README/Powered_by_nvidia.jpg" height="70">
-</p>
 
 ```
 Built-in super-resolution algorithms:
@@ -65,7 +60,7 @@ rife-ncnn-vulkan / cain-ncnn-vulkan / dain-ncnn-vulkan
 IFRNet-ncnn-vulkan
 ```
 
-#### ✅Already been tested on the `AMD` RX 550, `NVIDIA` GeForce RTX 3060/4060 and `Intel` UHD 620.
+#### Tested on the `AMD` RX 550, `NVIDIA` GeForce RTX 3060/4060 and `Intel` UHD 620.
 
 ![mainwindow](/Screenshot/mainwindow.jpg)
 
@@ -75,13 +70,13 @@ IFRNet-ncnn-vulkan
 
 ![Additional_Settings](/Screenshot/Additional_Settings_EN.jpg)
 
-# [Samples👀](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
+# [Samples](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/)
 
-### [➡Comparison(3D Real-life)](https://imgsli.com/NjQ4NzY)
+### [Comparison(3D Real-life)](https://imgsli.com/NjQ4NzY)
 #### [Photo by Jonatan Pie on Unsplash](https://unsplash.com/photos/Yv9WbjBgZXY)
 ![Comparison](/Samples/image/Comparison_3D_Real-life.png)
 
-### [➡Comparison(2D Anime)](https://imgsli.com/MjUyNDAx)
+### [Comparison(2D Anime)](https://imgsli.com/MjUyNDAx)
 ![Comparison](/Samples/image/Comparison.jpg)
 
 #### Original 2D Anime Image 480x300:
@@ -100,7 +95,7 @@ IFRNet-ncnn-vulkan
 
 ### **`Video`** : https://github.com/AaronFeng753/Waifu2x-Extension-GUI/tree/master/Samples/video
 
-# ❤ Donate ❤ (推荐使用 支付宝 或者 微信)
+# Donate (推荐使用 支付宝 或者 微信)
 
 <p align="left">
 <a href="https://www.patreon.com/aaronfeng"><img src="https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/.github/BecomePatron.jpg?raw=true" alt="Patreon donate button" height="35"/> </a>
@@ -110,28 +105,27 @@ IFRNet-ncnn-vulkan
 
 #### 如果捐赠二维码图片无法正常加载,请[打开此链接查看](https://gitee.com/aaronfeng0711/Waifu2x-Extension-GUI/raw/master/donate_new.jpg).
 
-# [📄License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
+# [License](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/blob/master/LICENSE)
 
-#### Waifu2x-Extension-GUI is free for PERSONAL USE ONLY.
+#### Waifu2x-Extension-GUI is free for PERSONAL, NON-COMMERCIAL USE ONLY.
 
-#### If you wish to use Waifu2x-Extension-GUI commercially, please purchase the Premium version from:
-#### https://www.patreon.com/aaronfeng
+#### If you wish to use Waifu2x-Extension-GUI commercially, please purchase the Premium version from https://www.patreon.com/aaronfeng
 
-# Privacy policy🙈🙉🙊
 
-We respect your privacy, so the following is the privacy policy of this software:
+# Privacy policy:
+
 ```
-1. This software won't upload anything to the internet, so we won't collect any data from you, we don't even have a server.
+1. This software does not upload anything to the internet; so we won't collect any data from you. We don't even have a server.
 
 2. This software will only connect to the internet when checking for new updates and update the QRCode on the Donate tab, which
 will download two .ini files and two .jpg files from GitHub and Gitee. (Gitee is a copycat version of GitHub in The
-People's Republic of China, you can disable downloading anything from Gitee by enabling [Ban Gitee] in [Additional settings])
+People's Republic of China. You can disable fetching data from Gitee by enabling [Ban Gitee] in [Additional settings])
 
-In conclusion, we won't collect any data from you.
+In short, we collect absolutely no data.
 ```
 
-# 💝Credits💝:
-- ❤All donors❤
+# Credits:
+- All donors
 - Special thanks to [@CAFUCSteven](https://github.com/CAFUCSteven) for helping me test the software, report multiple bugs and give me multiple suggestions.
 - Special thanks to [@MrZihan](https://github.com/MrZihan) for create the [SRMD-CUDA](https://github.com/MrZihan/Super-resolution-SR-CUDA) engine and help me integrated it in the Waifu2x-Extension-GUI.
 - Anime4K: https://github.com/bloc97/Anime4K
