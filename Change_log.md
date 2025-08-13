@@ -4,6 +4,15 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.128.01
+- NEW Model: AnimeVideo-Mini-W2xEX, a tiny ESRGAN model trained for fast anime video upscaling while preserving decent detail reconstruction and denoising ability.
+- The anime upscaling quality of this model is significantly better than Anime4K and RTX Super-Res, coming close to AnimeVideoV3.
+- The speed of this new model is similar to Omni-Mini-W2xEX.
+- NEW Feature: Add [Auto Apply] toggle for custom resolution presets. After enabled, while switching presets, the selected preset will be automatically applied to all files in the list.
+- NEW Feature: Add [Default] preset for custom resolution presets, make it easier to switch back to the default custom resolution settings.
+- NEW Feature: Add [Only Keep Failed Files] to the right click menu of [Remove Selected File] button.
+- Improved compatibility with RTX 50 GPUs
+---
 ## v3.127.01
 - NEW Model: V2 update for Omni-Small-W2xEX video upscaling model, featuring better detail reconstruction and deblur capability compare to V1.
 - NEW Feature: Added [Presets] for [Custom Resolution] to allow for quick and easy resolution adjustment.
