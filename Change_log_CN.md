@@ -4,6 +4,13 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.129.01
+- 新模型：Omni-Turbo-W2xEX，旨在保留 Omni-Small 模型的质量，同时提升速度。
+- 新功能：可在主页快速切换 ESRGAN 模型。
+- 新模型：AnimeVideo-Mini-W2xEX 模型更新至 v1.5，提升了降噪能力。
+- 更新 ESRGAN 模型文档，已加入 AnimeVideo-Mini-W2xEX。
+- 简化软件启动流程。
+---
 ## v3.128.01
 - 新增模型：AnimeVideo-Mini-W2xEX，一款专为快速动画视频超分辨率设计的微型 ESRGAN 模型，可在保留良好细节重建与去噪能力的同时实现高效处理。
 - 该模型的动画超分辨率效果显著优于 Anime4K 和 RTX Super-res，接近 AnimeVideoV3 的水准。
