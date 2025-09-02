@@ -4,6 +4,13 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.129.01
+- NEW Model: Omni-Turbo-W2xEX, aims to preserve the quality of the Omni-Small model while boosting speed.
+- NEW Feature: Quick ESRGAN model switch at Home Tab.
+- NEW Model: v1.5 update for the AnimeVideo-Mini-W2xEX model, improved denoising ability.
+- Update ESRGAN models documentation to include AnimeVideo-Mini-W2xEX.
+- Streamline the software startup process.
+---
 ## v3.128.01
 - NEW Model: AnimeVideo-Mini-W2xEX, a tiny ESRGAN model trained for fast anime video upscaling while preserving decent detail reconstruction and denoising ability.
 - The anime upscaling quality of this model is significantly better than Anime4K and RTX Super-Res, coming close to AnimeVideoV3.
