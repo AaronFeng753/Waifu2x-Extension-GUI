@@ -4,6 +4,14 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.130.01
+- NEW Feature: [After upscale] - Enable this option to have waifu2x perform video upscaling prior to frame interpolation.
+- Improved speed of adding large numbers of files to the file list
+- Updated method for reading available VRAM size to improve compatibility
+- Optimized code performance
+- Enhanced code reliability
+- Code cleanup and refactoring
+---
 ## v3.129.01
 - NEW Model: Omni-Turbo-W2xEX, aims to preserve the quality of the Omni-Small model while boosting speed.
 - NEW Feature: Quick ESRGAN model switch at Home Tab.
