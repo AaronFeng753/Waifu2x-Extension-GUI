@@ -4,6 +4,11 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.131.01
+- 新模型：AnimeVideo-Mini 1.7 版本更新，画面更清晰，细节重建效果更佳。
+- 修复了文件 I/O 相关问题。
+- 代码优化与清理。
+---
 ## v3.130.01
 - 新功能：[放大之后] - 启用此选项，可让 waifu2x 在补帧前先进行视频放大。
 - 提升了添加大量文件至文件列表的速度
