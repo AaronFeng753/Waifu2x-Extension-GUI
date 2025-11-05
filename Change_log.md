@@ -4,6 +4,11 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.131.01
+- NEW Model: 1.7 update for AnimeVideo-Mini, sharper and better detail reconstruction.
+- Fix file I/O related issues.
+- Code optimization and cleanup.
+---
 ## v3.130.01
 - NEW Feature: [After upscale] - Enable this option to have waifu2x perform video upscaling prior to frame interpolation.
 - Improved speed of adding large numbers of files to the file list
