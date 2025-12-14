@@ -4,6 +4,14 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.132.01
+- Improved [Speed Boost](Frame Analysis) for faster matching.
+- Improved [Scene Shift Detection](Frame Analysis) for faster detection.
+- Enhanced handling of high-resolution images:
+- Waifu2x now automatically downscales extremely high-resolution images before upscaling to prevent engine failures.
+- This feature auto-downscales only ultra-high-res images that would crash the engine, resizing them to the max supported size to minimize detail loss.
+- Improve code robustness by fixing potential issues that could cause memory leaks and crashes.
+---
 ## v3.131.01
 - NEW Model: 1.7 update for AnimeVideo-Mini, sharper and better detail reconstruction.
 - Fix file I/O related issues.
