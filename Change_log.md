@@ -4,6 +4,13 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.133.01
+- HAPPY NEW YEAR 2026!
+- NEW Model: V1.5 update for Omni-Turbo-W2xEX, improved denoise and clarity through continue training.
+- Smarter handling of extreme high-res images, better adapted for different super-res engines and settings.
+- Faster compatibility test on RTX 50 series.
+- Update some console messages.
+---
 ## v3.132.01
 - Improved [Speed Boost](Frame Analysis) for faster matching.
 - Improved [Scene Shift Detection](Frame Analysis) for faster detection.
