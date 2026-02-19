@@ -4,6 +4,10 @@
 
 #### [💾获取最新的稳定版](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.134.01
+- 更新了 Waifu2x-NCNN-Vulkan 引擎，整体速度比上一版本快 22%。
+- 改进了字幕处理逻辑，现已支持更广泛的字幕格式。
+---
 ## v3.133.01
 - 2026新年快乐！
 - 新模型：Omni-Turbo-W2xEX V1.5 更新，通过持续训练改进了降噪和清晰度。
