@@ -4,6 +4,10 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.134.01
+- Updated Waifu2x-NCNN-Vulkan Engine, overall 22% faster than previous version.
+- Improved subtitle processing logic, now supports a wider range of subtitle formats.
+---
 ## v3.133.01
 - HAPPY NEW YEAR 2026!
 - NEW Model: V1.5 update for Omni-Turbo-W2xEX, improved denoise and clarity through continue training.
