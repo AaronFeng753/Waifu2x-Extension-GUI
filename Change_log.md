@@ -4,6 +4,23 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.140.01
+- ★ Dark Mode ☆
+- Now you can switch between light/dark mode skin at the Home tab.
+- NEW: [Keep ICC of the source image]. ICC color profiles are now preserved when saving pictures.
+- The after-upscale color accuracy of some pictures will be better.
+- NEW: Added quick access to the log folder via the right-click context menu.
+- Bug Fixes:
+- Fixed RTX 50 performance conflict when Image Batch Upscale is enabled.
+- Fixed VRAM readings, now more accurate and better compatibility.
+- Fixed SRMD-CUDA routing alpha-channel images to the wrong engine.
+- Fixed some failed image saves being wrongly marked as "Finished".
+- Source files are now better protected during batch processing.
+- Better fault-tolerant for Batch processing.
+- Fixed core batch calculation logic, improving space estimation accuracy and task grouping.
+- Improved file operation compatibility for more reliable path handling and duplicate filename resolution.
+- Fixed several minor threading and caching issues.
+---
 ## v3.139.01
 - NEW Image Batch Upscale Pipeline, Over 300% Performance Boost.(Optional BETA Feature)
 - Testing on an RTX 5060 Laptop, using Waifu2x-NCNN:
