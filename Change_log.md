@@ -4,6 +4,38 @@
 
 #### [💾Latest stable release](https://github.com/AaronFeng753/Waifu2x-Extension-GUI/releases/latest)
 ---
+## v3.143.01
+- New feature: [Turbo Video], faster video upscaling and frame interpolation, on the Misc tab.
+- A new [Chain Mode] selector is available when [Turbo Video] is enabled.
+- Choose [Single Pass] to run video upscaling and frame interpolation in parallel.
+- 2.2x faster video upscaling with [Real-ESRGAN].
+- 2x faster video frame interpolation with [RIFE] plus upscaling with [Real-ESRGAN].
+- Turbo Video(Streaming video processing) is now available for the [Real-ESRGAN] and [RIFE] engines.
+- Frames are streamed directly through the pipeline instead of being written to frame folders.
+- Updated [Presets]: better utilization of the updated engines and models.
+- A new scrollable update log window adapts to your screen size.
+- With [Turbo Video] enabled, presets now route video to [Real-ESRGAN] automatically.
+- When upscaling 3D real-life video, all Real-ESRGAN models now route to the [Omni] series models.
+- Image batching is now permanently enabled. The beta toggle has been removed.
+- The toggle for [NVIDIA RTX 50-series GPUs] has now been removed.
+- Several BUG Fixs.
+---
+## v3.142.01
+- Experimental feature: [Streaming VFI] dramatically speeds up video frame interpolation with an all-new video processing pipeline
+- Measured up to ~3x faster frame interpolation in real-world tests
+- Currently in beta: when enabled, video frame interpolation tasks (interpolation-only and upscale + interpolation workflows alike) are processed through the new streaming pipeline
+- Not only significantly faster, but also drastically lower cache footprint, long videos no longer need to be processed by segment, and no frame-image cache files are written to disk
+- [Streaming VFI] is located in the [Misc] tab
+- Other changes:
+- The SRMD-CUDA engine has been removed; presets that used it automatically fall back to SRMD-NCNN-Vulkan
+- cuDNN support has been removed from waifu2x-caffe (its files no longer ship, about 700 MB smaller download); existing cuDNN presets automatically switch to GPU
+- The hardware-acceleration prompts after the compatibility test have been merged into a single dialog
+- Bug fixes:
+- Completed the remaining missing UI translations
+- Fixed the summary dialog occasionally showing incorrect [Completed] counts after a batch finishes
+- Fixed wrong frames at segment seams when loop optimization and segment processing are both enabled
+- Fixed incorrect loop optimization of tail frames for VFR videos in target-FPS mode
+---
 ## v3.141.01
 - NEW: 日本語翻訳を追加！Add Japanese translation.
 - NEW: Image Style is now a single unified selector.
