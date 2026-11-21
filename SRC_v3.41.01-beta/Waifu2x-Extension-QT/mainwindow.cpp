@@ -344,11 +344,11 @@ void MainWindow::TimeSlot()
 }
 QString MainWindow::Seconds2hms(long unsigned int seconds)
 {
-    if(seconds<=0)return "0:0:0";
+    if(seconds<=0)return "00:00:00";
     long unsigned int hour = seconds / 3600;
     long unsigned int min = (seconds-(hour*3600))/60;
     long unsigned int sec = seconds - hour*3600 - min*60;
-    return QString::number(hour,10)+":"+QString::number(min,10)+":"+QString::number(sec,10);
+    return QString::asprintf("%02lu:%02lu:%02lu", hour, min, sec);
 }
 
 void MainWindow::Set_Font_fixed()
